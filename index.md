@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Azure Databricks Articles
+title: About
 nav_order: 1
 ---
 
