@@ -98,6 +98,7 @@ DFW,Dallas/Fort Worth,Texas
 5. **Confirm Upload:**
    - After the upload completes, `Airports2.csv` should be visible in the `cont1` container's file list.
 ![Alt text](image-5.png)
+
 ## Create a new App Registration
 
 After creating the storage account, we'll proceed with an App registration.
@@ -128,6 +129,7 @@ For a Spark application to access Azure resources securely, such as a CSV file i
      - **Application (client) ID:** This is the identity your Spark application will utilize for connecting to Azure.
      - **Directory (tenant) ID:** Represents the specific Azure AD context for authentication.
 ![Alt text](image-8.png)
+
 You'll be using these details in the Spark application to ensure a secure connection to Azure and access the CSV file.
 
 ### Provide necessary role to the app to the container
@@ -157,11 +159,14 @@ For Spark applications specifically, the client secret allows the application to
    - Choose an expiry duration for the secret. Options typically include 1 year, 2 years, or never.
    - Click "Add".
 ![Alt text](image-9.png)
+
 5. **Note Down the Secret Value:**
    - Once the secret is generated, its value will be displayed. **Important:** This is the only time you'll see the actual value of the secret in the Azure portal. Make sure to copy and save it securely.
    - You'll use this secret, in combination with the Application (client) ID, to authenticate your Spark application with Azure.
 ![Alt text](image-10.png)
+
 Remember, treat your client secret like a password. Keep it confidential, and never expose it in plaintext in your application code or config files. Ideally, use secure mechanisms like Azure Key Vault or environment variables to store and retrieve it when needed.
+
 ## Configuring PySpark for Connection to Azure Data Lake
 
 ### Environment Context
@@ -275,6 +280,7 @@ You may encounter errors like:
 AuthorizationPermissionMismatch, "This request is not authorized to perform this operation using this permission."
 ```
 ![Alt text](image-11.png)
+
 ### Concepts
 1. **Registered App in Azure AD:** When you register an application in Azure Active Directory, a service principal is automatically created for that application. This service principal serves as the application's identity for Azure resources.
 2. **Service Principal:** When an application wants to access an Azure resource (like a storage account), it must authenticate. Instead of using a user's identity to authenticate, the application uses a service principal to authenticate against Azure AD. This authentication returns a token which the application can then use to access the resource.
