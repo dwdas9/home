@@ -16,7 +16,7 @@ Replace `<STORAGE_ACCOUNT_NAME>`, `<SECRET_SCOPE>`, and `<SECRET_KEY_NAME_NOT_VA
 
 This configuration provides Databricks the access key required to authenticate with ADLS.
 
-![Alt text](media/spark_config.png)
+![Alt text](spark_config.png)
 
 #### Accessing ADLS in a Databricks Notebook:
 
@@ -41,6 +41,7 @@ The specific configuration property set in Databricks instructs which authorizat
 By setting spark.hadoop.fs.azure.account.key.<storage-account-name>.dfs.core.windows.net, Databricks is directed to use Shared Key authorization.
 Alternatively, using spark.hadoop.fs.azure.sas.<container-name>.<storage-account-name>.blob.core.windows.net indicates the preference for SAS token authentication.
 </p>
+
 ### Conclusion:
 
 When we set properties like `account key` or `sas` in the cluster configurations, Databricks knows exactly which authentication method to use for ADLS access. It's as straightforward as that - choose the right property, and Databricks handles the rest!
