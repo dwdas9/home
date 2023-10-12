@@ -17,8 +17,9 @@ nav_exclude: true
   - [Configuring PySpark for Connection to Azure Data Lake](#configuring-pyspark-for-connection-to-azure-data-lake)
     - [Environment Context](#environment-context)
     - [Procedure](#procedure)
-  - [Accessing the CSV file](#accessing-the-csv-file)
-    - [Setting up ADLS Configuration in Spark](#setting-up-adls-configuration-in-spark)
+  - [Accessing the CSV file using pyspark in Visual Studio](#accessing-the-csv-file-using-pyspark-in-visual-studio)
+    - [Connect Visual Studio Code to the running container](#connect-visual-studio-code-to-the-running-container)
+    - [Run the pyspark code in Visual Studio to connect to ADLS](#run-the-pyspark-code-in-visual-studio-to-connect-to-adls)
   - [Resolve Permission Errors](#resolve-permission-errors)
     - [Background](#background)
     - [Concepts](#concepts)
@@ -140,6 +141,7 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
      python --version
      python3 --version
      ```
+![Alt text](image-12.png)
 
 2. **Installing `wget`:**
    - `wget` is a tool for downloading files from the internet. If you don’t have it in your environment you can get it using the given command:
@@ -165,6 +167,7 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
      ```bash
      python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"
      ```
+![Alt text](image-13.png)
 
 5. **Copy the JAR Files to `pyspark/jars`:**
    - Now, navigate to the directory where you downloaded the JAR files and copy them to the PySpark directory:
@@ -172,15 +175,16 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
      cd ~  # assuming you downloaded the JARs in the home directory
      cp *.jar /usr/local/lib/python3.8/dist-packages/pyspark/jars/
      ```
+     
 
 6. **Verify the JAR Copy:**
    - Ensure the JARs have been copied correctly:
      ```bash
      ls /usr/local/lib/python3.8/dist-packages/pyspark/jars/ | grep ".jar"
      ```
-
+![Alt text](image-14.png)
 7. **Configure Spark to Connect to ADLS:**
-   - When initializing your Spark session, include these JARs and configure the session for ADLS:
+   - Don't perform this step now. This is for info only. This step will be performed in the next section. When initializing your Spark session, include these JARs and configure the session for ADLS:
      1. **Using Pyspark:**
         Below is the configuration for a Spark session tailored for ADLS:
         ```python
@@ -200,37 +204,51 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
         spark-submit --jars /usr/local/lib/python3.8/dist-packages/pyspark/jars/hadoop-azure-3.3.3.jar,/usr/local/lib/python3.8/dist-packages/pyspark/jars/hadoop-azure-datalake-3.3.3.jar,/usr/local/lib/python3.8/dist-packages/pyspark/jars/hadoop-common-3.3.3.jar your_spark_app.py
         ```
 
-## Accessing the CSV file
+## Accessing the CSV file using pyspark in Visual Studio
 
-### Setting up ADLS Configuration in Spark
+### Connect Visual Studio Code to the running container
 
-1. **Initialize Configuration Parameters:**  
-   Begin by setting up essential parameters such as the storage account name (`storage_account`), `client_id`, `directory_id`, and `client_secret` (info that we noted earlier). These are unique identifiers and secrets that authenticate your Spark session to access the Azure Data Lake Storage.
+1. **Open VS Code**: Launch Visual Studio Code and click the remote container icon at the bottom left.
+   ![Image-15](image-15.png)
+2. **Attach to Container**: From the top menu, choose "Attach to running container".
+   ![Image-16](image-16.png)
+3. **Select Container**: Pick the displayed running container. 
+   ![Image-17](image-17.png)
+   This action launches a new VS Code instance connected to that container.
+   ![Alt text](image-18.png)
+4. **Create Notebook**: In this instance, create a .ipynb (Jupyter notebook) to execute the subsequent section's code.
+
+![Alt text](image-19.png)
+
+### Run the pyspark code in Visual Studio to connect to ADLS
+
+1. **Connect to the python version where we copied the hadoop jars**
+   There could be multiple python versions in a linux enviornment. From VS Code choose the python version whcih has our jars
+
+   ![Alt text](image-20.png)
+
+2. **Initialize Configuration Parameters:**  
+   Begin by setting up essential parameters such as the storage account name (`storage_account`), `client_id`, `directory_id`, and `client_secret` (info that we noted earlier). These are unique identifiers and secrets that authenticate your Spark session to access the Azure Data Lake Storage. Then utilizing OAuth2 ensures secure access to ADLS. These configuration settings instruct Spark to use OAuth authentication, specifically providing details on how and where to get the access token.
+
    ```python
    storage_account = "sasparkadls"
    client_id = "a6f32934-6f10-4767-8c7d-blabla"
    directory_id = "899f168f-5435-47f2-blabla-767c307c0ed5"
    client_secret = "ZPm8Q~eP6v~blabla"
-   ```
 
-2. **Configure Spark for OAuth Authentication:**  
-   Utilizing OAuth2 ensures secure access to ADLS. These configuration settings instruct Spark to use OAuth authentication, specifically providing details on how and where to get the access token.
-
-   ```python
    spark.conf.set(f"fs.azure.account.auth.type.{storage_account}.dfs.core.windows.net", "OAuth")
    spark.conf.set(f"fs.azure.account.oauth.provider.type.{storage_account}.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set(f"fs.azure.account.oauth2.client.id.{storage_account}.dfs.core.windows.net", client_id)
    spark.conf.set(f"fs.azure.account.oauth2.client.secret.{storage_account}.dfs.core.windows.net", client_secret)
    spark.conf.set(f"fs.azure.account.oauth2.client.endpoint.{storage_account}.dfs.core.windows.net", f"https://login.microsoftonline.com/{directory_id}/oauth2/token")
-   ```
 
+   ```
 3. **Read Data from ADLS:**  
    With configurations set, you can now read data directly from ADLS. The file path specifies the exact location within ADLS where your data resides.
    ```python
    path = "abfss://cont1@sasparkadls.dfs.core.windows.net/Airports2.csv"
    spark.read.format("csv").load(path).show()
    ```
-
 
 ## Resolve Permission Errors
 
@@ -259,7 +277,7 @@ AuthorizationPermissionMismatch, "This request is not authorized to perform this
 ## Accessing ADLS Using Access Key
 
 ### Background
-Azure Data Lake Storage (ADLS) Gen2, an enterprise-level data lake solution for big data analytics, can be accessed via multiple authentication methods. One of the straightforward methods is using the access key. Here’s how to retrieve the access key from the Azure Portal and configure Spark to connect to ADLS using this method.
+ One of the straightforward methods to access ADLS is using the access key. Here’s how to retrieve the access key from the Azure Portal and configure Spark to connect to ADLS using this method.
 
 ### Steps
 
