@@ -5,25 +5,25 @@ nav_exclude: true
 ---
 - [Spark Integration with ADLS: A Technical Overview](#spark-integration-with-adls-a-technical-overview)
   - [Create a storage account on Azure](#create-a-storage-account-on-azure)
-    - [Procedure](#procedure)
-  - [Create a container and upload a sample csv file inside it](#create-a-container-and-upload-a-sample-csv-file-inside-it)
+    - [Azure Storage Account Setup](#azure-storage-account-setup)
+  - [Create Container \& Upload CSV](#create-container--upload-csv)
   - [Create a new App Registration](#create-a-new-app-registration)
     - [Why App Registration?](#why-app-registration)
     - [Steps to Register the App](#steps-to-register-the-app)
     - [Provide necessary role to the app to the container](#provide-necessary-role-to-the-app-to-the-container)
   - [Generating a Client Secret For our App Registration](#generating-a-client-secret-for-our-app-registration)
     - [Why Secrets in App Registration?](#why-secrets-in-app-registration)
-    - [Steps to Create a Secret for `adlssparkapp`](#steps-to-create-a-secret-for-adlssparkapp)
+    - [Create `adlssparkapp` Secret in Azure](#create-adlssparkapp-secret-in-azure)
   - [Configuring PySpark for Connection to Azure Data Lake](#configuring-pyspark-for-connection-to-azure-data-lake)
     - [Environment Context](#environment-context)
-    - [Procedure](#procedure-1)
+    - [Procedure](#procedure)
   - [Accessing the CSV file](#accessing-the-csv-file)
     - [Setting up ADLS Configuration in Spark](#setting-up-adls-configuration-in-spark)
   - [Resolve Permission Errors](#resolve-permission-errors)
     - [Background](#background)
     - [Concepts](#concepts)
-    - [Resolution Approach 1](#resolution-approach-1)
-    - [Resolution Approach 2](#resolution-approach-2)
+    - [Approach 1: Role Assignment](#approach-1-role-assignment)
+    - [Approach 2: Manage ACL](#approach-2-manage-acl)
   - [Accessing ADLS Using Access Key](#accessing-adls-using-access-key)
     - [Background](#background-1)
     - [Steps](#steps)
@@ -45,59 +45,44 @@ In this guide, we’ll cover:
 
 To begin, we'll set up an Azure storage account with Azure Data Lake Storage Gen2 (ADLS Gen2) enabled. ADLS Gen2 augments Azure Blob Storage with features like hierarchical namespaces and better analytics performance. Here's how to create this account and ensure it's accessible from all networks:
 
-### Procedure
 
-1. **Sign in to the Azure portal:** Go to [https://portal.azure.com/](https://portal.azure.com/) and sign in with your account.
-2. **Navigate to Storage accounts:** In the left sidebar, select "Create a resource", then choose "Storage" and then "Storage account".
-3. **Basics tab:**
-   - **Subscription:** Choose your Azure subscription.
-   - **Resource Group:** Either create a new resource group or select an existing one.
-   - **Storage account name:** Give your storage account a unique name, e.g. `sasparkadls`. It should be between 3-24 characters and can contain numbers and lowercase letters only. 
-   - **Location:** Choose the desired region for your storage account.
-   - **Performance:** Choose 'Standard'.
-   - **Redundancy:** Choose your desired replication option (e.g., LRS, GRS, etc.). For this POC I suggest we use LRS.
-  ![Alt text](image.png)
-1. **Advanced tab:**
-   - **Security + networking > Secure transfer required:** You can keep it enabled (recommended) to ensure secure data transfer.
-   - **Data Lake Storage Gen2 > Hierarchical namespace:** Set it to "Enabled" to enable ADLS Gen2 features.
-  ![Alt text](image-1.png)
-1. **Networking tab:** Here, you will define how the storage account can be accessed.
-   - **Connectivity method:** Choose "Public endpoint (all networks)" to make it accessible from all networks. Note: This will expose your storage account to the internet, so ensure you have other security measures in place, such as setting up proper RBAC, using private links, or monitoring with Azure Security Center.
-  ![Alt text](image-2.png)
-1. **Data protection tab (optional):** Configure additional data protection settings as required, like point-in-time restore, blob soft delete, etc.
-![Alt text](image-3.png)
-1. **Review + create tab:** Review your settings and wait for Azure to validate. Once validated, click "Create" to establish your storage account. Check the Overview page to confirm it matches the expected layout.
-![Alt text](image-4.png)
+### Azure Storage Account Setup
 
-## Create a container and upload a sample csv file inside it
+1. **Sign In & Begin**: Open [Azure portal](https://portal.azure.com/), log in, and select "Create a resource" > "Storage" > "Storage account".
 
-1. **Access the `sasparkadls` Storage Account:**
-   - In the search bar, type "Storage accounts" and select it.
-   - Click on the storage account named `sasparkadls`.
+2. **Basics Tab**: Set **Subscription**, **Resource Group** (new or existing), name (e.g., `sasparkadls`), **Location**, **Performance** as Standard, and **Redundancy** as LRS.
+   ![Image](image.png)
 
-2. **Create the `cont1` Container:**
-   - Under Blob service on the left sidebar, click Containers.
-   - Click the + button or + Container.
-   - Name the container `cont1` and set desired permissions.
-   - Click Create.
+3. **Advanced Tab**: Ensure **Secure Transfer** is enabled and activate **Hierarchical Namespace**.
+   ![Image-1](image-1.png)
 
-3. **Upload `Airports2.csv` File:**
-   - Click on the `cont1` container you just created.
-   - Click the Upload button.
-   - Choose or drag & drop your `Airports2.csv` file.
+4. **Networking**: Set **Connectivity Method** to "Public endpoint (all networks)" and ensure security.
+   ![Image-2](image-2.png)
 
-4. **Note:** If you haven't prepared the CSV file yet, create one using a text editor or spreadsheet software with content like:
+5. **Data Protection (Optional)**: Apply additional protection features if needed.
+   ![Image-3](image-3.png)
+
+6. **Review & Create**: Validate and confirm with "Create". Verify on the Overview page.
+   ![Image-4](image-4.png)
+
+## Create Container & Upload CSV
+
+1. **Access Storage**: In the search, type "Storage accounts", select it, then choose `sasparkadls` storage account.
+
+2. **Setup Container**: In Blob service, click Containers > + Container. Name it `cont1`, set permissions, and hit Create.
+
+3. **Prepare & Upload CSV**: If not ready, create `Airports2.csv` with content:
 ```
 AirportCode,Name,City
 JFK,John F. Kennedy,New York
 LAX,Los Angeles International,Los Angeles
 DFW,Dallas/Fort Worth,Texas
 ```
-   Save this as `Airports2.csv` and proceed to upload.
+Then, inside `cont1`, click Upload and select/drag your `Airports2.csv`.
 
-5. **Confirm Upload:**
-   - After the upload completes, `Airports2.csv` should be visible in the `cont1` container's file list.
-![Alt text](image-5.png)
+4. **Verify**: Post-upload, `Airports2.csv` should appear in `cont1`'s file list.
+![Image-5](image-5.png)
+
 
 ## Create a new App Registration
 
@@ -108,33 +93,20 @@ For a Spark application to access Azure resources securely, such as a CSV file i
 
 ### Steps to Register the App
 
-1. **Search for App Registration in Azure Portal:**
-   - In the search bar at the top, type "App registrations" and select it from the dropdown.
+1. **Initiate Registration**: In the Azure Portal's search, type "App registrations", select it, and click "+ New registration".
+   ![Image-6](image-6.png)
 
-2. **Start the App Registration Process:**
-   - Once in the "App registrations" page, click on the "+ New registration" button.
-  ![Alt text](image-6.png)
+2. **Fill Details & Finalize**: Set the Name as `adlssparkapp`, select "Accounts in this organizational directory only", leave the Redirect URI blank, and click "Register".
+   ![Image-7](image-7.png)
 
-3. **Provide Application Details:**
-   - **Name:** Enter `adlssparkapp` for the application name.
-   - **Supported account types:** Select "Accounts in this organizational directory only (Your directory name - Single tenant)".
-   - **Redirect URI:** Leave this field blank.
-
-4. **Finalize the Registration:**
-   - Click the "Register" button at the bottom of the page.
-![Alt text](image-7.png)
-5. **Review & Note Details for Subsequent Use:**
-   - Upon registration, you'll be on the application's overview page.
-   - Take note of:
-     - **Application (client) ID:** This is the identity your Spark application will utilize for connecting to Azure.
-     - **Directory (tenant) ID:** Represents the specific Azure AD context for authentication.
-![Alt text](image-8.png)
+3. **Document Key IDs**: From the post-registration overview, note down the **Application ID** and **Directory ID** for Spark-Azure connection.
+   ![Image-8](image-8.png)
 
 You'll be using these details in the Spark application to ensure a secure connection to Azure and access the CSV file.
 
 ### Provide necessary role to the app to the container
-
 We'll intentionally omit this step to trigger an access error. Later, by assigning the role and resolving the error, we can gain a deeper understanding of roles and service principals.
+
 ## Generating a Client Secret For our App Registration
 
 ### Why Secrets in App Registration?
@@ -142,30 +114,18 @@ In the context of Azure App Registration, a secret (often termed as the "client 
 
 For Spark applications specifically, the client secret allows the application to authenticate itself when trying to read from or write to Azure services, such as a Storage Account.
 
-### Steps to Create a Secret for `adlssparkapp`
 
-1. **Search for App Registration in Azure Portal:**
-   - In the Azure portal search bar, type "App registrations" and select it from the dropdown.
+### Create `adlssparkapp` Secret in Azure
 
-2. **Access the Registered App:**
-   - Find and click on the `adlssparkapp` from the list.
+1. **Initiate**: In Azure portal, search "App registrations", select it, then click on `adlssparkapp`.
 
-3. **Navigate to Secrets:**
-   - In the left-hand sidebar under "Manage", click on "Certificates & secrets".
+2. **Secrets Setup**: Under "Manage" > "Certificates & secrets", click "+ New client secret". Fill in a description like "SparkAppSecret", pick an expiry, and hit "Add".
+   ![Image-9](image-9.png)
 
-4. **Add a New Client Secret:**
-   - Under the "Client secrets" section, click on the "+ New client secret" button.
-   - Provide a description for your secret. This can be anything descriptive, like "SparkAppSecret".
-   - Choose an expiry duration for the secret. Options typically include 1 year, 2 years, or never.
-   - Click "Add".
-![Alt text](image-9.png)
+3. **Record Secret**: After creation, note the secret's value immediately, as it's only displayed once. This, with the Application ID, authenticates your Spark app with Azure.
+   ![Image-10](image-10.png)
 
-5. **Note Down the Secret Value:**
-   - Once the secret is generated, its value will be displayed. **Important:** This is the only time you'll see the actual value of the secret in the Azure portal. Make sure to copy and save it securely.
-   - You'll use this secret, in combination with the Application (client) ID, to authenticate your Spark application with Azure.
-![Alt text](image-10.png)
-
-Remember, treat your client secret like a password. Keep it confidential, and never expose it in plaintext in your application code or config files. Ideally, use secure mechanisms like Azure Key Vault or environment variables to store and retrieve it when needed.
+⚠️ Handle the secret like a password: keep it confidential and use secure mechanisms (e.g., Azure Key Vault) for storage and access.
 
 ## Configuring PySpark for Connection to Azure Data Lake
 
@@ -240,7 +200,6 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
         spark-submit --jars /usr/local/lib/python3.8/dist-packages/pyspark/jars/hadoop-azure-3.3.3.jar,/usr/local/lib/python3.8/dist-packages/pyspark/jars/hadoop-azure-datalake-3.3.3.jar,/usr/local/lib/python3.8/dist-packages/pyspark/jars/hadoop-common-3.3.3.jar your_spark_app.py
         ```
 
-
 ## Accessing the CSV file
 
 ### Setting up ADLS Configuration in Spark
@@ -256,6 +215,7 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
 
 2. **Configure Spark for OAuth Authentication:**  
    Utilizing OAuth2 ensures secure access to ADLS. These configuration settings instruct Spark to use OAuth authentication, specifically providing details on how and where to get the access token.
+
    ```python
    spark.conf.set(f"fs.azure.account.auth.type.{storage_account}.dfs.core.windows.net", "OAuth")
    spark.conf.set(f"fs.azure.account.oauth.provider.type.{storage_account}.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
@@ -288,39 +248,14 @@ AuthorizationPermissionMismatch, "This request is not authorized to perform this
 4. **Storage Account Level Permissions:** If you assign the "Storage Blob Data Contributor" role (or similar roles) to an app at the storage account level, the app essentially receives permissions to every container and blob within that storage account. This means it would have the ability to read, write, and delete blobs across the entire storage account depending on the permissions granted by the role.
 5. **Controlling Access:** If you want more granular control, you should consider assigning permissions at the container level instead. When you assign a role to an app at the container level, its permissions are restricted to only that specific container. It won't have access to others.
 
-### Resolution Approach 1
-Assign the "Storage Blob Data Contributor" role (or similar roles) to an app at the storage account level, or at the container, or at the file level. All will work.
+### Approach 1: Role Assignment
+1. **Assign Role**: In the storage account's Cont1 container, select 'Access Control (IAM)' > 'Add' > 'Add role assignment'. Assign 'Storage Blob Data Contributor' to the Service Principal by name.
+2. **Confirm Role**: Check the Role assignments tab to see the app's role. This grants `$superuser` access to the container and csv, requiring no additional permissions.
 
-1. **In the storage account, open the container Cont1:**
-2. Click on 'Access Control (IAM)' in the left panel.
-3. Click on 'Add' and then 'Add role assignment'.
-4. Assign the role, typically 'Storage Blob Data Contributor', to the Service Principal (search with the name, searching with client_id will give no result).
-5. Now you will see the registered app having the desired role in the Role assignments tab.
-6. If this is provided, nothing needs to be done for the csv file and the container using Manage ACL. Meaning, just this step is enough and the container and csv can have only access for `$superuser` and no permission for anyone else.
-
-### Resolution Approach 2
-
-1. **Open the Cont1 Container:**
-   - Navigate to the Azure Portal and access your Azure Data Lake Storage.
-   - Locate and open the Cont1 container.
-
-2. **Access 'Manage ACL':**
-   - Inside the Cont1 container, find and click on the 'Manage ACL' option.
-
-3. **Add the Service Principal:**
-   - Click on 'Add principal'.
-   - Enter the client_id associated with the adlssparkapp we registered earlier.
-
-4. **Set Permissions:**
-   - For the added client_id, select the 'Read', 'Write', and 'Execute' permissions.
-
-5. **Verify Mask Permissions:**
-   - Under the 'Security Principal' section, ensure there's an entry labeled 'Mask'. This should reflect the permissions (Read, Write, Execute) you've just set.
-
-6. **Apply to All Directories/Files:**
-   - Repeat the above steps for every container, directory, and specific file (like the CSV) that you intend to access with Spark.
-Here's the content converted to Markdown format:
-
+### Approach 2: Manage ACL
+1. **Open Cont1**: In Azure Portal's Data Lake Storage, access the Cont1 container.
+2. **Modify ACL**: Click 'Manage ACL' > 'Add principal' and input the `adlssparkapp` client_id. Set 'Read', 'Write', and 'Execute' permissions. Ensure a 'Mask' entry under 'Security Principal' reflects these permissions.
+3. **Apply Everywhere**: Repeat for all desired containers, directories, and files for Spark access.
 ## Accessing ADLS Using Access Key
 
 ### Background
