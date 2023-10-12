@@ -31,7 +31,7 @@ This article provides a step-by-step guide on using a Python script to populate 
 
 Configuring ADLS for Azure Databricks is straightforward due to their shared Azure Directory (AD) infrastructure and Databricks’ built-in support for ADLS. For standalone Spark applications, however, integrating with ADLS requires careful management of JAR dependencies in the site-packages directory.
 
-[Read more...](link_to_article2.md)
+[Read more...](articles/Misc/Spark_To_ADLS/spark_to_ADLS.html)
 
 ---
 

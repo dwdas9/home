@@ -1,3 +1,4 @@
+```python
 """
 This script fetches and reads a CSV file from Azure Data Lake Storage (ADLS) using OAuth authentication with Service Principal credentials stored in a Databricks secret scope linked to Azure Key Vault.
 """
@@ -20,3 +21,4 @@ spark.conf.set(f"fs.azure.account.oauth2.client.endpoint.{storageAccountName}.df
 
 adls_path = f"abfss://{containerName}@{storageAccountName}.dfs.core.windows.net/"
 spark.read.csv(adls_path + filename).show()
+```
