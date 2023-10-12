@@ -49,7 +49,7 @@ In this section, we'll talk about the main parts of Azure Data Engineering. Thes
 
 In this article, I will walk you through the steps to set up your Azure Databricks workspace, create clusters, and begin working with notebooks.
 
-[Read more...](articles/AzureDE/1_Setup-Azure-Databricks.md)
+[Read more...](articles/AzureDE/1_Setup-Azure-Databricks.html)
 
 ---
 
