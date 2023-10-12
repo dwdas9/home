@@ -3,6 +3,32 @@ layout: default
 title: Spark Integration with ADLS
 nav_exclude: true
 ---
+- [Spark Integration with ADLS: A Technical Overview](#spark-integration-with-adls-a-technical-overview)
+  - [Create a storage account on Azure](#create-a-storage-account-on-azure)
+    - [Procedure](#procedure)
+  - [Create a container and upload a sample csv file inside it](#create-a-container-and-upload-a-sample-csv-file-inside-it)
+  - [Create a new App Registration](#create-a-new-app-registration)
+    - [Why App Registration?](#why-app-registration)
+    - [Steps to Register the App](#steps-to-register-the-app)
+    - [Provide necessary role to the app to the container](#provide-necessary-role-to-the-app-to-the-container)
+  - [Generating a Client Secret For our App Registration](#generating-a-client-secret-for-our-app-registration)
+    - [Why Secrets in App Registration?](#why-secrets-in-app-registration)
+    - [Steps to Create a Secret for `adlssparkapp`](#steps-to-create-a-secret-for-adlssparkapp)
+  - [Configuring PySpark for Connection to Azure Data Lake](#configuring-pyspark-for-connection-to-azure-data-lake)
+    - [Environment Context](#environment-context)
+    - [Procedure](#procedure-1)
+  - [Accessing the CSV file](#accessing-the-csv-file)
+    - [Setting up ADLS Configuration in Spark](#setting-up-adls-configuration-in-spark)
+  - [Resolve Permission Errors](#resolve-permission-errors)
+    - [Background](#background)
+    - [Concepts](#concepts)
+    - [Resolution Approach 1](#resolution-approach-1)
+    - [Resolution Approach 2](#resolution-approach-2)
+  - [Accessing ADLS Using Access Key](#accessing-adls-using-access-key)
+    - [Background](#background-1)
+    - [Steps](#steps)
+    - [Security Note:](#security-note)
+  - [Conclusion](#conclusion)
 
 # Spark Integration with ADLS: A Technical Overview
 
