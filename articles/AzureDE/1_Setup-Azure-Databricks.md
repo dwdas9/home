@@ -1,5 +1,7 @@
 
-
+---
+layout: default
+title: Setting Up Azure Databricks
 ---
 
 ## Setting Up Azure Databricks
