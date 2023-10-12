@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Setting Up Azure Databricks
+nav_exclude: true
 ---
 
 ## Setting Up Azure Databricks
