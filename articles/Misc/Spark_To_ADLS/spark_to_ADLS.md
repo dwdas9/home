@@ -274,6 +274,7 @@ AuthorizationPermissionMismatch, "This request is not authorized to perform this
 1. **Open Cont1**: In Azure Portal's Data Lake Storage, access the Cont1 container.
 2. **Modify ACL**: Click 'Manage ACL' > 'Add principal' and input the `adlssparkapp` client_id. Set 'Read', 'Write', and 'Execute' permissions. Ensure a 'Mask' entry under 'Security Principal' reflects these permissions.
 3. **Apply Everywhere**: Repeat for all desired containers, directories, and files for Spark access.
+
 ## Accessing ADLS Using Access Key
 
 ### Background
