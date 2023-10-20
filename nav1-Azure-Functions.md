@@ -3,14 +3,16 @@ layout: default
 title: Azure Functions Articles
 nav_order: 1
 ---
-# Azure Functions Articles
 
-In this section, I'll share articles on Azure Functions.
+# Overview
 
-## Table of Contents
-- [Azure Functions Articles](#azure-functions-articles)
-  - [Table of Contents](#table-of-contents)
+In this segment, we'll dive deep into the world of Azure Functions, Microsoft's event-driven, serverless compute platform. Azure Functions empower developers to run event-triggered code without having to manage the underlying infrastructure. It's an efficient and scalable way to handle operations such as data processing, integration with other services, or any action that can be mapped to an input event.
+
+I'll show how to use Azure Functions for different tasks. We'll look at common ways people use them. For example, when someone visits a website or when data changes. We'll also learn how to set them up and manage them. By the end, you'll know more about how Azure Functions can help in your projects.
+
+- [Overview](#overview)
   - [End-To-End Project using Azure HTTP-Triggered Function](#end-to-end-project-using-azure-http-triggered-function)
+
 
 ---
 ## End-To-End Project using Azure HTTP-Triggered Function
