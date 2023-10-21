@@ -11,11 +11,11 @@ In this segment, we'll dive deep into the world of Azure Functions, Microsoft's 
 I'll show how to use Azure Functions for different tasks. We'll look at common ways people use them. For example, when someone visits a website or when data changes. We'll also learn how to set them up and manage them. By the end, you'll know more about how Azure Functions can help in your projects.
 
 - [Overview](#overview)
-  - [End-To-End Project using Azure HTTP-Triggered Function](#end-to-end-project-using-azure-http-triggered-function)
+  - [Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function](#project-azureskyweather-part-1a-using-azure-http-triggered-function)
 
 
 ---
-## End-To-End Project using Azure HTTP-Triggered Function
+## Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function
 
 In this article, I'll delve into building an HTTP-triggered Azure Function using Python V2 on Azure Functions and Visual Studio Code. I've chosen an HTTP-trigger for its on-demand execution, combined with the powerful scheduling capability of Azure Logic Apps. Our primary focus is to fetch weather data from `weatherapi.com` and store it as JSON in Azure Blob Storage, efficiently organized by hourly timestamps. I've incorporated robust error handling, ensuring resilience against potential API and storage issues. Additionally, I've added a unique feature that allows for a personalized greeting based on input parameters. Join me as I break down the technical nuances of this serverless solution.
 

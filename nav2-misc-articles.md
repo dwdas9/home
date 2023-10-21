@@ -11,7 +11,6 @@ In this section, I'll share articles that may prove valuable for your daily task
 - [Misc Articles](#misc-articles)
   - [Table of Contents](#table-of-contents)
   - [Setting Up Azure Databricks](#setting-up-azure-databricks)
-  - [Read more...](#read-more)
   - [Setting Up Standalone Spark in Docker to Connect with Azure Data Lake](#setting-up-standalone-spark-in-docker-to-connect-with-azure-data-lake)
   - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
   - [Setting up a Dockerized Spark Environment on Ubuntu for Windows](#setting-up-a-dockerized-spark-environment-on-ubuntu-for-windows)
@@ -23,7 +22,9 @@ In this section, I'll share articles that may prove valuable for your daily task
 
 In this article, I will walk you through the steps to set up your Azure Databricks workspace, create clusters, and begin working with notebooks.
 
+
 [Read more...](articles/AzureDE/dbrk_setup/1_Setup-Azure-Databricks.html)
+
 ---
 
 ## Setting Up Standalone Spark in Docker to Connect with Azure Data Lake 
