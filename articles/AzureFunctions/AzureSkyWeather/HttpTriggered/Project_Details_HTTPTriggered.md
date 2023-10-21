@@ -7,7 +7,7 @@ nav_exclude: true
 ## Table of Contents
 - [Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function](#project-azureskyweather-part-1a-using-azure-http-triggered-function)
   - [Overview](#overview)
-  - [Choice of Azure Services](#choice-of-azure-services)
+  - [Choice of Azure Services For Data Ingestion](#choice-of-azure-services-for-data-ingestion)
   - [Let's ready the prerequisites](#lets-ready-the-prerequisites)
     - [Get the Weather API](#get-the-weather-api)
     - [Set Up Azure Blob(ADLSG2) Storage](#set-up-azure-blobadlsg2-storage)
@@ -48,7 +48,7 @@ nav_exclude: true
 
 In this project we use an  **Azure HTTP Function** to get the current **weather data** from `weatherapi.com`. Developed in **Visual Studio Code** using the **Python V2 programming model**, it stores data as hourly-named **JSON files** in **Azure Data Lake**. It's **HTTP-triggered**, with **Azure Logic Apps** managing the periodic fetch schedule. The function logs activities and handles errors, and if provided a 'name' in a request, it sends a **personalized greeting**. For a detailed overview, please see the [Comprehensive Project Summary](#Comprehensive-Project-Summary) in the appendix.
 
-## Choice of Azure Services
+## Choice of Azure Services For Data Ingestion
 
 We developed the Azure Function in Visual Studio Code on Windows using the **Python V2 programming model**. The V2 model simplifies Azure Function app development by allowing scheduling, binding, and the entire logic to be written in a main Python file, contrasting with V1 which requires additional setup in a JSON file. We sourced our weather data from **weatherapi.com**, a cost-free option that doesn't require credit card and lets you call the api almost indefinately. HTTP-triggered functions need scheduling, unlike Timer-triggered ones. We managed this with Azure Logic Apps. In terms of cost, the Azure function with a Timer-trigger is the most economical, followed by the HTTP-Triggered Azure function paired with Azure Logic App-based scheduling. For a sample cost breakdown of the Logic App, please refer to the section [Calculate Azure Logic Apps Cost](#Calculate-Azure-Logic-Apps-Cost). Even so, for a simple hourly workflow, the expense remains minimal. It's worth noting that other options, especially Databricks, can be considerably pricier. Similarly, ADF and Synapse can also come at a higher cost. Here's a brief overview of the available options for creating an app like this:
 
