@@ -1,52 +1,52 @@
 ---
 layout: default
-title: End-To-End Project Using Azure HTTP-Triggered Function
+title: Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function
 nav_exclude: true
 ---
 
-- [Azure HTTP-Triggered Function. End-To-End Project.](#azure-http-triggered-function-end-to-end-project)
+- [Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function](#project-azureskyweather-part-1a-using-azure-http-triggered-function)
   - [Overview](#overview)
-  - [Solution Approach](#solution-approach)
-  - [Prerequisites](#prerequisites)
-    - [Getting the Weather API](#getting-the-weather-api)
-    - [Setting Up Azure Blob Storage](#setting-up-azure-blob-storage)
-    - [Creating the Azure Function App](#creating-the-azure-function-app)
-    - [Preparing VS Code and local enviroment for Azure Function Development and Testing](#preparing-vs-code-and-local-enviroment-for-azure-function-development-and-testing)
+  - [Choice of Azure Services](#choice-of-azure-services)
+  - [Let's ready the prerequisites](#lets-ready-the-prerequisites)
+    - [Get the Weather API](#get-the-weather-api)
+    - [Set Up Azure Blob Storage](#set-up-azure-blob-storage)
+    - [Create the Azure Function App](#create-the-azure-function-app)
+    - [Prepare VS Code and local enviroment for Azure Function Development and Testing](#prepare-vs-code-and-local-enviroment-for-azure-function-development-and-testing)
       - [Azure Functions Extension For Visual Studio Code](#azure-functions-extension-for-visual-studio-code)
       - [Python Extension for Visual Studio Code](#python-extension-for-visual-studio-code)
       - [Azurite](#azurite)
       - [azure-functions SDK](#azure-functions-sdk)
       - [`azure-storage-blob` library for local testing](#azure-storage-blob-library-for-local-testing)
   - [Development and Deploymment](#development-and-deploymment)
-    - [Creating the Python-based Azure Function](#creating-the-python-based-azure-function)
-    - [Writing custom logic in the Azure Function](#writing-custom-logic-in-the-azure-function)
+    - [Create the Python-based Azure Function](#create-the-python-based-azure-function)
+    - [Write our custom logic in the Azure Function](#write-our-custom-logic-in-the-azure-function)
     - [Include  `azure-storage-blob` in requirements.txt](#include--azure-storage-blob-in-requirementstxt)
-    - [Testing Our Azure Function](#testing-our-azure-function)
+    - [Test Our Azure Function](#test-our-azure-function)
     - [Create Azure Function App](#create-azure-function-app)
-    - [Deploying the Azure Function To The App](#deploying-the-azure-function-to-the-app)
-    - [Scheduling the Function using Azure Logic Apps](#scheduling-the-function-using-azure-logic-apps)
-    - [Post-deployment monitoring](#post-deployment-monitoring)
-  - [Errors](#errors)
-    - ["AzureWebJobsStorage" app setting is not present.](#azurewebjobsstorage-app-setting-is-not-present)
+    - [Deploy the Azure Function To The App](#deploy-the-azure-function-to-the-app)
+    - [Schedule the Function using Azure Logic Apps](#schedule-the-function-using-azure-logic-apps)
+    - [Post-deployment Monitoring](#post-deployment-monitoring)
+  - [Common Errors](#common-errors)
+    - ["AzureWebJobsStorage" app setting is not present](#azurewebjobsstorage-app-setting-is-not-present)
     - [Logic Apps while trying to add azure function - No resources of this type found under this subscription](#logic-apps-while-trying-to-add-azure-function---no-resources-of-this-type-found-under-this-subscription)
     - [Logic Apps Job shows Running status indefinately](#logic-apps-job-shows-running-status-indefinately)
   - [Appendix](#appendix)
-    - [Comprehensive Project Summary](#comprehensive-project-summary)
+    - [Detailed Project Summary](#detailed-project-summary)
     - [Creating an Azure Functions App Using Azure Portal](#creating-an-azure-functions-app-using-azure-portal)
-    - [Project Folder Structure](#project-folder-structure)
+    - [Azure Function VS-Code Project Folder Structure](#azure-function-vs-code-project-folder-structure)
+    - [Structure of the function function\_app.py.](#structure-of-the-function-function_apppy)
     - [Some details of `azure-functions` library](#some-details-of-azure-functions-library)
-    - [Analysis of the function\_app.py.](#analysis-of-the-function_apppy)
     - [Azurite Extension](#azurite-extension)
     - [Calculate Azure Logic Apps Cost](#calculate-azure-logic-apps-cost)
 
 ---
-# Azure HTTP-Triggered Function. End-To-End Project.
+# Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function
 
 ## Overview
 
-Our **Azure HTTP Function** retrieves current **weather data** from `weatherapi.com`. Developed in **Visual Studio Code** using the **Python V2 programming model**, it stores data as hourly-named **JSON files** in **Azure Blob Storage**. It's **HTTP-triggered**, with **Azure Logic Apps** managing the periodic fetch schedule. The function logs activities and handles errors, and if provided a 'name' in a request, it sends a **personalized greeting**. For a detailed overview, please see the [Comprehensive Project Summary](#Comprehensive-Project-Summary) in the appendix.
+In this project we use an  **Azure HTTP Function** to get the current **weather data** from `weatherapi.com`. Developed in **Visual Studio Code** using the **Python V2 programming model**, it stores data as hourly-named **JSON files** in **Azure Blob Storage**. It's **HTTP-triggered**, with **Azure Logic Apps** managing the periodic fetch schedule. The function logs activities and handles errors, and if provided a 'name' in a request, it sends a **personalized greeting**. For a detailed overview, please see the [Comprehensive Project Summary](#Comprehensive-Project-Summary) in the appendix.
 
-## Solution Approach
+## Choice of Azure Services
 
 We developed the Azure Function in Visual Studio Code on Windows using the **Python V2 programming model**. The V2 model simplifies Azure Function app development by allowing scheduling, binding, and the entire logic to be written in a main Python file, contrasting with V1 which requires additional setup in a JSON file. We sourced our weather data from **weatherapi.com**, a cost-free option that doesn't require credit card and lets you call the api almost indefinately. HTTP-triggered functions need scheduling, unlike Timer-triggered ones. We managed this with Azure Logic Apps. In terms of cost, the Azure function with a Timer-trigger is the most economical, followed by the HTTP-Triggered Azure function paired with Azure Logic App-based scheduling. For a sample cost breakdown of the Logic App, please refer to the section [Calculate Azure Logic Apps Cost](#Calculate-Azure-Logic-Apps-Cost). Even so, for a simple hourly workflow, the expense remains minimal. It's worth noting that other options, especially Databricks, can be considerably pricier. Similarly, ADF and Synapse can also come at a higher cost. Here's a brief overview of the available options for creating an app like this:
 
@@ -56,9 +56,9 @@ We developed the Azure Function in Visual Studio Code on Windows using the **Pyt
 
 - **Azure Logic Apps:** Positioned between the other options, Azure Logic Apps are suitable for uncomplicated workflows with moderate data volumes, offering a visual workflow designer for easy setup. Their cost varies based on the number of steps. While here we use Azure Functions for core logic and Logic Apps for scheduling, some opt for a single solution, like a timer-triggered Azure App or fully utilizing an Azure Logic App.
 
-## Prerequisites
+## Let's ready the prerequisites
 
-### Getting the Weather API
+### Get the Weather API
 
 First, create an account at [weatherapi.com](https://www.weatherapi.com/). Then, navigate to [My Account](https://www.weatherapi.com/my/). Copy the API key and keep it handy for later use.
 
@@ -68,18 +68,18 @@ We chose [weatherapi.com](https://www.weatherapi.com/) because it doesn't requir
     ![Alt text](image-40.png)
 
 
-### Setting Up Azure Blob Storage
+### Set Up Azure Blob Storage
 
 In the Azure portal, create a resource group, a storage account, and a blob container named `weather-http`. This is where the Azure Function will store the .json weather files. I've omitted the detailed steps here to focus on the main process.
 
-### Creating the Azure Function App
+### Create the Azure Function App
 
 Azure Function App is a container for Azure Functions. It can be set up before or during the function deployment. I recommend deploying during development and creating a distinct Function App for each function to prevent overwriting. I will share 'run-time' deployment steps later in this tutorial.
 
 ![Alt text](image-62.png)
 > Sneak Peek: Deploying a Function App via VS Code.
 
-### Preparing VS Code and local enviroment for Azure Function Development and Testing
+### Prepare VS Code and local enviroment for Azure Function Development and Testing
 
 Install the following VS studio extensions:
 
@@ -107,7 +107,7 @@ As we are using Azure Blob Functions, we need to ensure that the Azure Blob Stor
 
 ## Development and Deploymment
 
-### Creating the Python-based Azure Function
+### Create the Python-based Azure Function
 
 To create an Azure Function in Visual Studio Code, follow these steps:
 
@@ -142,7 +142,7 @@ To create an Azure Function in Visual Studio Code, follow these steps:
 
 ![Alt text](image-66.png)
 
-### Writing custom logic in the Azure Function
+### Write our custom logic in the Azure Function
 
 Let's dive into our weather code! Replace `function_app.py` with the following. Remember to fill in `<your_connection_string>` and `<weather_api_endpoint>` with the actual details.
 
@@ -218,7 +218,7 @@ We've wrapped up the main coding. Now, just add `azure-storage-blob` to `require
 
 ![Alt text](image-50.png)
 
-### Testing Our Azure Function
+### Test Our Azure Function
 
 - It's time to test our Azure Function. Follow these steps:
 
@@ -277,7 +277,7 @@ For Azure Functions, we need a Function App—a container for them. Instead of s
 
 After these steps, your Azure Function App is set up. The next phase involves deploying your Azure Function to this newly created app.
 
-### Deploying the Azure Function To The App
+### Deploy the Azure Function To The App
 
 - The deployment process is straightforward. In the workspace, click the thunder icon and choose **Deploy to Function App**.
 
@@ -301,13 +301,13 @@ Note: This will overwrite ANY function present in the Azure Func app.
 
    ![Alt text](image-59.png)
 
-### Scheduling the Function using Azure Logic Apps
+### Schedule the Function using Azure Logic Apps
 
-1. **Create a Logic App in the Azure Portal** and name it `Anything-Meaningful-Haha`.
-2. **Go to the Logic App Designer** to design your workflow.
-3. Search for "Recurrence" and add this step.
-4. For the "Interval", enter "1". For "Frequency", select "Hour". Choose your time zone. Leave the "Start time" empty.
-5. **Next, add an action.** This step is crucial. We have two options: HTTP Action and HTTP Webhook Action. For this scenario, choose the **HTTP Action**. Here's why: 
+- **Create a Logic App in the Azure Portal** and name it `Anything-Meaningful-Haha`.
+- **Go to the Logic App Designer** to design your workflow.
+- Search for "Recurrence" and add this step.
+- For the "Interval", enter "1". For "Frequency", select "Hour". Choose your time zone. Leave the "Start time" empty.
+- **Next, add an action.** This step is crucial. We have two options: HTTP Action and HTTP Webhook Action. For this scenario, choose the **HTTP Action**. Here's why: 
 
    - **HTTP Action**:
      - Use this when you simply want to call an HTTP endpoint (in your case, the Azure Function) without waiting for a prolonged period or any kind of asynchronous processing.
@@ -322,7 +322,7 @@ For our scenario, the **HTTP Action** is a simpler and more suitable choice. It 
 
 ![Alt text](image-65.png)
 
-6. **In the HTTP Action**, provide the **URI** and **Method** as GET. To obtain the URI from our Azure HTTP-Triggered Function, follow these steps:
+- **In the HTTP Action**, provide the **URI** and **Method** as GET. To obtain the URI from our Azure HTTP-Triggered Function, follow these steps:
 
    - **Open the Azure App** hosting the Azure Function. 
    - **Click the Azure Function**, navigate to **Overview**, then at the top, click **Get Function URL** and copy the URL.
@@ -331,7 +331,7 @@ For our scenario, the **HTTP Action** is a simpler and more suitable choice. It 
 
 In the **Overview section** of the Logic App, under **Runs history**, check the runs to see if the desired action (in our case, the creation of the weather JSON in the blob storage) is being performed.
 
-### Post-deployment monitoring
+### Post-deployment Monitoring
 
 The purpose of this http-triggered logic-app scheduled Azure Function is to periodically fetch weather data and store it as a JSON file in an Azure Blob container. After deploying the function, you can monitor its performance and analyze invocations by following these steps:
 
@@ -344,9 +344,9 @@ The purpose of this http-triggered logic-app scheduled Azure Function is to peri
 - Check the Azure Blob container to verify if the JSON files are being created as expected.
 
 
-## Errors
+## Common Errors
 
-### "AzureWebJobsStorage" app setting is not present.
+### "AzureWebJobsStorage" app setting is not present
 
 ![Alt text](image-36.png)
 
@@ -398,7 +398,7 @@ A solution is to use a straightforward `HTTP action`. In this method, the step w
 ## Appendix
 
 
-### Comprehensive Project Summary
+### Detailed Project Summary
 
 In the 'Overview' and 'Solutions Summary Approach' sections, I've sketched out a basic outline of our project. To dive deeper into the details, refer to the content below
 
@@ -438,7 +438,7 @@ An Azure Functions App acts as a host for one or more Azure Functions. In essenc
 - Fill in the required details, including Subscription, Resource Group, Function App name, etc. For the runtime, choose Python. Click "Review + create" and then "Create".
 ![Alt text](image-3.png)
 
-### Project Folder Structure
+### Azure Function VS-Code Project Folder Structure
 
 Visual Studio Creates the following project structure for Azure Functions Project:
 
@@ -457,23 +457,22 @@ The main Project Folder **<project_root>** Contents:
 - requirements.txt: Lists Python packages installed when publishing to Azure.
 - Dockerfile: (Optional) Used for custom container publishing.
 
-
-### Some details of `azure-functions` library
-The command `pip install azure-functions` adds the Azure Functions SDK to your Python environment. This SDK facilitates local development, testing, and execution of Azure Functions. It includes tools that allow functions to interact with Azure and other services, such as responding to an HTTP request or storing data in Azure Blob Storage. 
-
-### Analysis of the function_app.py.
+### Structure of the function function_app.py.
 
 The `function_app.py` file is the key entry point. It resides at the root directory and serves as a Python script containing the definitions of the functions within the Function App.
 
 Each function defined in `function_app.py` must specify several crucial elements:
 
-1. **Function Name**: It should have a unique and descriptive name.
-2. **Function Trigger**: This defines what activates the function. For example, it could be triggered by an HTTP request or based on a timer schedule.
-3. **Function Code**: This is where you place the actual logic for the function.
+- **Function Name**: It should have a unique and descriptive name.
+- **Function Trigger**: This defines what activates the function. For example, it could be triggered by an HTTP request or based on a timer schedule.
+- **Function Code**: This is where you place the actual logic for the function.
 
 ![Alt text](image-12.png)
 
 Note, that the structure of `function_app.py` varies a little bit based on the type of trigger used. E.g., when creating a Timer-triggered function, a specific template code is generated VS Code. 
+
+### Some details of `azure-functions` library
+The command `pip install azure-functions` adds the Azure Functions SDK to your Python environment. This SDK facilitates local development, testing, and execution of Azure Functions. It includes tools that allow functions to interact with Azure and other services, such as responding to an HTTP request or storing data in Azure Blob Storage. 
 
 ### Azurite Extension
 
