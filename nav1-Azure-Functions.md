@@ -12,6 +12,8 @@ I'll show how to use Azure Functions for different tasks. We'll look at common w
 
 - [Overview](#overview)
   - [Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function](#project-azureskyweather-part-1a-using-azure-http-triggered-function)
+  - [Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function](#project-azureskyweather-part-1b-using-azure-timer-triggered-function)
+  - [Read more...](#read-more)
 
 
 ---
@@ -19,6 +21,12 @@ I'll show how to use Azure Functions for different tasks. We'll look at common w
 
 In this article, I'll delve into building an HTTP-triggered Azure Function using Python V2 on Azure Functions and Visual Studio Code. I've chosen an HTTP-trigger for its on-demand execution, combined with the powerful scheduling capability of Azure Logic Apps. Our primary focus is to fetch weather data from `weatherapi.com` and store it as JSON in Azure Blob Storage, efficiently organized by hourly timestamps. I've incorporated robust error handling, ensuring resilience against potential API and storage issues. Additionally, I've added a unique feature that allows for a personalized greeting based on input parameters. Join me as I break down the technical nuances of this serverless solution.
 
-[Read more...](articles/AzureFunctions/HttpTriggered/Project_Details_HTTPTriggered.html)
+[Read more...](articles/AzureFunctions/AzureSkyWeather/HttpTriggered/Project_Details_HTTPTriggered.html)
 
+---
+## Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function
+
+In Part 1A, I talked about making an HTTP-Triggered Azure function and using Azure Logic Apps to set its timing. Now, I'll show a different way. We'll use a Timer-Triggered Azure function that already has a built-in timer. This is another option. Choosing the best way can depend on things like cost. Azure Logic Apps can cost more than Timer-Triggered functions. I've kept this article short because many steps for both functions are the same.
+
+[Read more...](articles/AzureFunctions/AzureSkyWeather/TimerTriggered/Project_Details_TimerTriggered.html)
 ---
