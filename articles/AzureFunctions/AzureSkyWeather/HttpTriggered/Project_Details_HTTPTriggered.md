@@ -519,7 +519,7 @@ Considering rates of approximately $0.000025 per execution and $0.000125 per act
 
 So, running this Azure Logic App with an hourly trigger might cost about 20 cents monthly. Yet, it's crucial to:
 
-- I wrote this article in Q4 2023. So, confirm current prices on the [Azure Logic Apps pricing page](https://azure.microsoft.com/en-us/pricing/details/logic-apps/).
+- I wrote this article in 2022. So, confirm current prices on the [Azure Logic Apps pricing page](https://azure.microsoft.com/en-us/pricing/details/logic-apps/).
 - Use Azure's monitoring tools to observe your actual costs.
 - Remember Azure's Logic Apps free tier, which offers a set number of free runs and actions monthly, potentially lowering costs if you stay within these free tier boundaries.
 
