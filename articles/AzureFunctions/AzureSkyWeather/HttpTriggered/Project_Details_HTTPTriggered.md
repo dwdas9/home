@@ -10,7 +10,7 @@ nav_exclude: true
   - [Choice of Azure Services](#choice-of-azure-services)
   - [Let's ready the prerequisites](#lets-ready-the-prerequisites)
     - [Get the Weather API](#get-the-weather-api)
-    - [Set Up Azure Blob Storage](#set-up-azure-blob-storage)
+    - [Set Up Azure Blob(ADLSG2) Storage](#set-up-azure-blobadlsg2-storage)
     - [Create the Azure Function App](#create-the-azure-function-app)
     - [Prepare VS Code and local enviroment for Azure Function Development and Testing](#prepare-vs-code-and-local-enviroment-for-azure-function-development-and-testing)
       - [Azure Functions Extension For Visual Studio Code](#azure-functions-extension-for-visual-studio-code)
@@ -45,7 +45,7 @@ nav_exclude: true
 
 ## Overview
 
-In this project we use an  **Azure HTTP Function** to get the current **weather data** from `weatherapi.com`. Developed in **Visual Studio Code** using the **Python V2 programming model**, it stores data as hourly-named **JSON files** in **Azure Blob Storage**. It's **HTTP-triggered**, with **Azure Logic Apps** managing the periodic fetch schedule. The function logs activities and handles errors, and if provided a 'name' in a request, it sends a **personalized greeting**. For a detailed overview, please see the [Comprehensive Project Summary](#Comprehensive-Project-Summary) in the appendix.
+In this project we use an  **Azure HTTP Function** to get the current **weather data** from `weatherapi.com`. Developed in **Visual Studio Code** using the **Python V2 programming model**, it stores data as hourly-named **JSON files** in **Azure Data Lake**. It's **HTTP-triggered**, with **Azure Logic Apps** managing the periodic fetch schedule. The function logs activities and handles errors, and if provided a 'name' in a request, it sends a **personalized greeting**. For a detailed overview, please see the [Comprehensive Project Summary](#Comprehensive-Project-Summary) in the appendix.
 
 ## Choice of Azure Services
 
@@ -69,9 +69,9 @@ We chose [weatherapi.com](https://www.weatherapi.com/) because it doesn't requir
     ![Alt text](image-40.png)
 
 
-### Set Up Azure Blob Storage
+### Set Up Azure Blob(ADLSG2) Storage
 
-In the Azure portal, create a resource group, a storage account, and a blob container named `weather-http`. This is where the Azure Function will store the .json weather files. I've omitted the detailed steps here to focus on the main process.
+In the Azure portal, create a resource group, a storage account, and a blob container named `weather-http`. This is where the Azure Function will store the .json weather files. I've omitted the detailed steps here to focus on the main process. Remember: `Enable Hierarchical Namespace`. This will turn your storage into a Data Lake.
 
 ### Create the Azure Function App
 
