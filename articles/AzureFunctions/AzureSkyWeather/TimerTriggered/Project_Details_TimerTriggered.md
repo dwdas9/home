@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Project AzureSkyWeather. Part 1B - Using Azure Timer-Triggered Function
 nav_exclude: true
 ---
