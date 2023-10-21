@@ -3,17 +3,17 @@ layout: default
 title: Azure Functions Articles
 nav_order: 1
 ---
+## Table of contents
+- [Overview](#overview)
+  - [Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function](#project-azureskyweather-part-1a-using-azure-http-triggered-function)
+  - [Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function](#project-azureskyweather-part-1b-using-azure-timer-triggered-function)
+
 
 # Overview
 
 In this segment, we'll dive deep into the world of Azure Functions, Microsoft's event-driven, serverless compute platform. Azure Functions empower developers to run event-triggered code without having to manage the underlying infrastructure. It's an efficient and scalable way to handle operations such as data processing, integration with other services, or any action that can be mapped to an input event.
 
 I'll show how to use Azure Functions for different tasks. We'll look at common ways people use them. For example, when someone visits a website or when data changes. We'll also learn how to set them up and manage them. By the end, you'll know more about how Azure Functions can help in your projects.
-
-- [Overview](#overview)
-  - [Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function](#project-azureskyweather-part-1a-using-azure-http-triggered-function)
-  - [Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function](#project-azureskyweather-part-1b-using-azure-timer-triggered-function)
-
 
 ---
 ## Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function

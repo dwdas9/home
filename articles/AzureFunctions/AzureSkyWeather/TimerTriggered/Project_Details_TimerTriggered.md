@@ -4,6 +4,7 @@ title: Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function
 nav_exclude: true
 ---
 
+## Table of contents
 - [Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function](#project-azureskyweather-part-1b-using-azure-timer-triggered-function)
   - [Overview](#overview)
     - [Setting the pre-requisites](#setting-the-pre-requisites)

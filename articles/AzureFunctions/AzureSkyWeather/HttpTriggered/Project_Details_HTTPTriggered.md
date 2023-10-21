@@ -3,7 +3,7 @@ layout: default
 title: Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function
 nav_exclude: true
 ---
-
+## Table of Contents
 - [Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function](#project-azureskyweather-part-1a-using-azure-http-triggered-function)
   - [Overview](#overview)
   - [Choice of Azure Services](#choice-of-azure-services)
