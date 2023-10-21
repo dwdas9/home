@@ -33,6 +33,7 @@ nav_exclude: true
     - [Logic Apps Job shows Running status indefinately](#logic-apps-job-shows-running-status-indefinately)
   - [Appendix](#appendix)
     - [Detailed Project Summary](#detailed-project-summary)
+    - [Choice of storage. Why Azure Data Lake?](#choice-of-storage-why-azure-data-lake)
     - [Creating an Azure Functions App Using Azure Portal](#creating-an-azure-functions-app-using-azure-portal)
     - [Azure Function VS-Code Project Folder Structure](#azure-function-vs-code-project-folder-structure)
     - [Structure of the function function\_app.py.](#structure-of-the-function-function_apppy)
@@ -399,6 +400,7 @@ A solution is to use a straightforward `HTTP action`. In this method, the step w
 ## Appendix
 
 
+
 ### Detailed Project Summary
 
 In the 'Overview' and 'Solutions Summary Approach' sections, I've sketched out a basic outline of our project. To dive deeper into the details, refer to the content below
@@ -429,6 +431,28 @@ The objective of the Azure function is to fetch current weather data periodicall
 
 **Response Mechanism:**
    - Beyond its primary data retrieval and storage task, the function can provide a personalized greeting if a 'name' parameter is passed in the request.
+
+### Choice of storage. Why Azure Data Lake?
+
+We've selected Azure Data Lake Storage Gen2 (ADLS G2) for storing our weather data. This decision was largely driven by its seamless integration with Azure Functions, which streamlines our data collection process. Apart form this ADLS G2 also has many other advantages, like:
+
+- **Hierarchical Organization**: ADLS G2 allows us to neatly structure our data, similar to a directory system. We can store our weather data grouped by year, month day etc.
+  
+- **Enhanced Security**: The Active Directory permission can be applied to the folders and files. This makes the storage as secure as it can get.
+
+- **Analytics Performance**: ADLS G2 is optimized for heavy-duty data analytics, ensuring efficient query operations over vast datasets.
+
+In the next stage, we decided to convert our JSON-formatted data into Parquet. Here's why:
+
+- **Analytical Efficiency**: Parquet, with its columnar storage design, streamlines analytical queries, letting us access specific data without scanning the entire dataset.
+  
+- **Storage Efficiency**: Parquet compresses data effectively, optimizing storage use and potentially lowering costs.
+  
+- **Adaptable Structure**: Parquet inherently carries schema information, allowing for alterations in data structure without disrupting existing data.
+
+A noteworthy advantage of Parquet is its compatibility with various storage systems, including NoSQL databases, data warehouses, and lakehouses. This ensures that we can migrate or integrate our data effortlessly if our analytical demands change.
+
+To summarize, our storage strategy not only prepares our data for immediate analysis but we can also easily move it to other storage solution in future.
 
 ### Creating an Azure Functions App Using Azure Portal
 
