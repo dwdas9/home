@@ -11,7 +11,7 @@ In this section, I'll share articles that may prove valuable for your daily task
 - [Misc Articles](#misc-articles)
   - [Table of Contents](#table-of-contents)
   - [Setting Up Azure Databricks](#setting-up-azure-databricks)
-  - [Setting Up Standalone Spark in Docker to Connect with Azure Data Lake](#setting-up-standalone-spark-in-docker-to-connect-with-azure-data-lake)
+  - [A Step-by-Step Guide to Connect Standalone Spark with Azure Data Lake](#a-step-by-step-guide-to-connect-standalone-spark-with-azure-data-lake)
   - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
   - [Setting up a Dockerized Spark Environment on Ubuntu for Windows](#setting-up-a-dockerized-spark-environment-on-ubuntu-for-windows)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
@@ -27,26 +27,20 @@ In this article, I will walk you through the steps to set up your Azure Databric
 
 ---
 
-## Setting Up Standalone Spark in Docker to Connect with Azure Data Lake 
+## A Step-by-Step Guide to Connect Standalone Spark with Azure Data Lake
 
-While Azure Databricks effortlessly links with ADLS thanks to shared Azure Directory infrastructure, standalone Spark setups demand meticulous JAR dependencies management in the site-packages directory. This guide walks you through connecting ADLS from standalone Spark in a Docker container and demonstrates connecting Visual Studio Code to the Docker instance to run PySpark.
-
-[Read more...](articles/Misc/Spark_To_ADLS/spark_to_ADLS.html)
+While Azure Databricks effortlessly links with ADLS thanks to shared Azure Directory infrastructure, standalone Spark setups demand meticulous JAR dependencies management in the site-packages directory. This guide walks you through connecting ADLS from standalone Spark in a Docker container and demonstrates connecting Visual Studio Code to the Docker instance to run PySpark. [Read more...](articles/Misc/Spark_To_ADLS/spark_to_ADLS.html)
 
 ---
 ## Python dummy data inserter into SQL Server
 
-This article provides a step-by-step guide on using a Python script to populate the `dbo.student` table in a SQL Server database with random data. This method is useful for testing and simulation purposes. We'll cover how to set up the script, how it functions, and how to run it to achieve the desired results.
-
-[Read more...](articles/Misc/Dummy_data/dummy-data-inserter.html)
+This article provides a step-by-step guide on using a Python script to populate the `dbo.student` table in a SQL Server database with random data. This method is useful for testing and simulation purposes. We'll cover how to set up the script, how it functions, and how to run it to achieve the desired results. [Read more...](articles/Misc/Dummy_data/dummy-data-inserter.html)
 
 ---
 
 ## Setting up a Dockerized Spark Environment on Ubuntu for Windows
 
-In this guide, I'll demonstrate how to create an Ubuntu Docker image fine-tuned for Python and Spark. We'll see how to connect the environment to Visual Studio Code using the Dev Containers extension. This VS extension allows you to work within a containerized environment seamlessly, offering the impression that all processes are running natively on your local machine. Ubuntu was selected as the base image due to its renowned stability, comprehensive apt-get system for handling packages, and flexibility in managing system-level packages or mimicking production setups. We considered other options like Python-focused images (e.g.,  python:3.9-slim,), Alpine Linux for its minimalism and security, and Debian which parallels Ubuntu's benefits but lacks some commercial features.
-
-[Read more...](link_to_article3.html)
+In this guide, I'll demonstrate how to create an Ubuntu Docker image fine-tuned for Python and Spark. We'll see how to connect the environment to Visual Studio Code using the Dev Containers extension. This VS extension allows you to work within a containerized environment seamlessly, offering the impression that all processes are running natively on your local machine. Ubuntu was selected as the base image due to its renowned stability, comprehensive apt-get system for handling packages, and flexibility in managing system-level packages or mimicking production setups. We considered other options like Python-focused images (e.g.,  python:3.9-slim,), Alpine Linux for its minimalism and security, and Debian which parallels Ubuntu's benefits but lacks some commercial features. [Read more...](link_to_article3.html)
 
 ---
 ## Install Spark/Pyspark in the Anaconda Ecosystem
