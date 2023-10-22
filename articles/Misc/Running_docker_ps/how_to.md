@@ -1,10 +1,19 @@
-
 ---
-### **Troubleshooting `docker ps` on Your Machine: A Simple Guide**
+layout: default
+title: Troubleshooting docker ps on Your Machine
+nav_exclude: true
+---
+
+## Table of contents
+- [Overview](#overview)
+    - [For Our Windows Users:](#for-our-windows-users)
+    - [For Our Mac Users:](#for-our-mac-users)
+
+
+# Overview
 
 Hey team, Docker is a fantastic tool, but like all tools, sometimes it needs a bit of tweaking to get things right. If you've found that you can't execute `docker ps` despite having Docker installed, this guide is for you. Let's get you sorted!
 
----
 
 ### For Our Windows Users:
 
@@ -28,7 +37,7 @@ Hey team, Docker is a fantastic tool, but like all tools, sometimes it needs a b
 4. **Check** if its running now. Just open command prompt and run `docker ps`. You should get some output. For example:
 
 ![Alt text](image.png)
----
+
 
 ### For Our Mac Users:
 
@@ -48,4 +57,4 @@ Hey team, Docker is a fantastic tool, but like all tools, sometimes it needs a b
 4. **Final Check:** 
    - Close and reopen your terminal, then try `docker ps`. If all's well, it should work!
 
-There you have it. With a few tweaks, you should be back in the Docker game! If you're still facing issues, don't hesitate to reach out to me at das.d@hotmail.com
+If you wish to reach out, please email me at <a href="mailto:das.d@hotmail.com">das.d@hotmail.com</a>. Thanks!
