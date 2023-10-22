@@ -11,7 +11,6 @@ nav_order: 2
   - [A Step-by-Step Guide to work with Azure Data Lake Containers using Standalone Spark](#a-step-by-step-guide-to-work-with-azure-data-lake-containers-using-standalone-spark)
   - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
-  - [Read more...](#read-more)
   - [Setting up a Dockerized Spark Environment on Ubuntu for Windows](#setting-up-a-dockerized-spark-environment-on-ubuntu-for-windows)
   - [Managing Python in System PATH Using PowerShell](#managing-python-in-system-path-using-powershell)
   - [Unable to run `docker ps` despite having docker installed?](#unable-to-run-docker-ps-despite-having-docker-installed)
@@ -48,6 +47,7 @@ This article provides a step-by-step guide on using a Python script to populate 
 In this article, we'll provide a step-by-step guide to set up Spark/PySpark in the Anaconda ecosystem. We'll start with the installation of Anaconda based on your operating system. Then, we'll incorporate Java using Conda. Following that, we'll install PySpark and the `findspark` library, ensuring smooth integration with Jupyter. A crucial part of our guide focuses on setting environment variables. Specifically, we'll detail the process of configuring `JAVA_HOME` and `SPARK_HOME` variables and adding Java and PySpark to the system's PATH on a standard Windows setup. By the end of this guide, you'll be fully prepared to launch Jupyter Lab with PySpark, having all necessary configurations in place. 
 
 [Read more...](link_to_article3.html)
+
 ---
 
 ## Setting up a Dockerized Spark Environment on Ubuntu for Windows
