@@ -7,9 +7,7 @@ nav_order: 2
 ## Table of Contents
 - [Overview](#overview)
   - [Setting Up Azure Databricks](#setting-up-azure-databricks)
-  - [In this article, I will walk you through the steps to set up your Azure Databricks workspace, create clusters, and begin working with notebooks.Read more...](#in-this-article-i-will-walk-you-through-the-steps-to-set-up-your-azure-databricks-workspace-create-clusters-and-begin-working-with-notebooksread-more)
   - [A Step-by-Step Guide to Connect Standalone Spark with Azure Data Lake](#a-step-by-step-guide-to-connect-standalone-spark-with-azure-data-lake)
-  - [While Azure Databricks effortlessly links with ADLS thanks to shared Azure Directory infrastructure, standalone Spark setups demand meticulous JAR dependencies management in the site-packages directory. This guide walks you through connecting ADLS from standalone Spark in a Docker container and demonstrates connecting Visual Studio Code to the Docker instance to run PySpark. Read more...](#while-azure-databricks-effortlessly-links-with-adls-thanks-to-shared-azure-directory-infrastructure-standalone-spark-setups-demand-meticulous-jar-dependencies-management-in-the-site-packages-directory-this-guide-walks-you-through-connecting-adls-from-standalone-spark-in-a-docker-container-and-demonstrates-connecting-visual-studio-code-to-the-docker-instance-to-run-pyspark-read-more)
   - [A Step-by-Step Guide to work with Azure Data Lake Containers using Standalone Spark](#a-step-by-step-guide-to-work-with-azure-data-lake-containers-using-standalone-spark)
   - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
@@ -26,11 +24,13 @@ In this section, I'll share articles that may prove valuable for your daily task
 ## Setting Up Azure Databricks
 
 In this article, I will walk you through the steps to set up your Azure Databricks workspace, create clusters, and begin working with notebooks.[Read more...](articles/AzureDE/dbrk_setup/1_Setup-Azure-Databricks.html)
+
 ---
 
 ## A Step-by-Step Guide to Connect Standalone Spark with Azure Data Lake
 
 While Azure Databricks effortlessly links with ADLS thanks to shared Azure Directory infrastructure, standalone Spark setups demand meticulous JAR dependencies management in the site-packages directory. This guide walks you through connecting ADLS from standalone Spark in a Docker container and demonstrates connecting Visual Studio Code to the Docker instance to run PySpark. [Read more...](articles/Misc/Spark_To_ADLS/Part1-spark_to_ADLS.html)
+
 ---
 
 ## A Step-by-Step Guide to work with Azure Data Lake Containers using Standalone Spark
