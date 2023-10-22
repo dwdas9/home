@@ -14,7 +14,6 @@ nav_exclude: true
         - [Download the jars by running this command from terminal:](#download-the-jars-by-running-this-command-from-terminal)
         - [Copy the jars to the SPARK\_HOME/Jars location](#copy-the-jars-to-the-spark_homejars-location)
       - [Run the Spark Code](#run-the-spark-code)
-    - [Output](#output)
     - [Conclusion](#conclusion)
     - [Appendix](#appendix)
       - [Programmatic options for Creating Containers, Sorting Files etc:](#programmatic-options-for-creating-containers-sorting-files-etc)
@@ -154,16 +153,6 @@ print("Files rearranged successfully for the subset!")
 #---------Code to perform the sorting----------------------------------------------------
 
 ```
-### Output
-
-**Before:**
-
-![Alt text](image-1.png)
-
-**After:**
-
-![Alt text](image.png)
-
 ### Conclusion
 
 There are many ways to organize files in a container, like using ADF, Databricks, or Logic Apps. But this way is good too because it's free, unlike some pretty-expensive options like Databricks. I shared this article to let us know there's another option out there. It shows how we perform such operation on Azure DataLake from an outside standalone application.

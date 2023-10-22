@@ -69,3 +69,6 @@ Hey there! 🌟 So, you've got Docker installed but running simple commands like
 [Read more...](articles/Misc/Running_docker_ps/how_to.html)
 
 ---
+
+© D Das  
+📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)

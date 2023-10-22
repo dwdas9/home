@@ -167,3 +167,7 @@ We've wrapped up the main coding. Now, just add `azure-storage-blob` to `require
 ### Deployment and rest of the steps
 
 The next steps are like Part 1A. Check there for more details.
+
+---
+© D Das  
+📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)
