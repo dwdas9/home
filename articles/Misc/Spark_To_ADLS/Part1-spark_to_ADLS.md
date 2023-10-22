@@ -5,7 +5,7 @@ nav_exclude: true
 ---
 
 ## Table of contents
-- [Project Sparkzure - Connecting Local Spark to Azure Data Lake](#project-sparkzure---connecting-local-spark-to-azure-data-lake)
+- [Project Sparkzure Part1 - Connecting Local Spark to Azure Data Lake](#project-sparkzure-part1---connecting-local-spark-to-azure-data-lake)
   - [Overview](#overview)
   - [Kickstart: Integrating Spark with Azure Data Lake](#kickstart-integrating-spark-with-azure-data-lake)
     - [Create the containerized setup](#create-the-containerized-setup)
@@ -19,9 +19,12 @@ nav_exclude: true
     - [Access data in ADLS container using Storage Account's Access Key Method](#access-data-in-adls-container-using-storage-accounts-access-key-method)
   - [Common Errors](#common-errors)
     - [AuthorizationPermissionMismatch During OAuth Authenticaiton](#authorizationpermissionmismatch-during-oauth-authenticaiton)
+  - [Appendix](#appendix)
+    - [Why Does Spark Rely on Hadoop Libraries to Access Azure Data Lake Storage (ADLS)?](#why-does-spark-rely-on-hadoop-libraries-to-access-azure-data-lake-storage-adls)
+    - [Understanding Essential JARs for Azure Data Lake Operations with Spark](#understanding-essential-jars-for-azure-data-lake-operations-with-spark)
 
 ---
-# Project Sparkzure - Connecting Local Spark to Azure Data Lake
+# Project Sparkzure Part1 - Connecting Local Spark to Azure Data Lake
 
 ## Overview
 
@@ -31,9 +34,9 @@ Azure Databricks to Azure Data Lake is easy and straightforward. All the requied
 
 ### Create the containerized setup
 
-Our environment is set up inside a Docker container running Ubuntu on a Windows OS host. Within this container, Python 3 and PySpark are installed. But the steps can be used in local environments as well.
+Our environment is set up inside a Docker container running Ubuntu on a Windows OS host. Within this container, Python 3 and Spark are installed. But the steps can be used in local environments as well.
 
-- **Check the python version in the container**
+- **Check the python version in the container and find out site-packages directory**
    - Often, systems have both Python 2.x and Python 3.x installed. Use the following commands to determine which versions are available:
      ```bash
      python --version
@@ -41,23 +44,7 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
      ```
     ![Alt text](image-12.png)
 
-- **Install `wget`**
-   - `wget` is a tool for downloading files from the internet. If you don’t have it in your environment you can get it using the given command:
-     ```bash
-     apt-get update && apt-get install -y wget
-     ```
-
--  **Download ADLS-related JARs**
-   - For PySpark to connect with Azure Data Lake Storage (ADLS), specific Hadoop-based JAR files are needed. In the container, navigate to a preferred directory, like the home directory, and download the required JARs using `wget`:
-     ```bash
-     cd ~
-     wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure/3.3.3/hadoop-azure-3.3.3.jar
-     wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure-datalake/3.3.3/hadoop-azure-datalake-3.3.3.jar
-     wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/3.3.3/hadoop-common-3.3.3.jar
-     ```
-
-- **Locate Active PySpark Installation and Python's `site-packages` Directory**
-   - Determine where PySpark is installed using `pip`. Your enviornment may have multiple python installation especially if its linux or in a docker. You need to find the right `site-packages` directory so that the packages are copied to right location. To find out run this command in docker terminal or normal command prompt: 
+  - Determine where PySpark is installed using `pip`. Your enviornment may have multiple python installation especially if its linux or in a docker. You need to find the right `site-packages` directory so that the packages are copied to right location. To find out run this command in docker terminal or normal command prompt: 
   
      ```bash
      pip3 show pyspark | grep Location
@@ -67,21 +54,42 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
      python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"
      ```
    ![Alt text](image-13.png)
+    
 
--  **Copy the JAR Files to `pyspark/jars`**
-   - Now, navigate to the directory where you downloaded the JAR files and copy them to the PySpark directory:
+- **Install `wget`**
+   - `wget` is a tool for downloading files from the internet. If you don’t have it in your environment you can get it using the given command:
      ```bash
-     cd ~  # As we downloaded the JARs in the home directory
+     apt-get update && apt-get install -y wget
+     ```
+
+-  **Download ADLS-related JARs and copy to SPARK_HOME/jars folder**
+  
+   - Run the following command in terminal to download the hadoop jars for Spark-ADLS connection:
+    
+    > The command will download the jars to your home directory
+    
+     ```bash
+    cd ~
+    wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure/3.3.3/hadoop-azure-3.3.3.jar
+    wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure-datalake/3.3.3/hadoop-azure-datalake-3.3.3.jar
+    wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/3.3.3/hadoop-common-3.3.3.jar
+    wget https://repo1.maven.org/maven2/com/microsoft/azure/azure-storage/8.6.6/azure-storage-8.6.6.jar
+    wget https://repo1.maven.org/maven2/com/azure/azure-security-keyvault-secrets/4.3.0/azure-security-keyvault-secrets-4.3.0.jar
+    wget https://repo1.maven.org/maven2/com/azure/azure-identity/1.3.0/azure-identity-1.3.0.jar
+    ```
+    > After downloading run the command below to copy the jars to SPARK_HOME/jars folder
+    > Note: Just the first three jars are sufficient for most operations. I included the other jars for potential future functionalities. 
+
+     ```bash
      cp *.jar /usr/local/lib/python3.8/dist-packages/pyspark/jars/
      ```
-     
--  **Verify the JAR Copy**
-   - Ensure the JARs have been copied correctly:
+    > Also, check if the files are copied correctly or not
+
      ```bash
      ls /usr/local/lib/python3.8/dist-packages/pyspark/jars/ | grep ".jar"
      ```
-   ![Alt text](image-14.png)
-
+     Note: The jar versions might change. Check the latest and update the url.
+    
 ### Register an App for OAuth Authentication
 
 If you want to access a file(say CSV) in **Azure** through **OAuth** authentication, you need to create an **App registration** and grant this app permission to the CSV. This registered App's identity is used by **Spark** to authenticate. The same principle applies in **Databricks**, where an app is already created, named **AzureDatabricks**. Follow the steps below to register the app and give it permission to the file.
@@ -227,9 +235,66 @@ While executing the code you may encounter errors like:
 ```
 AuthorizationPermissionMismatch, "This request is not authorized to perform this operation using this permission."
 ```
+or
+
+```
+java.nio.file.AccessDeniedException: Operation failed: "This request is not authorized to perform this operation using this permission.", 403, HEAD, https://strgacweatherapp.dfs.core.windows.net/weather-timer/2023-10-19-09.json?upn=false&action=getStatus&timeout=90
+	at org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem.checkException(AzureBlobFileSystem.java:1384)
+```
+
 ![Alt text](image-11.png)
 
-This happens when you are not using the Registered application correctly for oAuth or if the registered app hasn't been given right role to the container.
+OAuth uses a registered apps identity to connect. This app should have permission to the folder where the file resides.
+
+![Alt text](image-25.png)
+
+## Appendix
+
+### Why Does Spark Rely on Hadoop Libraries to Access Azure Data Lake Storage (ADLS)?
+
+Apache Spark is used for distributed data processing. But for data storage it relies on other systems like ADLS, S3 etc. But why, when connecting Spark to ADLS, do we bring Hadoop into the picture? Let’s find out.
+
+**Spark's Core Functionality:**
+Spark is designed to process data, not to understand the intricacies of every storage system. It can pull data from various sources, but it doesn't always have native integrations for each one.
+
+**Hadoop's Role:**
+Hadoop, primarily known for its distributed file system (HDFS), also **offers connectors to diverse storage systems**. Over time, it has become the standard bridge between storage solutions and big data tools.
+
+**ADLS and Hadoop Integration:**
+When Microsoft developed ADLS, they provided a connector to the Hadoop FileSystem API. This approach made sense. Why reinvent the wheel when big data tools already communicate efficiently with HDFS via Hadoop's API?
+
+**Conclusion**
+
+HSpark uses Hadoop libraries to access ADLS due to the standardized and robust nature of the Hadoop FileSystem API. Microsoft integrated ADLS with this Hadoop API to ensure that ADLS would be compatible with a broad range of big data tools, such as Spark and Hive. This decision was to use the extensive community support of the Hadoop ecosystem and also allowed Microsoft to reuse what was already working In essence, the Hadoop API serves as a bridge between Spark and ADLS.
+
+**Long story short**: In a standalone Spark setup, we use specific Hadoop JARs solely for connecting to ADLS. It's important to note that these are just JARs and don't represent the entirety of the vast Hadoop ecosystem. 
+
+
+### Understanding Essential JARs for Azure Data Lake Operations with Spark
+
+1. **hadoop-azure-3.3.3.jar**:
+   - **Description**: This library provides support for Azure Blob Storage integration with Hadoop. It contains the `WASB` (Windows Azure Storage Blob) file system connector.
+   - **Use-Cases**: Reading/writing data from/to Azure Blob Storage (often ADLS Gen1) using Hadoop's FileSystem API.
+
+2. **hadoop-azure-datalake-3.3.3.jar**:
+   - **Description**: This is the Data Lake connector for Hadoop, providing support for ADLS Gen1.
+   - **Use-Cases**: If you're working with ADLS Gen1, this JAR lets Spark access the data lake using the Hadoop FileSystem API.
+
+3. **hadoop-common-3.3.3.jar**:
+   - **Description**: The core library for Hadoop, it contains common utilities and the Hadoop FileSystem API.
+   - **Use-Cases**: Fundamental for almost all Hadoop-related operations. It's the foundational library upon which other Hadoop components rely.
+
+4. **azure-storage-8.6.6.jar**:
+   - **Description**: Azure's storage SDK, facilitating interaction with Azure Storage services like Blob, Queue, and Table.
+   - **Use-Cases**: Interacting with Azure Blob Storage (and by extension, ADLS Gen2 which is built on Blob). It's essential for Spark to communicate and access Azure storage services.
+
+5. **azure-security-keyvault-secrets-4.3.0.jar**:
+   - **Description**: Provides capabilities to interact with Azure Key Vault's secrets. It facilitates fetching, setting, or managing secrets.
+   - **Use-Cases**: Whenever you need to securely access or manage secrets (like storage account keys or database connection strings) stored in Azure Key Vault from your Spark application.
+
+6. **azure-identity-1.3.0.jar**:
+   - **Description**: Azure SDK's identity library, providing various credentials classes for Azure Active Directory (AAD) token authentication.
+   - **Use-Cases**: Authenticating against Azure services using AAD-based credentials, especially when trying to securely access resources like Key Vault or ADLS Gen2.
 
 ---
 
