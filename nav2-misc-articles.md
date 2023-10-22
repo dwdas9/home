@@ -16,7 +16,7 @@ In this section, I'll share articles that may prove valuable for your daily task
   - [Setting up a Dockerized Spark Environment on Ubuntu for Windows](#setting-up-a-dockerized-spark-environment-on-ubuntu-for-windows)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
   - [Managing Python in System PATH Using PowerShell](#managing-python-in-system-path-using-powershell)
-  - [Unable to run docker ps despite having docker installed?](#unable-to-run-docker-ps-despite-having-docker-installed)
+  - [Unable to run `docker ps` despite having docker installed?](#unable-to-run-docker-ps-despite-having-docker-installed)
 
 ---
 ## Setting Up Azure Databricks
@@ -58,10 +58,10 @@ When working with Python on Windows, ensuring it's accessible from any terminal 
 [Read more...](link_to_article3.html)
 
 ---
-## Unable to run docker ps despite having docker installed?
+## Unable to run `docker ps` despite having docker installed?
 
 Hey there! 🌟 So, you've got Docker installed but running simple commands like `docker ps` is giving you a headache? No worries! It's likely just a path issue. Let's walk through a quick fix together and get you back on track. Ready? Let's dive in! 🚀
 
-[Read more...](link_to_article3.html)
+[Read more...](articles/Misc/Running_docker_ps/how_to.html)
 
 ---
