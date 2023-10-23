@@ -118,9 +118,9 @@ Given these advantages, if you're considering a transition to Parquet or another
 
 #### Complete tested code
 
-If you want to test the complete code together here is it:
+If you want to test the complete code together here is it. Remember, place your original ids, secret in the placeholder. Also, its not a good practice to use creds like this they shoudl be stored in vaults. But for focussing on the core functionality and to reduce the number of code I used the ids and passwords right in the code.
 
-```Python
+```python
 # Import necessary libraries
 from azure.identity import ClientSecretCredential
 from azure.storage.blob import BlobServiceClient
