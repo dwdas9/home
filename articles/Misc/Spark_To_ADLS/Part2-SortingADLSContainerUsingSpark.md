@@ -70,12 +70,12 @@ wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/3.3.3/hadoop
 
 This is the code for performing the sorting. It checks if there are containers. If not, it makes them. Before you run the code, make sure you replace placeholders like `<YOUR_STORAGE_ACT_NAME>`, `<YOUR_REG_APP_CLIENT_ID>`, `<YOUR_REG_APP_TENANT_ID>`, `<YOUR_REG_APP_CLIENT_SECRET>`, `<YOUR_CONTAINER_NAME>`, and paths to JAR files with the actual values.. Also, update any other settings to match your system.
 
-```Python
+```python
 
 # Importing the necessary module for SparkSession from the PySpark library.
 from pyspark.sql import SparkSession
 
-#Note: The location of jars is where we copied them after downloadign with wget
+#Note: The location of jars is where we copied them after downloadign with wget. Just 3 jars.
 spark = SparkSession.builder \
     .appName("ADLS Access") \
     .config("spark.jars", 
@@ -85,7 +85,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 
-# Configuring PySpark for Azure Data Lake Storage (ADLS) Authentication using OAuth
+# Configuring PySpark for Azure Data Lake Storage (ADLS) Authentication using OAuth and Service Principal
 # Credentials and configurations
 storage_account_name = "<YOUR_STORAGE_ACT_NAME>"
 regapp_client_id = "<YOUR_REG_APP_CLIENT_ID>" # Application (client) ID of the registered app
