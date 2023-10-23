@@ -9,6 +9,7 @@ nav_order: 2
   - [Setting Up Azure Databricks](#setting-up-azure-databricks)
   - [A Step-by-Step Guide to Connect Standalone Spark with Azure Data Lake](#a-step-by-step-guide-to-connect-standalone-spark-with-azure-data-lake)
   - [A Step-by-Step Guide to work with Azure Data Lake Containers using Standalone Spark](#a-step-by-step-guide-to-work-with-azure-data-lake-containers-using-standalone-spark)
+  - [How to use a simple local Python code to rearrange Azure Blob storage files into a hierarchical structure](#how-to-use-a-simple-local-python-code-to-rearrange-azure-blob-storage-files-into-a-hierarchical-structure)
   - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
   - [Setting up a Dockerized Spark Environment on Ubuntu for Windows](#setting-up-a-dockerized-spark-environment-on-ubuntu-for-windows)
@@ -37,6 +38,13 @@ While Azure Databricks effortlessly links with ADLS thanks to shared Azure Direc
 In this article, we'll see how to sort files in an Azure Data Lake Container by using a Standalone Spark application. You could use Azure Data Factory, Databricks, or Azure Logic Apps, but this method stands out. It's an alternative and often much cheaper than the other mentioned Azure services. This is a real-world requirement; having a structure like this can make partition pruning more efficient during query time, especially if you're using a system like Apache Hive or Delta Lake. [Read more...](articles/Misc/Spark_To_ADLS/Part2-SortingADLSContainerUsingSpark.html)
 
 ---
+
+## How to use a simple local Python code to rearrange Azure Blob storage files into a hierarchical structure
+
+I the previous article I showed you how to sort files using Spark and HDFS Jars. Here I will show you how using just straightforward python method in a local setup we can achieve teh same output, i.e, sort the files inside our Azure blob container. This is a real-world-scenario and such well-partioned structures are required for analysis and Migration. [Read more...](articles/Misc/SortAzureBlobFilesUsingLocalPython/LocalPython_AzureBlob.html)
+
+---
+
 ## Python dummy data inserter into SQL Server
 
 This article provides a step-by-step guide on using a Python script to populate the `dbo.student` table in a SQL Server database with random data. This method is useful for testing and simulation purposes. We'll cover how to set up the script, how it functions, and how to run it to achieve the desired results. [Read more...](articles/Misc/Dummy_data/dummy-data-inserter.html)
