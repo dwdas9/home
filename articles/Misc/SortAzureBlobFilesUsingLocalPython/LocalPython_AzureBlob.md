@@ -91,7 +91,7 @@ Our primary goal is to rearrange files stored in my container named like `2023-1
    Azure Blob Storage doesn't have real directories. Instead, using `/` in blob names can emulate directory structures. By copying a blob to a new path with `/`, we can recreate a folder-like structure.
 
 6. **Error Handling**:
-   It's essential to manage errors. I ran into an `InvalidUri` error when attempting to create a directory-like structure. I tackled this by directly copying the blob to the desired path, which handled the pathing effectively.
+   It's essential to manage errors. I ran into an `InvalidUri` error when attempting to create a directory-like structure  using 0-byte blobs. I tackled this by directly copying the blob to the desired path, which handled the pathing effectively.
 
 ### Conclusion
 Shifting files in Azure Blob Storage can initially appear challenging, mainly due to its flat structure. Nevertheless, with the Azure SDK for Python and the correct strategy, restructuring blobs becomes feasible. Always remember to rigorously test your approach in a non-production environment before applying it to vital data.

@@ -30,6 +30,8 @@ In Part 1A, I talked about making an HTTP-Triggered Azure function and using Azu
 ---
 ## Project AzureSkyWeather. Part 2: Sorting the JSON files based on Timestamp for partition pruning
 
+Note: Apart from the method shown here, you can also achieve the same using just local Python. Have a look at this section: [Link to the section](articles/Misc/SortAzureBlobFilesUsingLocalPython/LocalPython_AzureBlob.html)
+
 In this article, we'll see how to sort files in an Azure Data Lake Container by using a Standalone Spark application. You could use Azure Data Factory, Databricks, or Azure Logic Apps, but this method stands out. It's an alternative and often much cheaper than the other mentioned Azure services. This is a real-world requirement; having a structure like this can make partition pruning more efficient during query time, especially if you're using a system like Apache Hive or Delta Lake.[Read more...](articles/Misc/Spark_To_ADLS/Part2-SortingADLSContainerUsingSpark.html)
 
 ---
