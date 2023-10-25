@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Azure Functions Quickstart
-nav_order: 4
+nav_order: 1
 ---
 
 ## Table of Contents
@@ -322,3 +322,5 @@ Here is a detail of all the files and folders present in a VS Azure Functions Wo
 </table>
 -->
 
+© D Das  
+📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)

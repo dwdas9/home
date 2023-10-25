@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Project AzureSkyWeather
-nav_order: 1
+nav_order: 3
 ---
 ## Table of contents
 - [Overview](#overview)
