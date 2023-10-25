@@ -5,10 +5,10 @@ nav_order: 3
 ---
 ## Table of contents
 - [Overview](#overview)
-  - [Project AzureSkyWeather. Step1A: Data ingestion using Azure HTTP-Triggered Function And Azure Logic Apps](#project-azureskyweather-step1a-data-ingestion-using-azure-http-triggered-function-and-azure-logic-apps)
-  - [Project AzureSkyWeather. Step1B: Data ingestion using Just Azure Timer-Triggered Function](#project-azureskyweather-step1b-data-ingestion-using-just-azure-timer-triggered-function)
-  - [Project AzureSkyWeather. Step2A: Organize the weather files by timestamp using Plain Python](#project-azureskyweather-step2a-organize-the-weather-files-by-timestamp-using-plain-python)
-  - [Project AzureSkyWeather. Step2B: Organize the weather files by timestamp using Spark and Hadoop](#project-azureskyweather-step2b-organize-the-weather-files-by-timestamp-using-spark-and-hadoop)
+  - [Step 1A: Data ingestion using Azure HTTP-Triggered Function And Azure Logic Apps](#step-1a-data-ingestion-using-azure-http-triggered-function-and-azure-logic-apps)
+  - [Step 1B: Data ingestion using Just Azure Timer-Triggered Function](#step-1b-data-ingestion-using-just-azure-timer-triggered-function)
+  - [Step 2A: Organize the weather files by timestamp using Plain Python](#step-2a-organize-the-weather-files-by-timestamp-using-plain-python)
+  - [Step 2B: Organize the weather files by timestamp using Spark and Hadoop](#step-2b-organize-the-weather-files-by-timestamp-using-spark-and-hadoop)
 
 
 # Overview
@@ -33,25 +33,25 @@ nav_order: 3
 
 **Thought Behind This:** Nowadays, many professionals prefer tools like Azure Data Factory, Azure Databricks, and Azure Synapse Analytics because of their all-in-one solutions. But, through this project, my idea is to show alternate methods. By understanding various alternatives, will strengthen your knowledge of data in the microsoft domain. Also knowing many methods will make you more confident in your choce of products.
 
-## Project AzureSkyWeather. Step1A: Data ingestion using Azure HTTP-Triggered Function And Azure Logic Apps
+## Step 1A: Data ingestion using Azure HTTP-Triggered Function And Azure Logic Apps
 
 This is the first step of our project, focusing on data ingestion. In this segment, I'll show how we can fetch data from an API using an HTTP-triggered Azure Function, developed via VS Code. To schedule our function, we'll make use of Azure Logic Apps. By the end of this section, you'll have a comprehensive understanding of creating Azure functions. [Read more...](articles/AzureFunctions/AzureSkyWeather/HttpTriggered/Project_Details_HTTPTriggered.html)
 
 ---
 
-## Project AzureSkyWeather. Step1B: Data ingestion using Just Azure Timer-Triggered Function
+## Step 1B: Data ingestion using Just Azure Timer-Triggered Function
 
 Now, I'll show a different way. We'll use a Timer-Triggered Azure function that already has a built-in timer. This is another option. Choosing the best way can depend on things like cost. Azure Logic Apps can cost more than Timer-Triggered functions. I've kept this article short because many steps for both functions are the same. [Read more...](articles/AzureFunctions/AzureSkyWeather/TimerTriggered/Project_Details_TimerTriggered.html)
 
 ---
 
-## Project AzureSkyWeather. Step2A: Organize the weather files by timestamp using Plain Python
+## Step 2A: Organize the weather files by timestamp using Plain Python
 
 Here, I will show you how can can organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using just Plain python. The code we will create can be easily incoporated into a Timer-trigger Azure function. That way we can schedule it to sort our files at a definite time. [Read more...](articles/Misc/SortAzureBlobFilesUsingLocalPython/LocalPython_AzureBlob.html)
 
 ---
 
-## Project AzureSkyWeather. Step2B: Organize the weather files by timestamp using Spark and Hadoop
+## Step 2B: Organize the weather files by timestamp using Spark and Hadoop
 
 Now, I will show you how do the same using Standalone Spark and Hadoop Jars. This will give you a good idea about connecting using Spark with Hadoop Jars to work with Azure blob storage[Read more...](articles/Misc/Spark_To_ADLS/Part2-SortingADLSContainerUsingSpark.html)
 
