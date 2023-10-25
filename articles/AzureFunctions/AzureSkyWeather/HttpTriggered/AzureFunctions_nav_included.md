@@ -19,6 +19,9 @@ nav_order: 1
       - [Monitor the function post deployment](#monitor-the-function-post-deployment)
   - [Appendix](#appendix)
     - [Key takeways](#key-takeways)
+    - [When to choose Azure Functions](#when-to-choose-azure-functions)
+      - [Advantages:](#advantages)
+      - [Challenges:](#challenges)
     - [Azure Functions: V2 Python Programming Model Vs V1](#azure-functions-v2-python-programming-model-vs-v1)
     - [The folder structure of Azure Functions(V2)](#the-folder-structure-of-azure-functionsv2)
     - [What is this Azurite](#what-is-this-azurite)
@@ -33,7 +36,7 @@ nav_order: 1
 
 # Overview
 
-Here, we'll learn quickly about Azure Functions. It's a cloud service by Azure where you can run pieces of code without the need for an entire application. We'll start by setting up our workspace in Visual Studio Code and equipping it with essential extensions. Then, we'll test our function. After debugging, we'll deploy it to Azure. Following that, we'll monitor its performance. If you want to know more, I've placed some essential information in the appendix section.
+Here, we'll learn quickly about Azure Functions. It's a cloud service by Azure where you can run pieces of code without worry about server and hosting. We'll start by setting up our workspace in VS Code and adding it with essential extensions. Then, we'll test our function. After debugging, we'll deploy it to Azure. Then, we'll monitor its performance. If you want to know more, I've put some essential info in the appendix section.
 
 ## Azure Functions Quickstart - Create, Debug, Deploy, Monitor
 
@@ -147,9 +150,31 @@ Note: This will overwrite ANY function present in the Azure Func app.
 - Azure functions can be developed using Python V2 Programming model, which uses decorators, lesser files, less-complex folder structure and a function_app.py
 - HTTP-triggered functions and Timer-triggered functions are common in Function apps. Timer-triggered function have in-built trigger mechanism.
 
+### When to choose Azure Functions
+
+Imagine you're thinking of using Azure Functions to convert JSON files to Parquet. Should you just use simple Python code in Azure Functions or go for Databricks? Here are some advantages and challenges of Azure Functions to help you decide:
+
+#### Advantages:
+
+- **Auto-scaling**: The function can scale up and down. This means you don't have to worry about resources if the workload increases, and you don't have to be concerned about costs if it decreases.
+- **Pay-as-long-as-you-use**: You only pay for the actual time your code runs, making it very cost-efficient.
+- **Triggers:** It offers numerous event triggers and has a built-in timer for automatic scheduling.
+- **Serverless**:  There's no need to fret about server infrastructure. Just focus on writing the correct code.
+- **The V2 programming model** makes it easier and to create Azure functions. See section below.
+
+
+#### Challenges:
+- **Time Limit:** There's a limit to how long Azure Functions can run. If you have a big file or slow processing, it might not finish in time.
+   
+- **Not for Heavy Work:** Azure Functions is good for small tasks. If you're doing a lot of heavy calculations or have very big files, it might not be the best choice.
+   
+- **Slow Start:** If your function is not used for a while and then suddenly starts, it might take a bit more time to begin, which can delay your processing.
+
+For tasks that involve heavy data manipulation, transformation, and analysis, Databricks often becomes a preferred choice due to its scale-out architecture, optimized data processing capabilities, advanced dataframe support, built-in data cleansing tools, integrated machine learning libraries, and robust resource management. In contrast, for simpler tasks like just converting files, and when the data volume isn't immense, Azure Functions can offer a speedy and cost-effective approach.
+
 ### Azure Functions: V2 Python Programming Model Vs V1
 
-The V2 programming model for Python, gives more Python-centric development experience for Azure Functions.
+The V2 programming model for Python, gives more Python-centric development experience for Azure Functions. Here are some key points about the V2 model:
 
 - Need fewer files for a function app, so you can have many functions in one file.
 - Decorators are used instead of the `function.json` file for triggers and things.
@@ -157,8 +182,6 @@ The V2 programming model for Python, gives more Python-centric development exper
 - With blueprints, functions aren't directly indexed. They need to be registered first.
 - All functions go in one `function_app.py` file, no need for many folders.
 - No need for the `function.json` file now. Decorators in the `function_app.py` file do the job.
-
-
 
 ### The folder structure of Azure Functions(V2)
 
