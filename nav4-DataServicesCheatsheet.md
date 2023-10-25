@@ -7,13 +7,13 @@ nav_order: 5
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-  - [**Azure Storage \& Data Services Cheatsheet**](#azure-storage--data-services-cheatsheet)
+  - [**Azure Storage And Data Services Cheatsheet**](#azure-storage-and-data-services-cheatsheet)
     - [**Storage Services**](#storage-services)
-    - [**Data \& Analytics Services**](#data--analytics-services)
+    - [**Data And Analytics Services**](#data-and-analytics-services)
 
 ---
 
-### **Azure Storage & Data Services Cheatsheet**
+### **Azure Storage And Data Services Cheatsheet**
 
 
 #### **Storage Services**
@@ -33,7 +33,7 @@ nav_order: 5
 
 ---
 
-#### **Data & Analytics Services**
+#### **Data And Analytics Services**
 
 | Azure Product | AWS Equivalent | GCP Equivalent | Underlying Components |
 |---|---|---|---|
