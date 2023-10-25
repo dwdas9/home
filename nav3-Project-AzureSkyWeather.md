@@ -37,19 +37,18 @@ nav_order: 3
 
 This is the first step of our project, focusing on data ingestion. In this segment, I'll show how we can fetch data from an API using an HTTP-triggered Azure Function, developed via VS Code. To schedule our function, we'll make use of Azure Logic Apps. By the end of this section, you'll have a comprehensive understanding of creating Azure functions. [Read more...](articles/AzureFunctions/AzureSkyWeather/HttpTriggered/Project_Details_HTTPTriggered.html)
 
----
+
 
 ## Step 1B: Data ingestion using Just Azure Timer-Triggered Function
 
 Now, I'll show a different way. We'll use a Timer-Triggered Azure function that already has a built-in timer. This is another option. Choosing the best way can depend on things like cost. Azure Logic Apps can cost more than Timer-Triggered functions. I've kept this article short because many steps for both functions are the same. [Read more...](articles/AzureFunctions/AzureSkyWeather/TimerTriggered/Project_Details_TimerTriggered.html)
 
----
 
 ## Step 2A: Organize the weather files by timestamp using Plain Python
 
 Here, I will show you how can can organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using just Plain python. The code we will create can be easily incoporated into a Timer-trigger Azure function. That way we can schedule it to sort our files at a definite time. [Read more...](articles/Misc/SortAzureBlobFilesUsingLocalPython/LocalPython_AzureBlob.html)
 
----
+
 
 ## Step 2B: Organize the weather files by timestamp using Spark and Hadoop
 
