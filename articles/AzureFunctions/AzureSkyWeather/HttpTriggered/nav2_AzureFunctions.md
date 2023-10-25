@@ -79,9 +79,10 @@ Add library names of Python packages you imported in your script, like `numpy` ,
   ![Alt text](image-50.png)
 - During actual deployment, VS Code will install the packages to Azure cloud.
 ## Debug
-### Test/Debug the Azure Function
 
 Now, I will show you how to debug the azure function:
+
+### Test/Debug the Azure Function
 
 - With your function_app.py open press `Ctrl+Shift+P`. Select **Azurite: Start**.
 
@@ -97,24 +98,27 @@ Now, I will show you how to debug the azure function:
 - If the execution is successful, the output will be similar to this:
   ![Alt text](image-53.png)
 ## Deploy
+
+Here I will show you how to deploy the function to Azure.
+
 ### Create an Azure Function App
 
 Now, our function is ready and we need to deploy it to Azure. To deploy an azure function we need Azure Function App. This is like a container for the function. You can create the Azure Function app from the portal. But, here I will show you how to do it right from VS code.
 
-  - Click the Azure icon, then select the thunder icon in the workspace.
-  - Choose `Create Function app in Azure..(Advanced)`.
-  ![Alt text](image-73.png)
-  - Assign a unique name to your function app.
-  ![Alt text](image-67.png)
-  - If you're working on an Azure Function in Python, ensure you set the runtime environment to Python.
-  ![Alt text](image-68.png)
-  - Decide on using an existing resource group or create a new one. Ensure consistency in the chosen region.
-  ![Alt text](image-69.png)
-  - Carefully select the hosting plan. If you're budget-conscious, consider the Consumption-based plan. 
-  ![Alt text](image-70.png)
-  - Allocate a storage account for the Azure Function App. Using separate storage accounts for each function app simplifies the structure.
-  ![Alt text](image-72.png)
-  - Incorporate an Application Insights resource for detailed insights and improved monitoring.
+- Click the Azure icon, then select the thunder icon in the workspace.
+- Choose `Create Function app in Azure..(Advanced)`.
+![Alt text](image-73.png)
+- Assign a unique name to your function app.
+![Alt text](image-67.png)
+- If you're working on an Azure Function in Python, ensure you set the runtime environment to Python.
+![Alt text](image-68.png)
+- Decide on using an existing resource group or create a new one. Ensure consistency in the chosen region.
+![Alt text](image-69.png)
+- Carefully select the hosting plan. If you're budget-conscious, consider the Consumption-based plan. 
+![Alt text](image-70.png)
+- Allocate a storage account for the Azure Function App. Using separate storage accounts for each function app simplifies the structure.
+![Alt text](image-72.png)
+- Incorporate an Application Insights resource for detailed insights and improved monitoring.
 
 After these steps, your Azure Function App is set up. The next phase involves deploying your Azure Function to this newly created app.
 
@@ -138,6 +142,9 @@ After these steps, your Azure Function App is set up. The next phase involves de
   ![Alt text](image-59.png)
 
 ## Monitor
+
+Afer deploying the function, I will show you how to monitor it in the portal.
+
 ### Monitor the function post deployment
 
 - Open the Azure Function in the Azure portal.
