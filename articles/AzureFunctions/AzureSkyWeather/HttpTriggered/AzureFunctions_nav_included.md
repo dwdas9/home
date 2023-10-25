@@ -200,28 +200,7 @@ I will try to modify the section later to give you a better understanding of the
 When you click F5 you will see a message which looks like the one below.  
 ![Alt text](image-92.png)
 
-This is where Azurite comes into play. Here is what it is:
-
-**Azurite**:
-Azurite is a free tool to mimic Azure Storage on your computer. It helps in testing Azure storage without actually using the real Azure services.
-
-**Role in Azure Function Development**:
-
-1. **Local Testing**: While making Azure Functions, sometimes you don't want to use the real Azure Storage, especially in the beginning. Azurite helps you test these functions locally.
-
-2. **Saves Money**: Using Azurite means no real Azure connection, so no costs.
-
-3. **Quick Checks**: Local testing is fast. No delays like in the real network, helping in quicker development cycles.
-
-4. **Work Anytime**: Even if your net is down, with Azurite, you can still work on Azure Functions linked to Azure Storage.
-
-5. **Safe Testing**: With Azurite, there's no risk of messing up actual data in Azure Storage.
-
-6. **Simple Use**: Azurite is user-friendly. Start or stop it easily when you need, especially if you want to begin afresh.
-
-7. **Works with Popular Tools**: Tools like Visual Studio Code make it easy to work with Azurite.
-
-**In short**, Azurite ffers a local and pocket-friendly way to test and make Azure Functions linked with Azure Storage.
+This is where Azurite comes into play. Azurite is a free tool to mimic Azure Storage on your computer. It helps in testing Azure storage without actually using the real Azure services. It saves money,can work offline, its safe, and quick.
 
 ### What happens during debugging
 
