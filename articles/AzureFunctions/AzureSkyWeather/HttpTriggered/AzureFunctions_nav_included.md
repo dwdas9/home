@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Azure Functions Quickstart - Create, Debug, Deploy, Monitor
+title: Azure Functions Quickstart
 nav_order: 4
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Project Pyazure - Performing Operations on Azure Storage Using Pyspark and Python
+title: Project Pyazure
 nav_order: 2
 ---
 
