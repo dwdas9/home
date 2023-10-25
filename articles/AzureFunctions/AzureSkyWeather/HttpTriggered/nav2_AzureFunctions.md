@@ -78,6 +78,7 @@ Add library names of Python packages you imported in your script, like `numpy` ,
   
   ![Alt text](image-50.png)
 - During actual deployment, VS Code will install the packages to Azure cloud.
+
 ## Debug
 
 Now, I will show you how to debug the azure function:
@@ -97,6 +98,7 @@ Now, I will show you how to debug the azure function:
 
 - If the execution is successful, the output will be similar to this:
   ![Alt text](image-53.png)
+
 ## Deploy
 
 Here I will show you how to deploy the function to Azure.
