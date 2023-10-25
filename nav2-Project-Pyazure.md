@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Project Pyazure
-nav_order: 2
+nav_order: 4
 ---
 
 ## Table of Contents

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Azure Functions Quickstart
-nav_order: 1
+nav_order: 2
 ---
 
 ## Table of Contents

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Storage, Data Services Cheatsheets
-nav_order: 5
+nav_order: 6
 ---
 
 ## Table of Contents
