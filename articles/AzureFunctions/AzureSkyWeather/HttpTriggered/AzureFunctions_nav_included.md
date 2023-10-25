@@ -24,7 +24,7 @@ nav_order: 4
     - [What is this Azurite](#what-is-this-azurite)
     - [What happens during debugging](#what-happens-during-debugging)
       - [Azure Function Core Tools Warms Up](#azure-function-core-tools-warms-up)
-      - [Use Clicks `Execute Function Now..`](#use-clicks-execute-function-now)
+      - [User Clicks `Execute Function Now..`](#user-clicks-execute-function-now)
   - [Common Errors](#common-errors)
     - ["AzureWebJobsStorage" app setting is not present](#azurewebjobsstorage-app-setting-is-not-present)
 
@@ -221,7 +221,7 @@ Here are the events that take place when you debug an Azure Function using VS Co
     -  A line like `[2023-10-25T04:16:47.402Z] Host lock lease acquired by instance ID '0000000000000000000000002B26484C'`, tells that the debugger has locked  the Azure Function host. This lock prevents the Azure Function host from being restarted by another process while the debugger is attached.
     ![Alt text](image-90.png)
 
-#### Use Clicks `Execute Function Now..`
+#### User Clicks `Execute Function Now..`
 - Now the user right-clicks on the function and clicks `Execute function Now..`. This executes the function.
   ![Alt text](image-91.png)
 - The rest is stepping through the function and checking if all is working fine. And, finally the debugging completes.
