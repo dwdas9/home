@@ -5,18 +5,17 @@ nav_order: 2
 ---
 
 ## Table of Contents
-- [Overview](#overview)
-  - [Azure Functions Quickstart - Create, Debug, Deploy, Monitor](#azure-functions-quickstart---create-debug-deploy-monitor)
-    - [Create](#create)
-      - [Create the Azure Function Project](#create-the-azure-function-project)
-      - [Add Python packages to `requirements.txt`](#add-python-packages-to-requirementstxt)
-    - [Debug](#debug)
-      - [Test/Debug the Azure Function](#testdebug-the-azure-function)
-    - [Deploy](#deploy)
-      - [Create an Azure Function App](#create-an-azure-function-app)
-      - [Deploy the Azure Function To The Azure Function App](#deploy-the-azure-function-to-the-azure-function-app)
-    - [Monitor](#monitor)
-      - [Monitor the function post deployment](#monitor-the-function-post-deployment)
+- [Azure Functions Quickstart - Create, Debug, Deploy, Monitor](#azure-functions-quickstart---create-debug-deploy-monitor)
+  - [Create](#create)
+    - [Create the Azure Function Project](#create-the-azure-function-project)
+    - [Add Python packages to `requirements.txt`](#add-python-packages-to-requirementstxt)
+  - [Debug](#debug)
+    - [Test/Debug the Azure Function](#testdebug-the-azure-function)
+  - [Deploy](#deploy)
+    - [Create an Azure Function App](#create-an-azure-function-app)
+    - [Deploy the Azure Function To The Azure Function App](#deploy-the-azure-function-to-the-azure-function-app)
+  - [Monitor](#monitor)
+    - [Monitor the function post deployment](#monitor-the-function-post-deployment)
   - [Appendix](#appendix)
     - [Key takeways](#key-takeways)
     - [When to choose Azure Functions](#when-to-choose-azure-functions)
@@ -34,15 +33,12 @@ nav_order: 2
 ---
 <!-- This section is included in nav. See the frontmatter on top! -->
 
-# Overview
+
+# Azure Functions Quickstart - Create, Debug, Deploy, Monitor
 
 Here, we'll learn quickly about Azure Functions. It's a cloud service by Azure where you can run pieces of code without worry about server and hosting. We'll start by setting up our workspace in VS Code and adding it with essential extensions. Then, we'll test our function. After debugging, we'll deploy it to Azure. Then, we'll monitor its performance. If you want to know more, I've put some essential info in the appendix section.
 
-## Azure Functions Quickstart - Create, Debug, Deploy, Monitor
-
-Here I will show you how to crete Azure Functions Project using VS Code and V2 Python Programming Model.
-
-### Create
+## Create
 
 Let's start by installing the following three Visual Studio Extensions and One Command Line Tool:
 
@@ -53,7 +49,7 @@ Let's start by installing the following three Visual Studio Extensions and One C
 |[Azurite](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) | An Azure Storage emulator, crucial for local testing and debugging of Azure Functions. | `Ctrl+Shift+X`, "Azurite", `Install`. ![Alt text](image-79.png) |
 |[Azure Functions Core Tools](https://go.microsoft.com/fwlink/?linkid=2174087) | Command-line tools essential for local development and testing of Azure Functions. These tools enable local function runtime, debugging, and deployment capabilities. | Install via npm with the command: `npm install -g azure-functions-core-tools@3 --unsafe-perm true` (for version 3.x) Or using GUI ![Alt text](image-78.png) |
 
-#### Create the Azure Function Project
+### Create the Azure Function Project
 
 - Open Visual Studio and Click the Azure Icon on the Left
 - In the Workspace (local) area, click the thunder button, and select **Create New Project**.
@@ -74,7 +70,7 @@ Let's start by installing the following three Visual Studio Extensions and One C
 - Write your custom code, say you want to perform some blob operations, in `function_app.py`. This is the main/entry point function to the Fnction app.
 
 
-#### Add Python packages to `requirements.txt`
+### Add Python packages to `requirements.txt`
 
 Add library names of Python packages you imported in your script, like `numpy` , in `requirements.txt`.
 
@@ -82,8 +78,8 @@ Add library names of Python packages you imported in your script, like `numpy` ,
   
   ![Alt text](image-50.png)
 - During actual deployment, VS Code will install the packages to Azure cloud.
-### Debug
-#### Test/Debug the Azure Function
+## Debug
+### Test/Debug the Azure Function
 
 Now, I will show you how to debug the azure function:
 
@@ -100,8 +96,8 @@ Now, I will show you how to debug the azure function:
 
 - If the execution is successful, the output will be similar to this:
   ![Alt text](image-53.png)
-### Deploy
-#### Create an Azure Function App
+## Deploy
+### Create an Azure Function App
 
 Now, our function is ready and we need to deploy it to Azure. To deploy an azure function we need Azure Function App. This is like a container for the function. You can create the Azure Function app from the portal. But, here I will show you how to do it right from VS code.
 
@@ -122,24 +118,32 @@ Now, our function is ready and we need to deploy it to Azure. To deploy an azure
 
 After these steps, your Azure Function App is set up. The next phase involves deploying your Azure Function to this newly created app.
 
-#### Deploy the Azure Function To The Azure Function App
+### Deploy the Azure Function To The Azure Function App
 
 - The deployment process is straightforward. In the workspace, click the thunder icon and choose **Deploy to Function App**.
-   ![Alt text](image-55.png)
+  ![Alt text](image-55.png)
 - Visual Studio Code will display the Function App where you can deploy our Azure Function. Select the Function App.
-   ![Alt text](image-56.png)
+   
+  ![Alt text](image-56.png)
 - Click **Deploy**
-   ![Alt text](image-57.png)
-Note: This will overwrite ANY function present in the Azure Func app.
+   
+  ![Alt text](image-57.png)
+
+  Note: This will overwrite ANY function present in the Azure Func app.
 - After successful deployment, you will see output like the following in the console:
-   ![Alt text](image-58.png)
+  
+  ![Alt text](image-58.png)
 - And you can see the Function inside the Azure Function App:
-   ![Alt text](image-59.png)
-### Monitor
-#### Monitor the function post deployment
+  
+  ![Alt text](image-59.png)
+
+## Monitor
+### Monitor the function post deployment
 
 - Open the Azure Function in the Azure portal.
-   ![Alt text](image-60.png)
+  
+  ![Alt text](image-60.png)
+
 - Go to the "Monitor" section to access detailed information about function invocations.
 
 ## Appendix
