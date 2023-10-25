@@ -5,34 +5,55 @@ nav_order: 3
 ---
 ## Table of contents
 - [Overview](#overview)
-  - [Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function](#project-azureskyweather-part-1a-using-azure-http-triggered-function)
-  - [Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function](#project-azureskyweather-part-1b-using-azure-timer-triggered-function)
-  - [Project AzureSkyWeather. Part 2: Sorting the JSON files based on Timestamp for partition pruning](#project-azureskyweather-part-2-sorting-the-json-files-based-on-timestamp-for-partition-pruning)
+  - [Project AzureSkyWeather. Step1A: Data ingestion using Azure HTTP-Triggered Function And Azure Logic Apps](#project-azureskyweather-step1a-data-ingestion-using-azure-http-triggered-function-and-azure-logic-apps)
+  - [Project AzureSkyWeather. Step1B: Data ingestion using Just Azure Timer-Triggered Function](#project-azureskyweather-step1b-data-ingestion-using-just-azure-timer-triggered-function)
+  - [Project AzureSkyWeather. Step2A: Organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using Plain Python](#project-azureskyweather-step2a-organize-the-weather-files-into-directories-like-yearyymonthmmdayddhourh-using-plain-python)
+  - [Project AzureSkyWeather. Step2B: Organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using Standalone Spark and Hadoop Jars](#project-azureskyweather-step2b-organize-the-weather-files-into-directories-like-yearyymonthmmdayddhourh-using-standalone-spark-and-hadoop-jars)
 
 
 # Overview
 
-In this segment, we'll dive deep into the world of Azure Functions, Microsoft's event-driven, serverless compute platform. Azure Functions empower developers to run event-triggered code without having to manage the underlying infrastructure. It's an efficient and scalable way to handle operations such as data processing, integration with other services, or any action that can be mapped to an input event.
+**Objective:** Our goal is to develop an end-to-end data engineering solution using the Microsoft technology stack. We're mainly aiming to create a future-proof and efficient storage solution to store weather data sourced from web APIs for data science and analytics, .
 
-I'll show how to use Azure Functions for different tasks. We'll look at common ways people use them. For example, when someone visits a website or when data changes. We'll also learn how to set them up and manage them. By the end, you'll know more about how Azure Functions can help in your projects.
+**Project Components and Workflow:**
 
+1. **Data Ingestion Techniques:**
+   - **Step1A:** Here, we'll use an HTTP-triggered Azure Function to pull in data from a Web API. The whole activity will be scheduled via Azure Logic Apps.
+   - **Step1B:** We'll also see how a timer-triggered Azure Function can do the same job, making additional services unnecessary.
 
-## Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function
+2. **Ways to Sort Data:**
+   - **Step2A:** We'll learn how to organise the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using Local Spark and Hadoop Jars.
+   - **Step2B:** As an alternative, we'll use Python combined with Azure's Python SDK. Plus, I'll show how this can be set up in a timer-based Azure Function for regular execution.
 
-In this article, I'll delve into building an HTTP-triggered Azure Function using Python V2 on Azure Functions and Visual Studio Code. I've chosen an HTTP-trigger for its on-demand execution, combined with the powerful scheduling capability of Azure Logic Apps. Our primary focus is to fetch weather data from `weatherapi.com` and store it as JSON in Azure Blob Storage, efficiently organized by hourly timestamps. I've incorporated robust error handling, ensuring resilience against potential API and storage issues. Additionally, I've added a unique feature that allows for a personalized greeting based on input parameters. Join me as I break down the technical nuances of this serverless solution. [Read more...](articles/AzureFunctions/AzureSkyWeather/HttpTriggered/Project_Details_HTTPTriggered.html)
+3. **Cleaning and Transforming Data:**
+   - **Step3A:** Let's explore data cleaning and its conversion to parquet format using standalone Spark and Hadoop jars.
+   - **Step3B:** We'll switch to Azure Databricks to see its advantages and how it simplifies our work.
+
+4. **Advanced Processing:** The following steps will dive deeper into data science and analytics tasks.
+
+**Thought Behind This:** Nowadays, many professionals prefer tools like Azure Data Factory, Azure Databricks, and Azure Synapse Analytics because of their all-in-one solutions. But, through this project, my idea is to show alternate methods. By understanding various alternatives, will strengthen your knowledge of data in the microsoft domain. Also knowing many methods will make you more confident in your choce of products.
+
+## Project AzureSkyWeather. Step1A: Data ingestion using Azure HTTP-Triggered Function And Azure Logic Apps
+
+This is the first step of the project, which involves data ingestion. Here, I will show how we can ingest data from an API using an HTTP-triggered Azure Function. We will use VS Code to develop the function. You will get an idea about how to set up your VS Code for Azure Function development. To schedule our function, we will use Azure Logic Apps. This section will give you a very good understanding of how to build Azure functions. [Read more...](articles/AzureFunctions/AzureSkyWeather/HttpTriggered/Project_Details_HTTPTriggered.html)
 
 ---
-## Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function
 
-In Part 1A, I talked about making an HTTP-Triggered Azure function and using Azure Logic Apps to set its timing. Now, I'll show a different way. We'll use a Timer-Triggered Azure function that already has a built-in timer. This is another option. Choosing the best way can depend on things like cost. Azure Logic Apps can cost more than Timer-Triggered functions. I've kept this article short because many steps for both functions are the same.
-[Read more...](articles/AzureFunctions/AzureSkyWeather/TimerTriggered/Project_Details_TimerTriggered.html)
+## Project AzureSkyWeather. Step1B: Data ingestion using Just Azure Timer-Triggered Function
+
+Now, I'll show a different way. We'll use a Timer-Triggered Azure function that already has a built-in timer. This is another option. Choosing the best way can depend on things like cost. Azure Logic Apps can cost more than Timer-Triggered functions. I've kept this article short because many steps for both functions are the same. [Read more...](articles/AzureFunctions/AzureSkyWeather/TimerTriggered/Project_Details_TimerTriggered.html)
 
 ---
-## Project AzureSkyWeather. Part 2: Sorting the JSON files based on Timestamp for partition pruning
 
-Note: Apart from the method shown here, you can also achieve the same using just local Python. Have a look at this section: [Link to the section](articles/Misc/SortAzureBlobFilesUsingLocalPython/LocalPython_AzureBlob.html)
+## Project AzureSkyWeather. Step2A: Organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using Plain Python
 
-In this article, we'll see how to sort files in an Azure Data Lake Container by using a Standalone Spark application. You could use Azure Data Factory, Databricks, or Azure Logic Apps, but this method stands out. It's an alternative and often much cheaper than the other mentioned Azure services. This is a real-world requirement; having a structure like this can make partition pruning more efficient during query time, especially if you're using a system like Apache Hive or Delta Lake.[Read more...](articles/Misc/Spark_To_ADLS/Part2-SortingADLSContainerUsingSpark.html)
+Here, I will show you how can can organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using just Plain python and how the same can be put into a Timer-trigger function for auto-scheduling.[Read more...]](articles/Misc/SortAzureBlobFilesUsingLocalPython/LocalPython_AzureBlob.html)
+
+---
+
+## Project AzureSkyWeather. Step2B: Organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using Standalone Spark and Hadoop Jars
+
+Now, I will show you how do the same using Standalone Spark and Hadoop Jars. This will give you a good idea about connecting using Spark with Hadoop Jars to work with Azure blob storage[Read more...](articles/Misc/Spark_To_ADLS/Part2-SortingADLSContainerUsingSpark.html)
 
 ---
 
