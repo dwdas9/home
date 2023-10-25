@@ -7,8 +7,8 @@ nav_order: 3
 - [Overview](#overview)
   - [Project AzureSkyWeather. Step1A: Data ingestion using Azure HTTP-Triggered Function And Azure Logic Apps](#project-azureskyweather-step1a-data-ingestion-using-azure-http-triggered-function-and-azure-logic-apps)
   - [Project AzureSkyWeather. Step1B: Data ingestion using Just Azure Timer-Triggered Function](#project-azureskyweather-step1b-data-ingestion-using-just-azure-timer-triggered-function)
-  - [Project AzureSkyWeather. Step2A: Organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using Plain Python](#project-azureskyweather-step2a-organize-the-weather-files-into-directories-like-yearyymonthmmdayddhourh-using-plain-python)
-  - [Project AzureSkyWeather. Step2B: Organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using Standalone Spark and Hadoop Jars](#project-azureskyweather-step2b-organize-the-weather-files-into-directories-like-yearyymonthmmdayddhourh-using-standalone-spark-and-hadoop-jars)
+  - [Project AzureSkyWeather. Step2A: Organize the weather files by timestamp using Plain Python](#project-azureskyweather-step2a-organize-the-weather-files-by-timestamp-using-plain-python)
+  - [Project AzureSkyWeather. Step2B: Organize the weather files by timestamp using Spark and Hadoop](#project-azureskyweather-step2b-organize-the-weather-files-by-timestamp-using-spark-and-hadoop)
 
 
 # Overview
@@ -35,7 +35,7 @@ nav_order: 3
 
 ## Project AzureSkyWeather. Step1A: Data ingestion using Azure HTTP-Triggered Function And Azure Logic Apps
 
-This is the first step of the project, which involves data ingestion. Here, I will show how we can ingest data from an API using an HTTP-triggered Azure Function. We will use VS Code to develop the function. You will get an idea about how to set up your VS Code for Azure Function development. To schedule our function, we will use Azure Logic Apps. This section will give you a very good understanding of how to build Azure functions. [Read more...](articles/AzureFunctions/AzureSkyWeather/HttpTriggered/Project_Details_HTTPTriggered.html)
+This is the first step of our project, focusing on data ingestion. In this segment, I'll show how we can fetch data from an API using an HTTP-triggered Azure Function, developed via VS Code. To schedule our function, we'll make use of Azure Logic Apps. By the end of this section, you'll have a comprehensive understanding of creating Azure functions. [Read more...](articles/AzureFunctions/AzureSkyWeather/HttpTriggered/Project_Details_HTTPTriggered.html)
 
 ---
 
@@ -45,13 +45,13 @@ Now, I'll show a different way. We'll use a Timer-Triggered Azure function that 
 
 ---
 
-## Project AzureSkyWeather. Step2A: Organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using Plain Python
+## Project AzureSkyWeather. Step2A: Organize the weather files by timestamp using Plain Python
 
-Here, I will show you how can can organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using just Plain python and how the same can be put into a Timer-trigger function for auto-scheduling.[Read more...]](articles/Misc/SortAzureBlobFilesUsingLocalPython/LocalPython_AzureBlob.html)
+Here, I will show you how can can organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using just Plain python. The code we will create can be easily incoporated into a Timer-trigger Azure function. That way we can schedule it to sort our files at a definite time. [Read more...](articles/Misc/SortAzureBlobFilesUsingLocalPython/LocalPython_AzureBlob.html)
 
 ---
 
-## Project AzureSkyWeather. Step2B: Organize the weather files into directories like `year=yy/month=mm/day=dd/hour=h` using Standalone Spark and Hadoop Jars
+## Project AzureSkyWeather. Step2B: Organize the weather files by timestamp using Spark and Hadoop
 
 Now, I will show you how do the same using Standalone Spark and Hadoop Jars. This will give you a good idea about connecting using Spark with Hadoop Jars to work with Azure blob storage[Read more...](articles/Misc/Spark_To_ADLS/Part2-SortingADLSContainerUsingSpark.html)
 
