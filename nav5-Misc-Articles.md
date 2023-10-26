@@ -13,7 +13,7 @@ nav_order: 5
   - [Managing Python in System PATH Using PowerShell](#managing-python-in-system-path-using-powershell)
   - [Unable to run `docker ps` despite having docker installed?](#unable-to-run-docker-ps-despite-having-docker-installed)
   - [How to Download and Use JAR Files from Apache Maven Repository](#how-to-download-and-use-jar-files-from-apache-maven-repository)
-  - [Need to download JAR files like hadoop-azure-x.x.x.jar for your project? Don't worry, it's quite simple to get them from the Apache Maven Repository. Let's go through how to download and use these JAR files in your projects. Read more...](#need-to-download-jar-files-like-hadoop-azure-xxxjar-for-your-project-dont-worry-its-quite-simple-to-get-them-from-the-apache-maven-repository-lets-go-through-how-to-download-and-use-these-jar-files-in-your-projects-read-more)
+  - [Pip install Pyspark vs FULL Spark](#pip-install-pyspark-vs-full-spark)
 
 # Overview
 In this section, I'll share articles that may prove valuable for your daily tasks in data engineering and associated domains.
@@ -44,8 +44,6 @@ In this guide, I'll demonstrate how to create an Ubuntu Docker image fine-tuned 
 
 When working with Python on Windows, ensuring it's accessible from any terminal or command prompt is pivotal. This accessibility is achieved by including Python in the system's PATH variable. In this guide, we'll delve into using PowerShell to check Python's presence in the PATH and add it if missing.[Read more...](link_to_article3.html)
 
-
-
 ## Unable to run `docker ps` despite having docker installed?
 
 Hey there! 🌟 So, you've got Docker installed but running simple commands like `docker ps` is giving you a headache? No worries! It's likely just a path issue. Let's walk through a quick fix together and get you back on track. Ready? Let's dive in! 🚀 [Read more...](articles/Misc/Running_docker_ps/how_to.html)
@@ -53,6 +51,12 @@ Hey there! 🌟 So, you've got Docker installed but running simple commands like
 ## How to Download and Use JAR Files from Apache Maven Repository
 
 Need to download JAR files like hadoop-azure-x.x.x.jar for your project? Don't worry, it's quite simple to get them from the Apache Maven Repository. Let's go through how to download and use these JAR files in your projects. [Read more...](articles/Misc/download_hadoop_jars/howto.html)
+
+## Pip install Pyspark vs FULL Spark
+
+The article provides a clear explanation about installing PySpark using pip. It corrects the common misconception that `pip install pyspark` installs the full Apache Spark framework. In reality, it installs only PySpark and a minimal, standalone version of Apache Spark, sufficient for running Spark in a local, simulated cluster environment on a single machine. This breakdown is crucial for understanding the setup and capabilities of your Spark installation.[Read more...](articles/Misc/Pyspark_And_Spark/PysparkIsNotFullSpark.html)
+
+
 ---
 
 © D Das  
