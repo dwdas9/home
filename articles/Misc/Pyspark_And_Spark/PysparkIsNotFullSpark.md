@@ -7,44 +7,42 @@ nav_exclude: true
 ## Table of contents
 
 - [Decoding Spark Installs: PySpark \& Spark on Windows](#decoding-spark-installs-pyspark--spark-on-windows)
-    - [Introduction](#introduction)
-    - [Standalone Python vs. Anaconda Python](#standalone-python-vs-anaconda-python)
-      - [Standalone Python](#standalone-python)
-      - [Anaconda Python](#anaconda-python)
-    - [PySpark via pip vs. Full Apache Spark Installation](#pyspark-via-pip-vs-full-apache-spark-installation)
-      - [PySpark via pip](#pyspark-via-pip)
-      - [Full Apache Spark Installation](#full-apache-spark-installation)
-    - [Installing Apache Spark on Windows](#installing-apache-spark-on-windows)
-      - [Install Java](#install-java)
-      - [Install Scala](#install-scala)
-      - [Install Hadoop (Optional)](#install-hadoop-optional)
-      - [Install Apache Spark](#install-apache-spark)
-      - [Configure Spark](#configure-spark)
-      - [Testing the Installation](#testing-the-installation)
+  - [Introduction](#introduction)
+  - [Standalone Python vs. Anaconda Python](#standalone-python-vs-anaconda-python)
+    - [Standalone Python](#standalone-python)
+    - [Anaconda Python](#anaconda-python)
+  - [PySpark via pip vs. Full Apache Spark Installation](#pyspark-via-pip-vs-full-apache-spark-installation)
+    - [PySpark via pip](#pyspark-via-pip)
+    - [Full Apache Spark Installation](#full-apache-spark-installation)
+  - [Installing Apache Spark on Windows](#installing-apache-spark-on-windows)
+    - [Install Java](#install-java)
+    - [Install Scala](#install-scala)
+    - [Install Hadoop (Optional)](#install-hadoop-optional)
+    - [Install Apache Spark](#install-apache-spark)
+    - [Configure Spark](#configure-spark)
+    - [Testing the Installation](#testing-the-installation)
     - [Conclusion](#conclusion)
 
 
 # Decoding Spark Installs: PySpark & Spark on Windows
 
-### Introduction
+## Introduction
 
 In this compact guide, we'll clear up the often-muddled area between PySpark and Apache Spark installations. You'll learn the distinct purposes of each and get a straightforward, to-the-point tutorial on setting up Apache Spark on a Windows system, tailoring our insights and language to fit the Indian tech context.
 
-### Standalone Python vs. Anaconda Python
+## Standalone Python vs. Anaconda Python
 
-#### Standalone Python
-**Definition**: Direct installation of Python from the [Python Software Foundation](https://python.org).
+### Standalone Python
 
-**When to Use**: Choose this for a lightweight setup, specific version control, and when using Python for general-purpose programming.
+Thi is the python you directly install from [Python Software Foundation](https://python.org). Choose this for a lightweight setup, specific version control, and when using Python for general-purpose programming.
 
-#### Anaconda Python
-**Definition**: An open-source Python distribution for scientific computing and data science.
+### Anaconda Python
 
-**When to Use**: Opt for Anaconda for an easy-to-manage data science environment, especially when dealing with large datasets, machine learning, and analytics.
+An open-source Python distribution for scientific computing and data science.Go for Anaconda for an easy-to-manage data science environment, especially when dealing with large datasets, machine learning, and analytics.
 
-### PySpark via pip vs. Full Apache Spark Installation
+## PySpark via pip vs. Full Apache Spark Installation
 
-#### PySpark via pip
+### PySpark via pip
 
 <p>
     Many believe <code>pip install pyspark</code> installs the <strong style="color: blue;">entire Apache Spark framework</strong>. 
@@ -67,37 +65,36 @@ In this compact guide, we'll clear up the often-muddled area between PySpark and
     - When your PySpark code runs, it initializes a "Spark context" within your Python script. This context is the primary connection to the Spark execution environment and allows your Python script to access Spark's functionalities.
     - In the pip-installed PySpark environment, this Spark context talks to the local Spark instance included in the PySpark package, not a remote or distributed cluster.
 
-#### Full Apache Spark Installation
-**Definition**: Involves setting up the complete Apache Spark framework, for building large-scale data processing applications, beyond the scope of PySpark alone.
+### Full Apache Spark Installation
 
-**When to Use**: Necessary for production-grade, large-scale data processing and when you need to harness the full power of Spark's distributed computing capabilities.
+Full Spark Installation involves setting up the complete Apache Spark framework, for building large-scale data processing applications, beyond the scope of PySpark alone. This is necessary for production-grade, large-scale data processing and when you need to harness the full power of Spark's distributed computing capabilities.
 
-### Installing Apache Spark on Windows
+## Installing Apache Spark on Windows
 Follow these steps to install the full Apache Spark framework on a Windows system:
 
-#### Install Java
+### Install Java
 - Spark requires Java. Download and install the [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html).
 - Set the JAVA_HOME environment variable to your JDK path.
 
-#### Install Scala
+### Install Scala
 - Download and install Scala from [Scala Lang](https://www.scala-lang.org/download/).
 - Update the system's PATH variable to include Scala's bin directory.
 
-#### Install Hadoop (Optional)
+### Install Hadoop (Optional)
 - For enhanced functionality, including the ability to process large datasets, install [Hadoop](https://hadoop.apache.org/).
 - Set the HADOOP_HOME environment variable to point to your Hadoop installation directory.
 
-#### Install Apache Spark
+### Install Apache Spark
 - Download Apache Spark from the [official website](https://spark.apache.org/downloads.html).
 - Extract the Spark archive and place it in a desired directory (e.g., C:\spark).
 - Set the SPARK_HOME environment variable to this directory.
 - Update the PATH variable to include `%SPARK_HOME%\bin`.
 
-#### Configure Spark
+### Configure Spark
 - Copy `%SPARK_HOME%\conf\spark-defaults.conf.template` to `spark-defaults.conf`.
 - Edit `spark-defaults.conf` as needed for your setup.
 
-#### Testing the Installation
+### Testing the Installation
 - Open a command prompt and type `spark-shell` to start the Scala-based Spark interactive shell.
 - For PySpark, type `pyspark` to start the Python-based Spark shell.
 
