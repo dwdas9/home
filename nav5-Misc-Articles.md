@@ -52,7 +52,7 @@ Hey there! 🌟 So, you've got Docker installed but running simple commands like
 
 ## How to Download and Use JAR Files from Apache Maven Repository
 
-Need to download JAR files like hadoop-azure-x.x.x.jar for your project? Don't worry, it's quite simple to get them from the Apache Maven Repository. Let's go through how to download and use these JAR files in your projects. [Read more...](articles/Misc/Running_docker_ps/how_to.html)
+Need to download JAR files like hadoop-azure-x.x.x.jar for your project? Don't worry, it's quite simple to get them from the Apache Maven Repository. Let's go through how to download and use these JAR files in your projects. [Read more...](articles/Misc/download_hadoop_jars/howto.html)
 ---
 
 © D Das  
