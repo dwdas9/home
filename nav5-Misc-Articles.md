@@ -7,6 +7,7 @@ nav_order: 5
 ## Table of Contents
 - [Overview](#overview)
   - [Setting Up Azure Databricks](#setting-up-azure-databricks)
+  - [Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark](#installing-key-elements-for-data-engineering-java-python-spark-and-pyspark)
   - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
   - [Setting up a Dockerized Spark Environment on Ubuntu for Windows](#setting-up-a-dockerized-spark-environment-on-ubuntu-for-windows)
@@ -23,6 +24,9 @@ In this section, I'll share articles that may prove valuable for your daily task
 
 In this article, I will walk you through the steps to set up your Azure Databricks workspace, create clusters, and begin working with notebooks.[Read more...](articles/AzureDE/dbrk_setup/1_Setup-Azure-Databricks.html)
 
+## Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark
+
+This guide's all about setting up the basics for Data Engineering – Java, Python, SPARK, and PySpark. It's simple and to the point, making sure you've got what you need to start your data journey. [Read more...](articles/Misc/InstallPythonPysparkSparkWin/JavaPythonSparkPysparkInstall.html)
 
 ## Python dummy data inserter into SQL Server
 
