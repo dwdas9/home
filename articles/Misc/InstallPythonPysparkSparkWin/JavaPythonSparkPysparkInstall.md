@@ -1,3 +1,8 @@
+---
+layout: default
+title: Install Java, Spark, & Python PySpark
+nav_exclude: true
+---
 
 ## Table of Contents
 - [Getting Started with Data Engineering: Key Installations of Java, Spark, \& Python PySpark](#getting-started-with-data-engineering-key-installations-of-java-spark--python-pyspark)
