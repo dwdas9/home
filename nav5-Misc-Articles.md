@@ -6,7 +6,6 @@ nav_order: 5
 
 ## Table of Contents
 - [Overview](#overview)
-  - [Setting Up Azure Databricks](#setting-up-azure-databricks)
   - [Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark](#installing-key-elements-for-data-engineering-java-python-spark-and-pyspark)
   - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
@@ -15,14 +14,10 @@ nav_order: 5
   - [Unable to run `docker ps` despite having docker installed?](#unable-to-run-docker-ps-despite-having-docker-installed)
   - [How to Download and Use JAR Files from Apache Maven Repository](#how-to-download-and-use-jar-files-from-apache-maven-repository)
   - [Pip install Pyspark vs FULL Spark](#pip-install-pyspark-vs-full-spark)
+  - [Setting Up Azure Databricks](#setting-up-azure-databricks)
 
 # Overview
 In this section, I'll share articles that may prove valuable for your daily tasks in data engineering and associated domains.
-
-
-## Setting Up Azure Databricks
-
-In this article, I will walk you through the steps to set up your Azure Databricks workspace, create clusters, and begin working with notebooks.[Read more...](articles/AzureDE/dbrk_setup/1_Setup-Azure-Databricks.html)
 
 ## Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark
 
@@ -60,6 +55,9 @@ Need to download JAR files like hadoop-azure-x.x.x.jar for your project? Don't w
 
 The article provides a clear explanation about installing PySpark using pip. It corrects the common misconception that `pip install pyspark` installs the full Apache Spark framework. In reality, it installs only PySpark and a minimal, standalone version of Apache Spark, sufficient for running Spark in a local, simulated cluster environment on a single machine. This breakdown is crucial for understanding the setup and capabilities of your Spark installation.[Read more...](articles/Misc/Pyspark_And_Spark/PysparkIsNotFullSpark.html)
 
+## Setting Up Azure Databricks
+
+In this article, I will walk you through the steps to set up your Azure Databricks workspace, create clusters, and begin working with notebooks.[Read more...](articles/AzureDE/dbrk_setup/1_Setup-Azure-Databricks.html)
 
 ---
 
