@@ -7,9 +7,10 @@ nav_order: 5
 ## Table of Contents
 - [Overview](#overview)
   - [Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark](#installing-key-elements-for-data-engineering-java-python-spark-and-pyspark)
-  - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
+  - [Installing Apache Airflow on Windows Docker](#installing-apache-airflow-on-windows-docker)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
   - [Setting up a Dockerized Spark Environment on Ubuntu for Windows](#setting-up-a-dockerized-spark-environment-on-ubuntu-for-windows)
+  - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
   - [Managing Python in System PATH Using PowerShell](#managing-python-in-system-path-using-powershell)
   - [Unable to run `docker ps` despite having docker installed?](#unable-to-run-docker-ps-despite-having-docker-installed)
   - [How to Download and Use JAR Files from Apache Maven Repository](#how-to-download-and-use-jar-files-from-apache-maven-repository)
@@ -23,10 +24,8 @@ In this section, I'll share articles that may prove valuable for your daily task
 
 This guide's all about setting up the basics for Data Engineering – Java, Python, SPARK, and PySpark. It's simple and to the point, making sure you've got what you need to start your data journey. [Read more...](articles/Misc/InstallPythonPysparkSparkWin/JavaPythonSparkPysparkInstall.html)
 
-## Python dummy data inserter into SQL Server
-
-This article provides a step-by-step guide on using a Python script to populate the `dbo.student` table in a SQL Server database with random data. This method is useful for testing and simulation purposes. We'll cover how to set up the script, how it functions, and how to run it to achieve the desired results. [Read more...](articles/Misc/Dummy_data/dummy-data-inserter.html)
-
+## Installing Apache Airflow on Windows Docker
+In this article, I'll show two approaches to setting up Apache Airflow using Docker on Windows. The first method, more suitable for production environments, involves a few additional steps. The second method is quicker, ideal for development settings.[Read more...](articles/Misc/AirflowDocker/Setup.html)
 
 ## Install Spark/Pyspark in the Anaconda Ecosystem
 
@@ -37,7 +36,9 @@ In this article, we'll provide a step-by-step guide to set up Spark/PySpark in t
 
 In this guide, I'll demonstrate how to create an Ubuntu Docker image fine-tuned for Python and Spark. We'll see how to connect the environment to Visual Studio Code using the Dev Containers extension. This VS extension allows you to work within a containerized environment seamlessly, offering the impression that all processes are running natively on your local machine. Ubuntu was selected as the base image due to its renowned stability, comprehensive apt-get system for handling packages, and flexibility in managing system-level packages or mimicking production setups. We considered other options like Python-focused images (e.g.,  python:3.9-slim,), Alpine Linux for its minimalism and security, and Debian which parallels Ubuntu's benefits but lacks some commercial features. [Read more...](link_to_article3.html)
 
+## Python dummy data inserter into SQL Server
 
+This article provides a step-by-step guide on using a Python script to populate the `dbo.student` table in a SQL Server database with random data. This method is useful for testing and simulation purposes. We'll cover how to set up the script, how it functions, and how to run it to achieve the desired results. [Read more...](articles/Misc/Dummy_data/dummy-data-inserter.html)
 
 ## Managing Python in System PATH Using PowerShell
 
