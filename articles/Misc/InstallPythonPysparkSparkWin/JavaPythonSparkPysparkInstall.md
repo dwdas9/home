@@ -12,7 +12,7 @@ nav_exclude: true
   - [Set Env Variables](#set-env-variables)
     - [Entries](#entries)
     - [Explanation](#explanation)
-      - [Link Python (`C:\Python39\python.exe`) with SPARK (`PYSPARK_PYTHON`)](#link-python-cpython39pythonexe-with-spark-pyspark_python)
+      - [Link python.exe with `PYSPARK_PYTHON`](#link-pythonexe-with-pyspark_python)
       - [`%JAVA_HOME%\bin` to PATH](#java_homebin-to-path)
   - [Install Pyspark](#install-pyspark)
     - [Background](#background)
@@ -102,9 +102,9 @@ For a PowerShell command to set these variables with Admin privileges, remember 
 
 ### <span style="color: #003366;">Explanation</span>
 
-#### Link Python (`C:\Python39\python.exe`) with SPARK (`PYSPARK_PYTHON`)
+#### Link python.exe with `PYSPARK_PYTHON`
 
-We set the `PYSPARK_PYTHON` environment variable to specify which Python executable Spark should use. This is vital, particularly if you have multiple Python installations.
+We set the `PYSPARK_PYTHON` environment variable to `C:\Python39\python.exe` to specify which Python executable Spark should use. This is vital, particularly if you have multiple Python installations.
 
 #### `%JAVA_HOME%\bin` to PATH
 
