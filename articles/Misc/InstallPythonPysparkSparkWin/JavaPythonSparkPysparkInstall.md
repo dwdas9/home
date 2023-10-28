@@ -21,12 +21,13 @@ nav_exclude: true
     - [See Actual Working](#see-actual-working)
   - [Appendix](#appendix)
     - [`PYSPARK_PYTHON` Overview](#pyspark_python-overview)
+    - [Pyspark Vs Full Spark Overview](#pyspark-vs-full-spark-overview)
 
 
 # Getting Started with Data Engineering: Key Installations of Java, Spark, & Python PySpark
 
 <p style="color: #333399; font-family: Verdana, Geneva, sans-serif; background-color: #f2f4f7; padding: 15px; border-left: 5px solid #5b9bd5;">
-In this guide, I will demonstrate how to set up a complete data engineering setup including Java, Full Hadoop, Python, and PySpark. Additionally, I'll describe the significance of setting different environment variables, their roles, and the key differences between Pyspark and a complete Spark setup.
+In this guide, I will show how to set up a complete data engineering setup including Java, Full Hadoop, Python, and PySpark. Additionally, I'll describe the significance of setting different environment variables, their roles, and the key differences between Pyspark and a complete Spark setup.
 </p>
 
 ## <span style="color: #ff6600;">Install Java [Oracle JDK]</span>
@@ -47,7 +48,7 @@ I've opted for the traditional Java, bringing with it the familiar folder system
   
   ![Alt text](image-10.png)
 
-- Create a folder `C:\Spark`. Place the unzipped contents of `spark-3.5.0-bin-hadoop3.tgz` inside it. Your `C:\Spark` folder should now contain subfolders with binaries and libraries.
+- Create a folder `C:\Spark`. Place the unzipped contents of `spark-3.5.0-bin-hadoop3.tgz` inside it. Your `C:\Spark` folder should now contain lib, bin etc.
 
   ![Alt text](image-12.png)
 
@@ -59,7 +60,7 @@ I've opted for the traditional Java, bringing with it the familiar folder system
 ## <span style="color: #0066cc;">Install Python [python.org]</span>
 
 - Download `python-3.12.0-amd64.exe` (or similar) from the [Python Downloads page](https://www.python.org/downloads/)
-  - Execute the downloaded installer and opt for **Customize Installation**. Ensure you select "Add python.exe to PATH".
+  - Execute the downloaded installer and opt for **Customize Installation**. Ensure you select **Add python.exe to PATH**.
   
     ![Alt text](image.png)
 
@@ -71,7 +72,7 @@ I've opted for the traditional Java, bringing with it the familiar folder system
   
     ![Alt text](image-2.png)
 
-  - A successful setup should culminate in a Setup Success message.
+  - A successful setup should show up in a Setup Success message.
     
     ![Alt text](image-3.png)
 
@@ -151,6 +152,10 @@ If Spark starts without errors, your PySpark setup with Python is successful.
 1. **Selects Python Interpreter**: Designates which Python version Spark executors should use for UDFs and transformations. Key in setups with multiple Python versions.
 
 2. **Uniformity in Clusters**: Guarantees that all cluster nodes use the same Python environment, maintaining consistency in PySpark.
+
+### <span style="color: #003366;">Pyspark Vs Full Spark Overview</span>
+
+I have put this in another section here. [Read More..](/Pyspark_And_Spark/PysparkIsNotFullSpark.html)
 
 ---
 

@@ -14,13 +14,6 @@ nav_exclude: true
   - [PySpark via pip vs. Full Apache Spark Installation](#pyspark-via-pip-vs-full-apache-spark-installation)
     - [PySpark via pip](#pyspark-via-pip)
     - [Full Apache Spark Installation](#full-apache-spark-installation)
-  - [Installing Apache Spark on Windows](#installing-apache-spark-on-windows)
-    - [Install Java](#install-java)
-    - [Install Scala](#install-scala)
-    - [Install Hadoop (Optional)](#install-hadoop-optional)
-    - [Install Apache Spark](#install-apache-spark)
-    - [Configure Spark](#configure-spark)
-    - [Testing the Installation](#testing-the-installation)
     - [Conclusion](#conclusion)
 
 
@@ -28,7 +21,7 @@ nav_exclude: true
 
 ## Introduction
 
-In this compact guide, we'll clear up the often-muddled area between PySpark and Apache Spark installations. You'll learn the distinct purposes of each and get a straightforward, to-the-point tutorial on setting up Apache Spark on a Windows system, tailoring our insights and language to fit the Indian tech context.
+In this compact guide, I'll try to clear up the often-muddled area between PySpark and Apache Spark installations. 
 
 ## Standalone Python vs. Anaconda Python
 
@@ -68,35 +61,6 @@ An open-source Python distribution for scientific computing and data science.Go 
 ### Full Apache Spark Installation
 
 Full Spark Installation involves setting up the complete Apache Spark framework, for building large-scale data processing applications, beyond the scope of PySpark alone. This is necessary for production-grade, large-scale data processing and when you need to harness the full power of Spark's distributed computing capabilities.
-
-## Installing Apache Spark on Windows
-Follow these steps to install the full Apache Spark framework on a Windows system:
-
-### Install Java
-- Spark requires Java. Download and install the [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html).
-- Set the JAVA_HOME environment variable to your JDK path.
-
-### Install Scala
-- Download and install Scala from [Scala Lang](https://www.scala-lang.org/download/).
-- Update the system's PATH variable to include Scala's bin directory.
-
-### Install Hadoop (Optional)
-- For enhanced functionality, including the ability to process large datasets, install [Hadoop](https://hadoop.apache.org/).
-- Set the HADOOP_HOME environment variable to point to your Hadoop installation directory.
-
-### Install Apache Spark
-- Download Apache Spark from the [official website](https://spark.apache.org/downloads.html).
-- Extract the Spark archive and place it in a desired directory (e.g., C:\spark).
-- Set the SPARK_HOME environment variable to this directory.
-- Update the PATH variable to include `%SPARK_HOME%\bin`.
-
-### Configure Spark
-- Copy `%SPARK_HOME%\conf\spark-defaults.conf.template` to `spark-defaults.conf`.
-- Edit `spark-defaults.conf` as needed for your setup.
-
-### Testing the Installation
-- Open a command prompt and type `spark-shell` to start the Scala-based Spark interactive shell.
-- For PySpark, type `pyspark` to start the Python-based Spark shell.
 
 ### Conclusion
 
