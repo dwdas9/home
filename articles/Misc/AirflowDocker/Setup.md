@@ -168,3 +168,6 @@ The `docker-compose.yaml` file for setting up Apache Airflow is a configuration 
 The `docker-compose.yaml` file for Airflow is crucial for the setup. Finding the right version of the file can be tricky. Searching the Apache official site may help.
 
 ---
+
+© D Das  
+📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)
