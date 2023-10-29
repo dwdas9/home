@@ -6,7 +6,8 @@ nav_order: 5
 
 ## Table of Contents
 - [Overview](#overview)
-  - [Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark](#installing-key-elements-for-data-engineering-java-python-spark-and-pyspark)
+  - [Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark in Windows](#installing-key-elements-for-data-engineering-java-python-spark-and-pyspark-in-windows)
+  - [Setting Up a Spark Cluster with Docker on Windows: One Master, Two Workers](#setting-up-a-spark-cluster-with-docker-on-windows-one-master-two-workers)
   - [Installing Apache Airflow on Windows Docker](#installing-apache-airflow-on-windows-docker)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
   - [Setting up a Dockerized Spark Environment on Ubuntu for Windows](#setting-up-a-dockerized-spark-environment-on-ubuntu-for-windows)
@@ -20,9 +21,12 @@ nav_order: 5
 # Overview
 In this section, I'll share articles that may prove valuable for your daily tasks in data engineering and associated domains.
 
-## Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark
+## Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark in Windows
 
 This guide's all about setting up the basics for Data Engineering – Java, Python, SPARK, and PySpark. It's simple and to the point, making sure you've got what you need to start your data journey. [Read more...](articles/Misc/InstallPythonPysparkSparkWin/JavaPythonSparkPysparkInstall.html)
+
+## Setting Up a Spark Cluster with Docker on Windows: One Master, Two Workers
+In this tutorial I'll guide you through setting up an Apache Spark cluster using Docker, with one master and two worker nodes in windows environment. We will use docker-compose.yaml to achieve this task[Read more...](articles/Misc/SparkDocker/SparkDockerSetup.html)
 
 ## Installing Apache Airflow on Windows Docker
 In this article, I'll show two approaches to setting up Apache Airflow using Docker on Windows. The first method, more suitable for production environments, involves a few additional steps. The second method is quicker, ideal for development settings.[Read more...](articles/Misc/AirflowDocker/Setup.html)
