@@ -11,7 +11,7 @@ nav_exclude: true
     - [Prerequisites](#prerequisites)
     - [Create Required Folders](#create-required-folders)
     - [Download the Docker Compose File](#download-the-docker-compose-file)
-      - [Note](#note)
+      - [Note on `docker-compose.yaml`](#note-on-docker-composeyaml)
     - [Initialize and Run Airflow](#initialize-and-run-airflow)
     - [Verify the Installation](#verify-the-installation)
   - [Method 2 - Using a Docker volume for data persistence](#method-2---using-a-docker-volume-for-data-persistence)
@@ -30,12 +30,12 @@ nav_exclude: true
 
 # Setting Up Apache Airflow with Docker on Windows
 
-In this article, I'll show two approaches to setting up Apache Airflow using Docker on Windows. The first method, more suitable for production environments, involves a few additional steps. The second method is quicker, ideal for development settings.
+In this article, I'll show two approaches to setting up Apache Airflow using Docker on Windows. Method 1 is more suitable for production environments and Method 2 is ideal for development settings.
 
 ## Method 1 - With Bind Mounts in Docker on Windows
 
 <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
-This section describes the installation of the latest version of Apache Airflow in Docker on Windows, focusing on the use of bind mounts for data persistence and easy management.
+This section describes the installation of the latest version of Apache Airflow in Docker on Windows using bind mounts for data persistence and easy management.
 </p>
 
 ### <span style="color: #7e0041;">Prerequisites</span>
@@ -51,8 +51,9 @@ This section describes the installation of the latest version of Apache Airflow 
 
     ![Alt text](image-1.png)
 
-#### Note
-- The `docker-compose.yaml` file is crucial for our setup. Finding it on the [official Apache Airflow site](https://airflow.apache.org) can be a bit tricky. - A simple search for "docker-compose.yaml" should lead you to it quickly.
+#### Note on `docker-compose.yaml`
+- This file is crucial for our setup. For each version of Apache Airflow we may have a different yaml file.
+- To get the file for your version you may search [Apache Airflow site](https://airflow.apache.org) for `docker-compose.yaml`.
 - At the time of writing this article, the latest version of the file could be found [here](https://airflow.apache.org/docs/apache-airflow/2.7.2/docker-compose.yaml).
 
 
@@ -87,7 +88,7 @@ Now, your Apache Airflow container is set up and ready to process DAGs. This Doc
 ## Method 2 - Using a Docker volume for data persistence
 
 <p style="color: #004d99; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6f7ff; padding: 15px; border-left: 5px solid #3399ff;">
-This guide sets up Apache Airflow in a Docker container on Windows, using a Docker volume for data persistence. This setup is great for development and testing purposes.
+Follow the steps below to set up Apache Airflow in a Docker container on Windows, using a Docker volume for data persistence. This setup is good for development and testing purposes.
 </p>
 
 ### <span style="color: #9e0059;">Prerequisites</span>
@@ -131,7 +132,7 @@ Access the Airflow UI at(UID/Pwd: airflow) [http://localhost:8080](http://localh
 - **<span style="color: #cc3300;">Delete Volume:</span>** Use `docker volume rm airflow-volume` to remove the volume. **Warning:** This deletes all your saved data!
 
 <p style="color: #004d99; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; background-color: #e6f7ff; padding: 15px; border-left: 5px solid #66cdaa;">
-<strong>Conclusion:</strong> The method describe here is good for development purpose but, for production environment, we will choose another method</p>
+<strong>Conclusion:</strong> The method I described here is good for development purpose but, for production environment, we will stick to Method 1</p>
 
 ## What is docker-compose.yaml
 
@@ -164,7 +165,6 @@ The `docker-compose.yaml` file for setting up Apache Airflow is a configuration 
 - **Isolation**: Each component of Airflow runs in a separate container, ensuring isolation and reducing conflicts between components.
 
 ### Conclusion:
-The `docker-compose.yaml` file for Airflow is essential for anyone looking to run Airflow in Docker, as it streamlines the process of setting up and managing all the components of an Airflow environment.
-
+The `docker-compose.yaml` file for Airflow is crucial for the setup. Finding the right version of the file can be tricky. Searching the Apache official site may help.
 
 ---
