@@ -18,6 +18,7 @@ In this case study, I detail handling multiple Python-acquired JSON files from a
 
 ### <span style="color: Teal;">The Code</span>
 
+Here is the code. Fill in your details appropriately.
 
 ```Python
 import requests, logging, json
@@ -89,6 +90,7 @@ def AzFuncCheckNMoveJson(myTimer: func.TimerRequest) -> None:
 
     logging.info("Processing complete.")
 ```
+
 ### <span style="color: Violet;">requirements.txt</span>
 
 The following entries should be there in `requirements.txt` file
