@@ -37,6 +37,5 @@ In the last two articles I showed you and artisinal-appreaoch to organize conten
 
 ---
 
-
 © D Das  
 📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)

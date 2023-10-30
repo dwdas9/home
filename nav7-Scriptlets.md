@@ -22,7 +22,6 @@ This article provides a step-by-step guide on using a Python script to populate 
 
 This is a short tutorial on how to use Python to validate JSON file data. Rather than iterating through all the fields in the JSON, usage of libraries like JSONschema etc. are considered more efficient. Hence, I thought of sharing my experience. [Read more...](articles/Misc/JsonValidator/jsonvalidator.html)
 
-
 ---
 
 © D Das  

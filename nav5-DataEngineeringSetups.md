@@ -21,7 +21,7 @@ nav_order: 5
 
 Hello everyone! In this quick guide, we'll focus on how to set up essential tools and environments for Data Engineering. Whether you're a beginner or already deep into the field, this straightforward guide aims to simplify your journey.
 
-## Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark in Windows
+## <span style="color: SteelBlue;">Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark in Windows</span>
 
 This guide's all about setting up the basics for Data Engineering – Java, Python, SPARK, and PySpark. It's simple and to the point, making sure you've got what you need to start your data journey. [Read more...](articles/Misc/InstallPythonPysparkSparkWin/JavaPythonSparkPysparkInstall.html)
 
