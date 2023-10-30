@@ -20,7 +20,7 @@ In this case study, I detail handling multiple Python-acquired JSON files from a
 
 Here is the code. Fill in your details appropriately.
 
-```Python
+```python
 import requests, logging, json
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError
