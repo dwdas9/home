@@ -1,3 +1,9 @@
+---
+layout: default
+title: Finding Spark
+nav_exclude: true
+---
+
 When you install Spark using a package manager like `pip`, it places the Spark binaries and libraries inside the Python's `dist-packages` or `site-packages` directory. This is a different installation approach than downloading and extracting Spark directly from the Apache Spark website.
 
 Here's what you need to know:
@@ -47,3 +53,7 @@ Here's what you need to know:
 3. **Using `spark-submit`**: The `spark-submit` script in this directory is tailored for the pip-installed Spark and ensures that it picks up the correct libraries and configurations from this location.
 
 In summary, if you've installed Spark using `pip` within your Docker container, then the `/usr/local/lib/python3.8/dist-packages/pyspark/` directory is your primary point of reference for Spark configurations, binaries, and libraries. This is distinct from a standalone Spark installation, which would typically reside directly under `/usr/local/` or another directory, separate from the Python packages directory.
+
+---
+© D Das  
+📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)

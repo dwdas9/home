@@ -65,3 +65,7 @@ Full Spark Installation involves setting up the complete Apache Spark framework,
 ### Conclusion
 
 To sum it up, `pip install pyspark` actually installs both the Python interface to Spark (PySpark) and a minimal, local-only version of Apache Spark itself. This setup allows you to run Spark jobs as if you had a Spark cluster, but it's all happening within your own computer. The local mode is a simulation of a distributed Spark environment, suitable for learning, development, and processing small data sets.
+
+---
+© D Das  
+📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)

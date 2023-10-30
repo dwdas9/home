@@ -4,8 +4,8 @@ title: Download JARs from Apache Maven Repository
 nav_exclude: true
 ---
 
+## Table of Contents
 - [How to Download JAR Files from Apache Maven Repository](#how-to-download-jar-files-from-apache-maven-repository)
-  - [Introduction](#introduction)
   - [Steps to Download JAR Files](#steps-to-download-jar-files)
     - [Go to Apache Maven Repository](#go-to-apache-maven-repository)
     - [Search for the JAR File](#search-for-the-jar-file)
@@ -15,7 +15,6 @@ nav_exclude: true
 
 # How to Download JAR Files from Apache Maven Repository
 
-## Introduction
 Need to download JAR files like `hadoop-azure-x.x.x.jar` for your project? Don't worry, I'll show you how to get them from Apache Maven Repository. It's easy and doesn't take much time.
 
 ## Steps to Download JAR Files
@@ -49,3 +48,6 @@ spark = SparkSession.builder \
     .config("spark.jars", "C:\\spark_jars\\hadoop-azure-3.3.3.jar;C:\\spark_jars\\hadoop-azure-datalake-3.3.3.jar;C:\\spark_jars\\hadoop-common-3.3.3.jar") \
     .getOrCreate()
 ```
+---
+© D Das  
+📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)
