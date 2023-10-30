@@ -33,7 +33,7 @@ I the previous article I showed you how to sort files using Spark and Hadoop Jar
 
 ## How to schedule our Blob file organizer Python script usign Azure Timer-Trigger Function
 
-In the last two articles I showed you and artisinal-appreaoch to organize content inside Azure blob storage. But, we may require to schedule such function. Here I will show you how I converted my Python script[Method2] to a timer-triggered Azure function which runs everyday at 11.30 PM [Read more...](tbd)
+In the last two articles I showed you and artisinal-appreaoch to organize content inside Azure blob storage. But, we may require to schedule such function. Here I will show you how I converted my Python script[Method2] to a timer-triggered Azure function which runs everyday at 11.30 PM. [Read more...](tbd)
 
 ---
 

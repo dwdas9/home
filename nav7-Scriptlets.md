@@ -6,17 +6,9 @@ nav_order: 7
 
 ## Table of Contents
 - [Overview](#overview)
-  - [Installing Key Elements for Data Engineering: Java, Python, SPARK, and PySpark in Windows](#installing-key-elements-for-data-engineering-java-python-spark-and-pyspark-in-windows)
-  - [Setting Up a Spark Cluster with Docker on Windows: One Master, Two Workers](#setting-up-a-spark-cluster-with-docker-on-windows-one-master-two-workers)
-  - [Installing Apache Airflow on Windows Docker](#installing-apache-airflow-on-windows-docker)
-  - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
-  - [Setting up a Dockerized Spark Environment on Ubuntu for Windows](#setting-up-a-dockerized-spark-environment-on-ubuntu-for-windows)
   - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
-  - [Managing Python in System PATH Using PowerShell](#managing-python-in-system-path-using-powershell)
-  - [Unable to run `docker ps` despite having docker installed?](#unable-to-run-docker-ps-despite-having-docker-installed)
-  - [How to Download and Use JAR Files from Apache Maven Repository](#how-to-download-and-use-jar-files-from-apache-maven-repository)
-  - [Pip install Pyspark vs FULL Spark](#pip-install-pyspark-vs-full-spark)
-  - [Setting Up Azure Databricks](#setting-up-azure-databricks)
+  - [Validate JSON data using JSON Schema and Python](#validate-json-data-using-json-schema-and-python)
+
 
 # Overview
 
