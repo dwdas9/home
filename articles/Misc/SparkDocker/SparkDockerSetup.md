@@ -36,7 +36,7 @@ In this tutorial I'll guide you through setting up an Apache Spark cluster using
 
 ## <span style="color: #7e0041;">Prerequisites</span>
 
-- **Docker**: Make sure Docker is installed and running on your machine. [Download Docker](https://www.docker.com/products/docker-desktop).
+- **Docker**: Make sure Docker is installed and running on your machine. [You can Download Docker from here](https://www.docker.com/products/docker-desktop).
 
 ## <span style="color: #3333cc;">Step 1: Setting Up Docker Compose File</span>
 
