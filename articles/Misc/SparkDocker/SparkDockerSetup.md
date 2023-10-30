@@ -41,7 +41,7 @@ In this tutorial I'll guide you through setting up an Apache Spark cluster using
 ## <span style="color: #3333cc;">Step 1: Setting Up Docker Compose File</span>
 
 <p style="color: #804000; font-family: 'Courier New', Courier, monospace; background-color: #fff5e6; padding: 15px; border-left: 5px solid #b35900;">
-We use Docker Compose to define and run a multi-container Docker application. In this case, our application is an Apache Spark cluster.
+The most important file here is docker-compose.yaml. Which is used to set up multi-container docker applications. In our case it will be 1 Master container and 2 worker containers.
 </p>
 
 ### <span style="color: #9e0059;">Create a `docker-compose.yaml` file</span>:
@@ -86,19 +86,21 @@ spark-worker-2:
 
 - Rename the file as `docker-compose.yaml`
 
-<p style="color: #003366; font-family: Arial, sans-serif; background-color: #cce6ff; padding: 15px; border-left: 5px solid #333399;">
-<strong>Explanation</strong>:
-- <strong>Version</strong>: Specifies the Docker Compose file format version.
-- <strong>Services</strong>: Defines three services (one master and two workers).
-- <strong>Image</strong>: We use <code>bitnami/spark:latest</code>, which is a pre-built, well-maintained Spark Docker image. It contains Java pre-installed and the environment variables, like SPARK_HOME(<code>/opt/bitnami/spark$</code>) and JAVA_HOME(<code>/opt/bitnami/java$</code>) are also pre-set.
-- <strong>Ports</strong>: Exposes the Spark master UI (<code>8080</code>) and communication port (<code>7077</code>).
-- <strong>Environment Variables</strong>: Configures Spark properties like worker memory and cores.
-</p>
+**Explanation of key items in the file**
+
+| Feature               | Details |
+|-----------------------|---------|
+| **Version**           | Specifies the Docker Compose file format version. |
+| **Services**          | Defines three services (one master and two workers). |
+| **Image**             | We use `bitnami/spark:latest`, which is a pre-built, well-maintained Spark Docker image.  |
+| **Ports**             | Exposes the Spark master UI (`8080`) and communication port (`7077`). |
+| **Environment Variables** | Configures Spark properties like worker memory and cores. |
+
 
 ## <span style="color: #3333cc;">Step 2: Starting the Cluster</span>
 
 ### <span style="color: #9e0059;">1. Open command prompt</span>
-- **Open command prompt** and cd to the folder containing the `docker-compose.yaml`.
+**Open command prompt** and cd to the folder containing the `docker-compose.yaml`.
 
 ### <span style="color: #9e0059;">2. Run the following command</span>
 - **Run the following command** to start your Spark cluster:
@@ -127,13 +129,13 @@ spark-worker-2:
 
 ## <span style="color: #3333cc;">Step 3: Accessing Spark Master UI</span>
 
-- Once your cluster is running, access the Spark Master UI through your web browser at `http://localhost:8080`. Here, you can view details about your cluster, including active workers and running applications.
+Once your cluster is running, access the Spark Master UI through your web browser at `http://localhost:8080`. Here, you can view details about your cluster, including active workers and running applications.
 
 ## <span style="color: #3333cc;">Step 4: Running a Spark Job</span>
 
 ### <span style="color: #9e0059;">1. Access the Spark Master container</span>
 
-- Run the following command:
+Run the following command:
 
     ```bash
     docker exec -it <spark-master-container-id> /bin/bash
@@ -141,15 +143,16 @@ spark-worker-2:
 
 ### <span style="color: #9e0059;">2. Run your Spark job</span>
 
-- **Run your Spark job** from within the master container, or use `spark-submit` to deploy your application.
+**Run your Spark job** from within the master container, or use `spark-submit` to deploy your application.
 
 ## <span style="color: #3333cc;">Step 5: Shutting Down the Cluster</span>
 
-- Tp shut down the container, run the following command:
+Tp shut down the container, run the following command:
 
     ```bash
     docker-compose down
     ```
+
 ## <span style="color: #3333cc;">Steps to add an extra node</span>
 
 <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
@@ -198,7 +201,7 @@ Adding an extra Spark worker node to your existing Docker Compose setup is simpl
 #### <span style="color: #000000;">3. Save the <code>docker-compose.yaml</code> file</span>.
 
 #### <span style="color: #000000;">4. Run Docker Compose</span>.
-- **Update your setup with the new worker node**:
+
    ```bash
    docker-compose up -d
    ```
