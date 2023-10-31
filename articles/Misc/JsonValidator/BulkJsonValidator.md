@@ -14,7 +14,7 @@ In a project, I encountered numerous ASCII-formatted JSON files with single quot
 
 - **Create the JSON Schema**: For well-strucuctured JSONs we can create the schema easily. You can take help from sites liks [transform.tools](https://transform.tools/json-to-json-schema).
 - **Azure Function Setup**: To create an auto-scheduled function you will need to create a timer-triggered Azure function. You can refer to my [article](../../Projects/AzureSkyWeather/1_Ingestion/TimerTriggered/TimerTriggered_AzureFunc.html) for details.
-- **Data Lake Storage Configuration**: My example works with Azure Data lake. However, if you are using a different storage like Azure blobs, the code might require little bit tweaking.
+- **Data Lake Storage Configuration**: My example works with ADLS Gen2. The code should also work with simple azure blob storage.
 
 ### <span style="color: Teal;">The Code</span>
 
