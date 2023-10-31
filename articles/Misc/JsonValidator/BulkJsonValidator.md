@@ -8,7 +8,7 @@ nav_exclude: true
 
 ### <span style="color: #9e0059;">Introduction</span>
 
-In this case study, I detail handling multiple Python-acquired JSON files from a web API. The main challenge was their <span style="color: SaddleBrown;">ASCII</span> format with single quotes, causing validation problems. I resolved this by converting the files to <span style="color: DarkGreen;">UTF-8</span> format and implementing validation and sorting against a JSON schema using libraries like <span style="color: Navy;">json</span> and <span style="color: Chocolate;">jsonschema</span>. Files were initially in a <span style="color: DarkGoldenRod;">'Raw'</span> container, and post-validation, they were moved to either a <span style="color: Gray;">'silver'</span> container for valid data or an <span style="color: Crimson;">'error'</span> container for invalid ones within Azure Blob Storage. For larger datasets, however, I recommend using Spark connected to ADLS.
+In a project, I encountered numerous ASCII-formatted JSON files with single quotes stored in a ADLS Container, rendering the format invalid. My task involved converting these files to UTF-8, replacing the quotes, validating them against a JSON schema, and relocating them to different containers. For this, I used Azure Functions, which is efficient for smaller datasets, but for larger ones, I recommend using Spark or Databricks.
 
 ### <span style="color: MediumSeaGreen;">Pre-requisites</span>
 
@@ -18,7 +18,7 @@ In this case study, I detail handling multiple Python-acquired JSON files from a
 
 ### <span style="color: Teal;">The Code</span>
 
-Here is the code. Fill in your details appropriately.
+Here's the code for `function_app.py`. Please enter your details as required in the placeholders.
 
 ```python
 import requests, logging, json
@@ -38,7 +38,7 @@ def is_valid_json(data, schema):
 
 app = func.FunctionApp()
 
-@app.schedule(schedule="<your CRON, e.g. >", arg_name="myTimer", run_on_startup=True,
+@app.schedule(schedule="<your CRON, e.g. 0 0 * * * *>", arg_name="myTimer", run_on_startup=True,
               use_monitor=False) 
 def AzFuncCheckNMoveJson(myTimer: func.TimerRequest) -> None:
     if myTimer.past_due:
@@ -104,4 +104,4 @@ jsonschema
   
 ### <span style="color: DodgerBlue;">Conclusion</span>
 
-The use of <span style="color: Chocolate;">jsonschema</span> in this project proved invaluable for efficient JSON validation, eliminating the need for iterative item-by-item examination. This method enhanced both speed and accuracy. While Azure Functions were apt for our dataset size, they're best for smaller datasets. For larger volumes, solutions like Spark with Azure Data Lake Storage (ADLS) are recommended, showcasing the need for scalable approaches in data processing.
+The use of <span style="color: Chocolate;">jsonschema</span> in this project proved invaluable for efficient JSON validation, eliminating the need for iterative item-by-item examination. This method enhanced both speed and accuracy. While Azure Functions were a good choice for our dataset size, they're best for smaller datasets. For larger volumes, solutions like Spark with Azure Data Lake Storage (ADLS) are recommended.
