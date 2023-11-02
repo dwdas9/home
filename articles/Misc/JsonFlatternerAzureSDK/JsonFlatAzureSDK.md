@@ -118,7 +118,7 @@ Here is what the scirpt does. This will help you understand how Azure SDK for Bl
     * **Downloads the blob** using the `get_blob_client()` and `download_blob()` methods.
     * **Decodes the blob data** to a string using the `decode()` method.
     * **Parses the JSON data** in the string using the `json.loads()` function.
-    * **Flattens the JSON data** using the `flatten_json()` function that you provided.
+    * **Flattens the JSON data** using the `flatten_json()` function that we provided.
     * **Moves the blob to the `silver` container** using the `upload_blob()` method.
     * **Deletes the original blob** (optional).
 
