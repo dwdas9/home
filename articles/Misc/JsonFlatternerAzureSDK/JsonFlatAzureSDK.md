@@ -4,25 +4,29 @@ title: Flatten Json Using Azure SDK
 nav_exclude: true
 ---
 
-## <p style="color: CadetBlue; font-family: Segoe UI, sans-serif;font-size: large;"><strong>Table of Contents</strong></p>
+## <span style="color: SlateGray;Font-family: Segoe UI, sans-serif;font-size: large;">Table of Contents</span>
+
 - [Flatten JSON Files in Azure Blob Storage using Azure SDK for Python](#flatten-json-files-in-azure-blob-storage-using-azure-sdk-for-python)
   - [Background](#background)
   - [Prerequisites](#prerequisites)
   - [Create the script](#create-the-script)
   - [Explanation of key elements in the script](#explanation-of-key-elements-in-the-script)
   - [Appendix](#appendix)
-    - [The complete script](#the-complete-script)
+  - [The complete script](#the-complete-script)
     - [Azure Python SDK(libs) ecosystem](#azure-python-sdklibs-ecosystem)
     - [Convert the script into an Azure Function](#convert-the-script-into-an-azure-function)
 
 
-# <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;font-size: large;">Flatten JSON Files in Azure Blob Storage using Azure SDK for Python</span>
+# <span style="color: Teal;Font-family: Segoe UI, sans-serif;font-size: large;">Flatten JSON Files in Azure Blob Storage using Azure SDK for Python</span>
 
-## <p style="color: SteelBlue; font-family: Segoe UI, sans-serif;font-size: medium;"><strong>Background</strong></p>
+## <span style="color: PaleVioletRed;Font-family: Segoe UI, sans-serif;font-size: large;">Background</span>
+
 
 A ADLS container has many JSON files with nested structure. This article shows how to flatten those Json files for better handling later.
 
-## <p style="color: MediumSeaGreen; font-family: Segoe UI, sans-serif;font-size: medium;"><strong>Prerequisites</strong></p>
+## <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;font-size: large;">Prerequisites</span>
+
+
 
 - A python-development ready VS Code environment
 - Install the required Azure SDK(libs) to work with Azure storage.
@@ -37,8 +41,9 @@ pip install azure-storage-blob
   - Copy and keep the **Connection string** from here.
 
 
+## <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;font-size: large;">Create the script</span>
 
-## <p style="color: DodgerBlue; font-family: Segoe UI, sans-serif;font-size: medium;"><strong>Create the script</strong></p>
+
 
 To create the Python code in Visual Studio Code follow these steps:
 
@@ -103,7 +108,7 @@ if __name__ == "__main__":
 5. Save the file.
 6. Press `F5` to run the code.
 
-## <p style="color: DarkGreen; font-family: Segoe UI, sans-serif;font-size: medium;"><strong>Explanation of key elements in the script</strong></p>
+## <span style="color: Red;Font-family: Segoe UI, sans-serif;font-size: large;">Explanation of key elements in the script</span>
 
 Here is what the scirpt does. This will help you understand how Azure SDK for Blob Stroage works:
 
@@ -118,9 +123,10 @@ Here is what the scirpt does. This will help you understand how Azure SDK for Bl
     * **Moves the blob to the `silver` container** using the `upload_blob()` method.
     * **Deletes the original blob** (optional).
 
-## <p style="color: DarkOrchid; font-family: Segoe UI, sans-serif;font-size: medium;"><strong>Appendix</strong></p>
+## <span style="color: DarkOrchid;Font-family: Segoe UI, sans-serif;font-size: large;">Appendix</span>
 
-### <p style="color: DarkRed; font-family: Segoe UI, sans-serif;font-size: medium;"><strong>The complete script</strong></p>
+## <span style="color: Indigo;Font-family: Segoe UI, sans-serif;font-size: large;">The complete script</span>
+
 
 Here is the complete script in one piece:
 
@@ -195,7 +201,8 @@ if __name__ == "__main__":
 
 ```
 
-### <p style="color: SeaGreen; font-family: Segoe UI, sans-serif;font-size: medium;"><strong>Azure Python SDK(libs) ecosystem</strong></p>
+### <span style="color: LimeGreen;Font-family: Segoe UI, sans-serif;font-size: large;">Azure Python SDK(libs) ecosystem</span>
+
 
 | Library                  | Explanation                                                                |
 |--------------------------|----------------------------------------------------------------------------|
@@ -206,7 +213,8 @@ if __name__ == "__main__":
 |📁 <span style="color: darkgreen; font-weight: bold; font-size: 14px;">Container Client Class</span> | Container Level |
 |📄 <span style="color: darkviolet; font-weight: bold; font-size: 13px;">Blob Client Class</span> | Blob Level |
 
-### <p style="color: Chocolate; font-family: Segoe UI, sans-serif;font-size: medium;"><strong>Convert the script into an Azure Function</strong></p>
+### <span style="color: Chocolate;Font-family: Segoe UI, sans-serif;font-size: large;">Convert the script into an Azure Function</span>
+
 
 The logic from my script can be easily incoporated into an azure function. You can easily put the entire logic into the functions `function_app.py`. Refer to my other articles on how to work with Azure Functions.
 
