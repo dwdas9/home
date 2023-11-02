@@ -46,8 +46,8 @@ pip install azure-storage-blob
 
 To create the Python code in Visual Studio Code follow these steps:
 
-1. Create a new file with the `.py` extension.
-2. Import the necessary libraries:
+- Create a new file with the `.py` extension.
+- Import the necessary libraries:
 
 ```python
 import json
@@ -55,7 +55,7 @@ from azure.storage.blob import BlobServiceClient
 import logging
 ```
 
-3. Define the `flatten_json()` function:
+- Define the `flatten_json()` function:
 
 ```python
 def flatten_json(y, parent_key='', sep='_'):
@@ -69,7 +69,7 @@ def flatten_json(y, parent_key='', sep='_'):
   return dict(items)
 ```
 
-4. Define the `main()` function:
+- Define the `main()` function:
 
 ```python
 def main():
@@ -104,8 +104,8 @@ if __name__ == "__main__":
   main()
 ```
 
-5. Save the file.
-6. Press `F5` to run the code.
+- Save the file.
+- Press `F5` to run the code.
 
 ## <span style="color: Red;Font-family: Segoe UI, sans-serif;">Explanation of key elements in the script</span>
 
