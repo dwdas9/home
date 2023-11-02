@@ -1,3 +1,8 @@
+---
+layout: default
+title: Flatten Json Using Azure SDK
+nav_exclude: true
+---
 
 ## <p style="color: CadetBlue; font-family: Segoe UI, sans-serif;font-size: large;"><strong>Table of Contents</strong></p>
 - [Flatten JSON Files in Azure Blob Storage using Azure SDK for Python](#flatten-json-files-in-azure-blob-storage-using-azure-sdk-for-python)
