@@ -15,7 +15,8 @@ nav_exclude: true
     - [Azure Python SDK(libs) ecosystem](#azure-python-sdklibs-ecosystem)
     - [Convert the script into an Azure Function](#convert-the-script-into-an-azure-function)
 
-# <p style="color: blueviolet; font-family: Segoe UI, sans-serif;font-size: large;"><strong>Flatten JSON Files in Azure Blob Storage using Azure SDK for Python</strong></p>
+
+# <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;font-size: large;">Flatten JSON Files in Azure Blob Storage using Azure SDK for Python</span>
 
 ## <p style="color: SteelBlue; font-family: Segoe UI, sans-serif;font-size: medium;"><strong>Background</strong></p>
 
