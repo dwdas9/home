@@ -4,7 +4,7 @@ title: Flatten Json Using Azure SDK
 nav_exclude: true
 ---
 
-## <span style="color: SlateGray;Font-family: Segoe UI, sans-serif;font-size: large;">Table of Contents</span>
+## <span style="color: SlateGray;Font-family: Segoe UI, sans-serif;">Table of Contents</span>
 
 - [Flatten JSON Files in Azure Blob Storage using Azure SDK for Python](#flatten-json-files-in-azure-blob-storage-using-azure-sdk-for-python)
   - [Background](#background)
@@ -17,13 +17,13 @@ nav_exclude: true
     - [Convert the script into an Azure Function](#convert-the-script-into-an-azure-function)
 
 
-# <span style="color: Teal;Font-family: Segoe UI, sans-serif;font-size: large;">Flatten JSON Files in Azure Blob Storage using Azure SDK for Python</span>
+# <span style="color: Teal;Font-family: Segoe UI, sans-serif;">Flatten JSON Files in Azure Blob Storage using Azure SDK for Python</span>
 
-## <span style="color: PaleVioletRed;Font-family: Segoe UI, sans-serif;font-size: large;">Background</span>
+## <span style="color: PaleVioletRed;Font-family: Segoe UI, sans-serif;">Background</span>
 
 A ADLS container has many JSON files with nested structure. This article shows how to flatten those Json files for better handling later.
 
-## <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;font-size: large;">Prerequisites</span>
+## <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Prerequisites</span>
 
 
 
@@ -40,7 +40,7 @@ pip install azure-storage-blob
   - Copy and keep the **Connection string** from here.
 
 
-## <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;font-size: large;">Create the script</span>
+## <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;">Create the script</span>
 
 
 
@@ -107,7 +107,7 @@ if __name__ == "__main__":
 5. Save the file.
 6. Press `F5` to run the code.
 
-## <span style="color: Red;Font-family: Segoe UI, sans-serif;font-size: large;">Explanation of key elements in the script</span>
+## <span style="color: Red;Font-family: Segoe UI, sans-serif;">Explanation of key elements in the script</span>
 
 Here is what the scirpt does. This will help you understand how Azure SDK for Blob Stroage works:
 
@@ -122,9 +122,9 @@ Here is what the scirpt does. This will help you understand how Azure SDK for Bl
     * **Moves the blob to the `silver` container** using the `upload_blob()` method.
     * **Deletes the original blob** (optional).
 
-## <span style="color: DarkOrchid;Font-family: Segoe UI, sans-serif;font-size: large;">Appendix</span>
+## <span style="color: DarkOrchid;Font-family: Segoe UI, sans-serif;">Appendix</span>
 
-### <span style="color: Indigo;Font-family: Segoe UI, sans-serif;font-size: large;">The complete script</span>
+### <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">The complete script</span>
 
 
 Here is the complete script in one piece:
@@ -200,7 +200,7 @@ if __name__ == "__main__":
 
 ```
 
-### <span style="color: LimeGreen;Font-family: Segoe UI, sans-serif;font-size: large;">Azure Python SDK(libs) ecosystem</span>
+### <span style="color: LimeGreen;Font-family: Segoe UI, sans-serif;">Azure Python SDK(libs) ecosystem</span>
 
 
 | Library                  | Explanation                                                                |
@@ -212,7 +212,7 @@ if __name__ == "__main__":
 |📁 <span style="color: darkgreen; font-weight: bold; font-size: 14px;">Container Client Class</span> | Container Level |
 |📄 <span style="color: darkviolet; font-weight: bold; font-size: 13px;">Blob Client Class</span> | Blob Level |
 
-### <span style="color: Chocolate;Font-family: Segoe UI, sans-serif;font-size: large;">Convert the script into an Azure Function</span>
+### <span style="color: Chocolate;Font-family: Segoe UI, sans-serif;">Convert the script into an Azure Function</span>
 
 
 The logic from my script can be easily incoporated into an azure function. You can easily put the entire logic into the functions `function_app.py`. Refer to my other articles on how to work with Azure Functions.
@@ -220,3 +220,8 @@ The logic from my script can be easily incoporated into an azure function. You c
 🌟 **Conclusion**: The Azure SDK for Python is a superset of libraries to work with Azure services. The Azure Blob Storage SDK for Python is a subset of the Azure SDK for working with Azure Blob Storage.
 
 The script in this article uses the Azure Blob Storage SDK for Python to flatten JSON files in an Azure Blob Storage container. The script first downloads the blob from the container, then flattens the JSON data, and finally uploads the flattened JSON data back to the container.
+
+---
+
+© D Das  
+📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)

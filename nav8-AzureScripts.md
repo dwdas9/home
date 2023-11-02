@@ -4,18 +4,19 @@ title: Azure SDK For Python Scripts
 nav_order: 8
 ---
 
-## Table of Contents
+## <span style="color: Chocolate;Font-family: Segoe UI, sans-serif;">Table of Contents</span>
+
+
 - [Overview](#overview)
   - [Azure SDK: Clean, Validate, \& Migrate JSONs](#azure-sdk-clean-validate--migrate-jsons)
   - [Azure SDK: Flatten JSONs](#azure-sdk-flatten-jsons)
 
+# <span style="color: SlateGray;">Overview</span>
+
+This article includes practical examples of Python scripts from my own projects, using the Azure SDK for Python to interact with Azure Storage. These scripts are applicable in numerous scenarios.
 
 
-# Overview
-
-This article provides real-world examples of Python scripts from projects that I worked on that use the Azure SDK for Python to work with Azure Storage. These scripts can be useful in a variety of situations.
-
-## <p style="color: blueviolet; font-family: Arial, sans-serif;font-size: medium;"><strong>Azure SDK: Clean, Validate, & Migrate JSONs</strong></p>
+## <span style="color: blueviolet;">Azure SDK: Clean, Validate, & Migrate JSONs</span>
 
 <span style="color: navy;">**Problem:**</span>
 **JSON files in the source_container** are stored with **single quotes**, leading to **invalid schema issues**.
@@ -30,13 +31,13 @@ This article provides real-world examples of Python scripts from projects that I
 
 **Tech stack:** ADLS, Azure SDK/Libs, Azure Functions. [Read more...](articles/Misc/JsonValidator/BulkJsonValidator.html)
 
+## <span style="color: ForestGreen;">Azure SDK: Flatten JSONs</span>
 
-## <p style="color: RosyBrown; font-family: Arial, sans-serif;font-size: medium;"><strong>Azure SDK: Flatten JSONs</strong></p>
 
-<span style="color: navy;">**Problem:**</span>
+<span style="color: SteelBlue;">**Problem:**</span>
 The source container has a lot of JSON files in nested format. They need to be flattened.
 
-<span style="color: darkgreen;">**Solution:**</span> 
+<span style="color: DarkSalmon;">**Solution:**</span> 
 
 - **Flatten** the source json files using Azure SDK(libs), BlobServiceClient
 - **Move** the files to a destination container or simply replace the source files
