@@ -12,7 +12,7 @@ nav_exclude: true
   - [Create the script](#create-the-script)
   - [Explanation of key elements in the script](#explanation-of-key-elements-in-the-script)
   - [Appendix](#appendix)
-  - [The complete script](#the-complete-script)
+    - [The complete script](#the-complete-script)
     - [Azure Python SDK(libs) ecosystem](#azure-python-sdklibs-ecosystem)
     - [Convert the script into an Azure Function](#convert-the-script-into-an-azure-function)
 
@@ -20,7 +20,6 @@ nav_exclude: true
 # <span style="color: Teal;Font-family: Segoe UI, sans-serif;font-size: large;">Flatten JSON Files in Azure Blob Storage using Azure SDK for Python</span>
 
 ## <span style="color: PaleVioletRed;Font-family: Segoe UI, sans-serif;font-size: large;">Background</span>
-
 
 A ADLS container has many JSON files with nested structure. This article shows how to flatten those Json files for better handling later.
 
@@ -125,7 +124,7 @@ Here is what the scirpt does. This will help you understand how Azure SDK for Bl
 
 ## <span style="color: DarkOrchid;Font-family: Segoe UI, sans-serif;font-size: large;">Appendix</span>
 
-## <span style="color: Indigo;Font-family: Segoe UI, sans-serif;font-size: large;">The complete script</span>
+### <span style="color: Indigo;Font-family: Segoe UI, sans-serif;font-size: large;">The complete script</span>
 
 
 Here is the complete script in one piece:
