@@ -205,7 +205,7 @@ if __name__ == "__main__":
 
 | Library                  | Explanation                                                                |
 |--------------------------|----------------------------------------------------------------------------|
-|🐍<span style="color: navy; font-weight: bold; font-size: 20px;">Azure SDK For Python</span> | Superset of all python packages (libs) for Azure. Can't be installed with a single pip. |
+|🐍<span style="color: navy; font-weight: bold; font-size: 19px;">Azure SDK For Python</span> | Superset of all python packages (libs) for Azure. Can't be installed with a single pip. |
 |📦 <span style="color: teal; font-weight: bold; font-size: 18px;">Azure Storage SDKs</span> | Subset of Azure SDK. Multiple libraries. Hence, no single pip command. |
 |💦 <span style="color: olive; font-weight: bold; font-size: 16px;">Azure Blob Storage SDK</span> | Subset of Azure Storage SDK. Single Library - `pip install azure-storage-blob` |
 |🛠️ <span style="color: maroon; font-weight: bold; font-size: 15px;">BlobServiceClient Class</span> | Storage Account Level |
