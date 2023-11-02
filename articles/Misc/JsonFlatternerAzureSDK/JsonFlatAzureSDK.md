@@ -164,7 +164,7 @@ def flatten_json(y, parent_key='', sep='_'):
 # Main function
 def main():
     # Initialize Blob Service Client using connection string. This is the main entry point for interacting with blobs in Azure Storage.
-    blob_service_client = BlobServiceClient.from_connection_string("DefaultEndpointsProtocol=https;AccountName=strgacweatherapp;AccountKey=Gp5FBb00AW/inzSz8t1MtXyCe4ASV7EXo3ygxI/SDaFrq9wIwBJRsuVfcWilMp/fnNCTi7BWqTRB+ASt1evoJw==;EndpointSuffix=core.windows.net")
+    blob_service_client = BlobServiceClient.from_connection_string("DefaultEndpointsProtocol=https;AccountName=<your-storage-account-Name>;AccountKey=<Your_Storage_Act_Con_String>;EndpointSuffix=core.windows.net")
 
     # Get a client for the "silver" container in the Blob Service. This client provides operations to interact with a specific container.
     container_client = blob_service_client.get_container_client("silver")
