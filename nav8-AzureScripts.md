@@ -45,7 +45,6 @@ The source container has a lot of JSON files in nested format. They need to be f
 
 **Tech stack:** ADLS, Azure SDK For Python, Azure Functions. [Read more...](articles/Misc/JsonFlatternerAzureSDK/JsonFlatAzureSDK.html)
 
-
 ---
 
 © D Das  
