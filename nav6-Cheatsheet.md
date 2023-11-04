@@ -7,11 +7,27 @@ nav_order: 6
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
+    - [**Azure Programming Cheatsheet**](#azure-programming-cheatsheet)
+    - [**Azure Storage SDK For Python**](#azure-storage-sdk-for-python)
   - [**Azure Storage And Data Services Cheatsheet**](#azure-storage-and-data-services-cheatsheet)
     - [**Storage Services**](#storage-services)
     - [**Data And Analytics Services**](#data-and-analytics-services)
 
 ---
+#### **Azure Programming Cheatsheet**
+
+#### **Azure Storage SDK For Python**
+
+| Operation | Function | Code snippet |
+|---|---|---|
+| Connect to storage account | `BlobServiceClient.from_connection_string()` | `blob_service_client = BlobServiceClient.from_connection_string(YOUR_CONNECTION_STRING)` |
+| Create a blob | `BlobClient.upload_blob()` | `blob_client = blob_service_client.get_blob_client(container_name="mycontainer", blob_name="myblob.txt") blob_client.upload_blob("myblob.txt")` |
+| Download a blob | `BlobClient.download_blob()` | `with open("myblob.txt", "wb") as f: blob_client.download_blob(f)` |
+| List blobs in a container | `ContainerClient.list_blobs()` | `for blob in blob_service_client.get_container_client(container_name="mycontainer").list_blobs(): print(blob.name)` |
+| Delete a blob | `BlobClient.delete_blob()` | `blob_client.delete_blob()` |
+| Create a container | `ContainerClient.create_container()` | `container_client = blob_service_client.get_container_client(container_name="mycontainer") container_client.create_container()` |
+| Delete a container | `ContainerClient.delete_container()` | `container_client.delete_container()` |
+
 
 ### **Azure Storage And Data Services Cheatsheet**
 
@@ -52,6 +68,8 @@ nav_order: 6
 | **Azure Time Series Insights** | Amazon Timestream | Cloud IoT Core + BigQuery | Time Series Analysis |
 | **Azure Data Share** | AWS Data Exchange | No direct equivalent | Data Collaboration |
 | **Azure Purview** | AWS Glue Data Catalog | Cloud Data Catalog | Data Governance |
+
+
 
 
 ---
