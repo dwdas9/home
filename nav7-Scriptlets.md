@@ -6,26 +6,22 @@ nav_order: 7
 
 ## <span style="color: Teal;">Table of Contents</span>
 - [Overview](#overview)
+  - [JSON Validate  using  Schema](#json-validate--using--schema)
+  - [JSON Fetch n Convert  To Parquet](#json-fetch-n-convert--to-parquet)
+  - [JSON Clean-Validate-Migrate ](#json-clean-validate-migrate-)
+  - [JSON Flatten ](#json-flatten-)
   - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
-  - [Validate JSON using  Schema](#validate-json-using--schema)
-  - [Fetch n Convert JSON To Parquet](#fetch-n-convert-json-to-parquet)
-  - [Clean, Validate, \& Migrate JSONs](#clean-validate--migrate-jsons)
-  - [Flatten JSONs](#flatten-jsons)
 
 
 # <span style="color: BlueViolet;">Overview</span>
 
 This article shows few compact self-contained scripts that can be applied to many scenarios and customized further. The overview section gives you an idea of whats inside. These scripts are mainly for development projects with a python element. Most of the scripts are built using VS code.
 
-## <span style="color: DimGray;">Python dummy data inserter into SQL Server</span>
-
-This article provides a step-by-step guide on using a Python script to populate the `dbo.student` table in a SQL Server database with random data. This method is useful for testing and simulation purposes. We'll cover how to set up the script, how it functions, and how to run it to achieve the desired results. [Read more...](articles/Misc/Dummy_data/dummy-data-inserter.html)
-
-## <span style="color: ForestGreen;">Validate JSON using  Schema</span>
+## <span style="color: ForestGreen;">JSON Validate  using  Schema</span>
 
 This is a short tutorial on how to use Python to validate JSON file data. Rather than iterating through all the fields in the JSON, usage of libraries like JSONschema etc. are considered more efficient. Hence, I thought of sharing my experience. [Read more...](articles/Misc/JsonValidator/jsonvalidator.html)
 
-## <span style="color: DarkRed;">Fetch n Convert JSON To Parquet</span>
+## <span style="color: DarkRed;">JSON Fetch n Convert  To Parquet</span>
 
 <span style="color: SteelBlue;">**Problem:**</span> To directly fetch JSON data from a web API and store it in a partitioned manner for enhanced analysis, utilizing only Spark for the process.
 
@@ -36,7 +32,7 @@ Using Hadoop JARs with PySpark to establish a connection to Azure Data Lake Stor
 **Tech stack:** ADLS, Pyspark, Haddop Azure Jars, Spark-Azure onnectivity.
 [Read more...](articles/Misc/SparkAndAzureSDKScripts/FetchJsonWriteParquet.html)
 
-## <span style="color: PaleVioletRed;">Clean, Validate, & Migrate JSONs</span>
+## <span style="color: PaleVioletRed;">JSON Clean-Validate-Migrate </span>
 
 <span style="color: navy;">**Problem:**</span>
 **JSON files in the source_container** are stored with **single quotes**, leading to **invalid schema issues**.
@@ -51,7 +47,7 @@ Using Hadoop JARs with PySpark to establish a connection to Azure Data Lake Stor
 
 **Tech stack:** ADLS, Azure SDK/Libs, Azure Functions. [Read more...](articles/Misc/JsonValidator/BulkJsonValidator.html)
 
-## <span style="color: DodgerBlue;">Flatten JSONs</span>
+## <span style="color: DodgerBlue;">JSON Flatten </span>
 
 
 <span style="color: SteelBlue;">**Problem:**</span>
@@ -65,6 +61,9 @@ The source container has a lot of JSON files in nested format. They need to be f
 
 **Tech stack:** ADLS, Azure SDK For Python, Azure Functions. [Read more...](articles/Misc/JsonFlatternerAzureSDK/JsonFlatAzureSDK.html)
 
+## <span style="color: DimGray;">Python dummy data inserter into SQL Server</span>
+
+This article provides a step-by-step guide on using a Python script to populate the `dbo.student` table in a SQL Server database with random data. This method is useful for testing and simulation purposes. We'll cover how to set up the script, how it functions, and how to run it to achieve the desired results. [Read more...](articles/Misc/Dummy_data/dummy-data-inserter.html)
 
 ---
 
