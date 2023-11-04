@@ -17,7 +17,7 @@ nav_order: 7
 
 This article shows few compact self-contained scripts that can be applied to many scenarios and customized further. The overview section gives you an idea of whats inside. These scripts are mainly for development projects with a python element. Most of the scripts are built using VS code.
 
-## <span style="color: SaddleBrown;">Python dummy data inserter into SQL Server</span>
+## <span style="color: DimGray;">Python dummy data inserter into SQL Server</span>
 
 This article provides a step-by-step guide on using a Python script to populate the `dbo.student` table in a SQL Server database with random data. This method is useful for testing and simulation purposes. We'll cover how to set up the script, how it functions, and how to run it to achieve the desired results. [Read more...](articles/Misc/Dummy_data/dummy-data-inserter.html)
 
@@ -36,7 +36,7 @@ Using Hadoop JARs with PySpark to establish a connection to Azure Data Lake Stor
 **Tech stack:** ADLS, Pyspark, Haddop Azure Jars, Spark-Azure onnectivity.
 [Read more...](articles/Misc/SparkAndAzureSDKScripts/FetchJsonWriteParquet.html)
 
-## <span style="color: blueviolet;">Clean, Validate, & Migrate JSONs</span>
+## <span style="color: PaleVioletRed;">Clean, Validate, & Migrate JSONs</span>
 
 <span style="color: navy;">**Problem:**</span>
 **JSON files in the source_container** are stored with **single quotes**, leading to **invalid schema issues**.
@@ -51,13 +51,13 @@ Using Hadoop JARs with PySpark to establish a connection to Azure Data Lake Stor
 
 **Tech stack:** ADLS, Azure SDK/Libs, Azure Functions. [Read more...](articles/Misc/JsonValidator/BulkJsonValidator.html)
 
-## <span style="color: ForestGreen;">Flatten JSONs</span>
+## <span style="color: DodgerBlue;">Flatten JSONs</span>
 
 
 <span style="color: SteelBlue;">**Problem:**</span>
 The source container has a lot of JSON files in nested format. They need to be flattened.
 
-<span style="color: DarkSalmon;">**Solution:**</span> 
+<span style="color: DeepPink;">**Solution:**</span> 
 
 - **Flatten** the source json files using Azure SDK(libs), BlobServiceClient
 - **Move** the files to a destination container or simply replace the source files
