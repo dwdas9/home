@@ -23,9 +23,9 @@ This is a short tutorial on how to use Python to validate JSON file data. Rather
 
 ## <span style="color: DarkRed;">JSON Fetch n Convert  To Parquet</span>
 
-<span style="color: SteelBlue;">**Problem:**</span> To directly fetch JSON data from a web API and store it in a partitioned manner for enhanced analysis, utilizing only Spark for the process.
+**Problem:** To directly fetch JSON data from a web API and store it in a partitioned manner for enhanced analysis, utilizing only Spark for the process.
 
-<span style="color: DarkSalmon;">**Solution:**</span>
+**Solution:**
 
 Using Hadoop JARs with PySpark to establish a connection to Azure Data Lake Storage (ADLS). Through PySpark, the full functionality—from fetching the JSON data, partitioning it, to storing it—is seamlessly achieved.
 
@@ -37,7 +37,7 @@ Using Hadoop JARs with PySpark to establish a connection to Azure Data Lake Stor
 <span style="color: navy;">**Problem:**</span>
 **JSON files in the source_container** are stored with **single quotes**, leading to **invalid schema issues**.
 
-<span style="color: darkgreen;">**Solution:**</span> 
+**Solution:**
 
 - **Change encoding** to **UTF-8**.
 - **Modify single quotes** to **double quotes**.
@@ -50,10 +50,10 @@ Using Hadoop JARs with PySpark to establish a connection to Azure Data Lake Stor
 ## <span style="color: DodgerBlue;">JSON Flatten </span>
 
 
-<span style="color: SteelBlue;">**Problem:**</span>
+**Problem:**
 The source container has a lot of JSON files in nested format. They need to be flattened.
 
-<span style="color: DeepPink;">**Solution:**</span> 
+**Solution:**
 
 - **Flatten** the source json files using Azure SDK(libs), BlobServiceClient
 - **Move** the files to a destination container or simply replace the source files
