@@ -5,30 +5,30 @@ nav_exclude: true
 ---
 
 ## Table of contents
-- [End-to-End Tutorial: Setting Up a Spark Cluster with Docker](#end-to-end-tutorial-setting-up-a-spark-cluster-with-docker)
+- [Setting Up a Spark Cluster with Docker - End-to-End Tutorial](#setting-up-a-spark-cluster-with-docker---end-to-end-tutorial)
   - [Prerequisites](#prerequisites)
   - [Step 1: Setting Up Docker Compose File](#step-1-setting-up-docker-compose-file)
     - [Create a `docker-compose.yaml` file:](#create-a-docker-composeyaml-file)
   - [Step 2: Starting the Cluster](#step-2-starting-the-cluster)
-    - [1. Open command prompt](#1-open-command-prompt)
-    - [2. Run the following command](#2-run-the-following-command)
-    - [3. Verify the containers are running](#3-verify-the-containers-are-running)
+    - [Open command prompt](#open-command-prompt)
+    - [Run the following command](#run-the-following-command)
+    - [Verify the containers are running](#verify-the-containers-are-running)
   - [Step 3: Accessing Spark Master UI](#step-3-accessing-spark-master-ui)
   - [Step 4: Running a Spark Job](#step-4-running-a-spark-job)
-    - [1. Access the Spark Master container](#1-access-the-spark-master-container)
-    - [2. Run your Spark job](#2-run-your-spark-job)
+    - [Access the Spark Master container](#access-the-spark-master-container)
+    - [Run your Spark job](#run-your-spark-job)
   - [Step 5: Shutting Down the Cluster](#step-5-shutting-down-the-cluster)
   - [Steps to add an extra node](#steps-to-add-an-extra-node)
     - [Steps to Add an Extra Spark Worker Node](#steps-to-add-an-extra-spark-worker-node)
-      - [1. Open your docker-compose.yaml file.](#1-open-your-docker-composeyaml-file)
-      - [2. Duplicate the configuration of an existing Spark worker.](#2-duplicate-the-configuration-of-an-existing-spark-worker)
-      - [3. Save the docker-compose.yaml file.](#3-save-the-docker-composeyaml-file)
-      - [4. Run Docker Compose.](#4-run-docker-compose)
+      - [Open your docker-compose.yaml file.](#open-your-docker-composeyaml-file)
+      - [Duplicate the configuration of an existing Spark worker.](#duplicate-the-configuration-of-an-existing-spark-worker)
+      - [Save the docker-compose.yaml file.](#save-the-docker-composeyaml-file)
+      - [Run Docker Compose.](#run-docker-compose)
     - [Notes:](#notes)
   - [Why This Setup?](#why-this-setup)
   - [Conclusion](#conclusion)
 
-# End-to-End Tutorial: Setting Up a Spark Cluster with Docker
+# Setting Up a Spark Cluster with Docker - End-to-End Tutorial
 
 <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
 In this tutorial I'll guide you through setting up an Apache Spark cluster using Docker, with one master and two worker nodes in windows environment. We will use docker-compose.yaml to achieve this task.
@@ -99,10 +99,10 @@ spark-worker-2:
 
 ## <span style="color: #3333cc;">Step 2: Starting the Cluster</span>
 
-### <span style="color: #9e0059;">1. Open command prompt</span>
+### <span style="color: #9e0059;">Open command prompt</span>
 **Open command prompt** and cd to the folder containing the `docker-compose.yaml`.
 
-### <span style="color: #9e0059;">2. Run the following command</span>
+### <span style="color: #9e0059;">Run the following command</span>
 - **Run the following command** to start your Spark cluster:
 
     ```bash
@@ -115,7 +115,7 @@ spark-worker-2:
     
     ![Alt text](image.png)
 
-### <span style="color: #9e0059;">3. Verify the containers are running</span>
+### <span style="color: #9e0059;">Verify the containers are running</span>
 - Enter the following command in the same prompt
 
     ```bash
@@ -133,7 +133,7 @@ Once your cluster is running, access the Spark Master UI through your web browse
 
 ## <span style="color: #3333cc;">Step 4: Running a Spark Job</span>
 
-### <span style="color: #9e0059;">1. Access the Spark Master container</span>
+### <span style="color: #9e0059;">Access the Spark Master container</span>
 
 Run the following command:
 
@@ -141,7 +141,7 @@ Run the following command:
     docker exec -it <spark-master-container-id> /bin/bash
     ```
 
-### <span style="color: #9e0059;">2. Run your Spark job</span>
+### <span style="color: #9e0059;">Run your Spark job</span>
 
 **Run your Spark job** from within the master container, or use `spark-submit` to deploy your application.
 
@@ -161,9 +161,9 @@ Adding an extra Spark worker node to your existing Docker Compose setup is simpl
 
 ### <span style="color: #7e0041;">Steps to Add an Extra Spark Worker Node</span>
 
-#### <span style="color: #000000;">1. Open your <code>docker-compose.yaml</code> file</span>.
+#### <span style="color: #000000;">Open your <code>docker-compose.yaml</code> file</span>.
 
-#### <span style="color: #000000;">2. Duplicate the configuration of an existing Spark worker</span>.
+#### <span style="color: #000000;">Duplicate the configuration of an existing Spark worker</span>.
 - For instance, if you have a `spark-worker-1`, you can create a `spark-worker-3` by copying the `spark-worker-1` service and changing the name. Here's an example:
 
 
@@ -227,9 +227,9 @@ spark-worker-3:  # New worker node
     - SPARK_WORKER_CORES=1
 ```
 
-#### <span style="color: #000000;">3. Save the <code>docker-compose.yaml</code> file</span>.
+#### <span style="color: #000000;">Save the <code>docker-compose.yaml</code> file</span>.
 
-#### <span style="color: #000000;">4. Run Docker Compose</span>.
+#### <span style="color: #000000;">Run Docker Compose</span>.
 
    ```bash
    docker-compose up -d
