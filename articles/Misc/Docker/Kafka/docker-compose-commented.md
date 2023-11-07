@@ -6,7 +6,7 @@ nav_exclude: true
 
 ## The docker-compose.yml file - fully commented
 
-Here is the full docker-compose file with inline-comments which will be helpful for further customization and understanding
+Here is the full docker-compose file with inline-comments which will be helpful for further customization and understanding. The file has been tested throughly while building in Mac M1 environment.
 
 ```yaml
 

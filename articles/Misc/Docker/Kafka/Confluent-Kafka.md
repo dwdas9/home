@@ -14,6 +14,7 @@ nav_exclude: true
     - [Error: no matching manifest for linux/arm64/v8](#error-no-matching-manifest-for-linuxarm64v8)
     - [About the docker-compose.yml](#about-the-docker-composeyml)
     - [Conclusion](#conclusion)
+    - [Further reading](#further-reading)
 
 
 # Setting Up a Local Kafka Development Environment with Docker Compose
@@ -44,6 +45,8 @@ Here's what you need to do:
 5. Open a text editor on your computer, paste the content (`Ctrl/Cmd+V`, and save the file as `docker-compose.yml`.
 
 With the `docker-compose.yml` file saved on your computer, you can proceed with deploying the Confluent Platform services using Docker Compose.
+
+Remember: The container group will be named after the folder containing the docker-compose. I.e. If it is inside David/docker-compose.yml then the container group in docker will be David.
 
 ## Steps to Launch the Kafka Environment
 
@@ -118,3 +121,10 @@ I have included a [commented docker-compose](docker-compose-commented.html) file
 ### Conclusion
 
 You now have a fully functional local Kafka development environment that includes a broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. This step has been tested in both WIndows and Mac M1 machines. The performance in Mac M1 might not be fuss-free.
+
+### Further reading
+
+[Confluent Documentation. Quick Start. Docker Container](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1)
+
+[Confluent Documentation. Quick Start using CLI](https://developer.confluent.io/quickstart/kafka-local/?_gl=1*1hbigt8*_ga*MzYyMDI3ODc1LjE2OTkyODY3MTE.*_ga_D2D3EGKSGD*MTY5OTMzMTY0Ni41LjEuMTY5OTM0MDk0MS40MC4wLjA.)
+
