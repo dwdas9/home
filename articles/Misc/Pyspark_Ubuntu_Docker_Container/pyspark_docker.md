@@ -8,15 +8,12 @@ nav_exclude: true
 
 - [Setting Up a Dockerized Spark Environment on Ubuntu for Windows](#setting-up-a-dockerized-spark-environment-on-ubuntu-for-windows)
   - [Background](#background)
-  - [Steps](#steps)
+  - [Quickstart](#quickstart)
     - [Create the Dockerfile](#create-the-dockerfile)
     - [Build the Docker Image](#build-the-docker-image)
     - [Run the Docker Container](#run-the-docker-container)
-  - [Connect to the remote container](#connect-to-the-remote-container)
+    - [Work with the docker container from a local VS Code](#work-with-the-docker-container-from-a-local-vs-code)
   - [Enable Jupyter notebook support extension](#enable-jupyter-notebook-support-extension)
-  - [Running Jupyter notebooks](#running-jupyter-notebooks)
-  - [For Python files](#for-python-files)
-  - [For Jupyter Notebooks:](#for-jupyter-notebooks)
 
 
 
@@ -28,7 +25,7 @@ nav_exclude: true
 
 I'll demonstrate how to use Docker files, and how to integrate a Pyspark environment with VS Code, by setting up a functional Pyspark environment on Ubuntu. Typically, you would opt for a pre-built image with these components, such as apache/spark.             
 
-## Steps
+## Quickstart
 
 ### Create the Dockerfile
 
@@ -75,85 +72,54 @@ RUN pip3 install pyspark
 ![Placeholder for the Docker build process image](images/image9.png)
 
 ### Run the Docker Container
- - After building the image, you can start a container with it.
- - Using Command Prompt:
-   - Open the Command Prompt as an administrator.
-   - Enter the command: `docker run -it --name my_pyspark_ubuntu_cont pyspark-ubuntu-image /bin/bash`
+Certainly! Here’s the integrated instruction set with the images included:
 
-1. If successful, you'll enter the container's shell.
-   ![Container Shell](images/image6.png)
+- **Using Command Prompt:**
+  1. Open Command Prompt as an administrator.
+  2. Run the command: `docker run -it --name my_pyspark_ubuntu_cont pyspark-ubuntu-image /bin/bash`.
+  3. If successful, you'll enter the container's shell, and it should resemble the image below.
+     ![Container Shell](images/image6.png)
+  4. Docker Desktop will list `my_pyspark_ubuntu_cont` as running in the container window, similar to the following image.
+     ![Docker Desktop Container Window](images/image8.png)
 
-2. In Docker Desktop's container window, you'll see `my_pyspark_ubuntu_cont` listed as running.
-   ![Docker Desktop Container Window](images/image8.png)
+- **Using Docker Desktop:**
+  1. Launch Docker Desktop.
+  2. Navigate to the 'Images' tab, find `pyspark-ubuntu-image`, and click 'Run'.
+  3. Name your container `my_pyspark_ubuntu_cont`, and maintain default settings otherwise..
 
-Using Docker Desktop:
+### Work with the docker container from a local VS Code
 
-3. Launch Docker Desktop from the system tray.
+1. Install the Visual Studio Code Dev Containers Extension by searching for "Dev Containers" in the Extensions view (Ctrl+Shift+X) and clicking 'Install'.
+   ![VS Code Dev Containers Extension](images/image5.png)
 
-4. In the Images tab, locate and hit Run for `pyspark-ubuntu-image`.
+2. Click the "Open Remote Window" button in the bottom-left corner of VS Code.
 
-5. Name your container and keep other settings default.
+3. Select "Attach to Running Container" from the command palette that appears.
 
-6. In the Containers tab, find the container using the name you provided.
-   ![Container Tab](images/image1.png)
+   ![Attach to Running Container](images/image3.png)
 
-Configure VS Code and connect with the remote container:
+4. Pick your active container from the presented list.
 
-7. Install Visual Studio Code Dev Containers Extension.
+   ![Active Container List](images/image2.png)
 
-8. Open Visual Studio Code.
-
-9. Go to Extensions (or press Ctrl+Shift+X).
-
-10. Search for Dev Containers.
-
-11. Click Install on the relevant result.
-    ![VS Code Dev Containers Extension](images/image5.png)
-
-Certainly! Here's a cleaned-up version of the markdown you provided:
-
-## Connect to the remote container
-
-1. In the bottom-left of VS Code, click the "Open Remote Window" icon.
-2. At the top search window, a menu will appear.
-3. Choose "Attach to Running Container".
-
-![](images/image3.png)
-
-4. Locate and click on your active container in the list.
-
-![](images/image2.png)
-
-5. VS Code will launch a new window connected to that container.
+5. A new VS Code window will open, connected to your container.
 
 ## Enable Jupyter notebook support extension
 
-While VS code is connected with the container, enable/install Jupyter notebook support extension.
+Integrate Jupyter notebook support in VS Code while connected to the container by enabling or installing the Jupyter notebook support extension.
 
-![](images/image4.png)
+![Jupyter Support Extension](images/image4.png)
 
-## Running Jupyter notebooks
+Once set up, you can manage Python scripts, Jupyter notebooks, and leverage Spark for data operations and machine learning within VS Code.
 
-The environment is ready to handle Python scripts, Jupyter notebooks (.ipynb files), and execute big data operations, analytics, and machine learning processes using Spark in Python.
+**For Python (.py) files:**
+- Open and execute the `.py` file directly in VS Code.
 
-## For Python files
+**For Jupyter Notebooks (.ipynb):**
+- Ensure you select the correct kernel when executing a notebook.
+- If prompted, install the `ipykernel` package. To do this before you're prompted, run `pip install ipykernel` in the VS Code terminal.
 
-Simply open any `.py` file and run it directly within VS Code.
-
-## For Jupyter Notebooks:
-
-**Note:**
-
-- When executing a notebook, you'll need to select the appropriate kernel.
-- You might be prompted to install the `ipykernel` package, especially when you try to run a Python cell for the first time.
-
-![](images/image10.png)
-
-To preemptively install `ipykernel`, open a terminal in VS Code and enter:
-
-```
-pip install ipykernel
-```
+![Jupyter Notebook Kernel](images/image10.png)
 
 ---
 
