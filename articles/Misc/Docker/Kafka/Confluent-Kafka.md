@@ -81,7 +81,7 @@ docker-compose down
 
 ## Open the Confluent Control Center
 
-Access the Control Center at http://localhost:9021 once the container is operational. Ensure the webpage loads correctly, then proceed to create a test topic for additional exploration. For guidance, consult this quickstart guide: https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1.
+You can access the Control Center at http://localhost:9021 once the container is operational. For guidance, consult this quickstart guide: https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1.
 
 ## Appendix
 
