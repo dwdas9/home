@@ -113,7 +113,7 @@ Each service is configured with specific environment variables necessary for its
 
 The setup may be sufficient for a dev environment as it has a single replica for Kafka and the use of local hostnames. The `KAFKA_ADVERTISED_LISTENERS` and other network-related configurations are set up to allow the services to communicate both internally and with the host machine.
 
-I have included a [commented docker-compose.yml](articles/Misc/Docker/Kafka/docker-compose-commented.html) file which may help you understand the steps better.
+I have included a [commented docker-compose](articles/Misc/Docker/Kafka/docker-compose-commented.html) file which may help you understand the steps better.
 
 ### Conclusion
 
