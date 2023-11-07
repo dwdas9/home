@@ -36,7 +36,7 @@ This guide will show you how to install an all-in-one confluent Kafka for develo
 
 ## <span style="color: SteelBlue;">Docker Pyspark-Ubuntu Setup</span>
 
-This guide will show you how to create a Python and Spark-optimized Ubuntu Docker image. I'll walk you through connecting this environment to Visual Studio Code via the Dev Containers extension, enabling a smooth, native-like development experience. Ubuntu is chosen for its stable, flexible apt-get package management, making it ideal for mimicking production setups. While other images like `python:3.9-slim`, Alpine Linux, and Debian were considered, Ubuntu's balance of features and commercial support stands out. [Read more...](link_to_article3.html)
+This guide will show you how to create a Python and Spark-optimized Ubuntu Docker image. I'll walk you through connecting this environment to Visual Studio Code via the Dev Containers extension, enabling a smooth, native-like development experience. Ubuntu is chosen for its stable, flexible apt-get package management, making it ideal for mimicking production setups. While other images like `python:3.9-slim`, Alpine Linux, and Debian were considered, Ubuntu's balance of features and commercial support stands out. [Read more...](articles/Misc/Pyspark_Ubuntu_Docker_Container/pyspark_docker.html)
 
 ## <span style="color: SteelBlue;">Install Spark/Pyspark in the Anaconda Ecosystem</span>
 
