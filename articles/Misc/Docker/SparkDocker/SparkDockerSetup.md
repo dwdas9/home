@@ -49,39 +49,50 @@ The most important file here is docker-compose.yaml. Which is used to set up mul
 - Create new folder named, say, "spark." Within this folder, create a text file and copy and paste the content provided below into it. Remember, the name you choose for this folder ("spark") will also be used as the name for the container group, which you'll see in Docker Desktop.
 
 ```yaml
-version: '3.9'
+
+# Define the YAML version
+version: '3.8'
 
 services:
-spark-master:
+  # Define a service named "spark-master"
+  spark-master:
+    # Specify the Docker image to use for the spark-master service
     image: bitnami/spark:latest
-    command: bin/spark-class org.apache.spark.deploy.master.Master
+
+    # Define the ports to expose for the spark-master service
     ports:
-    - "8080:8080"
-    - "7077:7077"
-    environment:
-    SPARK_WORKER_MEMORY: 2g
+      # Expose port 7077 from the container to port 7077 on the host machine
+      - "7077:7077"
+      # Expose port 9090 from the container to port 8080 on the host machine
+      - "9090:8080"
 
-spark-worker-1:
+  # Define a service named "spark-worker-1"
+  spark-worker-1:
+    # Specify the Docker image to use for the spark-worker-1 service
     image: bitnami/spark:latest
-    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-    depends_on:
-    - spark-master
-    environment:
-    SPARK_MODE: worker
-    SPARK_WORKER_CORES: 2
-    SPARK_WORKER_MEMORY: 2g
-    SPARK_MASTER_URL: spark://spark-master:7077
 
-spark-worker-2:
-    image: bitnami/spark:latest
-    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-    depends_on:
-    - spark-master
+    # Define the environment variables for the spark-worker-1 service
     environment:
-    SPARK_MODE: worker
-    SPARK_WORKER_CORES: 2
-    SPARK_WORKER_MEMORY: 2g
-    SPARK_MASTER_URL: spark://spark-master:7077
+      # Set the SPARK_MASTER_URL environment variable to the URL of the Spark Master node
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      # Set the SPARK_WORKER_MEMORY environment variable to the amount of memory to allocate to each Spark worker
+      - SPARK_WORKER_MEMORY=2g
+      # Set the SPARK_WORKER_CORES environment variable to the number of cores to allocate to each Spark worker
+      - SPARK_WORKER_CORES=1
+
+  # Define a service named "spark-worker-2"
+  spark-worker-2:
+    # Specify the Docker image to use for the spark-worker-2 service
+    image: bitnami/spark:latest
+
+    # Define the environment variables for the spark-worker-2 service
+    environment:
+      # Set the SPARK_MASTER_URL environment variable to the URL of the Spark Master node
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      # Set the SPARK_WORKER_MEMORY environment variable to the amount of memory to allocate to each Spark worker
+      - SPARK_WORKER_MEMORY=2g
+      # Set the SPARK_WORKER_CORES environment variable to the number of cores to allocate to each Spark worker
+      - SPARK_WORKER_CORES=1
 ```
 
 - Rename the file as `docker-compose.yaml`
@@ -93,7 +104,7 @@ spark-worker-2:
 | **Version**           | Specifies the Docker Compose file format version. |
 | **Services**          | Defines three services (one master and two workers). |
 | **Image**             | We use `bitnami/spark:latest`, which is a pre-built, well-maintained Spark Docker image.  |
-| **Ports**             | Exposes the Spark master UI (`8080`) and communication port (`7077`). |
+| **Ports**             | Exposes the Spark master UI (`9090`) and communication port (`7077`). |
 | **Environment Variables** | Configures Spark properties like worker memory and cores. |
 
 
@@ -129,7 +140,7 @@ spark-worker-2:
 
 ## <span style="color: #3333cc;">Step 3: Accessing Spark Master UI</span>
 
-Once your cluster is running, access the Spark Master UI through your web browser at `http://localhost:8080`. Here, you can view details about your cluster, including active workers and running applications.
+Once your cluster is running, access the Spark Master UI through your web browser at `http://localhost:9090`. Here, you can view details about your cluster, including active workers and running applications.
 
 ## <span style="color: #3333cc;">Step 4: Running a Spark Job</span>
 
@@ -171,8 +182,8 @@ Adding an extra Spark worker node to your existing Docker Compose setup is simpl
 # Define the YAML version
 version: '3.8'
 
-# Define a service named "spark-master"
 services:
+  # Define a service named "spark-master"
   spark-master:
     # Specify the Docker image to use for the spark-master service
     image: bitnami/spark:latest
@@ -184,47 +195,47 @@ services:
       # Expose port 9090 from the container to port 8080 on the host machine
       - "9090:8080"
 
-# Define a service named "spark-worker-1"
-spark-worker-1:
-  # Specify the Docker image to use for the spark-worker-1 service
-  image: bitnami/spark:latest
+  # Define a service named "spark-worker-1"
+  spark-worker-1:
+    # Specify the Docker image to use for the spark-worker-1 service
+    image: bitnami/spark:latest
 
-  # Define the environment variables for the spark-worker-1 service
-  environment:
-    # Set the SPARK_MASTER_URL environment variable to the URL of the Spark Master node
-    - SPARK_MASTER_URL=spark://spark-master:7077
-    # Set the SPARK_WORKER_MEMORY environment variable to the amount of memory to allocate to each Spark worker
-    - SPARK_WORKER_MEMORY=2g
-    # Set the SPARK_WORKER_CORES environment variable to the number of cores to allocate to each Spark worker
-    - SPARK_WORKER_CORES=1
+    # Define the environment variables for the spark-worker-1 service
+    environment:
+      # Set the SPARK_MASTER_URL environment variable to the URL of the Spark Master node
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      # Set the SPARK_WORKER_MEMORY environment variable to the amount of memory to allocate to each Spark worker
+      - SPARK_WORKER_MEMORY=2g
+      # Set the SPARK_WORKER_CORES environment variable to the number of cores to allocate to each Spark worker
+      - SPARK_WORKER_CORES=1
 
-# Define a service named "spark-worker-2"
-spark-worker-2:
-  # Specify the Docker image to use for the spark-worker-2 service
-  image: bitnami/spark:latest
+  # Define a service named "spark-worker-2"
+  spark-worker-2:
+    # Specify the Docker image to use for the spark-worker-2 service
+    image: bitnami/spark:latest
 
-  # Define the environment variables for the spark-worker-2 service
-  environment:
-    # Set the SPARK_MASTER_URL environment variable to the URL of the Spark Master node
-    - SPARK_MASTER_URL=spark://spark-master:7077
-    # Set the SPARK_WORKER_MEMORY environment variable to the amount of memory to allocate to each Spark worker
-    - SPARK_WORKER_MEMORY=2g
-    # Set the SPARK_WORKER_CORES environment variable to the number of cores to allocate to each Spark worker
-    - SPARK_WORKER_CORES=1
+    # Define the environment variables for the spark-worker-2 service
+    environment:
+      # Set the SPARK_MASTER_URL environment variable to the URL of the Spark Master node
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      # Set the SPARK_WORKER_MEMORY environment variable to the amount of memory to allocate to each Spark worker
+      - SPARK_WORKER_MEMORY=2g
+      # Set the SPARK_WORKER_CORES environment variable to the number of cores to allocate to each Spark worker
+      - SPARK_WORKER_CORES=1
 
-# Define a service named "spark-worker-3"
-spark-worker-3:  # New worker node
-  # Specify the Docker image to use for the spark-worker-3 service
-  image: bitnami/spark:latest
+  # Define a service named "spark-worker-3"
+  spark-worker-3:  # New worker node
+    # Specify the Docker image to use for the spark-worker-3 service
+    image: bitnami/spark:latest
 
-  # Define the environment variables for the spark-worker-3 service
-  environment:
-    # Set the SPARK_MASTER_URL environment variable to the URL of the Spark Master node
-    - SPARK_MASTER_URL=spark://spark-master:7077
-    # Set the SPARK_WORKER_MEMORY environment variable to the amount of memory to allocate to each Spark worker
-    - SPARK_WORKER_MEMORY=2g
-    # Set the SPARK_WORKER_CORES environment variable to the number of cores to allocate to each Spark worker
-    - SPARK_WORKER_CORES=1
+    # Define the environment variables for the spark-worker-3 service
+    environment:
+      # Set the SPARK_MASTER_URL environment variable to the URL of the Spark Master node
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      # Set the SPARK_WORKER_MEMORY environment variable to the amount of memory to allocate to each Spark worker
+      - SPARK_WORKER_MEMORY=2g
+      # Set the SPARK_WORKER_CORES environment variable to the number of cores to allocate to each Spark worker
+      - SPARK_WORKER_CORES=1
 ```
 
 #### <span style="color: #000000;">Save the <code>docker-compose.yaml</code> file</span>.
