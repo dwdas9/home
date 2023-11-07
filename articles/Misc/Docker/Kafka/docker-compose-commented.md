@@ -1,5 +1,5 @@
 ---
-layout: minimal
+layout: post
 title: Kafka docker-compose commented
 nav_exclude: true
 ---
