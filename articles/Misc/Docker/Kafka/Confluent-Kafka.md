@@ -18,7 +18,11 @@ nav_exclude: true
 
 # Setting Up a Local Kafka Development Environment with Docker Compose
 
+<p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
 In this guide, I'll walk through setting up a local Kafka development environment using Docker Compose. The provided `docker-compose` file sets up all the necessary components, including Kafka broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy.
+</p>
+
+
 
 ## Prerequisites
 - Docker and Docker Compose installed on your local machine.
