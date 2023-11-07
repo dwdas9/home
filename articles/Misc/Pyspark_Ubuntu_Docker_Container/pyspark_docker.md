@@ -10,7 +10,8 @@ nav_exclude: true
   - [Background](#background)
   - [Steps](#steps)
     - [Create the Dockerfile](#create-the-dockerfile)
-    - [Dockerfile Contents](#dockerfile-contents)
+    - [Build the Docker Image](#build-the-docker-image)
+    - [Run the Docker Container](#run-the-docker-container)
   - [Connect to the remote container](#connect-to-the-remote-container)
   - [Enable Jupyter notebook support extension](#enable-jupyter-notebook-support-extension)
   - [Running Jupyter notebooks](#running-jupyter-notebooks)
@@ -25,21 +26,14 @@ nav_exclude: true
 
 ## Background
 
-In this guide, we'll create an Ubuntu Docker image optimized for Python and Spark. We'll integrate the environment with Visual Studio Code using the Dev Containers extension. This extension allows for seamless work within a containerized environment, making it appear as if all processes run natively on your local machine. Ubuntu is chosen for its stability, extensive package management system with `apt-get`, and flexibility in system-level package management or production setup simulation. Alternatives like Python-focused images (`python:3.9-slim`), Alpine Linux for its minimalism, and Debian for similar benefits to Ubuntu but without some commercial features were also considered.
+I'll demonstrate how to use Docker files, and how to integrate a Pyspark environment with VS Code, by setting up a functional Pyspark environment on Ubuntu. Typically, you would opt for a pre-built image with these components, such as apache/spark.             
 
 ## Steps
 
 ### Create the Dockerfile
 
-1. Create a new file called Dockerfile in your project directory with no file extension.
-2. Navigate to your desired location in Windows.
-3. Right-click, select 'New', then 'Folder'.
-4. Inside the new folder, right-click and select 'New' then 'Text Document'.
-5. Rename the document to Dockerfile, ensuring to remove the '.txt' extension.
-6. Open the file in Notepad, paste the provided code, save and close.
-
-
-### Dockerfile Contents
+1. Create a text file in a desired folder and paste the Dockerfile contents in it.
+2. Rename the text file DockerFile(without ANY extension)
 
 ```Dockerfile
 # Base the image on Ubuntu 20.04
@@ -72,19 +66,19 @@ RUN apt-get install -y openjdk-11-jdk-headless
 RUN pip3 install pyspark
 ```
 
-1. **Build the Docker Image**
-   - Go to the project directory with the Dockerfile in your terminal.
-   - Execute the command: `docker build -t pyspark-ubuntu-image .`
-     - `pyspark-ubuntu-image` is the name you choose for your Docker image.
-     - The period `.` signifies that the Dockerfile is located in the current directory.
+### Build the Docker Image
+- Go to the project directory with the Dockerfile in your terminal.
+- Execute the command: `docker build -t pyspark-ubuntu-image .`
+  - `pyspark-ubuntu-image` is the name you choose for your Docker image.
+  - The period `.` signifies that the Dockerfile is located in the current directory.
 
 ![Placeholder for the Docker build process image](images/image9.png)
 
-2. **Run the Docker Container**
-   - After building the image, you can start a container with it.
-   - Using Command Prompt:
-     - Open the Command Prompt as an administrator.
-     - Enter the command: `docker run -it --name my_pyspark_ubuntu_cont pyspark-ubuntu-image /bin/bash`
+### Run the Docker Container
+ - After building the image, you can start a container with it.
+ - Using Command Prompt:
+   - Open the Command Prompt as an administrator.
+   - Enter the command: `docker run -it --name my_pyspark_ubuntu_cont pyspark-ubuntu-image /bin/bash`
 
 1. If successful, you'll enter the container's shell.
    ![Container Shell](images/image6.png)
