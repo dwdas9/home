@@ -10,6 +10,7 @@ nav_exclude: true
   - [Prerequisites](#prerequisites)
   - [Download the Docker Compose file](#download-the-docker-compose-file)
   - [Steps to Launch the Kafka Environment](#steps-to-launch-the-kafka-environment)
+  - [Open the Confluent Control Center](#open-the-confluent-control-center)
   - [Appendix](#appendix)
     - [Error: no matching manifest for linux/arm64/v8](#error-no-matching-manifest-for-linuxarm64v8)
     - [About the docker-compose.yml](#about-the-docker-composeyml)
@@ -22,8 +23,6 @@ nav_exclude: true
 <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
 In this guide, I'll walk through setting up a local Kafka development environment using Docker Compose. The provided `docker-compose` file sets up all the necessary components, including Kafka broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. I have tested the installation in both Windows and Mac machines with M1 chip.
 </p>
-
-
 
 ## Prerequisites
 - Docker and Docker Compose installed on your local machine.
@@ -79,6 +78,10 @@ docker-compose logs broker
 ```bash
 docker-compose down
 ```
+
+## Open the Confluent Control Center
+
+Access the Control Center at http://localhost:9021 once the container is operational. Ensure the webpage loads correctly, then proceed to create a test topic for additional exploration. For guidance, consult this quickstart guide: https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1.
 
 ## Appendix
 
