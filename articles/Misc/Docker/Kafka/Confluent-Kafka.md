@@ -34,7 +34,9 @@ To get started with setting up Confluent Platform, you'll need the `docker-compo
 
 Here's what you need to do:
 
-1. Click this [link](https://github.com/confluentinc/cp-all-in-one/blob/7.5.1-post/cp-all-in-one-kraft/docker-compose.yml) to access the `docker-compose.yml` file on GitHub.
+1. Click this [link](https://github.com/confluentinc/cp-all-in-one/blob/7.5.1-post/cp-all-in-one-kraft/docker-compose.yml) to access KRaft version of the `docker-compose.yml` file on GitHub.
+
+Note: When choosing between KRaft and ZooKeeper as the metadata service for your Apache Kafka cluster, KRaft is the recommended option.
    
 2. Once you're on the GitHub page, you might not be able to directly copy the file content using the "Raw" button or download it with `wget`.
 
