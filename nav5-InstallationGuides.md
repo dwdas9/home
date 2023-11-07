@@ -8,6 +8,7 @@ nav_order: 5
 - [Overview](#overview)
   - [Docker Spark Cluster Setup : One Master, Two Workers](#docker-spark-cluster-setup--one-master-two-workers)
   - [Docker Apache Airflow Setup](#docker-apache-airflow-setup)
+  - [Docker Confluent Kafka All-in-one Setup](#docker-confluent-kafka-all-in-one-setup)
   - [Docker Pyspark-Ubuntu Setup](#docker-pyspark-ubuntu-setup)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
   - [Install Java, Python, SPARK, and PySpark On Windows](#install-java-python-spark-and-pyspark-on-windows)
@@ -27,7 +28,11 @@ Hello everyone! In this guide, we'll focus on how to set up essential tools and 
 In this tutorial I'll guide you through setting up an Apache Spark cluster using Docker, with one master and two worker nodes in windows environment. We will use docker-compose.yaml to achieve this task[Read more...](articles/Misc/Docker/SparkDocker/SparkDockerSetup.html)
 
 ## <span style="color: SteelBlue;">Docker Apache Airflow Setup</span>
-In this article, I'll show two approaches to setting up Apache Airflow using Docker on Windows. The first method, more suitable for production environments, involves a few additional steps. The second method is quicker, ideal for development settings.[Read more...](articles/Misc/Docker/AirflowDocker/Setup.html)
+In this article, I'll show two approaches to setting up Apache Airflow using Docker on Windows. The first method, more suitable for production environments, involves a few additional steps. The second method is quicker, ideal for development settings. [Read more...](articles/Misc/Docker/AirflowDocker/Setup.html)
+
+## <span style="color: SteelBlue;">Docker Confluent Kafka All-in-one Setup</span>
+
+This guide will show you how to install an all-in-one confluent Kafka for development purpose in MacM1 Windows on Dockert. [Read more...](articles/Misc/Docker/Kafka/Confluent-Kafka.html)
 
 ## <span style="color: SteelBlue;">Docker Pyspark-Ubuntu Setup</span>
 
@@ -44,7 +49,7 @@ This guide's all about setting up the basics for Data Engineering – Java, Pyth
 
 ## <span style="color: SteelBlue;">Managing Python in System PATH Using PowerShell</span>
 
-When working with Python on Windows, ensuring it's accessible from any terminal or command prompt is pivotal. This accessibility is achieved by including Python in the system's PATH variable. In this guide, we'll delve into using PowerShell to check Python's presence in the PATH and add it if missing.[Read more...](link_to_article3.html)
+When working with Python on Windows, ensuring it's accessible from any terminal or command prompt is pivotal. This accessibility is achieved by including Python in the system's PATH variable. In this guide, we'll delve into using PowerShell to check Python's presence in the PATH and add it if missing. [Read more...](link_to_article3.html)
 
 ## <span style="color: SteelBlue;">Can't run `docker ps` despite having docker installed?</span>
 
@@ -56,11 +61,11 @@ Need to download JAR files like hadoop-azure-x.x.x.jar for your project? Don't w
 
 ## <span style="color: SteelBlue;">Pip install Pyspark vs FULL Spark</span>
 
-The article provides a clear explanation about installing PySpark using pip. It corrects the common misconception that `pip install pyspark` installs the full Apache Spark framework. In reality, it installs only PySpark and a minimal, standalone version of Apache Spark, sufficient for running Spark in a local, simulated cluster environment on a single machine. This breakdown is crucial for understanding the setup and capabilities of your Spark installation.[Read more...](articles/Misc/Pyspark_And_Spark/PysparkIsNotFullSpark.html)
+The article provides a clear explanation about installing PySpark using pip. It corrects the common misconception that `pip install pyspark` installs the full Apache Spark framework. In reality, it installs only PySpark and a minimal, standalone version of Apache Spark, sufficient for running Spark in a local, simulated cluster environment on a single machine. This breakdown is crucial for understanding the setup and capabilities of your Spark installation. [Read more...](articles/Misc/Pyspark_And_Spark/PysparkIsNotFullSpark.html)
 
 ## <span style="color: SteelBlue;">Setting Up Azure Databricks</span>
 
-In this article, I will walk you through the steps to set up your Azure Databricks workspace, create clusters, and begin working with notebooks.[Read more...](articles/AzureDE/dbrk_setup/1_Setup-Azure-Databricks.html)
+In this article, I will walk you through the steps to set up your Azure Databricks workspace, create clusters, and begin working with notebooks. [Read more...](articles/AzureDE/dbrk_setup/1_Setup-Azure-Databricks.html)
 
 ---
 
