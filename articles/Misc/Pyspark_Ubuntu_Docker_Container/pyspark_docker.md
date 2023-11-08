@@ -72,7 +72,6 @@ RUN pip3 install pyspark
 ![Placeholder for the Docker build process image](images/image9.png)
 
 ### Run the Docker Container
-Certainly! Here’s the integrated instruction set with the images included:
 
 - **Using Command Prompt:**
   1. Open Command Prompt as an administrator.
