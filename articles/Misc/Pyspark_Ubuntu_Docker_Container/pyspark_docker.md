@@ -144,10 +144,18 @@ Apache Spark-py offers a lightweight Spark environment with Python support. To u
    ```
 
 3. **Run the container:**
+   
+   This opens an interactive shell with PySpark.
    ```shell
    docker run -it --name apache-spark-py -p 8080:8080 -p 4040:4040 apache/spark-py
    ```
-   This opens an interactive shell with PySpark.
+   This opens an interactive shell with bin/bash as an entry point instead of PySpark
+
+   ```
+   docker run -it --name apache-spark-py --entrypoint /bin/bash apache/spark-py
+   ```
+  
+  **Important Note**: Instead of using terminal if you just run the container from Docker Dekstop's container image it will exit with Code 1. The entry point is necessary.
 
 ### <span style="color: #333333;">Setup for bitnami/spark</span>
 
@@ -170,8 +178,6 @@ Bitnami Spark provides a ready-to-go Spark environment. Setup is similar:
 
 The following table outlines the popularity of different Spark Docker containers:
 
-<p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
-
 | Container | Popularity |
 |-----------|------------|
 | apache/spark-py | 32% |
@@ -179,7 +185,6 @@ The following table outlines the popularity of different Spark Docker containers
 | Other Notable Images | 31% |
 | Community Images | 1% |
 
-</p>
 
 ---
 
