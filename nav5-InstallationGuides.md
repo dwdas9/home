@@ -9,6 +9,7 @@ nav_order: 5
   - [Docker Spark Cluster Setup : One Master, Two Workers](#docker-spark-cluster-setup--one-master-two-workers)
   - [Docker Apache Airflow Setup](#docker-apache-airflow-setup)
   - [Docker Confluent Kafka All-in-one Setup](#docker-confluent-kafka-all-in-one-setup)
+  - [Docker Mongodb Setup](#docker-mongodb-setup)
   - [Docker Pyspark-Ubuntu Setup](#docker-pyspark-ubuntu-setup)
   - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
   - [Install Java, Python, SPARK, and PySpark On Windows](#install-java-python-spark-and-pyspark-on-windows)
@@ -33,6 +34,10 @@ In this article, I'll show two approaches to setting up Apache Airflow using Doc
 ## <span style="color: SteelBlue;">Docker Confluent Kafka All-in-one Setup</span>
 
 This guide will show you how to install an all-in-one confluent Kafka for development purpose in MacM1 Windows on Dockert. [Read more...](articles/Misc/Docker/Kafka/Confluent-Kafka.html)
+
+## <span style="color: SteelBlue;">Docker Mongodb Setup</span>
+
+This guide will show you how to setup Mongodb in Docker. [Read more...](articles/Misc/Docker/Mongodb/DockerMongodb.html)
 
 ## <span style="color: SteelBlue;">Docker Pyspark-Ubuntu Setup</span>
 
