@@ -14,8 +14,8 @@ nav_exclude: true
     - [Error: no matching manifest for linux/arm64/v8](#error-no-matching-manifest-for-linuxarm64v8)
     - [Resolving Port Conflicts for Kafka Rest Proxy in Docker](#resolving-port-conflicts-for-kafka-rest-proxy-in-docker)
     - [About the docker-compose.yml](#about-the-docker-composeyml)
-    - [Conclusion](#conclusion)
-    - [Further reading](#further-reading)
+  - [Conclusion](#conclusion)
+  - [Further reading](#further-reading)
 
 ![Alt text](<kafka_abstract.png>)
 
@@ -145,11 +145,11 @@ Each service is configured with specific environment variables necessary for its
 
 The setup may be sufficient for a dev environment as it has a single replica for Kafka and the use of local hostnames. The `KAFKA_ADVERTISED_LISTENERS` and other network-related configurations are set up to allow the services to communicate both internally and with the host machine.
 
-### <span style="color: PaleVioletRed;">Conclusion</span>
+## <span style="color: PaleVioletRed;">Conclusion</span>
 
 You now have a fully functional local Kafka development environment that includes a broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. The KRaft version of the docker compose has been tested in both WIndows and Mac M1 machines.
 
-### <span style="color: Teal;">Further reading</span>
+## <span style="color: Teal;">Further reading</span>
 
 [Confluent Documentation. Quick Start. Docker Container](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1)
 
