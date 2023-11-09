@@ -17,6 +17,7 @@ nav_exclude: true
     - [Conclusion](#conclusion)
     - [Further reading](#further-reading)
 
+![Alt text](<kafka_abstract.png>)
 
 # Setting Up a Local Kafka Development Environment with Docker Compose
 
