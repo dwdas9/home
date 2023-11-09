@@ -14,6 +14,7 @@ nav_exclude: true
     - [Error: no matching manifest for linux/arm64/v8](#error-no-matching-manifest-for-linuxarm64v8)
     - [Resolving Port Conflicts for Kafka Rest Proxy in Docker](#resolving-port-conflicts-for-kafka-rest-proxy-in-docker)
     - [About the docker-compose.yml](#about-the-docker-composeyml)
+    - [Fully commented docker-compose.yml](#fully-commented-docker-composeyml)
   - [Conclusion](#conclusion)
   - [Further reading](#further-reading)
 
@@ -144,6 +145,10 @@ Here is an explanation of the differnet services in the docker-compose.yml
 Each service is configured with specific environment variables necessary for its operation, ports for external access, and volume mounts where applicable. Some services depend on others, which is defined by the `depends_on` attribute ensuring that dependent services are started first.
 
 The setup may be sufficient for a dev environment as it has a single replica for Kafka and the use of local hostnames. The `KAFKA_ADVERTISED_LISTENERS` and other network-related configurations are set up to allow the services to communicate both internally and with the host machine.
+
+### <span style="color: Navy;">Fully commented docker-compose.yml</span>
+
+If you want to know each step of the docker compose file. I have placed a fully commented [docker-compose.yml](docker-compose-commented.yml)
 
 ## <span style="color: PaleVioletRed;">Conclusion</span>
 

@@ -1,15 +1,3 @@
----
-layout: post
-title: Kafka docker-compose commented
-nav_exclude: true
----
-
-## The docker-compose.yml file - fully commented
-
-Here is the full docker-compose file with inline-comments which will be helpful for further customization and understanding. The file has been tested throughly while building in Mac M1 environment.
-
-```yaml
-
 version: '2' # Specifies the version of the Docker Compose file format. This is version 2.
 
 services: # Defines the services that make up your app in this docker-compose file.
@@ -174,6 +162,3 @@ services: # Defines the services that make up your app in this docker-compose fi
       KAFKA_REST_BOOTSTRAP_SERVERS: 'broker:29092' # The bootstrap servers for the Kafka REST Proxy.
       KAFKA_REST_LISTENERS: "http://0.0.0.0:8082" # The listeners for the Kafka REST Proxy.
       KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081' # The URL for the Schema Registry.
-
-
-```
