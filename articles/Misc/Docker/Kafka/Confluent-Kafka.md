@@ -145,8 +145,6 @@ Each service is configured with specific environment variables necessary for its
 
 The setup may be sufficient for a dev environment as it has a single replica for Kafka and the use of local hostnames. The `KAFKA_ADVERTISED_LISTENERS` and other network-related configurations are set up to allow the services to communicate both internally and with the host machine.
 
-I have included a [commented docker-compose](docker-compose-commented.html) file which may help you understand the steps better.
-
 ### <span style="color: PaleVioletRed;">Conclusion</span>
 
 You now have a fully functional local Kafka development environment that includes a broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. The KRaft version of the docker compose has been tested in both WIndows and Mac M1 machines.
