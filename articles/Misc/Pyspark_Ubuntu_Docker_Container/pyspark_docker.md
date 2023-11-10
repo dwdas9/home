@@ -19,8 +19,7 @@ nav_exclude: true
     - [Setup for apache/spark-py](#setup-for-apachespark-py)
     - [Setup for bitnami/spark](#setup-for-bitnamispark)
     - [Container Popularity](#container-popularity)
-
-
+    - [Errors](#errors)
 
 
 # <span style="color: teal;">Setting Up a Dockerized Spark Environment on Ubuntu for Windows  </span>
@@ -29,14 +28,15 @@ nav_exclude: true
 
 ## <span style="color: teal;">Background
 
-I'll demonstrate how to use Docker files, and how to integrate a Pyspark environment with VS Code, by setting up a functional Pyspark environment on Ubuntu. Typically, you would opt for a pre-built image with these components, such as apache/spark.             
+Here I'll show how to create a **Dockerfile** to create a Ubuntu container with Pyspark installed in it. Then, we will see how to connect to this container using VS Code's **Dev Container Extension**. The purpose here is to show how to create our own customized containers. Please note, typically you wold opt for pre-built containers for spark or similar environments.             
 
 ## <span style="color: teal;">Quickstart</span>
 
 ### <span style="color: teal;">Create the Dockerfile</span>
 
-1. Create a text file in a desired folder and paste the Dockerfile contents in it.
-2. Rename the text file DockerFile(without ANY extension)
+1. Create a file **Dockerfile**(Without ANY extn. D Caps f small in **D**ocker**f**ile) and paste the below contents in it
+
+Alternatively, I have placed a [dockerfile](Dockerfile) which you may use.
 
 ```Dockerfile
 # Base the image on Ubuntu 20.04
@@ -70,31 +70,23 @@ RUN pip3 install pyspark
 ```
 
 ### <span style="color: teal;">Build the Docker Image</span>
-- Go to the project directory with the Dockerfile in your terminal.
-- Execute the command: `docker build -t pyspark-ubuntu-image .`
-  - `pyspark-ubuntu-image` is the name you choose for your Docker image.
-  - The period `.` signifies that the Dockerfile is located in the current directory.
+- In terminal, CD to the folder with DockerFile and run the command `docker build -t ubuntuimg .`
+  - `ubuntuimg` is the name you choose for your Docker image.
+  - The period `.` tells that the Dockerfile is located in the current directory.
 
 ![Placeholder for the Docker build process image](images/image9.png)
 
 ### <span style="color: teal;">Run the Docker Container</span>
 
-- **Using Command Prompt:**
-  1. Open Command Prompt as an administrator.
-  2. Run the command: `docker run -it --name my_pyspark_ubuntu_cont pyspark-ubuntu-image /bin/bash`.
-  3. If successful, you'll enter the container's shell, and it should resemble the image below.
+  1. In terminal, run `docker run -it --name ubuntucont ubuntuimg /bin/bash`.
+  2. If successful, you'll enter the container's shell, and it should resemble the image below.
      ![Container Shell](images/image6.png)
-  4. Docker Desktop will list `my_pyspark_ubuntu_cont` as running in the container window, similar to the following image.
+  3. Docker Desktop will list `ubuntucont` as running in the container window, similar to the following image.
      ![Docker Desktop Container Window](images/image8.png)
-
-- **Using Docker Desktop:**
-  1. Launch Docker Desktop.
-  2. Navigate to the 'Images' tab, find `pyspark-ubuntu-image`, and click 'Run'.
-  3. Name your container `my_pyspark_ubuntu_cont`, and maintain default settings otherwise..
 
 ### <span style="color: teal;">Work with the docker container from a local VS Code</span>
 
-1. Install the Visual Studio Code Dev Containers Extension by searching for "Dev Containers" in the Extensions view (Ctrl+Shift+X) and clicking 'Install'.
+1. Install the Visual Studio Code **Dev Containers** Extension by searching for "Dev Containers" in the Extensions view (Ctrl+Shift+X) and clicking 'Install'.
    ![VS Code Dev Containers Extension](images/image5.png)
 
 2. Click the "Open Remote Window" button in the bottom-left corner of VS Code.
@@ -185,6 +177,9 @@ The following table outlines the popularity of different Spark Docker containers
 | Other Notable Images | 31% |
 | Community Images | 1% |
 
+### <span style="color: #DC143C;">Errors</span>
+
+I have seen that pre-built containers are hard to connect to from VS Code using Dev Containers Extension from MAC. Sometimes, we get 'unable to create a folder inside /root - permission denied error'
 
 ---
 
