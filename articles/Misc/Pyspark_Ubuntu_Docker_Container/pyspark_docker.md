@@ -179,7 +179,18 @@ The following table outlines the popularity of different Spark Docker containers
 
 ### <span style="color: #DC143C;">Errors</span>
 
-I have seen that pre-built containers are hard to connect to from VS Code using Dev Containers Extension from MAC. Sometimes, we get 'unable to create a folder inside /root - permission denied error'
+Error Description: VS Code is unable to attach to a running container. Errror encountered: mkdir: cannot create directory** '/root': permission denied**.
+
+Main reason: 
+
+1. This happens mainly in linux/mac machines. Here if you don't run the container with root priviledge you will get this error.
+2. If you create a dockerfile and don't mention any user on top. It will run with root priviledge. Hence, with custom Dockerfile-based images this error doesn't happen
+
+Reasonlution: Add -u root`-u root` to docker run command like:
+
+`docker run -u root -it --name myCont theImageFileName /bin/bash`
+
+![Alt text](image.png)
 
 ---
 
