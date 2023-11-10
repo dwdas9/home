@@ -179,7 +179,9 @@ The following table outlines the popularity of different Spark Docker containers
 
 ### <span style="color: #DC143C;">Errors</span>
 
-Error Description: VS Code is unable to attach to a running container. Errror encountered: mkdir: cannot create directory** '/root': permission denied**.
+Error Description: VS Code is unable to attach to a running container. Errror encountered: mkdir: cannot create directory** '/root': permission denied**. 
+
+To see the Dev Containers Logs. Contro/Command Shift P : Dev Containers: Show logs
 
 Main reason: 
 
