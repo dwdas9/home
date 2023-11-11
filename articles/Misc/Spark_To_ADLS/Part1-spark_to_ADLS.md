@@ -240,6 +240,8 @@ OAuth uses a registered apps identity to connect. This app should have permissio
 
 ### Why Does Spark Rely on Hadoop Libraries to Access Azure Data Lake Storage (ADLS)?
 
+**Long story short**: In a standalone Spark setup, we use specific Hadoop JARs solely for connecting to ADLS. It's important to note that these are just JARs and don't represent the full Hadoop ecosystem. 
+
 Apache Spark is used for distributed data processing. But for data storage it relies on other systems like ADLS, S3 etc. But why, when connecting Spark to ADLS, do we bring Hadoop into the picture? Let’s find out.
 
 **Spark's Core Functionality:**
@@ -254,8 +256,6 @@ When Microsoft developed ADLS, they provided a connector to the Hadoop FileSyste
 **Conclusion**
 
 HSpark uses Hadoop libraries to access ADLS due to the standardized and robust nature of the Hadoop FileSystem API. Microsoft integrated ADLS with this Hadoop API to ensure that ADLS would be compatible with a broad range of big data tools, such as Spark and Hive. This decision was to use the extensive community support of the Hadoop ecosystem and also allowed Microsoft to reuse what was already working In essence, the Hadoop API serves as a bridge between Spark and ADLS.
-
-**Long story short**: In a standalone Spark setup, we use specific Hadoop JARs solely for connecting to ADLS. It's important to note that these are just JARs and don't represent the entirety of the vast Hadoop ecosystem. 
 
 
 ### Understanding Essential JARs for Azure Data Lake Operations with Spark
