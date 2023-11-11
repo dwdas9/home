@@ -62,11 +62,10 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
      apt-get update && apt-get install -y wget
      ```
 
--  **Download ADLS-related JARs and copy to SPARK_HOME/jars folder**
-  
-   - Run the following command in terminal to download the hadoop jars for Spark-ADLS connection:
-    
-    > The command will download the jars to your home directory
+-  **Download Hadoop ADLS JARs**
+
+    - I've downloaded and placed the jars [here](Hadoop_Azure_Jars.zip). Download and copy it to a desired location.
+    - Alternatively, run the command below to download jars to your home directory
     
      ```bash
     cd ~
@@ -77,18 +76,7 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
     wget https://repo1.maven.org/maven2/com/azure/azure-security-keyvault-secrets/4.3.0/azure-security-keyvault-secrets-4.3.0.jar
     wget https://repo1.maven.org/maven2/com/azure/azure-identity/1.3.0/azure-identity-1.3.0.jar
     ```
-    > After downloading run the command below to copy the jars to SPARK_HOME/jars folder
-    > Note: Just the first three jars are sufficient for most operations. I included the other jars for potential future functionalities. 
-
-     ```bash
-     cp *.jar /usr/local/lib/python3.8/dist-packages/pyspark/jars/
-     ```
-    > Also, check if the files are copied correctly or not
-
-     ```bash
-     ls /usr/local/lib/python3.8/dist-packages/pyspark/jars/ | grep ".jar"
-     ```
-     Note: The jar versions might change. Check the latest and update the url.
+    - After downloading, place the jars in any desired folder. These jars will be referenced during spark session creation.
     
 ### Register an App for OAuth Authentication
 
