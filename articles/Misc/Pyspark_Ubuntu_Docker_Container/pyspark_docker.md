@@ -194,6 +194,8 @@ Reasonlution: Add -u root`-u root` to docker run command like:
 
 ![Alt text](image.png)
 
+2. Alternatively, if you include `user: root` in the Dockerfile or docker-compose.yml, this issue gets resolved.
+
 ---
 
 *For any questions or further assistance, please contact D Das at das.d@hotmail.com.*

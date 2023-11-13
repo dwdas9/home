@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SPARK in Docker One Master Two Worker
+title: SPARK Cluster in Docker One Master Two Worker
 nav_exclude: true
 ---
 
@@ -46,7 +46,7 @@ The most important file here is docker-compose.yaml. Which is used to set up mul
 
 ### <span style="color: #9e0059;">Create a `docker-compose.yaml` file</span>:
 
-- Create new folder named, say, "spark." Within this folder, create a text file and copy and paste the content provided below into it. Remember, the name you choose for this folder ("spark") will also be used as the name for the container group, which you'll see in Docker Desktop.
+- Create a file **docker-compose.yaml** and paste the content below and save.
 
 ```yaml
 
@@ -58,6 +58,7 @@ services:
   spark-master:
     # Specify the Docker image to use for the spark-master service
     image: bitnami/spark:latest
+    user: root #Optional - This is required else, error in attaching containers using VS code
 
     # Define the ports to expose for the spark-master service
     ports:
@@ -70,6 +71,7 @@ services:
   spark-worker-1:
     # Specify the Docker image to use for the spark-worker-1 service
     image: bitnami/spark:latest
+    user: root #Optional - This is required else, error in attaching containers using VS code
 
     # Define the environment variables for the spark-worker-1 service
     environment:
@@ -84,6 +86,7 @@ services:
   spark-worker-2:
     # Specify the Docker image to use for the spark-worker-2 service
     image: bitnami/spark:latest
+    user: root #Optional - This is required else, error in attaching containers using VS code
 
     # Define the environment variables for the spark-worker-2 service
     environment:
@@ -187,6 +190,7 @@ services:
   spark-master:
     # Specify the Docker image to use for the spark-master service
     image: bitnami/spark:latest
+    user: root #This is required else, error in attaching containers using VS code
 
     # Define the ports to expose for the spark-master service
     ports:
@@ -199,6 +203,7 @@ services:
   spark-worker-1:
     # Specify the Docker image to use for the spark-worker-1 service
     image: bitnami/spark:latest
+    user: root #This is required else, error in attaching containers using VS code
 
     # Define the environment variables for the spark-worker-1 service
     environment:
@@ -213,6 +218,7 @@ services:
   spark-worker-2:
     # Specify the Docker image to use for the spark-worker-2 service
     image: bitnami/spark:latest
+    user: root #This is required else, error in attaching containers using VS code
 
     # Define the environment variables for the spark-worker-2 service
     environment:
@@ -227,6 +233,7 @@ services:
   spark-worker-3:  # New worker node
     # Specify the Docker image to use for the spark-worker-3 service
     image: bitnami/spark:latest
+    user: root #This is required else, error in attaching containers using VS code
 
     # Define the environment variables for the spark-worker-3 service
     environment:

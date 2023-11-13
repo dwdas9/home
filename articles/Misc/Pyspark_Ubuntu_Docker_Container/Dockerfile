@@ -1,4 +1,5 @@
 # Base the image on Ubuntu 20.04
+# The container from this Dockerfile will run with root priviledge as no user is mentioned
 FROM ubuntu:20.04  
 
 # Set non-interactive mode to prevent prompts during build
