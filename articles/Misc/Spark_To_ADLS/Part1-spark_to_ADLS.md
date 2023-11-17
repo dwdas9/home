@@ -77,6 +77,7 @@ Our environment is set up inside a Docker container running Ubuntu on a Windows 
     wget https://repo1.maven.org/maven2/com/azure/azure-identity/1.3.0/azure-identity-1.3.0.jar
     ```
     - After downloading, place the jars in any desired folder. These jars will be referenced during spark session creation.
+    - Alternatively you can use download the jars [on-the-fly](mavencoordinates.html) using maven coordinates using `.config('spark.jars.packages', '...')`
     
 ### Register an App for OAuth Authentication
 
@@ -152,10 +153,22 @@ With the app now registered and the key, ID, and secret in hand, we can proceed 
 ```python
 from pyspark.sql import SparkSession
 # Initialize a Spark session with necessary configurations for connecting to ADLS
+#Offline version
 spark = SparkSession.builder \
     .appName("ADLS Access") \
     .config("spark.jars", "/usr/local/lib/python3.8/dist-packages/pyspark/jars/hadoop-azure-3.3.3.jar,/usr/local/lib/python3.8/dist-packages/pyspark/jars/hadoop-azure-datalake-3.3.3.jar,/usr/local/lib/python3.8/dist-packages/pyspark/jars/hadoop-common-3.3.3.jar") \
     .getOrCreate()
+
+# Or using maven coordinates
+# Online version
+spark = SparkSession.builder \
+    .appName("ADLS Access") \
+    .config("spark.jars.packages", 
+            "org.apache.hadoop:hadoop-azure:3.3.3,"
+            "org.apache.hadoop:hadoop-azure-datalake:3.3.3,"
+            "org.apache.hadoop:hadoop-common:3.3.3") \
+    .getOrCreate()
+
 
 # Define credentials and storage account details for ADLS access
 storage_account = "<The_Storage_Act_Name_Containing_Container>"
@@ -283,6 +296,7 @@ HSpark uses Hadoop libraries to access ADLS due to the standardized and robust n
 6. **azure-identity-1.3.0.jar**:
    - **Description**: Azure SDK's identity library, providing various credentials classes for Azure Active Directory (AAD) token authentication.
    - **Use-Cases**: Authenticating against Azure services using AAD-based credentials, especially when trying to securely access resources like Key Vault or ADLS Gen2.
+
 
 ---
 
