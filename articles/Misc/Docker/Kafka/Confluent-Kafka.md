@@ -78,7 +78,7 @@ The container group created using the docker-compose become part of  `confluent-
 docker network connect confluent-kafka_default [external-container-name-or-id]
 ```
 
-After adding, connect to the Kafka broker at `localhost:9092`. Example for Spark:
+After adding, connect to the Kafka broker at `broker:29092`. Example for Spark:
 
 ```python
 from pyspark.sql import SparkSession
@@ -91,7 +91,7 @@ spark = SparkSession.builder \
 
 streaming_df = spark.readStream \
     .format("kafka") \
-    .option("kafka.bootstrap.servers", "localhost:9021") \
+    .option("kafka.bootstrap.servers", "broker:29092) \
     .option("subscribe", "sometopic") \
     .option("startingOffsets", "earliest") \
     .load()
