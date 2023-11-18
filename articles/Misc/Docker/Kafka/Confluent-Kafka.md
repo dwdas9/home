@@ -11,6 +11,8 @@ nav_exclude: true
   - [Download the Docker Compose file](#download-the-docker-compose-file)
   - [Steps to Launch the Kafka Environment](#steps-to-launch-the-kafka-environment)
   - [Appendix](#appendix)
+    - [Connecting to Kafka Containers](#connecting-to-kafka-containers)
+    - [Troubleshooting Broker Connection Issues](#troubleshooting-broker-connection-issues)
     - [Error: no matching manifest for linux/arm64/v8](#error-no-matching-manifest-for-linuxarm64v8)
     - [Resolving Port Conflicts for Kafka Rest Proxy in Docker](#resolving-port-conflicts-for-kafka-rest-proxy-in-docker)
     - [About the docker-compose.yml](#about-the-docker-composeyml)
@@ -44,7 +46,7 @@ Note: When choosing between KRaft and ZooKeeper as the metadata service for your
 
 ![Alt text](image.png)
    
-**Remember**: The container group will be named after the folder containing the docker-compose. I.e. If it is inside London/docker-compose.yml then the container group in docker will be London.
+**Remember**: The container group wil l be named after the folder containing the docker-compose. I.e. If it is inside London/docker-compose.yml then the container group in docker will be London.
 
 ## <span style="color: Teal;">Steps to Launch the Kafka Environment</span>
 
@@ -67,24 +69,57 @@ docker-compose up -d
 
 ## <span style="color: DarkRed;">Appendix</span>
 
+
+### <span style="color: Blue;">Connecting to Kafka Containers</span>
+
+The container group created using the docker-compose become part of  `confluent-kafka_default` network group, restricting access from external containers or local machines not in this network. This means, you won't be able to connect to the broker from outside containers or local machine. To connect to Kafka from an external container, add it to the `confluent-kafka_default` network:
+
+```bash
+docker network connect confluent-kafka_default [external-container-name-or-id]
+```
+
+After adding, connect to the Kafka broker at `localhost:9092`. Example for Spark:
+
+```python
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .appName("Streaming from Kafka") \
+    .config("spark.streaming.stopGracefullyOnShutdown", True) \
+    .config('spark.jars.packages', 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0') \
+    .getOrCreate()
+
+streaming_df = spark.readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "localhost:9021") \
+    .option("subscribe", "sometopic") \
+    .option("startingOffsets", "earliest") \
+    .load()
+```
+
+### <span style="color: Green;">Troubleshooting Broker Connection Issues</span>
+
+Inspect the Kafka broker container using `docker inspect [broker-container-id]`. For detailed network information:
+
+```bash
+docker network inspect [network-name]
+```
+
+To find the broker's IP address:
+
+```bash
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' [container-name-or-id]
+```
+
+Test connectivity to the broker:
+
+```bash
+nc -vz -w 5 [broker-ip] [listener-port]
+```
+
 ### <span style="color: DimGray;">Error: no matching manifest for linux/arm64/v8</span>
 
 We might run into an error like no matching manifest for linux/arm65/v8 this error error indicates that the Docker images specified in the `docker-compose.yml` file do not have a version compatible with the architecture of our Mac's processor. This error is less likely if you use the KRaft version. I have tested the KRaft versin on both Windows and Mac M1, they both showed no error in architecture or compatibility.
-
-1. **Update `docker-compose.yml`**: At the time of writing this article I couldn't find any ARM-compatible imageges. However, in future if you find ARM64-compatible images, update the `docker-compose.yml` file to use those images instead of the default ones.
-
-2. **Use Platform Emulation (if available)**: Docker Desktop for Mac with Apple Silicon has the ability to emulate AMD64 architecture images. To enable this, add the `platform: linux/amd64` directive under the service in the `docker-compose.yml` file. However, note, this is still like a workaround and doesn't guarantee error-free future. Here's an example for one service:
-
-   ```yaml
-   services:
-     zookeeper:
-       image: confluentinc/cp-zookeeper:latest
-       platform: linux/amd64
-       # ... rest of the configuration ...
-   ```
-
-   Repeat this for each service defined in your Docker Compose file.
-
 
 ### <span style="color: DimGray;">Resolving Port Conflicts for Kafka Rest Proxy in Docker</span> 
 
@@ -142,10 +177,6 @@ Here is an explanation of the differnet services in the docker-compose.yml
 - **ksql-datagen**: A tool for generating sample data for Kafka topics and provides a source of continuously flowing data.
 - **rest-proxy**: Provides a RESTful interface to Kafka clusters.
 
-Each service is configured with specific environment variables necessary for its operation, ports for external access, and volume mounts where applicable. Some services depend on others, which is defined by the `depends_on` attribute ensuring that dependent services are started first.
-
-The setup may be sufficient for a dev environment as it has a single replica for Kafka and the use of local hostnames. The `KAFKA_ADVERTISED_LISTENERS` and other network-related configurations are set up to allow the services to communicate both internally and with the host machine.
-
 ### <span style="color: Navy;">Fully commented docker-compose.yml</span>
 
 If you want to know each step of the docker compose file. I have placed a fully commented [docker-compose.yml](docker-compose-commented.yml)
@@ -159,4 +190,6 @@ You now have a fully functional local Kafka development environment that include
 [Confluent Documentation. Quick Start. Docker Container](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1)
 
 [Confluent Documentation. Quick Start using CLI](https://developer.confluent.io/quickstart/kafka-local/?_gl=1*1hbigt8*_ga*MzYyMDI3ODc1LjE2OTkyODY3MTE.*_ga_D2D3EGKSGD*MTY5OTMzMTY0Ni41LjEuMTY5OTM0MDk0MS40MC4wLjA.)
+
+
 
