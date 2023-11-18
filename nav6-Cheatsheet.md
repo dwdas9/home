@@ -7,30 +7,25 @@ nav_order: 6
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-    - [**Azure Programming Cheatsheet**](#azure-programming-cheatsheet)
     - [**Azure Storage SDK For Python**](#azure-storage-sdk-for-python)
   - [**Azure Storage And Data Services Cheatsheet**](#azure-storage-and-data-services-cheatsheet)
     - [**Storage Services**](#storage-services)
     - [**Data And Analytics Services**](#data-and-analytics-services)
-  - [Commonly used DataFrame operations in Apache Spark](#commonly-used-dataframe-operations-in-apache-spark)
-  - [1. Spark SQL Cheat Sheet](#1-spark-sql-cheat-sheet)
-  - [2. Spark DataFrame API Cheat Sheet (Python/PySpark)](#2-spark-dataframe-api-cheat-sheet-pythonpyspark)
-  - [3. Spark RDD Cheat Sheet](#3-spark-rdd-cheat-sheet)
-  - [4. Spark MLlib Cheat Sheet](#4-spark-mllib-cheat-sheet)
-  - [5. Spark GraphX Cheat Sheet](#5-spark-graphx-cheat-sheet)
-  - [6. Spark Streaming Cheat Sheet](#6-spark-streaming-cheat-sheet)
-  - [7. Spark Configuration and Optimization Cheat Sheet](#7-spark-configuration-and-optimization-cheat-sheet)
-  - [8. Spark Deployment Cheat Sheet](#8-spark-deployment-cheat-sheet)
-  - [Spark Common Operations Cheat Sheet](#spark-common-operations-cheat-sheet)
-    - [Dataframe Operations](#dataframe-operations)
-    - [Spark SQL Operations](#spark-sql-operations)
-    - [Reading and Writing Data](#reading-and-writing-data)
-    - [RDD Operations](#rdd-operations)
-    - [Configuration and Optimization](#configuration-and-optimization)
-    - [Miscellaneous](#miscellaneous)
+      - [Spark GraphX Cheat Sheet](#spark-graphx-cheat-sheet)
+      - [Spark Streaming Cheat Sheet](#spark-streaming-cheat-sheet)
+      - [Spark Configuration and Optimization Cheat Sheet](#spark-configuration-and-optimization-cheat-sheet)
+      - [Spark Deployment Cheat Sheet](#spark-deployment-cheat-sheet)
+      - [Spark Common Operations Cheat Sheet](#spark-common-operations-cheat-sheet)
+        - [Dataframe Operations](#dataframe-operations)
+        - [Spark SQL Operations](#spark-sql-operations)
+        - [Reading and Writing Data](#reading-and-writing-data)
+        - [RDD Operations](#rdd-operations)
+        - [Configuration and Optimization](#configuration-and-optimization)
+        - [Miscellaneous](#miscellaneous)
+    - [Docker cheatsheet](#docker-cheatsheet)
+- [| Display a live stream of container(s) stats | `docker stats [container-name-or-id]`                                                                                      |](#-display-a-live-stream-of-containers-stats--docker-stats-container-name-or-id--------------------------------------------------------------------------------------)
 
 ---
-#### **Azure Programming Cheatsheet**
 
 #### **Azure Storage SDK For Python**
 
@@ -86,171 +81,127 @@ nav_order: 6
 | **Azure Purview** | AWS Glue Data Catalog | Cloud Data Catalog | Data Governance |
 
 
-### Commonly used DataFrame operations in Apache Spark
-
-### 1. Spark SQL Cheat Sheet
-
+##### Spark GraphX Cheat Sheet
 | Operation | Description | Example |
-|-----------|-------------|---------|
-| `SELECT` | Selects data from a table. | `SELECT * FROM table` |
-| `WHERE` | Filters rows based on a condition. | `SELECT * FROM table WHERE column > 100` |
-| `GROUP BY` | Groups the result set. | `SELECT column, COUNT(*) FROM table GROUP BY column` |
-| `JOIN` | Joins tables. | `SELECT * FROM table1 JOIN table2 ON table1.id = table2.id` |
-| `ORDER BY` | Sorts the result set. | `SELECT * FROM table ORDER BY column DESC` |
-| `HAVING` | Filters groups based on conditions. | `SELECT column, COUNT(*) FROM table GROUP BY column HAVING COUNT(*) > 1` |
-| `WINDOW` | Defines a window for window functions. | `SELECT column, SUM(value) OVER (PARTITION BY column ORDER BY another_column) FROM table` |
-
-### 2. Spark DataFrame API Cheat Sheet (Python/PySpark)
-
-| Operation | Description | Example Usage |
-|-----------|-------------|---------------|
-| `show()` | Displays the first few rows of the DataFrame. | `df.show()` |
-| `printSchema()` | Prints the schema of the DataFrame. | `df.printSchema()` |
-| `select()` | Selects a set of columns. | `df.select("column1", "column2")` |
-| `filter()` / `where()` | Filters rows using a condition. | `df.filter(df["column"] > 0)` |
-| `groupBy()` | Groups the DataFrame using the specified columns. | `df.groupBy("column").count()` |
-| `orderBy()` / `sort()` | Sorts the DataFrame. | `df.orderBy(df["column"].desc())` |
-| `join()` | Joins with another DataFrame. | `df1.join(df2, df1["id"] == df2["id"])` |
-| `union()` | Returns a new DataFrame containing union of rows. | `df1.union(df2)` |
-| `distinct()` | Selects distinct rows. | `df.distinct()` |
-| `dropDuplicates()` | Drops duplicate rows. | `df.dropDuplicates()` |
-| `withColumn()` | Adds a new column or replaces an existing one. | `df.withColumn("new_column", df["column"] + 1)` |
-| `drop()` | Drops a column. | `df.drop("column")` |
-| `agg()` | Aggregate on the entire DataFrame. | `df.agg({"column": "max"})` |
-| `collect()` | Collects the rows into a list. | `df.collect()` |
-| `count()` | Counts the number of rows. | `df.count()` |
-| `describe()` | Computes basic statistics for numeric columns. | `df.describe().show()` |
-| `limit()` | Limits the result count. | `df.limit(10)` |
-| `sample()` | Returns a sampled subset of the DataFrame. | `df.sample(False, 0.1)` |
-| `persist()` / `cache()` | Persists the DataFrame with an optional storage level. | `df.persist()` |
-| `unpersist()` | Unpersists the DataFrame from memory. | `df.unpersist()` |
-| `write()` | Used to write the DataFrame to an external storage system. | `df.write.format("parquet").save("/path")` |
-| `read()` | Reads data from a storage system into a DataFrame. | `spark.read.format("csv").option("header", "true").load("/path")` |
-
-
-### 3. Spark RDD Cheat Sheet
-
-| Operation | Description | Example |
-|-----------|-------------|---------|
-| `map()` | Applies a function to each element. | `rdd.map(lambda x: x * 2)` |
-| `filter()` | Filters elements. | `rdd.filter(lambda x: x > 10)` |
-| `flatMap()` | Maps each element to 0 or more elements. | `rdd.flatMap(lambda x: (x, x*2))` |
-| `reduce()` | Reduces the elements to a single value. | `rdd.reduce(lambda x, y: x + y)` |
-| `join()` | Joins two RDDs. | `rdd1.join(rdd2)` |
-| `cache()` | Caches the RDD. | `rdd.cache()` |
-| `collect()` | Collects all elements. | `rdd.collect()` |
-
-### 4. Spark MLlib Cheat Sheet
-
-| Operation | Description | Example |
-|-----------|-------------|---------|
-| `VectorAssembler` | Combines multiple columns into a vector column. | `VectorAssembler(inputCols=["col1", "col2"], outputCol="features")` |
-| `StringIndexer` | Encodes a string column to a column of indices. | `StringIndexer(inputCol="category", outputCol="categoryIndex")` |
-| `RandomForestClassifier` | Trains a random forest classifier. | `RandomForestClassifier(featuresCol="features", labelCol="label")` |
-| `RegressionEvaluator` | Evaluates regression models. | `RegressionEvaluator(predictionCol="prediction", labelCol="label", metricName="rmse")` |
-| `TrainValidationSplit` | Train-validation for hyperparameter tuning. | `TrainValidationSplit(estimator=rf, evaluator=evaluator, estimatorParamMaps=paramGrid)` |
-
-### 5. Spark GraphX Cheat Sheet
-
-| Operation | Description | Example |
-|-----------|-------------|---------|
+|---|---|---|
 | `Graph()` | Creates a graph. | `Graph(vertices, edges)` |
-| `triplets` | Maps each edge to a triplet. | `graph.triplets.map(lambda triplet: (triplet.srcAttr, triplet.dstAttr))` |
-| `subgraph()` | Creates a subgraph. | `graph.subgraph(vpred=(id, attr) => attr > 5)` |
-| `pageRank` | Runs the PageRank algorithm. | `graph.pageRank(tol=0.01)` |
+| `triplets` | Maps edges to triplets. | `graph.triplets.map(triplet => (triplet.srcAttr, triplet.dstAttr))` |
+| `subgraph()` | Creates a subgraph. | `graph.subgraph(vpred = (id, attr) => attr > 5)` |
+| `pageRank` | Runs PageRank algorithm. | `graph.pageRank(tol = 0.01)` |
 | `connectedComponents()` | Finds connected components. | `graph.connectedComponents()` |
 
-### 6. Spark Streaming Cheat Sheet
-
+##### Spark Streaming Cheat Sheet
 | Operation | Description | Example |
-|-----------|-------------|---------|
-| `readStream` | Reads data in streaming mode. | `spark.readStream.format("kafka").option("
-
-subscribe", "topic").load()` |
+|---|---|---|
+| `readStream` | Reads data in streaming mode. | `spark.readStream.format("kafka").option("subscribe", "topic").load()` |
 | `writeStream` | Writes data in streaming mode. | `stream.writeStream.format("console").start()` |
 | `window()` | Windows data for aggregations. | `data.groupBy(window(data.timestamp, "1 hour")).count()` |
-| `trigger()` | Sets the streaming trigger. | `stream.writeStream.trigger(processingTime='1 minute').start()` |
+| `trigger()` | Sets streaming trigger. | `stream.writeStream.trigger(processingTime='1 minute').start()` |
 | `updateStateByKey()` | Maintains state across batches. | `stream.updateStateByKey(updateFunction)` |
 
-### 7. Spark Configuration and Optimization Cheat Sheet
-
+##### Spark Configuration and Optimization Cheat Sheet
 | Configuration | Description | Recommended Setting |
-|---------------|-------------|---------------------|
-| `spark.executor.memory` | Memory per executor. | Depends on the cluster (e.g., `4g`) |
-| `spark.sql.shuffle.partitions` | Number of shuffle partitions. | Depends on data size (e.g., `200`) |
-| `spark.default.parallelism` | Default parallelism level. | Depends on the cluster |
+|---|---|---|
+| `spark.executor.memory` | Memory per executor. | e.g., `4g` |
+| `spark.sql.shuffle.partitions` | Number of shuffle partitions. | e.g., `200` |
+| `spark.default.parallelism` | Default parallelism level. | Depends on cluster |
 | `spark.serializer` | Serializer class. | `org.apache.spark.serializer.KryoSerializer` |
-| `spark.executor.cores` | Number of cores per executor. | Depends on the cluster |
+| `spark.executor.cores` | Number of cores per executor. | Depends on cluster |
 
-### 8. Spark Deployment Cheat Sheet
-
+##### Spark Deployment Cheat Sheet
 | Deployment Mode | Description | Key Points |
-|-----------------|-------------|------------|
-| Standalone | Spark's simple cluster manager. | Suitable for static clusters. |
+|---|---|---|
+| Standalone | Simple cluster manager. | Suitable for static clusters. |
 | YARN | Integrates with Hadoop YARN. | Good for Hadoop ecosystems. |
 | Mesos | General cluster manager. | Flexible resource sharing. |
 | Kubernetes | Container orchestration system. | Suitable for dynamic environments. |
 
-### Spark Common Operations Cheat Sheet
+##### Spark Common Operations Cheat Sheet
 
-#### Dataframe Operations
-
+###### Dataframe Operations
 | Operation | Description | Example |
-|-----------|-------------|---------|
-| `show()` | Displays the DataFrame rows. | `df.show()` |
-| `select()` | Selects specific columns. | `df.select("column1", "column2")` |
-| `filter()` | Filters rows based on condition. | `df.filter(df["column"] > 100)` |
-| `withColumn()` | Adds a new column or updates an existing one. | `df.withColumn("new_column", df["column"] + 1)` |
-| `drop()` | Removes a column from the DataFrame. | `df.drop("column")` |
-| `groupBy()` | Groups by a column for aggregation. | `df.groupBy("column").count()` |
+|---|---|---|
+| `show()` | Displays rows. | `df.show()` |
+| `select()` | Selects columns. | `df.select("col1", "col2")` |
+| `filter()` | Filters rows. | `df.filter(df["column"] > 100)` |
+| `withColumn()` | Adds/updates a column. | `df.withColumn("new_col", df["column"] + 1)` |
+| `drop()` | Removes a column. | `df.drop("column")` |
+| `groupBy()` | Groups for aggregation. | `df.groupBy("column").count()` |
 | `orderBy()` | Sorts the DataFrame. | `df.orderBy(df["column"].desc())` |
-| `join()` | Joins with another DataFrame. | `df.join(df2, df["id"] == df2["id"])` |
-| `union()` | Unions two DataFrames. | `df1.union(df2)` |
+| `join()` | Joins DataFrames. | `df.join(df2, df["id"] == df2["id"])` |
+| `union()` | Unions DataFrames. | `df1.union(df2)` |
 | `distinct()` | Selects distinct rows. | `df.distinct()` |
-| `collect()` | Collects rows into an array. | `df.collect()` |
-| `count()` | Counts the number of rows. | `df.count()` |
+| `collect()` | Collects rows. | `df.collect()` |
+| `count()` | Counts rows. | `df.count()` |
 
-#### Spark SQL Operations
-
+###### Spark SQL Operations
 | Operation | Description | Example |
-|-----------|-------------|---------|
-| `createOrReplaceTempView()` | Creates a temporary view. | `df.createOrReplaceTempView("view")` |
+|---|---|---|
+| `createOrReplaceTempView()` | Creates a temp view. | `df.createOr
+
+ReplaceTempView("view")` |
 | `sql()` | Executes SQL query. | `spark.sql("SELECT * FROM view")` |
 
-#### Reading and Writing Data
-
+###### Reading and Writing Data
 | Operation | Description | Example |
-|-----------|-------------|---------|
-| `read.format()` | Reads data in a specified format. | `spark.read.format("csv").option("header", "true").load("path")` |
-| `write.format()` | Writes data in a specified format. | `df.write.format("parquet").save("path")` |
+|---|---|---|
+| `read.format()` | Reads data in format. | `spark.read.format("csv").option("header", "true").load("path")` |
+| `write.format()` | Writes data in format. | `df.write.format("parquet").save("path")` |
 
-#### RDD Operations
-
+###### RDD Operations
 | Operation | Description | Example |
-|-----------|-------------|---------|
-| `map()` | Applies a function to each element. | `rdd.map(lambda x: x * 2)` |
-| `filter()` | Filters elements based on a condition. | `rdd.filter(lambda x: x > 10)` |
-| `flatMap()` | Maps each element to 0 or more elements. | `rdd.flatMap(lambda x: [x, x*2])` |
-| `reduce()` | Reduces elements to a single value. | `rdd.reduce(lambda x, y: x + y)` |
+|---|---|---|
+| `map()` | Applies function. | `rdd.map(lambda x: x * 2)` |
+| `filter()` | Filters elements. | `rdd.filter(lambda x: x > 10)` |
+| `flatMap()` | Maps to 0 or more elements. | `rdd.flatMap(lambda x: [x, x*2])` |
+| `reduce()` | Reduces to single value. | `rdd.reduce(lambda x, y: x + y)` |
 
-#### Configuration and Optimization
-
+###### Configuration and Optimization
 | Configuration | Description | Example |
-|---------------|-------------|---------|
-| `setAppName()` | Sets the name of the application. | `spark.conf.setAppName("MyApp")` |
-| `setMaster()` | Sets the master URL. | `spark.conf.setMaster("local[*]")` |
-| `getOrCreate()` | Gets or creates a SparkSession. | `SparkSession.builder.getOrCreate()` |
+|---|---|---|
+| `setAppName()` | Sets application name. | `spark.conf.setAppName("MyApp")` |
+| `setMaster()` | Sets master URL. | `spark.conf.setMaster("local[*]")` |
+| `getOrCreate()` | Gets or creates SparkSession. | `SparkSession.builder.getOrCreate()` |
 
-#### Miscellaneous
-
+###### Miscellaneous
 | Operation | Description | Example |
-|-----------|-------------|---------|
-| `cache()` | Caches the DataFrame. | `df.cache()` |
-| `persist()` | Persists the DataFrame with a storage level. | `df.persist(StorageLevel.MEMORY_AND_DISK)` |
+|---|---|---|
+| `cache()` | Caches DataFrame. | `df.cache()` |
+| `persist()` | Persists with storage level. | `df.persist(StorageLevel.MEMORY_AND_DISK)` |
 | `broadcast()` | Broadcasts a variable. | `broadcastVar = spark.sparkContext.broadcast([1, 2, 3])` |
 | `accumulator()` | Creates an accumulator. | `acc = spark.sparkContext.accumulator(0)` |
 
 
+#### Docker cheatsheet
+
+| Task Description                         | Docker Command                                                                                                              |
+|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| **General Commands**                     |                                                                                                                             |
+| List all containers (running & stopped)  | `docker ps -a`                                                                                                              |
+| Start a container                        | `docker start [container-name-or-id]`                                                                                       |
+| Stop a container                         | `docker stop [container-name-or-id]`                                                                                        |
+| Remove a container                       | `docker rm [container-name-or-id]`                                                                                          |
+| Pull an image                            | `docker pull [image-name]`                                                                                                  |
+| Run a container from an image            | `docker run [options] [image-name]`                                                                                         |
+| Display Docker version and info          | `docker version` or `docker info`                                                                                           |
+| **Network-Specific Commands**            |                                                                                                                             |
+| List all networks                        | `docker network ls`                                                                                                         |
+| Inspect a network                        | `docker network inspect [network-name]`                                                                                     |
+| Create a network                         | `docker network create [network-name]`                                                                                      |
+| Remove a network                         | `docker network rm [network-name]`                                                                                          |
+| **Attaching/Detaching Networks**         |                                                                                                                             |
+| Attach a running container to a network  | `docker network connect [network-name] [container-name-or-id]`                                                               |
+| Detach a container from a network        | `docker network disconnect [network-name] [container-name-or-id]`                                                            |
+| **Inter-Container Communication**        |                                                                                                                             |
+| Ping between two containers              | Use `docker exec [container-name] ping [target-container-ip-or-name]`                                                       |
+| **Inspecting Containers and Networks**   |                                                                                                                             |
+| Inspect a container                      | `docker inspect [container-name-or-id]`                                                                                     |
+| Inspect a container's network settings   | `docker inspect -f '{{.NetworkSettings.Networks}}' [container-name-or-id]`                                                   |
+| Inspect a specific network               | `docker network inspect [network-name]`                                                                                     |
+| **Container Logs and Monitoring**        |                                                                                                                             |
+| View logs of a container                 | `docker logs [container-name-or-id]`                                                                                        |
+| Monitor real-time events of Docker       | `docker events`                                                                                                             |
+| Display a live stream of container(s) stats | `docker stats [container-name-or-id]`                                                                                      |
 ---
 
 © D Das  
