@@ -10,7 +10,7 @@ nav_order: 9
 - [Project Setup](#project-setup)
   - [Step 1 - Dataset prepartion for Fake-streaming](#step-1---dataset-prepartion-for-fake-streaming)
   - [Step 2 - Fake-streaming to Kafka Topic](#step-2---fake-streaming-to-kafka-topic)
-  - [Step3: Reading from Kafka with Spark Streaming and saving to MongoDB](#step3-reading-from-kafka-with-spark-streaming-and-saving-to-mongodb)
+  - [Step 3 - Reading from Kafka with Spark Streaming and saving to MongoDB](#step-3---reading-from-kafka-with-spark-streaming-and-saving-to-mongodb)
   - [Appendix](#appendix)
 
 ## <span style="color: Teal;">StreamKraft: Real-Time Music Data Pipeline. Kafka. SparkStreaming. MongoDB.</span>
@@ -171,7 +171,7 @@ spark.stop()
 
 ```
 
-### Step3: Reading from Kafka with Spark Streaming and saving to MongoDB
+### Step 3 - Reading from Kafka with Spark Streaming and saving to MongoDB
 
 Once the data is successfully streaming through the Kafka topic, we can use Spark Streaming to analyze and process the incoming information. This shows a real-time data analysis.
 
