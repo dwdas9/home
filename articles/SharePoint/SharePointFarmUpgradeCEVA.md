@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SharePoint On-prem Farm Upgrade - Logistics Company
+title: SharePoint Farm Upgrde
 parent: SharePoint
 nav_order: 2
 ---
@@ -31,11 +31,11 @@ nav_order: 2
 
 ## Purpose
 
-CEVA wants to setup a new consolidated SharePoint farm in its European Data Center (EDC) for its intranet and extranet SharePoint applications in an efficient and cost effective manner. This new farm should be implemented in such a way so that it provides high availability (HA), Scalability and Disaster Recovery (DR).
+The client wants to setup a new consolidated SharePoint farm in its European Data Center (EDC) for its intranet and extranet SharePoint applications in an efficient and cost effective manner. This new farm should be implemented in such a way so that it provides high availability (HA), Scalability and Disaster Recovery (DR).
 
 ## Audience
 
-This document is tailored primarily for the infrastructure/ technical/Managerial and development teams at CEVA/HCL.
+This document is tailored primarily for the infrastructure/ technical/Managerial and development teams at The client/HCL.
 
 ## Scope
 
@@ -56,7 +56,7 @@ HCL has detailed discussions with the CEVA management team to understand the nee
 
 | &nbsp;Particular | Ceva portal | Ceva NET | Extranet |
 | --- | --- | --- | --- |
-| Farm Topology | One SharePoint 2007 farm in Florida  <br>,  <br>consisting of 2 servers  <br>(WFE and 2 App roles combined),  <br><br/>using a SQL Server cluster | One SharePoint 2007 farm in Texas,  <br>consisting of 2 WFE and 2 App servers,  <br>using SQL Server 2005 cluster. | "One WSS 3.0 server;  <br>located in Texas  <br>containing few 100 sites." |
+| Farm Topology | One SharePoint 2007 farm in Florida  <br>,  <br>consisting of 2 servers  <br>(WFE and 2 App roles combined),  <br><br/>using a SQL Server cluster | One SharePoint 2007 farm in Texas<br>consisting of 2 WFE and 2 App servers,<br>using SQL Server 2005 cluster. | One WSS 3.0 server;  <br>located in Texas  <br>containing few 100 sites. |
 | Sites | 200 team sites, 15 apps (from Notes). | 1000 sites, multilingual,  <br>custom apps (30% custom, 70% standard). | Few hundred sites. |
 | Storage | 50 gb | 100 gb | unspecified |
 | Users | 500 – 2000 | 24000 | unspecified |
@@ -113,7 +113,7 @@ The following parameters are to be met in for High availability and Disaster Rec
 4. SQL Server storage and resources are available and high available with disaster recovery.
 5. The reverse proxy will support SharePoint (possible impact on authentication and/or requires additional configuration)
 
-## In-Scope
+## Scope
 
 Below activities will be performed to accomplish the task.
 
@@ -139,23 +139,3 @@ Below activities will be performed to accomplish the task.
     1. Prepare the Test Plan to test the SharePoint Farm.
     2. Execute the Tests.
     3. Provide any Farm related support during the application Go Live.
-
-## OUT – Scope
-
-HCL will not focus on the following areas:
-
-- Hardware Ordering and Installation.
-- Operating System (OS) installation.
-- SQL Server implementation.
-- Reverse proxy, firewall, networking, DMZ and other infrastructure aspects.
-- BI implementation.
-- Configuring Development or User Acceptance Test Environment.
-- Migration of the portals contents and data.
-- Preparing Migration and Deployments Scripts.
-- Any form of custom coding during this implementation.
-- SharePoint development.
-- Installation of add-on components not part of SharePoint out-of-the-box capability.
-- Preparing the application specific test cases and executing the test.
-- Any Warranty and Ongoing Maintenance and Support.
-- Development and user acceptance environments are already available and out of scope.
-- An upgrade to 2010 is not in scope, because there are no technical reasons to upgrade. Note that a more flexible and scalable setup (especially when using service applications) is possible with SharePoint 2010.
