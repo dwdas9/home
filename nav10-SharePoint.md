@@ -2,6 +2,7 @@
 layout: default
 title: SharePoint
 nav_order: 10
+has_children: true
 ---
 
 ## <span style="color: Teal;">Table of Contents</span>

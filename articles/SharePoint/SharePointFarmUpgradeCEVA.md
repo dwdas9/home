@@ -1,7 +1,8 @@
 ---
 layout: default
 title: SharePoint On-prem Farm Upgrade - Logistics Company
-nav_exclude: true
+parent: SharePoint
+nav_order: 2
 ---
 ### Glossary
 
