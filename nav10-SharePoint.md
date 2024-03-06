@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SharePoint Projects
+title: SharePoint
 nav_order: 10
 ---
 
