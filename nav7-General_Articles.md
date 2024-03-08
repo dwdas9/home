@@ -1,7 +1,7 @@
 ---
 layout: default
 title: General Articles
-nav_order: 8
+nav_order: 7
 ---
 
 ## <span style="color: Teal;">Table of Contents</span>

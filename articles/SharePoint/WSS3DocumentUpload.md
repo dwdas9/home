@@ -1,7 +1,8 @@
 ---
-layout: default
-title: Uploading Documents into WSS 3 using C#
-nav_exclude: true
+layout: minimal
+title: C# - WSS 3 Bulk ingestion
+parent: SharePoint
+nav_order: 1
 ---
 ### Streamlining Document Migration to SharePoint WSS 3.0: A Technical Insight
 
