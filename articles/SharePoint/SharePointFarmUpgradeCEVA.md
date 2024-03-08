@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SharePoint On-prem Farm Upgrade - Logistics Company
+title: SharePoint Farm Migration
 parent: SharePoint
 nav_order: 2
 ---
