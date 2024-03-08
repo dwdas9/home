@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: minimal
 title: SharePoint Farm Migration
 parent: SharePoint
 nav_order: 2
