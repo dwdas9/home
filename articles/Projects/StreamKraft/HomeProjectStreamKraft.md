@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Project StreamKraft
-parent: Data Engineer Projects
+parent: Azure DE Projects
 nav_order: 8
 ---
 
