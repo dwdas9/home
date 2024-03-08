@@ -2,7 +2,7 @@
 layout: default
 title: Project Sparkzure
 parent: Azure DE Projects
-nav_order: 4
+nav_order: 2
 ---
 
 <details open markdown="block">

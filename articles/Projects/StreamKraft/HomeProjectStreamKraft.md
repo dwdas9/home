@@ -2,17 +2,18 @@
 layout: default
 title: Project StreamKraft
 parent: Azure DE Projects
-nav_order: 8
+nav_order: 3
 ---
 
-## Table of contents
-- [Table of contents](#table-of-contents)
-- [StreamKraft: Real-Time Music Data Pipeline. Kafka. SparkStreaming. MongoDB.](#streamkraft-real-time-music-data-pipeline-kafka-sparkstreaming-mongodb)
-- [Project Setup](#project-setup)
-  - [Step 1 - Dataset prepartion for Fake-streaming](#step-1---dataset-prepartion-for-fake-streaming)
-  - [Step 2 - Fake-streaming to Kafka Topic](#step-2---fake-streaming-to-kafka-topic)
-  - [Step 3 - Reading from Kafka with Spark Streaming and saving to MongoDB](#step-3---reading-from-kafka-with-spark-streaming-and-saving-to-mongodb)
-  - [Appendix](#appendix)
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
 
 ## <span style="color: Teal;">StreamKraft: Real-Time Music Data Pipeline. Kafka. SparkStreaming. MongoDB.</span>
 
