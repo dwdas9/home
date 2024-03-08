@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Project StreamKraft
-nav_order: 9
+nav_order: 8
 ---
 
 ## Table of contents
