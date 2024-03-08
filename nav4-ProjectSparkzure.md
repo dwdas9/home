@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Project Sparkzure
+parent: Data Engineer Projects
 nav_order: 4
 ---
 

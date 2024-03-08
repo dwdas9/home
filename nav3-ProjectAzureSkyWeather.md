@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Project AzureSkyWeather
+parent: Data Engineer Projects
 nav_order: 3
 ---
 

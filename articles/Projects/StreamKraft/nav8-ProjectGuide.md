@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Project StreamKraft
+parent: Data Engineer Projects
 nav_order: 8
 ---
 
