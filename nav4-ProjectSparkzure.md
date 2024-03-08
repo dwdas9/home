@@ -4,12 +4,15 @@ title: Project Sparkzure
 nav_order: 4
 ---
 
-## Table of Contents
-- [Overview](#overview)
-  - [How to Connect an local/on-premise Pyspark Setup with Azure Data Lake](#how-to-connect-an-localon-premise-pyspark-setup-with-azure-data-lake)
-  - [Method 1: How to rearrange items in Blob storage using an local/on-premise Pyspark \& Hadoop Jars](#method-1-how-to-rearrange-items-in-blob-storage-using-an-localon-premise-pyspark--hadoop-jars)
-  - [Method 2: How to rearrange items in Blob storage using an local/on-premise Python and Azure Python libraries(SDK)](#method-2-how-to-rearrange-items-in-blob-storage-using-an-localon-premise-python-and-azure-python-librariessdk)
-  - [How to schedule our Blob file organizer Python script usign Azure Timer-Trigger Function](#how-to-schedule-our-blob-file-organizer-python-script-usign-azure-timer-trigger-function)
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
 
 # Overview
 

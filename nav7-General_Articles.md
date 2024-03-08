@@ -13,11 +13,6 @@ nav_order: 7
 {:toc}
 </details>
 
-## <span style="color: Teal;">Table of Contents</span>
-- [Overview](#overview)
-  - [Spark - Azure Connection Methods](#spark---azure-connection-methods)
-
-
 # <span style="color: BlueViolet;">Overview</span>
 
 This section includes some general articles which might be good to gain more knowledge about Data Enginerring in the Azure Ecosystem.

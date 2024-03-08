@@ -4,21 +4,14 @@ title: Installation Guides
 nav_order: 5
 ---
 
-## Table of Contents
-- [Overview](#overview)
-  - [Docker Spark Cluster Setup : One Master, Two Workers](#docker-spark-cluster-setup--one-master-two-workers)
-  - [Docker Apache Airflow Setup](#docker-apache-airflow-setup)
-  - [Docker Confluent Kafka All-in-one Setup](#docker-confluent-kafka-all-in-one-setup)
-  - [Docker Mongodb Setup](#docker-mongodb-setup)
-  - [Docker Pyspark-Ubuntu Setup](#docker-pyspark-ubuntu-setup)
-  - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
-  - [Install Java, Python, SPARK, and PySpark On Windows](#install-java-python-spark-and-pyspark-on-windows)
-  - [Managing Python in System PATH Using PowerShell](#managing-python-in-system-path-using-powershell)
-  - [Can't run `docker ps` despite having docker installed?](#cant-run-docker-ps-despite-having-docker-installed)
-  - [How to Download and Use JAR Files from Apache Maven Repository](#how-to-download-and-use-jar-files-from-apache-maven-repository)
-  - [Pip install Pyspark vs FULL Spark](#pip-install-pyspark-vs-full-spark)
-  - [Setting Up Azure Databricks](#setting-up-azure-databricks)
-
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Overview
 

@@ -3,13 +3,15 @@ layout: default
 title: Project AzureSkyWeather
 nav_order: 3
 ---
-## Table of contents
-- [Overview](#overview)
-  - [Step 1A: Data ingestion using Azure HTTP-Triggered Function And Azure Logic Apps](#step-1a-data-ingestion-using-azure-http-triggered-function-and-azure-logic-apps)
-  - [Step 1B: Data ingestion using Just Azure Timer-Triggered Function](#step-1b-data-ingestion-using-just-azure-timer-triggered-function)
-  - [Step 2A: Organize the weather files by timestamp using Plain Python](#step-2a-organize-the-weather-files-by-timestamp-using-plain-python)
-  - [Step 2B: Organize the weather files by timestamp using Spark and Hadoop](#step-2b-organize-the-weather-files-by-timestamp-using-spark-and-hadoop)
 
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Overview
 
