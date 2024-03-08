@@ -4,29 +4,6 @@ title: SharePoint Farm Migration
 parent: SharePoint
 nav_order: 2
 ---
-### Glossary
-
-| Abbreviation | Description |
-| --- | --- |
-| AD  | Active Directory |
-| EDC | European Data Center |
-| DC  | Data Center (Primary Site) |
-| DR  | Disaster Recovery (Secondary Site) |
-| IE  | Internet Explorer |
-| IIS | Internet Information Service |
-| MOSS 2007 | Microsoft Office SharePoint Server 2007 |
-| OOB | Out of Box |
-| OS  | Operating System |
-| RAID | Redundant Array of Inexpensive Disk |
-| SAN | Storage Area Network |
-| SP  | Service Pack |
-| SSP | Shared Service Provider |
-| UAT | User Acceptance Test |
-| UI  | User Interface |
-| WCF | Windows Communication Framework |
-| WF  | Workflow Foundation |
-| WFE | Web Front End Server |
-
 # Introduction
 
 ## Purpose
