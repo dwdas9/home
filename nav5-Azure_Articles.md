@@ -15,11 +15,13 @@ nav_order: 5
 
 # Overview
 
+First things first - Don't forget to click [Read more...]
+
 Hello everyone! In this guide, we'll focus on how to set up essential tools and environments for Data Engineering. Whether you're a beginner or already deep into the field, this straightforward guide aims to simplify your journey.
 
 
 ## <span style="color: SteelBlue;">Docker Spark Cluster Setup : One Master, Two Workers</span>
-In this tutorial I'll guide you through setting up an Apache Spark cluster using Docker, with one master and two worker nodes in windows environment. We will use docker-compose.yaml to achieve this task[Read more...](articles/Misc/Docker/SparkDocker/SparkDockerSetup.html)
+In this tutorial I'll guide you through setting up an Apache Spark cluster using Docker, with one master and two worker nodes in windows environment. We will use docker-compose.yaml to achieve this task [Read more...](articles/Misc/Docker/SparkDocker/SparkDockerSetup.html)
 
 ## <span style="color: SteelBlue;">Docker Apache Airflow Setup</span>
 In this article, I'll show two approaches to setting up Apache Airflow using Docker on Windows. The first method, more suitable for production environments, involves a few additional steps. The second method is quicker, ideal for development settings. [Read more...](articles/Misc/Docker/AirflowDocker/Setup.html)
