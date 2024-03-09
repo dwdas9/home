@@ -1,17 +1,29 @@
 ---
 layout: default
 title: Azure Articles
-nav_order: 5
+nav_order: 2
 ---
 
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
+- [Overview](#overview)
+  - [Docker Spark Cluster Setup : One Master, Two Workers](#docker-spark-cluster-setup--one-master-two-workers)
+  - [Docker Apache Airflow Setup](#docker-apache-airflow-setup)
+  - [Docker Confluent Kafka All-in-one Setup](#docker-confluent-kafka-all-in-one-setup)
+  - [Docker Mongodb Setup](#docker-mongodb-setup)
+  - [Docker Pyspark-Ubuntu Setup](#docker-pyspark-ubuntu-setup)
+  - [Install Spark/Pyspark in the Anaconda Ecosystem](#install-sparkpyspark-in-the-anaconda-ecosystem)
+  - [Install Java, Python, SPARK, and PySpark On Windows](#install-java-python-spark-and-pyspark-on-windows)
+  - [Managing Python in System PATH Using PowerShell](#managing-python-in-system-path-using-powershell)
+  - [Can't run `docker ps` despite having docker installed?](#cant-run-docker-ps-despite-having-docker-installed)
+  - [How to Download and Use JAR Files from Apache Maven Repository](#how-to-download-and-use-jar-files-from-apache-maven-repository)
+  - [Pip install Pyspark vs FULL Spark](#pip-install-pyspark-vs-full-spark)
+  - [Setting Up Azure Databricks](#setting-up-azure-databricks)
+  - [Spark - Azure Connection Methods](#spark---azure-connection-methods)
+  - [JSON Validate  using  Schema](#json-validate--using--schema)
+  - [JSON Fetch n Convert  To Parquet](#json-fetch-n-convert--to-parquet)
+  - [JSON Clean-Validate-Migrate ](#json-clean-validate-migrate-)
+  - [JSON Flatten ](#json-flatten-)
+  - [Python dummy data inserter into SQL Server](#python-dummy-data-inserter-into-sql-server)
+
 
 # Overview
 
