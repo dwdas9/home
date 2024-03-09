@@ -31,7 +31,7 @@ In this article, we'll see how to sort files in an Azure Data Lake Container by 
 
 ## Method 2: How to rearrange items in Blob storage using an local/on-premise Python and Azure Python libraries(SDK)
 
-I the previous article I showed you how to sort files using Spark and Hadoop Jars. Here I will show you how using just straightforward python method in a local setup we can achieve teh same output, i.e, sort the files inside our Azure blob container. This is a real-world-scenario and such well-partioned data structures are required for analysis and Migration. [Read more...](../../Misc/SortAzureBlobFilesUsingLocalPython/LocalPython_AzureBlob.md)
+I the previous article I showed you how to sort files using Spark and Hadoop Jars. Here I will show you how using just straightforward python method in a local setup we can achieve teh same output, i.e, sort the files inside our Azure blob container. This is a real-world-scenario and such well-partioned data structures are required for analysis and Migration. [Read more...](../../Misc/SortAzureBlobFilesUsingLocalPython/LocalPython_AzureBlob.html)
 
 
 ## How to schedule our Blob file organizer Python script usign Azure Timer-Trigger Function
