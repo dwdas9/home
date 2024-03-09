@@ -1,7 +1,7 @@
 ---
 layout: minimal
 title: C# - WSS 3 Bulk ingestion
-parent: SharePoint
+parent: SharePoint Office 365
 nav_order: 1
 ---
 ### Streamlining Document Migration to SharePoint WSS 3.0: A Technical Insight

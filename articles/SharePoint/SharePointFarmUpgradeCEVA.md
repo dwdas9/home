@@ -1,7 +1,7 @@
 ---
 layout: minimal
 title: SharePoint Farm Migration
-parent: SharePoint
+parent: SharePoint Office 365
 nav_order: 2
 ---
 # Introduction
