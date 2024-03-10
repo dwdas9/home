@@ -1,12 +1,12 @@
 ---
-layout: minimal
+layout: default
 title: SharePoint Evolution
 parent: SharePoint Office 365
 nav_order: 1
 ---
 ### SharePoint Version Evolution
 
-SharePoint has evolved significantly since its inception, transforming from a simple document management tool to a comprehensive platform for collaboration, content management, and much more. Let's dive straight into the technical journey of SharePoint's evolution, highlighting key versions and features without any fancy frills.
+SharePoint has evolved significantly since its inception, transforming from a simple document management tool to a comprehensive platform for collaboration, content management, and much more. Let's dive straight into the technical journey of SharePoint's evolution, highlighting key versions and features.
 
 #### SharePoint Portal Server 2001
 - **Introduction:** Launched as a document management and team collaboration tool.
@@ -40,8 +40,6 @@ SharePoint has evolved significantly since its inception, transforming from a si
 - **Cloud-First:** Continuously updated, providing the latest features and integrations with the Microsoft ecosystem.
 - **Key Features:** Modern team sites, communication sites, integration with Power Platform (PowerApps, Power Automate), and continuous updates based on user feedback and technological advancements.
 
-### Conclusion
-From its beginnings as a document management system to its current status as a comprehensive platform for collaboration and content management, SharePoint has undergone significant transformation. Each version has introduced new features and improvements, reflecting Microsoft's commitment to adapting to changing business needs and technological advancements. Whether on-premises or in the cloud, SharePoint continues to be a key player in the digital workplace strategy for many organizations.
 
 ---
 © D Das  

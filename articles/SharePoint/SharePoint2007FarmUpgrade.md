@@ -4,37 +4,38 @@ title: SharePoint Farm Migration
 parent: SharePoint Office 365
 nav_order: 2
 ---
+
+- [Introduction](#introduction)
+  - [Purpose](#purpose)
+- [Existing System Specification](#existing-system-specification)
+  - [Current System study](#current-system-study)
+    - [Farm Scenario](#farm-scenario)
+  - [Current System Assessment](#current-system-assessment)
+  - [General Farm Requirements](#general-farm-requirements)
+  - [High Availability (HA) and Disaster Recovery (DR) Requirements](#high-availability-ha-and-disaster-recovery-dr-requirements)
+- [Assumptions \& Dependencies](#assumptions--dependencies)
+  - [Assumptions](#assumptions)
+  - [Scope](#scope)
+- [High-level infrastructure layout](#high-level-infrastructure-layout)
+
 # Introduction
 
 ## Purpose
 
 The client wants to setup a new consolidated SharePoint farm in its European Data Center (EDC) for its intranet and extranet SharePoint applications in an efficient and cost effective manner. This new farm should be implemented in such a way so that it provides high availability (HA), Scalability and Disaster Recovery (DR).
 
-## Audience
-
-This document is tailored primarily for the infrastructure/ technical/Managerial and development teams at The client/HCL.
-
-## Scope
-
-The scope of the document can be categorized into two sections:
-
-1. Analysis of the existing farm environments.
-2. Analysis of the Desired CevaNet farm environment.
-
-The above two analysis is from the perspective of Computer hardware and computer software.
-
 # Existing System Specification
 
 ## Current System study
 
-HCL has detailed discussions with the CEVA management team to understand the needs to consolidate the existing SharePoint environments to new SharePoint environments in a more (cost) efficient and more stable manner. HCL followed the standard process of studying current system. The following section would highlight the key findings of the system study:
+Our team had detailed discussions with the client's management team to understand the needs to consolidate the existing SharePoint environments to new SharePoint environments in a more (cost) efficient and more stable manner. We followed the standard process of studying current system. The following section would highlight the key findings of the system study:
 
 ### Farm Scenario
 
 | &nbsp;Particular | Ceva portal | Ceva NET | Extranet |
 | --- | --- | --- | --- |
-| Farm Topology | One SharePoint 2007 farm in Florida  <br>,  <br>consisting of 2 servers  <br>(WFE and 2 App roles combined),  <br><br/>using a SQL Server cluster | One SharePoint 2007 farm in Texas<br>consisting of 2 WFE and 2 App servers,<br>using SQL Server 2005 cluster. | One WSS 3.0 server;  <br>located in Texas  <br>containing few 100 sites. |
-| Sites | 200 team sites, 15 apps (from Notes). | 1000 sites, multilingual,  <br>custom apps (30% custom, 70% standard). | Few hundred sites. |
+| Farm Topology | One SharePoint 2007 farm in Florida consisting of 2 servers  (WFE and 2 App roles combined),  using a SQL Server cluster | One SharePoint 2007 farm in Texasconsisting of 2 WFE and 2 App servers, using SQL Server 2005 cluster. | One WSS 3.0 server;  located in Texas  containing few 100 sites. |
+| Sites | 200 team sites, 15 apps (from Notes). | 1000 sites, multilingual,  custom apps (30% custom, 70% standard). | Few hundred sites. |
 | Storage | 50 gb | 100 gb | unspecified |
 | Users | 500 – 2000 | 24000 | unspecified |
 | Average Requests | 400 | 45000 | unspecified |
@@ -43,14 +44,12 @@ HCL has detailed discussions with the CEVA management team to understand the nee
 
 ## Current System Assessment
 
-HCL's assessment findings based on current CEVA’s SharePoint implementation are:
+Our assessment findings based on current client's SharePoint implementation are:
 
 - Current SharePoint installation is not implemented for High Availability. No business continuity plans defined.
 - Single Point of failure. No Disaster Recovery farm exists.
 - Absence of redundancy for some of the server roles.
 - Absence of scalability for some of the server roles.
-
-# Desired System Specification
 
 ## General Farm Requirements
 
@@ -71,7 +70,7 @@ The following parameters are to be met in for High availability and Disaster Rec
 | **Gold** |
 | --- | --- |
 | Monitoring | 24x7 on desk |
-| Availability (see Section 16.2) | 99.35% |
+| Availability | 99.35% |
 | “Allowed” downtime per month | Approximately 4.5 hours |
 | Recovery time (in the event of a complete failure this is the RTO) | 8 hours |
 | Recovery Point Objective (RPO) | 120 minutes |
@@ -116,3 +115,9 @@ Below activities will be performed to accomplish the task.
     1. Prepare the Test Plan to test the SharePoint Farm.
     2. Execute the Tests.
     3. Provide any Farm related support during the application Go Live.
+
+# High-level infrastructure layout
+
+Below image shows a high-level structure of the Farm
+
+![alt text](image-3.png)
