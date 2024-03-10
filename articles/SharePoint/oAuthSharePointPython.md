@@ -2,7 +2,7 @@
 layout: default
 title: Python-oAuth-SharePointOnline
 parent: SharePoint Office 365
-nav_order: 6
+nav_order: 1
 ---
 
 - [How to authenticate from your local python setup with SharePoint online](#how-to-authenticate-from-your-local-python-setup-with-sharepoint-online)

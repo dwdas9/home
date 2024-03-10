@@ -2,7 +2,7 @@
 layout: default
 title: SharePoint Farm 2016 Farm Setup
 parent: SharePoint Office 365
-nav_order: 4
+nav_order: 2
 ---
 - [Background](#background)
   - [Project Overview \& Understanding](#project-overview--understanding)

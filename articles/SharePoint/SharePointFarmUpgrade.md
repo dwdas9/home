@@ -1,8 +1,8 @@
 ﻿---
 layout: default
-title: SP Farm Upgrade - Marxxx
+title: SharePoint Farm Upgrade
 parent: SharePoint Office 365
-nav_order: 1
+nav_order: 4
 ---
 
 # Case Study: SharePoint Farm Design for a Media Company
