@@ -68,6 +68,7 @@ nav_order: 2
   - [Disaster Recovery](#disaster-recovery)
   - [Disaster Recovery Strategy](#disaster-recovery-strategy)
   - [Disaster Recovery Configuration Process](#disaster-recovery-configuration-process)
+    - [Asynchronous database mirroring](#asynchronous-database-mirroring)
 - [Deployment Architecture](#deployment-architecture)
   - [Production DC \& DR](#production-dc--dr)
   - [Non-Production Environments](#non-production-environments)
@@ -444,7 +445,7 @@ ForeFront includes:
 - Intelligent Application Gateway (IAG) – Remotely-connecting PCs must verify their compliance before gaining server access. 
 - Internet Security and Acceleration (ISA) Server 2006 – Manages security for VPN connections and remotely-accessed applications.
 
-Advantage of ForeFront
+*Advantage of ForeFront*
 
 - Protect Exchange and MOSS 2007. Both servers deal with data coming and going. All day, every day. Cover them both with ForeFront Security for Exchange Server and ForeFront Security for SharePoint.
 - Uniform Reporting. Instead of trying to piece together six reports from six different applications, you can read ForeFront reports. Collected from all components into one, so problems are quickly spotted. 
@@ -600,7 +601,7 @@ The use of a single Shared Services Provider (SSP) brings these three applicatio
 
 The following figure shows the three applications that make up the corporate intranet.
 
- ### Split back-to-back topology
+### Split back-to-back topology
 This topology splits the farm between the perimeter and corporate networks. The computers running Microsoft SQL Server database software are hosted inside the corporate network. Web servers are located in the perimeter network. The application server computers can be hosted in either the perimeter network or the corporate network. 
 
 ![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.007.png)
@@ -647,7 +648,7 @@ On failover, traffic is redirected to the secondary farm.
 * On failover, you must attach mirrored content databases to the Web applications running in the failover farm.
 * Over time, you can either fail back or turn the primary farm into the failover farm.
 
- ## Disaster Recovery Configuration Process
+## Disaster Recovery Configuration Process
 - Disaster recovery solution for web content: Use SharePoint QA server for Disaster Recovery, first export the specific site from backup to a blank site and then extract the specific content that needs to be restored. Do not use production server for disaster recovery because the recovery process will overwrite the existing contents.
   - Rationale: SharePoint’s built-in recovery solution does not allow granular file/item level recovery. Entire site needs to be restored to recover a single file/item
   - Technical Details: Use STSADM to restore the site to QA web server from an existing backup and then recover the file/item
@@ -659,10 +660,10 @@ On failover, traffic is redirected to the secondary farm.
     - Build a new index server
     - Disable and stop ossearch service on the index server
     - Check if the propagation status is idle
-    - Copy the Portal\_Content catalog (<Your\_index\_location>\<SSPapplicationGUID>\Projects\Portal\_Content\Indexer\CiFiles\\*.\*) from the query server to the indexer in the same location
+    - Copy the Portal_Content catalog  from the query server to the indexer in the same location
 
-     ### Asynchronous database mirroring
-There are two mirroring operating modes – 
+### Asynchronous database mirroring
+There are two mirroring operating modes
 
  Synchronous mode -   when a session starts, the mirror server synchronizes the mirror database together with the principal database as quickly as possible. As soon as the databases are synchronized, a transaction is committed on both partners, at the cost of increased transaction latency.
  Asynchronous mode - as soon as the principal server sends a log record to the mirror server, the principal server sends a confirmation to the client. It does not wait for an acknowledgement from the mirror server. This means that transactions commit without waiting for the mirror server to write the log to disk. Such asynchronous operation enables the principal server to run with minimum transaction latency, at the potential risk of some data loss.
@@ -686,7 +687,7 @@ Development Box installation
 
 - Use Windows Server, Visual Studio, and SQL Server. Windows Server 2008, VS 2008 and .NET 3.5, SQL 2008, with TFS 2008 is officially supported environment for SharePoint development. Advantage of Windows 2008 is that it is fast in virtualized environments.
 - Install SharePoint on development boxes and prefer not to connect to existed farm instances used on other stages. Development environment should stay apart, to develop and tests in isolated environment.
-   ### QA Environment
+### QA Environment
 The following diagram depicts the most common development environment, which is recommended by “SharePoint Guidance patterns & practices” team.
 
 ![testingenv](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.013.jpeg)
@@ -697,41 +698,41 @@ The following diagram depicts the most common development environment, which is 
  The Staging server uses to test the “production-ready” solution in an environment that closely resembles the production environment. The purpose of this environment is to identify any potential deployment issues. Although the Staging environment is optional for smaller applications where deployment failures are not critical
 
 The staging environment represents the target production environment as closely as possible from the perspective of topology (for example, the server farm and database structure) and components (for example, the inclusion of the Microsoft Active Directory service and load balancing, where applicable).
- ### Virtualization of Environments
+### Virtualization of Environments
 Virtualization in SharePoint farm is one of the key design factors that simplify server availability by providing number of additional servers that might not be available over physical server models, or solution become very expensive. Microsoft officially supports SharePoint farm in virtualized environment since mid 2007. The following virtualizations technologies are supported: Hyper-V and 3rd party providers like VMware.
 
 One of the key factors for virtualization is that performance of virtualized farm is competitive to the physical farm. Microsoft tests shows:
-\- 7.2% less throughput on virtual Web roles with 8GB of RAM than a physical Web role server with 32GB of RAM;
-\- 4.4% slower in the page response time on the Hyper-V Web front-end than the physical server;
+7.2% less throughput on virtual Web roles with 8GB of RAM than a physical Web role server with 32GB of RAM;
+4.4% slower in the page response time on the Hyper-V Web front-end than the physical server;
 
 ![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.014.jpeg)
 
 Figure 6: Virtual Development Environment
 
- ### Virtualize SharePoint Web Role
+### Virtualize SharePoint Web Role
 Web front-end servers are responsible for the content rendering and have comparatively lower memory requirements and disk activity than other roles, what makes them is an ideal candidate for virtualization.
- #### Choose disk type for Query Role
+#### Choose disk type for Query Role
 The query role is responsible for a search performed by users is a good candidate for virtualization. The disk type choice for this role depends on the size of propagated index and the rate of index propagation.
 The recommendation for the large indexes and the farm with the high rate of the updated information to use a physical disk volume that is dedicated for the individual query server, rather than a virtual disk file.
- #### Consider using Index Role on physical server
+#### Consider using Index Role on physical server
 The Index server role in a SharePoint farm is often the most memory-intensive role, what makes it less ideal candidate for virtualization. Virtualized Index server role might be appropriate for development environment, small farm or farm with small content usage.
 Take into account, that index can vary from 10% to 30% of the total size of the documents being indexed. For the large indexes (above 200 GB) consider using physical disk volume that is dedicated to the individual query server, rather than virtual disk.
 For large farms with big amount of crawled data use physical Index server role due to large memory requirements and high disk I/O activity.
- #### Do not virtualize Database role
+#### Do not virtualize Database role
 SharePoint database role is the least appropriate role for virtualization in production scenarios, mainly due to the highest amount of disk I/O activity and very high memory and processor requirements. However, it is very common to see the SQL Server virtualized in test farms, quality assurance (QA) farms, and smaller SharePoint environments.
- #### Do I need to virtualize Application role?
+#### Do I need to virtualize Application role?
 The decision of virtualizations the application roles, such Excel Services and InfoPath Services, depends on the roles usage. Those roles can be easily virtualized, because they are similar to Web Roles and mostly CPU intensive. When necessary, those servers can be easily moved to dedicated physical servers.
- #### Virtualized scenario sample
+#### Virtualized scenario sample
 The following picture demonstrates the common virtualized scenario of SharePoint Farm.
 
 Common deployment scenarios for the SQL role in a SharePoint farm may have multiple farms, both physical and virtual, use a single database server or database cluster, further increasing the amount of resources consumed by the role. For example, in the picture above, the sample SharePoint environment illustrated maintains a two-server SQL cluster that is used by several virtual farms and one production farm.
- #### Use proper number of CPU
+#### Use proper number of CPU
 Do not use more virtual CPUs than physical CPUs on the virtual host computer – this will cause performance issues, because the hypervisor software has to swap out CPU contexts.
 The best performance can be realized if the number of virtual processors allocated to running guests does not exceed the number of logical processors (physical processors multiplied by the number of cores) on the host. For example, a four processor quad-core server will be able to allocate up to 16 virtual processors across its running sessions without any significant performance impact. Note that this only applies to sessions that are physically running simultaneously.
- #### Use proper amount of RAM
+#### Use proper amount of RAM
 Plan to allocate the memory on virtual sessions according the next rule – divide the total amount of RAM in the server by the number of logical processors (physical processors multiplied by number of cores) in the host server. This will align allocated memory along with NUMA sessions. Otherwise it will provide performance issues.
 In some testing, a virtual SharePoint Web server role with an allocation of 32GB of RAM actually performed worse than a virtual server with an allocation of 8GB of RAM.
- #### Plan to use physical drives
+#### Plan to use physical drives
 In virtual scenarios front-end Web servers or Query servers disk performance is not as important as it would be physicals servers of the Index role or a SQL Server database. A fixed-size virtual disk typical provides better performance than a dynamically-sized disk.
 If disk speed is a high priority, consider adding physical drives to the host computer. Add new virtual hard drive and map it to an unused physical drive on the host. This configuration, called a “pass-through disk”, is likely to give the best overall disk throughput.
 #### Consider using hardware load balancing
@@ -743,7 +744,7 @@ Using snapshots for the backup might cause you troubles, because SharePoint time
 After completing your virtualized environment installation and configuration, it's crucial to measure how fast your environment operates and optimize it for the best performance. Here are the key parameters to measure:
 
 1. Processor Performance
-   - Counter: `\HYPER-V HYPERVISOR LOGICAL Processor(_Total)\% Total Run Time`
+   - Counter: `\HYPER-V HYPERVISOR LOGICAL Processor(_Total)% Total Run Time`
    - Results: 
      - <60% Utilization is fine.
      - 60%-89% indicates caution.
@@ -764,6 +765,6 @@ After completing your virtualized environment installation and configuration, it
    - Results:
      - Up to 15ms is fine.
      - 15ms-25ms indicates a warning.
-     - >26ms is critical.
+     - Greater than 26ms is critical.
 
 ---
