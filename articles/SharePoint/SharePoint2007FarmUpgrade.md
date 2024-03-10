@@ -91,7 +91,7 @@ nav_order: 2
 
 I wokred as a SharePoint Architect for an farm deployment project for a prominent media company, this document captures the essence of our SharePoint Farm design project. Developed in collaboration with our networking and infrastructure teams, it outlines the deployment strategy employed and the considerations made to ensure a robust SharePoint environment.
 
-From SharePoint 2007 through to SharePoint 2016, the landscape of SharePoint has evolved, introducing several features and enhancements like miniRoles etc. However, the fundamental architecture focusing on high availability (HA) remains unchanged. 
+From SharePoint 2007 through to SharePoint 2016, the landscape of SharePoint has evolved, introducing several features and enhancements like miniRoles etc. However, the fundamental architecture focusing on high availability (HA) remains unchanged.
 
 ## Background
 Marxxx wants to redesign their existing Microsoft Office SharePoint based portal application which includes around 10 site collections and also wants to improve and simplify the ability to manage content.  
