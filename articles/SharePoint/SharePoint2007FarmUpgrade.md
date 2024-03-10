@@ -2,7 +2,7 @@
 layout: default
 title: SharePoint Farm Upgrade
 parent: SharePoint Office 365
-nav_order: 4
+nav_order: 2
 ---
 
 # Case Study: SharePoint Farm Design for a Media Company

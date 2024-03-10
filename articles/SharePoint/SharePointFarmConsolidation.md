@@ -2,7 +2,7 @@
 layout: default
 title: SharePoint Farm Consolidation
 parent: SharePoint Office 365
-nav_order: 3
+nav_order: 4
 ---
 
 - [Introduction](#introduction)
