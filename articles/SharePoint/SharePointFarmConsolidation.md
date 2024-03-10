@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SharePoint Farm Migration
+title: SharePoint Farm Consolidation
 parent: SharePoint Office 365
 nav_order: 3
 ---
