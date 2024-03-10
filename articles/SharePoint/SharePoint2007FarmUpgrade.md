@@ -1,5 +1,5 @@
 ---
-layout: minimal
+layout: default
 title: SharePoint Farm Migration
 parent: SharePoint Office 365
 nav_order: 2
@@ -118,6 +118,6 @@ Below activities will be performed to accomplish the task.
 
 # High-level infrastructure layout
 
-Below image shows a high-level structure of the Farm
+Below image shows the proposed high-level structure of the Farm
 
 ![alt text](image-3.png)
