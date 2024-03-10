@@ -1,5 +1,5 @@
 ---
-layout: minimal
+layout: default
 title: C# - WSS 3 Bulk ingestion
 parent: SharePoint Office 365
 nav_order: 9
