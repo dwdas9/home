@@ -20,6 +20,8 @@ nav_order: 4
 
 # Introduction
 
+Here, I am sharing about a project which I was part of acting as a consultant for architecture.
+
 ## Purpose
 
 The client wants to setup a new consolidated SharePoint farm in its European Data Center (EDC) for its intranet and extranet SharePoint applications in an efficient and cost effective manner. This new farm should be implemented in such a way so that it provides high availability (HA), Scalability and Disaster Recovery (DR).

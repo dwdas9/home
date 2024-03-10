@@ -198,7 +198,7 @@ Microsoft Office SharePoint Server 2007 supports several Web browsers that are c
 
 ### Levels of browser support
 Web browser support is divided into two levels: level 1 and level 2. Although administrative tasks on SharePoint sites are optimized for level 1 browser, Office SharePoint Server 2007 also provides support for other browsers that are commonly used. To ensure complete access to all the functionality, it is recommended to use level 1 browser. 
- #### Level 1 Web browsers
+#### Level 1 Web browsers
 Level 1 Web browsers take advantage of advanced features provided by ActiveX controls and provide the most complete user experience. Level 1 browsers offer full functionality on all SharePoint sites, including the SharePoint Central Administration Web site. Level 1 browsers are:
 
 - Microsoft Internet Explorer 6.*x* (32-bit)
@@ -683,4 +683,5 @@ After completing your virtualized environment installation and configuration, it
      - Up to 15ms is fine.
      - 15ms-25ms indicates a warning.
      - >26ms is critical.
+
 ---
