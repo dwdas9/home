@@ -5,8 +5,8 @@ parent: SharePoint Office 365
 nav_order: 2
 ---
 - [Background](#background)
-  - [Objectives of Redesign](#objectives-of-redesign)
   - [Project Overview \& Understanding](#project-overview--understanding)
+  - [Objectives of Redesign](#objectives-of-redesign)
   - [Current System Study](#current-system-study)
   - [Current System Assessment](#current-system-assessment)
     - [Governance](#governance)
@@ -24,7 +24,14 @@ nav_order: 2
 
 # Background
 
-The client intends to overhaul their current Microsoft Office SharePoint-based portal application, which comprises approximately 10 site collections. The primary goal is to enhance and simplify content management capabilities.
+Hello, readers. In this article I will share my experience architecting a farm topology for a SharePoint 2016 on-prem, in-country farm deployment project.
+
+The project's goal was to revamp the client's existing Microsoft Office SharePoint setup. Our preliminary assessment revealed a stark absence of best practice implementations in their topology design. Furthermore, we encountered issues with their CMS system and various other elements of their SharePoint portals. Without further delay, let's dive into the details.
+
+
+## Project Overview & Understanding
+
+The client has deployed SharePoint to satisfy various organizational needs. Despite this, the implementation is lacking in best practices and future enhancement opportunities. Common challenges for organizations adopting SharePoint include planning, strategy, infrastructure, architecture design, UI Design, migration, and development. These tasks demand a flexible infrastructure as a prerequisite. Yet, often, organizations encounter outdated and improperly configured environments that hinder new implementations. Thus, the baseline architecture is critical for the success of all SharePoint projects.
 
 ## Objectives of Redesign
 
@@ -37,13 +44,9 @@ The client intends to overhaul their current Microsoft Office SharePoint-based p
 - Design and deploy a High Availability solution without any single point of failure.
 - Integrate plug-in and proprietary applications based on MOSS.
 
-## Project Overview & Understanding
-
-The client has deployed SharePoint to satisfy various organizational needs. Despite this, the implementation is lacking in best practices and future enhancement opportunities. Common challenges for organizations adopting SharePoint include planning, strategy, infrastructure, architecture design, UI Design, migration, and development. These tasks demand a flexible infrastructure as a prerequisite. Yet, often, organizations encounter outdated and improperly configured environments that hinder new implementations. Thus, the baseline architecture is critical for the success of all SharePoint projects.
-
 ## Current System Study
 
-We engaged in thorough discussions with the The Client management team to comprehend the requirements for revamping and redesigning the current SharePoint setup. The Client facilitated this by providing VPN access with site-level permissions for us to review the production sites' replicas, minus any sensitive data. We has documented how to remove sensitive data and manage the backup/restore process for site assessments in the development environment, adhering to standard practices during the current system study.
+The main team working on this project engaged in thorough discussions with the The Client management team to comprehend the requirements for revamping and redesigning the current SharePoint setup. The Client facilitated this by providing VPN access with site-level permissions for us to review the production sites' replicas, minus any sensitive data. We has documented how to remove sensitive data and manage the backup/restore process for site assessments in the development environment, adhering to standard practices during the current system study.
 
 ## Current System Assessment
 
@@ -78,7 +81,7 @@ We engaged in thorough discussions with the The Client management team to compre
 ### Usability
 
 - Unstructured navigation lacking distinct, easily recognizable groups and consistency.
-- The UI of MyThe Client Home page is appealing, but site menus and contents are not easily identifiable against a glittery background.
+- The UI of Home page is appealing, but site menus and contents are not easily identifiable against a glittery background.
 - Absence of quick links across all sites for better navigation.
 - Presence of broken links.
 
@@ -122,7 +125,7 @@ The table below summarizes the different approaches to deploying and managing Sh
 
 ## Topology Recommendation
 
-We recommend the following farm topology for a high-availability, on-premises SharePoint 2016 farm with six servers, utilizing the latest features such as MinRole
+As the client wants to have an in-country farm due to data regulations. We recommend the following farm topology for a high-availability, on-premises SharePoint 2016 farm with six servers, using the latest features such as MinRole
 
 ![alt text](image-8.png)
 
