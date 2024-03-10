@@ -2,7 +2,7 @@
 layout: default
 title: SharePoint Evolution
 parent: SharePoint Office 365
-nav_order: 1
+nav_order: 7
 ---
 ### SharePoint Version Evolution
 

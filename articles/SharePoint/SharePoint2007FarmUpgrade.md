@@ -2,7 +2,7 @@
 layout: default
 title: SharePoint Farm Migration
 parent: SharePoint Office 365
-nav_order: 2
+nav_order: 3
 ---
 
 - [Introduction](#introduction)

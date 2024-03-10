@@ -2,7 +2,7 @@
 layout: default
 title: SharePoint Mini Role
 parent: SharePoint Office 365
-nav_order: 2
+nav_order: 6
 ---
 
 # Understanding SharePoint's MinRole in SP 2016 & 2019 on-prem

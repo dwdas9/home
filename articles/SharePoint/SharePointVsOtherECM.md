@@ -1,8 +1,8 @@
 ---
-layout: minimal
+layout: default
 title: SharePoint vs Other ECMS
 parent: SharePoint Office 365
-nav_order: 1
+nav_order: 8
 ---
 ## SharePoint vs OpenText Documentum, and IBM FileNet for ECM
 

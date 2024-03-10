@@ -2,7 +2,7 @@
 layout: minimal
 title: SharePoint Forms or PowerApps
 parent: SharePoint Office 365
-nav_order: 1
+nav_order: 5
 ---
 ### Choosing Power Apps Forms for SharePoint: When and Why?
 

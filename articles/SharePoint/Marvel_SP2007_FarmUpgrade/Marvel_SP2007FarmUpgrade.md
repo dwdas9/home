@@ -2,7 +2,7 @@
 layout: default
 title: SP Farm Upgrade - Marxxx
 parent: SharePoint Office 365
-nav_order: 2
+nav_order: 1
 ---
 
 # Case Study: SharePoint Farm Design for a Media Company
