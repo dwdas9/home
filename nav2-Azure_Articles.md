@@ -2,6 +2,7 @@
 layout: default
 title: Azure Articles
 nav_order: 2
+has_children: true
 ---
 
 - [Overview](#overview)
