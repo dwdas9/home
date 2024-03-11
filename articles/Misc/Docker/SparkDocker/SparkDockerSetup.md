@@ -2,6 +2,7 @@
 layout: default
 title: SPARK Cluster | Docker | 1 Master 2 Worker
 parent: Azure Articles
+has_children: true
 ---
 
 ## Table of contents

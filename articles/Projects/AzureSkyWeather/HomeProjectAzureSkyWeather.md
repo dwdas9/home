@@ -3,6 +3,7 @@ layout: default
 title: Project AzureSkyWeather
 parent: Azure DE Projects
 nav_order: 1
+has_children: true
 ---
 
 <details open markdown="block">
