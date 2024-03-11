@@ -2,6 +2,7 @@
 layout: default
 title: Project AzureSkyWeather. Part 1B - Using Azure Timer-Triggered Function
 parent: Project AzureSkyWeather
+grand_parent: Azure DE Projects
 ---
 
 ## Table of contents
