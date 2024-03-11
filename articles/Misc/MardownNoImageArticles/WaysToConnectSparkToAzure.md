@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SPARK in Docker One Master Two Worker
+title: Azure Storage To Spark
 parent: Azure Articles
 ---
 ## <span style="color: #7e0041;">Table Of Contents</span>
