@@ -2,7 +2,6 @@
 layout: default
 title: ADF and Synapse Analytics Evolution
 parent: Azure Articles
-nav_exclude: true
 ---
 - [How Azure Data Factory and Synapse analytics evolved over time](#how-azure-data-factory-and-synapse-analytics-evolved-over-time)
   - [Background](#background)

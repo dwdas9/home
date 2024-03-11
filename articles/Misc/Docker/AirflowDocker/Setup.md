@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Apache Airflow | Container | Windows
-nav_exclude: true
 ---
 
 ## Table of Contents
