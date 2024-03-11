@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Project AzureSkyWeather. Part 1A - Using Azure HTTP-Triggered Function
-parent: Azure DE Projects
+parent: Project AzureSkyWeather
 ---
 
 ## Table of Contents
