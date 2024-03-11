@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Python dummy data inserter
+parent: Azure Articles
 nav_exclude: true
 ---
 

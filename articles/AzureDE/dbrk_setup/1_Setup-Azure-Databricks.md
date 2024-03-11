@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Setting Up Azure Databricks
+parent: Azure Articles
 nav_exclude: true
 ---
 

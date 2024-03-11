@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Flatten Json Using Azure SDK
+parent: Azure Articles
 nav_exclude: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Install Java, Spark, & Python PySpark
+parent: Azure Articles
 nav_exclude: true
 ---
 

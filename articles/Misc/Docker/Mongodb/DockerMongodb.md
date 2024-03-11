@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Docker Setup Mongo DB
+parent: Azure Articles
 nav_exclude: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: SPARK Cluster in Docker One Master Two Worker
+parent: Azure Articles
 nav_exclude: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Json To Parquet Using Spark And Azure
+parent: Azure Articles
 nav_exclude: true
 ---
 

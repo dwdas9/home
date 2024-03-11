@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Bulk Json Validation and Cleanup Using Azure Functions
+parent: Azure Articles
 nav_exclude: true
 ---
 

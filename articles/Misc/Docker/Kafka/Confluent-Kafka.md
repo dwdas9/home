@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Confluent Kafka All-in-one Docker
+parent: Azure Articles
 nav_exclude: true
 ---
 

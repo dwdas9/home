@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Pip PySpark vs Full Spark
+parent: Azure Articles
 nav_exclude: true
 ---
 
