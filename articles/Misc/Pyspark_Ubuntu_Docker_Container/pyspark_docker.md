@@ -2,7 +2,6 @@
 layout: default
 title: Pyspark Ubuntu Docker Setup
 parent: Azure Articles
-nav_exclude: true
 ---
 
 ## <span style="color: navy;">Table of contents</span>

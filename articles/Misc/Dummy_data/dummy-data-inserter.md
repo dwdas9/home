@@ -2,7 +2,6 @@
 layout: default
 title: Python dummy data inserter
 parent: Azure Articles
-nav_exclude: true
 ---
 
 ## Python Script to Populate SQL Server Database Table with Randomized Data

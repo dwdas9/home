@@ -2,7 +2,6 @@
 layout: default
 title: Troubleshooting docker ps on Your Machine
 parent: Azure Articles
-nav_exclude: true
 ---
 
 ## Table of contents

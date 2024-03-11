@@ -2,7 +2,6 @@
 layout: default
 title: Docker Setup Mongo DB
 parent: Azure Articles
-nav_exclude: true
 ---
 
 ## <span style="color: navy;">Table of contents</span>

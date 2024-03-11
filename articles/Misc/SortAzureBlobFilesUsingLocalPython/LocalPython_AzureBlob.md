@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Local Python Code to Rearrange Files in a Azure Blob Container
-nav_exclude: true
+parent: Azure Articles
 ---
 
 ### Table of contents

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Accessing Azure Data Lake From Local Spark
-nav_exclude: true
+parent: Azure Articles
 ---
 
 ## Table of contents

@@ -2,7 +2,6 @@
 layout: default
 title: SPARK in Docker One Master Two Worker
 parent: Azure Articles
-nav_exclude: true
 ---
 ## <span style="color: #7e0041;">Table Of Contents</span>
 

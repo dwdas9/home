@@ -2,7 +2,6 @@
 layout: default
 title: Flatten Json Using Azure SDK
 parent: Azure Articles
-nav_exclude: true
 ---
 
 ## <span style="color: SlateGray;Font-family: Segoe UI, sans-serif;">Table of Contents</span>

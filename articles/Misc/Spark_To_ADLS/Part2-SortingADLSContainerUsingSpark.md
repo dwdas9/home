@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Sorting Files in ADLS Container Using Standalone Spark
-nav_exclude: true
+parent: Azure Articles
 ---
 
 ## Table of contents

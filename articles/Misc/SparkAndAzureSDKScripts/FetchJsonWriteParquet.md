@@ -2,7 +2,6 @@
 layout: default
 title: Json To Parquet Using Spark And Azure
 parent: Azure Articles
-nav_exclude: true
 ---
 
 ## <span style="color: DimGray;">Table of Contents</span>
