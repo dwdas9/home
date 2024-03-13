@@ -5,7 +5,7 @@ parent: Misc Articles
 nav_order: 1
 ---
 
-![docker_image](docker.webp)
+![alt text](DockerCommandImages.png)
 
 # Common docker commands
 
