@@ -5,9 +5,9 @@ parent: SharePoint Office 365
 nav_order: 6
 ---
 
-# Understanding SharePoint's MinRole in SP 2016 & 2019 on-prem
+# SharePoint 2016 MinRole
 
-### Pre-2016:
+### Before 2016:
 
 Say, you had two servers. You could install **any** service on either of them, in **any combination**. E,g,:
 
@@ -16,11 +16,11 @@ Say, you had two servers. You could install **any** service on either of them, i
 
 This freedom, and lack of guidance, gave a lot of flexibility. But, you had to be careful about performance issues.
 
-### Post-2016. Welcome MiniRole:
+### SharePoint 2016/2019:
 
-**MinRole** is just a **best combination** of services. Now adminstrator know beforehand, what mix is best. However, it's not just advice; it also makes it easy to deploy these 'best service combination'.
+**MinRole** is just a **best combination** of services. Now adminstrator know beforehand, what mix is best. It's not just advice, its shown as a radio  button during installation.
 
-Also, like before, you can still install 'anything anywhere' with 'Custom' MiniRole. This is how the new installer shows them:
+Also, like before, you can still install 'anything anywhere' by clicking 'Custom' MiniRole optioin. This is how the new installer shows them:
 
 ![alt text](image-6.png)
 
