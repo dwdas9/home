@@ -28,3 +28,5 @@ nav_order: 1
 | 🚮 (Volume Remove) | `docker volume rm <volume_name>`        |
 | 🌐 (Network List)  | `docker network ls`                      |
 | 🌉 (Network Create)| `docker network create <network>`       |
+
+---
