@@ -28,6 +28,8 @@ parent: Azure Articles
     - [Why Use docker-compose.yaml:](#why-use-docker-composeyaml)
     - [Conclusion:](#conclusion)
 
+![alt text](AirflowIcon.png)
+
 # Setting Up Apache Airflow with Docker on Windows
 
 In this article, I'll show two approaches to setting up Apache Airflow using Docker on Windows. Method 1 is more suitable for production environments and Method 2 is ideal for development settings.

@@ -5,6 +5,9 @@ parent: Azure Articles
 nav_order: 1
 ---
 
+
+![alt text](pysparkQAPythonbg.png)
+
 ## Frequently asked Pyspark questions
 
 In this section, I'll go over some common PySpark questions and their answers. These are basic questions that anyone using PySpark should be familiar with. So, let's get started :-)
