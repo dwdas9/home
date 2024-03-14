@@ -13,6 +13,8 @@ parent: Azure Articles
     - [Download the JAR File](#download-the-jar-file)
     - [How to Use the JARs](#how-to-use-the-jars)
 
+![alt text](175533.png)
+
 # How to Download JAR Files from Apache Maven Repository
 
 Need to download JAR files like `hadoop-azure-x.x.x.jar` for your project? Don't worry, I'll show you how to get them from Apache Maven Repository. It's easy and doesn't take much time.
