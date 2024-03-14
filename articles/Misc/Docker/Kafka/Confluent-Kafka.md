@@ -20,7 +20,8 @@ parent: Azure Articles
   - [Conclusion](#conclusion)
   - [Further reading](#further-reading)
 
-![Alt text](<kafka_abstract.png>)
+
+![alt text](image-7.png)
 
 # <span style="color: DodgerBlue;">Setting Up a Local Kafka Development Environment with Docker Compose </span>
 
