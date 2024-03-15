@@ -26,7 +26,7 @@ Hi everyone, when it comes to storing data, we have several options available to
 | Use Case     | Customer information for web applications | Storing raw, unprocessed social media data                   | Analyzing customer data to drive business decisions   | Managing a company's website, digital assets, and internal documents |
 
 
-Now, let me give you some good examples which you can related to to remember the difference:
+Now, let me give you some relatable examples to help you remember the differences:
 
 
 | Feature           | Database                     | Data Lake                                  | Data Warehouse                               | CMS (e.g., OpenText)                           |
