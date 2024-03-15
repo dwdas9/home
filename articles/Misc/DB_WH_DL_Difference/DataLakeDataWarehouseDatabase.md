@@ -8,7 +8,7 @@ nav_order: 1
 ![alt text](image.png)
 
 
-## Database Vs Datawarehouse Vs DataLake Vs ECM/CMS
+## <span style="color: Gray;">Database Vs Datawarehouse Vs DataLake Vs ECM/CMS</span>
 
 Hi everyone, when it comes to storing data, we have several options available to us, including databases, data warehouses, data lakes, and CMS systems. You might be wondering what sets each of these apart. There's a lot of information out there, and it can get pretty overwhelming. That's why I've summarized the main differences in a straightforward table for you. This way, you can quickly grasp what makes each option unique. I hope you find it helpful!
 
