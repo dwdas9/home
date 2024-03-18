@@ -148,7 +148,7 @@ Here is a picture showing OOTB features of Dataverse
 
 ## Common Data Model
 
-Common Data Model as a ready-made collection of tables. Say for healthcare you have A patient table and a admission table. With this you don't have to design tables and choose columns. Microsoft has partnered with industries like Healthcare, automobile, banking to create CDM.
+Common Data Model as a ready-made collection of tables. Say for healthcare you have patient table and a admission table. With this you don't have to design tables and choose columns. Microsoft has partnered with industries like Healthcare, automobile, banking to create CDM.
 
 ## Power Platform connectors - Connect PP with other Apps
 
@@ -156,87 +156,69 @@ Common Data Model as a ready-made collection of tables. Say for healthcare you h
 
 ## Dataverse tables
 
-### How different are Dataverse tables than MSSQL tables?
 
-<table border="1" style="border-collapse: collapse;">
-  <tr style="background-color:#5bc0de; color: white;">
-    <th>Feature / Property</th>
-    <th>Dataverse Tables</th>
-    <th>MSSQL Tables</th>
-  </tr>
-  <tr style="background-color:#f8d7da;">
-    <td>Storage</td>
-    <td>Stored in the Dataverse cloud environment.</td>
-    <td>Stored in traditional relational database storage.</td>
-  </tr>
-  <tr style="background-color:#cce5ff;">
-    <td>Schema Definition</td>
-    <td>Defined using Power Apps or Dynamics 365 UI.</td>
-    <td>Defined using SQL data definition language (DDL).</td>
-  </tr>
-  <tr style="background-color:#f8d7da;">
-    <td>Data Types</td>
-    <td>Supports a limited set of data types determined by Power Apps and Dynamics 365.</td>
-    <td>Supports various SQL data types (int, varchar, datetime, etc.).</td>
-  </tr>
-  <tr style="background-color:#cce5ff;">
-    <td>Scalability</td>
-    <td>Designed for scalability within the Dataverse environment.</td>
-    <td>Scaling depends on the underlying database infrastructure.</td>
-  </tr>
-  <tr style="background-color:#f8d7da;">
-    <td>Security</td>
-    <td>Security integrated with Power Platform security model.</td>
-    <td>Security managed through SQL Server's security mechanisms.</td>
-  </tr>
-  <tr style="background-color:#cce5ff;">
-    <td>Integration</td>
-    <td>Tightly integrated with Power Platform services.</td>
-    <td>Can be integrated with various third-party tools and services.</td>
-  </tr>
-  <tr style="background-color:#f8d7da;">
-    <td>Customization</td>
-    <td>Customizable using Power Apps and Dynamics 365 customization features.</td>
-    <td>Customizable using SQL scripts, stored procedures, and triggers.</td>
-  </tr>
-  <tr style="background-color:#cce5ff;">
-    <td>Usage</td>
-    <td>Primarily used within the Microsoft ecosystem for Power Apps and Dynamics 365 applications.</td>
-    <td>Commonly used for standalone applications, enterprise systems, etc.</td>
-  </tr>
-  <tr style="background-color:#f8d7da;">
-    <td>Business Rules</td>
-    <td>Allows defining business rules for automatic validation and actions.</td>
-    <td>Not natively supported; may require custom triggers or application logic.</td>
-  </tr>
-  <tr style="background-color:#cce5ff;">
-    <td>Views</td>
-    <td>Supports creating custom views within the Dataverse environment.</td>
-    <td>Views are part of SQL databases and not inherent to tables.</td>
-  </tr>
-  <tr style="background-color:#f8d7da;">
-    <td>Calculated Fields</td>
-    <td>Enables defining fields whose values are calculated based on expressions.</td>
-    <td>Calculated fields may be achieved through computed columns but not as flexible as Dataverse.</td>
-  </tr>
-  <tr style="background-color:#cce5ff;">
-    <td>Data Validation</td>
-    <td>Offers built-in data validation capabilities.</td>
-    <td>Data validation typically handled through constraints or application logic.</td>
-  </tr>
-  <tr style="background-color:#f8d7da;">
-    <td>Record-Level Security</td>
-    <td>Allows setting permissions at the record level.</td>
-    <td>Security typically managed at the database or application level.</td>
-  </tr>
-  <tr style="background-color:#cce5ff;">
-    <td>Metadata</td>
-    <td>Includes rich metadata for fields, forms, and entities.</td>
-    <td>Metadata is usually limited to table and column names in MSSQL.</td>
-  </tr>
-</table>
+## Dataverse vs. MSSQL
+
+| Feature | Dataverse | MSSQL |
+|---|---|---|
+|**Focus** | Business Applications | Data Management |
+|**Schema** | Flexible | Fixed |
+|**Data Types** | Limited | Complete |
+|**Relationships** | Built-in | Foreign Keys |
+|**Data Manipulation** | User-friendly interface, low-code | T-SQL, Programming Languages |
+|**Security** | Role-Based Access Control | Manual Setup |
+|**Table Types** | Standard, Custom, Virtual, Elastic | Base, Temporary, Views, Table-Valued Functions |
+|**Views** | Limited (Virtual Tables) | Traditional Views |
+|**Business Logic (Table Level)** | Power Automate Workflows | Stored Procedures, Triggers |
+|**Business Logic (Column Level)** | Validation Rules, Workflows | Constraints, Triggers |
+
+![alt text](db_vs_dataverse.jpg)
 
 
+## Dataverse vs. MSSQL Tables: A Quick Comparison
+
+**Table Structure:**
+
+| Feature | Dataverse | MSSQL |
+|---|---|---|
+| Schema | Flexible | Fixed |
+| Data Types | Various, including complex | Similar, with granular control |
+| Relationships | Built-in | Foreign Keys |
+
+**Data Manipulation:**
+
+| Feature | Dataverse | MSSQL |
+|---|---|---|
+| Interface | User-friendly | T-SQL (code) |
+| Coding | Low-code (Power Automate) | Programming languages |
+
+**Security:**
+
+| Feature | Dataverse | MSSQL |
+|---|---|---|
+| Access Control | RBAC (roles) | Manual setup |
+| Auditing | Built-in | Additional configuration |
+
+**Table Types:**
+
+| Feature | Dataverse | MSSQL |
+|---|---|---|
+| Standard Tables | ✓ | ✓ |
+| Virtual Tables (simplified data views) | ✓ | Views (complex data views) |
+| Custom Tables (more control) | ✓ |  |
+| Elastic Tables (large datasets) | ✓ (limited) |  |
+
+**Business Logic:**
+
+| Feature | Dataverse | MSSQL |
+|---|---|---|
+| Table Level | Power Automate workflows | Stored Procedures, Triggers |
+| Column Level | Validation Rules, Workflows | Constraints, Triggers |
+
+**Choosing the Right Tool:**
+
+* **Dataverse:**  - User-friendly, low-code for apps with built-in security and Power Platform integration.  - Simpler data models.
+* **MSSQL:** - Powerful, flexible for complex data management with granular control. - Requires SQL expertise. - More complex data models and integrations.
 
 
 ---
