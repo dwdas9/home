@@ -1,63 +1,85 @@
+---
+layout: default
+title: Dataverse Vs MSSQL
+parent: PowerPlatformArticles
+nav_order: 1
+---
+- [Dataverse vs. MSSQL Tables: A Quick Comparison](#dataverse-vs-mssql-tables-a-quick-comparison)
+  - [Long story short](#long-story-short)
+  - [How to choose?](#how-to-choose)
+
 
 ![alt text](db_vs_dataverse-1.jpg)
 
 ## Dataverse vs. MSSQL Tables: A Quick Comparison
 
-**Dataverse:** User-friendly, low-code for apps with built-in security and Power Platform integration. Ideal for simpler data models.
+Hello readers! Hope you had a wonderful day. Today, let's explore one of the important aspects of Power Platform: Dataverse. How does it differ from other options like MSSQL? What's its importance? Let's find out!
 
-**Key Features:**
+### Long story short
 
-* Flexible schema for easy data changes.
-* Built-in relationships for linking tables.
-* User interface for data manipulation (Power Apps, web interface).
-* Role-based access control (RBAC) and auditing.
-* Virtual tables for simplified data views.
-* Power Automate workflows for business logic.
+Dataverse and MSSQL, while both store data in tables within the Microsoft ecosystem, there are many differences between them. Here is a quick breakdown to help you understand the key differences:
 
-**MSSQL:** Powerful, flexible for complex data management with granular control. Ideal for complex data models and integrations.
+<table border="1" style="border-collapse: collapse;">
+  <tr style="background-color:#d9e6f2;">
+    <th>Feature</th>
+    <th>Dataverse</th>
+    <th>MSSQL</th>
+  </tr>
+  <tr style="background-color:#fdebd0;">
+    <td>Schema</td>
+    <td>Flexible</td>
+    <td>Fixed</td>
+  </tr>
+  <tr style="background-color:#eaf2f8;">
+    <td>Data Types</td>
+    <td>Various (<span style="color: #FF8C00;">complex</span> included)</td>
+    <td>Similar (<span style="color: #FF8C00;">granular control</span>)</td>
+  </tr>
+  <tr style="background-color:#fdebd0;">
+    <td>Relationships</td>
+    <td>Built-in</td>
+    <td>Foreign Keys</td>
+  </tr>
+  <tr style="background-color:#eaf2f8;">
+    <td>Data Manipulation</td>
+    <td>User-friendly interface (<span style="color: #4169E1;">low-code</span>)</td>
+    <td>T-SQL (code), Programming languages</td>
+  </tr>
+  <tr style="background-color:#fdebd0;">
+    <td>Security</td>
+    <td>RBAC (<span style="color: #800080;">roles</span>), Auditing</td>
+    <td>Manual setup, Auditing (configuration needed)</td>
+  </tr>
+  <tr style="background-color:#eaf2f8;">
+    <td>Table Types</td>
+    <td>Standard, Virtual, Custom, Elastic (<span style="color: #FF8C00;">limited</span>)</td>
+    <td>Base, Temporary, Views, Table-Valued Functions</td>
+  </tr>
+  <tr style="background-color:#fdebd0;">
+    <td>Views</td>
+    <td>Limited (<span style="color: #FF8C00;">virtual tables</span>)</td>
+    <td>Traditional views (<span style="color: #FF8C00;">complex</span>)</td>
+  </tr>
+  <tr style="background-color:#eaf2f8;">
+    <td>Business Logic (Table Level)</td>
+    <td>Power Automate workflows</td>
+    <td>Stored Procedures, Triggers</td>
+  </tr>
+  <tr style="background-color:#fdebd0;">
+    <td>Business Logic (Column Level)</td>
+    <td>Validation Rules, Workflows</td>
+    <td>Constraints, Triggers</td>
+  </tr>
+  <tr style="background-color:#eaf2f8;">
+    <td>Ideal for</td>
+    <td>User-friendly app development, Built-in security, Power Platform Integration</td>
+    <td>Complex data management, Granular control, Complex data models</td>
+  </tr>
+</table>
 
-**Key Features:**
-
-* Fixed schema requiring careful modifications.
-* Foreign keys for establishing data relationships (more complex queries).
-* T-SQL commands and programming languages for data manipulation.
-* Manual security setup and auditing configuration.
-* Traditional views for complex data representations.
-* Stored procedures and triggers for advanced business logic.
-
-
-**Consider these factors when choosing:**
-
-* **Complexity:** Dataverse for simpler models, MSSQL for complex ones.
-* **Development Skills:** Dataverse for non-programmers, MSSQL requires SQL expertise.
-* **Integration Needs:** Dataverse for seamless Power Platform integration, MSSQL requires additional development effort.
-
-## Dataverse vs. MSSQL Tables: Detailed comparison
-
-
-**Table Structure:**
-
-| Feature | Dataverse | MSSQL |
-|---|---|---|
-| Schema | Flexible | Fixed |
-| Data Types | Various, including complex | Similar, with granular control |
-| Relationships | Built-in | Foreign Keys |
-
-**Data Manipulation:**
-
-| Feature | Dataverse | MSSQL |
-|---|---|---|
-| Interface | User-friendly | T-SQL (code) |
-| Coding | Low-code (Power Automate) | Programming languages |
-
-**Security:**
-
-| Feature | Dataverse | MSSQL |
-|---|---|---|
-| Access Control | RBAC (roles) | Manual setup |
-| Auditing | Built-in | Additional configuration |
 
 **Table Types:**
+Also, here are some differences between the types of tables allowed in both.
 
 | Feature | Dataverse | MSSQL |
 |---|---|---|
@@ -66,9 +88,8 @@
 | Custom Tables (more control) | ✓ |  |
 | Elastic Tables (large datasets) | ✓ (limited) |  |
 
-**Business Logic:**
+### How to choose?
 
-| Feature | Dataverse | MSSQL |
-|---|---|---|
-| Table Level | Power Automate workflows | Stored Procedures, Triggers |
-| Column Level | Validation Rules, Workflows | Constraints, Triggers |
+- For Power Platform users, Dataverse stands out as the go-to choice. User-friendly interface and low-code approach make it ideal for simple data models. Built-in security and lots of OOTB tables for various applications will give you a head start. These pre-built tables can be used immediately and further customized for specific needs.
+- Alternatively, choose MSSQL if you have a complex data model, want to build things from scratch and want to store a huge volume of data.
+

@@ -174,53 +174,6 @@ Common Data Model as a ready-made collection of tables. Say for healthcare you h
 
 ![alt text](db_vs_dataverse.jpg)
 
-
-## Dataverse vs. MSSQL Tables: A Quick Comparison
-
-**Table Structure:**
-
-| Feature | Dataverse | MSSQL |
-|---|---|---|
-| Schema | Flexible | Fixed |
-| Data Types | Various, including complex | Similar, with granular control |
-| Relationships | Built-in | Foreign Keys |
-
-**Data Manipulation:**
-
-| Feature | Dataverse | MSSQL |
-|---|---|---|
-| Interface | User-friendly | T-SQL (code) |
-| Coding | Low-code (Power Automate) | Programming languages |
-
-**Security:**
-
-| Feature | Dataverse | MSSQL |
-|---|---|---|
-| Access Control | RBAC (roles) | Manual setup |
-| Auditing | Built-in | Additional configuration |
-
-**Table Types:**
-
-| Feature | Dataverse | MSSQL |
-|---|---|---|
-| Standard Tables | ✓ | ✓ |
-| Virtual Tables (simplified data views) | ✓ | Views (complex data views) |
-| Custom Tables (more control) | ✓ |  |
-| Elastic Tables (large datasets) | ✓ (limited) |  |
-
-**Business Logic:**
-
-| Feature | Dataverse | MSSQL |
-|---|---|---|
-| Table Level | Power Automate workflows | Stored Procedures, Triggers |
-| Column Level | Validation Rules, Workflows | Constraints, Triggers |
-
-**Choosing the Right Tool:**
-
-* **Dataverse:**  - User-friendly, low-code for apps with built-in security and Power Platform integration.  - Simpler data models.
-* **MSSQL:** - Powerful, flexible for complex data management with granular control. - Requires SQL expertise. - More complex data models and integrations.
-
-
 ---
 
 
