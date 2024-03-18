@@ -33,7 +33,7 @@ nav_order: 1
 ## A typical power platform project
 
 <table style="background-color: #F7F7F7; color: #333333; width: 100%;">
-  <thead style="background-color: #4C9A2A; color: #FFFFFF;">
+  <thead style="background-color: #4C9A2A; color: #4169E1;">
     <tr>
       <th>Step</th>
       <th>Process</th>
@@ -43,7 +43,7 @@ nav_order: 1
   <tbody>
     <tr style="color: #FF8C00;">
       <td>1</td>
-      <td>Receive invoice emails</td>
+      <td>Receive invoice emails from vendors</td>
       <td>Office 365 Outlook</td>
     </tr>
     <tr style="color: #008080;">
@@ -63,11 +63,180 @@ nav_order: 1
     </tr>
     <tr style="color: #B22222;">
       <td>5</td>
-      <td>Send confirmation email</td>
+      <td>Send confirmation email to vendors</td>
       <td>Office 365 Outlook</td>
     </tr>
   </tbody>
 </table>
+
+
+## Dataverse
+
+- Dataverse ~ Power Platform DB.
+- Tables: Standard(OOTB), managed(part of a solution, read-only), custom
+- 4TB  storage limit
+- You can apply business logic to tables! E.g. If country is US, then postal code mandatory.
+
+![alt text](image-15.png)
+
+## Copilot
+
+This is like GPT4/Bing. Here, you just say in plain English what you want. CoPilot will create the power automate/App for you!
+
+![alt text](image-6.png)
+
+
+![alt text](image-7.png)
+
+## Copilot Studio
+
+Now using Copilot it becomes easy to create a working bot without the complexity which was there earlier.
+
+![alt text](image-8.png)
+
+## Power FX
+
+This is the language of PowerPlatform. It's like Excel formulas. Its used in PowerApps, Dataverse and Copilot Studio.
+
+![alt text](image-9.png)
+
+## Power Platform and Microsoft Teams
+
+All power platform components can be used from within MS Teams.
+
+![alt text](image-10.png)
+
+
+![alt text](image-12.png)
+
+![alt text](image-11.png)
+
+## Power Platform & Dynamics 365
+
+- Power Apps: All Dynamics 365 customer engagement apps are model-driven apps(built in PowerApps). - The data for such apps is in Dataverse. 
+- Power BI: Can create reports from Dynamics 365
+- Power Automate: Business process flows are creating using Power Automate.
+- Copilot Studio: Call/SMS/Facebook Msgs -> Dynamics 365 Customer Service App -> Copilot -> Live agent
+- Power Pages: Self-support web sites.
+
+## Power Platform and Azure
+
+Power Platform and Azure offer countless ways to create end-to-end solutions. Take, for instance, an airline project where:
+
+- Azure API Management hosts a custom API for airline system communication.
+- A coordinator handles notifications, assigns flights to Teams channels, and sends them to Power Apps.
+- Azure Functions process Graph API calls from a storage queue, sending notifications to Teams and streaming events to Azure Event Hubs.
+- Azure Bot Service powers a custom bot messaging service for flight updates in Teams.
+- Azure Data Lake stores event data from Event Hubs for long-term retention and analytics with Power BI.
+
+![alt text](image-13.png)
+
+## Dataverse OOTB features
+
+Here is a picture showing OOTB features of Dataverse
+
+![alt text](image-14.png)
+
+## Dataflows
+
+- ETL tool for PowerPlatform Ecosystem
+- Uses very less code
+- Uses power query(Like Excel)
+- No infra required, fully on cloud
+- No sep license, use Power BI / Power Apps license
+![alt text](image-16.png)
+
+## Common Data Model
+
+Common Data Model as a ready-made collection of tables. Say for healthcare you have A patient table and a admission table. With this you don't have to design tables and choose columns. Microsoft has partnered with industries like Healthcare, automobile, banking to create CDM.
+
+## Power Platform connectors - Connect PP with other Apps
+
+![alt text](powerPlatformDataConnectors.png)
+
+## Dataverse tables
+
+### How different are Dataverse tables than MSSQL tables?
+
+<table border="1" style="border-collapse: collapse;">
+  <tr style="background-color:#5bc0de; color: white;">
+    <th>Feature / Property</th>
+    <th>Dataverse Tables</th>
+    <th>MSSQL Tables</th>
+  </tr>
+  <tr style="background-color:#f8d7da;">
+    <td>Storage</td>
+    <td>Stored in the Dataverse cloud environment.</td>
+    <td>Stored in traditional relational database storage.</td>
+  </tr>
+  <tr style="background-color:#cce5ff;">
+    <td>Schema Definition</td>
+    <td>Defined using Power Apps or Dynamics 365 UI.</td>
+    <td>Defined using SQL data definition language (DDL).</td>
+  </tr>
+  <tr style="background-color:#f8d7da;">
+    <td>Data Types</td>
+    <td>Supports a limited set of data types determined by Power Apps and Dynamics 365.</td>
+    <td>Supports various SQL data types (int, varchar, datetime, etc.).</td>
+  </tr>
+  <tr style="background-color:#cce5ff;">
+    <td>Scalability</td>
+    <td>Designed for scalability within the Dataverse environment.</td>
+    <td>Scaling depends on the underlying database infrastructure.</td>
+  </tr>
+  <tr style="background-color:#f8d7da;">
+    <td>Security</td>
+    <td>Security integrated with Power Platform security model.</td>
+    <td>Security managed through SQL Server's security mechanisms.</td>
+  </tr>
+  <tr style="background-color:#cce5ff;">
+    <td>Integration</td>
+    <td>Tightly integrated with Power Platform services.</td>
+    <td>Can be integrated with various third-party tools and services.</td>
+  </tr>
+  <tr style="background-color:#f8d7da;">
+    <td>Customization</td>
+    <td>Customizable using Power Apps and Dynamics 365 customization features.</td>
+    <td>Customizable using SQL scripts, stored procedures, and triggers.</td>
+  </tr>
+  <tr style="background-color:#cce5ff;">
+    <td>Usage</td>
+    <td>Primarily used within the Microsoft ecosystem for Power Apps and Dynamics 365 applications.</td>
+    <td>Commonly used for standalone applications, enterprise systems, etc.</td>
+  </tr>
+  <tr style="background-color:#f8d7da;">
+    <td>Business Rules</td>
+    <td>Allows defining business rules for automatic validation and actions.</td>
+    <td>Not natively supported; may require custom triggers or application logic.</td>
+  </tr>
+  <tr style="background-color:#cce5ff;">
+    <td>Views</td>
+    <td>Supports creating custom views within the Dataverse environment.</td>
+    <td>Views are part of SQL databases and not inherent to tables.</td>
+  </tr>
+  <tr style="background-color:#f8d7da;">
+    <td>Calculated Fields</td>
+    <td>Enables defining fields whose values are calculated based on expressions.</td>
+    <td>Calculated fields may be achieved through computed columns but not as flexible as Dataverse.</td>
+  </tr>
+  <tr style="background-color:#cce5ff;">
+    <td>Data Validation</td>
+    <td>Offers built-in data validation capabilities.</td>
+    <td>Data validation typically handled through constraints or application logic.</td>
+  </tr>
+  <tr style="background-color:#f8d7da;">
+    <td>Record-Level Security</td>
+    <td>Allows setting permissions at the record level.</td>
+    <td>Security typically managed at the database or application level.</td>
+  </tr>
+  <tr style="background-color:#cce5ff;">
+    <td>Metadata</td>
+    <td>Includes rich metadata for fields, forms, and entities.</td>
+    <td>Metadata is usually limited to table and column names in MSSQL.</td>
+  </tr>
+</table>
+
+
 
 
 ---
@@ -100,5 +269,7 @@ Now click on the Install to Install Power Automate Desktop Version
 Go with the defaults, or customize the installation:
 
 ![alt text](image-4.png)
+
+
 
 ---
