@@ -40,6 +40,27 @@ SharePoint has evolved significantly since its inception, transforming from a si
 - **Cloud-First:** Continuously updated, providing the latest features and integrations with the Microsoft ecosystem.
 - **Key Features:** Modern team sites, communication sites, integration with Power Platform (PowerApps, Power Automate), and continuous updates based on user feedback and technological advancements.
 
+**Now, lets put what we learnt so far in tabular format**
+
+| Feature                  | SharePoint 2007                        | SharePoint 2010                        | SharePoint 2013                        | SharePoint 2016                        | SharePoint 2019                        |
+|--------------------------|----------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|
+| User Interface           | Classic UI                             | Ribbon UI                              | Ribbon UI, Metro UI                    | Ribbon UI, Metro UI                    | Modern UI, Communication Sites         |
+| Social Features          | Limited social features                | My Sites, Activity Feeds               | Community Sites, Microblogging         | Community Sites, Microblogging         | Yammer Integration, News Web Parts     |
+| Mobile Compatibility     | Limited mobile support                 | Improved mobile support                | Responsive design, Touch-friendly UI   | Responsive design, Touch-friendly UI   | Responsive design, Mobile App         |
+| Workflow Capabilities   | Basic workflows with SharePoint Designer | Improved workflows with SharePoint Designer | Improved workflows with SharePoint Designer | Improved workflows with SharePoint Designer | Improved workflows with SharePoint Designer |
+| Search Functionality     | Basic search functionality             | Enterprise search capabilities         | Improved search relevance, refinement  | Hybrid search, Improved relevance     | Hybrid search, Intelligent search     |
+| Cloud Integration        | Limited integration with Office 365     | Improved integration with Office 365    | Hybrid deployment options              | Hybrid deployment options              | Hybrid deployment options              |
+| Business Intelligence   | Basic BI features                       | PerformancePoint Services, Excel Services | Power View, PowerPivot, Power Map     | Power View, PowerPivot, Power Map     | Power BI Integration                   |
+| App Model                | N/A                                    | Sandboxed Solutions, SharePoint App Store | SharePoint App Model, App Catalog     | SharePoint App Model, App Catalog     | SharePoint App Model, App Catalog     |
+| Site Templates           | Limited site templates                 | Enhanced site templates                | Improved site templates                | Improved site templates                | Improved site templates                |
+| Compliance and Records Management | Basic compliance features         | Records Center, Document Sets          | Improved compliance features           | Improved compliance features           | Improved compliance features           |
+| Hybrid Deployment        | N/A                                    | N/A                                    | Hybrid deployment options              | Hybrid deployment options              | Hybrid deployment options              |
+| Customization Options    | Features, Web Parts, Custom Code       | Features, Web Parts, Custom Code       | Features, Apps, Client-Side Solutions | Features, Apps, Client-Side Solutions | Features, Apps, Client-Side Solutions |
+| Development Models       | Server-Side Solutions (C#, ASP.NET)    | Server-Side Solutions (C#, ASP.NET)    | Server-Side and Client-Side Solutions  | Server-Side and Client-Side Solutions  | Server-Side and Client-Side Solutions  |
+| Windows Server Versions  | Windows Server 2003, Windows Server 2008 | Windows Server 2008 R2, Windows Server 2012 | Windows Server 2012, Windows Server 2012 R2 | Windows Server 2012 R2, Windows Server 2016 | Windows Server 2016, Windows Server 2019 |
+| SQL Server Versions      | SQL Server 2005, SQL Server 2008       | SQL Server 2008 R2, SQL Server 2012    | SQL Server 2012, SQL Server 2014       | SQL Server 2014, SQL Server 2016       | SQL Server 2016, SQL Server 2017       |
+| SharePoint Designer Versions | SharePoint Designer 2007             | SharePoint Designer 2010               | SharePoint Designer 2013               | SharePoint Designer 2013               | SharePoint Designer 2013               |
+
 
 ---
 © D Das  

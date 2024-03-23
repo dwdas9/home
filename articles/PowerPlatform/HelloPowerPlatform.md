@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Hello PowerPlatform
-parent: PowerPlatformArticles
+parent: Power Platform
 nav_order: 1
 ---
 

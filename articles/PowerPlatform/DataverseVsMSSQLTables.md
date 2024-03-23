@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Dataverse Vs MSSQL
-parent: PowerPlatformArticles
+parent: Power Platform
 nav_order: 1
 ---
 - [Dataverse vs. MSSQL Tables: A Quick Comparison](#dataverse-vs-mssql-tables-a-quick-comparison)
