@@ -9,16 +9,17 @@ parent: Azure Articles
   - [Azure Synapse analytics](#azure-synapse-analytics)
 
 ---
+![alt text](<Create Frame Animation.png>)
 
 # <span style="color: Teal;Font-family: Segoe UI, sans-serif;">How Azure Data Factory and Synapse analytics evolved over time</span>
 
 ## <span style="color: PaleVioletRed;Font-family: Segoe UI, sans-serif;">Background</span>
 
-Back in the older days, there was not much emphasis on data engineering. Then tools like SQL Server Integration Service provided some relief. Even though we could ingest data from various sources, like file system it its functiality was more focussed on exporting to SQL Server. Then came Azure data factory.Here, in this article I will try to share a compact evolution snapshot two most popular products in Azure data ecosystem, Azure data factory and Azure synapse analytics.
+Back in the older days, people didn't pay much attention to data engineering. But then, tools like SQL Server Integration Service made things a bit easier. Even though this tool let us bring in data from different sources, like files, its main job was to move data into SQL Server. Then Azure Data Factory showed up. 
 
 ## <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Azure Data Factory</span>
 
-Azure Data Factory, or ADF for short, really has come a long way. It started off pretty simple, just helping move data from here to there in the cloud(and later to the cloud. But now? It's a full-on powerhouse, making data movement and transformation a breeze. Let's take a quick walk through how it got from point A to point B:
+Azure Data Factory(ADF), really has come a long way. It started off pretty simple, just helping move data from here to there in the cloud. But now? It's a full-on powerhouse, making complex data movement and transformations. Let's take a quick walk through how it got from point A to point B:
 
 | Period       | Milestone                                           | Key Features                                                                                                                                                      |
 |--------------|-----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -31,7 +32,7 @@ Azure Data Factory, or ADF for short, really has come a long way. It started off
 
 ## <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Azure Synapse analytics</span>
 
-Similar to ADF, Azure Synapse Analytics has come a long way too from its days as SQL Data Warehouse. It's now a one-stop shop for all things analytics. Let's take a quick look at the journey it's been on, from start to where it is today:
+Similar to ADF, Azure Synapse Analytics has come a long way too from its days as SQL Data Warehouse. It's now a one-stop shop for all things analytics. The table below shows some important milestones.
 
 | Period         | Milestone                             | Key Developments                                                                                         |
 |----------------|---------------------------------------|---------------------------------------------------------------------------------------------------------|
