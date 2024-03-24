@@ -4,6 +4,8 @@ title: Docker Setup Mongo DB
 parent: Azure Articles
 ---
 
+![alt text](<Image Size.png>)
+
 ## <span style="color: navy;">Table of contents</span>
 - [Setting Up MongoDB in Docker](#setting-up-mongodb-in-docker)
   - [Quickstart](#quickstart)
