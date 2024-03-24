@@ -4,6 +4,7 @@ title: Google Authentication
 parent: Power Platform
 nav_order: 1
 ---
+![alt text](powerpagesgooglesignin.png)
 
 - [Overview](#overview)
   - [Steps to follow](#steps-to-follow)
