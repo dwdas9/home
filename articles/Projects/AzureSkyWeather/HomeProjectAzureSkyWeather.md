@@ -15,6 +15,8 @@ has_children: true
 {:toc}
 </details>
 
+![alt text](project_skyazure.png)
+
 # Overview
 
 **Objective:** Our goal is to develop an end-to-end data engineering solution using the Microsoft technology stack. We're mainly aiming to create a future-proof and efficient storage solution to store weather data sourced from web APIs for data science and analytics, .
