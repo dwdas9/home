@@ -18,6 +18,8 @@ parent: Azure Articles
     - [The complete script](#the-complete-script)
   - [Conclusion](#conclusion)
 
+![alt text](json_spark_azure.png)
+
 # <span style="color: DarkOrchid;">Json Transformation Using Spark And Azure</span>
 
 <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">In this article, I'll guide you on how to retrieve JSON data from an online API using Spark and Hadoop tools. We'll learn to split the data and save it in a 'silver' level. Then, we'll take the data from 'silver', partition it again, and store it in a *'gold'* level as Parquet files. This process is in line with the lakehouse architecture standards too.
