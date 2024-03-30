@@ -10,11 +10,12 @@ nav_order: 1
 
 # Overview
 
+Microsoft Syntex uses content and AI to enable end-to-end intelligent document processing solutions.
+
 With Microsoft Syntex you can:
 - Quickly process and extract information from common business documents like contracts, invoices, and receipts.
 - Identify field values in structured documents (forms, invoices) and extract information from unstructured documents (letters, contracts).
 Image Tagging, Taxonomy Tagging, and Translation are also available.
-
 
 ## Steps to activate Microsoft Syntex
 
