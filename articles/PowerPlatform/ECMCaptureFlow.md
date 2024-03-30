@@ -12,6 +12,7 @@ nav_order: 1
     - [Our Workflow](#our-workflow)
     - [How to Create the Workflow](#how-to-create-the-workflow)
   - [Conclusion](#conclusion)
+  - [Further Reading](#further-reading)
 
 ![alt text](OpenTextOrPowerAutomate.png)
 # <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Overview</span>
@@ -98,3 +99,7 @@ Choosing between AI-based methods and traditional document capture software like
 - **Scan-to-network-folder**: A very typical document capture is to scan to a network folder and use Captiv standard import to crate batches. I have seen that this workflow can be easily created using Power Autoamte. All you have to do is configure your scanner to scan to the oneDrive folder.
 
 **Long story short:** The decision hinges on your company's specific needs, existing infrastructure, and budget. For future reference, should this subject arise, consider conducting a POC to show the power of Power Automate to your management team and let them take a call!
+
+## Further Reading
+
+[Use the invoice processing prebuilt model in Power Automate](https://learn.microsoft.com/en-us/ai-builder/flow-invoice-processing#output).
