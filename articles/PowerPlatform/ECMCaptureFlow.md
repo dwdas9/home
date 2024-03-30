@@ -13,7 +13,7 @@ nav_order: 1
     - [How to Create the Workflow](#how-to-create-the-workflow)
   - [Conclusion](#conclusion)
 
-
+![alt text](OpenTextOrPowerAutomate.png)
 # <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Overview</span>
 
 Image capture and extraction workflows are heavily used in the Banking and Insurance sectors. Almost all institutions use products like <span style="color:green;">OpenText inteligent capture, Kofax Capture, Datacap </span> etc to Capture documents from multiple channels and store them in backend ECM systems like Opentext content server, SharePoint server etc.
