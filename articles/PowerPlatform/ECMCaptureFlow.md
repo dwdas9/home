@@ -100,6 +100,6 @@ Choosing between AI-based methods and traditional document capture software like
 
 **Long story short:** The decision hinges on your company's specific needs, existing infrastructure, and budget. For future reference, should this subject arise, consider conducting a POC to show the power of Power Automate to your management team and let them take a call!
 
-## Further Reading
+## <span style="color: Teal;Font-family: Segoe UI, sans-serif;">Further Reading</span>
 
 [Use the invoice processing prebuilt model in Power Automate](https://learn.microsoft.com/en-us/ai-builder/flow-invoice-processing#output).
