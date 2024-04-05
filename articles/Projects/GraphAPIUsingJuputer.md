@@ -11,7 +11,7 @@ nav_order: 1
     - [**2. Setting Up the Notebook**](#2-setting-up-the-notebook)
     - [**3. Adapting the Code for Jupyter**](#3-adapting-the-code-for-jupyter)
     - [**4. Finalizing the Setup**](#4-finalizing-the-setup)
-- [COnclusion](#conclusion)
+- [**COnclusion**](#conclusion)
 
 ## <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">**Running Microsoft Graph quick start Python code from a jupyter notebook** </span>
 
@@ -85,6 +85,6 @@ In this guide I will show you how to run Microsoft's example code in a Jupyter n
    
    ![Entering 0 to close the session](image-18.png)
 
-## <span style="color: Teal;Font-family: Segoe UI, sans-serif;">COnclusion</span>
+## <span style="color: Teal;Font-family: Segoe UI, sans-serif;">**COnclusion**</span>
 
 I have put the juputer notebook vrsion of the code [here](main.ipynb). All you have to do is place it in your \msgraph-training-python\graphtutorial folder. Open it and run cell by cell.
