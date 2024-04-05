@@ -18,7 +18,7 @@ nav_order: 1
 ## <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">**Running Microsoft Graph quick start Python code from a jupyter notebook** </span>
 
 ### <span style="color: DarkOrchid;Font-family: Segoe UI, sans-serif;">**Background**</span>
-This guide will show you how to run Microsoft's example code in a Jupyter notebook. Usually, this code is meant to be run in a terminal, but with a few small changes, you can run it in a notebook instead. Many people like this way because it's more familiar and easy to use. We'll focus on how to make these changes so the code works in Jupyter, without getting into the details of the code itself.
+In this guide I will show you how to run Microsoft's example code in a Jupyter notebook. Usually, this code is meant to be run in a terminal, but with a few small changes, you can run it in a notebook instead. Many people like this way because it's more familiar and easy to use. We'll focus on how to make these changes so the code works in Jupyter, without getting into more details about the code.
 
 
 ### <span style="color: Chocolate;Font-family: Segoe UI, sans-serif;">**Getting Started**</span>
