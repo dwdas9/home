@@ -1,12 +1,28 @@
-## **Running Microsoft Graph quick start Python code from a jupyter notebook**
+---
+layout: default
+title: Graph API - Juputer
+parent: Projects
+nav_order: 1
+---
+- [**Running Microsoft Graph quick start Python code from a jupyter notebook** ](#running-microsoft-graph-quick-start-python-code-from-a-jupyter-notebook-)
+  - [**Background**](#background)
+  - [**Getting Started**](#getting-started)
+    - [**1. Download the Sample Code**](#1-download-the-sample-code)
+    - [**2. Setting Up the Notebook**](#2-setting-up-the-notebook)
+    - [**3. Adapting the Code for Jupyter**](#3-adapting-the-code-for-jupyter)
+    - [**4. Finalizing the Setup**](#4-finalizing-the-setup)
+- [COnclusion](#conclusion)
 
-### **Background**
+
+## <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">**Running Microsoft Graph quick start Python code from a jupyter notebook** </span>
+
+### <span style="color: DarkOrchid;Font-family: Segoe UI, sans-serif;">**Background**</span>
 This guide will show you how to run Microsoft's example code in a Jupyter notebook. Usually, this code is meant to be run in a terminal, but with a few small changes, you can run it in a notebook instead. Many people like this way because it's more familiar and easy to use. We'll focus on how to make these changes so the code works in Jupyter, without getting into the details of the code itself.
 
 
-### **Getting Started**
+### <span style="color: Chocolate;Font-family: Segoe UI, sans-serif;">**Getting Started**</span>
 
-#### **1. Download the Sample Code**
+#### <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;">**1. Download the Sample Code**</span>
 
 1. Navigate to the [Microsoft Graph Quick Start](https://developer.microsoft.com/en-us/graph/quick-start) page.
    
@@ -25,7 +41,7 @@ This guide will show you how to run Microsoft's example code in a Jupyter notebo
    ![Download the code sample button](image-5.png)
    ![Saved zip file](image-6.png)
 
-#### **2. Setting Up the Notebook**
+#### <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;">**2. Setting Up the Notebook**</span>
 
 1. Open a Jupyter notebook in Visual Studio Code (VS Code) and navigate (`cd`) to the `graphtutorial` folder (e.g., `%cd <Path to>\graphtutorial`).
    ![Navigating to graphtutorial folder](image-8.png)
@@ -33,7 +49,7 @@ This guide will show you how to run Microsoft's example code in a Jupyter notebo
    
    ![Installing requirements](image-9.png)
 
-#### **3. Adapting the Code for Jupyter**
+#### <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;">**3. Adapting the Code for Jupyter**</span>
 
 1. Attempt to run the `main.py` file directly in a notebook cell with the command `%run main.py`. This will likely result in an error due to a conflict between Jupyter's and asyncio's event loops.
    
@@ -58,7 +74,7 @@ This guide will show you how to run Microsoft's example code in a Jupyter notebo
    
    ![Output of the main function](image-15.png)
 
-#### **4. Finalizing the Setup**
+#### <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;">**4. Finalizing the Setup**</span>
 
 1. Follow the on-screen instructions and navigate to [Microsoft Device Login](https://microsoft.com/devicelogin) to enter the provided code. Complete the login process as prompted.
    
@@ -70,6 +86,6 @@ This guide will show you how to run Microsoft's example code in a Jupyter notebo
    
    ![Entering 0 to close the session](image-18.png)
 
-## COnclusion
+## <span style="color: Teal;Font-family: Segoe UI, sans-serif;">COnclusion</span>
 
 I have put the juputer notebook vrsion of the code [here](main.ipynb). All you have to do is place it in your \msgraph-training-python\graphtutorial folder. Open it and run cell by cell.
