@@ -4,6 +4,8 @@ title: Graph API - Juputer
 parent: SharePoint Office 365
 nav_order: 1
 ---
+
+(#running-microsoft-graph-quick-start-python-code-from-a-jupyter-notebook-)
 - [**Running Microsoft Graph quick start Python code from a jupyter notebook** ](#running-microsoft-graph-quick-start-python-code-from-a-jupyter-notebook-)
   - [**Background**](#background)
   - [**Getting Started**](#getting-started)
@@ -12,7 +14,6 @@ nav_order: 1
     - [**3. Adapting the Code for Jupyter**](#3-adapting-the-code-for-jupyter)
     - [**4. Finalizing the Setup**](#4-finalizing-the-setup)
 - [COnclusion](#conclusion)
-
 
 ## <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">**Running Microsoft Graph quick start Python code from a jupyter notebook** </span>
 
