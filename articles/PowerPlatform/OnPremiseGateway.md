@@ -19,69 +19,69 @@ An on-premise gateway is software installed on a local system that enables acces
 
 ## Installing the Gateway
 
-1. Download the standard gateway.
+- Download the standard gateway.
 
 ![alt text](image-70.png)
 
-2. In the gateway installer, maintain the default installation path, accept the terms of use, and then select "Install."
+- In the gateway installer, maintain the default installation path, accept the terms of use, and then select "Install."
 
 ![alt text](image-69.png)
 
-3. Enter the email address associated with your Office 365 organizational account and select "Sign in."
+- Enter the email address associated with your Office 365 organizational account and select "Sign in."
 
 ![alt text](image-71.png)
 
-4. Choose "Register a new gateway on this computer" and click "Next."
+- Choose "Register a new gateway on this computer" and click "Next."
 
 ![alt text](image-72.png)
 
-5. Enter a unique name for the gateway and a recovery key. This key is crucial for recovering or relocating your gateway in the future. Click "Configure."
+- Enter a unique name for the gateway and a recovery key. This key is crucial for recovering or relocating your gateway in the future. Click "Configure."
 
 ![alt text](image-73.png)
 
-6. Review the information in the final window. Since the same account is used for Power BI, Power Apps, and Power Automate, the gateway will be accessible for all three services. Select "Close."
+- Review the information in the final window. Since the same account is used for Power BI, Power Apps, and Power Automate, the gateway will be accessible for all three services. Select "Close."
 
 ![alt text](image-74.png)
 
 ## Using the Gateway to Process Local Files
 
-1. Open PowerApps -> Dataflows -> New Dataflow -> Start from Blank -> Provide a name -> Click "Create."
+- Open PowerApps -> Dataflows -> New Dataflow -> Start from Blank -> Provide a name -> Click "Create."
 
 ![alt text](image-75.png)
 
-2. On the "Get Data" page, click **Folder**.
+- On the "Get Data" page, click **Folder**.
 
 ![alt text](image-77.png)
 
-3. Provide credentials and choose the source folder on the **Connect to Data Source** page.
+- Provide credentials and choose the source folder on the **Connect to Data Source** page.
 ![alt text](image-78.png)
 
-4. Ensure the account has read/write privileges by checking the folder's properties under the security tab.
+- Ensure the account has read/write privileges by checking the folder's properties under the security tab.
 ![alt text](image-79.png)
 
-5. If all settings are correct, files will be loaded and displayed on the preview page.
+- If all settings are correct, files will be loaded and displayed on the preview page.
 
 ![alt text](image-80.png)
 
-6. Click "Combine" or "Transform Data." In this example, I used "Combine."
+- Click **Combine** or **Transform Data**. In this example, I used **Combine**.
 
-One common issue during XML conversion is that DataFlow assigns its own locale, which is often overlooked during testing but causes the flow to fail during actual execution. To resolve this, go to "Options," select "Regional Settings," choose the appropriate locale (e.g., English (United States)), and click "OK."
+One common issue during XML conversion is that DataFlow assigns its own locale, which is often overlooked during testing but causes the flow to fail during actual execution. To resolve this, go to "Options," select "Regional Settings," choose the appropriate locale (e.g., English (United States)), and click **OK**
 
 ![alt text](image-81.png)
 
-7. Then click "Next." This will open the mapping page where you can load data into an existing table or create a new table with automatic mapping. Once you are finished, click "Next."
+- Then click "Next." This will open the mapping page where you can load data into an existing table or create a new table with automatic mapping. Once you are finished, click "Next."
 
 ![alt text](image-82.png)
 
-8. Now, decide how to run the flow. You can run it ad hoc manually or at a predetermined interval. Once selected, click "Publish" to publish the flow.
+- Now, decide how to run the flow. You can run it ad hoc manually or at a predetermined interval. Once selected, click "Publish" to publish the flow.
 
 ![alt text](image-83.png)
 
-9. Once published successfully, you can view your dataflow in the "My DataFlow" tab.
+- Once published successfully, you can view your dataflow in the "My DataFlow" tab.
 
 ![alt text](image-84.png)
 
-10. Since the XML data was exported into Dataverse, you can view the table and its data from the "Tables" page.
+- Since the XML data was exported into Dataverse, you can view the table and its data from the "Tables" page.
 
 ![alt text](image-85.png)
 
