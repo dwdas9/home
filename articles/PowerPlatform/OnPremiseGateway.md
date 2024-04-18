@@ -81,4 +81,4 @@ One common issue during XML conversion is that DataFlow assigns its own locale, 
 
 ![alt text](image-85.png)
 
-Voilà! Your data is now in Dataverse and can be accessed using a wide range of M365 apps.
+Voila! Your data is now in Dataverse and can be accessed using a wide range of M365 apps.
