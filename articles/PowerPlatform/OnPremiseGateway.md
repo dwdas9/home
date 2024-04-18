@@ -7,6 +7,10 @@ nav_order: 1
 
 # On-Premise to Cloud ETL Using DataFlows & On-Premise Gateway
 
+## Background
+
+Case Study: We have a large number of xml files in a local folder. We want to move it to Dataverse. In this article I will show you how you can do it using on-premise gateway and Dataflow in Power platform. This ETL is particularly  useful in bank settings where xml files from many sources like right-fax servers are recieved and they have to be moved to backend database.Even though its not a full-solution as rightfax servers also send documents along with control files. But, the document part can be handled seprately handled.
+
 ## What is an On-Premise Gateway?
 
 An on-premise gateway is software installed on a local system that enables access to local files and databases from Power BI, Power Apps, Power Automate, Azure Analysis Services, and Azure Logic Apps. There are two modes available: Personal, which allows use only with Power BI, and Standard, which supports all mentioned applications. Installation requirements include Windows 10 (64-bit) or Windows Server 2019 and .NET Framework 4.8. Note that these requirements may change in the future.
