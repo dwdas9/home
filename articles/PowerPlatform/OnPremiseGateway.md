@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ETL - Onpremise Gateway & DataFlow 
+title: Local To Cloud - DataFlow & Onpremise gateway
 parent: Power Platform
 nav_order: 1
 ---
