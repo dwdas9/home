@@ -4,14 +4,20 @@ title: Building Custom Connectors
 parent: Power Platform
 nav_order: 1
 ---
+- [Background](#background)
+  - [Steps to creating Custom Connectors for Power Platform](#steps-to-creating-custom-connectors-for-power-platform)
+  - [Example Action](#example-action)
+  - [Using the Custom Connector in Power Apps](#using-the-custom-connector-in-power-apps)
+  - [Example Usage](#example-usage)
 
-## Background
+
+## <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Background</span>
 
 Power Platform is great in automation, but its true potential unlocks when you can connect it to non-standard data sources. This is where custom connectors come in, acting as bridges between Power Platform and external APIs. 
 
 In this guide I will show you how to create custom connectors:
 
-### Steps to creating Custom Connectors for Power Platform
+### <span style="color: DarkOrchid;Font-family: Segoe UI, sans-serif;">Steps to creating Custom Connectors for Power Platform</span>
 
 **Building the Connector in Power Automate:**
 
@@ -28,7 +34,7 @@ In this guide I will show you how to create custom connectors:
 * Parameters: Specify the data types (text, number, etc.) required for each action.
 * Outputs: Define the structure of the data returned by the action (often matching the API's response format).
 
-### Example Action
+### <span style="color: Chocolate;Font-family: Segoe UI, sans-serif;">Example Action</span>
 
 Let's say you're building a connector for a weather API. You might create an action named "GetWeather" that accepts a "city" parameter (text) and returns an output containing "temperature," "humidity," and "weather description" (all text).
 
@@ -38,7 +44,7 @@ Let's say you're building a connector for a weather API. You might create an act
 
 8. **Save and Publish:**  Once everything is working smoothly, save your connector and then publish it to make it available in your environment.
 
-### Using the Custom Connector in Power Apps
+### <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;">Using the Custom Connector in Power Apps</span>
 
 1. **Create a Power App:**  Build a new Power App or open an existing one.
 
@@ -46,6 +52,6 @@ Let's say you're building a connector for a weather API. You might create an act
 
 3. **Utilize the Connector Actions:**  Within your Power App formulas and expressions, you can now leverage the actions you defined in your custom connector.
 
-### Example Usage
+### <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;">Example Usage</span>
 
 In your weather app, you could use the "GetWeather" action within a formula to display the current temperature and weather description for a user-entered city.

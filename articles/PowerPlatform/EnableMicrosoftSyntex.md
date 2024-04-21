@@ -8,7 +8,7 @@ nav_order: 1
 - [Overview](#overview)
   - [Steps to activate Microsoft Syntex](#steps-to-activate-microsoft-syntex)
 
-# Overview
+# <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Overview</span>
 
 Microsoft Syntex uses content and AI to enable end-to-end intelligent document processing solutions.
 
@@ -17,7 +17,7 @@ With Microsoft Syntex you can:
 - Identify field values in structured documents (forms, invoices) and extract information from unstructured documents (letters, contracts).
 Image Tagging, Taxonomy Tagging, and Translation are also available.
 
-## Steps to activate Microsoft Syntex
+## <span style="color: Chocolate;Font-family: Segoe UI, sans-serif;">Steps to activate Microsoft Syntex</span>
 
 1. **Access the Microsoft 365 Admin Center**:
    - Log in to your **Microsoft 365 admin center** with an account that has **Global admin** or **SharePoint admin** permissions.

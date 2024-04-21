@@ -5,11 +5,18 @@ parent: AIHub
 nav_order: 1
 ---
 
-# Background
+- [Background](#background)
+- [How its done traditionally](#how-its-done-traditionally)
+- [Enter Power Platform's AI Builder](#enter-power-platforms-ai-builder)
+- [Introduing Document automation base kit](#introduing-document-automation-base-kit)
+- [Conclusion](#conclusion)
+
+
+# <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Background</span>
 
 This article may be beneficial for ECM and Data Capture specialists exploring alternative solutions offered by Power Platform to traditional Document Capture tools such as Captiva InputAccel (OpenText Intelligent Capture), Kofax Capture, and IBM Datacap.
 
-# How its done traditionally
+# <span style="color: DarkOrchid;Font-family: Segoe UI, sans-serif;">How its done traditionally</span>
 
 In most major banks, insurance companies, and pharmaceutical organizations, document capture tools like OpenText Intelligent Capture or Kofax are utilized to capture documents from scanners, emails, and other sources. These tools extract metadata and then forward both the documents and metadata to backend ECM systems such as OpenText Documentum, IBM FileNet, or SharePoint.
 
@@ -41,7 +48,7 @@ configuring, deploying, and testing the capture system end-to-end..</figcaption>
 
 
 
-# Enter Power Platform's AI Builder
+# <span style="color: Chocolate;Font-family: Segoe UI, sans-serif;">Enter Power Platform's AI Builder</span>
 
 In recent years, Microsoft has made notable strides in the Document Capture market. I've demonstrated how straightforward it is to develop a workflow using Power Automate and AI Builder that extracts data from fixed-template documents like passports and driving licenses.
 
@@ -57,7 +64,7 @@ While this capability is powerful, it does not include an operator-based validat
 
 However, you can deisgn a solution for that too. You can create an end-to-end solution that combines a Power Automate workflow for data extraction using AI Builder, Power Apps for manual validation, and Dataverse or SharePoint to manage storage and indexing queues. Yet, building such a solution from scratch can be complex.
 
-# Introduing Document automation base kit
+# <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;">Introduing Document automation base kit</span>
 
 Microsoft now offers a **Document Automation Base**—a ready-to-use, complete solution that includes AI Builder, Power Automate, and Power Apps for document capture, extraction, and validation.
 
@@ -82,7 +89,7 @@ This is where manual review and approval of documents take place. Users can see 
 ![alt text](image-6.png)
 
 
-# Conclusion
+# <span style="color: DodgerBlue;Font-family: Segoe UI, sans-serif;">Conclusion</span>
 
 
 The key question is whether the Power Platform's AI-Builder and related solutions can effectively handle real-world document processing in sectors like banking.
