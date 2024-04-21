@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SharePoint Forms or PowerApps
-parent: SharePoint Office 365
+parent: M365
 nav_order: 5
 ---
 

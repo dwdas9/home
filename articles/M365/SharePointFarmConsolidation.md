@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SharePoint Farm Consolidation
-parent: SharePoint Office 365
+parent: M365
 nav_order: 4
 ---
 

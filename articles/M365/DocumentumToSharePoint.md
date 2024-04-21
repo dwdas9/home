@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Documentum-SharePoint Online
-parent: SharePoint Office 365
+parent: M365
 nav_order: 1
 ---
 

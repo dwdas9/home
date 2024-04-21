@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SharePoint Evolution
-parent: SharePoint Office 365
+parent: M365
 nav_order: 7
 ---
 ### SharePoint Version Evolution

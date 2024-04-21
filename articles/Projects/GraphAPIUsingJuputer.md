@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Graph API - Juputer
-parent: SharePoint Office 365
+parent: M365
 nav_order: 1
 ---
 - [**Running Microsoft Graph quick start Python code from a jupyter notebook** ](#running-microsoft-graph-quick-start-python-code-from-a-jupyter-notebook-)

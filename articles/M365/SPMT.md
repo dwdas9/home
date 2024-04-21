@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SPMT - SharePoint Migration
-parent: SharePoint Office 365
+parent: M365
 nav_order: 9
 ---
 - [Migrating to Microsoft 365 with the SharePoint Migration Tool (SPMT)](#migrating-to-microsoft-365-with-the-sharepoint-migration-tool-spmt)

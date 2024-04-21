@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SharePoint Mini Role
-parent: SharePoint Office 365
+parent: M365
 nav_order: 6
 ---
 - [SharePoint 2016 MinRole](#sharepoint-2016-minrole)

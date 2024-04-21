@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SharePoint Farm 2016 Farm Setup
-parent: SharePoint Office 365
+parent: M365
 nav_order: 3
 ---
 - [Background](#background)

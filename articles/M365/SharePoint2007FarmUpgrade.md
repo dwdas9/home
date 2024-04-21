@@ -1,7 +1,7 @@
 ﻿---
 layout: default
 title: SharePoint Farm Upgrade
-parent: SharePoint Office 365
+parent: M365
 nav_order: 2
 ---
 - [Case Study: SharePoint Farm Design for a Media Company](#case-study-sharepoint-farm-design-for-a-media-company)
