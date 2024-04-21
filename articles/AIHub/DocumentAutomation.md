@@ -14,7 +14,6 @@ nav_order: 1
 
 # <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Background</span>
 This article may be beneficial for ECM and Data Capture specialists exploring alternative solutions offered by Power Platform to traditional Document Capture tools such as Captiva InputAccel (OpenText Intelligent Capture), Kofax Capture, and IBM Datacap.
-
 # <span style="color: DarkOrchid;Font-family: Segoe UI, sans-serif;">How its done traditionally</span>
 In most major banks, insurance companies, and pharmaceutical organizations, document capture tools like OpenText Intelligent Capture or Kofax are utilized to capture documents from scanners, emails, and other sources. These tools extract metadata and then forward both the documents and metadata to backend ECM systems such as OpenText Documentum, IBM FileNet, or SharePoint.
 
