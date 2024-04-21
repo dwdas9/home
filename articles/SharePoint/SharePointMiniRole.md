@@ -4,6 +4,13 @@ title: SharePoint Mini Role
 parent: SharePoint Office 365
 nav_order: 6
 ---
+- [SharePoint 2016 MinRole](#sharepoint-2016-minrole)
+    - [Before 2016:](#before-2016)
+    - [SharePoint 2016/2019:](#sharepoint-20162019)
+      - [Dedicated MinRole:](#dedicated-minrole)
+      - [Special MiniRole:](#special-minirole)
+      - [Shared MiniRoles:](#shared-miniroles)
+
 
 # SharePoint 2016 MinRole
 

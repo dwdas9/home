@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hello Dynamics 365
+title: Dynamics 365 Ecosystem
 parent: Power Platform
 nav_order: 1
 ---

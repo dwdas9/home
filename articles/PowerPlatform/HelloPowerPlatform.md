@@ -173,38 +173,3 @@ Common Data Model as a ready-made collection of tables. Say for healthcare you h
 |**Business Logic (Column Level)** | Validation Rules, Workflows | Constraints, Triggers |
 
 ![alt text](db_vs_dataverse.jpg)
-
----
-
-
-Setup a Power Automate Enviornment. It like a workspace, it stores data, apps and power automate flows.
-
-Go to Power Platform Admin Center: https://admin.powerplatform.microsoft.com/environments/
-
-I already have a E365 developer license. Hence it has created a default enviornment with my user name(xg5qw )
-
- ![alt text](image.png)
-
-Now, click on the environment to load it then click on Add database, then Add
-
-![alt text](image-1.png)
-
-
-Now, we will install the Power Automate Desktop.
-
-1. Go to flow.microsoft.com(old) or make.powerautomate.com(new)
-2. Click on My Flows
-
-![alt text](image-2.png)
-
-Now click on the Install to Install Power Automate Desktop Version
-
-![alt text](image-3.png)
-
-Go with the defaults, or customize the installation:
-
-![alt text](image-4.png)
-
-
-
----
