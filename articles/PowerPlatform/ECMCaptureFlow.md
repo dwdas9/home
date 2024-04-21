@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Power Automate Or Kofax/Captiva?
-parent: Power Platform
+parent: AIHub
 nav_order: 1
 ---
 
