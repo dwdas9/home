@@ -5,6 +5,6 @@ nav_order: 4
 has_children: true
 ---
 
-Here, I discuss SharePoint articles to give you better understandig about sharepoint.
+Articles on M365 with focus on SharePoint.
 
 ---
