@@ -1,11 +1,9 @@
 ---
 layout: default
-title: Hello PowerPlatform
+title: PowerPlatform Ecosystem
 parent: Power Platform
 nav_order: 1
 ---
-
-
 ![alt text](image-5.png)
 
 <h2 style="color: #003366;">Microsoft Power Platform</h2>
