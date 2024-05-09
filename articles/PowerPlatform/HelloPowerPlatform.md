@@ -148,11 +148,16 @@ Here is a picture showing OOTB features of Dataverse
 
 Common Data Model as a ready-made collection of tables. Say for healthcare you have patient table and a admission table. With this you don't have to design tables and choose columns. Microsoft has partnered with industries like Healthcare, automobile, banking to create CDM.
 
-## Power Platform connectors - Connect PP with other Apps
+Long story short: Use Common Data Model. Save yourself from complex data modelling tasks.
+
+## Data Sources | Triggers & Action | Connector Types 
 
 ![alt text](powerPlatformDataConnectors.png)
 
-## Dataverse tables
+## Dataverse Table Creation
+
+We might also call this as creation of a basic Dataverse Model.
+![alt text](CreateDataverseTable.gif)
 
 
 ## Dataverse vs. MSSQL
@@ -171,3 +176,19 @@ Common Data Model as a ready-made collection of tables. Say for healthcare you h
 |**Business Logic (Column Level)** | Validation Rules, Workflows | Constraints, Triggers |
 
 ![alt text](db_vs_dataverse.jpg)
+
+
+## What is PowerApps?
+
+PowerApps is a low-code/no-code platform to create apps quickly. Its data can live in SharePoint, Dynamics, M365 or anywhere. It language is PowerFX(like excel formulas).
+
+### What is Canvas Apps?
+
+Non-dataverse apps. Here the developer's focuses on the screen. Data comes second.
+
+### What is Model driven apps?
+
+Dataverse-only apps. Here the developer's focuses on the data. Scren comes second.
+
+![alt text](image-87.png)
+
