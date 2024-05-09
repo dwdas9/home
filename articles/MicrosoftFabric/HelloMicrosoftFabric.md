@@ -273,11 +273,9 @@ In python here is how you can use DeltaTableBuilder API to create table. This is
 from delta.tables import *
 
 DeltaTable.create(spark) \
-  .tableName("products") \
-  .addColumn("Productid", "INT") \
-  .addColumn("ProductName", "STRING") \
-  .addColumn("Category", "STRING") \
-  .addColumn("Price", "FLOAT") \
+  .tableName("Planet") \
+  .addColumn("Size", "INT") \
+  .addColumn("Name", "STRING") \
   .execute()
 ```
 
