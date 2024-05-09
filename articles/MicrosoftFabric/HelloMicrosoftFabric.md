@@ -253,17 +253,15 @@ Since every table is automatically a Delta Lake table, this is a very useful fea
 
 The easiest way to create a Delta Lake table is by saving a DataFrame in the Delta format:
 
-```python
-df.write.<span style="color: green;"><strong>format("delta")</strong></span>.<span style="color: blue;"><strong>saveAsTable</strong></span>("tableName")
-```
 
-<strong><span style="color: black;">Managed Table:</span></strong> These tables are managed by Spark runtime. Here, you only need to mention the table name. If you delete the table, all logs are automatically deleted.
+<span style="color: SteelBlue;">**df**</span>.<span style="color: DarkOrchid;">**write**</span>.<span style="color: green;">**format**("delta")</span>.<span style="color: blue;">**saveAsTable**</span>("***tableName***")
 
-<strong><span style="color: black;">External Table:</span></strong> If you provide the location of the log files, it becomes external table:
+**Managed Table:** These tables are managed by Spark runtime. Here, you only need to mention the table name. If you delete the table, all logs are automatically deleted.
 
-```python
-df.write.format("delta").saveAsTable("myexternaltable", <span style="color: green;"><strong>path="Files/myexternaltable"</strong></span>)
-```
+**External Table:** If you provide the location of the log files, it becomes external table:
+
+
+<span style="color: SteelBlue;">**df**</span>.<span style="color: DarkOrchid;">**write**</span>.<span style="color: green;">**format**("delta")</span>.<span style="color: blue;">**saveAsTable**</span>("myexternaltable", path="Files/myexternaltable")
 
 Deleting an external table from the Lakehouse metastore <span style="color: red;"><strong>does not</strong></span> delete the associated data files.
 
