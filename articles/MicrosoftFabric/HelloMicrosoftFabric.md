@@ -196,7 +196,7 @@ Note: The region of Dataverse and Fabric should be same.
 
 ## Apache Spark In Microsoft Fabric
 
-Spark span style="color:blue;">**divides and conquers**</span>: It splits a large job across computers. SparkContext does the splitting etc.  Spark can use many languages, but in Industry PySpark and Spark SQL are most used.
+Spark <span style="color:blue;">**divides and conquers**</span>: It splits a large job across computers. SparkContext does the splitting etc.  Spark can use many languages, but in Industry PySpark and Spark SQL are most used.
 
 In Fabric. One Workspace gets One Spark Cluster.
 
@@ -237,7 +237,7 @@ Here, the spark session is already created. All you have to do is create datafra
 
 ## Delta Lake in Microsoft Fabric
 
- In Microsoft Fabric Lakehouse, any table you create, whether it’s from CSV files, Excel files, or other data sources, automatically becomes a Delta Lake table without requiring any additional steps. 
+In Fabric, any table imported from .csv/excel etc. automatically becomes a Delta Lake table.
 
 ![alt text](image-26.png)
 
@@ -254,7 +254,7 @@ Since every table is automatically a Delta Lake table, this is a very useful fea
 The easiest way to create a Delta Lake table is by saving a DataFrame in the Delta format:
 
 
-<span style="color: SteelBlue;">**df**</span>.<span style="color: DarkOrchid;">**write**</span>.<span style="color: green;">**format**("delta")</span>.<span style="color: blue;">**saveAsTable**</span>("***tableName***")
+<span style="color: SteelBlue;">**df**</span>.<span style="color: DarkOrchid;">**write**</span>.<span style="color: green;">**format**("<span style="color: red;">**delta**</span>")</span>.<span style="color: blue;">**saveAsTable**</span>("***tableName***")
 
 **Managed Table:** These tables are managed by Spark runtime. Here, you only need to mention the table name. If you delete the table, all logs are automatically deleted.
 
