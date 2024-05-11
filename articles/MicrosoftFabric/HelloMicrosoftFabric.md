@@ -237,6 +237,8 @@ Here, the spark session is already created. All you have to do is create datafra
 
 ## Delta Lake in Microsoft Fabric
 
+Delta lake is just Data Lake with a *SQL Cover*.
+
 In Fabric, any table imported from .csv/excel etc. automatically becomes a Delta Lake table.
 
 ![alt text](image-26.png)
@@ -261,7 +263,7 @@ The easiest way to create a Delta Lake table is by saving a DataFrame in the Del
 **External Table:** If you provide the location of the log files, it becomes external table:
 
 
-<span style="color: SteelBlue;">**df**</span>.<span style="color: DarkOrchid;">**write**</span>.<span style="color: green;">**format**("delta")</span>.<span style="color: blue;">**saveAsTable**</span>("myexternaltable", path="Files/myexternaltable")
+<span style="color: SteelBlue;">**df**</span>.<span style="color: DarkOrchid;">**write**</span>.<span style="color: green;">**format**("delta")</span>.<span style="color: blue;">**saveAsTable**</span>("***tableName***", path="***Files/folderX***")
 
 Deleting an external table from the Lakehouse metastore <span style="color: red;"><strong>does not</strong></span> delete the associated data files.
 
