@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: minimal
 title: Hello Fabric
 parent: MicrosoftFabric
 nav_order: 1
