@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: minimal
 title: MicrosoftFabric
 nav_order: 8
 has_children: true
