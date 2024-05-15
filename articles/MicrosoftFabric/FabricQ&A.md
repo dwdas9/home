@@ -2,7 +2,7 @@
 layout: default
 title: Fabric Q&A
 parent: MicrosoftFabric
-nav_order: 3
+nav_order: 5
 ---
 
 1. Which of the following is a key benefit of using Microsoft Fabric in data projects? 

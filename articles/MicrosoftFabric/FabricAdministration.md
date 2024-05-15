@@ -2,7 +2,7 @@
 layout: default
 title: Administration
 parent: MicrosoftFabric
-nav_order: 2
+nav_order: 4
 ---
 
 ### Delete a Fabric Workspace
