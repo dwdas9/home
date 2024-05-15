@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Fabric Q & A
+title: Administration
 parent: MicrosoftFabric
 nav_order: 2
 ---
