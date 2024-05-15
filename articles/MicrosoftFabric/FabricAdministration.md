@@ -1,3 +1,10 @@
+---
+layout: default
+title: Fabric Q & A
+parent: MicrosoftFabric
+nav_order: 2
+---
+
 ### Delete a Fabric Workspace
 
 In the Workspace settings pane, select Other > Remove this workspace.

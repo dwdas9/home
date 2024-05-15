@@ -1,3 +1,10 @@
+---
+layout: default
+title: Fabric Q & A
+parent: MicrosoftFabric
+nav_order: 3
+---
+
 1. Which of the following is a key benefit of using Microsoft Fabric in data projects? 
 
 It allows data professionals to work on data projects independently, without the need for collaboration.
