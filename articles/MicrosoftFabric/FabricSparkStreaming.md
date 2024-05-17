@@ -1,6 +1,6 @@
 ---
 layout: minimal
-title: SparkStreaming-Fabric
+title: Spark Streaming
 parent: MicrosoftFabric
 nav_order: 3
 ---
