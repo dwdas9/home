@@ -63,3 +63,49 @@ Switch to the SQL analytics endpoint mode.
 Create a Dataflow (Gen2).
 
 Answer: A notebook enables interactive Spark coding.
+
+Sure, here are the reformatted questions:
+
+---
+
+### Question 1: Delta Lake Description
+
+Which of the following descriptions best fits Delta Lake?
+
+A. A Spark API for exporting data from a relational database into CSV files.
+
+B. A relational storage layer for Spark that supports tables based on Parquet files.
+   
+C. A synchronization solution that replicates data between SQL Server and Spark.
+
+   *Answer. Delta Lake provides a relational storage layer in which you can create tables based on Parquet files in a data lake.*
+
+---
+
+### Question 2: Writing a Spark Dataframe to a Delta Table
+
+You've loaded a Spark dataframe with data that you now want to use in a delta table. What format should you use to write the dataframe to storage?
+
+A. CSV
+
+B. PARQUET
+
+C. DELTA
+   
+   *Answer. Storing a dataframe in DELTA format creates Parquet files for the data and the transaction log metadata necessary for Delta Lake tables.*
+
+---
+
+### Question 3: Dropping a Managed Table in Delta Format
+
+You have a managed table based on a folder that contains data files in delta format. If you drop the table, what happens?
+
+A. The table metadata and data files are deleted.
+   
+B. The table definition is removed from the metastore, but the data files remain intact.
+
+C. The table definition remains in the metastore, but the data files are deleted.
+
+*Answer. The life-cycle of the metadata and data for a managed table are the same.*
+
+---

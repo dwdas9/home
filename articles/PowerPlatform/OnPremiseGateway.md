@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Local To Cloud - DataFlow & Onpremise gateway
+title: Onpremise Gateway
 parent: Power Platform
 nav_order: 1
 ---
@@ -43,7 +43,7 @@ An on-premise gateway is software installed on a local system that enables acces
 
 ![alt text](image-74.png)
 
-## Using the Gateway to Process Local Files
+## Use Gateway - Import files from local folder
 
 - Open PowerApps -> Dataflows -> New Dataflow -> Start from Blank -> Provide a name -> Click "Create."
 
@@ -86,3 +86,15 @@ One common issue during XML conversion is that DataFlow assigns its own locale, 
 ![alt text](image-85.png)
 
 Voila! Your data is now in Dataverse and can be accessed using a wide range of M365 apps.
+
+## Using the Gateway in Microsoft Fabric
+
+You can reuse the gateway! For example, if you want to collaborate:
+
+![Gateway Reuse](image-92.png)
+
+## Troubleshooting
+
+If the connection fails, ensure that your user has the appropriate permissions for the folder:
+
+![Permission Check](image-91.png)
