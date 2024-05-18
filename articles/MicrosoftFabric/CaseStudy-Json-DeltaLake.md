@@ -4,14 +4,26 @@ title: JSON-DeltaLake-OPG
 parent: MicrosoftFabric
 nav_order: 7
 ---
+- [Background](#background)
+- [Let's start](#lets-start)
+  - [Prepare the Local Files and On-Premises Gateway](#prepare-the-local-files-and-on-premises-gateway)
+  - [Create a Delta Lake Table to Store the JSON Data](#create-a-delta-lake-table-to-store-the-json-data)
+  - [Set Up the Copy Data Process](#set-up-the-copy-data-process)
+  - [Run the Pipeline](#run-the-pipeline)
+  - [Check the Delta Lake Table Data](#check-the-delta-lake-table-data)
+- [Conclusion](#conclusion)
+
 
 ![alt text](image-40.png)
-## Copy Local JSON Files into Delta Lake Table
+
+## Background
 
 In this guide, I'll show you two things:
 
 1. How to connect Fabric or Azure Data Factory (ADF) to your local file system using an on-premises gateway.
 2. How to use a simple, no-code method to automatically copy JSON files into a Delta Lake table.
+
+## Let's start
 
 ### Prepare the Local Files and On-Premises Gateway
 
@@ -66,6 +78,6 @@ Create table jsonDelta (
 
 ![alt text](image-39.png)
 
-### Conclusion
+## Conclusion
 
 I hope I was able to show how nearly no-code, simple, and straightforward it is to load data from your local system into a Delta Lake in Fabric.
