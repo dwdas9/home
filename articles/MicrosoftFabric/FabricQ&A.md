@@ -109,3 +109,32 @@ C. The table definition remains in the metastore, but the data files are deleted
 *Answer. The life-cycle of the metadata and data for a managed table are the same.*
 
 ---
+
+1. What is a data pipeline? 
+
+A special folder in OneLake storage where data can be exported from a lakehouse
+
+A sequence of activities to orchestrate a data ingestion or transformation process
+
+A saved Power Query
+
+Answer: A pipeline consists of activities to ingest and transform data.
+
+2. You want to use a pipeline to copy data to a folder with a specified name for each run. What should you do? 
+
+Create multiple pipelines - one for each folder name
+
+Use a Dataflow (Gen2)
+
+Answer: Using a parameter enables greater flexibility for your pipeline.
+
+Add a parameter to the pipeline and use it to specify the folder name for each run
+3. You have previously run a pipeline containing multiple activities. What's the best way to check how long each individual activity took to complete? 
+
+Rerun the pipeline and observe the output, timing each activity.
+
+View the run details in the run history.
+
+View the Refreshed value for your lakehouse's default dataset
+
+Answer: The run history details show the time taken for each activity - optionally as a Gantt chart.

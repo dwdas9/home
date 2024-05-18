@@ -19,7 +19,7 @@ nav_order: 7
 
 ## Background
 
-In this guide, I'll show you two things:
+Here, I'll show you two things:
 
 1. How to connect Fabric or Azure Data Factory (ADF) to your local file system using an on-premises gateway.
 2. How to use a simple, no-code method to automatically copy JSON files into a Delta Lake table.
