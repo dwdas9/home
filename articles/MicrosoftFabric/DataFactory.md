@@ -5,7 +5,7 @@ parent: MicrosoftFabric
 nav_order: 5
 ---
 
-- [Pipelines and Dataflows in Fabric](#pipelines-and-dataflows-in-fabric)
+- [Data Factory in Microsoft Fabric](#data-factory-in-microsoft-fabric)
   - [Background](#background)
   - [Pipelines in Microsoft Fabric](#pipelines-in-microsoft-fabric)
     - [**Understand Pipelines**](#understand-pipelines)
@@ -18,10 +18,12 @@ nav_order: 5
     - [The Copy Data Tool](#the-copy-data-tool)
   - [Pipeline Templates](#pipeline-templates)
   - [Run and monitor pipelines](#run-and-monitor-pipelines)
+  - [Dataflows](#dataflows)
+    - [When you choose DataFlows](#when-you-choose-dataflows)
   - [Pipeline Copy Vs DataFlows Vs Spark](#pipeline-copy-vs-dataflows-vs-spark)
 
 
-# Pipelines and Dataflows in Fabric
+# Data Factory in Microsoft Fabric
 
 ## Background
 
@@ -78,6 +80,19 @@ You can run a pipeline, schedule it and view the run history from the GUI
 
 ![alt text](image-45.png)
 
+
+## Dataflows
+
+A way to import and transform data with Power Query Online.
+
+### When you choose DataFlows
+
+You need to connect to and transform data to be loaded into a Fabric lakehouse. You aren't comfortable using Spark notebooks, so decide to use Dataflows Gen2. How would you complete this task? 
+
+Answer:
+Create a Dataflow Gen2 to transform data > add your lakehouse as the data destination.
+
+You can either use Dataflows by iteself or add dataflows in pipelines.
 
 ## Pipeline Copy Vs DataFlows Vs Spark
 

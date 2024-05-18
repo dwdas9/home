@@ -138,3 +138,33 @@ View the run details in the run history.
 View the Refreshed value for your lakehouse's default dataset
 
 Answer: The run history details show the time taken for each activity - optionally as a Gantt chart.
+
+
+1. What is a Dataflow Gen2? 
+
+A hybrid database that supports ACID transactions.
+
+A way to export data to Power BI Desktop.
+
+A way to import and transform data with Power Query Online.
+
+Answer: Dataflow Gen2 allows you to get and transform data, then optionally ingest to a lakehouse.
+
+2. Which workload experience lets you create a Dataflow Gen2? 
+
+Real-time analytics.
+
+Data warehouse.
+
+Data Factory.
+
+Answer: Data Factory and Power BI workloads allow Dataflow Gen2 creation.
+3. You need to connect to and transform data to be loaded into a Fabric lakehouse. You aren't comfortable using Spark notebooks, so decide to use Dataflows Gen2. How would you complete this task? 
+
+Connect to Data Factory workload > Create a Dataflow Gen2 to transform data > add your lakehouse as the data destination.
+
+Connect to Real-time Analytics workload > Create Pipeline to copy data > Transform data with an Eventstream.
+
+Connect to Data Factory workload > Create Pipeline to copy data and load to lakehouse > Transform directly in the lakehouse.
+
+Answer: Connect to Data Factory workload > Create a Dataflow Gen2 to transform data > add your lakehouse as the data destination.
