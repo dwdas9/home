@@ -16,6 +16,7 @@ nav_order: 7
 
 ![alt text](image-40.png)
 
+
 ## Background
 
 In this guide, I'll show you two things:
@@ -36,7 +37,7 @@ Note: Ensure that an admin account has all permissions in the security tab of th
 
 ### Create a Delta Lake Table to Store the JSON Data
 
-- Create a notebook and run the following SparkSQL code:
+Create a notebook and run the following SparkSQL code:
 
 ```python
 %%sql
@@ -50,31 +51,33 @@ Create table jsonDelta (
 ) using delta
 ```
 
+Remember: **using delta** at the end.
+
 ![alt text](image-33.png)
 
 ### Set Up the Copy Data Process
 
-1. **Source Setup**: Follow the diagram to set up the source. Ensure the admin account has the right permissions for the source folder.
+- **Source Setup**: Follow the diagram to set up the source. Ensure the admin account has the right permissions for the source folder.
 
 ![alt text](image-34.png)
 
-2. **Destination Setup**: Follow the diagram for the destination setup.
+- **Destination Setup**: Follow the diagram for the destination setup.
 
 ![alt text](image-35.png)
 
-3. **Mapping Setup**: Follow the diagram to set up the mapping.
+- **Mapping Setup**: Follow the diagram to set up the mapping.
 
 ![alt text](image-37.png)
 
 ### Run the Pipeline
 
-1. Click "Run." The pipeline will process all the JSON files and add the data to the Delta Lake table. That’s it!
+Click "Run." The pipeline will process all the JSON files and add the data to the Delta Lake table. That’s it!
 
 ![alt text](image-38.png)
 
 ### Check the Delta Lake Table Data
 
-- Go to the lakehouse, expand the table, and you will see that all the JSON data has been loaded into the Delta Lake table.
+Go to the lakehouse, expand the table, and you will see that all the JSON data has been loaded into the Delta Lake table.
 
 ![alt text](image-39.png)
 
