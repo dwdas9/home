@@ -14,7 +14,7 @@ nav_order: 7
 - [Conclusion](#conclusion)
 
 
-![alt text](image-40.png)
+![\alt text](images\image-40.png)
 
 
 ## Background
@@ -33,7 +33,7 @@ Here, I'll show you two things:
 
 Note: Ensure that an admin account has all permissions in the security tab of the local folder. While not always practical, admin access simplifies the setup and reduces complications.
 
-![alt text](image-36.png)
+![\alt text](images\image-36.png)
 
 ### Create a Delta Lake Table to Store the JSON Data
 
@@ -53,33 +53,33 @@ Create table jsonDelta (
 
 Remember: **using delta** at the end.
 
-![alt text](image-33.png)
+![\alt text](images\image-33.png)
 
 ### Set Up the Copy Data Process
 
 - **Source Setup**: Follow the diagram to set up the source. Ensure the admin account has the right permissions for the source folder.
 
-![alt text](image-34.png)
+![\alt text](images\image-34.png)
 
 - **Destination Setup**: Follow the diagram for the destination setup.
 
-![alt text](image-35.png)
+![\alt text](images\image-35.png)
 
 - **Mapping Setup**: Follow the diagram to set up the mapping.
 
-![alt text](image-37.png)
+![\alt text](images\image-37.png)
 
 ### Run the Pipeline
 
 Click "Run." The pipeline will process all the JSON files and add the data to the Delta Lake table. That’s it!
 
-![alt text](image-38.png)
+![\alt text](images\image-38.png)
 
 ### Check the Delta Lake Table Data
 
 Go to the lakehouse, expand the table, and you will see that all the JSON data has been loaded into the Delta Lake table.
 
-![alt text](image-39.png)
+![\alt text](images\image-39.png)
 
 ## Conclusion
 

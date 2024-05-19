@@ -39,7 +39,7 @@ nav_order: 1
 
 ## Microsoft Fabric What?!
 
-![alt text](image.png)
+![\alt text](images\image.png)
 
 One-stop low-to-no-code platform.
 
@@ -63,7 +63,7 @@ Default storage us Delta.
 
 Lake house is Data Lake and Warehouse.
 
-![alt text](image-1.png)
+![\alt text](images\image-1.png)
 
 The base of Fabric is Data lakehouse.
 
@@ -80,14 +80,14 @@ Lakehouse is the lakehouse storage and metadata, where you interact with files, 
 Semantic model (default) is an automatically created data model based on the tables in the lakehouse. Power BI reports can be built from the semantic model.
 SQL Endpoint is a read-only SQL endpoint through which you can connect and query data with Transact-SQL.
 
-![alt text](image-2.png)
+![\alt text](images\image-2.png)
 
 You can work with the data in the lakehouse in two modes:
 
 Lakehouse enables you to add and interact with tables, files, and folders in the lakehouse.
 SQL analytics endpoint enables you to use SQL to query the tables in the lakehouse and manage its relational data model.
 
-![alt text](image-3.png)
+![\alt text](images\image-3.png)
 
 ### Shortcuts in Lakehouse
 
@@ -131,27 +131,27 @@ Create an end-to-end solution using Power BI and Fabric Lakehouse.
 
 1. Go to https://app.fabric.microsoft.com. Select Synapse Data Engineering
 
-![alt text](image-4.png)
+![\alt text](images\image-4.png)
 
 ### Create a LakeHouse
 
 2. Click on Create then Lakehouse. Give it any name.
 
-![alt text](image-6.png)
+![\alt text](images\image-6.png)
 
 3. Fabric will create everything automatically and you will have your Lakehouse
 
-![alt text](image-7.png)
+![\alt text](images\image-7.png)
 
 ### Upload a simple excel to the LakeHouse
 
 1. Download and save sample excel file from here https://raw.githubusercontent.com/MicrosoftLearning/dp-data/main/sales.csv
 
-![alt text](image-8.png)
+![\alt text](images\image-8.png)
 
 2. Go to Explorer, create a Data subfolder under Files, then upload the downloaded csv in it
 
-![alt text](image-10.png)
+![\alt text](images\image-10.png)
 
 ### Load the excel data into a table
 
@@ -159,34 +159,34 @@ Now, if you want to use SQL you need to import the excel into a table. It is pre
 
 Just click on the elipses next to the excel file and select **Load to Tables**
 
-![alt text](image-13.png)
+![\alt text](images\image-13.png)
 
 Once loaded you can see your table in tabular format
 
-![alt text](image-14.png)
+![\alt text](images\image-14.png)
 
 ### Query the excel file table using SQL
 
 #### Write a normal SQL query using Editor
 
-![alt text](image-15.png)
+![\alt text](images\image-15.png)
 
 #### Write a Visual Query
 
-![alt text](image-16.png)
+![\alt text](images\image-16.png)
 
 #### Create a Report
 
 1. At the bottom of the SQL Endpoint page, click on the **Model** tab to view the data model schema for the semantic model.
 2. Navigate to the **Reporting** tab in the menu ribbon and select **New report** to open a new browser tab for report design.
 
-![alt text](image-17.png)
+![\alt text](images\image-17.png)
 
 3. In the Data pane, expand the **sales** table and select **Item** and **Quantity**. This will add a table visualization to your report.
 4. Hide the **Data** and **Filters** panes to create more space. Change the visualization to a **Clustered bar chart** and resize it.
 5. Save the report by selecting **Save** from the **File** menu and name it <span style="color:blue;">**Item Sales Report**</span>.
 
-![alt text](image-18.png)
+![\alt text](images\image-18.png)
 
 6. Close the report tab and return to the SQL endpoint page. In the hub menu, select your workspace to verify it contains your lakehouse, the SQL analytics endpoint, a default semantic model, and the <span style="color:blue;">**Item Sales Report**</span>.
 
@@ -198,12 +198,12 @@ Lets create a shortcut to dataverse.
 
 1. Click on the cli
 
-![alt text](image-9.png)
+![\alt text](images\image-9.png)
 
 
 Note: The region of Dataverse and Fabric should be same.
 
-![alt text](image-12.png)
+![\alt text](images\image-12.png)
 
 ## Apache Spark In Microsoft Fabric
 
@@ -213,19 +213,19 @@ In Fabric. One Workspace gets One Spark Cluster.
 
 ### Run a Spark Notebook
 
-![alt text](image-20.png)
+![\alt text](images\image-20.png)
 
 ### Run a simple Pyspark code in Notebook
 
 Here, the spark session is already created. All you have to do is create dataframe and start coding!
 
-![alt text](image-21.png)
+![\alt text](images\image-21.png)
 
 
 ### Create a Spark job definition
 
 1. **Access the Spark Job Definition Page.**
-   ![alt text](image-25.png)
+   ![\alt text](images\image-25.png)
 
 2. **Create a PySpark Job Definition:**
    - Develop a main definition file named `anyname.py`. The file should include the following code:
@@ -244,7 +244,7 @@ Here, the spark session is already created. All you have to do is create datafra
      ```
 
 3. **Upload and Schedule the File:**
-   ![alt text](image-22.png)
+   ![\alt text](images\image-22.png)
 
 ## Delta Lake in Microsoft Fabric
 
@@ -252,11 +252,11 @@ Delta lake is just Data Lake with a *SQL Cover*.
 
 In Fabric, any table imported from .csv/excel etc. automatically becomes a Delta Lake table.
 
-![alt text](image-26.png)
+![\alt text](images\image-26.png)
 
 For these tables, you'll find .parquet files and delta log folders when you view the files.
 
-![alt text](image-27.png)
+![\alt text](images\image-27.png)
 
 Since every table is automatically a Delta Lake table, this is a very useful feature. There's no need to convert files into Delta tables separately.
 

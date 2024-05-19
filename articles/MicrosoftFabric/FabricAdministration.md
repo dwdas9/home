@@ -9,7 +9,7 @@ nav_order: 4
 
 In the Workspace settings pane, select Other > Remove this workspace.
 
-![alt text](image-11.png)
+![\alt text](images\image-11.png)
 
 
 ### Find your Fabric home region
@@ -27,4 +27,4 @@ Look for the value next to Your data is stored in. The location shown is the def
 
 In Microsoft Fabric, each workspace is assigned a Spark cluster. An administrator can manage settings for the Spark cluster in the Data Engineering/Science section of the workspace settings.
 
-![alt text](image-19.png)
+![\alt text](images\image-19.png)

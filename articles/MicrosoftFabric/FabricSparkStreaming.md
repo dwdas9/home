@@ -40,7 +40,7 @@ print("Streaming to delta sink...")
 deltastream.awaitTermination()
 ```
 
-![alt text](image-30.png)
+![\alt text](images\image-30.png)
 
 4. Now, add more json files and see the Delta table grow!
 

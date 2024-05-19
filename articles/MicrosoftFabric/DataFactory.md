@@ -50,7 +50,7 @@ Executed on-demand or scheduled. Unique run ID for tracking and reviewing each e
 
 Fabric offers a Canvas where you can build complex pipeliens without much coding:
 
-![alt text](image-42.png)
+![\alt text](images\image-42.png)
 
 ## The Copy Data Activity
 
@@ -62,23 +62,23 @@ Use the Copy Data activity to move data without transformations or to import raw
 
 ### The Copy Data Tool
 
-![alt text](image-41.png)
+![\alt text](images\image-41.png)
 
 ## Pipeline Templates
 
 To create a pipeline based on a template on the start page choose Templates
 
-![alt text](image-43.png)
+![\alt text](images\image-43.png)
 
 You will see templates like this:
 
-![alt text](image-44.png)
+![\alt text](images\image-44.png)
 
 ## Run and monitor pipelines
 
 You can run a pipeline, schedule it and view the run history from the GUI
 
-![alt text](image-45.png)
+![\alt text](images\image-45.png)
 
 
 ## Dataflows
