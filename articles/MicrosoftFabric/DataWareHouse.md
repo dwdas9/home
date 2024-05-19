@@ -9,7 +9,7 @@
   - [How data is ingested into a warehouse in Fabric?](#how-data-is-ingested-into-a-warehouse-in-fabric)
     - [COPY into syntax](#copy-into-syntax)
 
-![alt text](FabricWareHouseIcon.webp)
+![alt text](images\FabricWareHouseIcon.webp)
 
 # Data Warehouse in Microsoft Fabric
 
