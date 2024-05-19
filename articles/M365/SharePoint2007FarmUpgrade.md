@@ -171,7 +171,7 @@ Figure 1: Usage profile of SharePoint sites.
 
 ## Topology recommendation by Capacity Planner
 
-![Capacity Planner.PNG](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.002.png)
+![Capacity Planner.PNG](images\Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.002.png)
 
 Figure 2: Topology diagram as per MS System Center Capacity Planner 2007
 
@@ -309,7 +309,7 @@ The rest of this article discusses each of the physical components that appear i
 
 
  ## System Landscape
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.003.png)
+![](images\Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.003.png)
 
 ![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.004.jpeg)
 
@@ -333,7 +333,7 @@ The Landscape has been divided in three zones.
 
 HXX has kept the following key design consideration at core while designing the framework of the proposed solution. To attain maximum redundancy with a minimum number of servers, deploy an additional application server to the middle tier for load balancing application server roles that are designed to be redundant. This server farm topology consists of six servers. The query role is installed to the front-end Web servers to achieve redundancy.
 
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.005.png)
+![](images\Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.005.png)
 
 This topology protects these server roles from direct user connections and optimizes the performance of the overall farm when compared to smaller farms. The SQL server would be a two node clustered installation.
 
@@ -403,7 +403,7 @@ Microsoft enables SQL Server database availability with the SQL Server Always on
 #### Database Clustering Recommendation
 The proposed design depicts Failover Clustering among two SQL Server 2008 database nodes in the system landscape, which provides availability support for a complete instance of SQL Server. The following diagram shows the Database Failover cluster for SQL Server.
 
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.006.png)
+![](images\Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.006.png)
 
 The failover cluster is a combination of one or more nodes or servers, with two or more shared disks. It will appear as a single instance, but has functionality that provides failover from one node to another if the current node becomes unavailable. Office SharePoint Server 2007 references the cluster as a whole, so that failover is automatic and seamless from the perspective of SharePoint Products and Technologies.
 
@@ -604,7 +604,7 @@ The following figure shows the three applications that make up the corporate int
 ### Split back-to-back topology
 This topology splits the farm between the perimeter and corporate networks. The computers running Microsoft SQL Server database software are hosted inside the corporate network. Web servers are located in the perimeter network. The application server computers can be hosted in either the perimeter network or the corporate network. 
 
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.007.png)
+![](images\Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.007.png)
 
 ![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.008.jpeg)
 
@@ -626,7 +626,7 @@ If the server farm is split between the perimeter network and the corporate netw
 As part of the requirement, some kind replication needs to be established between the two sites so as to ensure the availability of data at all the sites. In case of failure of any one of the site the other must be able to take over the entire operations. So as to cater to these requirements, a site replication methodology is designed for Marxxx as shown in the below diagram. The proposed solution comprises of two sites Primary Site and DR Site. Between the Primary Site and the DR Site, data will be replicated asynchronously over the Dark FC/WAN IP network Connectivity. 
 
 ## Disaster Recovery Strategy
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.009.png)
+![](images\Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.009.png)
 
 Figure 5: DC-DR Before
 
@@ -639,7 +639,7 @@ Two logical farms:
 * SSP databases can be backed up and restored to the failover farm.
 * Consult with your SAN vendor to determine whether you can use SAN replication or another supported mechanism to provide availability across data centers.
 
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.010.png)
+![](images\Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.010.png)
 
 Figure 6: DC-DR After
 

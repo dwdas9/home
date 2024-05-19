@@ -9,7 +9,7 @@ nav_order: 9
     - [Let's get started](#lets-get-started)
 
 
-![alt text](2.jpg)
+![alt text](images\2.jpg)
 
 ## Migrating to Microsoft 365 with the SharePoint Migration Tool (SPMT)
 

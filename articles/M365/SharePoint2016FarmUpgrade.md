@@ -127,7 +127,7 @@ The table below summarizes the different approaches to deploying and managing Sh
 
 As the client wants to have an in-country farm due to data regulations. We recommend the following farm topology for a high-availability, on-premises SharePoint 2016 farm with six servers, using the latest features such as MinRole
 
-![alt text](image-8.png)
+![alt text](images\image-8.png)
 
 
 **Front-End with Distributed Cache Servers:**
@@ -186,6 +186,6 @@ Implement a "stretched farm" where there will be two data centres configured as 
 - The bandwidth speed must be at least 1 gigabit per second.
 The recommended topology from Microsoft would look something like as shown below:
 
-![alt text](image-9.png)
+![alt text](images\image-9.png)
 
 ---

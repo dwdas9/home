@@ -44,29 +44,29 @@ Let's start by installing the following three Visual Studio Extensions and One C
 
 | Extension Name | Why Install? | How to Install? |
 |----------------|--------------------------------------------------------|---------------------------|
-| [Azure Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) |This extension holds a collection of extensions, including the Azure Functions extension. While you can install **just** the **Azure Functions extension** in this 'pack', having the full collection is never bad | `Ctrl+Shift+X`, "Azure Tools for Visual Studio Code", `Install`![Alt text](image-76.png)|
-| [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Provides extensive features for Python development, enabling linting, debugging, and IntelliSense for Azure Functions written in Python. |  `Ctrl+Shift+X`, "Python", `Install`![Alt text](image-77.png) |
-|[Azurite](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) | An Azure Storage emulator, crucial for local testing and debugging of Azure Functions. | `Ctrl+Shift+X`, "Azurite", `Install`. ![Alt text](image-79.png) |
-|[Azure Functions Core Tools](https://go.microsoft.com/fwlink/?linkid=2174087) | Command-line tools essential for local development and testing of Azure Functions. These tools enable local function runtime, debugging, and deployment capabilities. | Install via npm with the command: `npm install -g azure-functions-core-tools@3 --unsafe-perm true` (for version 3.x) Or using GUI ![Alt text](image-78.png) |
+| [Azure Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) |This extension holds a collection of extensions, including the Azure Functions extension. While you can install **just** the **Azure Functions extension** in this 'pack', having the full collection is never bad | `Ctrl+Shift+X`, "Azure Tools for Visual Studio Code", `Install`![Alt text](images\image-76.png)|
+| [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Provides extensive features for Python development, enabling linting, debugging, and IntelliSense for Azure Functions written in Python. |  `Ctrl+Shift+X`, "Python", `Install`![Alt text](images\image-77.png) |
+|[Azurite](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) | An Azure Storage emulator, crucial for local testing and debugging of Azure Functions. | `Ctrl+Shift+X`, "Azurite", `Install`. ![Alt text](images\image-79.png) |
+|[Azure Functions Core Tools](https://go.microsoft.com/fwlink/?linkid=2174087) | Command-line tools essential for local development and testing of Azure Functions. These tools enable local function runtime, debugging, and deployment capabilities. | Install via npm with the command: `npm install -g azure-functions-core-tools@3 --unsafe-perm true` (for version 3.x) Or using GUI ![Alt text](images\image-78.png) |
 
 ### Create the Azure Function Project
 
 - Open Visual Studio and Click the Azure Icon on the Left
 - In the Workspace (local) area, click the thunder button, and select **Create New Project**.
-![Alt text](image-21.png)
+![Alt text](images\image-21.png)
 - Choose a folder location for the project
-![Alt text](image-41.png)
+![Alt text](images\image-41.png)
 - Select **Python** as the programming language.
-![Alt text](image-42.png)
+![Alt text](images\image-42.png)
 - Opt for **Model V2** as the programming model.
-![Alt text](image-43.png)
+![Alt text](images\image-43.png)
 - Choose the Python environment. Refer to the Appendix section for more details.
 - Select **HTTP trigger**. Refer to the appendix section below for more details.
-![Alt text](image-63.png)
+![Alt text](images\image-63.png)
 - Provide a unique name for our function.
-![Alt text](image-45.png)
+![Alt text](images\image-45.png)
 - VS Code will generate a complete project structure like shown below
-![Alt text](image-66.png)
+![Alt text](images\image-66.png)
 - Write your custom code, say you want to perform some blob operations, in `function_app.py`. This is the main/entry point function to the Fnction app.
 
 
@@ -76,7 +76,7 @@ Add library names of Python packages you imported in your script, like `numpy` ,
 
 - When you start you local debugging VS Code will install the `requirements.txt` packages to your local python virtual enviornment's `.venv`.
   
-  ![Alt text](image-50.png)
+  ![Alt text](images\image-50.png)
 - During actual deployment, VS Code will install the packages to Azure cloud.
 
 ## Debug
@@ -87,17 +87,17 @@ Now, I will show you how to debug the azure function:
 
 - With your function_app.py open press `Ctrl+Shift+P`. Select **Azurite: Start**.
 
-     ![Alt text](image-22.png)
+     ![Alt text](images\image-22.png)
 
     This action starts the Azurite storage Emulator. You can check the status at the bottom right corner of VS Code, where you should see something like this:
 
-     ![Alt text](image-51.png)
+     ![Alt text](images\image-51.png)
 
 - Press `F5`. Then, under Workspace **Right-click** the function and select **Execute**.
-  ![Alt text](image-52.png)
+  ![Alt text](images\image-52.png)
 
 - If the execution is successful, the output will be similar to this:
-  ![Alt text](image-53.png)
+  ![Alt text](images\image-53.png)
 
 ## Deploy
 
@@ -109,17 +109,17 @@ Now, our function is ready and we need to deploy it to Azure. To deploy an azure
 
 - Click the Azure icon, then select the thunder icon in the workspace.
 - Choose `Create Function app in Azure..(Advanced)`.
-![Alt text](image-73.png)
+![Alt text](images\image-73.png)
 - Assign a unique name to your function app.
-![Alt text](image-67.png)
+![Alt text](images\image-67.png)
 - If you're working on an Azure Function in Python, ensure you set the runtime environment to Python.
-![Alt text](image-68.png)
+![Alt text](images\image-68.png)
 - Decide on using an existing resource group or create a new one. Ensure consistency in the chosen region.
-![Alt text](image-69.png)
+![Alt text](images\image-69.png)
 - Carefully select the hosting plan. If you're budget-conscious, consider the Consumption-based plan. 
-![Alt text](image-70.png)
+![Alt text](images\image-70.png)
 - Allocate a storage account for the Azure Function App. Using separate storage accounts for each function app simplifies the structure.
-![Alt text](image-72.png)
+![Alt text](images\image-72.png)
 - Incorporate an Application Insights resource for detailed insights and improved monitoring.
 
 After these steps, your Azure Function App is set up. The next phase involves deploying your Azure Function to this newly created app.
@@ -127,21 +127,21 @@ After these steps, your Azure Function App is set up. The next phase involves de
 ### Deploy the Azure Function To The Azure Function App
 
 - The deployment process is straightforward. In the workspace, click the thunder icon and choose **Deploy to Function App**.
-  ![Alt text](image-55.png)
+  ![Alt text](images\image-55.png)
 - Visual Studio Code will display the Function App where you can deploy our Azure Function. Select the Function App.
    
-  ![Alt text](image-56.png)
+  ![Alt text](images\image-56.png)
 - Click **Deploy**
    
-  ![Alt text](image-57.png)
+  ![Alt text](images\image-57.png)
 
   Note: This will overwrite ANY function present in the Azure Func app.
 - After successful deployment, you will see output like the following in the console:
   
-  ![Alt text](image-58.png)
+  ![Alt text](images\image-58.png)
 - And you can see the Function inside the Azure Function App:
   
-  ![Alt text](image-59.png)
+  ![Alt text](images\image-59.png)
 
 ## Monitor
 
@@ -151,7 +151,7 @@ Afer deploying the function, I will show you how to monitor it in the portal.
 
 - Open the Azure Function in the Azure portal.
   
-  ![Alt text](image-60.png)
+  ![Alt text](images\image-60.png)
 
 - Go to the "Monitor" section to access detailed information about function invocations.
 
@@ -200,7 +200,7 @@ The V2 programming model for Python, gives more Python-centric development exper
 
 This is how the project folder structure looks like:
 
-![Alt text](image-83.png)
+![Alt text](images\image-83.png)
 
 Here is what each item means:
 
@@ -235,7 +235,7 @@ I will try to modify the section later to give you a better understanding of the
 ### What is this Azurite
 
 When you click F5 you will see a message which looks like the one below.  
-![Alt text](image-92.png)
+![Alt text](images\image-92.png)
 
 This is where Azurite comes into play. Azurite is a free tool to mimic Azure Storage on your computer. It helps in testing Azure storage without actually using the real Azure services. It saves money,can work offline, its safe, and quick.
 
@@ -248,19 +248,19 @@ Here are the events that take place when you debug an Azure Function using VS Co
     ```
     Executing task: .venv\Scripts\python -m pip install -r requirements.txt
     ```
-    ![Alt text](image-85.png)
+    ![Alt text](images\image-85.png)
 - Then the virtual environment is activated with `.venv\Scripts\activate`.
 - It starts the debugger using `func host start`
-    ![Alt text](image-86.png)
+    ![Alt text](images\image-86.png)
 - Then it attaches to the Azure Function runtime, loads the Azure Function app and set a breakpoint at the first line of the code.
   - You'll notice two main things in the output:
     -  **Functions:** This lists down all functions in your Azure Function app.
     -  A line like `[2023-10-25T04:16:47.402Z] Host lock lease acquired by instance ID '0000000000000000000000002B26484C'`, tells that the debugger has locked  the Azure Function host. This lock prevents the Azure Function host from being restarted by another process while the debugger is attached.
-    ![Alt text](image-90.png)
+    ![Alt text](images\image-90.png)
 
 #### User Clicks `Execute Function Now..`
 - Now the user right-clicks on the function and clicks `Execute function Now..`. This executes the function.
-  ![Alt text](image-91.png)
+  ![Alt text](images\image-91.png)
 - The rest is stepping through the function and checking if all is working fine. And, finally the debugging completes.
 
 
@@ -268,7 +268,7 @@ Here are the events that take place when you debug an Azure Function using VS Co
 
 ### "AzureWebJobsStorage" app setting is not present
 
-![Alt text](image-36.png)
+![Alt text](images\image-36.png)
 
 The "AzureWebJobsStorage" app setting error indicates that our Azure Functions app is missing a crucial configuration related to the storage account connection string. This could also be realted to the following deployment failure message
 

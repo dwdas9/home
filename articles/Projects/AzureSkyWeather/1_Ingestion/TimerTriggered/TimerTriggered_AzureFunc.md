@@ -33,33 +33,33 @@ To create an Timer-Triggered Azure Function in Visual Studio Code, follow these 
 - Open Visual Studio Code and access the Azure icon in the Activity bar.
 - In the Workspace (local) area, click the thunder button, and select **Create New Project**.
 
-![Alt text](image-21.png)
+![Alt text](images\image-21.png)
 
 - Choose a local folder location for our project.
 
-![Alt text](image-41.png)
+![Alt text](images\image-41.png)
 
 - Select **Python** as the programming language.
 
-![Alt text](image-42.png)
+![Alt text](images\image-42.png)
 
 - Opt for **Model V2** as the programming model.
 
-![Alt text](image-43.png)
+![Alt text](images\image-43.png)
 
 - Choose the Python environment that you intend to use. Make sure to select the correct environment with all the required dependencies and packages e.g. Azure Functions.
 
 - Select **Timer trigger**
 
-![Alt text](image-74.png)
+![Alt text](images\image-74.png)
 
 - Provide a unique name for our function.
 
-![Alt text](image-45.png)
+![Alt text](images\image-45.png)
 
 - VS Code will generate a complete project structure, including all the necessary components for developing our function.
 
-![Alt text](image-75.png)
+![Alt text](images\image-75.png)
 
 ### Write our custom logic in the Azure Function
 
@@ -139,7 +139,7 @@ def FetchWeatherTimerTriggered(myTimer: func.TimerRequest) -> None:
 
 We've wrapped up the main coding. Now, just add `azure-storage-blob` to `requirements.txt` to instruct the deployment to install the library in Azure like we did in Part 1A.
 
-![Alt text](image-50.png)
+![Alt text](images\image-50.png)
 
 ### Test Our Azure Function
 
@@ -147,23 +147,23 @@ We've wrapped up the main coding. Now, just add `azure-storage-blob` to `require
 
   - Open Visual Studio Code and press `Ctrl+Shift+P`. Select **Azurite: Start**.
 
-     ![Alt text](image-22.png)
+     ![Alt text](images\image-22.png)
 
     This action starts the Azurite Blob Service. You can check the status at the bottom right corner of VS Code, where you should see something like this:
 
-     ![Alt text](image-51.png)
+     ![Alt text](images\image-51.png)
 
   - Start debugging by pressing `F5`. Then, on the left, click the Azure icon. Navigate to the workspace and locate our function (refresh if needed). Right-click the function and select **Execute**.
 
-     ![Alt text](image-52.png)
+     ![Alt text](images\image-52.png)
 
   - If the execution is successful, you'll see an output similar to this:
 
-     ![Alt text](image-53.png)
+     ![Alt text](images\image-53.png)
 
     Additionally, a JSON file will be created in our container:
 
-     ![Alt text](image-54.png)
+     ![Alt text](images\image-54.png)
 
 ### Deployment and rest of the steps
 

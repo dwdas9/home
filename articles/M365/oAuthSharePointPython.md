@@ -35,7 +35,7 @@ pip install Office365-REST-Python-Client
 
 ```
 
-![alt text](image.png)
+![alt text](images\image.png)
 
 Then, I tried to authanticate
 
@@ -65,7 +65,7 @@ else:
 
 This failed:
 
-![alt text](image-1.png)
+![alt text](images\image-1.png)
 
 `Conclusion`
 

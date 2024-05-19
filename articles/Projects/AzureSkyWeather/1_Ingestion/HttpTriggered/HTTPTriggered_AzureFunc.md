@@ -65,10 +65,10 @@ We developed the Azure Function in Visual Studio Code on Windows using the **Pyt
 
 First, create an account at [weatherapi.com](https://www.weatherapi.com/). Then, navigate to [My Account](https://www.weatherapi.com/my/). Copy the API key and keep it handy for later use.
 
-![Alt text](image.png)
+![Alt text](images\image.png)
 
 We chose [weatherapi.com](https://www.weatherapi.com/) because it doesn't require sign-ups, and it offers most of the features we needed.
-    ![Alt text](image-40.png)
+    ![Alt text](images\image-40.png)
 
 
 ### Set Up Azure Blob(ADLSG2) Storage
@@ -79,7 +79,7 @@ In the Azure portal, create a resource group, a storage account, and a blob cont
 
 Azure Function App is a container for Azure Functions. It can be set up before or during the function deployment. I recommend deploying during development and creating a distinct Function App for each function to prevent overwriting. I will share 'run-time' deployment steps later in this tutorial.
 
-![Alt text](image-62.png)
+![Alt text](images\image-62.png)
 > Sneak Peek: Deploying a Function App via VS Code.
 
 ### Prepare VS Code and local enviroment for Azure Function Development and Testing
@@ -87,22 +87,22 @@ Azure Function App is a container for Azure Functions. It can be set up before o
 Install the following VS studio extensions:
 
 #### Azure Functions Extension For Visual Studio Code
-![Alt text](image-16.png)
+![Alt text](images\image-16.png)
 
 #### Python Extension for Visual Studio Code
 Note: This is just the extension, not the actual Python interpreter. I assume you already have Python installed. For my work, I use the Conda distribution of Python.
-![Alt text](image-17.png)
+![Alt text](images\image-17.png)
 
 #### Azurite
-![Alt text](image-18.png)
+![Alt text](images\image-18.png)
 
 #### azure-functions SDK
 When testing our Azure Function locally, the system will look for the `azure-functions` SDK/package/library in the local system. This package must be present in the Python environment you're using; otherwise, you might encounter errors like: 
 
-![Alt text](image-13.png)
+![Alt text](images\image-13.png)
 
 As I use the Conda version of Python, I executed `pip install azure-functions` in the Anaconda prompt (with admin privileges).
-![Alt text](image-14.png)
+![Alt text](images\image-14.png)
 
 #### `azure-storage-blob` library for local testing
 
@@ -117,33 +117,33 @@ To create an Azure Function in Visual Studio Code, follow these steps:
 - Open Visual Studio Code and access the Azure icon in the Activity bar.
 - In the Workspace (local) area, click the thunder button, and select **Create New Project**.
 
-![Alt text](image-21.png)
+![Alt text](images\image-21.png)
 
 - Choose a local folder location for our project.
 
-![Alt text](image-41.png)
+![Alt text](images\image-41.png)
 
 - Select **Python** as the programming language.
 
-![Alt text](image-42.png)
+![Alt text](images\image-42.png)
 
 - Opt for **Model V2** as the programming model.
 
-![Alt text](image-43.png)
+![Alt text](images\image-43.png)
 
 - Choose the Python environment that you intend to use. Make sure to select the correct environment with all the required dependencies and packages e.g. Azure Functions.
 
 - Select **HTTP trigger**
 
-![Alt text](image-63.png)
+![Alt text](images\image-63.png)
 
 - Provide a unique name for our function.
 
-![Alt text](image-45.png)
+![Alt text](images\image-45.png)
 
 - VS Code will generate a complete project structure, including all the necessary components for developing our function.
 
-![Alt text](image-66.png)
+![Alt text](images\image-66.png)
 
 ### Write our custom logic in the Azure Function
 
@@ -219,7 +219,7 @@ def FetchWeatherHTTP(req: func.HttpRequest) -> func.HttpResponse:
 
 We've wrapped up the main coding. Now, just add `azure-storage-blob` to `requirements.txt` to instruct the deployment to install the library in Azure.
 
-![Alt text](image-50.png)
+![Alt text](images\image-50.png)
 
 ### Test Our Azure Function
 
@@ -227,23 +227,23 @@ We've wrapped up the main coding. Now, just add `azure-storage-blob` to `require
 
   - Open Visual Studio Code and press `Ctrl+Shift+P`. Select **Azurite: Start**.
 
-     ![Alt text](image-22.png)
+     ![Alt text](images\image-22.png)
 
     This action starts the Azurite Blob Service. You can check the status at the bottom right corner of VS Code, where you should see something like this:
 
-     ![Alt text](image-51.png)
+     ![Alt text](images\image-51.png)
 
   - Start debugging by pressing `F5`. Then, on the left, click the Azure icon. Navigate to the workspace and locate our function (refresh if needed). Right-click the function and select **Execute**.
 
-     ![Alt text](image-52.png)
+     ![Alt text](images\image-52.png)
 
   - If the execution is successful, you'll see an output similar to this:
 
-     ![Alt text](image-53.png)
+     ![Alt text](images\image-53.png)
 
     Additionally, a JSON file will be created in our container:
 
-     ![Alt text](image-54.png)
+     ![Alt text](images\image-54.png)
 
 ### Create Azure Function App
 
@@ -252,28 +252,28 @@ For Azure Functions, we need a Function App—a container for them. Instead of s
 - **Launch Setup in Visual Studio**:
   - Click the Azure icon, then select the thunder icon in the workspace.
   - Choose `Create Function app in Azure..(Advanced)`.
-  ![Alt text](image-73.png)
+  ![Alt text](images\image-73.png)
   - **Comment**: The icon might not always be visible; ensure your project is 'loaded' properly.
   
 - **Name Your Function App**:
   - Assign a unique name to your function app.
-  ![Alt text](image-67.png)
+  ![Alt text](images\image-67.png)
 
 - **Select the Right Runtime**:
   - If you're working on an Azure Function in Python, ensure you set the runtime environment to Python.
-  ![Alt text](image-68.png)
+  ![Alt text](images\image-68.png)
 
 - **Configure the resource group**:
   - Decide on using an existing resource group or create a new one. Ensure consistency in the chosen region.
-  ![Alt text](image-69.png)
+  ![Alt text](images\image-69.png)
 
 - **Choose the hosting Plan**:
   - Carefully select the hosting plan. If you're budget-conscious, consider the Consumption-based plan. 
-  ![Alt text](image-70.png)
+  ![Alt text](images\image-70.png)
   - **Comment**: Based on my experience, running our current project, 24 executions for around seven days costed me few dollars. But, you case cuold be different. Overall, I found 
 - **Choose Storage account**:
   - Allocate a storage account for the Azure Function App. Using separate storage accounts for each function app simplifies the structure.
-  ![Alt text](image-72.png)
+  ![Alt text](images\image-72.png)
 
 - **Opt for Enhanced Monitoring**:
   - Incorporate an Application Insights resource for detailed insights and improved monitoring.
@@ -284,25 +284,25 @@ After these steps, your Azure Function App is set up. The next phase involves de
 
 - The deployment process is straightforward. In the workspace, click the thunder icon and choose **Deploy to Function App**.
 
-   ![Alt text](image-55.png)
+   ![Alt text](images\image-55.png)
 
 - Visual Studio Code will display the Function App where you can deploy our Azure Function. Select the Function App.
 
-   ![Alt text](image-56.png)
+   ![Alt text](images\image-56.png)
 
 - Click **Deploy**
 
-   ![Alt text](image-57.png)
+   ![Alt text](images\image-57.png)
 
 Note: This will overwrite ANY function present in the Azure Func app.
 
 - After successful deployment, you will see output like the following in the console:
 
-   ![Alt text](image-58.png)
+   ![Alt text](images\image-58.png)
 
 - And you can see the Function inside the Azure Function App:
 
-   ![Alt text](image-59.png)
+   ![Alt text](images\image-59.png)
 
 ### Schedule the Function using Azure Logic Apps
 
@@ -323,7 +323,7 @@ Note: This will overwrite ANY function present in the Azure Func app.
 
 For our scenario, the **HTTP Action** is a simpler and more suitable choice. It will trigger the Azure Function, and once the Function responds (which it does after fetching and storing the weather data), the Logic App will consider the action completed. There is no need to wait for the Azure Function to complete its task and send a callback. Here is a real-world example of the output from choosing each scenario:
 
-![Alt text](image-65.png)
+![Alt text](images\image-65.png)
 
 - **In the HTTP Action**, provide the **URI** and **Method** as GET. To obtain the URI from our Azure HTTP-Triggered Function, follow these steps:
 
@@ -340,7 +340,7 @@ The purpose of this http-triggered logic-app scheduled Azure Function is to peri
 
 - Open the Azure Function in the Azure portal.
    
-   ![Alt text](image-60.png)
+   ![Alt text](images\image-60.png)
 
 - Go to the "Monitor" section to access detailed information about function invocations.
 
@@ -351,7 +351,7 @@ The purpose of this http-triggered logic-app scheduled Azure Function is to peri
 
 ### "AzureWebJobsStorage" app setting is not present
 
-![Alt text](image-36.png)
+![Alt text](images\image-36.png)
 
 The "AzureWebJobsStorage" app setting error indicates that our Azure Functions app is missing a crucial configuration related to the storage account connection string. This could also be realted to the following deployment failure message
 
@@ -386,7 +386,7 @@ Following these steps will resolve the error related to the "AzureWebJobsStorage
 
 Ideally, if you want to add an Azure Function to a Logic App, it should appear like this:
 
-![Alt text](image-37.png)
+![Alt text](images\image-37.png)
 
 However, sometimes you may encounter the main Azure App, but not the bespoke function you created. Instead, you might see an error message such as "No resources of this type found under this subscription." One of the reason for this could be realted to the storage account which the Azure Function uses. There could be other reason's too like the different regions. 
 
@@ -394,7 +394,7 @@ However, sometimes you may encounter the main Azure App, but not the bespoke fun
 
 If your Logic App consistently displays a "Running" status for a prolonged duration, several factors might be at play. A common cause is when an HTTP Webhook action is used; the Logic App waits for the webhook's response. It's crucial to verify that the webhook returns a response. Otherwise, the Logic App's status remains "Running" until a timeout or until a response is received.
 
-![Alt text](image-64.png)
+![Alt text](images\image-64.png)
 
 A solution is to use a straightforward `HTTP action`. In this method, the step won't await any response; it marks itself as successful upon receiving an output.
 
@@ -460,15 +460,15 @@ To summarize, our storage strategy not only prepares our data for immediate anal
 An Azure Functions App acts as a host for one or more Azure Functions. In essence, while an individual Azure Function is a piece of code that runs in response to an event, the Function App serves as the hosting and management unit for that function (or multiple functions).
 
 - To create an Azure Function, click "Create" under "Function App".
-![Alt text](image-2.png)
+![Alt text](images\image-2.png)
 - Fill in the required details, including Subscription, Resource Group, Function App name, etc. For the runtime, choose Python. Click "Review + create" and then "Create".
-![Alt text](image-3.png)
+![Alt text](images\image-3.png)
 
 ### Azure Function VS-Code Project Folder Structure
 
 Visual Studio Creates the following project structure for Azure Functions Project:
 
-![Alt text](image-61.png)
+![Alt text](images\image-61.png)
 
 The main Project Folder **<project_root>** Contents:
 
@@ -493,7 +493,7 @@ Each function defined in `function_app.py` must specify several crucial elements
 - **Function Trigger**: This defines what activates the function. For example, it could be triggered by an HTTP request or based on a timer schedule.
 - **Function Code**: This is where you place the actual logic for the function.
 
-![Alt text](image-12.png)
+![Alt text](images\image-12.png)
 
 Note, that the structure of `function_app.py` varies a little bit based on the type of trigger used. E.g., when creating a Timer-triggered function, a specific template code is generated VS Code. 
 

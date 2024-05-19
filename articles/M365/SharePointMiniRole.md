@@ -29,7 +29,7 @@ This freedom, and lack of guidance, gave a lot of flexibility. But, you had to b
 
 Also, like before, you can still install 'anything anywhere' by clicking 'Custom' MiniRole optioin. This is how the new installer shows them:
 
-![alt text](image-6.png)
+![alt text](images\image-6.png)
 
 #### Dedicated MinRole:
 
@@ -38,7 +38,7 @@ Also, like before, you can still install 'anything anywhere' by clicking 'Custom
 - **Distributed Cache**
 - **Search**
 
-![dedicated_roles](image-10.png)
+![dedicated_roles](images\image-10.png)
 *From Microsoft Site*
 
 
@@ -47,7 +47,7 @@ Also, like before, you can still install 'anything anywhere' by clicking 'Custom
 - **Single-Farm**: All-in-one. Before called, Standalone Install mode. Used for Dev.
 - **Custom**: Anything-anywhere. The-way-you-like-it
 
-![alt text](image-12.png)
+![alt text](images\image-12.png)
 *From Microsoft Site*
 
 #### Shared MiniRoles:
@@ -55,7 +55,7 @@ Also, like before, you can still install 'anything anywhere' by clicking 'Custom
 - **Front-End + Distributed Cache**
 - **Application +  Search**
 
-![alt text](image-11.png)
+![alt text](images\image-11.png)
 *From Microsoft Site*
 
 

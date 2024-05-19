@@ -122,4 +122,4 @@ Below activities will be performed to accomplish the task.
 
 Below image shows the proposed high-level structure of the Farm
 
-![alt text](image-3.png)
+![alt text](images\image-3.png)
