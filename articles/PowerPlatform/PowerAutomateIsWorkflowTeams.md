@@ -19,20 +19,20 @@ The **Workflow app** within Microsoft Teams seamlessly integrates **Power Automa
 
 - Previously known as "Power Automate," the app was rebranded as "Workflow" around November 2023.
 
-![alt text](image-66.png)
+![alt text](images\image-66.png)
 
 - The Workflow app allows you to create Power Automate workflows from scratch or utilize pre-built templates.
 
-![alt text](image-63.png)
+![alt text](images\image-63.png)
 
 - Access these templates directly within Teams, making it convenient to get started with automation.
 - All workflows created within the Workflow app are powered by Power Automate.
 
-![alt text](image-64.png)
+![alt text](images\image-64.png)
 
 - The app is completely identical to ***make.powerautomate.com***.
 
-![alt text](image-65.png)
+![alt text](images\image-65.png)
 
 ## <span style="color: Chocolate;Font-family: Segoe UI, sans-serif;">Getting Started</span>
 

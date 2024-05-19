@@ -4,7 +4,7 @@ title: PowerPlatform Ecosystem
 parent: Power Platform
 nav_order: 1
 ---
-![alt text](image-5.png)
+![alt text](images\image-5.png)
 
 <h2 style="color: #003366;">Microsoft Power Platform</h2>
 
@@ -75,39 +75,39 @@ nav_order: 1
 - 4TB  storage limit
 - You can apply business logic to tables! E.g. If country is US, then postal code mandatory.
 
-![alt text](image-15.png)
+![alt text](images\image-15.png)
 
 ## Copilot
 
 This is like GPT4/Bing. Here, you just say in plain English what you want. CoPilot will create the power automate/App for you!
 
-![alt text](image-6.png)
+![alt text](images\image-6.png)
 
 
-![alt text](image-7.png)
+![alt text](images\image-7.png)
 
 ## Copilot Studio
 
 Now using Copilot it becomes easy to create a working bot without the complexity which was there earlier.
 
-![alt text](image-8.png)
+![alt text](images\image-8.png)
 
 ## Power FX
 
 This is the language of PowerPlatform. It's like Excel formulas. Its used in PowerApps, Dataverse and Copilot Studio.
 
-![alt text](image-9.png)
+![alt text](images\image-9.png)
 
 ## Power Platform and Microsoft Teams
 
 All power platform components can be used from within MS Teams.
 
-![alt text](image-10.png)
+![alt text](images\image-10.png)
 
 
-![alt text](image-12.png)
+![alt text](images\image-12.png)
 
-![alt text](image-11.png)
+![alt text](images\image-11.png)
 
 ## Power Platform & Dynamics 365
 
@@ -127,13 +127,13 @@ Power Platform and Azure offer countless ways to create end-to-end solutions. Ta
 - Azure Bot Service powers a custom bot messaging service for flight updates in Teams.
 - Azure Data Lake stores event data from Event Hubs for long-term retention and analytics with Power BI.
 
-![alt text](image-13.png)
+![alt text](images\image-13.png)
 
 ## Dataverse OOTB features
 
 Here is a picture showing OOTB features of Dataverse
 
-![alt text](image-14.png)
+![alt text](images\image-14.png)
 
 ## Dataflows
 
@@ -142,7 +142,7 @@ Here is a picture showing OOTB features of Dataverse
 - Uses power query(Like Excel)
 - No infra required, fully on cloud
 - No sep license, use Power BI / Power Apps license
-![alt text](image-16.png)
+![alt text](images\image-16.png)
 
 ## Common Data Model
 
@@ -152,12 +152,12 @@ Long story short: Use Common Data Model. Save yourself from complex data modelli
 
 ## Data Sources | Triggers & Action | Connector Types 
 
-![alt text](powerPlatformDataConnectors.png)
+![alt text](images\powerPlatformDataConnectors.png)
 
 ## Dataverse Table Creation
 
 We might also call this as creation of a basic Dataverse Model.
-![alt text](CreateDataverseTable.gif)
+![alt text](images\CreateDataverseTable.gif)
 
 
 ## Dataverse vs. MSSQL
@@ -175,7 +175,7 @@ We might also call this as creation of a basic Dataverse Model.
 |**Business Logic (Table Level)** | Power Automate Workflows | Stored Procedures, Triggers |
 |**Business Logic (Column Level)** | Validation Rules, Workflows | Constraints, Triggers |
 
-![alt text](db_vs_dataverse.jpg)
+![alt text](images\db_vs_dataverse.jpg)
 
 
 ## What is PowerApps?
@@ -190,5 +190,5 @@ Non-dataverse apps. Here the developer's focuses on the screen. Data comes secon
 
 Dataverse-only apps. Here the developer's focuses on the data. Scren comes second.
 
-![alt text](image-87.png)
+![alt text](images\image-87.png)
 

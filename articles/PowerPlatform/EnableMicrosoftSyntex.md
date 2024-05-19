@@ -24,9 +24,9 @@ Image Tagging, Taxonomy Tagging, and Translation are also available.
 
 2. **Navigate to Files and Content Settings**:
    - In the admin center, go to **Setup**.
-      ![alt text](image-60.png)
+      ![alt text](images\image-60.png)
    - Under the **Files and content** section, select **Use content AI with Microsoft Syntex**.
-      ![alt text](image-61.png)
+      ![alt text](images\image-61.png)
 
 3. **Manage Microsoft Syntex**:
    - On the **Use content AI with Microsoft Syntex** page, click **Manage Microsoft Syntex**.

@@ -27,13 +27,13 @@ Give the application user read/write access to the tables.
 Application users system accounts for background  tasks. You shouldn't update them or change their security roles. They don't consume any license.  The application users are given access to environment's data on behalf of the user who's using the application.
 
 - Go to PPAC https://admin.powerplatform.microsoft.com/ -> Environments -> Select the environment
-![alt text](image-44.png)
+![alt text](images\image-44.png)
 
 - Click Settings
-![alt text](image-45.png)
+![alt text](images\image-45.png)
 
 - Click **Users + permissions** -> **Application users**.
-  ![alt text](image-46.png)
+  ![alt text](images\image-46.png)
 - Click **+ New app user**.
 
 Certainly! Let's delve into managing application users in the **Power Platform admin center**. This process is crucial for ensuring smooth access and security within your environment. Below, I'll outline the steps involved:

@@ -6,7 +6,7 @@ nav_order: 1
 ---
 - [What are model-driven apps?](#what-are-model-driven-apps)
 
-![alt text](image-89.png)
+![alt text](images\image-89.png)
 ### What are model-driven apps?
 
 In canvas apps you have complete control over everything. In model-driven apps the layout done already  on the components you choose.
@@ -17,12 +17,12 @@ Remember: Canvas apps can have many data sources. <span style="color: red; font-
 
 Model-driven apps start with a page:
 
-![alt text](image-88.png)
+![alt text](images\image-88.png)
 
 Different types of pages are Dataverse table, Dashboard, URL, Web resource, and Custom
 
-![alt text](pages_model_driven_apps.png)
+![alt text](images\pages_model_driven_apps.png)
 
 Remember: Two pages for each Dataverse table
 
-![alt text](image-90.png)
+![alt text](images\image-90.png)

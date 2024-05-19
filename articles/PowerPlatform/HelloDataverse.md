@@ -11,7 +11,7 @@ nav_order: 1
   - [Long story short](#long-story-short)
   - [How to choose?](#how-to-choose)
 
-![alt text](planet_dataverse.png)
+![alt text](images\planet_dataverse.png)
 
 
 
@@ -26,7 +26,7 @@ Dataverse is Power Platform's Database - for simplicty.
 
 ## Dataverse Storage - behind the scenes
 
-![alt text](howdataverse.png)
+![alt text](images\howdataverse.png)
 
 ## <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Dataverse vs. MSSQL Tables: A Quick Comparison</span>
 
@@ -110,5 +110,5 @@ Also, here are some differences between the types of tables allowed in both.
 - For Power Platform users, Dataverse stands out as the go-to choice. User-friendly interface and low-code approach make it ideal for simple data models. Built-in security and lots of OOTB tables for various applications will give you a head start. These pre-built tables can be used immediately and further customized for specific needs.
 - Alternatively, choose MSSQL if you have a complex data model, want to build things from scratch and want to store a huge volume of data.
 
-![alt text](db_vs_dataverse-1.jpg)
+![alt text](images\db_vs_dataverse-1.jpg)
 
