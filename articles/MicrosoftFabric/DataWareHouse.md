@@ -92,15 +92,15 @@ Here I will show you how easy it is to create a left-outer join of Two tables - 
 
 Just drag both the tables on to the canvas then perform the steps as shown in the image below
 
-![alt text](image.png)
+![alt text](images\visualqueryfabric.png)
 
 Then select the required column. Here we selected ProductName.
 
-![alt text](image-1.png)
+![alt text](images\visualqueryfabric2.png)
 
 Then create a Power BI Reports quickly:
 
-![alt text](image-2.png)
+![alt text](images\visualqueryfabric3.png)
 
 
 ## Appendix
