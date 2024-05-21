@@ -19,3 +19,13 @@ nav_order: 2
 
 ### Write Delta Table
 ![\alt text](images\SaveAstable.png)
+
+# SQL
+
+CREATE OR REPLACE VIEW <VIEWNAME> doesn't work in Fabric/AzureSynapse/ADF etc. Instead use this:
+```SQL
+If Exists (Select * From sys.sysobjects where name = 'apple')
+    DROP TABLE dbo.apple;
+GO
+```
+![alt text](images/Drop_If_Exists_Full.png)

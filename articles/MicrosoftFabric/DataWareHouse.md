@@ -2,12 +2,15 @@
   - [Background](#background)
   - [Fact and Dimension Table Concepts](#fact-and-dimension-table-concepts)
   - [Surrogate keys and alternte keys](#surrogate-keys-and-alternte-keys)
+  - [How data is ingested into a warehouse in Fabric?](#how-data-is-ingested-into-a-warehouse-in-fabric)
+    - [COPY into syntax](#copy-into-syntax)
+    - [Fabric Datawarehouse interface](#fabric-datawarehouse-interface)
+    - [Visual Query in Fabric](#visual-query-in-fabric)
+  - [Appendix](#appendix)
   - [Special Types of Dimension Tables](#special-types-of-dimension-tables)
     - [Time Dimensions](#time-dimensions)
     - [Slowly Changing Dimensions (SCD)](#slowly-changing-dimensions-scd)
     - [Real-Life Impact](#real-life-impact)
-  - [How data is ingested into a warehouse in Fabric?](#how-data-is-ingested-into-a-warehouse-in-fabric)
-    - [COPY into syntax](#copy-into-syntax)
 
 ![alt text](images\FabricWareHouseIcon.webp)
 
@@ -29,6 +32,29 @@ If earth is a database then Sun is a warehouse. Fabric's warehouse is unique - *
 
 ![\alt text](images\DimensionTableAnalogy.png)
 
+
+**Examples:**
+
+
+| Column             | Fact Table        | Dimension Table  |
+|-----------------------|-------------------|------------------|
+| Sales Amount          | ✔                 |                  |
+| Order Quantity        | ✔                 |                  |
+| Product ID            |                   | ✔                |
+| Customer ID           |                   | ✔                |
+| Transaction Date      | ✔                 |                  |
+| Product Name          |                   | ✔                |
+| Customer Name         |                   | ✔                |
+| Supplier ID           |                   | ✔                |
+| Supplier Name         |                   | ✔                |
+| Discount Rate         | ✔                 |                  |
+| Revenue               | ✔                 |                  |
+| Store Location        |                   | ✔                |
+| Category              |                   | ✔                |
+| Time (Hour, Day, Month, Year) |                   | ✔                |
+| Payment Method        |                   | ✔                |
+
+
 ## Surrogate keys and alternte keys
 
 **Surrogate key**: A unique key for each row. Like a cop's badge number. Its unique in the police department.
@@ -37,7 +63,47 @@ If earth is a database then Sun is a warehouse. Fabric's warehouse is unique - *
 
 ![\alt text](images\image-47.png)
 
-Certainly! Here’s a real-world example that illustrates the concepts of special types of dimension tables, including time dimensions and slowly changing dimensions, in a more relatable context:
+
+## How data is ingested into a warehouse in Fabric?
+
+Data is ingested using: **Pipelines**, **Dataflows**, **cross-database querying**, and the **COPY INTO** command.
+
+### COPY into syntax
+
+```SQL
+COPY INTO dbo.apple 
+FROM 'https://abc/xxx.csv' WITH ( 
+            FILE_TYPE = 'CSV'
+            ,CREDENTIAL = ( 
+                IDENTITY = 'Shared Access Signature'
+                , SECRET = 'xxx'
+                )
+            ,FIRSTROW = 2
+            )
+GO
+```
+
+### Fabric Datawarehouse interface
+![alt text](images/fabricwarehousegui.png)
+
+### Visual Query in Fabric
+
+Here I will show you how easy it is to create a left-outer join of Two tables - DimProduct & FactSalesOrder
+
+Just drag both the tables on to the canvas then perform the steps as shown in the image below
+
+![alt text](image.png)
+
+Then select the required column. Here we selected ProductName.
+
+![alt text](image-1.png)
+
+Then create a Power BI Reports quickly:
+
+![alt text](image-2.png)
+
+
+## Appendix
 
 ## Special Types of Dimension Tables
 
@@ -118,22 +184,3 @@ In a slowly changing dimension scenario, ShopEZ's data warehouse can handle this
 Using time dimensions, ShopEZ can identify that sales peak during certain times, such as Black Friday or Christmas. This insight helps them plan inventory, staffing, and marketing campaigns more effectively.
 
 With slowly changing dimensions, ShopEZ can track changes in customer behavior and preferences over time. For example, they can see that Sarah Lee upgraded her membership tier from Silver to Gold, indicating increased engagement and spending.
-
-## How data is ingested into a warehouse in Fabric?
-
-Data is ingested using: **Pipelines**, **Dataflows**, **cross-database querying**, and the **COPY INTO** command.
-
-### COPY into syntax
-
-```SQL
-COPY INTO dbo.apple 
-FROM 'https://abc/xxx.csv' WITH ( 
-            FILE_TYPE = 'CSV'
-            ,CREDENTIAL = ( 
-                IDENTITY = 'Shared Access Signature'
-                , SECRET = 'xxx'
-                )
-            ,FIRSTROW = 2
-            )
-GO
-```
