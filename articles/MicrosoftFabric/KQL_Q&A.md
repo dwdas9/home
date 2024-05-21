@@ -9,6 +9,9 @@ nav_order: 7
 
 ![alt text](KQL_Q&A.png)
 
+
+**Highlight the answers to reveal it!**
+
 ## KQL Questions - Keywords
 
 1. Which KQL keyword is used to limit the results of a query to a specified number of rows?
