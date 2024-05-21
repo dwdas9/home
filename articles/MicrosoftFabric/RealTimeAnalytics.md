@@ -4,17 +4,17 @@ Synapse Real-Time Analytics in Fabric uses a KQL Database. In Fabric, you only n
 
 ###  Synapse Real-Time Analytics - Let's get started
 
-![alt text](image-3.png)
+![alt text](images\realtimeint.png)
 
-![alt text](image-4.png)
+![alt text](images\fabricstartscreen.png)
 
 Create a Eventhouse first - Eventhouses are groups of Databases.
 
 When you create a Eventhouse Fabric will create a KQL Databse with the same name inside it.
 
-![alt text](image-5.png)
+![alt text](images\eventhouse.png)
 
-![alt text](image-6.png)
+![alt text](images\ingestsomedata.png)
 
 Now save this csv table to dekstop and ingest this data into the KQL datbase:
 https://raw.githubusercontent.com/MicrosoftLearning/dp-data/main/sales.csv
@@ -42,13 +42,13 @@ sales
 
 **Little more complex**
 
-![alt text](image-8.png)
+![alt text](images\littlemorecomplex.png)
 
 ### Create a Power BI report from KQL Queryset
 
 Click on the 3 dots next to the table. Select Show any 100 records. It will open the KQL editor. Create your custom KQL query. You can either save it or create the Power BI report right from the editor.
 
-![alt text](image-9.png)
+![alt text](images\powerbikql.png)
 
 ## KQL Cheatsheet
 

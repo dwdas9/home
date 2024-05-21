@@ -7,7 +7,7 @@ nav_order: 7
 - [KQL Questions - Keywords](#kql-questions---keywords)
 - [KQL Quesitons - General](#kql-quesitons---general)
 
-![alt text](KQL_Q&A.png)
+![alt text](images\KQL_Q&A.png)
 
 
 **Highlight the answers to reveal it!**
