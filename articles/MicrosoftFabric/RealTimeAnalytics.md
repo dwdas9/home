@@ -4,120 +4,64 @@ title: Real-time Intelligence
 parent: MicrosoftFabric
 nav_order: 5
 ---
+- [Real-time Intelligence - Microsoft Fabric](#real-time-intelligence---microsoft-fabric)
+  - [Core elements of Real-Time Intelligence in Microsoft Fabric](#core-elements-of-real-time-intelligence-in-microsoft-fabric)
+    - [Eventhouse](#eventhouse)
+    - [KQL Database](#kql-database)
+    - [KQL Queryset](#kql-queryset)
+    - [Real-Time Dashboards](#real-time-dashboards)
+    - [Eventstream](#eventstream)
+  - [Let's Get Started](#lets-get-started)
+  - [Create a Power BI Report from KQL Queryset](#create-a-power-bi-report-from-kql-queryset)
 
 
-## Background
+# Real-time Intelligence - Microsoft Fabric
 
+![alt text](image.png)
 
 ## Core elements of Real-Time Intelligence in Microsoft Fabric
 
 ![alt text](CoreFabricRealTimeInt.png)
 
-## Eventhouse
+### Eventhouse
 
-![alt text](eventhousestage.png)
+![alt text](eventhouse.png)
+
 
 - Central workspace/hub - has multiple KQL databases
 - Use an Eventhouse for event-based scenarios
 - Automatically index and partition data based on ingestion time
 - When you create an EventHouse, it initializes a KQL database with the same name inside it
 - KQL databses can be standalone or part of an EventHouse
+- Can ingest data from multiple sources
 
-## KQL Database
+![alt text](image-1.png)
+
+### KQL Database
 
 ![alt text](KQLDB.webp)
 
-A **KQL (Kusto Query Language) Database** handles large volumes of structured, semi-structured, and unstructured data for real-time analytics and ad-hoc querying. It is part of the Azure Data Explorer service.
-
-- **Data Storage:** The data in a KQL database is stored in Azure Data Explorer. It uses a columnar storage format, which is optimized for high-performance analytical queries.
-
-**KQL Database Objects**
-- **Tables**: Contains columns and rows of data with a defined schema. Commands: `.create table`, `.show table`, `.ingest`.
-- **Functions**: Encapsulate subquery expressions for reuse. Commands: `.create function`, `.show functions`.
-- **Materialized Views**: Stores precomputed query results for faster access. Commands: `.create materialized-view`, `.show materialized-views`.
-- **Datastreams**: Representations of connected KQL event streams.
-
-**Quick Commands**
-- **Create Table**: `.create table`
-- **Show Table Schema**: `.show table`
-- **Ingest Data**: `.ingest`
-- **Create Function**: `.create function`
-- **Show Functions**: `.show functions`
-- **Create Materialized View**: `.create materialized-view`
-- **Show Materialized Views**: `.show materialized-views`
+A **KQL (Kusto Query Language) Database** handles large volumes of structured, semi-structured, and unstructured data for real-time analytics and ad-hoc querying. It is part of the Azure Data Explorer service. The data in a KQL database is **stored in Azure Data Explorer**. It uses a **columnar storage** format, for high-performance.
 
 
-### KQL Database vs. Standard SQL Database
-
-| Feature                     | KQL Database                                     | Standard SQL Database                           |
-|-----------------------------|--------------------------------------------------|-------------------------------------------------|
-| **Query Language**          | Kusto Query Language (KQL)                       | Structured Query Language (SQL)                 |
-| **Storage Format**          | Columnar                                         | Row-based                                       |
-| **Optimized For**           | Real-time analytics, log and time-series data    | Transactional data, relational data             |
-| **Data Structure**          | Tables, columns, materialized views, functions   | Tables, columns, views, stored procedures       |
-| **Scalability**             | Highly scalable and distributed                  | Varies by implementation (SQL Server, MySQL, etc.) |
-| **Indexing**                | Automatically indexed for fast query performance | Manual and automatic indexing                   |
-| **Data Ingestion**          | Supports batch and streaming ingestion           | Primarily batch ingestion                       |
-| **Use Cases**               | Log analytics, telemetry data, IoT data          | OLTP, data warehousing, reporting               |
-| **Storage Location**        | Azure Data Explorer service in the cloud         | Varies (on-premises, cloud-based)               |
-| **Performance**             | Optimized for read-heavy and analytical workloads| Balanced for read and write operations          |
-| **Schema**                  | Flexible schema with support for semi-structured data | Rigid schema with well-defined data types       |
-
-### KQL - It's So Easy to Learn
-
-**Select Where:**
-```kql
-sales
-| where Country == 'Peru'
-```
-
-**Select Where with Multiple Clauses:**
-```kql
-sales
-| where Name == 'Tom'
-| where Place == 'USA'
-```
-
-**More Complex Example:**
-
-  ![Complex KQL Example](images/littlemorecomplex.png)  
-
-### KQL Vs SQL
-
-#### Basic Queries
-
-| **Operation**          | **SQL**                                                                                               | **KQL**                                                                                                           |
-|------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **Select Query**       | `SELECT Name, Age FROM Employees WHERE Age > 30;`                                                     | `Employees \| where Age > 30 \| project Name, Age`                                                                |
-| **Count**              | `SELECT COUNT(*) FROM Orders WHERE Status = 'Shipped';`                                               | `Orders \| where Status == "Shipped" \| summarize count()`                                                        |
-| **Group By**           | `SELECT Department, AVG(Salary) AS AverageSalary FROM Employees GROUP BY Department;`                 | `Employees \| summarize AverageSalary=avg(Salary) by Department`                                                  |
-| **Join**               | `SELECT e.Name, d.DepartmentName FROM Employees e JOIN Departments d ON e.DepartmentID = d.ID;`       | `Employees \| join kind=inner (Departments) on $left.DepartmentID == $right.ID \| project Name, DepartmentName`   |
-
-#### Advanced Queries
-
-| **Operation**          | **SQL**                                                                                               | **KQL**                                                                                                           |
-|------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **Order By**           | `SELECT Name, Age FROM Employees WHERE Age > 30 ORDER BY Age DESC;`                                    | `Employees \| where Age > 30 \| sort by Age desc \| project Name, Age`                                            |
-| **Limit**              | `SELECT Name, Age FROM Employees WHERE Age > 30 ORDER BY Age DESC LIMIT 10;`                           | `Employees \| where Age > 30 \| sort by Age desc \| project Name, Age \| take 10`                                  |
-| **Subquery**           | `SELECT Name FROM (SELECT * FROM Employees WHERE Age > 30) AS SubQuery WHERE DepartmentID = 5;`        | `let SubQuery = Employees \| where Age > 30; SubQuery \| where DepartmentID == 5 \| project Name`                  |
-| **String Functions**   | `SELECT Name FROM Employees WHERE UPPER(FirstName) = 'JOHN';`                                         | `Employees \| where tolower(FirstName) == 'john' \| project Name`                                                 |
-| **Date Functions**     | `SELECT Name FROM Employees WHERE YEAR(HireDate) = 2020;`                                             | `Employees \| where datetime_part('year', HireDate) == 2020 \| project Name`                                       |
-
-
-
-## KQL Queryset
+### KQL Queryset
 - Tool for running, viewing, and manipulating KQL database queries.
 - Save, export, and share queries.
 - Uses Kusto Query Language (KQL) and supports T-SQL.
 - Allows complex query creation and execution.
 
-## Real-Time Dashboards
+### Real-Time Dashboards
+![alt text](<real-time dashboard.webp>)
+
 - Customizable control panels for displaying specific data.
 - Tiles for different data views, organized on various pages.
 - Export KQL queries into visual tiles.
 - Enhances data exploration and visualization.
 
-## Eventstream
+### Eventstream
+
+![alt text](REAL-TIME-PROCESSING.png)
+
 - Handles live data without coding.
 - Automates data collection, transformation, and distribution.
 - Processes real-time data for immediate insights.
@@ -144,7 +88,7 @@ sales
 
 
  
-### Create a Power BI Report from KQL Queryset
+## Create a Power BI Report from KQL Queryset
 
 1. Click the three dots next to the table.
 2. Select "Show any 100 records" to open the KQL editor.
