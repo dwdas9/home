@@ -1,58 +1,90 @@
+---
+layout: default
+title: Real-time Intelligence
+parent: MicrosoftFabric
+nav_order: 5
+---
+
+
 ## Background
 
-Synapse Real-Time Analytics in Fabric uses a KQL Database. In Fabric, you only need a source and a Kusto database to start streaming data in and out of Fabric and writing your queries using KQL. Microsoft Fabric also provides KQL Querysets that can be shared within the tenant and Power BI using what's known as quick create.
 
-###  Synapse Real-Time Analytics - Let's get started
+## Core elements of Real-Time Intelligence in Microsoft Fabric
 
-![alt text](images\realtimeint.png)
+![alt text](CoreFabricRealTimeInt.png)
 
-![alt text](images\fabricstartscreen.png)
+## Eventhouse
 
-Create a Eventhouse first - Eventhouses are groups of Databases.
+![alt text](eventhousestage.png)
 
-When you create a Eventhouse Fabric will create a KQL Databse with the same name inside it.
+- Central workspace/hub - has multiple KQL databases
+- Use an Eventhouse for event-based scenarios
+- Automatically index and partition data based on ingestion time
+- When you create an EventHouse, it initializes a KQL database with the same name inside it
+- KQL databses can be standalone or part of an EventHouse
 
-![alt text](images\eventhouse.png)
+## KQL Database
 
-![alt text](images\ingestsomedata.png)
+![alt text](KQLDB.webp)
 
-Now save this csv table to dekstop and ingest this data into the KQL datbase:
-https://raw.githubusercontent.com/MicrosoftLearning/dp-data/main/sales.csv
+A **KQL (Kusto Query Language) Database** handles large volumes of structured, semi-structured, and unstructured data for real-time analytics and ad-hoc querying. It is part of the Azure Data Explorer service.
 
-The data ingestion is pretty straightforward. Once you ingest you can see the table you created to ingest the data with the required columns:
+- **Data Storage:** The data in a KQL database is stored in Azure Data Explorer. It uses a columnar storage format, which is optimized for high-performance analytical queries.
 
-![alt text](image-7.png)
+**KQL Database Objects**
+- **Tables**: Contains columns and rows of data with a defined schema. Commands: `.create table`, `.show table`, `.ingest`.
+- **Functions**: Encapsulate subquery expressions for reuse. Commands: `.create function`, `.show functions`.
+- **Materialized Views**: Stores precomputed query results for faster access. Commands: `.create materialized-view`, `.show materialized-views`.
+- **Datastreams**: Representations of connected KQL event streams.
 
-### KQL - its so easy to learn
+**Quick Commands**
+- **Create Table**: `.create table`
+- **Show Table Schema**: `.show table`
+- **Ingest Data**: `.ingest`
+- **Create Function**: `.create function`
+- **Show Functions**: `.show functions`
+- **Create Materialized View**: `.create materialized-view`
+- **Show Materialized Views**: `.show materialized-views`
 
 
-**Select where**
+### KQL Database vs. Standard SQL Database
 
+| Feature                     | KQL Database                                     | Standard SQL Database                           |
+|-----------------------------|--------------------------------------------------|-------------------------------------------------|
+| **Query Language**          | Kusto Query Language (KQL)                       | Structured Query Language (SQL)                 |
+| **Storage Format**          | Columnar                                         | Row-based                                       |
+| **Optimized For**           | Real-time analytics, log and time-series data    | Transactional data, relational data             |
+| **Data Structure**          | Tables, columns, materialized views, functions   | Tables, columns, views, stored procedures       |
+| **Scalability**             | Highly scalable and distributed                  | Varies by implementation (SQL Server, MySQL, etc.) |
+| **Indexing**                | Automatically indexed for fast query performance | Manual and automatic indexing                   |
+| **Data Ingestion**          | Supports batch and streaming ingestion           | Primarily batch ingestion                       |
+| **Use Cases**               | Log analytics, telemetry data, IoT data          | OLTP, data warehousing, reporting               |
+| **Storage Location**        | Azure Data Explorer service in the cloud         | Varies (on-premises, cloud-based)               |
+| **Performance**             | Optimized for read-heavy and analytical workloads| Balanced for read and write operations          |
+| **Schema**                  | Flexible schema with support for semi-structured data | Rigid schema with well-defined data types       |
+
+### KQL - It's So Easy to Learn
+
+**Select Where:**
 ```kql
 sales
 | where Country == 'Peru'
 ```
 
-**Select where multiple clause**
+**Select Where with Multiple Clauses:**
 ```kql
 sales
 | where Name == 'Tom'
 | where Place == 'USA'
 ```
 
-**Little more complex**
+**More Complex Example:**
 
-![alt text](images\littlemorecomplex.png)
+  ![Complex KQL Example](images/littlemorecomplex.png)  
 
-### Create a Power BI report from KQL Queryset
+### KQL Vs SQL
 
-Click on the 3 dots next to the table. Select Show any 100 records. It will open the KQL editor. Create your custom KQL query. You can either save it or create the Power BI report right from the editor.
-
-![alt text](images\powerbikql.png)
-
-## KQL Cheatsheet
-
-Sure, here's the table without the "Learn more" column and with color coding for better readability:
+The table below shows the syntax difference between common commands. SQL syntax is simple, KQL is simpler!
 
 | <span style="color: blue;">Category</span>                    | <span style="color: green;">SQL Query</span>                               | <span style="color: red;">Kusto Query</span>                                         |
 |-----------------------------|----------------------------------------------|---------------------------------------------------|
@@ -78,3 +110,56 @@ Sure, here's the table without the "Learn more" column and with color coding for
 | Join                        | SELECT * FROM Mango LEFT OUTER JOIN Apple ON Mango.operation_Id = Apple.operation_Id | Mango \| join kind = leftouter (Apple) on $left.operation_Id == $right.operation_Id |
 | Nested queries              | SELECT * FROM Mango WHERE resultCode = (SELECT TOP 1 resultCode FROM Mango WHERE resultId = 7 ORDER BY timestamp DESC) | Mango \| where resultCode == toscalar(Mango \| where resultId == 7 \| top 1 by timestamp desc \| project resultCode) |
 | Having                      | SELECT COUNT(*) FROM Mango GROUP BY name HAVING COUNT(*) > 3 | Mango \| summarize Count = count() by name \| where Count > 3 |
+
+## KQL Queryset
+- Tool for running, viewing, and manipulating KQL database queries.
+- Save, export, and share queries.
+- Uses Kusto Query Language (KQL) and supports T-SQL.
+- Allows complex query creation and execution.
+
+## Real-Time Dashboards
+- Customizable control panels for displaying specific data.
+- Tiles for different data views, organized on various pages.
+- Export KQL queries into visual tiles.
+- Enhances data exploration and visualization.
+
+## Eventstream
+- Handles live data without coding.
+- Automates data collection, transformation, and distribution.
+- Processes real-time data for immediate insights.
+
+## Let's Get Started
+
+- **Open Real-Time Intelligence:** Select it from the bottom left-hand corner of the screen:
+
+  ![Real-Time Intelligence](images/realtimeint.png)  
+
+- **Start Screen:** Here is how it looks:
+
+  ![Fabric Start Screen](images/fabricstartscreen.png)  
+
+- **Create an Eventhouse:** Eventhouses are groups of databases. When you create an Eventhouse, Fabric creates a KQL Database with the same name inside it:
+
+  ![Eventhouse](images/eventhouse.png)  
+
+- **KQL Database Structure:** This is the standard structure:
+
+  ![KQL Database Structure](KQLDBStructure.png)
+
+**Data Ingestion:** Importing data from files like .csv is a childs play using the GUI, which creates a fully structured database with the correct columns.
+
+
+ 
+### Create a Power BI Report from KQL Queryset
+
+1. Click the three dots next to the table.
+2. Select "Show any 100 records" to open the KQL editor.
+3. Create your custom KQL query.
+4. Save the query or create the Power BI report directly from the editor.
+
+  ![Power BI from KQL](images/powerbikql.png)  
+
+
+
+
+
