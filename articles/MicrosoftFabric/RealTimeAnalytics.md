@@ -84,32 +84,26 @@ sales
 
 ### KQL Vs SQL
 
-The table below shows the syntax difference between common commands. SQL syntax is simple, KQL is simpler!
+#### Basic Queries
 
-| <span style="color: blue;">Category</span>                    | <span style="color: green;">SQL Query</span>                               | <span style="color: red;">Kusto Query</span>                                         |
-|-----------------------------|----------------------------------------------|---------------------------------------------------|
-| Select data from table      | SELECT * FROM Mango                          | Mango                                            |
-|                             | SELECT name, resultCode FROM Mango           | Mango \| project name, resultCode                 |
-|                             | SELECT TOP 100 * FROM Mango                  | Mango \| take 100                                 |
-| Null evaluation             | SELECT * FROM Mango WHERE resultCode IS NOT NULL | Mango \| where isnotnull(resultCode)              |
-| Comparison operators (date) | SELECT * FROM Mango WHERE timestamp > getdate()-1 | Mango \| where timestamp > ago(1d)                |
-|                             | SELECT * FROM Mango WHERE timestamp BETWEEN ... AND ... | Mango \| where timestamp between (datetime(2020-01-01) .. datetime(2020-12-31)) |
-| Comparison operators (string) | SELECT * FROM Mango WHERE type = "Apple"   | Mango \| where type == "Apple"                    |
-|                             | SELECT * FROM Mango WHERE type like "%Apple%" | Mango \| where type has "Apple"                   |
-|                             | SELECT * FROM Mango WHERE type like "Apple%" | Mango \| where type startswith "Apple" \| or \| Mango \| where type matches regex "^Apple.*" |
-| Comparison (boolean)        | SELECT * FROM Mango WHERE !(success)         | Mango \| where success == False                   |
-| Grouping, Aggregation       | SELECT name, AVG(duration) FROM Mango GROUP BY name | Mango \| summarize avg(duration) by name          |
-| Distinct                    | SELECT DISTINCT name, type FROM Mango        | Mango \| summarize by name, type                  |
-|                             | SELECT name, COUNT(DISTINCT type) FROM Mango GROUP BY name | Mango \| summarize by name, type \| summarize count() by name \| or \| Mango \| summarize dcount(type) by name |
-| Column aliases, Extending   | SELECT operationName as Name, AVG(duration) as AvgD FROM Mango GROUP BY name | Mango \| summarize AvgD = avg(duration) by Name=operationName |
-|                             | SELECT conference, CONCAT(sessionid, ' ', session_title) AS session FROM ConferenceSessions | ConferenceSessions \| extend session=strcat(sessionid, " ", session_title) \| project conference, session |
-| Ordering                    | SELECT name, timestamp FROM Mango ORDER BY timestamp ASC | Mango \| project name, timestamp \| sort by timestamp asc nulls last |
-| Top n by measure            | SELECT TOP 100 name, COUNT(*) as Count FROM Mango GROUP BY name ORDER BY Count DESC | Mango \| summarize Count = count() by name \| top 100 by Count desc |
-| Union                       | SELECT * FROM Mango UNION SELECT * FROM Apple | union Mango, Apple                              |
-|                             | SELECT * FROM Mango WHERE timestamp > ... UNION SELECT * FROM Apple WHERE timestamp > ... | Mango \| where timestamp > ago(1d) \| union (Apple \| where timestamp > ago(1d)) |
-| Join                        | SELECT * FROM Mango LEFT OUTER JOIN Apple ON Mango.operation_Id = Apple.operation_Id | Mango \| join kind = leftouter (Apple) on $left.operation_Id == $right.operation_Id |
-| Nested queries              | SELECT * FROM Mango WHERE resultCode = (SELECT TOP 1 resultCode FROM Mango WHERE resultId = 7 ORDER BY timestamp DESC) | Mango \| where resultCode == toscalar(Mango \| where resultId == 7 \| top 1 by timestamp desc \| project resultCode) |
-| Having                      | SELECT COUNT(*) FROM Mango GROUP BY name HAVING COUNT(*) > 3 | Mango \| summarize Count = count() by name \| where Count > 3 |
+| **Operation**          | **SQL**                                                                                               | **KQL**                                                                                                           |
+|------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| **Select Query**       | `SELECT Name, Age FROM Employees WHERE Age > 30;`                                                     | `Employees \| where Age > 30 \| project Name, Age`                                                                |
+| **Count**              | `SELECT COUNT(*) FROM Orders WHERE Status = 'Shipped';`                                               | `Orders \| where Status == "Shipped" \| summarize count()`                                                        |
+| **Group By**           | `SELECT Department, AVG(Salary) AS AverageSalary FROM Employees GROUP BY Department;`                 | `Employees \| summarize AverageSalary=avg(Salary) by Department`                                                  |
+| **Join**               | `SELECT e.Name, d.DepartmentName FROM Employees e JOIN Departments d ON e.DepartmentID = d.ID;`       | `Employees \| join kind=inner (Departments) on $left.DepartmentID == $right.ID \| project Name, DepartmentName`   |
+
+#### Advanced Queries
+
+| **Operation**          | **SQL**                                                                                               | **KQL**                                                                                                           |
+|------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| **Order By**           | `SELECT Name, Age FROM Employees WHERE Age > 30 ORDER BY Age DESC;`                                    | `Employees \| where Age > 30 \| sort by Age desc \| project Name, Age`                                            |
+| **Limit**              | `SELECT Name, Age FROM Employees WHERE Age > 30 ORDER BY Age DESC LIMIT 10;`                           | `Employees \| where Age > 30 \| sort by Age desc \| project Name, Age \| take 10`                                  |
+| **Subquery**           | `SELECT Name FROM (SELECT * FROM Employees WHERE Age > 30) AS SubQuery WHERE DepartmentID = 5;`        | `let SubQuery = Employees \| where Age > 30; SubQuery \| where DepartmentID == 5 \| project Name`                  |
+| **String Functions**   | `SELECT Name FROM Employees WHERE UPPER(FirstName) = 'JOHN';`                                         | `Employees \| where tolower(FirstName) == 'john' \| project Name`                                                 |
+| **Date Functions**     | `SELECT Name FROM Employees WHERE YEAR(HireDate) = 2020;`                                             | `Employees \| where datetime_part('year', HireDate) == 2020 \| project Name`                                       |
+
+
 
 ## KQL Queryset
 - Tool for running, viewing, and manipulating KQL database queries.
