@@ -7,8 +7,8 @@ nav_order: 5
 
 - [What is KQL?](#what-is-kql)
   - [Running KQL query in Fabric](#running-kql-query-in-fabric)
-  - [**KQL vs. SQL Databases**](#kql-vs-sql-databases)
-  - [**KQL Vs SQL**](#kql-vs-sql)
+  - [**Database - KQL vs SQL**](#database---kql-vs-sql)
+  - [**Query - KQL Vs SQL**](#query---kql-vs-sql)
     - [**KQL vs SQL DQLs**](#kql-vs-sql-dqls)
     - [**KQL DDLs, DMLs \& DQLs**](#kql-ddls-dmls--dqls)
 
@@ -23,9 +23,11 @@ A **KQL (Kusto Query Language) Database** handles large volumes of structured, s
 
 ### Running KQL query in Fabric
 
-![alt text](image-2.png)
+![alt text](howtorunquery.png)
 
-### **KQL vs. SQL Databases**
+There is **no magic command** like %%KQL
+
+### **Database - KQL vs SQL**
 
 | Feature                     | KQL Database                                     | Standard SQL Database                           |
 |-----------------------------|--------------------------------------------------|-------------------------------------------------|
@@ -41,7 +43,7 @@ A **KQL (Kusto Query Language) Database** handles large volumes of structured, s
 | **Performance**             | Optimized for read-heavy and analytical workloads| Balanced for read and write operations          |
 | **Schema**                  | Flexible schema with support for semi-structured data | Rigid schema with well-defined data types       |
 
-### **KQL Vs SQL**
+### **Query - KQL Vs SQL**
 
 ![alt text](SQLVsKQLWithQuery.png)
 
