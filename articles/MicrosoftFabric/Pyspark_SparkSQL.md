@@ -11,11 +11,11 @@ nav_order: 2
 
 ### <span style="color: DeepSkyBlue; font-family: Segoe UI, sans-serif;">Describe Formatted *TableName* </span>
 
-![\alt text](images\image-28.png)
+![alt text](describeformattedtablename.png)
 
 ### <span style="color: Coral; font-family: Segoe UI, sans-serif;">DataFrame from csv</span>
 
-![\alt text](images\image-29.png)
+![alt text](SPARK.READ.FORMAT.png)
 
 ### Write Delta Table
 ![\alt text](images\SaveAstable.png)
@@ -29,3 +29,10 @@ If Exists (Select * From sys.sysobjects where name = 'apple')
 GO
 ```
 ![alt text](images/Drop_If_Exists_Full.png)
+
+
+
+![alt text](df.show.png)
+
+![alt text](df.describe.png)
+
