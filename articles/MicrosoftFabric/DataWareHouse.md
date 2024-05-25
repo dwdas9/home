@@ -1,5 +1,6 @@
 - [Data Warehouse in Microsoft Fabric](#data-warehouse-in-microsoft-fabric)
   - [Background](#background)
+  - [Two types of Warehouse available in Microsoft Fabric](#two-types-of-warehouse-available-in-microsoft-fabric)
   - [Fact and Dimension Table Concepts](#fact-and-dimension-table-concepts)
   - [Surrogate keys and alternte keys](#surrogate-keys-and-alternte-keys)
   - [How data is ingested into a warehouse in Fabric?](#how-data-is-ingested-into-a-warehouse-in-fabric)
@@ -21,6 +22,26 @@
 If earth is a database then Sun is a warehouse. Fabric's warehouse is unique - **built on the Lakehouse**(Delta format). You can use Full T-SQL.
 
 ![\alt text](images\image-46.png)
+
+## Two types of Warehouse available in Microsoft Fabric
+
+In Microsoft Fabric, there are **two types of warehouses**
+
+1. **SQL Endpoint**:
+   - The SQL Endpoint is **auto-generated** when you create a Lakehouse in Fabric.
+   - It serves as an analytics endpoint, allowing you to **query data** within the Lakehouse using **T-SQL** (Transact-SQL) language and the TDS (Tabular Data Stream) protocol.
+   - Each Lakehouse has **one** SQL analytics endpoint, and a workspace can have multiple Lakehouses.
+   - The SQL analytics endpoint **exposes Delta tables** from the Lakehouse as SQL tables, making them accessible via T-SQL queries.
+   - It also **automatically creates a default Power BI semantic model** based on the Lakehouse objects' naming conventions.
+   - No user action is required to create a SQL analytics endpoint; it is **generated automatically** during Lakehouse creation.
+   - Behind the scenes, the SQL analytics endpoint leverages the same engine as the Warehouse, ensuring high performance and low latency for SQL queries.
+   - **Automatic metadata discovery** keeps SQL metadata up to date without user intervention.
+
+2. **Synapse Data Warehouse**:
+   - The Synapse Data Warehouse is a **SQL engine** designed specifically for querying and transforming data within the **Data Lake (OneLake)**.
+   - It provides **full transactional support**, including **DDL (Data Definition Language)** and **DML (Data Manipulation Language)** queries.
+   - With the Synapse Data Warehouse, you can perform **cross-database queries** and seamlessly transition from read-only operations to building business logic on your OneLake data.
+   - It complements the Lakehouse by enabling more complex analytics scenarios.
 
 ## Fact and Dimension Table Concepts
 

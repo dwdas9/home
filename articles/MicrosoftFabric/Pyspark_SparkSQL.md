@@ -37,6 +37,10 @@ GO
 ![alt text](df.describe.png)
 
 
+### Dropping a table
+
+![alt text](droptable.png)
+
 ### DataFrame Operations
 1. **Creating a DataFrame**
    ```python

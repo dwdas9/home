@@ -5,6 +5,11 @@ parent: MicrosoftFabric
 nav_order: 4
 ---
 
+### Open Fabric Admin Portal
+
+![alt text](image-10.png)
+
+
 ### Delete a Fabric Workspace
 
 In the Workspace settings pane, select Other > Remove this workspace.

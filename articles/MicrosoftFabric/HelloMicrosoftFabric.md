@@ -44,8 +44,9 @@ nav_order: 1
 One-stop low-to-no-code platform.
 
 
-
 To understand Fabric, first understand OneLake.
+
+![alt text](FabricOneLake.png)
 
 OneLake is Fabric's Database.
 
