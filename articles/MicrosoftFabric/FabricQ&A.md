@@ -185,3 +185,35 @@ Correct. Storing different layers of your lakehouse in separate workspaces enhan
 It makes it easier to share data with colleagues.
 
 There's no benefit of storing different layers of your lakehouse in separate workspaces.
+
+1. What is the benefit of using Fabric notebooks over manual uploads for data ingestion? 
+
+Notebooks provide an automated approach to ingestion and transformation.
+Correct. Fabric notebooks provide automation for ingestion and transformation, ensuring a smooth and systematic approach.
+
+
+Notebooks can orchestrate the Copy Data activity and transformations.
+Incorrect. Pipelines use the Copy Data activity, but don't support transformations without a notebook or dataflow.
+
+
+Notebooks offer a user-friendly, low-code experience for large semantic models.
+2. What is the purpose of V-Order and Optimize Write in Delta tables? 
+
+V-Order and Optimize Write sorts the Delta table when queried with PySpark in a Fabric Notebook.
+
+V-Order and Optimize Write enhance Delta tables by sorting data and creating fewer, larger Parquet files.
+Correct. V-Order allows data sorting and Optimize Write creates more efficient file sizes.
+
+
+V-Order and Optimize Write create many small csv files.
+3. Why consider basic data cleansing when loading data into Fabric lakehouse? 
+
+To reduce data load size and processing time.
+Incorrect. While the data size and processing time may be reduced, that's not the goal.
+
+
+To ensure data quality and consistency.
+Correct. Basic cleaning is done to ensure data quality and consistency before moving on to transformation and modeling steps.
+
+
+To enforce data privacy and security measures.

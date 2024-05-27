@@ -7,24 +7,24 @@
   - [Connect to Azure SQL Database with a Service Principal](#connect-to-azure-sql-database-with-a-service-principal)
   - [Write data into a Lakehouse File](#write-data-into-a-lakehouse-file)
   - [Write data into a Lakehouse Delta Table](#write-data-into-a-lakehouse-delta-table)
-    - [Optimize - V-Order etc](#optimize---v-order-etc)
+    - [Optimize\[Fewer files\] - V-Order \& optimizeWrite](#optimizefewer-files---v-order--optimizewrite)
+  - [Summary](#summary)
 
 ## Background
 
-In this project, I'll show you how to ingest large data from external sources, clean, and save into Delta Table using a **PySpark Notebook**. Fabric notebooks are great for handling large external data and complex transformations. Here all other options in Fabric:
+1. [**ADF Data Pipelines**](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-pipelines): With Azure Data Factory pipelines, you can handle both ingestion and transformation. Use the **Copy data activity** for ingestion(**no transformation**) and a **Notebook activity** or Dataflow activity for transformation. You might wonder why not just use a notebook for everything if you need a notebook activity—it's a good question!
+  ![alt text](image-1.png)
 
-1. [**COPY INTO** (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=fabric&preserve-view=true): Supports **PARQUET** and **CSV** formats from **Azure Data Lake Storage Gen2**.
-2. [**Data pipelines**](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-pipelines): Robust low-code option with **Copy data** activity and T-SQL steps.
-   ![Data Pipelines](image-1.png)
-3. [**Dataflows (PowerQuery)**](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview): Easy, code-free data preparation, cleaning, and transformation.
+2. [**Dataflow (PowerQuery)**](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview): Dataflows can handle both ingestion and transformation. They support ingestion from thousands of sources and use Power Query for transformation.
    ![Dataflows](image.png)
 
-## The entire project in just 8 pyspark lines
-The entire project is centered on three key commands:
+3. **Manual Upload**: You can always manually upload your files into a folder.
+  ![alt text](image-2.png)
 
-1. `spark.read.parquet("path of external parquets")`
-2. `df.limit(1000).write.mode("overwrite").parquet("path of lakehouse folder")`
-3. `cleaned_df.write.format("delta").mode("append").saveAsTable("theDeltatableName")`
+Additionally, there's an important T-SQL command called [**COPY INTO**](https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=fabric&preserve-view=true). This command copies data into tables and supports Parquet and CSV formats from Azure Data Lake Storage Gen2. However, it only copies data into tables and not into Lakehouse folders from external systems.
+
+
+## The entire project in just 8 pyspark lines
 
 ### THE code
 
@@ -60,6 +60,7 @@ cleaned_df.write.format("delta").mode("append").saveAsTable("delta_yellow_taxi")
 display(cleaned_df.limit(10))
 
 ```
+
 ### The explanation
 
 I have included screenshots of the working code in the notebook and added some comments to help you understand it.
@@ -145,11 +146,11 @@ filtered_df.write.mode("overwrite").format("delta").save(f"Tables/{table_name}")
 print(f"Spark DataFrame saved to Delta table: {table_name}")
 ```
 
-#### Optimize - V-Order etc
+#### Optimize[Fewer files] - V-Order & optimizeWrite
 
-V-Order is a write time optimization to the parquet file format that enables lightning-fast reads under the Microsoft Fabric compute engines, such as Power BI, SQL, Spark, and others.
+V-Order and OptimizeWrite sorts data and creates fewer, larger Parquet files. Hence, the deta table is optimized. V-Order is enabled by default in Microsoft Fabric and in Apache Spark.
 
-V-Order is enabled by default in Microsoft Fabric and in Apache Spark it's controlled by the following configurations.
+Here is how you can configure them in Pyspark:
 
 ```python
 # Enable V-Order 
@@ -158,3 +159,11 @@ spark.conf.set("spark.sql.parquet.vorder.enabled", "true")
 # Enable automatic Delta optimized write
 spark.conf.set("spark.microsoft.delta.optimizeWrite.enabled", "true")
 ```
+
+### Summary
+
+Read, write and saveAsTable are the three important pyspark commands to learn.
+
+1. `spark.read.parquet("path of external parquets")`
+2. `df.limit(1000).write.mode("overwrite").parquet("path of lakehouse folder")`
+3. `cleaned_df.write.format("delta").mode("append").saveAsTable("theDeltatableName")`
