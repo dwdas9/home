@@ -158,7 +158,7 @@ print(f"Spark DataFrame saved to Delta table: {table_name}")
 
 ### Optimize[Fewer files] - V-Order & optimizeWrite
 
-V-Order and OptimizeWrite sorts data and creates fewer, larger Parquet files. Hence, the deta table is optimized. V-Order is enabled by default in Microsoft Fabric and in Apache Spark.
+V-Order and OptimizeWrite sorts data and creates **fewer**, **larger**, **more efficient** Parquet files. Hence, the deta table is optimized. V-Order is enabled by default in Microsoft Fabric and in Apache Spark.
 
 Here is how you can configure them in Pyspark:
 
