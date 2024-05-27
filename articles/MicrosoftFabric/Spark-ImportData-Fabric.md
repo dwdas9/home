@@ -1,8 +1,8 @@
 - [Background](#background)
 - [The entire project in just 8 pyspark lines](#the-entire-project-in-just-8-pyspark-lines)
-  - [The code](#the-code)
+  - [THE code](#the-code)
   - [The explanation](#the-explanation)
-- [The Details](#the-details)
+- [Appendix](#appendix)
   - [Connect to Azure blob storage with Spark from Fabric](#connect-to-azure-blob-storage-with-spark-from-fabric)
   - [Connect to Azure SQL Database with a Service Principal](#connect-to-azure-sql-database-with-a-service-principal)
   - [Write data into a Lakehouse File](#write-data-into-a-lakehouse-file)
@@ -11,14 +11,25 @@
 
 ## Background
 
-Fabric notebooks are the best choice if you:
+In this project, I'll show you how to ingest large data from external sources, clean, and save into Delta Table using a **PySpark Notebook**. Fabric notebooks are great for handling large external data and complex transformations. Here all other options in Fabric:
 
-Handle large external data
-Need complex transformations
+1. [**COPY INTO** (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=fabric&preserve-view=true): Supports **PARQUET** and **CSV** formats from **Azure Data Lake Storage Gen2**.
+2. [**Data pipelines**](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-pipelines): Robust low-code option with **Copy data** activity and T-SQL steps.
+   ![Data Pipelines](image-1.png)
+3. [**Dataflows (PowerQuery)**](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview): Easy, code-free data preparation, cleaning, and transformation.
+   ![Dataflows](image.png)
 
 ## The entire project in just 8 pyspark lines
+The entire project is centered on three key commands:
 
-### The code
+1. `spark.read.parquet("path of external parquets")`
+2. `df.limit(1000).write.mode("overwrite").parquet("path of lakehouse folder")`
+3. `cleaned_df.write.format("delta").mode("append").saveAsTable("theDeltatableName")`
+
+### THE code
+
+Here is the core code for the project. I've intentionally kept it short to highlight the key concept.
+
 ```python
 # Enable V-Order for Parquet files to improve data skipping and query performance.
 # V-Order helps in reducing the amount of data read during queries by organizing the data for better compression and faster access.
@@ -36,14 +47,30 @@ df = spark.read.parquet(f'wasbs://nyctlc@azureopendatastorage.blob.core.windows.
 # ABFS_Path/yellow_taxi(New sub folder name)
 # Write the first 1000 rows as a Parquet file
 df.limit(1000).write.mode("overwrite").parquet(f"abfss://WorkSpaceA@onelake.dfs.fabric.microsoft.com/LakeHouseBhutu.Lakehouse/Files/RawData/yellow_taxi")
+
+# Now read back from the folder where we copied the parquets files
+raw_df = spark.read.parquet(fabric_put_path)   
+
+# Filter rows where column 'trip_distance' is greater than 0 and column 'fare_amount' is greater than 0
+cleaned_df = raw_df.filter(raw_df.tripDistance > 0)
+# Now write the cleaned df into Delta Table in Lakehouse
+cleaned_df.write.format("delta").mode("append").saveAsTable("delta_yellow_taxi")
+
+# Display results
+display(cleaned_df.limit(10))
+
 ```
 ### The explanation
+
+I have included screenshots of the working code in the notebook and added some comments to help you understand it.
+
 ![alt text](images\8linesproject.png)
 
-## The Details
-### Connect to Azure blob storage with Spark from Fabric
+## Appendix
 
-This is the easiest way to ingest data residing in antoher platform:
+The code above is quite short. In the real world, it wouldn't be this simple. To better understand the concepts, review the following sections that provide more detailed explanations.
+
+### Connect to Azure blob storage with Spark from Fabric
 
 ```python
 # Azure Blob Storage access info
