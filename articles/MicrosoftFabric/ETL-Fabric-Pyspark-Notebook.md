@@ -18,13 +18,17 @@ nav_order: 4
 
 ## Background
 
+Here, I'll show you how to use a PySpark Notebook to build a complete ETL (Extract, Transform, Load) solution. We'll import parquet files from external sources into a Fabric Lakehouse folder, clean the data, and create Delta tables—all using the PySpark Notebook.
+
+However, there are three other equally robust options in Fabric:
+
 1. [**ADF Data Pipelines**](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-pipelines): With Azure Data Factory pipelines, you can handle both ingestion and transformation. Use the **Copy data activity** for ingestion(**no transformation**) and a **Notebook activity** or Dataflow activity for transformation. You might wonder why not just use a notebook for everything if you need a notebook activity—it's a good question!
   ![alt text](image-1.png)
 
 2. [**Dataflow (PowerQuery)**](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview): Dataflows can handle both ingestion and transformation. They support ingestion from thousands of sources and use Power Query for transformation.
    ![Dataflows](image.png)
 
-3. **Manual Upload**: You can always manually upload your files into a folder.
+3. **Manual Upload**: You can always manually upload your files into a folder. Then you can use a Noteook or Dataflow for the transformation and Delta Lake Table creation :-)
   ![alt text](image-2.png)
 
 Additionally, there's an important T-SQL command called [**COPY INTO**](https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=fabric&preserve-view=true). This command copies data into tables and supports Parquet and CSV formats from Azure Data Lake Storage Gen2. However, it only copies data into tables and not into Lakehouse folders from external systems.
