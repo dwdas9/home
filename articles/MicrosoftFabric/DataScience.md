@@ -7,7 +7,7 @@ nav_order: 2
 
 ## Common machine learning models
 
-![alt text](machinelearningmodels.png)
+![alt text](images\machinelearningmodels.png)
 
 - **Classification**: Will the customer stay or leave?
 - **Regression**: What will the product cost?
@@ -18,15 +18,15 @@ nav_order: 2
 
 Go to your workspace and click on Data Science on the left corner icon
 
-![alt text](image.png)
+![alt text](images\datascience.png)
 
 Now from the landing page click on Notebook
 
-![alt text](image-1.png)
+![alt text](images\notebookimg.png)
 
 Now your notebook will open, You can add your lakehouse from the left side pane:
 
-![alt text](image-2.png)
+![alt text](images\addlakehousenotebook.png)
 
 In the notebook, paste this read-made microsoft code:
 
@@ -53,28 +53,28 @@ Enter ```python display(df)``` in the next cell to see the output
 
 With display(df) the output will show two options Table and Chart. Select Chart
 
-![alt text](image-3.png)
+![alt text](images\displaydf.png)
 
 Then you can customize the chart as required
 
-![alt text](image-4.png)
+![alt text](images\chartdisplay.png)
 
 ### Data Wrangler Tool
 
-![alt text](datawrangler.png)
+![alt text](images\datawrangler.png)
 
 The Data Wrangler tool is available at the top of your notebook. First, create a dataframe, then use Data Wrangler to clean it and generate PySpark or Pandas code. It's a useful tool that saves you from writing a lot of code.
 
-To open Data Wrangler, click on its icon ![alt text](image-5.png) and select the dataframe you created. Make sure your session is active.
+To open Data Wrangler, click on its icon ![alt text](images\datawrangler1.png) and select the dataframe you created. Make sure your session is active.
 
 For example, to create a new column, choose **Create Column from Formula** and provide the details. This formula is only for pandas DF. The corresponding code will be generated automatically!
 
 
-![alt text](image-6.png)
+![alt text](images\operationpane.png)
 
 Finally after cleaning Fabric will create a function and add it to the main notebook:
 
-![alt text](image-7.png)
+![alt text](images\pycode1.png)
 
 ## Further steps
 
@@ -131,7 +131,7 @@ Finally after cleaning Fabric will create a function and add it to the main note
 
    - Navigate to your workspace.
    - Open the "diabetes-regression" experiment.
-    ![alt text](image-8.png)
+    ![alt text](images\openexperiement.png)
    - Review Run metrics.
    - Click `Save run as ML Model` to save it
-        ![alt text](image-9.png)
+        ![alt text](images\savemodel.png)

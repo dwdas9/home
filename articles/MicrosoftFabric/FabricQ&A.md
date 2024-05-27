@@ -156,3 +156,32 @@ Promotion requires a higher level of permissions than certification.
 
 Certification must be enabled in the tenant by the admin, while promotion can be done by a workspace member.
 Correct. Certification must be enabled in the tenant by the admin, and only designated certifiers can perform the endorsement. In contrast, promotion can be done by any workspace member who has been granted the necessary permissions.
+
+
+1. Which of the following sets of layers are typically associated with the Medallion Architecture for data management? 
+
+Raw, Polished, Refined
+
+Bronze, Silver, Gold
+Correct. Bronze, silver, gold is the correct sequence of layers typically used in the medallion architecture. Data flows from the raw and unrefined state (bronze) to a curated and validated state (silver), and finally to an enriched and well-structured presentation state (gold).
+
+
+Initial, Intermediate, Final
+2. Which tool is best suited for data transformation in Fabric when dealing with large-scale data that will continue to grow? 
+
+Dataflows (Gen2)
+
+Pipelines
+
+Notebooks
+Correct. Notebooks are a more suitable tool for data transformation with big data in Fabric.
+
+3. What is the benefit of storing different layers of your lakehouse in separate workspaces? 
+
+It can enhance security, manage capacity use, and optimize cost-effectiveness.
+Correct. Storing different layers of your lakehouse in separate workspaces enhances security and optimizes cost-effectiveness.
+
+
+It makes it easier to share data with colleagues.
+
+There's no benefit of storing different layers of your lakehouse in separate workspaces.

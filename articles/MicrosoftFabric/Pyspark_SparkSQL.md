@@ -11,14 +11,14 @@ nav_order: 2
 
 ### <span style="color: DeepSkyBlue; font-family: Segoe UI, sans-serif;">Describe Formatted *TableName* </span>
 
-![alt text](describeformattedtablename.png)
+![alt text](images\describeformattedtablename.png)
 
 ### <span style="color: Coral; font-family: Segoe UI, sans-serif;">DataFrame from csv</span>
 
-![alt text](SPARK.READ.FORMAT.png)
+![alt text](images\SPARK.READ.FORMAT.png)
 
 ### Write Delta Table
-![\alt text](images\SaveAstable.png)
+![\alt text](images\images\SaveAstable.png)
 
 # SQL
 
@@ -32,14 +32,14 @@ GO
 
 
 
-![alt text](df.show.png)
+![alt text](images\df.show.png)
 
-![alt text](df.describe.png)
+![alt text](images\df.describe.png)
 
 
 ### Dropping a table
 
-![alt text](droptable.png)
+![alt text](images\droptable.png)
 
 ### DataFrame Operations
 1. **Creating a DataFrame**
@@ -163,3 +163,11 @@ GO
    df.repartition(10)
    df.coalesce(5)
    ```
+
+### Pyspark *when(condition).otherwise(default)*
+
+```python
+from pyspark.sql.functions import col, when
+
+result = when(col("Age") > 16, True).otherwise(False)
+```
