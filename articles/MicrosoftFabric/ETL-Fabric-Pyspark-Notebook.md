@@ -168,7 +168,10 @@ spark.conf.set("spark.microsoft.delta.optimizeWrite.enabled", "true")
 
 ### Summary
 
-Read, write and saveAsTable are the three important pyspark commands to learn.
+- Pyspark notebook alone can completely create end-to-end robust ETL workflows
+- ADF Pipeline with Copy Data + Notebook or Dataflow can do the same job
+- Copy data activity in ADF pipeline can't do transformation. It is used for data ingestion only.
+- Read, write and saveAsTable are the three important pyspark commands to learn.
 
 1. `spark.read.parquet("path of external parquets")`
 2. `df.limit(1000).write.mode("overwrite").parquet("path of lakehouse folder")`
