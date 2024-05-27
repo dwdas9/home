@@ -18,7 +18,7 @@ nav_order: 2
 ![alt text](images\SPARK.READ.FORMAT.png)
 
 ### Write Delta Table
-![\alt text](images\images\SaveAstable.png)
+![\alt text](images\SaveAstable.png)
 
 # SQL
 
@@ -28,7 +28,7 @@ If Exists (Select * From sys.sysobjects where name = 'apple')
     DROP TABLE dbo.apple;
 GO
 ```
-![alt text](images/Drop_If_Exists_Full.png)
+![alt text](images\Drop_If_Exists_Full.png)
 
 
 
