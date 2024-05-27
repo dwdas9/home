@@ -1,3 +1,9 @@
+---
+layout: default
+title: ETL Using Notebook
+parent: MicrosoftFabric
+nav_order: 4
+---
 - [Background](#background)
 - [The entire project in just 8 pyspark lines](#the-entire-project-in-just-8-pyspark-lines)
   - [THE code](#the-code)
