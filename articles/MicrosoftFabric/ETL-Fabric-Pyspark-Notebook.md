@@ -13,7 +13,7 @@ nav_order: 4
   - [Connect to Azure SQL Database with a Service Principal](#connect-to-azure-sql-database-with-a-service-principal)
   - [Write data into a Lakehouse File](#write-data-into-a-lakehouse-file)
   - [Write data into a Lakehouse Delta Table](#write-data-into-a-lakehouse-delta-table)
-    - [Optimize\[Fewer files\] - V-Order \& optimizeWrite](#optimizefewer-files---v-order--optimizewrite)
+  - [Optimize\[Fewer files\] - V-Order \& optimizeWrite](#optimizefewer-files---v-order--optimizewrite)
   - [Summary](#summary)
 
 ## Background
@@ -152,7 +152,7 @@ filtered_df.write.mode("overwrite").format("delta").save(f"Tables/{table_name}")
 print(f"Spark DataFrame saved to Delta table: {table_name}")
 ```
 
-#### Optimize[Fewer files] - V-Order & optimizeWrite
+### Optimize[Fewer files] - V-Order & optimizeWrite
 
 V-Order and OptimizeWrite sorts data and creates fewer, larger Parquet files. Hence, the deta table is optimized. V-Order is enabled by default in Microsoft Fabric and in Apache Spark.
 
