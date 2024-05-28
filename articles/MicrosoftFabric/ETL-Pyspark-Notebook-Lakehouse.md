@@ -28,7 +28,7 @@ Here, I'll show you how to use a PySpark Notebook to build a complete ETL soluti
 
 Apart from using Pyspark in Notebooks there are other methods to Copy data into Lakehouse. Based on the the situation you will have to choose a method. 
 
-1. [**ADF Data Pipelines**](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-pipelines): With Azure Data Factory pipelines, you can handle both ingestion and transformation. Use the **Copy data activity** for ingestion(**no transformation**) and a **Notebook activity** or Dataflow activity for transformation. You might wonder why not just use a notebook for everything if you need a notebook activity—it's a good question!
+1. [**ADF Data Pipelines**](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-pipelines): You can both ingest and transoform using ADF pipeline. Use the **Copy data activity** for ingestion(**no transformation**) and a **Notebook activity** or Dataflow activity for transformation. If there is no transformation, blindly choose **Copy data** activity.
   ![alt text](image-1.png)
 
 2. [**Power BI Dataflow**](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview): Power BI Dataflows can handle both ingestion and transformation. They support ingestion from thousands of sources and use Power Query for transformation. **Note:** Fabric uses the same Power BI Dataflow.
@@ -63,6 +63,16 @@ Which method should you recommend?
   - a Spark notebook
     
   **Answer**: For a one-time copy of small local files into a lakehouse, using Lakehouse explorer and a local file upload is recommended.
+
+**Scenario 3:** 
+You need to ensure that the pipeline activity supports parameterization. Which two activities support parameterization in the data pipeline UI?
+  - Dataflow Gen2
+  - KQL activity
+  - notebooks
+  - SQL stored procedures
+  - user-defined functions
+      
+  **Answer**: Only notebooks and SQL stored procedures provide a possibility to define parameters in the data pipeline UI. Dataflow Gen2 and KQL activity only require connection details, but no parameters can be supplied. User-defined functions cannot be added as an activity to a pipeline..
 
 ## The entire project in just 8 pyspark lines
 

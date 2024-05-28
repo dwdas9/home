@@ -567,3 +567,156 @@ Dataflow Gen2
 notebooks
 When ingesting a large data source without applying transformations, the recommended method is to use the Copy data activity in pipelines. Notebooks are recommended for complex data transformations, whereas Dataflow Gen2 is suitable for smaller data and/or specific connectors.
 ---
+You have a Fabric tenant that contains a lakehouse named Lakehouse1.
+
+You plan to use Dataflow Gen2 to ingest and transform data from an Azure SQL Database into Lakehouse1.
+
+Which language should you use to transform the data in the dataflow?
+
+Select only one answer.
+
+DAX
+This answer is incorrect.
+
+M
+This answer is correct.
+
+SQL
+
+XML
+When ingesting data by using Dataflow Gen2, you get the same surface area as in Microsoft Power Query. This assumes that you will use the M language for data manipulation, no matter which data source you are connecting to.
+---
+You have a Fabric workspace named Workspace1.
+
+You plan to create a data pipeline to ingest data into Workspace1.
+
+You need to ensure that the pipeline activity supports parameterization.
+
+Which two activities support parameterization in the data pipeline UI? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+Dataflow Gen2
+
+KQL activity
+
+notebooks
+This answer is correct.
+
+SQL stored procedures
+This answer is correct.
+
+user-defined functions
+Only notebooks and SQL stored procedures provide a possibility to define parameters in the data pipeline UI. Dataflow Gen2 and KQL activity only require connection details, but no parameters can be supplied. User-defined functions cannot be added as an activity to a pipeline.
+---
+You are designing a dimension table named dimCustomer that will be used to analyze historical sales data by customer zip code. The table will be joined to a table named FactSales on a column named CustomerKey to report historical sales data by customer zip code.
+
+The sales data must be reported based on the zip codes of customers at the time of the sale, not their most recent zip code.
+
+You need to design dimCustomer to contain a fixed number of columns.
+
+Which type of dimension should you choose for dimCustomer?
+
+Select only one answer.
+
+type 0 slowly changing dimension (SCD)
+This answer is incorrect.
+
+type 1 slowly changing dimension (SCD)
+
+type 2 slowly changing dimension (SCD)
+This answer is correct.
+
+type 3 slowly changing dimension (SCD)
+Type 0 SCD attributes never change and will not fit the requirement. Type 1 SCD overwrites the changes and historical analysis of data based on the zip code at the time of the sales will be impossible. Type 2 SCD will keep track of historical data by adding new records with new keys whenever an attribute changes. Type 3 SCD adds new columns to a table for attribute changes.
+---
+You have a Fabric lakehouse named Lakehouse1 that contains a Dataflow Gen2 query.
+
+You have an Azure SQL database that contains a type 2 slowly changing dimension database table named CustomerMaster.
+
+CustomerMaster contains the following columns:
+
+Customer ID – Number
+EffectiveDate – Date
+Address – Text
+Status - Text
+You plan to ingest CustomerMaster into Lakehouse1. The solution must only keep the latest record (unique) per Customer ID.
+
+Which two applied steps should you use? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+Keep top rows
+
+Max Customer ID
+
+Remove duplicates on the Customer ID column
+This answer is correct.
+
+Remove duplicates on the CustomerMaster table
+
+Sort on Customer ID, EffectiveDate
+This answer is correct.
+Sorting CustomerID and EffectiveDate, and then removing duplicates on the Customer ID column is the only way to keep the correct latest row per customer ID. All other options will not correctly keep the latest customer row per effective date.
+---
+You have a Fabric workspace that contains a complex semantic model for a Microsoft Power BI report.
+
+You need to optimize the semantic model for analytical queries and use denormalization to reduce the model complexity and the number of joins between tables.
+
+Which tables should you denormalize?
+
+Select only one answer.
+
+dimension tables on the same level of granularity
+This answer is incorrect.
+
+fact tables on the same level of granularity
+
+role-playing dimension tables
+
+Snowflaked dimension tables
+This answer is correct.
+A Snowflake dimension is a set of normalized tables for a single business entity. Implementing a proper star schema usually requires denormalizing the set of tables to create a single table that contains all the necessary attributes.
+---
+You have a Fabric warehouse.
+
+You have an Azure SQL database that contains two tables named ProductCategory and Product. Each table contains a column named ProductCategoryKey.
+
+You plan to ingest the tables into the warehouse using Dataflow Gen2.
+
+You need to merge the tables into a single table named Product. The combined table must contain all the rows from the Product table and the matching rows from the ProductCategory table.
+
+Which join configuration should you use?
+
+Select only one answer.
+
+a left anti join Product to ProductCategory
+
+a left anti join ProductCategory to Product
+
+a left outer join Product to ProductCategory
+This answer is correct.
+
+a left outer join ProductCategory to Product
+Only a left outer join from Product to Product Category will keep all the rows from Product but only matching rows from Product Category. The anti joins will only keep rows not found from the left table, in the right table, and the left outer join from ProductCategory to Product will start with the ProductCategory table and only keep matching rows from the Product table
+---
+You have a Fabric warehouse named Warehouse1 that contains customer status information.
+
+You plan to implement a dimensional model in Warehouse1. The solution must meet the following requirements:
+
+Be able to perform point-in-time analysis.
+Whenever a customer’s status changes, the change must be persisted in a table named DimCustomer, and a new row is added to include the timestamp of the status change.
+Which type of dimension should you choose for dimCustomer?
+
+Select only one answer.
+
+type 0 slowly changing dimension (SCD)
+
+type 1 slowly changing dimension (SCD)
+
+type 2 slowly changing dimension (SCD)
+This answer is correct.
+
+type 3 slowly changing dimension (SCD)
+Type 2 SCD keeps multiple versions of the same business entity, by adding a new row whenever change occurs. It’s often implemented by including a timestamp to allow for point-in-time analysis. Type 1 SCD overwrites the previous value with the new one. Type 0 SCD doesn’t track changes at all, whereas Type 3 SCD stores two versions of the dimension member as separate columns.
+---
