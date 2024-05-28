@@ -5,10 +5,27 @@ parent: MicrosoftFabric
 nav_order: 4
 ---
 
-## **M Language** Cheatsheet for Data Transformation
+## <span style="color: DarkCyan">**M** Language Cheatsheet</span>
 
-The **M langugage**, also knowne as **Power Query Formula Language** is the formula language used in Power Query, a data connectivity and data preparation technology in Excel and Power BI. M is designed for data manipulation and transformation. This cheatsheet covers the basics and common transformations in M language.
+The **M langugage**, also knowne as <span style="color: magenta">**Power Query Formula Language**</span> is the formula language used in Power Query, a data connectivity and data preparation technology in Excel and Power BI. M is designed for data manipulation and transformation. This cheatsheet covers the basics and common transformations in M language.
 
+## M vs DAX
+
+**Note**:  M for data preparation and transformation, and DAX for data analysis and calculations. <span style="color: red">*M runs before the data is loaded into Data model.*</span>
+
+
+### Comparison Summary
+
+| Aspect            | M Language                                | DAX                                      |
+|-------------------|-------------------------------------------|------------------------------------------|
+| **Purpose**       | Data transformation and preparation       | Data analysis and calculations           |
+| **Usage Area**    | Power Query Editor                        | Power BI, Excel Power Pivot, SSAS        |
+| **Execution**     | Before data load                          | After data load                          |
+| **Functions**     | ETL functions (merge, append, pivot, etc.)| Aggregation, time intelligence, math     |
+| **Context**       | No concept of row or filter context       | Row context and filter context awareness |
+| **Examples**      | Cleaning raw data, reshaping data         | Creating measures, calculated columns    |
+
+### M Cheatsheet
 #### **Basic Syntax**
 - **Comments**: 
   ```m
