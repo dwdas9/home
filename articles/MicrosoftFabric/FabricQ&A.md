@@ -137,6 +137,7 @@ Sure, here's the revised version:
 - C. Lakehouse
 -  <span style="color: white">Correct. Use Data Wrangler to visualize and clean your data.</span>
 
+---
 1. Which of the following statements best describes the concept of capacity in Fabric? 
 
 Capacity refers to a dedicated space for organizations to create, store, and manage Fabric items.
@@ -157,7 +158,7 @@ Promotion requires a higher level of permissions than certification.
 Certification must be enabled in the tenant by the admin, while promotion can be done by a workspace member.
 Correct. Certification must be enabled in the tenant by the admin, and only designated certifiers can perform the endorsement. In contrast, promotion can be done by any workspace member who has been granted the necessary permissions.
 
-
+---
 1. Which of the following sets of layers are typically associated with the Medallion Architecture for data management? 
 
 Raw, Polished, Refined
@@ -185,7 +186,7 @@ Correct. Storing different layers of your lakehouse in separate workspaces enhan
 It makes it easier to share data with colleagues.
 
 There's no benefit of storing different layers of your lakehouse in separate workspaces.
-
+---
 1. What is the benefit of using Fabric notebooks over manual uploads for data ingestion? 
 
 Notebooks provide an automated approach to ingestion and transformation.
@@ -217,3 +218,275 @@ Correct. Basic cleaning is done to ensure data quality and consistency before mo
 
 
 To enforce data privacy and security measures.
+---
+1. What is the purpose of creating a Reflex in Data Activator? 
+
+To connect to data sources, monitor conditions, and initiate actions
+Correct. A Reflex item contains all the necessary details to connect to data sources, monitor conditions, and initiate actions for each business segment or process being monitored.
+
+
+To customize your Fabric experience to Data Activator
+
+To navigate between data mode and design mode
+2. What is Data Activator's capability in real-time data analysis? 
+
+Data Activator can only analyze data in batches.
+
+Data Activator can quickly respond to and analyze data in real-time.
+Correct. Data Activator is tailored to handle real-time data streams and can distinguish itself through its capability to quickly respond to and analyze data in real-time.
+
+
+Data Activator can only analyze data from a single source.
+3. What is one of Data Activator's strengths in terms of interoperability with other Fabric experiences? 
+
+Data Activator can ingest data from EventStreams and Power BI reports.
+Correct. One of Data Activator's strengths is its integration capabilities with other Fabric experiences, such as ingesting data from EventStreams and Power BI reports.
+
+
+Data Activator can't ingest data from other Fabric experiences.
+
+Data Activator can only ingest data from Power BI reports.
+
+---
+You are developing a Microsoft Power BI semantic model.
+
+Two tables in the data model are not connected in a physical relationship.
+
+You need to establish a virtual relationship between the tables.
+
+Which DAX function should you use?
+
+Select only one answer.
+
+CROSSFILTER()
+
+PATH()
+
+TREATAS()
+
+USERELATIONSHIP()
+
+Answer: TREATAS() applies the result of a table expression as filters to columns from an unrelated table. USERELATIONSHIP() activates different physical relationships between tables during a query execution. CROSSFILTER() defines the cross filtering direction of a physical relationship. PATH() returns a string of all the members in the column hierarchy.
+---
+
+You have a Fabric workspace that contains a lakehouse named Lakehouse1.
+
+A user named User1 plans to use Lakehouse explorer to read Lakehouse1 data.
+
+You need to assign a workspace role to User1. The solution must follow the principle of least privilege.
+
+Which workspace role should you assign to User1?
+
+Select only one answer.
+
+Admin
+
+Contributor
+This answer is correct.
+
+Member
+
+Viewer
+This answer is incorrect.
+
+Answer: To read the data from a Fabric lakehouse by using Lakehouse explorer, users must be assigned roles of either Admin, Member, or Contributor. However, respecting the least privileged principle, a user must be assigned the Contributor role. The viewer role does not provide permission to read the lakehouse data through Lakehouse explorer.
+---
+
+You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a lakehouse, a data pipeline, a notebook, and several Microsoft Power BI reports.
+
+A user named User1 plans to use SQL to access the lakehouse to analyze data. User1 must have the following access:
+
+User1 must have read-only access to the lakehouse.
+User1 must NOT be able to access the rest of the items in Workspace1.
+User1 must NOT be able to use Spark to query the underlying files in the lakehouse.
+You need to configure access for User1.
+
+What should you do?
+
+Select only one answer.
+
+Add User1 to the workspace as a member, share the lakehouse with User1, and select Read all SQL Endpoint data.
+
+Add User1 to the workspace as a viewer, share the lakehouse with User1, and select Read all SQL Endpoint data.
+
+Share the lakehouse with User1 directly and select Build reports on the default dataset.
+
+Share the lakehouse with User1 directly and select Read all SQL Endpoint data.
+This answer is correct.
+Since the user only needs access to the lakehouse and not the other items in the workspace, you should share the lakehouse directly and select Read all SQL Endpoint data. The user should not be added as a member of the workspace. All members of the workspace, even viewers, will be able to open all Power BI reports in the workspace. The SQL analytics endpoint itself cannot be shared directly; the Share options only show for the lakehouse.
+---
+You use Microsoft Power BI Desktop to create a Power BI semantic model.
+
+You need to recommend a solution to collaborate with another Power BI modeler. The solution must ensure that you can both work on different parts of the model simultaneously. The solution must provide the most efficient and productive way to collaborate on the same model.
+
+What should you recommend?
+
+Select only one answer.
+
+Save your work as a PBIX file and email the file to the other modeler.
+
+Save your work as a PBIX file and publish the file to a Fabric workspace. Add the other modeler as member to the workspace.
+This answer is incorrect.
+
+Save your work as a PBIX file to Microsoft OneDrive and share the file with the other modeler.
+
+Save your work as a Power BI Project (PBIP). Initialize a Git repository with version control.
+This answer is correct.
+Saving your Power BI work as a PBIP enables you to save the work as individual plain text files in a simple, intuitive folder structure, which can be checked into a source control system such as Git. This will enable multiple developers to work on different parts of the model simultaneously.
+
+Emailing a Power BI model back and forth is not efficient for collaboration. Saving a Power BI model as a PBIX file to OneDrive eases developers access, but only one developer can have the file open at time. Publishing a PBIX file to a shared workspace does not allow multiple developers to work on the model simultaneously.
+---
+
+You have a semantic model that pulls data from an Azure SQL database and is synced via Fabric deployment pipelines to three workspaces named Development, Test, and Production.
+
+You need to reduce the size of the query requests sent to the Azure SQL database when full semantic model refreshes occur in the Development or Test workspaces.
+
+What should you do for the deployment pipeline?
+
+Select only one answer.
+
+Add a deployment parameter rule to filter the data.
+This answer is correct.
+
+Configure row-level security (RLS).
+
+Connect either workspace to an Azure Data Lake Storage Gen2 account.
+
+Enable an incremental refresh policy.
+This answer is incorrect.
+Adding query parameters to the semantic model allows you to filter the refreshed data either categorically or by date and change the amount of data being pulled in between the Development, Test, and Production workspaces. All other options will not change which data is pulled in between the pipeline workspaces.
+---
+You have a Fabric tenant that has XMLA Endpoint set to Read Write.
+
+You need to use the XMLA endpoint to deploy changes to only one table from the data model.
+
+What is the main limitation of using XMLA endpoints for the Microsoft Power BI deployment process?
+
+Select only one answer.
+
+A PBIX file cannot be downloaded from the Power BI service.
+This answer is correct.
+
+Only the user that deployed the report can make changes.
+
+Table partitioning is impossible.
+This answer is incorrect.
+
+You cannot use parameters for incremental refresh.
+Whenever the semantic model is deployed/changed by using XMLA endpoints, there is no possibility to download the PBIX file from the Power BI service. This means that no one can download the PBIX file (even the user who deployed the report). Table partitioning, as well as using parameters, is still supported, thus doesn’t represent a limitation.
+---
+You have a Fabric tenant that contains a lakehouse.
+
+On a local computer, you have a CSV file that contains a static list of company office locations.
+
+You need to recommend a method to perform a one-time copy to ingest the CSV file into the lakehouse. The solution must minimize administrative effort.
+
+Which method should you recommend?
+
+Select only one answer.
+
+a Dataflow Gen2 query
+
+a local file upload by using Lakehouse explorer
+This answer is correct.
+
+a pipeline with the Copy data activity
+
+a Spark notebook
+For a one-time copy of small local files into a lakehouse, using Lakehouse explorer and a local file upload is recommended.
+
+---
+
+You have Azure Databricks tables and a Fabric lakehouse.
+
+You need to create a new Fabric artifact to combine data from both architectures. The solution must use data pipelines for the Azure Databricks data and shortcuts for the existing Fabric lakehouse.
+
+What Fabric artifact should you create?
+
+Select only one answer.
+
+a data warehouse
+
+a Dataflow Gen2 query
+
+a lakehouse
+This answer is correct.
+
+a semantic model
+This answer is incorrect.
+Only Fabric lakehouses can shortcut to other lakehouses. Fabric data warehouses can use data Pipelines but cannot use shortcuts.
+
+---
+You have a Fabric workspace that contains a lakehouse named Lakehouse1.
+
+You need to create a data pipeline and ingest data into Lakehouse1 by using the Copy data activity.
+
+Which properties on the General tab are mandatory for the activity?
+
+Select only one answer.
+
+Name and Retry only
+
+Name and Timeout only
+This answer is incorrect.
+
+Name only
+This answer is correct.
+
+Name, Timeout, and Retry
+
+Retry only
+
+Timeout only
+---
+You have a Fabric workspace named Workspace1 that contains a lakehouse named Lakehouse1.
+
+You have write permissions to an Azure Data Lake Storage Gen2 account named storage1 that contains a folder named Folder1.
+
+You plan to delete a shortcut named Shortcut1 that points to a file named File1 stored in Folder1.
+
+You run the delete operation on the following path.
+
+Lakehouse1\Files\Shortcut1
+
+What will occur after you run the delete operation?
+
+Select only one answer.
+
+Only File1 and Folder1 will be deleted.
+
+Only File1 will be deleted.
+
+Only Shortcut1 will be deleted.
+This answer is correct.
+
+Shortcut1, Folder1, and File1 will be deleted.
+
+Answer:
+Shortcuts do not perform cascading deletes. However, if the user has write permissions to the shortcut target and specifies the full path of the target, the target will be deleted from the storage account.
+
+---
+
+You have a Fabric tenant that contains a lakehouse.
+
+You plan to use a Fabric notebook and PySpark to read sales data and save the data as a Delta table named Sales. The table must be partitioned by Sales Year and Quarter.
+
+You load the sales data to a DataFrame named df that contains a Year column and a Quarter column.
+
+Which command should you run next?
+
+Select only one answer.
+
+df.write.mode("overwrite").format("delta").partitionBy("Year",Quarter").save("Files/Sales)
+
+df.write.mode("overwrite").format("delta").partitionBy("Year","Quarter").save("Tables/Sales")
+This answer is correct.
+
+df.write.mode("overwrite").format("parquet").partitionBy("Year","Quarter").save("Files/Sales")
+
+df.write.mode("overwrite").format("parquet").partitionBy("Year","Quarter").save("Tables/Sales)
+To save a DataFrame in the Delta format, you must use format(“delta”). While a DataFrame can be saved to the Files section of a lakehouse, it will not be considered a table.
+
+---
+
+---

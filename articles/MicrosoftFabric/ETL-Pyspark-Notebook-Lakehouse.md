@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ETL Using Notebook
+title: ETL-Load data into Lakehouse - Pyspark Notebook
 parent: MicrosoftFabric
 nav_order: 4
 ---
@@ -14,25 +14,25 @@ nav_order: 4
   - [Write data into a Lakehouse File](#write-data-into-a-lakehouse-file)
   - [Write data into a Lakehouse Delta Table](#write-data-into-a-lakehouse-delta-table)
   - [Optimize\[Fewer files\] - V-Order \& optimizeWrite](#optimizefewer-files---v-order--optimizewrite)
+  - [Knowledge check](#knowledge-check)
   - [Summary](#summary)
 
 ## Background
 
-Here, I'll show you how to use a PySpark Notebook to build a complete ETL (Extract, Transform, Load) solution. We'll import parquet files from external sources into a Fabric Lakehouse folder, clean the data, and create Delta tables—all using the PySpark Notebook.
+Here, I'll show you how to use a PySpark Notebook to build a complete ETL solution. We'll import parquet files from external sources into a Fabric Lakehouse folder, clean the data, and create Delta tables—all using the PySpark Notebook.
 
-However, there are three other equally robust options in Fabric:
+Three other methods to load data into Lakehouse:
 
 1. [**ADF Data Pipelines**](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-pipelines): With Azure Data Factory pipelines, you can handle both ingestion and transformation. Use the **Copy data activity** for ingestion(**no transformation**) and a **Notebook activity** or Dataflow activity for transformation. You might wonder why not just use a notebook for everything if you need a notebook activity—it's a good question!
   ![alt text](image-1.png)
 
-2. [**Dataflow (PowerQuery)**](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview): Dataflows can handle both ingestion and transformation. They support ingestion from thousands of sources and use Power Query for transformation.
+2. [**Power BI Dataflow**](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview): Power BI Dataflows can handle both ingestion and transformation. They support ingestion from thousands of sources and use Power Query for transformation. **Note:** Fabric uses the same Power BI Dataflow.
    ![Dataflows](image.png)
 
 3. **Manual Upload**: You can always manually upload your files into a folder. Then you can use a Noteook or Dataflow for the transformation and Delta Lake Table creation :-)
   ![alt text](image-2.png)
 
-Additionally, there's an important T-SQL command called [**COPY INTO**](https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=fabric&preserve-view=true). This command copies data into tables and supports Parquet and CSV formats from Azure Data Lake Storage Gen2. However, it only copies data into tables and not into Lakehouse folders from external systems.
-
+- **Additionally**, there's an important T-SQL command called [**COPY INTO**](https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=fabric&preserve-view=true). This command copies data into tables and supports Parquet and CSV formats from Azure Data Lake Storage Gen2/Azure Blob. However, it only copies data into tables and not into Lakehouse folders from external systems.
 
 ## The entire project in just 8 pyspark lines
 
@@ -169,6 +169,29 @@ spark.conf.set("spark.sql.parquet.vorder.enabled", "true")
 # Enable automatic Delta optimized write
 spark.conf.set("spark.microsoft.delta.optimizeWrite.enabled", "true")
 ```
+
+### Knowledge check
+
+- What are the four data ingestion options available in Microsoft Fabric for loading data into a data warehouse?
+
+  **Answer**: COPY (Transact-SQL) statement, data pipelines, dataflows, and cross-warehouse are the four data ingestion options available in Microsoft Fabric for loading data into a data warehouse.
+
+- What are the supported data sources and file formats for the COPY (Transact-SQL) statement in Warehouse? 
+  
+  **Answer**: The COPY (Transact-SQL) statement currently supports the PARQUET and CSV file formats, and Azure Data Lake Storage (ADLS) Gen2 and Azure Blob Storage as data sources.
+
+- What is the recommended minimum file size when working with external data on files in Microsoft Fabric?
+  
+  **Answer**: When working with external data on files, we recommend that files are at least 4 MB in size.
+
+- You have a Fabric tenant that contains a lakehouse.On a local computer, you have a CSV file that contains a static list of company office locations. You need to recommend a method to perform a one-time copy to ingest the CSV file into the lakehouse. The solution must minimize administrative effort.
+Which method should you recommend?
+  - a Dataflow Gen2 query
+  - a local file upload by using Lakehouse explorer
+  - a pipeline with the Copy data activity
+  - a Spark notebook
+    
+  **Answer**: For a one-time copy of small local files into a lakehouse, using Lakehouse explorer and a local file upload is recommended.
 
 ### Summary
 
