@@ -76,7 +76,18 @@ You need to ensure that the pipeline activity supports parameterization. Which t
   - SQL stored procedures
   - user-defined functions
       
-  **Answer**: Only notebooks and SQL stored procedures provide a possibility to define parameters in the data pipeline UI. Dataflow Gen2 and KQL activity only require connection details, but no parameters can be supplied. User-defined functions cannot be added as an activity to a pipeline..
+  **Answer**: Only notebooks and SQL stored procedures provide a possibility to define parameters in the data pipeline UI. Dataflow Gen2 and KQL activity only require connection details, but no parameters can be supplied. User-defined functions cannot be added as an activity to a pipeline.
+
+**Scenario 4:**
+You have an external Snowflake database that contains a table with 200 million rows. You need to use a data pipeline to migrate the database to Lakehouse1.
+What is the most performant (fastest) method for ingesting data this large (200 million rows) by using a data pipeline?
+
+  - Data Pipeline (Copy data)
+  - Data Pipeline (Dataflow Gen2)
+  - Data Pipeline (Lookup)
+  - Data Pipeline Spark (Notebook)
+  
+  **Answer:** Copy data is the fastest and most direct method for migrating data from one system to another, with no transformations applied.
 
 ## The entire project in just 8 pyspark lines
 
