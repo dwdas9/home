@@ -489,4 +489,81 @@ To save a DataFrame in the Delta format, you must use format(“delta”). While
 
 ---
 
+You have a Fabric tenant.
+
+Your company has 1 TB of legacy accounting data stored in an Azure Data Lake Storage Gen2 account. The data is queried only once a year for a few ad-hoc reports that submit very selective queries.
+
+You plan to create a Fabric lakehouse or warehouse to store company sales data. Developers must be able to build reports from the lakehouse or warehouse based on the sales data. The developers must also be able to do ad-hoc analysis of the legacy data at the end of each year.
+
+You need to recommend which Fabric architecture to create and the process for integrating the accounting data into Fabric. The solution must minimize administrative effort and costs.
+
+What should you recommend?
+
+Select only one answer.
+
+Ingest the sales data into the Fabric lakehouse and set up a shortcut to the legacy accounting data in the storage account.
+This answer is correct.
+
+Ingest the sales data into the Fabric lakehouse and use a pipeline to move the legacy accounting data into the lakehouse.
+
+Ingest the sales data into the Fabric warehouse and use a pipeline to move the legacy accounting data into the warehouse.
+
+Set up a lakehouse with a shortcut to the legacy accounting data. Ingest the sales data into the Fabric warehouse and add the SQL analytics endpoint of the lakehouse to the warehouse for cross querying.
+This answer is incorrect.
+Since the legacy accounting data is only accessed once a year for a few ad-hoc queries that are highly selective, there is no need to move the data into a Fabric workspace. Shortcuts enable the querying of remote data without having to move the data. Shortcuts are only supported in a Fabric lakehouse. While you can add the SQL endpoint of a lakehouse to a warehouse for cross database querying, that is not the simplest method. The simplest method is to use a shortcut.
+
+---
+You have a Fabric workspace that contains a data pipeline with a fact table and two dimension tables. The fact table contains customer data. One dimension table contains customer information and a column with Customer ID information, and the other dimension table contains calendar information and a column with Date ID information.
+
+You need to ensure that each customer’s sales data is provisioned to their own Parquet file under the Parquet folder structure.
+
+Which data pipeline configuration should you implement?
+
+Select only one answer.
+
+Add a SecureString parameter for Customer ID.
+
+Increase the Concurrency count.
+
+Partition by customer ID on the customer dimension table.
+
+Partition by customer ID on the fact table.
+This answer is correct.
+Partitioning determines the Parquet file structure, depending on the column or columns selected. Partitioning the fact table by customer ID will give each customer ID its own file.
+---
+You have a Fabric workspace that contains a Microsoft Power BI report named Sales.
+
+You plan to use Dataflow Gen2 to add an additional column to the report. The new column must be based on the unit price of a product. Any product that has a unit price that is greater than $1,000 must be labeled as High, while any product that has a unit price that is less than $1,000 must be labeled as Regular.
+
+What should you select on the Add column tab in Power Query Editor?
+
+Select only one answer.
+
+Duplicate column
+
+Conditional column
+This answer is correct.
+
+Index column
+
+Merge columns
+The Conditional column option enables adding new columns whose values will be based on one or more conditions applied to the existing table columns.
+---
+You have a Fabric tenant that contains a lakehouse named Lakehouse1.
+
+You need to ingest data into Lakehouse1 from a large Azure SQL Database table that contains more than 500 million records. The data must be ingested without applying any additional transformations. The solution must minimize costs and administrative effort.
+
+What should you use to ingest the data?
+
+Select only one answer.
+
+a pipeline with the Copy data activity
+This answer is correct.
+
+a SQL stored procedure
+
+Dataflow Gen2
+
+notebooks
+When ingesting a large data source without applying transformations, the recommended method is to use the Copy data activity in pipelines. Notebooks are recommended for complex data transformations, whereas Dataflow Gen2 is suitable for smaller data and/or specific connectors.
 ---

@@ -5,6 +5,8 @@ parent: MicrosoftFabric
 nav_order: 4
 ---
 - [Background](#background)
+  - [Ways to Ingest Data into Lakehouse](#ways-to-ingest-data-into-lakehouse)
+  - [When to choose which method? Microsoft's recommendation.](#when-to-choose-which-method-microsofts-recommendation)
 - [The entire project in just 8 pyspark lines](#the-entire-project-in-just-8-pyspark-lines)
   - [THE code](#the-code)
   - [The explanation](#the-explanation)
@@ -21,7 +23,10 @@ nav_order: 4
 
 Here, I'll show you how to use a PySpark Notebook to build a complete ETL solution. We'll import parquet files from external sources into a Fabric Lakehouse folder, clean the data, and create Delta tables—all using the PySpark Notebook.
 
-Three other methods to load data into Lakehouse:
+
+### Ways to Ingest Data into Lakehouse
+
+Apart from using Pyspark in Notebooks there are other methods to Copy data into Lakehouse. Based on the the situation you will have to choose a method. 
 
 1. [**ADF Data Pipelines**](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-pipelines): With Azure Data Factory pipelines, you can handle both ingestion and transformation. Use the **Copy data activity** for ingestion(**no transformation**) and a **Notebook activity** or Dataflow activity for transformation. You might wonder why not just use a notebook for everything if you need a notebook activity—it's a good question!
   ![alt text](image-1.png)
@@ -33,6 +38,31 @@ Three other methods to load data into Lakehouse:
   ![alt text](image-2.png)
 
 - **Additionally**, there's an important T-SQL command called [**COPY INTO**](https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=fabric&preserve-view=true). This command copies data into tables and supports Parquet and CSV formats from Azure Data Lake Storage Gen2/Azure Blob. However, it only copies data into tables and not into Lakehouse folders from external systems.
+
+### When to choose which method? Microsoft's recommendation.
+
+**Scenario 1:**
+You have a Fabric tenant that contains a lakehouse named Lakehouse1.
+You need to ingest data into Lakehouse1 from a large Azure SQL Database table that contains more than 500 million records. The data must be ingested without applying any additional transformations. The solution must minimize costs and administrative effort.
+
+What should you use to ingest the data?
+
+- a pipeline with the Copy data activity
+- a SQL stored procedure
+- Dataflow Gen2
+- notebooks
+
+**Answer:** When ingesting a large data source without applying transformations, the recommended method is to use the Copy data activity in pipelines. Notebooks are recommended for complex data transformations, whereas Dataflow Gen2 is suitable for smaller data and/or specific connectors.
+
+**Scenario 2:** 
+You have a Fabric tenant that contains a lakehouse.On a local computer, you have a CSV file that contains a static list of company office locations. You need to recommend a method to perform a one-time copy to ingest the CSV file into the lakehouse. The solution must minimize administrative effort.
+Which method should you recommend?
+  - a Dataflow Gen2 query
+  - a local file upload by using Lakehouse explorer
+  - a pipeline with the Copy data activity
+  - a Spark notebook
+    
+  **Answer**: For a one-time copy of small local files into a lakehouse, using Lakehouse explorer and a local file upload is recommended.
 
 ## The entire project in just 8 pyspark lines
 
@@ -184,14 +214,7 @@ spark.conf.set("spark.microsoft.delta.optimizeWrite.enabled", "true")
   
   **Answer**: When working with external data on files, we recommend that files are at least 4 MB in size.
 
-- You have a Fabric tenant that contains a lakehouse.On a local computer, you have a CSV file that contains a static list of company office locations. You need to recommend a method to perform a one-time copy to ingest the CSV file into the lakehouse. The solution must minimize administrative effort.
-Which method should you recommend?
-  - a Dataflow Gen2 query
-  - a local file upload by using Lakehouse explorer
-  - a pipeline with the Copy data activity
-  - a Spark notebook
-    
-  **Answer**: For a one-time copy of small local files into a lakehouse, using Lakehouse explorer and a local file upload is recommended.
+
 
 ### Summary
 
