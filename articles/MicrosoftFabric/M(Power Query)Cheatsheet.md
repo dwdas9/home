@@ -5,7 +5,7 @@ parent: MicrosoftFabric
 nav_order: 4
 ---
 
-## <span style="color: DarkCyan">**M** Language Cheatsheet</span>
+# <span style="color: DarkCyan">**M** Language Cheatsheet</span>
 
 The **M langugage**, also knowne as <span style="color: magenta">**Power Query Formula Language**</span> is the formula language used in Power Query, a data connectivity and data preparation technology in Excel and Power BI. M is designed for data manipulation and transformation. This cheatsheet covers the basics and common transformations in M language.
 
