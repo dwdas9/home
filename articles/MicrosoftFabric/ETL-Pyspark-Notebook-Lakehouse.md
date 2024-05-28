@@ -32,6 +32,7 @@ Apart from using Pyspark in Notebooks there are other methods to Copy data into 
   ![alt text](image-1.png)
   {: .highlight }
   The Copy data activity provides the best performance when copying data from large datasets.
+  Copy data is the fastest and most direct method for migrating data from one system to another, with no transformations applied.
 
 
 2. [**Power BI Dataflow**](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview): Power BI Dataflows can handle both ingestion and transformation. They support ingestion from thousands of sources and use Power Query for transformation. **Note:** Fabric uses the same Power BI Dataflow.
