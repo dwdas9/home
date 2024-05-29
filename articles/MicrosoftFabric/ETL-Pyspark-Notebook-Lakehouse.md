@@ -30,7 +30,8 @@ Apart from using Pyspark in Notebooks there are other methods to Copy data into 
 
 1. [**ADF Data Pipelines**](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-pipelines): You can both ingest and transoform using ADF pipeline. Use the **Copy data activity** for ingestion(**no transformation**) and a **Notebook activity** or Dataflow activity for transformation. If there is no transformation, blindly choose **Copy data** activity.
   ![alt text](image-1.png)
-  {: .highlight }
+
+{: .highlight }
   The Copy data activity provides the best performance when copying data from large datasets.
   Copy data is the fastest and most direct method for migrating data from one system to another, with no transformations applied.
 
