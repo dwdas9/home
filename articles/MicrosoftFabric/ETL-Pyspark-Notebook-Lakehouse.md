@@ -249,6 +249,10 @@ spark.conf.set("spark.microsoft.delta.optimizeWrite.enabled", "true")
 - Copy data activity in ADF pipeline can't do transformation. It is used for data ingestion only.
 - Read, write and saveAsTable are the three important pyspark commands to learn.
 
-1. `spark.read.parquet("path of external parquets")`
-2. `df.limit(1000).write.mode("overwrite").parquet("path of lakehouse folder")`
-3. `cleaned_df.write.format("delta").mode("append").saveAsTable("theDeltatableName")`
+  1. `spark.read.parquet("path of external parquets")`
+  2. `df.limit(1000).write.mode("overwrite").parquet("path of lakehouse folder")`
+  3. `cleaned_df.write.format("delta").mode("append").saveAsTable("theDeltatableName")`
+
+<span class="fs-8">
+[Link button](https://just-the-docs.com){: .btn }
+</span>
