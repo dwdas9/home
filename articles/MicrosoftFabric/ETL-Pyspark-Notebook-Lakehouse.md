@@ -19,7 +19,7 @@ nav_order: 4
   - [Knowledge check](#knowledge-check)
   - [Summary](#summary)
 
-## Background
+## <span style="color: DarkOrchid" class="fs-8">Background</span>
 
 Here, I'll show you how to use a PySpark Notebook to build a complete ETL solution. We'll import parquet files from external sources into a Fabric Lakehouse folder, clean the data, and create Delta tables—all using the PySpark Notebook.
 
@@ -252,7 +252,3 @@ spark.conf.set("spark.microsoft.delta.optimizeWrite.enabled", "true")
   1. `spark.read.parquet("path of external parquets")`
   2. `df.limit(1000).write.mode("overwrite").parquet("path of lakehouse folder")`
   3. `cleaned_df.write.format("delta").mode("append").saveAsTable("theDeltatableName")`
-
-<span class="fs-8">
-[Link button](https://just-the-docs.com){: .btn }
-</span>
