@@ -7,7 +7,7 @@ nav_order: 2
 
 ## Common machine learning models
 
-![alt text](images\machinelearningmodels.png)
+![alt text](images\MachineLModels.png)
 
 - **Classification**: Will the customer stay or leave?
 - **Regression**: What will the product cost?
