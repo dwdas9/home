@@ -137,607 +137,205 @@ Sure, here's the revised version:
 - C. Lakehouse
 -  <span style="color: white">Correct. Use Data Wrangler to visualize and clean your data.</span>
 
----
-1. Which of the following statements best describes the concept of capacity in Fabric? 
+📌 **Which of the following statements best describes the concept of capacity in Fabric?**
 
-Capacity refers to a dedicated space for organizations to create, store, and manage Fabric items.
-Incorrect. The concept of capacity in Fabric isn't related to dedicated spaces for Fabric items.
+- Capacity refers to a dedicated space for organizations to create, store, and manage Fabric items.
 
+- Capacity defines the ability of a resource to perform an activity or to produce output.
 
-Capacity defines the ability of a resource to perform an activity or to produce output.
-Correct. Capacity refers to the resources available at a given time to perform activities and produce output.
+- Capacity is a collection of items that are logically grouped together.
 
+- **Answer:** <span style="color: white">Capacity defines the ability of a resource to perform an activity or to produce output.</span>
 
-Capacity is a collection of items that are logically grouped together.
-2. Which of the following statements is true about the difference between promotion and certification in Fabric? 
+📌 **Which of the following statements is true about the difference between promotion and certification in Fabric?**
 
-Promotion and certification both allow any workspace member to endorse content.
+- Promotion and certification both allow any workspace member to endorse content.
 
-Promotion requires a higher level of permissions than certification.
+- Promotion requires a higher level of permissions than certification.
 
-Certification must be enabled in the tenant by the admin, while promotion can be done by a workspace member.
-Correct. Certification must be enabled in the tenant by the admin, and only designated certifiers can perform the endorsement. In contrast, promotion can be done by any workspace member who has been granted the necessary permissions.
+- Certification must be enabled in the tenant by the admin, while promotion can be done by a workspace member.
 
----
-1. Which of the following sets of layers are typically associated with the Medallion Architecture for data management? 
-
-Raw, Polished, Refined
-
-Bronze, Silver, Gold
-Correct. Bronze, silver, gold is the correct sequence of layers typically used in the medallion architecture. Data flows from the raw and unrefined state (bronze) to a curated and validated state (silver), and finally to an enriched and well-structured presentation state (gold).
-
-
-Initial, Intermediate, Final
-2. Which tool is best suited for data transformation in Fabric when dealing with large-scale data that will continue to grow? 
-
-Dataflows (Gen2)
-
-Pipelines
-
-Notebooks
-Correct. Notebooks are a more suitable tool for data transformation with big data in Fabric.
-
-3. What is the benefit of storing different layers of your lakehouse in separate workspaces? 
-
-It can enhance security, manage capacity use, and optimize cost-effectiveness.
-Correct. Storing different layers of your lakehouse in separate workspaces enhances security and optimizes cost-effectiveness.
-
-
-It makes it easier to share data with colleagues.
-
-There's no benefit of storing different layers of your lakehouse in separate workspaces.
----
-1. What is the benefit of using Fabric notebooks over manual uploads for data ingestion? 
-
-Notebooks provide an automated approach to ingestion and transformation.
-Correct. Fabric notebooks provide automation for ingestion and transformation, ensuring a smooth and systematic approach.
-
-
-Notebooks can orchestrate the Copy Data activity and transformations.
-Incorrect. Pipelines use the Copy Data activity, but don't support transformations without a notebook or dataflow.
-
-
-Notebooks offer a user-friendly, low-code experience for large semantic models.
-2. What is the purpose of V-Order and Optimize Write in Delta tables? 
-
-V-Order and Optimize Write sorts the Delta table when queried with PySpark in a Fabric Notebook.
-
-V-Order and Optimize Write enhance Delta tables by sorting data and creating fewer, larger Parquet files.
-Correct. V-Order allows data sorting and Optimize Write creates more efficient file sizes.
-
-
-V-Order and Optimize Write create many small csv files.
-3. Why consider basic data cleansing when loading data into Fabric lakehouse? 
-
-To reduce data load size and processing time.
-Incorrect. While the data size and processing time may be reduced, that's not the goal.
-
-
-To ensure data quality and consistency.
-Correct. Basic cleaning is done to ensure data quality and consistency before moving on to transformation and modeling steps.
-
-
-To enforce data privacy and security measures.
----
-1. What is the purpose of creating a Reflex in Data Activator? 
-
-To connect to data sources, monitor conditions, and initiate actions
-Correct. A Reflex item contains all the necessary details to connect to data sources, monitor conditions, and initiate actions for each business segment or process being monitored.
-
-
-To customize your Fabric experience to Data Activator
-
-To navigate between data mode and design mode
-2. What is Data Activator's capability in real-time data analysis? 
-
-Data Activator can only analyze data in batches.
-
-Data Activator can quickly respond to and analyze data in real-time.
-Correct. Data Activator is tailored to handle real-time data streams and can distinguish itself through its capability to quickly respond to and analyze data in real-time.
-
-
-Data Activator can only analyze data from a single source.
-3. What is one of Data Activator's strengths in terms of interoperability with other Fabric experiences? 
-
-Data Activator can ingest data from EventStreams and Power BI reports.
-Correct. One of Data Activator's strengths is its integration capabilities with other Fabric experiences, such as ingesting data from EventStreams and Power BI reports.
-
-
-Data Activator can't ingest data from other Fabric experiences.
-
-Data Activator can only ingest data from Power BI reports.
+- **Answer:** <span style="color: white">Certification must be enabled in the tenant by the admin, and only designated certifiers can perform the endorsement. In contrast, promotion can be done by any workspace member who has been granted the necessary permissions.</span>
 
 ---
-You are developing a Microsoft Power BI semantic model.
 
-Two tables in the data model are not connected in a physical relationship.
+📌 **Which of the following sets of layers are typically associated with the Medallion Architecture for data management?**
 
-You need to establish a virtual relationship between the tables.
+- Raw, Polished, Refined
 
-Which DAX function should you use?
+- Bronze, Silver, Gold
 
-Select only one answer.
+- Initial, Intermediate, Final
 
-CROSSFILTER()
+- **Answer:** <span style="color: white">Bronze, silver, gold is the correct sequence of layers typically used in the medallion architecture. Data flows from the raw and unrefined state (bronze) to a curated and validated state (silver), and finally to an enriched and well-structured presentation state (gold).</span>
 
-PATH()
+📌 **Which tool is best suited for data transformation in Fabric when dealing with large-scale data that will continue to grow?**
 
-TREATAS()
+- Dataflows (Gen2)
 
-USERELATIONSHIP()
+- Pipelines
 
-Answer: TREATAS() applies the result of a table expression as filters to columns from an unrelated table. USERELATIONSHIP() activates different physical relationships between tables during a query execution. CROSSFILTER() defines the cross filtering direction of a physical relationship. PATH() returns a string of all the members in the column hierarchy.
----
+- Notebooks
 
-You have a Fabric workspace that contains a lakehouse named Lakehouse1.
+- **Answer:** <span style="color: white">Notebooks are a more suitable tool for data transformation with big data in Fabric.</span>
 
-A user named User1 plans to use Lakehouse explorer to read Lakehouse1 data.
+📌 **What is the benefit of storing different layers of your lakehouse in separate workspaces?**
 
-You need to assign a workspace role to User1. The solution must follow the principle of least privilege.
+- It can enhance security, manage capacity use, and optimize cost-effectiveness.
 
-Which workspace role should you assign to User1?
+- It makes it easier to share data with colleagues.
 
-Select only one answer.
+- There's no benefit of storing different layers of your lakehouse in separate workspaces.
 
-Admin
-
-Contributor
-This answer is correct.
-
-Member
-
-Viewer
-This answer is incorrect.
-
-Answer: To read the data from a Fabric lakehouse by using Lakehouse explorer, users must be assigned roles of either Admin, Member, or Contributor. However, respecting the least privileged principle, a user must be assigned the Contributor role. The viewer role does not provide permission to read the lakehouse data through Lakehouse explorer.
----
-
-You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a lakehouse, a data pipeline, a notebook, and several Microsoft Power BI reports.
-
-A user named User1 plans to use SQL to access the lakehouse to analyze data. User1 must have the following access:
-
-User1 must have read-only access to the lakehouse.
-User1 must NOT be able to access the rest of the items in Workspace1.
-User1 must NOT be able to use Spark to query the underlying files in the lakehouse.
-You need to configure access for User1.
-
-What should you do?
-
-Select only one answer.
-
-Add User1 to the workspace as a member, share the lakehouse with User1, and select Read all SQL Endpoint data.
-
-Add User1 to the workspace as a viewer, share the lakehouse with User1, and select Read all SQL Endpoint data.
-
-Share the lakehouse with User1 directly and select Build reports on the default dataset.
-
-Share the lakehouse with User1 directly and select Read all SQL Endpoint data.
-This answer is correct.
-Since the user only needs access to the lakehouse and not the other items in the workspace, you should share the lakehouse directly and select Read all SQL Endpoint data. The user should not be added as a member of the workspace. All members of the workspace, even viewers, will be able to open all Power BI reports in the workspace. The SQL analytics endpoint itself cannot be shared directly; the Share options only show for the lakehouse.
----
-You use Microsoft Power BI Desktop to create a Power BI semantic model.
-
-You need to recommend a solution to collaborate with another Power BI modeler. The solution must ensure that you can both work on different parts of the model simultaneously. The solution must provide the most efficient and productive way to collaborate on the same model.
-
-What should you recommend?
-
-Select only one answer.
-
-Save your work as a PBIX file and email the file to the other modeler.
-
-Save your work as a PBIX file and publish the file to a Fabric workspace. Add the other modeler as member to the workspace.
-This answer is incorrect.
-
-Save your work as a PBIX file to Microsoft OneDrive and share the file with the other modeler.
-
-Save your work as a Power BI Project (PBIP). Initialize a Git repository with version control.
-This answer is correct.
-Saving your Power BI work as a PBIP enables you to save the work as individual plain text files in a simple, intuitive folder structure, which can be checked into a source control system such as Git. This will enable multiple developers to work on different parts of the model simultaneously.
-
-Emailing a Power BI model back and forth is not efficient for collaboration. Saving a Power BI model as a PBIX file to OneDrive eases developers access, but only one developer can have the file open at time. Publishing a PBIX file to a shared workspace does not allow multiple developers to work on the model simultaneously.
----
-
-You have a semantic model that pulls data from an Azure SQL database and is synced via Fabric deployment pipelines to three workspaces named Development, Test, and Production.
-
-You need to reduce the size of the query requests sent to the Azure SQL database when full semantic model refreshes occur in the Development or Test workspaces.
-
-What should you do for the deployment pipeline?
-
-Select only one answer.
-
-Add a deployment parameter rule to filter the data.
-This answer is correct.
-
-Configure row-level security (RLS).
-
-Connect either workspace to an Azure Data Lake Storage Gen2 account.
-
-Enable an incremental refresh policy.
-This answer is incorrect.
-Adding query parameters to the semantic model allows you to filter the refreshed data either categorically or by date and change the amount of data being pulled in between the Development, Test, and Production workspaces. All other options will not change which data is pulled in between the pipeline workspaces.
----
-You have a Fabric tenant that has XMLA Endpoint set to Read Write.
-
-You need to use the XMLA endpoint to deploy changes to only one table from the data model.
-
-What is the main limitation of using XMLA endpoints for the Microsoft Power BI deployment process?
-
-Select only one answer.
-
-A PBIX file cannot be downloaded from the Power BI service.
-This answer is correct.
-
-Only the user that deployed the report can make changes.
-
-Table partitioning is impossible.
-This answer is incorrect.
-
-You cannot use parameters for incremental refresh.
-Whenever the semantic model is deployed/changed by using XMLA endpoints, there is no possibility to download the PBIX file from the Power BI service. This means that no one can download the PBIX file (even the user who deployed the report). Table partitioning, as well as using parameters, is still supported, thus doesn’t represent a limitation.
----
-You have a Fabric tenant that contains a lakehouse.
-
-On a local computer, you have a CSV file that contains a static list of company office locations.
-
-You need to recommend a method to perform a one-time copy to ingest the CSV file into the lakehouse. The solution must minimize administrative effort.
-
-Which method should you recommend?
-
-Select only one answer.
-
-a Dataflow Gen2 query
-
-a local file upload by using Lakehouse explorer
-This answer is correct.
-
-a pipeline with the Copy data activity
-
-a Spark notebook
-For a one-time copy of small local files into a lakehouse, using Lakehouse explorer and a local file upload is recommended.
+- **Answer:** <span style="color: white">Storing different layers of your lakehouse in separate workspaces enhances security and optimizes cost-effectiveness.</span>
 
 ---
 
-You have Azure Databricks tables and a Fabric lakehouse.
+📌 **What is the benefit of using Fabric notebooks over manual uploads for data ingestion?**
 
-You need to create a new Fabric artifact to combine data from both architectures. The solution must use data pipelines for the Azure Databricks data and shortcuts for the existing Fabric lakehouse.
+- Notebooks provide an automated approach to ingestion and transformation.
 
-What Fabric artifact should you create?
+- Notebooks can orchestrate the Copy Data activity and transformations.
 
-Select only one answer.
+- Notebooks offer a user-friendly, low-code experience for large semantic models.
 
-a data warehouse
+- **Answer:** <span style="color: white">Notebooks provide an automated approach to ingestion and transformation.</span>
 
-a Dataflow Gen2 query
+📌 **What is the purpose of V-Order and Optimize Write in Delta tables?**
 
-a lakehouse
-This answer is correct.
+- V-Order and Optimize Write sorts the Delta table when queried with PySpark in a Fabric Notebook.
 
-a semantic model
-This answer is incorrect.
-Only Fabric lakehouses can shortcut to other lakehouses. Fabric data warehouses can use data Pipelines but cannot use shortcuts.
+- V-Order and Optimize Write enhance Delta tables by sorting data and creating fewer, larger Parquet files.
 
----
-You have a Fabric workspace that contains a lakehouse named Lakehouse1.
+- V-Order and Optimize Write create many small csv files.
 
-You need to create a data pipeline and ingest data into Lakehouse1 by using the Copy data activity.
+- **Answer:** <span style="color: white">V-Order and Optimize Write enhance Delta tables by sorting data and creating fewer, larger Parquet files.</span>
 
-Which properties on the General tab are mandatory for the activity?
+📌 **Why consider basic data cleansing when loading data into Fabric lakehouse?**
 
-Select only one answer.
+- To reduce data load size and processing time.
 
-Name and Retry only
+- To ensure data quality and consistency.
 
-Name and Timeout only
-This answer is incorrect.
+- To enforce data privacy and security measures.
 
-Name only
-This answer is correct.
-
-Name, Timeout, and Retry
-
-Retry only
-
-Timeout only
----
-You have a Fabric workspace named Workspace1 that contains a lakehouse named Lakehouse1.
-
-You have write permissions to an Azure Data Lake Storage Gen2 account named storage1 that contains a folder named Folder1.
-
-You plan to delete a shortcut named Shortcut1 that points to a file named File1 stored in Folder1.
-
-You run the delete operation on the following path.
-
-Lakehouse1\Files\Shortcut1
-
-What will occur after you run the delete operation?
-
-Select only one answer.
-
-Only File1 and Folder1 will be deleted.
-
-Only File1 will be deleted.
-
-Only Shortcut1 will be deleted.
-This answer is correct.
-
-Shortcut1, Folder1, and File1 will be deleted.
-
-Answer:
-Shortcuts do not perform cascading deletes. However, if the user has write permissions to the shortcut target and specifies the full path of the target, the target will be deleted from the storage account.
+- **Answer:** <span style="color: white">Basic cleaning is done to ensure data quality and consistency before moving on to transformation and modeling steps.</span>
 
 ---
 
-You have a Fabric tenant that contains a lakehouse.
+📌 **What is the purpose of creating a Reflex in Data Activator?**
 
-You plan to use a Fabric notebook and PySpark to read sales data and save the data as a Delta table named Sales. The table must be partitioned by Sales Year and Quarter.
+- To connect to data sources, monitor conditions, and initiate actions.
 
-You load the sales data to a DataFrame named df that contains a Year column and a Quarter column.
+- To customize your Fabric experience to Data Activator.
 
-Which command should you run next?
+- To navigate between data mode and design mode.
 
-Select only one answer.
+- **Answer:** <span style="color: white">A Reflex item contains all the necessary details to connect to data sources, monitor conditions, and initiate actions for each business segment or process being monitored.</span>
 
-df.write.mode("overwrite").format("delta").partitionBy("Year",Quarter").save("Files/Sales)
+📌 **What is Data Activator's capability in real-time data analysis?**
 
-df.write.mode("overwrite").format("delta").partitionBy("Year","Quarter").save("Tables/Sales")
-This answer is correct.
+- Data Activator can only analyze data in batches.
 
-df.write.mode("overwrite").format("parquet").partitionBy("Year","Quarter").save("Files/Sales")
+- Data Activator can quickly respond to and analyze data in real-time.
 
-df.write.mode("overwrite").format("parquet").partitionBy("Year","Quarter").save("Tables/Sales)
-To save a DataFrame in the Delta format, you must use format(“delta”). While a DataFrame can be saved to the Files section of a lakehouse, it will not be considered a table.
+- Data Activator can only analyze data from a single source.
+
+- **Answer:** <span style="color: white">Data Activator is tailored to handle real-time data streams and can distinguish itself through its capability to quickly respond to and analyze data in real-time.</span>
+
+📌 **What is one of Data Activator's strengths in terms of interoperability with other Fabric experiences?**
+
+- Data Activator can ingest data from EventStreams and Power BI reports.
+
+- Data Activator can't ingest data from other Fabric experiences.
+
+- Data Activator can only ingest data from Power BI reports.
+
+- **Answer:** <span style="color: white">One of Data Activator's strengths is its integration capabilities with other Fabric experiences, such as ingesting data from EventStreams and Power BI reports.</span>
+
+---
+
+📌 **You are developing a Microsoft Power BI semantic model. Two tables in the data model are not connected in a physical relationship. You need to establish a virtual relationship between the tables. Which DAX function should you use?**
+
+- CROSSFILTER()
+
+- PATH()
+
+- TREATAS()
+
+- USERELATIONSHIP()
+
+- **Answer:** <span style="color: white">TREATAS() applies the result of a table expression as filters to columns from an unrelated table. USERELATIONSHIP() activates different physical relationships between tables during a query execution. CROSSFILTER() defines the cross filtering direction of a physical relationship. PATH() returns a string of all the members in the column hierarchy.</span>
 
 ---
 
-You have a Fabric tenant.
+📌 **You have a Fabric workspace that contains a lakehouse named Lakehouse1. A user named User1 plans to use Lakehouse explorer to read Lakehouse1 data. You need to assign a workspace role to User1. The solution must follow the principle of least privilege. Which workspace role should you assign to User1?**
 
-Your company has 1 TB of legacy accounting data stored in an Azure Data Lake Storage Gen2 account. The data is queried only once a year for a few ad-hoc reports that submit very selective queries.
+- Admin
 
-You plan to create a Fabric lakehouse or warehouse to store company sales data. Developers must be able to build reports from the lakehouse or warehouse based on the sales data. The developers must also be able to do ad-hoc analysis of the legacy data at the end of each year.
+- Contributor
 
-You need to recommend which Fabric architecture to create and the process for integrating the accounting data into Fabric. The solution must minimize administrative effort and costs.
+- Member
 
-What should you recommend?
+- Viewer
 
-Select only one answer.
-
-Ingest the sales data into the Fabric lakehouse and set up a shortcut to the legacy accounting data in the storage account.
-This answer is correct.
-
-Ingest the sales data into the Fabric lakehouse and use a pipeline to move the legacy accounting data into the lakehouse.
-
-Ingest the sales data into the Fabric warehouse and use a pipeline to move the legacy accounting data into the warehouse.
-
-Set up a lakehouse with a shortcut to the legacy accounting data. Ingest the sales data into the Fabric warehouse and add the SQL analytics endpoint of the lakehouse to the warehouse for cross querying.
-This answer is incorrect.
-Since the legacy accounting data is only accessed once a year for a few ad-hoc queries that are highly selective, there is no need to move the data into a Fabric workspace. Shortcuts enable the querying of remote data without having to move the data. Shortcuts are only supported in a Fabric lakehouse. While you can add the SQL endpoint of a lakehouse to a warehouse for cross database querying, that is not the simplest method. The simplest method is to use a shortcut.
+- **Answer:** <span style="color: white">To read the data from a Fabric lakehouse by using Lakehouse explorer, users must be assigned roles of either Admin, Member, or Contributor. However, respecting the least privileged principle, a user must be assigned the Contributor role. The viewer role does not provide permission to read the lakehouse data through Lakehouse explorer.</span>
 
 ---
-You have a Fabric workspace that contains a data pipeline with a fact table and two dimension tables. The fact table contains customer data. One dimension table contains customer information and a column with Customer ID information, and the other dimension table contains calendar information and a column with Date ID information.
 
-You need to ensure that each customer’s sales data is provisioned to their own Parquet file under the Parquet folder structure.
+📌 **You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a lakehouse, a data pipeline, a notebook, and several Microsoft Power BI reports. A user named User1 plans to use SQL to access the lakehouse to analyze data. User1 must have the following access: User1 must have read-only access to the lakehouse. User1 must NOT be able to access the rest of the items in Workspace1. User1 must NOT be able to use Spark to query the underlying files in the lakehouse. You need to configure access for User1. What should you do?**
 
-Which data pipeline configuration should you implement?
+- Add User1 to the workspace as a member, share the lakehouse with User1, and select Read all SQL Endpoint data.
 
-Select only one answer.
+- Add User1 to the workspace as a viewer, share the lakehouse with User1, and select Read all SQL Endpoint data.
 
-Add a SecureString parameter for Customer ID.
+- Share the lakehouse with User1 directly and select Build reports on the default dataset.
 
-Increase the Concurrency count.
+- Share the lakehouse with User1 directly and select Read all SQL Endpoint data.
 
-Partition by customer ID on the customer dimension table.
+- **Answer:** <span style="color: white">Since the user only needs access to the lakehouse and not the other items in the workspace, you should share the lakehouse directly and select Read all SQL Endpoint data. The user should not be added as a member of the workspace. All members of the workspace, even viewers, will be able to open all Power BI reports in the workspace. The SQL analytics endpoint itself cannot be shared directly; the Share options only show for the lakehouse.</span>
 
-Partition by customer ID on the fact table.
-This answer is correct.
-Partitioning determines the Parquet file structure, depending on the column or columns selected. Partitioning the fact table by customer ID will give each customer ID its own file.
 ---
-You have a Fabric workspace that contains a Microsoft Power BI report named Sales.
 
-You plan to use Dataflow Gen2 to add an additional column to the report. The new column must be based on the unit price of a product. Any product that has a unit price that is greater than $1,000 must be labeled as High, while any product that has a unit price that is less than $1,000 must be labeled as Regular.
+📌 **You use Microsoft Power BI Desktop to create a Power BI semantic model. You need to recommend a solution to collaborate with another Power BI modeler. The solution must ensure that you can both work on different parts of the model simultaneously. The solution must provide the most efficient and productive way to collaborate on the same model. What should you recommend?**
 
-What should you select on the Add column tab in Power Query Editor?
+- Save your work as a PBIX file and email the file to the other modeler.
 
-Select only one answer.
+- Save your work as a PBIX file and publish the file to a Fabric workspace. Add the other modeler as member to the workspace.
 
-Duplicate column
+- Save your work as a PBIX file to Microsoft OneDrive and share the file with the other modeler.
 
-Conditional column
-This answer is correct.
+- Save your work as a Power BI Project (PBIP). Initialize a Git repository with version control.
 
-Index column
+- **Answer:** <span style="color: white">Saving your Power BI work as a PBIP enables you to save the work as individual plain text files in a simple, intuitive folder structure, which can be checked into a source control system such as Git. This will enable multiple developers to work on different parts of the model simultaneously. Emailing a Power BI model back and forth is not efficient for collaboration. Saving a Power BI model as a PBIX file to OneDrive eases developers access, but only one developer can have the file open at time. Publishing a PBIX file to a shared workspace does not allow multiple developers to work on the model simultaneously.</span>
 
-Merge columns
-The Conditional column option enables adding new columns whose values will be based on one or more conditions applied to the existing table columns.
 ---
-You have a Fabric tenant that contains a lakehouse named Lakehouse1.
 
-You need to ingest data into Lakehouse1 from a large Azure SQL Database table that contains more than 500 million records. The data must be ingested without applying any additional transformations. The solution must minimize costs and administrative effort.
+📌 **You have a semantic model that pulls data from an Azure SQL database and is synced via Fabric deployment pipelines to three workspaces named Development, Test, and Production. You need to reduce the
 
-What should you use to ingest the data?
+ size of the dataset. Which DAX function should you use to remove unused columns?**
 
-Select only one answer.
+- SELECTCOLUMNS()
 
-a pipeline with the Copy data activity
-This answer is correct.
+- KEEPFILTERS()
 
-a SQL stored procedure
+- ADDCOLUMNS()
 
-Dataflow Gen2
+- REMOVECOLUMNS()
 
-notebooks
-When ingesting a large data source without applying transformations, the recommended method is to use the Copy data activity in pipelines. Notebooks are recommended for complex data transformations, whereas Dataflow Gen2 is suitable for smaller data and/or specific connectors.
+- **Answer:** <span style="color: white">Use the SELECTCOLUMNS() function to select columns from a table while preserving the table structure. REMOVECOLUMNS() also removes columns from a table, but should be used only for columns that are not referenced anywhere else in the semantic model.</span>
+
 ---
-You have a Fabric tenant that contains a lakehouse named Lakehouse1.
 
-You plan to use Dataflow Gen2 to ingest and transform data from an Azure SQL Database into Lakehouse1.
+📌 **What is the most cost-effective approach to move data from Azure Data Lake Storage to a lakehouse in Fabric?**
 
-Which language should you use to transform the data in the dataflow?
+- Use the built-in Data Factory in Fabric to move the data.
 
-Select only one answer.
+- Use a Dataflow Gen2 to move the data.
 
-DAX
-This answer is incorrect.
+- Use a Power BI Dataflow to move the data.
 
-M
-This answer is correct.
+- Use a Spark Notebook to move the data.
 
-SQL
+- **Answer:** <span style="color: white">Using a built-in Data Factory in Fabric can be a cost-effective approach to move the data, providing an integrated and seamless way to handle data transfer within the same platform.</span>
 
-XML
-When ingesting data by using Dataflow Gen2, you get the same surface area as in Microsoft Power Query. This assumes that you will use the M language for data manipulation, no matter which data source you are connecting to.
----
-You have a Fabric workspace named Workspace1.
-
-You plan to create a data pipeline to ingest data into Workspace1.
-
-You need to ensure that the pipeline activity supports parameterization.
-
-Which two activities support parameterization in the data pipeline UI? Each correct answer presents part of the solution.
-
-Select all answers that apply.
-
-Dataflow Gen2
-
-KQL activity
-
-notebooks
-This answer is correct.
-
-SQL stored procedures
-This answer is correct.
-
-user-defined functions
-Only notebooks and SQL stored procedures provide a possibility to define parameters in the data pipeline UI. Dataflow Gen2 and KQL activity only require connection details, but no parameters can be supplied. User-defined functions cannot be added as an activity to a pipeline.
----
-You are designing a dimension table named dimCustomer that will be used to analyze historical sales data by customer zip code. The table will be joined to a table named FactSales on a column named CustomerKey to report historical sales data by customer zip code.
-
-The sales data must be reported based on the zip codes of customers at the time of the sale, not their most recent zip code.
-
-You need to design dimCustomer to contain a fixed number of columns.
-
-Which type of dimension should you choose for dimCustomer?
-
-Select only one answer.
-
-type 0 slowly changing dimension (SCD)
-This answer is incorrect.
-
-type 1 slowly changing dimension (SCD)
-
-type 2 slowly changing dimension (SCD)
-This answer is correct.
-
-type 3 slowly changing dimension (SCD)
-Type 0 SCD attributes never change and will not fit the requirement. Type 1 SCD overwrites the changes and historical analysis of data based on the zip code at the time of the sales will be impossible. Type 2 SCD will keep track of historical data by adding new records with new keys whenever an attribute changes. Type 3 SCD adds new columns to a table for attribute changes.
----
-You have a Fabric lakehouse named Lakehouse1 that contains a Dataflow Gen2 query.
-
-You have an Azure SQL database that contains a type 2 slowly changing dimension database table named CustomerMaster.
-
-CustomerMaster contains the following columns:
-
-Customer ID – Number
-EffectiveDate – Date
-Address – Text
-Status - Text
-You plan to ingest CustomerMaster into Lakehouse1. The solution must only keep the latest record (unique) per Customer ID.
-
-Which two applied steps should you use? Each correct answer presents part of the solution.
-
-Select all answers that apply.
-
-Keep top rows
-
-Max Customer ID
-
-Remove duplicates on the Customer ID column
-This answer is correct.
-
-Remove duplicates on the CustomerMaster table
-
-Sort on Customer ID, EffectiveDate
-This answer is correct.
-Sorting CustomerID and EffectiveDate, and then removing duplicates on the Customer ID column is the only way to keep the correct latest row per customer ID. All other options will not correctly keep the latest customer row per effective date.
----
-You have a Fabric workspace that contains a complex semantic model for a Microsoft Power BI report.
-
-You need to optimize the semantic model for analytical queries and use denormalization to reduce the model complexity and the number of joins between tables.
-
-Which tables should you denormalize?
-
-Select only one answer.
-
-dimension tables on the same level of granularity
-This answer is incorrect.
-
-fact tables on the same level of granularity
-
-role-playing dimension tables
-
-Snowflaked dimension tables
-This answer is correct.
-A Snowflake dimension is a set of normalized tables for a single business entity. Implementing a proper star schema usually requires denormalizing the set of tables to create a single table that contains all the necessary attributes.
----
-You have a Fabric warehouse.
-
-You have an Azure SQL database that contains two tables named ProductCategory and Product. Each table contains a column named ProductCategoryKey.
-
-You plan to ingest the tables into the warehouse using Dataflow Gen2.
-
-You need to merge the tables into a single table named Product. The combined table must contain all the rows from the Product table and the matching rows from the ProductCategory table.
-
-Which join configuration should you use?
-
-Select only one answer.
-
-a left anti join Product to ProductCategory
-
-a left anti join ProductCategory to Product
-
-a left outer join Product to ProductCategory
-This answer is correct.
-
-a left outer join ProductCategory to Product
-Only a left outer join from Product to Product Category will keep all the rows from Product but only matching rows from Product Category. The anti joins will only keep rows not found from the left table, in the right table, and the left outer join from ProductCategory to Product will start with the ProductCategory table and only keep matching rows from the Product table
----
-You have a Fabric warehouse named Warehouse1 that contains customer status information.
-
-You plan to implement a dimensional model in Warehouse1. The solution must meet the following requirements:
-
-Be able to perform point-in-time analysis.
-Whenever a customer’s status changes, the change must be persisted in a table named DimCustomer, and a new row is added to include the timestamp of the status change.
-Which type of dimension should you choose for dimCustomer?
-
-Select only one answer.
-
-type 0 slowly changing dimension (SCD)
-
-type 1 slowly changing dimension (SCD)
-
-type 2 slowly changing dimension (SCD)
-This answer is correct.
-
-type 3 slowly changing dimension (SCD)
-Type 2 SCD keeps multiple versions of the same business entity, by adding a new row whenever change occurs. It’s often implemented by including a timestamp to allow for point-in-time analysis. Type 1 SCD overwrites the previous value with the new one. Type 0 SCD doesn’t track changes at all, whereas Type 3 SCD stores two versions of the dimension member as separate columns.
----
-You have a Fabric workspace that contains a Microsoft Power BI report named Report1.
-
-Your organization does not currently have an enterprise data warehouse.
-
-You need to leverage dataflows to bring data into a Power BI semantic model. You notice that access to one of the data sources is restricted to narrow time windows.
-
-What should you do?
-
-Select only one answer.
-
-Create a linked table that will reference the data from another dataflow.
-
-Create a shared dataset that can be reused by multiple Power BI reports.
-
-Create a staging dataflow that will only copy the data from the source as-is.
-This answer is correct.
-
-Create a transformation dataflow that will apply all the necessary data transformations.
-This answer is incorrect.
-A staging dataflow copies raw data “as-is” from the data source and can then be used as a data source for further transformations. This is especially if you don't have long-time access or access is restricted to few people. In that case you copy the data as-is as otherwise you won't get second time access.
----
