@@ -48,7 +48,6 @@ The **M langugage**, also knowne as <span style="color: magenta">**Power Query F
 - **Null**: `null`
 - **List**: `{1, 2, 3}`
 - **Record**: `[FieldName = Value]`
-- **Table**: `#table({"Column1", "Column2"}, {{1, "A"}, {2, "B"}})`
 
 #### **Basic Functions**
 - **Text Functions**:

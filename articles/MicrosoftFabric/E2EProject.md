@@ -23,3 +23,4 @@ Here I will show the use of Medallion architecture in a simple straightforward E
 4. Manually create a Silver Delta Table with the same schema as the dataframe.
 5. Perform an upsert operation on the Delta table, which means updating existing records based on certain conditions and adding new records if no match is found.
 6. Explore data in the silver layer using the SQL endpoint
+
