@@ -720,3 +720,24 @@ This answer is correct.
 type 3 slowly changing dimension (SCD)
 Type 2 SCD keeps multiple versions of the same business entity, by adding a new row whenever change occurs. It’s often implemented by including a timestamp to allow for point-in-time analysis. Type 1 SCD overwrites the previous value with the new one. Type 0 SCD doesn’t track changes at all, whereas Type 3 SCD stores two versions of the dimension member as separate columns.
 ---
+You have a Fabric workspace that contains a Microsoft Power BI report named Report1.
+
+Your organization does not currently have an enterprise data warehouse.
+
+You need to leverage dataflows to bring data into a Power BI semantic model. You notice that access to one of the data sources is restricted to narrow time windows.
+
+What should you do?
+
+Select only one answer.
+
+Create a linked table that will reference the data from another dataflow.
+
+Create a shared dataset that can be reused by multiple Power BI reports.
+
+Create a staging dataflow that will only copy the data from the source as-is.
+This answer is correct.
+
+Create a transformation dataflow that will apply all the necessary data transformations.
+This answer is incorrect.
+A staging dataflow copies raw data “as-is” from the data source and can then be used as a data source for further transformations. This is especially if you don't have long-time access or access is restricted to few people. In that case you copy the data as-is as otherwise you won't get second time access.
+---
