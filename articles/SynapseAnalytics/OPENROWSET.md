@@ -1,3 +1,10 @@
+---
+layout: default
+title: OPENROWSET
+parent: SynapseAnalytics
+nav_order: 1
+---
+
 - [OPENROWSET Cheat Sheet for Azure Synapse Analytics](#openrowset-cheat-sheet-for-azure-synapse-analytics)
   - [What is OPENROWSET?](#what-is-openrowset)
   - [Where is it Used?](#where-is-it-used)
