@@ -34,7 +34,10 @@ GO
 
 ![alt text](images\df.show.png)
 
+![alt text](displaydflimit3.png)
+
 ![alt text](images\df.describe.png)
+
 
 
 ### Dropping a table

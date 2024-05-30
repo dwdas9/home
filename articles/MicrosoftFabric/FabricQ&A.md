@@ -339,3 +339,125 @@ Sure, here's the revised version:
 
 - **Answer:** <span style="color: white">Using a built-in Data Factory in Fabric can be a cost-effective approach to move the data, providing an integrated and seamless way to handle data transfer within the same platform.</span>
 
+---
+You are planning a Fabric analytics solution.
+
+You need to recommend a licensing strategy to support 10 Microsoft Power BI report authors and 600 report consumers.
+The solution must use Dataflow Gen2 for data ingestion and minimize costs.
+Which Fabric license type should you recommend? Select only one answer.
+
+F16
+F32
+F64
+Premium Per User (PPU)
+
+Answer: While F32 and F16 license types will provide all the necessary set of features, these licenses are not cost-efficient because report consumers require a Pro or PPU license. Starting with the F64 license, report consumers can use a free per-user license. PPU is incorrect, because you cannot create non-Power BI items (in this case Dataflow Gen2) with PPU.
+---
+You are planning a Fabric analytics solution for the following users:
+
+2,000 Microsoft Power BI consumers without an individual Power BI Pro license.
+32 Power BI modelers with an individual Power BI Pro license.
+16 data scientists
+You need to recommend a Fabric capacity SKU. The solution must minimize costs.
+
+What should you recommend?
+
+Select only one answer.
+
+F2
+F2048
+F32
+F64
+
+Answer: F64 is the smallest Fabric capacity (equivalent to a P1 Power BI Premium capacity) that supports premium Fabric workspaces and does not require Power BI report consumers to have individual Power BI Pro licenses. F2 and F32 are incorrect since they require that the 2,000 employees have individual Power BI Pro licenses to consume Power BI content. F2048 is incorrect since it is not the smallest capacity that meets the stated requirements.
+---
+You are planning the configuration of a new Fabric tenant.
+
+You need to recommend a solution to ensure that reports meet the following requirements:
+
+Require authentication for embedded reports.
+Allow only read-only (live) connections against Fabric capacity cloud semantic models.
+Which two actions should you recommend performing from the Fabric admin portal? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+From Capacity settings, set XMLA Endpoint to Read Write.
+
+From Embed Codes, delete all existing codes.
+
+From Premium Per User, set XMLA Endpoint to Off.
+
+From Tenant settings, disable Allow XMLA endpoints and Analyze in Excel with on-premises semantic models.
+
+From Tenant settings, disable Publish to web.
+
+Answer: Disabling Publish to web disables the ability to publish any unsecured (no login required) reports to any embedded location. Disabling XMLA Endpoints ensures that semantic models can be connected to, but not edited directly in, workspaces.
+
+---
+You have a new Fabric tenant.
+You need to recommend a workspace architecture to meet best practices for content distribution and data governance.
+Which two actions should you recommend? Each correct answer presents part of the solution.
+Select all answers that apply.
+
+Create a copy of each semantic model in each workspace.
+Create direct query semantic models in each workspace.
+Place semantic models and reports in separate workspaces.
+Place semantic models and reports in the same workspace.
+Reuse shared semantic models for multiple reports.
+
+Answer: Using shared semantic models for multiple reports enables the reusability of items, while placing semantic models and reports in separate workspaces ensures that the data governance recommended practices are in place.
+
+---
+
+You use Microsoft Power BI Desktop to create a Power BI semantic model.
+
+You need to recommend a solution to collaborate with another Power BI modeler. The solution must ensure that you can both work on different parts of the model simultaneously. The solution must provide the most efficient and productive way to collaborate on the same model.
+
+What should you recommend?
+
+Save your work as a PBIX file and email the file to the other modeler.
+
+Save your work as a PBIX file and publish the file to a Fabric workspace. Add the other modeler as member to the workspace.
+
+Save your work as a PBIX file to Microsoft OneDrive and share the file with the other modeler.
+
+Save your work as a Power BI Project (PBIP). Initialize a Git repository with version control.
+
+Answer: Saving your Power BI work as a PBIP enables you to save the work as individual plain text files in a simple, intuitive folder structure, which can be checked into a source control system such as Git. This will enable multiple developers to work on different parts of the model simultaneously.
+
+Emailing a Power BI model back and forth is not efficient for collaboration. Saving a Power BI model as a PBIX file to OneDrive eases developers access, but only one developer can have the file open at time. Publishing a PBIX file to a shared workspace does not allow multiple developers to work on the model simultaneously.
+
+---
+You have a Fabric tenant that has XMLA Endpoint set to Read Write.
+
+You need to use the XMLA endpoint to deploy changes to only one table from the data model.
+
+What is the main limitation of using XMLA endpoints for the Microsoft Power BI deployment process?
+
+Select only one answer.
+
+A PBIX file cannot be downloaded from the Power BI service.
+Only the user that deployed the report can make changes.
+Table partitioning is impossible.
+You cannot use parameters for incremental refresh.
+
+Answer: 
+Whenever the semantic model is deployed/changed by using XMLA endpoints, there is no possibility to download the PBIX file from the Power BI service. This means that no one can download the PBIX file (even the user who deployed the report). Table partitioning, as well as using parameters, is still supported, thus doesn’t represent a limitation.
+---
+You have an Azure SQL database that contains a customer dimension table. The table contains two columns named CustomerID and CustomerCompositeKey.
+
+You have a Fabric workspace that contains a Dataflow Gen2 query that connects to the database.
+
+You need to use Dataflows Query Editor to identify which of the two columns contains non-duplicate values per customer.
+
+Which option should you use?
+
+Select only one answer.
+
+Column distribution – distinct values
+Column distribution – unique values
+Column profile – values count
+Column quality – valid values
+Answer: Only the distinct values displayed under Column distribution will show the true number of rows of values that are distinct (one row per value). The count of unique only shows the number of distinct values that are in the first 1,000 rows, and the other two options do not review uniqueness
+
+---
