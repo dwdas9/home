@@ -6,11 +6,11 @@ nav_order: 5
 ---
 
 - [What is KQL?](#what-is-kql)
-  - [Running KQL query in Fabric](#running-kql-query-in-fabric)
-  - [**Database - KQL vs SQL**](#database---kql-vs-sql)
-  - [**Query - KQL Vs SQL**](#query---kql-vs-sql)
-    - [**KQL vs SQL DQLs**](#kql-vs-sql-dqls)
-    - [**KQL DDLs, DMLs \& DQLs**](#kql-ddls-dmls--dqls)
+  - [How to run KQL query in Fabric?](#how-to-run-kql-query-in-fabric)
+  - [KQL vs SQL Databases](#kql-vs-sql-databases)
+  - [KQL Vs SQL Query](#kql-vs-sql-query)
+    - [KQL vs SQL - DQL](#kql-vs-sql---dql)
+    - [KQL Vs SQL - DDLs, DMLs \& DQLs](#kql-vs-sql---ddls-dmls--dqls)
 - [KQL Q\&A](#kql-qa)
 - [KQL Questions - Keywords](#kql-questions---keywords)
 - [KQL Quesitons - General](#kql-quesitons---general)
@@ -18,19 +18,19 @@ nav_order: 5
 
 ## What is KQL?
 
-![alt text](images\KQLDB.webp)
+![alt text](whatskqlanswer.png)
 
 A **KQL (Kusto Query Language) Database** handles large volumes of structured, semi-structured, and unstructured data for real-time analytics and ad-hoc querying. It is part of the Azure Data Explorer service. The data in a KQL database is **stored in Azure Data Explorer**. It uses a **columnar storage** format, for high-performance.
 
-![alt text](images\KQLTough.png)
+![alt text](kqltough3people.png)
 
-### Running KQL query in Fabric
+### How to run KQL query in Fabric?
 
 ![alt text](images\howtorunquery.png)
 
 There is **no magic command** like %%KQL
 
-### **Database - KQL vs SQL**
+### KQL vs SQL Databases
 
 | Feature                     | KQL Database                                     | Standard SQL Database                           |
 |-----------------------------|--------------------------------------------------|-------------------------------------------------|
@@ -46,11 +46,11 @@ There is **no magic command** like %%KQL
 | **Performance**             | Optimized for read-heavy and analytical workloads| Balanced for read and write operations          |
 | **Schema**                  | Flexible schema with support for semi-structured data | Rigid schema with well-defined data types       |
 
-### **Query - KQL Vs SQL**
+### KQL Vs SQL Query
 
 ![alt text](images\SQLVsKQLWithQuery.png)
 
-#### **KQL vs SQL DQLs**
+#### KQL vs SQL - DQL
 
 | **Operation**                   | **SQL**                                                                                               | **KQL**                                                                                                           |
 |---------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -66,7 +66,7 @@ There is **no magic command** like %%KQL
 | **Top N**                       | `SELECT TOP 5 Name, Salary FROM Employees ORDER BY Salary DESC;`                                      | `Employees \| top 5 by Salary desc \| project Name, Salary`                                                       |
 | **Aggregation with Conditions** | `SELECT Department, COUNT(*) FROM Employees WHERE Age > 30 GROUP BY Department;`                      | `Employees \| where Age > 30 \| summarize count() by Department`                                                  |
 
-#### **KQL DDLs, DMLs & DQLs**
+#### KQL Vs SQL - DDLs, DMLs & DQLs
 
 
 | **Description**                                      | **Example**                                                                                                  | **Category** |
