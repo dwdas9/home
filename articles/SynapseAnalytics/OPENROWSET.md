@@ -17,6 +17,7 @@ nav_order: 1
 - [Alternatives to OPENROWSET: Usage Scenarios and Recommendations](#alternatives-to-openrowset-usage-scenarios-and-recommendations)
   - [Recommendations](#recommendations)
   - [Detailed Usage Examples](#detailed-usage-examples)
+- [Handling Large Datasets with OPENROWSET](#handling-large-datasets-with-openrowset)
 
 ## OPENROWSET Cheat Sheet for Azure Synapse Analytics
 
@@ -184,3 +185,40 @@ FROM OPENROWSET(
    ```sql
    SELECT * FROM delta.`/mnt/delta/sales`;
    ```
+
+## Handling Large Datasets with OPENROWSET
+
+When using OPENROWSET in Azure Synapse Analytics, the data is read directly from the external storage source (e.g., Azure Blob Storage) and temporarily processed in the serverless SQL pool. The data is not stored in a physical table within the SQL database; it remains in the external storage and is accessed on-demand for query processing.
+
+Consider the following strategies to optimize performance and manageability When using `OPENROWSET` for large datasets:
+
+1. **Partitioning Data**: Divide large datasets into smaller, more manageable files based on logical partitions (e.g., date, region). Query only the necessary partitions to reduce data volume.
+   ```sql
+   SELECT * 
+   FROM OPENROWSET(
+       BULK 'https://storageaccount.blob.core.windows.net/container/partitioned_data/2024/*.parquet',
+       FORMAT = 'PARQUET'
+   ) AS [data]
+   ```
+
+2. **Optimized Storage Formats**: Utilize columnar storage formats like Parquet or Delta Lake, which offer better compression and faster query performance.
+   ```sql
+   SELECT * 
+   FROM OPENROWSET(
+       BULK 'https://storageaccount.blob.core.windows.net/container/data.parquet',
+       FORMAT = 'PARQUET'
+   ) AS [data]
+   ```
+
+3. **Resource Allocation**: Ensure adequate resources in the serverless SQL pool to handle the data processing load. Adjust the scale and configuration based on the dataset size and query complexity.
+
+4. **Data Sampling**: For initial analysis, consider querying a sample of the dataset to quickly gain insights without processing the entire data.
+   ```sql
+   SELECT TOP 1000 * 
+   FROM OPENROWSET(
+       BULK 'https://storageaccount.blob.core.windows.net/container/large_data.csv',
+       FORMAT = 'CSV'
+   ) AS [data]
+   ```
+
+5. **Efficient Queries**: Write optimized SQL queries that minimize data movement and leverage indexing, filtering, and projections to reduce the data scanned.
