@@ -32,7 +32,11 @@ There are three types of Integration runtime.
 
 ### <span style="color: BlueViolet">1. Azure Integration Runtime:</span>
 
+
+<p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
 A cloud-based compute resource for running data integration and transformation tasks in Azure Data Factory and Azure Synapse Analytics.
+</p>
+
 
 - **Managed Service**: It is fully managed by Microsoft, running in the cloud.
 - **Data Movement**: Primarily handles data movement within the cloud or between cloud services.
@@ -45,7 +49,10 @@ A cloud-based compute resource for running data integration and transformation t
    - Choose Azure, and follow the setup wizard.
 
 ### <span style="color: Navy">2. Self-hosted Integration Runtime:</span>
- A tool for connecting and moving data between on-premises sources and Azure cloud services.
+ <p style="color: #804000; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #fff5e6; padding: 15px; border-left: 5px solid #b35900;">
+A tool for connecting and moving data between on-premises sources and Azure cloud services.
+</p>
+ 
 
   - **Installed On-Premises**: Deployed within your on-premises network or in a virtual machine that has network access to your on-premises data sources.
   - **Bridge for Connectivity**: Acts as a secure bridge between on-premises data sources and the cloud.
@@ -60,7 +67,11 @@ A cloud-based compute resource for running data integration and transformation t
 
 ### <span style="color: CornflowerBlue">3. Azure-SSIS Integration Runtime:</span>
 
+ <p style="color: #804000; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: BurlyWood; padding: 15px; border-left: 5px solid #b35900;">
 A service to to run SQL Server Integration Services (SSIS) packages in the Azure cloud.
+</p>
+
+
 
    - Allows you to **lift and shift SSIS packages** to the cloud.
    - Provides a fully managed environment for running SSIS packages in Azure.
