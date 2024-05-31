@@ -91,11 +91,11 @@ The on-premise gateway is quite similar to the self-hosted IR. Are they the same
 | Feature                         | Self-hosted Integration Runtime                               | On-premises Data Gateway                                   |
 |---------------------------------|--------------------------------------------------------------|-----------------------------------------------------------|
 | **Purpose**                     | Facilitates data integration for Azure Data Factory and Synapse Pipelines. | Connects on-premises data sources to Power BI, Power Apps, Power Automate, and Logic Apps. |
-| **Supported Services**          | Azure Data Factory, Azure Synapse Analytics.                 | Power BI, Power Apps, Power Automate, Logic Apps.         |
-| **Data Transfer Capabilities**  | Handles ETL (Extract, Transform, Load) processes, data movement, and SSIS execution. | Enables real-time connectivity for reporting and app development. |
-| **Installation**                | Installed on-premises to access local data sources for ADF/Synapse. | Installed on-premises for secure connectivity to Power Platform services. |
+| **Supported Services**          | Azure Data Factory, Azure Synapse Analytics.                 | Power BI, Power Apps, Power Automate, Logic Apps. ![alt text](image-1.png)        |
+| **Data Transfer Capabilities**  | Handles ETL processes, data movement, and SSIS execution. | Enables real-time connectivity for reporting and app development. |
+| **Installation**                | Download and install the .msi file  on your machine ![alt text](image-2.png)|Same, the .exe needs to be downloaded to your local computer and installed. Just like good-old .exe installation. ![alt text](image.png)|
 | **Security**                    | Secure data transfer with encrypted communication.           | Secure data transfer with encryption and local network connectivity. |
 
 ## <span style="color: Chocolate">Summary</span>
 
-Azure Integration Runtime (IR) is a key tool in Azure Data Factory (ADF) and Azure Synapse Analytics. It helps move and transform data between different places, like from your on-premises servers to the cloud or within the cloud itself. Azure IR provides the computing power needed to handle these tasks efficiently. Without it, moving and preparing data for analysis would be difficult, slow, and require a lot more manual work.
+Azure Integration Runtime (IR) is a key tool in ADF and Azure Synapse Analytics. It helps move and transform data between different places, like from your on-premises servers to the cloud or within the cloud itself. Azure IR provides the computing power needed to handle these tasks efficiently. Without it, moving and preparing data for analysis would be difficult, slow, and require a lot more manual work.
