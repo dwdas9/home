@@ -15,9 +15,10 @@ nav_order: 1
   - [Self-hosted IR vs On-premises Data Gateway](#self-hosted-ir-vs-on-premises-data-gateway)
   - [Summary](#summary)
 
-# Integration Runtime in Azure Synapse Analytics and Azure Data Factory
+#  <span style="color: Teal">Integration Runtime in Azure Synapse Analytics and Azure Data Factory</span>
+
 ![alt text](IR.png)
-## A very simplistic introduction
+## <span style="color: CadetBlue">A very simplistic introduction</span>
 
 Copying data is the main activity in Synapse and ADF. The main tool to do this **Integration Runtime** is used. It's like a **bridge** that connects Synapse and ADF with data from on-premises and external sources.
 
@@ -25,11 +26,11 @@ However, it's more than just a bridge. It provides the CPU and memory needed for
 
 Where is IR used? It is used in ADF/Synapse pipelines.
 
-## Types of Integration Runtime
+## <span style="color: Navy">Types of Integration Runtime</span>
 
 There are three types of Integration runtime.
 
-### 1. Azure Integration Runtime:
+### <span style="color: BlueViolet">1. Azure Integration Runtime:</span>
 
 A cloud-based compute resource for running data integration and transformation tasks in Azure Data Factory and Azure Synapse Analytics.
 
@@ -43,7 +44,7 @@ A cloud-based compute resource for running data integration and transformation t
    - Under Integration Runtimes, click on + New.
    - Choose Azure, and follow the setup wizard.
 
-### 2. Self-hosted Integration Runtime:
+### <span style="color: Navy">2. Self-hosted Integration Runtime:</span>
  A tool for connecting and moving data between on-premises sources and Azure cloud services.
 
   - **Installed On-Premises**: Deployed within your on-premises network or in a virtual machine that has network access to your on-premises data sources.
@@ -57,7 +58,7 @@ A cloud-based compute resource for running data integration and transformation t
     - Configure network settings to allow secure data movement.
     - Set up high availability by adding multiple nodes.
 
-### 3. Azure-SSIS Integration Runtime:
+### <span style="color: CornflowerBlue">3. Azure-SSIS Integration Runtime:</span>
 
 A service to to run SQL Server Integration Services (SSIS) packages in the Azure cloud.
 
@@ -71,7 +72,7 @@ A service to to run SQL Server Integration Services (SSIS) packages in the Azure
      - Configure the custom setup by installing necessary components.
      - Connect to the SSISDB or create a new one in Azure SQL Database.
 
-## All connectivity tools in Azure ecosystem
+## <span style="color: Maroon">All connectivity tools in Azure ecosystem</span>
 
 
 | **Product**                         | **Purpose**                                                                                           | **Usage**                                                                | **From**                    | **To**                       |
@@ -83,7 +84,7 @@ A service to to run SQL Server Integration Services (SSIS) packages in the Azure
 | **PolyBase**                        | Allows querying of external data as if it were in Synapse.                                             | Data virtualization and querying                                        | External data sources (e.g., Azure Blob Storage, ADLS, SQL Server, Oracle, Hadoop) | Synapse                    |
 | **Linked Services**                 | Defines connection information needed for Synapse to connect to external resources.                     | Managing connections to storage accounts, databases, and other services | External resources          | Synapse and other Azure services |
 
-## Self-hosted IR vs On-premises Data Gateway
+## <span style="color: DarkCyan">Self-hosted IR vs On-premises Data Gateway</span>
 
 The on-premise gateway is quite similar to the self-hosted IR. Are they the same? Can they be used interchangeably? The table below provides the answers:
 
@@ -95,6 +96,6 @@ The on-premise gateway is quite similar to the self-hosted IR. Are they the same
 | **Installation**                | Installed on-premises to access local data sources for ADF/Synapse. | Installed on-premises for secure connectivity to Power Platform services. |
 | **Security**                    | Secure data transfer with encrypted communication.           | Secure data transfer with encryption and local network connectivity. |
 
-## Summary
+## <span style="color: Chocolate">Summary</span>
 
 Azure Integration Runtime (IR) is a key tool in Azure Data Factory (ADF) and Azure Synapse Analytics. It helps move and transform data between different places, like from your on-premises servers to the cloud or within the cloud itself. Azure IR provides the computing power needed to handle these tasks efficiently. Without it, moving and preparing data for analysis would be difficult, slow, and require a lot more manual work.
