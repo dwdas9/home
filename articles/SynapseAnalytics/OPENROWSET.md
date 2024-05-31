@@ -5,41 +5,49 @@ parent: SynapseAnalytics
 nav_order: 1
 ---
 
-- [OPENROWSET Cheat Sheet for Azure Synapse Analytics](#openrowset-cheat-sheet-for-azure-synapse-analytics)
+- [OPENROWSET - The Powerful Transact-SQL for Data Engineering.](#openrowset---the-powerful-transact-sql-for-data-engineering)
   - [What is OPENROWSET?](#what-is-openrowset)
-  - [Where is it Used?](#where-is-it-used)
-  - [Use in Various Platforms](#use-in-various-platforms)
+  - [Practical scenarios where OPENROWSET is preferred](#practical-scenarios-where-openrowset-is-preferred)
   - [Syntax](#syntax)
     - [Key Options](#key-options)
-    - [Bulk Options for CSV](#bulk-options-for-csv)
+    - [Options for CSV](#options-for-csv)
   - [Examples](#examples)
-  - [Security](#security)
-- [Alternatives to OPENROWSET: Usage Scenarios and Recommendations](#alternatives-to-openrowset-usage-scenarios-and-recommendations)
-  - [Recommendations](#recommendations)
-  - [Detailed Usage Examples](#detailed-usage-examples)
-- [Handling Large Datasets with OPENROWSET](#handling-large-datasets-with-openrowset)
+- [What other options we have?](#what-other-options-we-have)
 
-## OPENROWSET Cheat Sheet for Azure Synapse Analytics
+## OPENROWSET - The Powerful Transact-SQL for Data Engineering.
 
 ### What is OPENROWSET?
 
-`OPENROWSET` is a Transact-SQL function that allows you to access external data sources directly from SQL queries. It enables reading data from various formats such as CSV, Parquet, and Delta Lake, stored in locations like Azure Blob Storage or other file systems.
+`OPENROWSET` is a Transact-SQL function. Using this, you can create a select statement from external data sources (CSV, Parquet, JSON, Delta, ADLS, Blob) as if it were a local database. You don't need to create a table or linked service to run this. Hence, it's fast and requires fewer lines of code.
 
-### Where is it Used?
+It is used in SQL Server, Azure SQL DB, Synapse Analytics, Fabric, and Databricks.
 
-- **SQL Server**: Primarily for accessing external data via OLE DB providers.
-- **Azure SQL Database**: For reading files from Azure Storage.
-- **Azure Synapse Analytics**: Serverless SQL pools use `OPENROWSET` to query data directly from storage.
-- **Microsoft Fabric**: Supports querying data stored in various file formats.
-- **Databricks**: While Databricks primarily uses Spark SQL, it can interoperate with Azure Synapse and external data sources, but `OPENROWSET` itself is not a native Databricks function.
+<p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
+For `OPENROWSET` to work, you need to ensure that the Synapse workspace or the query has the appropriate authentication to access the external data source.
+</p>
 
-### Use in Various Platforms
+### Practical scenarios where OPENROWSET is preferred
 
-- **SQL Server**: Connects to OLE DB data sources.
-- **Azure SQL Database**: Connects to Azure Storage for reading files.
-- **Azure Synapse Analytics**: Serverless SQL querying.
-- **Microsoft Fabric**: Data integration and querying capabilities.
-- **Databricks**: Uses Spark SQL; `OPENROWSET` is not used directly but can work with Synapse.
+1. **Ad-Hoc Data Retrieval:**
+   - **Scenario:** A business analyst needs to quickly retrieve data from an Excel file for an ad-hoc report.
+   - **Reason:** OPENROWSET allows for on-the-fly access to the Excel file without the need to import it into SQL Server first, providing immediate data retrieval for analysis.
+
+2. **Cross-Database Queries:**
+   - **Scenario:** A developer needs to run a query that joins tables from different SQL Server instances.
+   - **Reason:** OPENROWSET can be used to run distributed queries across different servers, avoiding the need to set up linked servers which can be more complex and require additional configuration and permissions.
+
+3. **Accessing External Data Sources:**
+   - **Scenario:** A company needs to integrate data from a remote Oracle database for a one-time data migration task.
+   - **Reason:** OPENROWSET provides a quick way to query data from the Oracle database using an OLE DB provider, bypassing the need for more permanent and complex solutions like linked servers or SSIS packages.
+
+4. **Temporary Data Access:**
+   - **Scenario:** During a data validation process, a data engineer needs to access data from a CSV file provided by a client.
+   - **Reason:** OPENROWSET allows the engineer to read the CSV file directly into a SQL query, facilitating temporary data access without the overhead of creating permanent database tables or ETL processes.
+
+5. **Data Import for Development and Testing:**
+   - **Scenario:** Developers need to import data from various formats (e.g., Excel, CSV) into a development environment for testing purposes.
+   - **Reason:** OPENROWSET can be used to import data directly into the development environment without the need for pre-configured data import processes, speeding up the testing and development cycles.
+
 
 ### Syntax
 ```sql
@@ -82,7 +90,7 @@ FROM OPENROWSET(
 - **DATA_SOURCE**: (Optional) Specifies the external data source.
 - **WITH**: Defines the schema of the columns to be read.
 
-#### Bulk Options for CSV
+#### Options for CSV
 - **FIELDTERMINATOR**: Character used to separate fields (default is `,`).
 - **ROWTERMINATOR**: Character used to separate rows (default is `\n`).
 - **FIRSTROW**: Specifies the first row to read (default is 1).
@@ -133,12 +141,7 @@ FROM OPENROWSET(
         FORMAT = 'DELTA'
     ) AS [data]
     ```
-
-### Security
-- Requires `ADMINISTER BULK OPERATIONS` permission.
-- Proper authentication is necessary to access Azure Storage files (e.g., SAS tokens, Managed Identities, or Azure AD).
-
-## Alternatives to OPENROWSET: Usage Scenarios and Recommendations
+## What other options we have?
 
 | Alternative      | Usage Scenario                                                                                             | Efficiency           | Microsoft Recommendation                             |
 |------------------|------------------------------------------------------------------------------------------------------------|----------------------|------------------------------------------------------|
@@ -147,78 +150,3 @@ FROM OPENROWSET(
 | EXTERNAL TABLE   | Accessing external data sources seamlessly as if they are regular SQL tables.                              | Moderate to High     | Recommended for persistent access to external data.  |
 | Linked Servers   | Connecting SQL Server to other data sources, like another SQL Server or an OLE DB data source.             | Varies               | Use for diverse data sources and quick data joins.   |
 | Databricks       | Reading data from various sources using Spark SQL (not native to Databricks but works with Synapse).       | High for big data    | Use for Spark SQL integrations and large-scale analytics. |
-
-### Recommendations
-- **Efficiency**: PolyBase and BULK INSERT are generally the most efficient for large data volumes.
-- **Flexibility**: Linked Servers and EXTERNAL TABLEs provide flexibility for various data sources.
-- **Microsoft Recommendation**: PolyBase is recommended for its efficiency and integration capabilities in big data environments.
-
-### Detailed Usage Examples
-
-1. **BULK INSERT**
-   ```sql
-   BULK INSERT Sales
-   FROM 'C:\Data\Sales.csv'
-   WITH (FIELDTERMINATOR = ',', ROWTERMINATOR = '\n');
-   ```
-
-2. **PolyBase**
-   ```sql
-   CREATE EXTERNAL TABLE Sales
-   (ID int, Name nvarchar(50), Amount float)
-   WITH (LOCATION='wasbs://data@storage.blob.core.windows.net/sales', DATA_SOURCE=AzureBlobStorage, FILE_FORMAT=CSVFormat);
-   ```
-
-3. **EXTERNAL TABLE**
-   ```sql
-   CREATE EXTERNAL TABLE Sales
-   WITH (DATA_SOURCE = AzureStorage, LOCATION = 'sales.csv', FILE_FORMAT = CSVFormat);
-   ```
-
-4. **Linked Servers**
-   ```sql
-   EXEC sp_addlinkedserver 'RemoteServer', 'SQL Server';
-   SELECT * FROM [RemoteServer].[Database].[dbo].[Sales];
-   ```
-
-5. **Databricks (Spark SQL)**
-   ```sql
-   SELECT * FROM delta.`/mnt/delta/sales`;
-   ```
-
-## Handling Large Datasets with OPENROWSET
-
-When using OPENROWSET in Azure Synapse Analytics, the data is read directly from the external storage source (e.g., Azure Blob Storage) and temporarily processed in the serverless SQL pool. The data is not stored in a physical table within the SQL database; it remains in the external storage and is accessed on-demand for query processing.
-
-Consider the following strategies to optimize performance and manageability When using `OPENROWSET` for large datasets:
-
-1. **Partitioning Data**: Divide large datasets into smaller, more manageable files based on logical partitions (e.g., date, region). Query only the necessary partitions to reduce data volume.
-   ```sql
-   SELECT * 
-   FROM OPENROWSET(
-       BULK 'https://storageaccount.blob.core.windows.net/container/partitioned_data/2024/*.parquet',
-       FORMAT = 'PARQUET'
-   ) AS [data]
-   ```
-
-2. **Optimized Storage Formats**: Utilize columnar storage formats like Parquet or Delta Lake, which offer better compression and faster query performance.
-   ```sql
-   SELECT * 
-   FROM OPENROWSET(
-       BULK 'https://storageaccount.blob.core.windows.net/container/data.parquet',
-       FORMAT = 'PARQUET'
-   ) AS [data]
-   ```
-
-3. **Resource Allocation**: Ensure adequate resources in the serverless SQL pool to handle the data processing load. Adjust the scale and configuration based on the dataset size and query complexity.
-
-4. **Data Sampling**: For initial analysis, consider querying a sample of the dataset to quickly gain insights without processing the entire data.
-   ```sql
-   SELECT TOP 1000 * 
-   FROM OPENROWSET(
-       BULK 'https://storageaccount.blob.core.windows.net/container/large_data.csv',
-       FORMAT = 'CSV'
-   ) AS [data]
-   ```
-
-5. **Efficient Queries**: Write optimized SQL queries that minimize data movement and leverage indexing, filtering, and projections to reduce the data scanned.

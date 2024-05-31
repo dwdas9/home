@@ -9,16 +9,56 @@ nav_order: 2
 - [DataFrame from csv](#dataframe-from-csv)
 - [Write Delta Table](#write-delta-table)
 
-### <span style="color: DeepSkyBlue; font-family: Segoe UI, sans-serif;">Describe Formatted *TableName* </span>
 
-![alt text](images\describeformattedtablename.png)
 
-### <span style="color: Coral; font-family: Segoe UI, sans-serif;">DataFrame from csv</span>
+## <span style="color: Coral; font-family: Segoe UI, sans-serif;">Creating a SparkSession</span>
 
-![alt text](images\SPARK.READ.FORMAT.png)
+   ```python
+   from pyspark.sql import SparkSession
+   spark = SparkSession.builder.appName("xxx").getOrCreate()
+   df = spark.read.csv("abc.csv", header=True, inferSchema=True)
+   ```
+   ![alt text](sparksession.png)
 
-### Write Delta Table
-![\alt text](images\SaveAstable.png)
+
+## <span style="color: Coral; font-family: Segoe UI, sans-serif;">Creating a DataFrame</span>
+
+![alt text](read.png)
+
+## Showing dataframe, rows describing tables
+
+### df.show()
+
+   ```python
+   df.show()
+   df.show(n=10, truncate=False)
+   ```
+   ![alt text](df.show.png)
+
+### display(df)
+
+   ```pyrhon
+   display(df.limit(3))
+   ```
+   ![alt text](displaydflimit3.png)
+
+### df.describe()
+
+   ```python
+   df.describe()
+   ```
+   ![alt text](images\df.describe.png)
+
+   ```python
+   df.printSchema()
+   df.columns
+   ```
+### DESCRIBE FORMATTED tableName
+
+   ```python
+   spark.sql("DESCRIBE FORMATTED tableName")
+   ```
+   ![alt text](judgecourt.png)
 
 # SQL
 
@@ -32,37 +72,11 @@ GO
 
 
 
-![alt text](images\df.show.png)
-
-![alt text](displaydflimit3.png)
-
-![alt text](images\df.describe.png)
-
-
 
 ### Dropping a table
 
 ![alt text](images\droptable.png)
 
-### DataFrame Operations
-1. **Creating a DataFrame**
-   ```python
-   from pyspark.sql import SparkSession
-   spark = SparkSession.builder.appName("xxx").getOrCreate()
-   df = spark.read.csv("abc.csv", header=True, inferSchema=True)
-   ```
-
-2. **Show Data**
-   ```python
-   df.show()
-   df.show(n=10, truncate=False)
-   ```
-
-3. **Schema and Columns**
-   ```python
-   df.printSchema()
-   df.columns
-   ```
 
 4. **Selecting Columns**
    ```python
@@ -84,7 +98,7 @@ GO
    ```python
    df.withColumnRenamed("old_name", "new_name")
    ```
-
+   ![alt text](withcolumnrenamed.png)
 8. **Dropping Columns**
    ```python
    df.drop("column_name")
@@ -95,7 +109,7 @@ GO
    df.groupBy("column").count().show()
    df.groupBy("column").agg({"column2": "avg", "column3": "sum"}).show()
    ```
-
+   ![alt text](df.groupby.png)
 10. **Sorting Data**
     ```python
     df.orderBy("column").show()
@@ -148,6 +162,7 @@ GO
    ```python
    df.write.saveAsTable("table_name")
    ```
+   ![alt text](saveastable.png)
 
 ### Miscellaneous
 1. **Caching and Unpersisting DataFrames**
