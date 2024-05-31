@@ -82,7 +82,7 @@ A service to to run SQL Server Integration Services (SSIS) packages in the Azure
 | **Azure IR**  | Executes data flows, data movement, and transformation activities within Azure cloud.                   | Data integration and ETL tasks within Azure cloud                        | Cloud data sources          | Synapse and other cloud services |
 | **Azure Synapse Link**              | Provides live data copying from operational stores to Synapse for real-time analytics.                  | Near real-time data replication and analytics                            | Operational data stores (e.g., Azure Cosmos DB) | Synapse                    |
 | **PolyBase**                        | Allows querying of external data as if it were in Synapse.                                             | Data virtualization and querying                                        | External data sources (e.g., Azure Blob Storage, ADLS, SQL Server, Oracle, Hadoop) | Synapse                    |
-| **Linked Services**                 | Defines connection information needed for Synapse to connect to external resources.                     | Managing connections to storage accounts, databases, and other services | External resources          | Synapse and other Azure services |
+| **Linked Services**                 | It is like a connection string.                     | Managing connections to storage accounts, databases, and other services | External resources          | Synapse and other Azure services |
 
 ## <span style="color: DarkCyan">Self-hosted IR vs On-premises Data Gateway</span>
 
