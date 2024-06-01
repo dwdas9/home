@@ -11,7 +11,7 @@ nav_order: 2
 
 
 
-## <span style="color: Coral; font-family: Segoe UI, sans-serif;">Creating a SparkSession</span>
+## <span style="color: CadetBlue; font-family: Segoe UI, sans-serif;">Creating a SparkSession</span>
 
    ```python
    from pyspark.sql import SparkSession
@@ -44,8 +44,11 @@ nav_order: 2
 
 ### df.describe()
 
+   describe is used to generate descriptive statistics of the DataFrame. For numeric data, results include COUNT, MEAN, STD, MIN, and MAX, while for object data it will also include TOP, UNIQUE, and FREQ.
+
    ```python
    df.describe()
+   df.describe().show()
    ```
    ![alt text](images\df.describe.png)
 
@@ -76,6 +79,11 @@ GO
 ### Dropping a table
 
 ![alt text](images\droptable.png)
+
+
+Small dataframe
+
+df.limit(100)
 
 
 4. **Selecting Columns**

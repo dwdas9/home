@@ -34,8 +34,7 @@ nav_order: 5
   - A. Create a Data pipeline that uses a Copy Data activity to load the external data into a file.
   - B. Create a shortcut.
   - C. Create a Dataflow (Gen2) that extracts the data and loads it into a table.
-
-  **Answer:** <span style="color: white">B. A shortcut enables you to include external data in the lakehouse without copying the data.
+  - **Answer:** <span style="color: white">B. A shortcut enables you to include external data in the lakehouse without copying the data.
 
 - 📌 **You want to use Apache Spark to interactively explore data in a file in the lakehouse. What should you do?**
   - A. Create a notebook.
@@ -49,7 +48,7 @@ nav_order: 5
   - B. A relational storage layer for Spark that supports tables based on Parquet files.
   - C. A synchronization solution that replicates data between SQL Server and Spark.
 
-  **Answer:** <span style="color: white">B. Delta Lake provides a relational storage layer in which you can create tables based on Parquet files in a data lake.
+   - **Answer:** <span style="color: white">B. Delta Lake provides a relational storage layer in which you can create tables based on Parquet files in a data lake.
 
 
 - 📌 **You have a managed table based on a folder that contains data files in delta format. If you drop the table, what happens?**
@@ -58,7 +57,7 @@ nav_order: 5
   - B. The table definition is removed from the metastore, but the data files remain intact.
   - C. The table definition remains in the metastore, but the data files are deleted.
 
-  **Answer:** <span style="color: white">A. The life-cycle of the metadata and data for a managed table are the same.
+  - **Answer:** <span style="color: white">A. The life-cycle of the metadata and data for a managed table are the same.
 
 - 📌 **What is a data pipeline?**
   - A. A special folder in OneLake storage where data can be exported from a lakehouse
@@ -100,19 +99,19 @@ nav_order: 5
   - A. Fact table.
   - B. Dimension table.
   - C. Staging table.
-  - **Correct:** <span style="color: white">B. A dimension table stores attributes used to group numeric measures.
+  - **Answer:** <span style="color: white">B. A dimension table stores attributes used to group numeric measures.
 
 - 📌 **What is a semantic model in the data warehouse experience?**
   - A. A semantic model is a business-oriented data model that provides a consistent and reusable representation of data across the organization.
   - B. A semantic model is a physical data model that describes the structure of the data stored in the data warehouse.
   - C. A semantic model is a machine learning model that is used to make predictions based on data in the data warehouse.
-  - **Correct:** <span style="color: white">A. A semantic model in the data warehouse experience provides a way to organize and structure data in a way that is meaningful to business users, enabling them to easily access and analyze data.
+  - **Answer:** <span style="color: white">A. A semantic model in the data warehouse experience provides a way to organize and structure data in a way that is meaningful to business users, enabling them to easily access and analyze data.
 
 - 📌 **What is the purpose of item permissions in a workspace?**
   - A. To grant access to all items within a workspace.
   - B. To grant access to specific columns within a table.
   - C. To grant access to individual warehouses for downstream consumption.
-  - **Correct:** <span style="color: white">C. By granting access to a single data warehouse using item permissions, you can enable downstream consumption of data.
+  - **Answer:** <span style="color: white">C. By granting access to a single data warehouse using item permissions, you can enable downstream consumption of data.
 Sure, here's the revised version:
 
 📌 **You have access to a historical dataset that contains the monthly expenses of the marketing department. You want to generate predictions of the expenses for the coming month. Which type of machine learning model is needed?**
@@ -120,22 +119,27 @@ Sure, here's the revised version:
   - <span style="color: white">Incorrect. Classification is used when you want to predict a categorical value.
 - B. Regression
   - <span style="color: white">Incorrect. Regression is used when you want to predict numerical values.
-- **C. Forecasting**
+- C. Forecasting
   - <span style="color: white">Correct. Forecasting is used when you want to predict future numerical values based on time-series data.
+
+- **Answer:** <span style="color: white">Correct. Forecasting is used when you want to predict future numerical values based on time-series data.</span>
 
 📌 **Which feature in Microsoft Fabric should you use to review the results of MLflow's tracking through a user interface?**
 - A. Notebooks
   - <span style="color: white">Incorrect. You can use MLflow in a notebook to review tracked metrics. However, when working with notebooks you need to write code and don't use a user interface.
-- **B. Experiments**
+- B. Experiments
   - <span style="color: white">Correct. Microsoft Fabric's experiments offer a visual user interface to explore the metrics.
 - C. Models
   - <span style="color: white">Incorrect. Metrics are only shown when a model is saved.
+
+- **Answer:** <span style="color: white">Correct. Microsoft Fabric's experiments offer a visual user interface to explore the metrics.</span>
+
 
 📌 **Which feature in Microsoft Fabric should you use to accelerate data exploration and cleansing?**
 - A. Dataflows
 - B. Data Wrangler
 - C. Lakehouse
--  <span style="color: white">Correct. Use Data Wrangler to visualize and clean your data.</span>
+- **Answer:** <span style="color: white">Correct. Use Data Wrangler to visualize and clean your data.</span>
 
 📌 **Which of the following statements best describes the concept of capacity in Fabric?**
 
@@ -156,8 +160,6 @@ Sure, here's the revised version:
 - Certification must be enabled in the tenant by the admin, while promotion can be done by a workspace member.
 
 - **Answer:** <span style="color: white">Certification must be enabled in the tenant by the admin, and only designated certifiers can perform the endorsement. In contrast, promotion can be done by any workspace member who has been granted the necessary permissions.</span>
-
----
 
 📌 **Which of the following sets of layers are typically associated with the Medallion Architecture for data management?**
 
@@ -189,8 +191,6 @@ Sure, here's the revised version:
 
 - **Answer:** <span style="color: white">Storing different layers of your lakehouse in separate workspaces enhances security and optimizes cost-effectiveness.</span>
 
----
-
 📌 **What is the benefit of using Fabric notebooks over manual uploads for data ingestion?**
 
 - Notebooks provide an automated approach to ingestion and transformation.
@@ -221,7 +221,6 @@ Sure, here's the revised version:
 
 - **Answer:** <span style="color: white">Basic cleaning is done to ensure data quality and consistency before moving on to transformation and modeling steps.</span>
 
----
 
 📌 **What is the purpose of creating a Reflex in Data Activator?**
 
@@ -267,8 +266,6 @@ Sure, here's the revised version:
 
 - **Answer:** <span style="color: white">TREATAS() applies the result of a table expression as filters to columns from an unrelated table. USERELATIONSHIP() activates different physical relationships between tables during a query execution. CROSSFILTER() defines the cross filtering direction of a physical relationship. PATH() returns a string of all the members in the column hierarchy.</span>
 
----
-
 📌 **You have a Fabric workspace that contains a lakehouse named Lakehouse1. A user named User1 plans to use Lakehouse explorer to read Lakehouse1 data. You need to assign a workspace role to User1. The solution must follow the principle of least privilege. Which workspace role should you assign to User1?**
 
 - Admin
@@ -280,8 +277,6 @@ Sure, here's the revised version:
 - Viewer
 
 - **Answer:** <span style="color: white">To read the data from a Fabric lakehouse by using Lakehouse explorer, users must be assigned roles of either Admin, Member, or Contributor. However, respecting the least privileged principle, a user must be assigned the Contributor role. The viewer role does not provide permission to read the lakehouse data through Lakehouse explorer.</span>
-
----
 
 📌 **You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a lakehouse, a data pipeline, a notebook, and several Microsoft Power BI reports. A user named User1 plans to use SQL to access the lakehouse to analyze data. User1 must have the following access: User1 must have read-only access to the lakehouse. User1 must NOT be able to access the rest of the items in Workspace1. User1 must NOT be able to use Spark to query the underlying files in the lakehouse. You need to configure access for User1. What should you do?**
 
@@ -309,8 +304,6 @@ Sure, here's the revised version:
 
 - **Answer:** <span style="color: white">Saving your Power BI work as a PBIP enables you to save the work as individual plain text files in a simple, intuitive folder structure, which can be checked into a source control system such as Git. This will enable multiple developers to work on different parts of the model simultaneously. Emailing a Power BI model back and forth is not efficient for collaboration. Saving a Power BI model as a PBIX file to OneDrive eases developers access, but only one developer can have the file open at time. Publishing a PBIX file to a shared workspace does not allow multiple developers to work on the model simultaneously.</span>
 
----
-
 📌 **You have a semantic model that pulls data from an Azure SQL database and is synced via Fabric deployment pipelines to three workspaces named Development, Test, and Production. You need to reduce the
 
  size of the dataset. Which DAX function should you use to remove unused columns?**
@@ -325,7 +318,6 @@ Sure, here's the revised version:
 
 - **Answer:** <span style="color: white">Use the SELECTCOLUMNS() function to select columns from a table while preserving the table structure. REMOVECOLUMNS() also removes columns from a table, but should be used only for columns that are not referenced anywhere else in the semantic model.</span>
 
----
 
 📌 **What is the most cost-effective approach to move data from Azure Data Lake Storage to a lakehouse in Fabric?**
 
@@ -459,5 +451,25 @@ Column distribution – unique values
 Column profile – values count
 Column quality – valid values
 Answer: Only the distinct values displayed under Column distribution will show the true number of rows of values that are distinct (one row per value). The count of unique only shows the number of distinct values that are in the first 1,000 rows, and the other two options do not review uniqueness
+
+---
+You have a Fabric workspace that contains a lakehouse named Lakehouse1.
+
+A user named User1 plans to use Lakehouse explorer to read Lakehouse1 data.
+
+You need to assign a workspace role to User1. The solution must follow the principle of least privilege.
+
+Which workspace role should you assign to User1?
+
+Select only one answer.
+
+Admin
+
+Contributor
+
+Member
+
+Viewer
+To read the data from a Fabric lakehouse by using Lakehouse explorer, users must be assigned roles of either Admin, Member, or Contributor. However, respecting the least privileged principle, a user must be assigned the Contributor role. The viewer role does not provide permission to read the lakehouse data through Lakehouse explorer.
 
 ---
