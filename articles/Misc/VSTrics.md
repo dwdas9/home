@@ -18,3 +18,8 @@ With
 
 Search: - \*\*Correct Answer:\*\* [A-Z]\. (.+)
 Replace: *$1*
+
+Quick datasets:
+
+df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/titanic.csv")
+display(df)
