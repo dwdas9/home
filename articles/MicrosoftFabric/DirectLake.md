@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DirectLake - Fabric - PowerBI
+title: DirectLake|Fabric|PowerBI
 parent: MicrosoftFabric
 nav_order: 2
 ---
