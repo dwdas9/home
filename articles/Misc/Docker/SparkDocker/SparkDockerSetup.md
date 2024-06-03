@@ -129,6 +129,13 @@ services:
     </p>
     
     ![Alt text](image.png)
+  <p style="color: #804000; font-family: 'Courier New', Courier, monospace; background-color: #fff5e6; padding: 15px; border-left: 5px solid #b35900;">
+  The name of the container group will be docker. If you want to put a fancy name. Use command:
+  </p>
+  
+  ```bash docker-compose -p fancyName up -d ```
+  
+  ![alt text](image-3.png)
 
 ### <span style="color: #9e0059;">Verify the containers are running</span>
 - Enter the following command in the same prompt
@@ -275,4 +282,4 @@ I prefer the Bitnami container for its maintenance and pre-set configurations in
 
 ---
 © D Das  
-📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)
+📧 [das.d@hotmail.com](mailto:das.d@hotmail.com)
