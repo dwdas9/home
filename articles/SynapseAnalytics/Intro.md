@@ -1,3 +1,9 @@
+---
+layout: default
+title: Intro To Synapse
+parent: SynapseAnalytics
+nav_order: 1
+---
 
 - [Introduction to Azure Synapse Analytics](#introduction-to-azure-synapse-analytics)
 - [Pools in Syanpse Analytics](#pools-in-syanpse-analytics)
