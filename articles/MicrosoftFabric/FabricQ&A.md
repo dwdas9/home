@@ -473,3 +473,47 @@ Viewer
 To read the data from a Fabric lakehouse by using Lakehouse explorer, users must be assigned roles of either Admin, Member, or Contributor. However, respecting the least privileged principle, a user must be assigned the Contributor role. The viewer role does not provide permission to read the lakehouse data through Lakehouse explorer.
 
 ---
+**Question:**
+
+You are developing a large semantic model.
+
+You have a fact table that contains 500 million rows. Most analytic queries will target aggregated data, but some users must still be able to view data on a detailed level.
+
+You plan to create a composite model and implement user-defined aggregations.
+
+Which three storage modes should you use for each type of table? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+- Aggregated tables should use Dual mode.
+- Aggregated tables should use Import mode.
+- The detailed fact table should use DirectQuery mode.
+- The detailed fact table should use Import mode.
+- Dimension tables should use DirectQuery mode.
+- Dimension tables should use Dual mode.
+
+**Answer:**
+- Aggregated tables should use Import mode.
+- The detailed fact table should use DirectQuery mode.
+- Dimension tables should use Dual mode.
+
+**Explanation:** 
+When using user-defined aggregations, the detailed fact table must be in DirectQuery mode. It is recommended to set the storage mode to Import for aggregated tables because of the performance, while dimension tables should be set to Dual mode to avoid the limitations of limited relationships
+
+---
+**Question**:
+
+You have a Microsoft Power BI report that contains a bar chart visual.
+
+You need to ensure that users can change the y-axis category of the bar chart by using a slicer selection.
+
+Which Power BI feature should you add?
+
+- calculation groups
+- drillthrough
+- field parameters
+- WhatIf parameters
+
+**Answer**: field parameters
+
+**Explanation:**
+Field parameters allow users to change between columns that can be used on the categorical axis of visuals. All other options do not grant this ability

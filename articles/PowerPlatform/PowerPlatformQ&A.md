@@ -62,3 +62,6 @@ nav_order: 1
 - Model licensing design, defining business process, and composing the app
 
 **Answer:** When creating a model-driven app, it's important to focus on modeling business data to see where data is read from and saved, the business process including who the users are, and composing the app to make it easily accessible.
+
+---
+

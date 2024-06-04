@@ -50,7 +50,7 @@ nav_order: 2
    df.describe()
    df.describe().show()
    ```
-   ![alt text](images\df.describe.png)
+   ![alt text](image-9.png)
 
    ```python
    df.printSchema()
@@ -197,3 +197,9 @@ from pyspark.sql.functions import col, when
 
 result = when(col("Age") > 16, True).otherwise(False)
 ```
+
+### Remember
+
+The GroupBY columns **must** match the columns used in the SELECT statement.
+
+DENSE_RANK() function returns the rank of each row within the result set partition, with no gaps in the ranking values. The RANK() function includes gaps in the ranking.
