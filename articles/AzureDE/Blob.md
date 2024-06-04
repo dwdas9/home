@@ -1,67 +1,87 @@
-## Blob storage introduction
+---
+layout: default
+title: Meet Mr. Azure Blob
+parent: SynapseAnalytics
+nav_order: 1
+---
+- [Meet Mr. Azure Blob](#meet-mr-azure-blob)
+    - [Where are Blobs Used?](#where-are-blobs-used)
+  - [Blob APIs](#blob-apis)
+  - [Types of Blobs](#types-of-blobs)
+  - [Let's Quiz](#lets-quiz)
 
-Blobs are files in the sky blob containers are folders. Blobs are democractic and secular. The hold any file type, regardless of size, format and location.
+![alt text](azureblobs.png)
 
-But the god old blob is not even as fast as your local file system. They take longer time to answer. They can't be indexed(that means, files stored in them can't be queried well). But, they are used alongside databses to store non-queryable  data, like a photo.
+## Meet Mr. Azure Blob
 
-Where are blobs used?
+Blobs are like files in the sky, and blob containers are like folders(in the sky). Blobs are flexible and can hold any file type, regardless of size, format, or location.
 
-Well, first just like your laptops filesytem - to store documents.
-Sometimes, static images, some source files etc for general public is stored in blob.
-And, it is used as hard disk as well. Azure VMS use blobs  for hard-disk!
+However, blob storage is not as fast as your local file system. It takes longer to access files, and they can't be indexed easily, which means you can't search the files as effectively. But blobs are used in MSSQL database for storing non-queryable data, like photos, alongside databases.
 
-Blob  lives inside a blob container. Unlimited blobs can live in a container and you can have unlimited number  of contaners. Like your files in your laptop, blobs also have fields, like name, attributes etc to seach them easily.
+#### Where are Blobs Used?
 
-## Blob APIs
+- **Document Storage**: Just like your laptop's file system, blobs can be used to store documents.
+- **Static Content**: Blobs can be used to store static images or other files to share over internet or for public access.
+- **Virtual Hard Disks**: Azure Virtual Machines use blobs as their hard disks.
 
-Blob has Rest-based APIs they can do work like Put blob, List blob, Copy  Blob,  Delete blob, List containers and so on
+Blobs live inside a blob container. You can have unlimited blobs in a container and unlimited containers. Similar to your laptop's files, blobs have fields like name and attributes to make them easy to search. One more thing, blobs are flat. Meaning, no subfolders.
 
-## Blob Types
+### Blob APIs
 
-Block blob: The regular blob
-Append  blob: They only lets you append, not delete/update.
-Page blob: I mentioned, Virtual machine hard  disks are blobs. The virtual machine stores data in the blob hard disk as page blobs.
+Blob storage has REST-based APIs that allow you to:
+- Put (upload) blobs
+- List blobs
+- Copy blobs
+- Delete blobs
+- List containers
 
+And much more..
 
-## Let's quiz
+### Types of Blobs
 
-1. You want to store information about your girlfiriend and later query the list to find out which girlfriend lived where. True or false: blob storage is a good choice for this data? 
+1. **Block Blob**: The standard type of blob.
+2. **Append Blob**: You can only add (append) data to these blobs; you can't delete or update them.
+3. **Page Blob**: Used for virtual machine hard disks, where data is stored in pages.
 
-True
-False
+### Let's Quiz
 
-Answer: False. Blobs are not appropriate for structured data that needs to be queried frequently. They have higher latency than memory and local disk and don't have the indexing features that make databases efficient at running queries.
+1. **You want to store information about your girlfriend and later query the list to find out which girlfriend lived where. True or false: blob storage is a good choice for this data?**
 
-2. Blobs provide unstructured data storage. What does unstructured mean? 
+   - True
+   - False
 
-Blobs can't be organized or named.
-There are no restrictions on the type of data you can store in blobs.
-Blobs can't contain structured data, like JSON or XML.
+   **Answer**: False. Blobs are not suitable for structured data that needs to be queried frequently. They have higher latency than memory and local disks and lack the indexing features that make databases efficient for running queries.
 
-Answer: Blobs do not impose any structure on your data, meaning your application can store any type of data in a blob.
+2. **Blobs provide unstructured data storage. What does unstructured mean?**
 
-3. Which of the following describes a good strategy for creating storage accounts and blob containers for your application? 
+   - Blobs can't be organized or named.
+   - There are no restrictions on the type of data you can store in blobs.
+   - Blobs can't contain structured data, like JSON or XML.
 
-Create both your Azure Storage accounts and containers before deploying your application.
-Create Azure Storage accounts in your application as needed. Create the containers before deploying the application.
-Create Azure Storage accounts before deploying your app. Create containers in your application as needed.
+   **Answer**: There are no restrictions on the type of data you can store in blobs. Blobs do not impose any structure on your data, meaning your application can store any type of data in a blob.
 
-Answer: Creating an Azure Storage account is an administrative activity and can be done prior to deploying an application. Container creation is lightweight and is often driven by run-time data which makes it a good activity to do in your application.
+3. **Which of the following describes a good strategy for creating storage accounts and blob containers for your application?**
 
-4. Which of the following can be used to initialize the Blob Storage client library within an application? 
+   - Create both your Azure Storage accounts and containers before deploying your application.
+   - Create Azure Storage accounts in your application as needed. Create the containers before deploying the application.
+   - Create Azure Storage accounts before deploying your app. Create containers in your application as needed.
 
-An Azure username and password.
-The Azure Storage account connection string.
-A globally-unique identifier (GUID) that represents the application.
-The Azure Storage account datacenter and location identifiers.
+   **Answer**: Creating an Azure Storage account is an administrative activity and can be done before deploying an application. Container creation is lightweight and is often driven by run-time data, making it a good activity to do in your application.
 
-Answer: A storage account connection string contains all the information needed to connect to Blob storage, most importantly the account name and the account key.
+4. **Which of the following can be used to initialize the Blob Storage client library within an application?**
 
-5. What happens when you obtain a BlobClient reference from BlobContainerClient with the name of a blob? 
+   - An Azure username and password.
+   - The Azure Storage account connection string.
+   - A globally-unique identifier (GUID) that represents the application.
+   - The Azure Storage account datacenter and location identifiers.
 
-A new block blob is created in storage.
-A BlobClient object is created locally. No network calls are made.
-An exception is thrown if the blob does not exist in storage.
-The contents of the named blob are downloaded.
+   **Answer**: A storage account connection string contains all the information needed to connect to Blob storage, most importantly the account name and the account key.
 
-Answer: Getting a blob reference does not make any calls to Azure Storage, it simply creates an object locally that can work with a stored blob.
+5. **What happens when you obtain a BlobClient reference from BlobContainerClient with the name of a blob?**
+
+   - A new block blob is created in storage.
+   - A BlobClient object is created locally. No network calls are made.
+   - An exception is thrown if the blob does not exist in storage.
+   - The contents of the named blob are downloaded.
+
+   **Answer**: Getting a blob reference does not make any calls to Azure Storage. It simply creates an object locally that can work with a stored blob.
