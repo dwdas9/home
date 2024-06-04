@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Meet Mr. Azure Blob
-parent: SynapseAnalytics
+parent: Azure Articles
 nav_order: 1
 ---
 - [Meet Mr. Azure Blob](#meet-mr-azure-blob)

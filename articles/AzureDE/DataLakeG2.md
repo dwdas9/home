@@ -1,109 +1,99 @@
-## Data Lake. What is it?
+---
+layout: default
+title: ADLS G2
+parent: Azure Articles
+nav_order: 1
+---
 
-A data lake is like a big storehouse where data is kept in its natural format, no format, no structure, any file. This makes it differnt from a data warehouse. In warehouse only the clenest, tidiest, formattest data is allowed in. In data lake it can be a bit messy.
+## Data Lake: What is it?
 
-Azure Data Lake is the Data Lake for Microsoft. Its works like a hi-fi file system. Meaning, it stores exabytes  of data, the throghput is in Gigabytes, it connects amazingly with analytiacal tools, can handle real-time ingestion, can handle batch-data as well. Behidn the scene is actually evolved Azure blob storage.
+A data lake is like a huge storehouse where you keep data in its original form. There’s no need for any specific format or structure, unlike a data warehouse, which only stores the cleanest and most organized data. A data lake can handle all kinds of messy data.
 
-Also, data stored in Azure Data Lake is treated as if it's stored in a system called Hadoop, which is a big deal in the world of big data technology. This means you can use other fancy tools like Azure Databricks, Azure HDInsight, and Synapse Analytics.
+### Azure Data Lake
 
-And now the Gen2 version also is capable of keeping files in subfolders. That  makes it even more powerful. Right now if you want to have this feature you have to enable it during the creation. Also you can upgrade your G1 to G2.
+Azure Data Lake is Microsoft’s data lake service. It works like a sophisticated file system, capable of storing exabytes of data with throughput in gigabytes. It connects well with analytical tools and can handle real-time and batch data. It’s essentially an advanced version of Azure Blob Storage.
 
-![alt text](image-11.png)
+Data stored in Azure Data Lake is treated as if it’s stored in Hadoop, which is important in big data technology. This allows you to use tools like Azure Databricks, Azure HDInsight, and Synapse Analytics.
 
-I said, its an evolved versionn of Azure blob storage. Whats the main storage. In blob, everything is on the same plane. No subfolders. In ADLS G2 you can have subfolders.
+The Gen2 version of Azure Data Lake can store files in subfolders, making it even more powerful. You need to enable this feature during creation, but you can also upgrade from Gen1 to Gen2.
 
-Subfolders are great, they  let you sort more. Anything else? Yes, say you have hundredes of subfolders inside a parent folder. With just one click(operation) you can delete 'em all. For flat file system, you will have to have hundres of operation to delete them.
+### Key Features
 
-Tip: You dont want any  sorting.  You dont want to analyze the data. Don't enable Hierarchical namespce. But, you want to do anaysis enable it. 
+1. **Subfolders:** Unlike Azure Blob Storage, which is flat, Azure Data Lake Gen2 supports subfolders, helping you organize better.
+2. **Batch Deletion:** You can delete multiple subfolders in one operation, unlike the flat file system where each deletion is a separate operation.
 
-Technical  definition: ADLS is an HDFS-compatible **file system** hosted in Azure Storage.
+### Tip
+
+If you don’t need sorting or analysis, don’t enable the hierarchical namespace. If you do, make sure to enable it.
+
+### Technical Definition
+
+Azure Data Lake Storage (ADLS) is an HDFS-compatible file system hosted in Azure Storage.
 
 ## How is Azure Data Lake Used?
 
-### Data warehouse
+### Data Warehouse
 
-Typically here operational data is stored in Azure SQL DB or Azure Cosmos DB. From there data is 'staged' on to ADLS. Here it is cleaned and made reporty-friendly and then pushed to a Warehouse.
+Operational data from Azure SQL DB or Azure Cosmos DB is staged in ADLS for cleaning and preparation before moving to a data warehouse.
 
-### Real-time  data analytics
+### Real-time Data Analytics
 
-Nowadays  real-time  data analytics is in. Election news, twitter trends etc all real time stuff. In real-time processing, real-time data is.
+Real-time data analytics is useful for things like election news and Twitter trends. Azure Stream Analytics can create jobs to process and analyze this data in real time, writing results to ADLS.
 
-Example: How many message were generated in every five minutes with a hashtag - live reporting. Here a stream of data is collected and summed(to  make it simple) over five minutes(to make it simple)
+### Data Science and Machine Learning
 
-Azure stream analytics can create jobs that can sum up that live streamed data as it arrives and write the results to azure data lake.
+ADLS stores the vast amounts of data needed for machine learning processes.
 
-## Data sciene  and machine leanring
+### Quiz
 
-Machine learning processes humoungous amount of data. And that data can be stored in ADLS.
+What option must you enable to use Azure Data Lake Storage Gen2?
+- **Answer:** Hierarchical namespace.
 
-Quiz:
+## How to Upload Data to ADLS?
 
-What option must you enable to use Azure Data Lake Storage Gen2? 
+- Use the standard upload method.
+- Use Azure Storage Explorer.
+- Use the Copy Data tool.
+- Use the .NET/Python SDK.
+- Use Azure PowerShell.
+- Use the REST API.
 
-Answer: Hierarchical namespace.
+Remember, ADLS is not free. Create a storage account to get started and enable the hierarchical namespace.
 
-## How to upload data to ADLS?
+## How to Make Your Data Secure in ADLS?
 
-Just use plain simple upload method which you use on a daily basis to upload any file to web.
-Use Azure storage explorer
-The Copy Data tool
-The .NET/Python SDK
-Azure PowerShell
-The REST API
+- **At Rest:** All data is encrypted by Storage Service Encryption.
+- **In Transit:** Enable transport-level security and enforce HTTPS.
+- **CORS Support:** Optionally enable CORS on storage accounts to add appropriate headers for HTTP GET requests.
 
-Note: Everything runs on money. So, ADLS is not free. To let Microsoft charge you have to create a storage account before you start using ADLS.
+### RBAC (Role-Based Access Control)
 
-Remember to enable Hierarchical namespace!
+Assign RBAC roles to security principals or managed identities at various scopes like subscription, resource group, storage account, or individual container.
 
-## How to make your data secure in ADLS?
+### Auditing Access
 
-When  the data is sitting: All data is automatically encrypted by Storage Service Encryptioin.
-Encryption on the go: Here data is made secure by enabling transoport-level security. Remember to enforce Https.
-CORS supprot:  CORS support is an optional flag you can enable on Storage accounts. The flag adds the appropriate headers when you use HTTP GET requests to retrieve resources from the Storage account.
+Use the built-in Storage Analytics service to audit Azure Storage access.
 
-RBAC: You can assign RBAC roles to a security principal or a managed identity for Azure resources that are scoped to a subscription, a resource group, a storage account, or an individual container or queue.
+## Storage Account Keys
 
-## Auditing access: 
-You can audit Azure Storage access by using the built-in Storage Analytics service.
+### VIP Keys
 
-## Let's explore storage account keys
+Every storage account has a primary and secondary key, providing full access to the account. Access these keys under storage account settings -> Security + networking -> Access keys.
 
-Storage account can be accessed by  a user or an app. 
+### Shared Access Signature (SAS) Keys
 
-### Storage account keys - VIP + Most powerful keys
-Every storage account has a primary and secondary(backup) keys. If you have them you have access to everything. It's that VIP keys.
+SAS tokens are less powerful than storage account keys but still provide significant access, either at the storage account level or for specific operations.
 
-To access it storage account-> Security + networking > Access keys.
+### Network Access
 
-### Shared Access  Signature keys
+Configure which networks can access your storage account. You can restrict access to your organization or allow the entire internet to access it.
 
-You can't share your super-powerful storage account keys. Hence, azure provides SAS tokens. You can have storage-account level SAS. Its as powerful as the storage account keys. Or you can provide a key to a specific operation or ability.
+### Enable Microsoft Defender for Storage
 
-### From which all network will you let users access your storage account?
+Just like Microsoft Defender Antivirus for Windows, you can enable Microsoft Defender for your storage account to detect anomalies and potential threats.
 
-You can restrict network from which your stroage account can be acccessed. Say, you want the entire inetrnet to access it. Or you want your own organization to acccess it. It all can be configured.
+### Examples
 
-![alt text](image-12.png)
-
-
-### Enable Microsoft Defender for Storage.
-
-You must have heard about Microsoft Defender Antivirus for your windows. Now, you can enable this for your storage account as well.
-
-Examples:
-
-1. You are working on a project with a 3rd party vendor to build a website for a customer. The image assets that will be used on the website are stored in an Azure Storage account that is held in your subscription. You want to give read access to this data for a limited period of time. What security option would be the best option to use? 
-
-Answer: A shared access signature is a string that contains a security token that can be attached to a URI. Use a SAS to provide time-bound and read/write/read-write/contribute etc permission to your storage account.
-
-2. When configuring network access to your Azure Storage Account, what is the default network rule? 
-
-To allow all connections from all networks
-To allow all connection from a private IP address range
-To deny all connections from all networks
-
-Answer: The default network rule is to allow all connections from all networks.
-
-3. Which Azure service detects anomalies in account activities and notifies you of potential harmful attempts to access your account? 
-
-Answer: Microsoft Defender for Storage detects anomalies in account activity. It then notifies you of potentially harmful attempts to access your account.
+1. **Project with a Third-Party Vendor:** Use a shared access signature to provide time-bound access to image assets in an Azure Storage account.
+2. **Default Network Rule:** The default rule is to allow all connections from all networks.
+3. **Detecting Anomalies:** Microsoft Defender for Storage detects anomalies in account activities and notifies you of potential threats.
