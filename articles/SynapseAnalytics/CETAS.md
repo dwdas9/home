@@ -25,6 +25,7 @@ nav_order: 1
     - [1. Azure Synapse Spark Pools](#1-azure-synapse-spark-pools)
     - [2. Azure Data Factory (ADF)](#2-azure-data-factory-adf)
     - [3. PolyBase](#3-polybase)
+  - [Let's test our knowledge](#lets-test-our-knowledge)
 
 
 # <span style="color: Teal">Background</span>
@@ -313,3 +314,28 @@ ADF is one of the core component of Synapse. It's main job is to tranfer data fr
 PolyBase is a technology for MSSQL Server. It allows you to query external data as if it were part of the database.
 
 In Synapse we created CETAS etc. We were already using Polybase technology.
+
+## Let's test our knowledge
+
+1. What function is used to read the data in files stored in a data lake? 
+    - FORMAT
+    - ROWSET
+    - OPENROWSET
+
+    **Answer:** OPENROWSET
+
+2. What character in file path can be used to select all the file/folders that match rest of the path? 
+
+    - &
+    - \*
+    - /
+
+    **Answer:** *
+
+3. Which external database object encapsulates the connection information to a file location in a data lake store? 
+
+   - FILE FORMAT
+   - DATA SOURCE
+   - EXTERNAL TABLE
+
+    **Answer**: DATA SOURCE
