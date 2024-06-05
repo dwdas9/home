@@ -19,8 +19,8 @@ nav_order: 1
     - [Get the access sorted](#get-the-access-sorted-1)
     - [Pull from ADLS \& Put in ADLS as CETAS](#pull-from-adls--put-in-adls-as-cetas)
 - [Service Principal Method and SAS Methods](#service-principal-method-and-sas-methods)
-  - [Using Service Principal Authentication](#using-service-principal-authentication)
-  - [Using Shared Access Signature (SAS)](#using-shared-access-signature-sas)
+  - [Service Principal Authentication Setup](#service-principal-authentication-setup)
+  - [Shared Access Signature (SAS) Setup](#shared-access-signature-sas-setup)
 - [Alternative to CETAS?](#alternative-to-cetas)
     - [1. Azure Synapse Spark Pools](#1-azure-synapse-spark-pools)
     - [2. Azure Data Factory (ADF)](#2-azure-data-factory-adf)
@@ -212,30 +212,25 @@ The creation of managed identity etc have been left out. As I explained them bef
 
 We used managed  identity in our examples. Apart from Managed Identity, you have a couple of other options for connecting Synapse to Azure Data Lake Storage (ADLS):
 
-1. **Service Principal Authentication:**
-   - A service principal is like a special user for applications to access Azure resources. You create a service principal and give it the needed permissions on ADLS. Its like *functional id*.
+1. **Service Principal Authentication:** A service principal is like a special user for applications to access Azure resources. You create a service principal and give it the needed permissions on ADLS. Its like *functional id*.
 
-2. **Shared Access Signature (SAS):**
-   - A Shared Access Signature (SAS) allows limited access to your storage account for a specific time and with specific permissions.
+2. **Shared Access Signature (SAS):** A Shared Access Signature (SAS) allows limited access to your storage account for a specific time and with specific permissions.
 
 Here’s how you can set up each method:
 
-## Using Service Principal Authentication
+## Service Principal Authentication Setup
 
-1. **Create a Service Principal:**
-   - You can create a service principal using the Azure portal, Azure CLI, or PowerShell. Here is an example using Azure CLI:
+1. **Create a Service Principal:** You can create a service principal using the Azure portal, Azure CLI, or PowerShell. Here is an example using Azure CLI:
      ```sh
      az ad sp create-for-rbac --name <service-principal-name> --role "Storage Blob Data Contributor" --scopes /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
      ```
 
-2. **Grant Access to the Service Principal on ADLS Gen2:**
-   - Assign the necessary role to the service principal:
+2. **Grant Access to the Service Principal on ADLS Gen2:** Assign the necessary role to the service principal:
      ```sh
      az role assignment create --assignee <appId> --role "Storage Blob Data Contributor" --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
      ```
 
-3. **Configure the External Data Source in Synapse:**
-   - Use the service principal credentials in your SQL script:
+3. **Configure the External Data Source in Synapse:** Use the service principal credentials in your SQL script:
      ```sql
      CREATE DATABASE SCOPED CREDENTIAL MyADLSCredential
      WITH
@@ -250,16 +245,15 @@ Here’s how you can set up each method:
      );
      ```
 
-## Using Shared Access Signature (SAS)
+## Shared Access Signature (SAS) Setup
 
 1. **Generate a SAS Token:**
-   - You can generate a SAS token through the Azure portal, Azure Storage Explorer, Azure CLI, or programmatically using Azure Storage SDKs. Here is an example using Azure CLI:
+  You can generate a SAS token through the Azure portal, Azure Storage Explorer, Azure CLI, or programmatically using Azure Storage SDKs. Here is an example using Azure CLI:
      ```sh
      az storage account generate-sas --permissions rwdlacup --account-name <storage-account> --services b --resource-types co --expiry <expiry-date>
      ```
 
-2. **Configure the External Data Source in Synapse:**
-   - Use the SAS token in your SQL script:
+2. **Configure the External Data Source in Synapse:** Use the SAS token in your SQL script:
      ```sql
      CREATE DATABASE SCOPED CREDENTIAL MyADLSSASCredential
      WITH
@@ -312,8 +306,8 @@ spark.sql("CREATE EXTERNAL TABLE IF NOT EXISTS SalesDataExternal USING parquet L
 ### 2. Azure Data Factory (ADF)
 ADF is one of the core component of Synapse. It's main job is to tranfer data from here to there. This can be a preferred option to avoid lengthy coding etc. Typical steps to perform the activity would be:
 
-- **Create a pipeline** in ADF to move data from Synapse to ADLS or vice versa.
-- **Use Copy Activity**: This activity can move data with high performance using parallelism and built-in optimizations.
+- **Create a pipeline**: This is the workflow for the entire activity.
+- **Use Copy Activity**: This is a very important activity to copy data and used frequently in pipelines.
 
 ### 3. PolyBase
 PolyBase is a technology for MSSQL Server. It allows you to query external data as if it were part of the database.
