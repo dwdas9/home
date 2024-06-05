@@ -30,13 +30,13 @@ nav_order: 1
 # <span style="color: Teal">Background</span>
 
 
-CETAS is just a **CREATE TABLE *TableName*** command. But, the table is created in Azure Data Lake and is called an External Table. **External** here means it's not inside the Synapse SQL data warehouse (Fancy name: Dedicated SQL Pool).
+CETAS is very similar to SQL **CREATE TABLE *TableName*** command. But, the table is created in Azure Data Lake and is called an External Table. **External** here means it's not inside the Synapse SQL data warehouse (Fancy name: Dedicated SQL Pool).
 
 ### If you have Synapse, why not save the data in Synapse SQL warehouse?
 
 Because Synapse SQL warehouse storage is expensive and not meant for everyone to access.
 
-![alt text](ADLSVsWarehouse.png)
+![alt text](MotelADLS.png)
 
 ## Give me some real examples
 
