@@ -7,6 +7,11 @@ nav_order: 1
 
 ## M365 Example licensing:
 
+I went to a shop, and the prices of the goods were so complicated that I just threw some cash down and told the shopkeeper to give me the best I could get for that amount. That's the story here: Microsoft licensing is so complex that these tables will give you some idea of what you would get if you shelled out $1,000 or more.
+
+**Note**: These tables are just here to give you some idea. Prices change, you might get discounts, or new features might come in. So, this is just to give you a basic idea. Don't take this table to the Microsoft sales guy and say that it says this.
+
+
 ### $10,000 Budget
 
 | Product                          | Annual Cost Per User | Number of Users | Features                                                       |
