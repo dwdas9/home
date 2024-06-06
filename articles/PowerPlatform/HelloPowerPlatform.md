@@ -11,7 +11,8 @@ nav_order: 1
 <h3 style="color: #4C9A2A;">Key Products</h3>
 
 <ul>
-  <li><span style="color: #FF8C00;">Power Apps</span> - For web and mobile apps</li>
+  <li><span style="color: #FF8C00;">Power Apps</span> - For web and mobile apps. PowerApps is a low-code/no-code platform to create apps quickly. Its data can live in SharePoint, Dynamics, M365 or anywhere. It language is PowerFX(like excel formulas). Power apps are canvas apps(any data) and model-driven apps(dataverse only)
+</li>
   <li><span style="color: #008080;">Power Automate</span> - Workflows to automate work tasks</li>
   <li><span style="color: #800080;">Power BI</span> - Data dashboards and reports</li>
   <li><span style="color: #4169E1;">Power Pages</span> - For websites</li>
@@ -20,7 +21,7 @@ nav_order: 1
 <h3 style="color: #4C9A2A;">Supporting Tools</h3>
 
 <ul>
-  <li><span style="color: #FF8C00;">Copilot Studio</span> - Tool to automate the automate</li>
+  <li><span style="color: #FF8C00;">Copilot Studio[Power Virtual agents]</span> - Tool to automate the automate</li>
   <li><span style="color: #008080;">Connectors</span> - Connect to Dropbox, Twitter, etc. Approx 900.</li>
   <li><span style="color: #800080;">AI Builder</span> - Add AI functionality to Power Automate and Power Apps</li>
   <li><span style="color: #4169E1;">Dataverse</span> - Backend data for Power Platform</li>
@@ -79,18 +80,14 @@ nav_order: 1
 
 ## Copilot
 
-This is like GPT4/Bing. Here, you just say in plain English what you want. CoPilot will create the power automate/App for you!
+Copilot was earlier called Power Virtual Agents. This is like GPT4/Bing. Here, you just say in plain English what you want. CoPilot will create the power automate/App for you!
 
 ![alt text](images\image-6.png)
 
 
-![alt text](images\image-7.png)
-
 ## Copilot Studio
 
 Now using Copilot it becomes easy to create a working bot without the complexity which was there earlier.
-
-![alt text](images\image-8.png)
 
 ## Power FX
 
@@ -152,11 +149,27 @@ Long story short: Use Common Data Model. Save yourself from complex data modelli
 
 ## Data Sources | Triggers & Action | Connector Types 
 
-![alt text](images\powerPlatformDataConnectors.png)
+**Data Sources:** 
+- **Tabular:** SharePoint, SQL Server, Dataverse
+- **Function Based:** 365 Users, Azure Blobs
 
-## Dataverse Table Creation
+**Connectors:** 
+- Simply put, they link data sources to the Power Platform.
+- Types: standard, premium, custom
 
-We might also call this as creation of a basic Dataverse Model.
+![alt text](connectortype.png)
+
+**Triggers and Actions:**
+- **Triggers:** Start the flow in Power Automate, like a spark!
+- **Actions:** Perform tasks or operations.
+
+![alt text](TriggerAndAction.gif)
+
+
+## Dataverse Table Creation AKA Dataverse Model
+
+"Does 'Build a Dataverse model' sound intimidating? Don't worry, it's simply about creating tables in the Dataverse database."
+
 ![alt text](images\CreateDataverseTable.gif)
 
 
@@ -176,19 +189,4 @@ We might also call this as creation of a basic Dataverse Model.
 |**Business Logic (Column Level)** | Validation Rules, Workflows | Constraints, Triggers |
 
 ![alt text](images\db_vs_dataverse.jpg)
-
-
-## What is PowerApps?
-
-PowerApps is a low-code/no-code platform to create apps quickly. Its data can live in SharePoint, Dynamics, M365 or anywhere. It language is PowerFX(like excel formulas).
-
-### What is Canvas Apps?
-
-Non-dataverse apps. Here the developer's focuses on the screen. Data comes second.
-
-### What is Model driven apps?
-
-Dataverse-only apps. Here the developer's focuses on the data. Scren comes second.
-
-![alt text](images\image-87.png)
 

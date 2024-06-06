@@ -339,3 +339,6 @@ In Synapse we created CETAS etc. We were already using Polybase technology.
    - EXTERNAL TABLE
 
     **Answer**: DATA SOURCE
+
+
+    Based on the given ferocity rankings for the animals, here's how you can create an output table:
