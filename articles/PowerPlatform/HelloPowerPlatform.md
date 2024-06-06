@@ -4,119 +4,74 @@ title: PowerPlatform Ecosystem
 parent: Power Platform
 nav_order: 1
 ---
+
 ![alt text](images\image-5.png)
 
-<h2 style="color: #003366;">Microsoft Power Platform</h2>
+# <span style="color: #003366;">Microsoft Power Platform</span>
 
-<h3 style="color: #4C9A2A;">Key Products</h3>
+## <span style="color: #4C9A2A;">Key Products</span>
 
-<ul>
-  <li><span style="color: #FF8C00;">Power Apps</span> - For web and mobile apps. PowerApps is a low-code/no-code platform to create apps quickly. Its data can live in SharePoint, Dynamics, M365 or anywhere. It language is PowerFX(like excel formulas). Power apps are canvas apps(any data) and model-driven apps(dataverse only)
-</li>
-  <li><span style="color: #008080;">Power Automate</span> - Workflows to automate work tasks</li>
-  <li><span style="color: #800080;">Power BI</span> - Data dashboards and reports</li>
-  <li><span style="color: #4169E1;">Power Pages</span> - For websites</li>
-</ul>
+- <span style="color: #FF8C00;">Power Apps</span> - For web and mobile apps. PowerApps is a low-code/no-code platform to create apps quickly. Its data can live in SharePoint, Dynamics, M365, or anywhere. Its language is PowerFX (like Excel formulas). Power apps are canvas apps (any data) and model-driven apps (Dataverse only).
+- <span style="color: #008080;">Power Automate</span> - Workflows to automate work tasks.
+- <span style="color: #800080;">Power BI</span> - Data dashboards and reports.
+- <span style="color: #4169E1;">Power Pages</span> - For websites.
 
-<h3 style="color: #4C9A2A;">Supporting Tools</h3>
+## <span style="color: #4C9A2A;">Supporting Tools</span>
 
-<ul>
-  <li><span style="color: #FF8C00;">Copilot Studio[Power Virtual agents]</span> - Tool to automate the automate</li>
-  <li><span style="color: #008080;">Connectors</span> - Connect to Dropbox, Twitter, etc. Approx 900.</li>
-  <li><span style="color: #800080;">AI Builder</span> - Add AI functionality to Power Automate and Power Apps</li>
-  <li><span style="color: #4169E1;">Dataverse</span> - Backend data for Power Platform</li>
-  <li><span style="color: #B22222;">Power FX</span> - Programming language for Power Platform</li>
-</ul>
-
+- <span style="color: #FF8C00;">Copilot Studio [Power Virtual Agents]</span> - Tool to automate the automation.
+- <span style="color: #008080;">Connectors</span> - Connect to Dropbox, Twitter, etc. Approx 900.
+- <span style="color: #800080;">AI Builder</span> - Add AI functionality to Power Automate and Power Apps.
+- <span style="color: #4169E1;">Dataverse</span> - Backend data for Power Platform.
+- <span style="color: #B22222;">Power FX</span> - Programming language for Power Platform.
 
 ## A typical power platform project
 
-<table style="background-color: #F7F7F7; color: #333333; width: 100%;">
-  <thead style="background-color: #4C9A2A; color: #4169E1;">
-    <tr>
-      <th>Step</th>
-      <th>Process</th>
-      <th>Service</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="color: #FF8C00;">
-      <td>1</td>
-      <td>Receive invoice emails from vendors</td>
-      <td>Office 365 Outlook</td>
-    </tr>
-    <tr style="color: #008080;">
-      <td>2</td>
-      <td>Store attachments in SharePoint</td>
-      <td>Microsoft SharePoint</td>
-    </tr>
-    <tr style="color: #800080;">
-      <td>3</td>
-      <td>Send for approval in Teams</td>
-      <td>Microsoft Teams</td>
-    </tr>
-    <tr style="color: #4169E1;">
-      <td>4</td>
-      <td>Enter approved invoices in ERP</td>
-      <td>Oracle</td>
-    </tr>
-    <tr style="color: #B22222;">
-      <td>5</td>
-      <td>Send confirmation email to vendors</td>
-      <td>Office 365 Outlook</td>
-    </tr>
-  </tbody>
-</table>
-
+<span style="color: #FF8C00;">Receive invoice emails from vendors (Office 365 Outlook)</span> -> 
+<span style="color: #008080;">Store attachments in SharePoint (Microsoft SharePoint)</span> -> 
+<span style="color: #800080;">Send for approval in Teams (Microsoft Teams)</span> -> 
+<span style="color: #4169E1;">Enter approved invoices in ERP (Oracle)</span> -> 
+<span style="color: #B22222;">Send confirmation email to vendors (Office 365 Outlook)</span>
 
 ## Dataverse
 
 - Dataverse ~ Power Platform DB.
-- Tables: Standard(OOTB), managed(part of a solution, read-only), custom
-- 4TB  storage limit
-- You can apply business logic to tables! E.g. If country is US, then postal code mandatory.
+- Tables: Standard (OOTB), managed (part of a solution, read-only), custom.
+- 4TB storage limit.
+- You can apply business logic to tables! E.g., If country is US, then postal code mandatory.
 
 ![alt text](images\image-15.png)
 
 ## Copilot
 
-Copilot was earlier called Power Virtual Agents. This is like GPT4/Bing. Here, you just say in plain English what you want. CoPilot will create the power automate/App for you!
+Copilot was earlier called Power Virtual Agents. This is like GPT-4/Bing. Here, you just say in plain English what you want. CoPilot will create the power automate/app for you!
 
 ![alt text](images\image-6.png)
 
-
-## Copilot Studio
-
-Now using Copilot it becomes easy to create a working bot without the complexity which was there earlier.
-
 ## Power FX
 
-This is the language of PowerPlatform. It's like Excel formulas. Its used in PowerApps, Dataverse and Copilot Studio.
+This is the language of Power Platform. It's like Excel formulas. It's used in PowerApps, Dataverse, and Copilot Studio.
 
 ![alt text](images\image-9.png)
 
 ## Power Platform and Microsoft Teams
 
-All power platform components can be used from within MS Teams.
+All Power Platform components can be used from within MS Teams.
 
 ![alt text](images\image-10.png)
-
-
 ![alt text](images\image-12.png)
-
 ![alt text](images\image-11.png)
 
 ## Power Platform & Dynamics 365
 
-- Power Apps: All Dynamics 365 customer engagement apps are model-driven apps(built in PowerApps). - The data for such apps is in Dataverse. 
-- Power BI: Can create reports from Dynamics 365
-- Power Automate: Business process flows are creating using Power Automate.
-- Copilot Studio: Call/SMS/Facebook Msgs -> Dynamics 365 Customer Service App -> Copilot -> Live agent
-- Power Pages: Self-support web sites.
+- **Power Apps:** All Dynamics 365 customer engagement apps are model-driven apps (built in PowerApps). The data for such apps is in Dataverse.
+- **Power BI:** Can create reports from Dynamics 365.
+- **Power Automate:** Business process flows are created using Power Automate.
+- **Copilot Studio:** Call/SMS/Facebook Msgs -> Dynamics 365 Customer Service App -> Copilot -> Live agent.
+- **Power Pages:** Self-support websites.
 
 ## Power Platform and Azure
 
-Power Platform and Azure offer countless ways to create end-to-end solutions. Take, for instance, an airline project where:
+Power Platform and Azure offer countless ways to create end-to-end solutions. For instance, an airline project where:
 
 - Azure API Management hosts a custom API for airline system communication.
 - A coordinator handles notifications, assigns flights to Teams channels, and sends them to Power Apps.
@@ -128,26 +83,27 @@ Power Platform and Azure offer countless ways to create end-to-end solutions. Ta
 
 ## Dataverse OOTB features
 
-Here is a picture showing OOTB features of Dataverse
+Here is a picture showing OOTB features of Dataverse.
 
 ![alt text](images\image-14.png)
 
 ## Dataflows
 
-- ETL tool for PowerPlatform Ecosystem
-- Uses very less code
-- Uses power query(Like Excel)
-- No infra required, fully on cloud
-- No sep license, use Power BI / Power Apps license
+- ETL tool for Power Platform Ecosystem.
+- Uses very little code.
+- Uses Power Query (like Excel).
+- No infra required, fully on cloud.
+- No separate license, use Power BI / Power Apps license.
+
 ![alt text](images\image-16.png)
 
 ## Common Data Model
 
-Common Data Model as a ready-made collection of tables. Say for healthcare you have patient table and a admission table. With this you don't have to design tables and choose columns. Microsoft has partnered with industries like Healthcare, automobile, banking to create CDM.
+Common Data Model is a ready-made collection of tables. For healthcare, you have a patient table and an admission table. With this, you don't have to design tables and choose columns. Microsoft has partnered with industries like healthcare, automobile, and banking to create CDM.
 
-Long story short: Use Common Data Model. Save yourself from complex data modelling tasks.
+Long story short: Use Common Data Model. Save yourself from complex data modeling tasks.
 
-## Data Sources | Triggers & Action | Connector Types 
+## Data Sources | Triggers & Actions | Connector Types 
 
 **Data Sources:** 
 - **Tabular:** SharePoint, SQL Server, Dataverse
@@ -165,13 +121,11 @@ Long story short: Use Common Data Model. Save yourself from complex data modelli
 
 ![alt text](TriggerAndAction.gif)
 
-
 ## Dataverse Table Creation AKA Dataverse Model
 
 "Does 'Build a Dataverse model' sound intimidating? Don't worry, it's simply about creating tables in the Dataverse database."
 
 ![alt text](images\CreateDataverseTable.gif)
-
 
 ## Dataverse vs. MSSQL
 
@@ -189,4 +143,4 @@ Long story short: Use Common Data Model. Save yourself from complex data modelli
 |**Business Logic (Column Level)** | Validation Rules, Workflows | Constraints, Triggers |
 
 ![alt text](images\db_vs_dataverse.jpg)
-
+```
