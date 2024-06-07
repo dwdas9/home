@@ -5,19 +5,31 @@ parent: SynapseAnalytics
 nav_order: 1
 ---
 
-![alt text](count_distinct.png)
+![alt text](apprxcntdis.png)
 
-### APPROX_COUNT_DISTINCT - Lifesaver when the data is large. Too large
+## <span style="color: BlueViolet">APPROX_COUNT_DISTINCT</span> when <span style="color: CornflowerBlue">COUNT(DISTINCT ColName)</span> runs forever
 
-Imagine you have a huge database with 100 billion rows of customer names. Some names might be repeated. You want to find out how many unique customer names there are.
+Imagine your table has 1 trillion rows. You want to count distinct customer names. Do you think `COUNT(DISTINCT CustomerName)` will show you results in your lifetime?
 
-Your first thought might be to use the `COUNT()` function. But wait, 100 billion rows?! That will take forever!
+No, for such scenarios, use `APPROX_COUNT_DISTINCT(ColName)`. It will give you around 97% accuracy.
 
-This is where the `APPROX_COUNT_DISTINCT` function comes to the rescue. It gives you a result with about 97% accuracy and it's much faster. At least it will run within your lifetime!
+## <span style="color: DarkCyan">How to run it?</span>
 
-So, next time you need to count unique values in a massive dataset, try using `APPROX_COUNT_DISTINCT`. It's quick and close enough to the real count for most purposes.
+Pretty simple and straightforward.
 
-The `APPROX_COUNT_DISTINCT` function was introduced in **SQL Server 2019**. It is **available in Synapse SQL**. This function is also available in the following systems:
+**Normal Count**
+```sql
+SELECT COUNT(DISTINCT CustomerName) FROM Customers;
+```
+
+**Approximate Count**
+
+```sql 
+SELECT APPROX_COUNT_DISTINCT(CustomerName) FROM Customers; 
+```
+## <span style="color: Gray">Some Fun facts about this T-SQL function</span>
+
+In MS SQL Server `APPROX_COUNT_DISTINCT` it first came in **SQL Server 2019**. It is **available in Synapse SQL**. These other brands support this function:
 
 1. **Google BigQuery**
 2. **Amazon Redshift**: It offers the `APPROXIMATE COUNT(DISTINCT column)` function, which serves a similar purpose.
