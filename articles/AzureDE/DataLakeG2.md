@@ -4,14 +4,41 @@ title: ADLS G2
 parent: Azure Articles
 nav_order: 1
 ---
+- [Data Lake? What is it. How different it is from a Data warehouse?](#data-lake-what-is-it-how-different-it-is-from-a-data-warehouse)
+  - [Azure Data Lake](#azure-data-lake)
+  - [Key Features](#key-features)
+  - [Tip](#tip)
+  - [Technical Definition](#technical-definition)
+- [How is Azure Data Lake Used?](#how-is-azure-data-lake-used)
+  - [Data Warehouse](#data-warehouse)
+  - [Real-time Data Analytics](#real-time-data-analytics)
+  - [Data Science and Machine Learning](#data-science-and-machine-learning)
+  - [Quiz](#quiz)
+- [How to Upload Data to ADLS?](#how-to-upload-data-to-adls)
+- [How to Make Your Data Secure in ADLS?](#how-to-make-your-data-secure-in-adls)
+  - [RBAC (Role-Based Access Control)](#rbac-role-based-access-control)
+  - [Auditing Access](#auditing-access)
+- [Storage Account Keys](#storage-account-keys)
+  - [VIP Keys](#vip-keys)
+  - [Shared Access Signature (SAS) Keys](#shared-access-signature-sas-keys)
+  - [Network Access](#network-access)
+  - [Enable Microsoft Defender for Storage](#enable-microsoft-defender-for-storage)
+  - [Examples](#examples)
 
-## Data Lake: What is it?
 
-A data lake is like a huge storehouse where you keep data in its original form. There’s no need for any specific format or structure, unlike a data warehouse, which only stores the cleanest and most organized data. A data lake can handle all kinds of messy data.
+## Data Lake? What is it. How different it is from a Data warehouse?
+
+A data lake is like a huge storehouse where you keep data in its original form. It's like your laptop's hard drive. You can store any file in any format. The difference is that your laptop's hard drive can break, and you may lose data, and it can hold at most 1 TB or 2 TB. But a data lake is similar but much more. It doesn't break, has huge storage capacity, and has more data passage speed. It also *plugs in* well with applications like Spark, Power BI, and others.
+
+Data warehouse? If SQL Server is a planet, a data warehouse is the entire galaxy or universe. It may have huge storage, but it doesn't let just any data come and stay. Data has to be tables like SQL server.
+
+![alt text](../SynapseAnalytics/MotelADLS.png)
+
+
 
 ### Azure Data Lake
 
-Azure Data Lake is Microsoft’s data lake service. It works like a sophisticated file system, capable of storing exabytes of data with throughput in gigabytes. It connects well with analytical tools and can handle real-time and batch data. It’s essentially an advanced version of Azure Blob Storage.
+Azure Data Lake is Microsoft’s data lake. It works like a sophisticated file system, capable of storing exabytes of data with throughput in gigabytes. It connects well with analytical tools and can handle real-time and batch data. It’s essentially an advanced version of Azure Blob Storage.
 
 Data stored in Azure Data Lake is treated as if it’s stored in Hadoop, which is important in big data technology. This allows you to use tools like Azure Databricks, Azure HDInsight, and Synapse Analytics.
 
