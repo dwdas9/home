@@ -10,7 +10,7 @@ nav_order: 1
   - [Types of Blobs](#types-of-blobs)
   - [Let's Quiz](#lets-quiz)
 
-![alt text](azureblobs.png)
+![alt text](azureblobs.jpg)
 
 ## Meet Mr. Azure Blob
 
