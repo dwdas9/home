@@ -4,6 +4,9 @@ title: APPROX_COUNT_DISTINCT
 parent: SynapseAnalytics
 nav_order: 1
 ---
+- [APPROX\_COUNT\_DISTINCT when COUNT(DISTINCT ColName) runs forever](#approx_count_distinct-when-countdistinct-colname-runs-forever)
+- [How to run it?](#how-to-run-it)
+- [Some Fun facts about this T-SQL function](#some-fun-facts-about-this-t-sql-function)
 
 ![alt text](apprxcntdis.png)
 
