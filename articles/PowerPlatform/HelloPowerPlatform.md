@@ -113,13 +113,13 @@ Long story short: Use Common Data Model. Save yourself from complex data modelin
 - Simply put, they link data sources to the Power Platform.
 - Types: standard, premium, custom
 
-![alt text](connectortype.png)
+![alt text](images\connectortype.png)
 
 **Triggers and Actions:**
 - **Triggers:** Start the flow in Power Automate, like a spark!
 - **Actions:** Perform tasks or operations.
 
-![alt text](TriggerAndAction.gif)
+![alt text](images\TriggerAndAction.gif)
 
 ## Dataverse Table Creation AKA Dataverse Model
 
@@ -143,4 +143,4 @@ Long story short: Use Common Data Model. Save yourself from complex data modelin
 |**Business Logic (Column Level)** | Validation Rules, Workflows | Constraints, Triggers |
 
 ![alt text](images\db_vs_dataverse.jpg)
-```
+
