@@ -6,7 +6,7 @@ nav_order: 1
 ---
 - [What are model-driven apps?](#what-are-model-driven-apps)
 
-![alt text](images\image-89.png)
+![alt text](modeldriven2.png)
 ### What are model-driven apps?
 
 In canvas apps you have complete control over everything. In model-driven apps the layout done already  on the components you choose.

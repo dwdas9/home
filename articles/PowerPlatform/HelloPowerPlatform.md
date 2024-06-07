@@ -142,5 +142,3 @@ Long story short: Use Common Data Model. Save yourself from complex data modelin
 |**Business Logic (Table Level)** | Power Automate Workflows | Stored Procedures, Triggers |
 |**Business Logic (Column Level)** | Validation Rules, Workflows | Constraints, Triggers |
 
-![alt text](images\db_vs_dataverse.jpg)
-
