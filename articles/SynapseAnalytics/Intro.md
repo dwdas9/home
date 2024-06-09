@@ -5,12 +5,33 @@ parent: SynapseAnalytics
 nav_order: 1
 ---
 
-- [Introduction to Azure Synapse Analytics](#introduction-to-azure-synapse-analytics)
+- [What is it?](#what-is-it)
+- [Main software compoenents of Synapse analytics](#main-software-compoenents-of-synapse-analytics)
 - [Pools in Syanpse Analytics](#pools-in-syanpse-analytics)
 - [Ways to Connect to Azure Synapse Analytics](#ways-to-connect-to-azure-synapse-analytics)
 - [Summary](#summary)
+  - [Data Types and Definitions](#data-types-and-definitions)
+  - [Data Operations](#data-operations)
+  - [Data Pipelines](#data-pipelines)
+  - [Data Lake](#data-lake)
+  - [Data Warehouse](#data-warehouse)
+  - [Languages Used](#languages-used)
+  - [Apache Spark](#apache-spark)
+- [Data lakes vs. data lakehouses vs. data warehouses](#data-lakes-vs-data-lakehouses-vs-data-warehouses)
 
-## Introduction to Azure Synapse Analytics
+## What is it?
+
+- Unified analytics platform
+- Serverless and dedicated options
+- Enterprise data warehouse
+- Data lake exploration
+- Code-free hybrid data integration
+- Deeply integrated Apache Spark and SQL engines
+- Cloud-native HTAP
+- Choice of language (T-SQL, Python, Scala, SparkSQL, & .NET)
+- Integrated AI and BI
+
+## Main software compoenents of Synapse analytics
 
 ![alt text](image-3.png)
 
@@ -20,7 +41,9 @@ Azure Synapse Analytics is a powerful platform for data integration, storage, an
 
 2. **Linked Services**: These allow you to integrate various data sources like Azure Cosmos DB, SQL Server, and Power Platform Dataverse.
 
-3. **Azure Data Lake**: This is the core storage for Synapse Analytics. Every Synapse instance has an ADLS container, and you can add more using linked services.
+3. **Azure Data Lake**: This is the core storage for Synapse Analytics. Every Synapse has one. When you create a synapse workspace. Azure will create a new storage account for you(with hierachical namespeca enabled automatically) or you will be asked to choose an existing account. But, you need one. Also, synapse assignis your id Storage Blob Data Contributor role in the ADLSG2 account.
+
+![alt text](image-4.png)
 
 4. **Azure Data Factory**: This component is used to ingest and process data within Synapse Analytics.
 
@@ -42,36 +65,104 @@ Think of the term "pool" in as a type of server or warehouse. Although this isn'
 4. **Azure Machine Learning**: Enables advanced analytics and machine learning capabilities within Synapse.
 
 ## Summary
-The table below explains the types of data, key operations, and the languages used.
+### Data Types and Definitions
 
-| **Category**             | **Definition**                                                                                     | **Details**                                                                                                                                                                      |
-|--------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Types of Data**        | **Structured**          | Data in table format with rows and columns. Sources include SQL Server or files like .csv and Excel. ![Structured Data](image.png)                                      |
-|                          | **Semi-structured**     | Data with some structure but not like a table, e.g., JSON files. Needs adjustments to become structured. ![Semi-structured Data](image-1.png)                                   |
-|                          | **Unstructured**        | Data without a specific format, like PDF files. ![Unstructured Data](image-2.png)                                                                                        |
-| **Data Operations**      | **Data Integration**    | Connecting different data sources. The first step to link different data sources. ![Data Integration](image-3.png)                                                     |
-|                          | **Data Transformation** | Cleaning and organizing data to make it ready for use. Involves cleaning, sorting, and aligning data. ![Data Transformation](image-4.png)                                      |
-|                          | **Data Consolidation**  | Combining data from multiple sources into one place to avoid silos. ![Data Consolidation](image-5.png)                                                                    |
-| **Languages Used**       | **SQL**                 | The main language for data tasks. Widely used for all data-related work. ![SQL](image-6.png)                                                                             |
-|                          | **Python**              | A popular language with many libraries for data work. Very useful for data operations. ![Python](image-7.png)                                                              |
-|                          | **Others**              | Languages like Scala, R, .NET, and more, used for various data tasks.                                                                                                       |
-| **Types of Data**        |                                                                                                    |
-| Operational Data         | Fresh data from operations, stored in SQL DB (e.g., Amazon daily sales).                                                                  |
-| Analytical Data          | Cleaned data for reports, usually in a warehouse. Data engineers convert operational data to analytical data.                                 |
-| **Data Pipelines**       | Workflows to ingest, transform, and export data. ![Data Pipelines](image-8.png)                                                                                         |
-| **Data Lake**            | Its a storage place where any data stays in its natural format as files or blobs. Data begins its journey here. It is very cheap store data. Sometimes it acts as a collection point of data. It is actually Azure blob storage.![Data Lake](image-10.png)                            |
-| Brands                   | Azure Data Lake Storage G2, Databricks DataLake, Snowflake, Amazon S3/Lakeformation, Google Biglake, Dermio Lakehouse, Starbrust Data Lakehouse, Cloudera Data Platform, Teradata Vantage Cloud, Oracle Cloud Infra, Vertica Unified Analytics Platform |
-| **Data Warehouse**       | Structured data storage with disciplined, large capacity. Like the sun compared to the earth (SQL server). ![Data Warehouse](image-9.png)                           |
-| Brands                   | Azure Synapse, Snowflake, Google BigQuery, Amazon Redshift, IBM Db2 Warehouse, Firebolt                                                                                       |
-| **Apache Spark**         | - Open-source big data engine.                                                                                       |
-|                          | - Handles batch and real-time processing.                                                                            |
-|                          | - Started at UC Berkeley in 2009.                                                                                    |
-|                          | - Enhances Hadoop for interactive queries and streaming.                                                             |
-|                          | - Supports Java, Scala, Python, and R.                                                                               |
-|                          | - Includes libraries for machine learning, stream, and graph processing.                                             |
-|                          | - Core handles task distribution, scheduling, and I/O.                                                               |
-|                          | - Uses RDD for easy data handling.                                                                                   |
-|                          | - Efficiently processes data across server clusters.                                                                 |
+**Structured Data:** 
+- Data in table format with rows and columns. 
+- Sources: SQL Server, .csv files, Excel.
+
+**Semi-structured Data:** 
+- Data with some structure but not like a table, e.g., JSON files.
+- Needs adjustments to become structured.
+
+**Unstructured Data:** 
+- Data without a specific format, like PDF files.
+
+**Operational Data:** 
+- Fresh data from operations, stored in SQL DB (e.g., Amazon daily sales).
+
+**Analytical Data:** 
+- Cleaned data for reports, usually in a warehouse.
+- Data engineers convert operational data to analytical data.
+
+### Data Operations
+
+**Data Integration:** 
+- Connecting different data sources.
+- The first step to link different data sources.
+
+**Data Transformation:** 
+- Cleaning and organizing data to make it ready for use.
+- Involves cleaning, sorting, and aligning data.
+
+**Data Consolidation:** 
+- Combining data from multiple sources into one place to avoid silos.
+
+### Data Pipelines
+
+- Workflows to ingest, transform, and export data.
+
+### Data Lake
+
+**Definition:**
+- A storage place where any data stays in its natural format as files or blobs.
+- Data begins its journey here.
+- Very cheap to store data.
+- Acts as a collection point of data.
+
+**Popular Brands:**
+- Azure Data Lake Storage G2
+- Databricks DataLake
+- Snowflake
+- Amazon S3/Lakeformation
+- Google Biglake
+- Dermio Lakehouse
+- Starbrust Data Lakehouse
+- Cloudera Data Platform
+- Teradata Vantage Cloud
+- Oracle Cloud Infra
+- Vertica Unified Analytics Platform
+
+### Data Warehouse
+
+**Definition:**
+- Structured data storage with disciplined, large capacity.
+- Comparable to the sun compared to the earth (SQL server).
+
+**Popular Brands:**
+- Azure Synapse
+- Snowflake
+- Google BigQuery
+- Amazon Redshift
+- IBM Db2 Warehouse
+- Firebolt
+
+### Languages Used
+
+**SQL:**
+- The main language for data tasks.
+- Widely used for all data-related work.
+
+**Python:**
+- A popular language with many libraries for data work.
+- Very useful for data operations.
+
+**Other Languages:**
+- Scala, R, .NET, and more.
+- Used for various data tasks.
+
+### Apache Spark
+
+- Open-source big data engine.
+- Handles batch and real-time processing.
+- Started at UC Berkeley in 2009.
+- Enhances Hadoop for interactive queries and streaming.
+- Supports Java, Scala, Python, and R.
+- Includes libraries for machine learning, stream, and graph processing.
+- Core handles task distribution, scheduling, and I/O.
+- Uses RDD for easy data handling.
+- Efficiently processes data across server clusters.
+
 
 **Main Tools for Azure Data Engineering:**
 - Azure Synapse Analytics
@@ -88,3 +179,16 @@ The table below explains the types of data, key operations, and the languages us
 Which Azure service provides capabilities for running data pipelines AND managing analytical data in a data lake or relational data warehouse?
 
 **Answer**: Azure Synapse Analytics.
+
+## Data lakes vs. data lakehouses vs. data warehouses
+
+| Feature             | Data Lake                                                   | Data Lakehouse                                               | Data Warehouse                                              |
+|---------------------|-------------------------------------------------------------|--------------------------------------------------------------|-------------------------------------------------------------|
+| **Types of data**   | All types: Structured data, semi-structured data, unstructured (raw) data | All types: Structured data, semi-structured data, unstructured (raw) data | Structured data only                                        |
+| **Cost**            | $                                                           | $                                                            | $$$                                                         |
+| **Format**          | Open format                                                 | Open format                                                  | Closed, proprietary format                                  |
+| **Scalability**     | Scales to hold any amount of data at low cost, regardless of type | Scales to hold any amount of data at low cost, regardless of type | Scaling up becomes exponentially more expensive due to vendor costs |
+| **Intended users**  | Limited: Data scientists                                    | Unified: Data analysts, data scientists, machine learning engineers | Limited: Data analysts                                      |
+| **Reliability**     | Low quality, data swamp                                     | High quality, reliable data                                  | High quality, reliable data                                 |
+| **Ease of use**     | Difficult: Exploring large amounts of raw data can be difficult without tools to organize and catalog the data | Simple: Provides simplicity and structure of a data warehouse with the broader use cases of a data lake | Simple: Structure of a data warehouse enables users to quickly and easily access data for reporting and analytics |
+| **Performance**     | Poor                                                        | High                                                         | High                                                        |
