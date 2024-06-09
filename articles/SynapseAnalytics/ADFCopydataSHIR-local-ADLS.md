@@ -9,8 +9,8 @@ nav_order: 1
   - [Create and Configure an Integration Runtime](#create-and-configure-an-integration-runtime)
   - [Create Two Linked Services (Connection Strings)](#create-two-linked-services-connection-strings)
     - [Linked Service to Laptop's Folder](#linked-service-to-laptops-folder)
-    - [A commonly encountered error](#a-commonly-encountered-error)
-  - [Linked Service to ADLS](#linked-service-to-adls)
+      - [A commonly encountered error](#a-commonly-encountered-error)
+    - [Linked Service to ADLS](#linked-service-to-adls)
   - [Create a Pipeline with Copy Data Activity](#create-a-pipeline-with-copy-data-activity)
   - [Execute the Pipeline](#execute-the-pipeline)
 - [Appendix:](#appendix)
@@ -51,7 +51,7 @@ Next, we need to create two connection strings (also known as Linked Services): 
    
    ![alt text](image-12.png)
 
-#### A commonly encountered error
+##### A commonly encountered error
 
 After setting up the linked service when you Test connection it may  fail. 
 
@@ -68,8 +68,7 @@ This will disable local folder path validation, and Test connection will pass th
 
    <img src="image-15.png" alt="alt text" style="border: 1px solid gray;" />
 
-
-### Linked Service to ADLS
+#### Linked Service to ADLS
 
 1. Navigate to **Manage** -> **Linked Services** -> **New**.
 2. Select **Azure Data Lake Storage Gen2** and provide the necessary details like account name, account key, or SAS token.
@@ -114,4 +113,4 @@ Install it on your local machine. The steps are pretty simple. Just click click.
     width: auto; /* Adjust as needed */
     height: auto; /* Maintain aspect ratio */
     transition: transform 0.2s;
-" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+" onmouseover="this.style.transform='scale(3.05)'" onmouseout="this.style.transform='scale(1)'"/>
