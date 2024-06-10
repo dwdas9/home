@@ -1,0 +1,361 @@
+---
+layout: default
+title: Local-ADLS-SHIR-CopyData
+parent: SynapseAnalytics
+nav_order: 1
+---
+
+- [A Simple Synapse Pipeline to Copy csvs from Laptop to ADLS](#a-simple-synapse-pipeline-to-copy-csvs-from-laptop-to-adls)
+  - [Create and Configure an Integration Runtime](#create-and-configure-an-integration-runtime)
+  - [Create Two Linked Services (Connection Strings)](#create-two-linked-services-connection-strings)
+    - [Linked Service to Laptop's Folder](#linked-service-to-laptops-folder)
+      - [**A Common Error**](#a-common-error)
+    - [Linked Service to ADLS](#linked-service-to-adls)
+  - [Create a Pipeline with Copy Data Activity](#create-a-pipeline-with-copy-data-activity)
+    - [Crate a New Pipeline in Syanpse Workspace](#crate-a-new-pipeline-in-syanpse-workspace)
+    - [Add Copy Data Activity](#add-copy-data-activity)
+    - [Configure the Source Dataset etc](#configure-the-source-dataset-etc)
+    - [Configure the Sink Dataset](#configure-the-sink-dataset)
+    - [Execute the Pipeline](#execute-the-pipeline)
+  - [Appendix:](#appendix)
+    - [Manually Installating Integration Runtime](#manually-installating-integration-runtime)
+
+# A Simple Synapse Pipeline to Copy csvs from Laptop to ADLS
+
+We have some CSV files on our laptop that we want to upload to a folder in Azure Data Lake Storage (ADLS). The Microsoft-recommended way to do this is by using a pipeline with the Copy Data activity, connecting through a Self-hosted Integration Runtime (SHIR). Let's walk through the steps to achieve this:
+
+## Create and Configure an Integration Runtime
+
+The first of all steps it to have an integration runtime which is the backbone of our connection to the local folder. 
+- In your synapse workspace go to **Manage** -> **Integration** -> **Integration runtime**. 
+- Click on **New**, then in the settings, you will have two options. Choose an **express setup**.
+<img src="image-17.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+   <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
+   Express setup is a quicker option as it both installs and links the local IR environment with the synapse setup. If you prefer to do a manual setup, refer to to appenxis.
+   </p>
+
+## Create Two Linked Services (Connection Strings)
+
+Next, we need to create two connection strings (also known as Linked Services): one to the local laptop's folder (source) and another to the ADLS (destination).
+
+### Linked Service to Laptop's Folder
+
+1. In Synapse workspace, go to **Manage** -> **Linked Services** -> **New**.
+2. Select **File System** and provide a name for the linked service.
+<img src="image-18.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+3. Select the Integration Runtime we created earlier.
+4. Specify the path to the CSV files on your laptop and provide a user name and password which has read/write access to the folder.
+<img src="image-19.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+
+   <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
+   Here, sa is a local user which  has read/write access to the folder. 
+   </p>
+
+   <img src="image-12.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+Go to the properties of the source folder and navigate to the security tab to check if the user has the appropriate permissions for the folder.
+
+   <img src="image-31.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+#### **A Common Error**
+
+After setting up the linked service when you Test connection it may  fail. 
+   <img src="image-13.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+This has nothing to do with the setup but a windows security feature which causes the issue. To resolve this, open **Command Prompt** as **Administrator** and run the following commands:
+
+   ```shell
+   cd C:\Program Files\Microsoft Integration Runtime\5.0\Shared
+   .\dmgcmd.exe -DisableLocalFolderPathValidation
+   ```
+
+This will disable local folder path validation, and Test connection will pass this time.
+   <img src="image-15.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+### Linked Service to ADLS
+
+1. Navigate to **Manage** -> **Linked Services** -> **New**.
+2. Select **Azure Data Lake Storage Gen2**.
+<img src="image-14.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+3. In Our case we will use **AutoResolveIntegrationRuntime**. Sometimes its a good choice. 
+<img src="image-21.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+
+## Create a Pipeline with Copy Data Activity
+
+Now that the linked services are configured, create a pipeline to copy data:
+
+### Crate a New Pipeline in Syanpse Workspace
+
+In Synapse workspace, go to **Integrate** -> **Pipelines** -> **New Pipeline**.
+<img src="image-20.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+### Add Copy Data Activity
+
+Drag and drop the **Copy Data** activity onto the pipeline canvas.
+<img src="image-22.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+### Configure the Source Dataset etc
+
+1. **Choose dataset:** Go to the Source tab, then Files, select File System, and click Continue.
+<img src="image-23.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+
+2. **Choose File Format:** Now, you have to select the format of the source files. We have CSV, so we will select Delimited Text.
+<img src="image-24.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+
+3. **Select Linked Service:** Next, select the Linked Service which we created earlier. This is the connection string that connects to the Laptops folder. You will see the File path and other details appear. Choose First row as header, which is usually the case for all CSVs.
+<img src="image-25.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+
+4. **Preview data:** If successful, you can preview the data. It will load one of the files to show you how the data looks, displaying a well-formatted table. Note, how we have seleccted *.csv to load all the csv files in the folder.
+<img src="image-26.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+
+### Configure the Sink Dataset
+
+1. **Select Integration Dataset:** Go to the Sink tab, then select Azure Data Lake Storage Gen2.
+<img src="image-27.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+2. **Selct File Format:** Now, we need to provide the format in which the data will be copied to the destination. For this, select **DelimitedText**.
+<img src="image-28.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+
+3. **Select Linked Service & IR:** Next, select the linked service which has the connection information to the container in ADLS where your data will be stored. You can choose any integration runtime. Here, I have chosen the default AutoResolveIntegrationRuntime as it is the simplest and comes factory-shipped with the Synapse workspace.
+<img src="image-29.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+
+4. **Choose other properties:** Once the sink dataset is configured, you can choose other properties like Copy behavior, etc.
+<img src="image-30.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+### Execute the Pipeline
+
+1. **Validate the Pipeline**: Ensure all configurations are correct and validate the pipeline.
+2. **Run the Pipeline**: Execute the pipeline to start the data transfer from your laptop to ADLS. If it runs successfully you will see the data copied to your desired ADLS container.
+<img src="image-32.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+## Appendix:
+
+### Manually Installating Integration Runtime
+
+The integration runtime can also be downloaded and installed separately from the Microsoft software store.
+<img src="image-5.png" alt="Integration runtime download screen" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+Install it on your local machine. The steps are straightforward. Just click through the installation process.
+
+<img src="image-6.png" alt="Integration runtime installation steps" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
+
+In the final step, you will need to register the Runtime by copying and pasting the authentication key from the Synapse portal.
+<img src="image-16.png" alt="Integration runtime registration" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 1px;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+" onmouseover="this.style.transform='scale(2)'" onmouseout="this.style.transform='scale(1)'"/>
+
