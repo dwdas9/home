@@ -44,7 +44,7 @@ An outline of all the activities typically involved in this process is provided 
 | Step                                      | Action                                     | Definition                                                                                   |
 |-------------------------------------------|--------------------------------------------|----------------------------------------------------------------------------------------------|
 | 1: Open Synapse Workspace            | Synapse Workspace                          | Every synapse instance has a workspace. This is the central place for all synapse activities.                     |
-| 2: Install SHIR on Laptop            | Self-hosted Integration Runtime (SHIR)     | A software installed on your laptop to enable data movement from on-premises to the cloud.    |
+| 2: Install SHIR on Laptop            | Self-hosted Integration Runtime (SHIR)     | A software installed on your laptop to enable data movement from on-premises to the cloud. [More details on Integration Pipelines](IntegrationRuntime.html)    |
 | 3: Create Linked Services            | Linked Services                            | These are connection strings to your data sources (local file system) and destinations (ADLS).                |
 | 4: Define Datasets                   | Datasets                                   | These  are like file type. In this case the source and destination datasets are .csvs |
 | 5: Build the Pipeline                | Pipeline                                   | A pipline is a workflow, it contains many tasks like Copy data etc.                               |
