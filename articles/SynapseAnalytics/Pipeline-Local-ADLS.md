@@ -54,9 +54,10 @@ An outline of all the activities typically involved in this process is provided 
 
 ## <span style="color: DarkCyan">Create and Configure an Integration Runtime</span>
 
-The first of all steps it to have an integration runtime which is the backbone of our connection to the local folder. 
+The very first step is to install the integration runtime on the local machine. The IR is the backbone of the connection between the local folder and Synapse.
+
 - In your synapse workspace go to **Manage** -> **Integration** -> **Integration runtime**. 
-- Click on **New**, then in the settings, you will have two options. Choose an **express setup**.
+- Click on **New**, then in the settings, you will have two install options. Choose an **express setup**.
 <img src="image-17.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
