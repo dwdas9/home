@@ -5,7 +5,7 @@ parent: SynapseAnalytics
 nav_order: 1
 ---
 
-- [A Simple Synapse Pipeline to Copy csvs from Laptop to ADLS](#a-simple-synapse-pipeline-to-copy-csvs-from-laptop-to-adls)
+- [A Simple Synapse Pipeline. Copy files from Laptop To ADLS](#a-simple-synapse-pipeline-copy-files-from-laptop-to-adls)
   - [Create and Configure an Integration Runtime](#create-and-configure-an-integration-runtime)
   - [Create Two Linked Services (Connection Strings)](#create-two-linked-services-connection-strings)
     - [Linked Service to Laptop's Folder](#linked-service-to-laptops-folder)
@@ -17,14 +17,26 @@ nav_order: 1
     - [Configure the Source Dataset etc](#configure-the-source-dataset-etc)
     - [Configure the Sink Dataset](#configure-the-sink-dataset)
     - [Execute the Pipeline](#execute-the-pipeline)
-  - [Appendix:](#appendix)
+  - [Appendix](#appendix)
     - [Manually Installating Integration Runtime](#manually-installating-integration-runtime)
 
-# A Simple Synapse Pipeline to Copy csvs from Laptop to ADLS
+![alt text](shir.png)
 
-We have some CSV files on our laptop that we want to upload to a folder in Azure Data Lake Storage (ADLS). The Microsoft-recommended way to do this is by using a pipeline with the Copy Data activity, connecting through a Self-hosted Integration Runtime (SHIR). Let's walk through the steps to achieve this:
+#  <span style="color: BlueViolet">A Simple Synapse Pipeline. Copy files from Laptop To ADLS</span>
 
-## Create and Configure an Integration Runtime
+We have a Synapse workspace and some CSV files on our **laptop** that we want to upload to **ADLS**. Here is the Microsoft recommended way to do it:
+
+1. Install SHIR on the laptop.
+2. Create a pipeline with a copy data activity.
+3. Run the pipeline.
+
+   <p style="color: white; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: gray; padding: 15px; border-left: 5px solid navy;">
+   In Power Platform, the SHIR is replaced by the on-premise gateway. Both are software installed on your local machine, but one is for Synapse and the other is for Power Platform, Fabric, etc.
+   </p>
+
+Let's get our hands dirty and see how to do it.
+
+## <span style="color: DarkCyan">Create and Configure an Integration Runtime</span>
 
 The first of all steps it to have an integration runtime which is the backbone of our connection to the local folder. 
 - In your synapse workspace go to **Manage** -> **Integration** -> **Integration runtime**. 
@@ -44,11 +56,11 @@ The first of all steps it to have an integration runtime which is the backbone o
    Express setup is a quicker option as it both installs and links the local IR environment with the synapse setup. If you prefer to do a manual setup, refer to to appenxis.
    </p>
 
-## Create Two Linked Services (Connection Strings)
+## <span style="color: DarkCyan">Create Two Linked Services (Connection Strings)</span>
 
 Next, we need to create two connection strings (also known as Linked Services): one to the local laptop's folder (source) and another to the ADLS (destination).
 
-### Linked Service to Laptop's Folder
+### <span style="color: ForestGreen">Linked Service to Laptop's Folder</span>
 
 1. In Synapse workspace, go to **Manage** -> **Linked Services** -> **New**.
 2. Select **File System** and provide a name for the linked service.
@@ -104,7 +116,7 @@ Go to the properties of the source folder and navigate to the security tab to ch
     transition: transform 0.2s;
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
-#### **A Common Error**
+#### <span style="color: Red">**A Common Error**</span>
 
 After setting up the linked service when you Test connection it may  fail. 
    <img src="image-13.png" alt="alt text" style="
@@ -137,7 +149,7 @@ This will disable local folder path validation, and Test connection will pass th
     transition: transform 0.2s;
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
-### Linked Service to ADLS
+### <span style="color: ForestGreen">Linked Service to ADLS</span>
 
 1. Navigate to **Manage** -> **Linked Services** -> **New**.
 2. Select **Azure Data Lake Storage Gen2**.
@@ -165,11 +177,11 @@ This will disable local folder path validation, and Test connection will pass th
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
 
-## Create a Pipeline with Copy Data Activity
+## <span style="color: DarkCyan">Create a Pipeline with Copy Data Activity</span>
 
 Now that the linked services are configured, create a pipeline to copy data:
 
-### Crate a New Pipeline in Syanpse Workspace
+### <span style="color: RoyalBlue">Crate a New Pipeline in Syanpse Workspace</span>
 
 In Synapse workspace, go to **Integrate** -> **Pipelines** -> **New Pipeline**.
 <img src="image-20.png" alt="alt text" style="
@@ -183,7 +195,7 @@ In Synapse workspace, go to **Integrate** -> **Pipelines** -> **New Pipeline**.
     transition: transform 0.2s;
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
-### Add Copy Data Activity
+### <span style="color: RoyalBlue">Add Copy Data Activity</span>
 
 Drag and drop the **Copy Data** activity onto the pipeline canvas.
 <img src="image-22.png" alt="alt text" style="
@@ -197,7 +209,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
     transition: transform 0.2s;
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
-### Configure the Source Dataset etc
+### <span style="color: RoyalBlue">Configure the Source Dataset etc</span>
 
 1. **Choose dataset:** Go to the Source tab, then Files, select File System, and click Continue.
 <img src="image-23.png" alt="alt text" style="
@@ -251,7 +263,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
 
-### Configure the Sink Dataset
+### <span style="color: RoyalBlue">Configure the Sink Dataset</span>
 
 1. **Select Integration Dataset:** Go to the Sink tab, then select Azure Data Lake Storage Gen2.
 <img src="image-27.png" alt="alt text" style="
@@ -303,7 +315,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
     transition: transform 0.2s;
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
-### Execute the Pipeline
+### <span style="color: RoyalBlue">Execute the Pipeline</span>
 
 1. **Validate the Pipeline**: Ensure all configurations are correct and validate the pipeline.
 2. **Run the Pipeline**: Execute the pipeline to start the data transfer from your laptop to ADLS. If it runs successfully you will see the data copied to your desired ADLS container.
@@ -318,9 +330,9 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
     transition: transform 0.2s;
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
-## Appendix:
+## <span style="color: Gray">Appendix</span>
 
-### Manually Installating Integration Runtime
+### <span style="color: CadetBlue">Manually Installating Integration Runtime
 
 The integration runtime can also be downloaded and installed separately from the Microsoft software store.
 <img src="image-5.png" alt="Integration runtime download screen" style="
