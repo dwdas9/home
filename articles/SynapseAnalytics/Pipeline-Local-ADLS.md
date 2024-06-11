@@ -6,6 +6,7 @@ nav_order: 1
 ---
 
 - [A Simple Synapse Pipeline. Copy files from Laptop To ADLS](#a-simple-synapse-pipeline-copy-files-from-laptop-to-adls)
+  - [For the busy people](#for-the-busy-people)
   - [Create and Configure an Integration Runtime](#create-and-configure-an-integration-runtime)
   - [Create Two Linked Services (Connection Strings)](#create-two-linked-services-connection-strings)
     - [Linked Service to Laptop's Folder](#linked-service-to-laptops-folder)
@@ -35,6 +36,21 @@ We have a Synapse workspace and some CSV files on our **laptop** that we want to
    </p>
 
 Let's get our hands dirty and see how to do it.
+
+## For the busy people
+
+An outline of all the activities typically involved in this process is provided in the table below. For more details, please continue reading the following sections.
+
+| Step                                      | Action                                     | Definition                                                                                   |
+|-------------------------------------------|--------------------------------------------|----------------------------------------------------------------------------------------------|
+| 1: Open Synapse Workspace            | Synapse Workspace                          | Every synapse instance has a workspace. This is the central place for all synapse activities.                     |
+| 2: Install SHIR on Laptop            | Self-hosted Integration Runtime (SHIR)     | A software installed on your laptop to enable data movement from on-premises to the cloud.    |
+| 3: Create Linked Services            | Linked Services                            | These are connection strings to your data sources (local file system) and destinations (ADLS).                |
+| 4: Define Datasets                   | Datasets                                   | These  are like file type. In this case the source and destination datasets are .csvs |
+| 5: Build the Pipeline                | Pipeline                                   | A pipline is a workflow, it contains many tasks like Copy data etc.                               |
+| 6: Add a Copy Data Activity          | Copy Data Activity                         | This is a very important activity that takes care of the entire data copying. |
+| 7: Set Up Triggers                   | Triggers                                   | This will tell what will trigger the pipeline |
+
 
 ## <span style="color: DarkCyan">Create and Configure an Integration Runtime</span>
 
