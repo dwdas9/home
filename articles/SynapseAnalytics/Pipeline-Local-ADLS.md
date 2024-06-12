@@ -21,7 +21,7 @@ nav_order: 1
   - [Appendix](#appendix)
     - [Manually Installating Integration Runtime](#manually-installating-integration-runtime)
 
-![alt text](shir.png)
+![alt text](images\shir.png)
 
 #  <span style="color: BlueViolet">A Simple Synapse Pipeline. Copy files from Laptop To ADLS</span>
 

@@ -17,7 +17,7 @@ nav_order: 1
 
 #  <span style="color: Teal">Integration Runtime in Azure Synapse Analytics and Azure Data Factory</span>
 
-![alt text](IR.png)
+![alt text](images\IR.png)
 ## <span style="color: CadetBlue">A very simplistic introduction</span>
 
 Copying data is the main activity in Synapse and ADF. The main tool to do this **Integration Runtime** is used. It's like a **bridge** that connects Synapse and ADF with data from on-premises and external sources.
@@ -102,9 +102,9 @@ The on-premise gateway is quite similar to the self-hosted IR. Are they the same
 | Feature                         | Self-hosted Integration Runtime                               | On-premises Data Gateway                                   |
 |---------------------------------|--------------------------------------------------------------|-----------------------------------------------------------|
 | **Purpose**                     | Facilitates data integration for Azure Data Factory and Synapse Pipelines. | Connects on-premises data sources to Power BI, Power Apps, Power Automate, and Logic Apps. |
-| **Supported Services**          | Azure Data Factory, Azure Synapse Analytics.                 | Power BI, Power Apps, Power Automate, Logic Apps. ![alt text](image-1.png)        |
+| **Supported Services**          | Azure Data Factory, Azure Synapse Analytics.                 | Power BI, Power Apps, Power Automate, Logic Apps. ![alt text](images\image-1.png)        |
 | **Data Transfer Capabilities**  | Handles ETL processes, data movement, and SSIS execution. | Enables real-time connectivity for reporting and app development. |
-| **Installation**                | Download and install the .msi file  on your machine ![alt text](image-2.png)|Same, the .exe needs to be downloaded to your local computer and installed. Just like good-old .exe installation. ![alt text](image.png)|
+| **Installation**                | Download and install the .msi file  on your machine ![alt text](images\image-2.png)|Same, the .exe needs to be downloaded to your local computer and installed. Just like good-old .exe installation. ![alt text](image.png)|
 | **Security**                    | Secure data transfer with encrypted communication.           | Secure data transfer with encryption and local network connectivity. |
 
 ## <span style="color: Chocolate">Summary</span>

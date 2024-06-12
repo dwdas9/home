@@ -33,7 +33,7 @@ nav_order: 1
 
 ## Main software compoenents of Synapse analytics
 
-![alt text](image-3.png)
+![alt text](images\image-3.png)
 
 Azure Synapse Analytics is a powerful platform for data integration, storage, and analytics. It has several key components:
 
@@ -43,7 +43,7 @@ Azure Synapse Analytics is a powerful platform for data integration, storage, an
 
 3. **Azure Data Lake**: This is the core storage for Synapse Analytics. Every Synapse has one. When you create a synapse workspace. Azure will create a new storage account for you(with hierachical namespeca enabled automatically) or you will be asked to choose an existing account. But, you need one. Also, synapse assignis your id Storage Blob Data Contributor role in the ADLSG2 account.
 
-![alt text](image-4.png)
+![alt text](images\image-4.png)
 
 4. **Azure Data Factory**: This component is used to ingest and process data within Synapse Analytics.
 
@@ -55,7 +55,7 @@ Think of the term "pool" in as a type of server or warehouse. Although this isn'
 - A **dedicated SQL pool(sqlxxxxxxx)** A full-fledged large SQL server which stores a data warehouse. Earlier called **SQL Data Warehouse.**
 - A **Spark pool(sparkxxxxxxx)** This is a Spark server.
 
-![alt text](pools.png)
+![alt text](images\pools.png)
 
 ## Ways to Connect to Azure Synapse Analytics
 

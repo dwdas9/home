@@ -37,7 +37,7 @@ CETAS is very similar to SQL **CREATE TABLE *TableName*** command. But, the tabl
 
 Because Synapse SQL warehouse storage is expensive and not meant for everyone to access.
 
-![alt text](MotelADLS.png)
+![alt text](images\MotelADLS.png)
 
 ## Give me some real examples
 
@@ -47,7 +47,7 @@ A hospital wants to share patient data stored in its Synapse SQL warehouse with 
 
 **Benefits**: Avoids jail time and helps the research world make new medicines.
 
-![alt text](cetasjudge.png)
+![alt text](images\cetasjudge.png)
 
 
 ### Inlet wants to store chip Sensor data and Share as Tables for university students

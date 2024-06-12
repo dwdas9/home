@@ -4,4 +4,4 @@ RANK()
 DENSE_RANK()
 NTILE()
 
-![alt text](SQLRank.png)
+![alt text](images\SQLRank.png)

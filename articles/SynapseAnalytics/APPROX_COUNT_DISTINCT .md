@@ -8,7 +8,7 @@ nav_order: 1
 - [How to run it?](#how-to-run-it)
 - [Some Fun facts about this T-SQL function](#some-fun-facts-about-this-t-sql-function)
 
-![alt text](approxcntdistinct.png)
+![alt text](images\approxcntdistinct.png)
 
 ## <span style="color: BlueViolet">APPROX_COUNT_DISTINCT</span> when <span style="color: CornflowerBlue">COUNT(DISTINCT ColName)</span> runs forever
 
