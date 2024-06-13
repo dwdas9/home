@@ -172,7 +172,7 @@ An activity is a task you want to perform. A pipeline is a group of activities, 
 
 These are pointers to your data. They are required when you create an activity like a Copy activity.
 
-<img src="linkedservice.png"  style="
+<img src="images/linkedservice.png"  style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
