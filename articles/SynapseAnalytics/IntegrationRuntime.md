@@ -20,7 +20,7 @@ nav_order: 1
 ![alt text](images\IR.png)
 ## <span style="color: CadetBlue">A very simplistic introduction</span>
 
-Copying data is the main activity in Synapse and ADF. The main tool to do this **Integration Runtime** is used. It's like a **bridge** that connects Synapse and ADF with data from on-premises and external sources.
+Copying data is one of the main activity in Synapse and ADF. The main tool to do this **Integration Runtime** is used. It's like a **bridge** that connects Synapse and ADF with data from on-premises and external sources.
 
 However, it's more than just a bridge. It provides the CPU and memory needed for copying and transforming data. It also offers an environment to run your SSIS packages. It can scale up or down if more power is needed. Plus, it ensures that your data transfer is secure.
 

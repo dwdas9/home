@@ -58,7 +58,7 @@ The very first step is to install the integration runtime on the local machine. 
 
 - In your synapse workspace go to **Manage** -> **Integration** -> **Integration runtime**. 
 - Click on **New**, then in the settings, you will have two install options. Choose an **express setup**.
-<img src="image-17.png" alt="alt text" style="
+<img src="images\image-17.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -81,7 +81,7 @@ Next, we need to create two connection strings (also known as Linked Services): 
 
 1. In Synapse workspace, go to **Manage** -> **Linked Services** -> **New**.
 2. Select **File System** and provide a name for the linked service.
-<img src="image-18.png" alt="alt text" style="
+<img src="images\image-18.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -93,7 +93,7 @@ Next, we need to create two connection strings (also known as Linked Services): 
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 3. Select the Integration Runtime we created earlier.
 4. Specify the path to the CSV files on your laptop and provide a user name and password which has read/write access to the folder.
-<img src="image-19.png" alt="alt text" style="
+<img src="images\image-19.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -109,7 +109,7 @@ Next, we need to create two connection strings (also known as Linked Services): 
    Here, sa is a local user which  has read/write access to the folder. 
    </p>
 
-   <img src="image-12.png" alt="alt text" style="
+   <img src="images\image-12.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -122,7 +122,7 @@ Next, we need to create two connection strings (also known as Linked Services): 
 
 Go to the properties of the source folder and navigate to the security tab to check if the user has the appropriate permissions for the folder.
 
-   <img src="image-31.png" alt="alt text" style="
+   <img src="images\image-31.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -136,7 +136,7 @@ Go to the properties of the source folder and navigate to the security tab to ch
 #### <span style="color: Red">**A Common Error**</span>
 
 After setting up the linked service when you Test connection it may  fail. 
-   <img src="image-13.png" alt="alt text" style="
+   <img src="images\image-13.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -155,7 +155,7 @@ This has nothing to do with the setup but a windows security feature which cause
    ```
 
 This will disable local folder path validation, and Test connection will pass this time.
-   <img src="image-15.png" alt="alt text" style="
+   <img src="images\image-15.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -170,7 +170,7 @@ This will disable local folder path validation, and Test connection will pass th
 
 1. Navigate to **Manage** -> **Linked Services** -> **New**.
 2. Select **Azure Data Lake Storage Gen2**.
-<img src="image-14.png" alt="alt text" style="
+<img src="images\image-14.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -182,7 +182,7 @@ This will disable local folder path validation, and Test connection will pass th
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
 3. In Our case we will use **AutoResolveIntegrationRuntime**. Sometimes its a good choice. 
-<img src="image-21.png" alt="alt text" style="
+<img src="images\image-21.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -201,7 +201,7 @@ Now that the linked services are configured, create a pipeline to copy data:
 ### <span style="color: RoyalBlue">Crate a New Pipeline in Syanpse Workspace</span>
 
 In Synapse workspace, go to **Integrate** -> **Pipelines** -> **New Pipeline**.
-<img src="image-20.png" alt="alt text" style="
+<img src="images\image-20.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -215,7 +215,7 @@ In Synapse workspace, go to **Integrate** -> **Pipelines** -> **New Pipeline**.
 ### <span style="color: RoyalBlue">Add Copy Data Activity</span>
 
 Drag and drop the **Copy Data** activity onto the pipeline canvas.
-<img src="image-22.png" alt="alt text" style="
+<img src="images\image-22.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -229,7 +229,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 ### <span style="color: RoyalBlue">Configure the Source Dataset etc</span>
 
 1. **Choose dataset:** Go to the Source tab, then Files, select File System, and click Continue.
-<img src="image-23.png" alt="alt text" style="
+<img src="images\image-23.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -242,7 +242,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 
 
 2. **Choose File Format:** Now, you have to select the format of the source files. We have CSV, so we will select Delimited Text.
-<img src="image-24.png" alt="alt text" style="
+<img src="images\image-24.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -255,7 +255,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 
 
 3. **Select Linked Service:** Next, select the Linked Service which we created earlier. This is the connection string that connects to the Laptops folder. You will see the File path and other details appear. Choose First row as header, which is usually the case for all CSVs.
-<img src="image-25.png" alt="alt text" style="
+<img src="images\image-25.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -268,7 +268,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 
 
 4. **Preview data:** If successful, you can preview the data. It will load one of the files to show you how the data looks, displaying a well-formatted table. Note, how we have seleccted *.csv to load all the csv files in the folder.
-<img src="image-26.png" alt="alt text" style="
+<img src="images\image-26.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -283,7 +283,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 ### <span style="color: RoyalBlue">Configure the Sink Dataset</span>
 
 1. **Select Integration Dataset:** Go to the Sink tab, then select Azure Data Lake Storage Gen2.
-<img src="image-27.png" alt="alt text" style="
+<img src="images\image-27.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -295,7 +295,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
 2. **Selct File Format:** Now, we need to provide the format in which the data will be copied to the destination. For this, select **DelimitedText**.
-<img src="image-28.png" alt="alt text" style="
+<img src="images\image-28.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -308,7 +308,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 
 
 3. **Select Linked Service & IR:** Next, select the linked service which has the connection information to the container in ADLS where your data will be stored. You can choose any integration runtime. Here, I have chosen the default AutoResolveIntegrationRuntime as it is the simplest and comes factory-shipped with the Synapse workspace.
-<img src="image-29.png" alt="alt text" style="
+<img src="images\image-29.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -321,7 +321,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 
 
 4. **Choose other properties:** Once the sink dataset is configured, you can choose other properties like Copy behavior, etc.
-<img src="image-30.png" alt="alt text" style="
+<img src="images\image-30.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -336,7 +336,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 
 1. **Validate the Pipeline**: Ensure all configurations are correct and validate the pipeline.
 2. **Run the Pipeline**: Execute the pipeline to start the data transfer from your laptop to ADLS. If it runs successfully you will see the data copied to your desired ADLS container.
-<img src="image-32.png" alt="alt text" style="
+<img src="images\image-32.png" alt="alt text" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -352,7 +352,7 @@ Drag and drop the **Copy Data** activity onto the pipeline canvas.
 ### <span style="color: CadetBlue">Manually Installating Integration Runtime
 
 The integration runtime can also be downloaded and installed separately from the Microsoft software store.
-<img src="image-5.png" alt="Integration runtime download screen" style="
+<img src="images\image-5.png" alt="Integration runtime download screen" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -365,7 +365,7 @@ The integration runtime can also be downloaded and installed separately from the
 
 Install it on your local machine. The steps are straightforward. Just click through the installation process.
 
-<img src="image-6.png" alt="Integration runtime installation steps" style="
+<img src="images\image-6.png" alt="Integration runtime installation steps" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -377,7 +377,7 @@ Install it on your local machine. The steps are straightforward. Just click thro
 " onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'"/>
 
 In the final step, you will need to register the Runtime by copying and pasting the authentication key from the Synapse portal.
-<img src="image-16.png" alt="Integration runtime registration" style="
+<img src="images\image-16.png" alt="Integration runtime registration" style="
     border: 2px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
