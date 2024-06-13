@@ -13,6 +13,8 @@ nav_order: 1
   - [Integration Datasets](#integration-datasets)
   - [Integration runtime](#integration-runtime)
 
+![alt text](Background.png)
+
 ## <span style="color: BlueViolet">The Core Concepts of Synapse Analytics</span>
 
 Here are the building blocks of Azure Synapse Analytics
@@ -84,11 +86,11 @@ Synapse SQL gives you two SQL products: a dedicated SQL Warehouse (Large SQL Ser
     transition: transform 0.2s;
 " onmouseover="this.style.transform='scale(2)'" onmouseout="this.style.transform='scale(1)'"/>
 
-**Dedicated Pool (AKA SQL DW):** A full SQL Warehouse (a large SQL server) owned by you.
+**Dedicated Pool (AKA SQL DW):** A full SQL Warehouse (a large SQL server) that you own. This means there is a traditional, old-school SQL database with real, dedicated storage, just like the good old MSSQL Server, not just some abstract storage solution using ADLS (no insults to Serverless Pool ;-). It’s the poor man’s engine).
 
-- Full-blown SQL Warehouse. Just a few years ago, it was called SQL Data Warehouse.
-- Own storage, not ADLS: Has its own storage like SQL server. No, it's not ADLS. It's real SQL storage.
-- Once on, you are paying by the hour. As it's dedicated, Microsoft is paying the electric bills for the hardware behind your dedicated SQL server. So, run it or not, you pay by the hour. And it's very expensive. Run it for a day, and your full trial subscription is gone.
+- **Full-blown SQL Warehouse**: Just a few years ago, it was called SQL Data Warehouse.
+- **<span style="color:blue;">Own local storage, not international calls to ADLS</span>**: It has its own storage, just like SQL Server. No, it’s not ADLS; it’s real SQL storage.
+- **<span style="color:blue;">Once on, you pay by the hour</span>**: Since it’s dedicated, Microsoft covers the hardware costs for your dedicated SQL server. Whether you use it or not, you pay by the hour, and it’s quite expensive. Run it for a day, and your full trial subscription might be gone.
 
 <img src="image-3.png" alt="Integration runtime registration" style="
     border: 2px solid gray;
