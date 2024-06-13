@@ -2,7 +2,7 @@
 layout: default
 title: Local-ADLS-SHIR-CopyData
 parent: SynapseAnalytics
-nav_order: 1
+nav_order: 13
 ---
 
 - [A Simple Synapse Pipeline. Copy files from Laptop To ADLS](#a-simple-synapse-pipeline-copy-files-from-laptop-to-adls)

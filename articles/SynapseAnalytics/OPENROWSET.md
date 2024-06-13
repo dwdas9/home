@@ -2,7 +2,7 @@
 layout: default
 title: OPENROWSET
 parent: SynapseAnalytics
-nav_order: 1
+nav_order: 12
 ---
 
 - [OPENROWSET - The Powerful Transact-SQL for Data Engineering.](#openrowset---the-powerful-transact-sql-for-data-engineering)

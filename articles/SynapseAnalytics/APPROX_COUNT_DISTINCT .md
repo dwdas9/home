@@ -2,7 +2,7 @@
 layout: default
 title: APPROX_COUNT_DISTINCT
 parent: SynapseAnalytics
-nav_order: 1
+nav_order: 10
 ---
 - [APPROX\_COUNT\_DISTINCT when COUNT(DISTINCT ColName) runs forever](#approx_count_distinct-when-countdistinct-colname-runs-forever)
 - [How to run it?](#how-to-run-it)

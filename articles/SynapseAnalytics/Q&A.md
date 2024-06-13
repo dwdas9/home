@@ -2,7 +2,7 @@
 layout: default
 title: 100 Synapse FAQs
 parent: SynapseAnalytics
-nav_order: 1
+nav_order: 14
 ---
 
 
