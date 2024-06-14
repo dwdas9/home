@@ -59,7 +59,7 @@ CREATE DATABASE BhutuSpark -- Or, spark.sql("CREATE DATABASE BhutuSpark")
 
 Initially, in a fresh workspace, the Workspace in the Data Tab is completely empty, even if you have an inbuilt SQL pool.
 
-<img src="images/custom-image-2024-06-14-16-14-00.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="images/custom-image-2024-06-15-02-42-45.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 A few minutes after the Spark SQL command to create the database completes, you will see a Lake database structure appearing under the Data workspace. Initially, this will be completely empty. Also, you will notice two databases: the one you created and a default database.
 
