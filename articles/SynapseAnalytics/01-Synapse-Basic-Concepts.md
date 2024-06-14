@@ -14,6 +14,7 @@ nav_order: 1
   - [Pipelines](#pipelines)
   - [Integration Datasets](#integration-datasets)
   - [Integration runtime](#integration-runtime)
+  - [The Databases Types in Synapse](#the-databases-types-in-synapse)
 
 ![alt text](images/ownstoragesynapse.png)
 
@@ -69,7 +70,26 @@ These are just connection strings used by the Synapse workspace to connect to ex
 
 ## <span style="color: DarkCyan">Synapse SQL Pools</span>
 
-Synapse SQL gives you two SQL products: a dedicated SQL Warehouse (Large SQL Server) and an on-demand SQL query running engine.
+Don't get confused with the term `pool`. Synapse gives you two SQL products:
+
+1. A serverless MSSQL database
+2. A dedicated MSSQL database.
+
+For serverless, all characters are fictitious. It's not like the old-school MSSQL where data stays inside in SQL's own format. For serverless, it's mainly data stored in ADLS folders.
+
+**Question:** So, serverless is just a query engine with no actual tables, master db, etc., like MSSQL?
+
+**Answer:** Yes, it has master db, tables, views, schemas, etc., but all the tables and databases there are fictitious. They are made-up showpieces derived from ADLS files.
+
+For instance, if you create a database using the serverless SQL pool:
+
+![Serverless SQL Pool](images/custom-image-2024-06-14-14-06-37.png)
+
+This is what you will see. Notice that everything is just a shell. The data is external:
+
+![External Data](images/custom-image-2024-06-14-14-03-23.png)
+
+However, with the dedicated MSSQL, everything is real and traditional. It is a SQL warehouse. Hence, it old name was SQL Data Warehouse. The Dedicated pool is just a fancy name.
 
 <img src="images/ownstoragesynapse.png"  style="
     border: 2px solid gray;
@@ -84,13 +104,12 @@ Synapse SQL gives you two SQL products: a dedicated SQL Warehouse (Large SQL Ser
 
 ### <span style="color: DodgerBlue">Serverless SQL Pool</span>
 
-Just an SQL query running engine.
+The only thing real here is the SQL query engine. All data are fictiocious.
 
-- Just a query running engine.
+- Just a query running engine. All data is external.
 - On-demand: Only pay for the queries you run. It stays online, but don’t worry. You don’t pay anything until you run something.
 - Doesn’t have its own storage: Doesn’t store anything. It only runs queries in ADLS, etc.
 - Cheap: Very cheap. $0 if you don’t run a single SQL query.
-
 
 <img src="images/image-23244.png"  style="
     border: 2px solid gray;
@@ -105,7 +124,7 @@ Just an SQL query running engine.
 
 ### <span style="color: DodgerBlue">Dedicated Pool (AKA SQL DW)</span>
 
-A full SQL Warehouse (a large SQL server) that you own. This means there is a traditional, old-school SQL database with real, dedicated storage, just like the good old MSSQL Server, not just some abstract storage solution using ADLS (no insults to Serverless Pool ;-). It’s the poor man’s engine).
+A full SQL Warehouse (a large SQL server) that you own. This means there is a traditional, old-school SQL database with real, dedicated storage, not just some abstract storage solution using ADLS (no insults to Serverless Pool ;-). It’s the poor man’s engine).
 
 - **Full-blown SQL Warehouse**: Just a few years ago, it was called SQL Data Warehouse.
 - **<span style="color:blue;">Own local storage, not international calls to ADLS</span>**: It has its own storage, just like SQL Server. No, it’s not ADLS; it’s real SQL storage.
@@ -209,3 +228,16 @@ There are **3 types** of Integration Runtime:
 2. **Self-hosted Integration Runtime:** This is the bridge to copy data from your local machine to the Azure cloud. It is a software you install on your local computer.
 3. **Azure-SSIS Integration Runtime:** This allows you to lift and shift your SSIS packages to Azure.
 
+## The Databases Types in Synapse
+
+Before we dive into this, let's ask ourselves: How many types of pools are there in Synapse? Even though I don't like the term "pool" (and I can't use "server"), we have to use it. There are three types: Serverless SQL, Dedicated SQL, and Serverless Spark pool.
+
+So, it's simple—there are three types of databases, one for each:
+
+1. **Serverless SQL Database**: Created using the Serverless SQL pool.
+2. **Dedicated SQL Database**: Created using the Dedicated SQL pool. Note: This is essentially a data warehouse.
+3. **Spark Database**:
+   1. **v1 [Lake Database]**: Created using a serverless Spark pool and PySpark, called a Spark [Lake] database.
+   2. **v2 [Delta Lake Database/Lakehouse]**: Similar to v1, but the format of the .parquet files is Delta.
+
+> So, does Apache Spark have database connections? Yes, of course. How else would it run SparkSQL and what about that magic command %%sql? It has robust database capabilities.

@@ -5,3 +5,12 @@ DENSE_RANK()
 NTILE()
 
 ![alt text](images\SQLRank.png)
+
+
+### Show all databases
+
+```sql
+SELECT name FROM sys.databases;
+```
+
+![alt text](image.png)
