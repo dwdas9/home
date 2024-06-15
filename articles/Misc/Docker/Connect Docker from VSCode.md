@@ -5,11 +5,11 @@ parent: Azure Articles
 ---
 
 - [Connect to docker container from VS Code](#connect-to-docker-container-from-vs-code)
-- [Enable Jupyter notebook support extension](#enable-jupyter-notebook-support-extension)
-- [Errors](#errors)
+  - [Install Jupyter notebook support extension in the conatiner](#install-jupyter-notebook-support-extension-in-the-conatiner)
+  - [Errors](#errors)
 
 
-## <span style="color: teal;">Connect to docker container from VS Code</span>
+# <span style="color: teal;">Connect to docker container from VS Code</span>
 
 1. In **Visual Studio Code** press **Ctrl+Shift+X**, search  **Dev Containers** and **install**.
 <img src="images/image5.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -23,9 +23,9 @@ parent: Azure Articles
 
 5. A new VS Code window will open, connected to your container.
 
-## <span style="color: teal;">Enable Jupyter notebook support extension</span>
+## <span style="color: teal;">Install Jupyter notebook support extension in the conatiner</span>
 
-Integrate Jupyter notebook support in VS Code while connected to the container by enabling or installing the Jupyter notebook support extension.
+To use Jupyter Notebook in a container with all features like on your local machine, you need to **install** the VS Code extension **in the container**. It's simple. When you attach the running container using the VS Code Dev Container extension and try to create a Jupyter Notebook, you'll be asked to install the extension in the container. You can also search for the extension in VS Code and install it in the container, but the prompted method is easier.
 
 <img src="images/image4.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
