@@ -19,6 +19,8 @@ parent: Azure Articles
 - [When to Use Docker Compose](#when-to-use-docker-compose)
 
 
+![](images/custom-image-2024-06-15-16-04-27.png)
+
 ### Understanding Dockerfile and Docker Compose: A Simple Guide
 
 When working with Docker, you might come across terms like Dockerfile and Docker Compose. Let's break them down in simple terms.
