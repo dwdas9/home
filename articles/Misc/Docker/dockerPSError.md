@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Troubleshooting docker ps on Your Machine
-parent: Azure Articles
+title: Docker Ps error
+parent: Docker
+nav_order: 4
 ---
 
 ## Table of contents

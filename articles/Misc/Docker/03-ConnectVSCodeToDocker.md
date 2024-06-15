@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Docker Connect VS Code
-parent: Azure Articles
+title: Connect VS Code To Docker
+parent: Docker
+nav_order: 3
 ---
 
 - [Connect to docker container from VS Code](#connect-to-docker-container-from-vs-code)

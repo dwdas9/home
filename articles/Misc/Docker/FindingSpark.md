@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Finding Spark
-parent: Azure Articles
+parent: Docker
+nav_order: 5
 ---
 
 When you install Spark using a package manager like `pip`, it places the Spark binaries and libraries inside the Python's `dist-packages` or `site-packages` directory. This is a different installation approach than downloading and extracting Spark directly from the Apache Spark website.

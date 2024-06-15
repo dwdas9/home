@@ -1,19 +1,18 @@
 ---
 layout: default
-title: Setup Spark On Docker
-parent: Azure Articles
+title: Ubuntu Pyspark On Docker
+parent: Docker
+nav_order: 1
 ---
 
 ## <span style="color: navy;">Table of contents</span>
 
-- [Setup Spark on Docker On Windows](#setup-spark-on-docker-on-windows)
+- [Ubuntu Pyspark Setup On Docker](#ubuntu-pyspark-setup-on-docker)
   - [Background](#background)
   - [Quickstart](#quickstart)
     - [Create the Dockerfile](#create-the-dockerfile)
     - [Build the Docker Image](#build-the-docker-image)
     - [Run the Docker Container](#run-the-docker-container)
-    - [Work with the docker container from a local VS Code](#work-with-the-docker-container-from-a-local-vs-code)
-  - [Enable Jupyter notebook support extension](#enable-jupyter-notebook-support-extension)
 - [Appendix](#appendix)
   - [Using pre-configured ready-to-use Spark containers](#using-pre-configured-ready-to-use-spark-containers)
     - [Setup for apache/spark-py](#setup-for-apachespark-py)
@@ -22,7 +21,7 @@ parent: Azure Articles
     - [Errors](#errors)
 
 
-# <span style="color: teal;">Setup Spark on Docker On Windows</span>
+# <span style="color: teal;">Ubuntu Pyspark Setup On Docker</span>
 
 ![Image of setup process](images/image7.jpg)
 
