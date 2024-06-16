@@ -1,5 +1,11 @@
+---
+layout: default
+title: Bitnami Spark Cluster Shared Volume Hive
+parent: Docker
+nav_order: 4
+---
 - [Bitnami Spark Cluster with Shared Volume for Hive](#bitnami-spark-cluster-with-shared-volume-for-hive)
-  - [Steps](#steps)
+  - [Steps to create the environment](#steps-to-create-the-environment)
     - [Create the Dockerfile](#create-the-dockerfile)
     - [Create the docker-compose.yml file](#create-the-docker-composeyml-file)
     - [Build Your Docker Images](#build-your-docker-images)
@@ -24,7 +30,7 @@ Here is a summary of the sections that will follow:
 4. **Connect with VS Code**
 5. **Create Spark Internal Tables in HIVE**
 
-## Steps
+## Steps to create the environment
 
 ### Create the Dockerfile
 
@@ -170,14 +176,13 @@ The volume will be mounted to all the three containers:
 <img src="images/custom-image-2024-06-16-02-28-44.png" alt="Mounted volumes" style="border: 2px solid #555; border-radius: 8px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); max-width: 100%; height: auto; margin: 20px;">
 
 ### Check Permissions for /user/hive/warehouse
-
-The `/user/hive/warehouse` is the mounted folder we created. The user `dwdas` should have the right permissions for this folder in all three containers. To check, connect to the prompt of each container and run this command:
-
-To connect, either log in through the Docker EXEC window or from the command prompt. Replace `spark-master` with `spark-worker-1/2`.
+The `/user/hive/warehouse` folder is the mounted directory we created. The user `dwdas` should have the correct permissions for this folder in all three containers. To check this, connect to each container through the terminal using either:
 
 ```bash
 docker exec -it spark-master bash
 ```
+
+Or through Docker Desktop's EXEC tab.
 
 Then run:
 

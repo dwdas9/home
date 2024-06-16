@@ -6,6 +6,7 @@ nav_order: 2
 ---
 
 - [Connect to docker container from Visual Studio Code](#connect-to-docker-container-from-visual-studio-code)
+    - [Summary of Steps](#summary-of-steps)
   - [Install Dev Containers Extension](#install-dev-containers-extension)
   - [Attach to the running container](#attach-to-the-running-container)
   - [Install Jupyter notebook support extension in the conatiner](#install-jupyter-notebook-support-extension-in-the-conatiner)
@@ -25,6 +26,30 @@ nav_order: 2
 Here, I will show you how to connect to a container using VS Code to run Python code, create Jupyter notebooks, and more. This setup is very helpful. Containers are essentially Linux OS environments, and you can't log into them directly to install VS Code.
 
 The connection is mainly done using the VS Code Dev Containers extension, which is the key component for connectivity. The following sections provide detailed steps to guide you through the process.
+
+### Summary of Steps
+
+1. **Install VS Code Dev Containers Extension** on your local machine.
+
+2. Open a terminal and run the following commands in the container:
+   ```bash
+   sudo su
+   mkdir -p /.vscode-server
+   chmod -R 777 /.vscode-server
+   ```
+
+3. **Attach to the Running Container:**
+   Open a remote window from the bottom left corner in VS Code.
+
+4. **Install Jupyter Notebook Support Extension** in the container.
+
+5. **Install Required Python Packages:**
+   Open a terminal and run the following commands in the container:
+   ```bash
+   sudo su
+   pip install ipykernel
+   pip install py4j
+   ```
 
 ## <span style="color: Purple;">Install Dev Containers Extension</span>
 
@@ -101,12 +126,19 @@ Alternaively, you can start the container with root. This is feasible only for s
 
 #### Correct Method
 
-Create the folder using root and provide permission, then try to install again. This way you can create a normal container without needing to add the root user to the container.
+The correct method is to create the folder using the root user and provide permissions to it for the normal user. This way, you can create a normal container without needing to add the root user to the container.
 
+To achieve this run the following commands in the container and then try to connect VS code again:
+
+```bash
+sudo su
+mkdir -p /.vscode-server
+chmod -R 777 /.vscode-server
+```
 <img src="images/custom-image-2024-06-16-02-56-43.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
 
 
-> Note: You may not always have su access or password. To resolve it you may have to create a Dockerfile and users inside it with elevated permission. Refer to my BitnamiSparkCluster article[article](3-BitnamiSparkClusterOnDocker.html) to create such containers.
+> Note: You may not always have su access or password. To resolve it you may have to create a Dockerfile and users inside it with elevated permission. Refer to my BitnamiSparkCluster [article](3-BitnamiSparkClusterOnDocker.html) to create such containers.
 
 ### <span style="color: Chocolate;">No Kernel Visible</span>
 
