@@ -2,11 +2,11 @@
 layout: default
 title: Bitnami Spark Cluster On Docker
 parent: Docker
-nav_order: 2
+nav_order: 3
 ---
 
 ## Table of contents
-- [Setup A Bitnami Spark Cluster On Docker](#setup-a-bitnami-spark-cluster-on-docker)
+- [A Bitnami Spark Cluster On Docker And Hive Setup](#a-bitnami-spark-cluster-on-docker-and-hive-setup)
   - [Prerequisites](#prerequisites)
   - [Step 1: Setting Up Docker Compose File](#step-1-setting-up-docker-compose-file)
     - [Create a `docker-compose.yaml` file:](#create-a-docker-composeyaml-file)
@@ -29,10 +29,10 @@ nav_order: 2
   - [Why This Setup?](#why-this-setup)
   - [Conclusion](#conclusion)
 
-# Setup A Bitnami Spark Cluster On Docker
+# A Bitnami Spark Cluster On Docker And Hive Setup
 
 <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
-Here I will show you how you can setup a Spark Cluster, 1 master, 2 workers node. We will use the VMWare Bitnami image for this.
+Here I will show you how you can setup a Spark Cluster, 1 master, 2 workers node. And, how to setup Hive. We will use the VMWare Bitnami image for this.
 </p>
 
 **Summary of steps:**

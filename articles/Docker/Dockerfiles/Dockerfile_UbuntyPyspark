@@ -1,0 +1,53 @@
+# Use the latest official Ubuntu image as the base image
+FROM ubuntu:latest  
+
+# Set environment variable to avoid interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive  
+
+# Update the package list to ensure we have the latest information about available packages
+RUN apt-get update  
+
+# Install necessary packages including curl, sudo, and nano
+RUN apt-get install -y curl sudo nano software-properties-common
+
+# Add the 'deadsnakes' PPA (Personal Package Archive) to access newer Python versions
+RUN add-apt-repository ppa:deadsnakes/ppa  
+
+# Update the package list again to include the new PPA
+RUN apt-get update  
+
+# Install Python 3.12 and pip
+RUN apt-get install -y python3.12 python3-pip
+
+# Ensure pip is upgraded to the latest version
+RUN python3.12 -m pip install --upgrade pip
+
+# Install the PySpark library using pip
+RUN pip install pyspark
+
+# Clean up the package lists to reduce the image size
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Create a root user and set its Passw0rd
+# 'rootPassw0rd' should be replaced with a secure Passw0rd
+RUN echo 'root:Passw0rd' | chpasswd
+
+# Create a new user 'dwdas', set a Passw0rd, and add this user to the sudo group
+# 'Passw0rd' should be replaced with a secure Passw0rd
+RUN useradd -ms /bin/bash dwdas && echo 'dwdas:Passw0rd' | chpasswd && adduser dwdas sudo
+
+# Allow the 'dwdas' user to run sudo commands without a Passw0rd
+RUN echo 'dwdas ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# Set the working directory to the home directory of the new user
+WORKDIR /home/dwdas
+
+# Switch to the new user 'dwdas'
+USER dwdas
+
+# Expose port 8888, commonly used for Jupyter Notebook, if needed
+EXPOSE 8888
+
+# Command to run when the container starts
+# This can be changed to any command you prefer
+CMD ["bash"]

@@ -1,0 +1,63 @@
+version: '3'  # Specify the version of Docker Compose syntax
+
+services:  # Define the services (containers) that make up your application
+
+  spark-master:
+    build:
+      context: .  # Build context is the current directory (where the Dockerfile is located)
+      dockerfile: Dockerfile  # Dockerfile to use for building the image
+    image: bitnami-spark-master  # Name the image for the master node
+    container_name: spark-master  # Set a custom name for the master container
+    environment:
+      - SPARK_MODE=master  # Environment variable to set the Spark mode to master
+    ports:
+      - "8080:8080"  # Map port 8080 on the host to port 8080 on the container for Spark Master web UI
+      - "7077:7077"  # Map port 7077 on the host to port 7077 on the container for Spark Master
+    volumes:
+      - spark-warehouse:/user/hive/warehouse  # Mount the shared volume for Hive warehouse
+    networks:
+      - spark-network  # Connect the master container to the defined network
+
+  spark-worker-1:
+    build:
+      context: .  # Build context is the current directory (where the Dockerfile is located)
+      dockerfile: Dockerfile  # Dockerfile to use for building the image
+    image: bitnami-spark-worker  # Name the image for the worker node
+    container_name: spark-worker-1  # Set a custom name for the first worker container
+    environment:
+      - SPARK_MODE=worker  # Environment variable to set the Spark mode to worker
+      - SPARK_MASTER_URL=spark://spark-master:7077  # URL for the worker to connect to the master
+      - SPARK_WORKER_MEMORY=2G  # Set the memory allocated for the worker
+      - SPARK_WORKER_CORES=2  # Set the number of CPU cores allocated for the worker
+    depends_on:
+      - spark-master  # Ensure that the master service is started before this worker
+    volumes:
+      - spark-warehouse:/user/hive/warehouse  # Mount the shared volume for Hive warehouse
+    networks:
+      - spark-network  # Connect the worker container to the defined network
+
+  spark-worker-2:
+    build:
+      context: .  # Build context is the current directory (where the Dockerfile is located)
+      dockerfile: Dockerfile  # Dockerfile to use for building the image
+    image: bitnami-spark-worker  # Name the image for the worker node
+    container_name: spark-worker-2  # Set a custom name for the second worker container
+    environment:
+      - SPARK_MODE=worker  # Environment variable to set the Spark mode to worker
+      - SPARK_MASTER_URL=spark://spark-master:7077  # URL for the worker to connect to the master
+      - SPARK_WORKER_MEMORY=2G  # Set the memory allocated for the worker
+      - SPARK_WORKER_CORES=2  # Set the number of CPU cores allocated for the worker
+    depends_on:
+      - spark-master  # Ensure that the master service is started before this worker
+    volumes:
+      - spark-warehouse:/user/hive/warehouse  # Mount the shared volume for Hive warehouse
+    networks:
+      - spark-network  # Connect the worker container to the defined network
+
+volumes:
+  spark-warehouse:
+    driver: local  # Use the local driver to create a shared volume for the warehouse
+
+networks:
+  spark-network:
+    driver: bridge  # Use the bridge driver to create an isolated network for the Spark cluster

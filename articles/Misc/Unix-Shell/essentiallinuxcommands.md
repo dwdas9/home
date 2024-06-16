@@ -3,7 +3,8 @@ layout: default
 title: printenv
 parent: Unix
 ---
-
+## sudo su
+## ls -la show hidden folders also
 ## chown
 
 The `chown` command in Unix-like operating systems is used to change the ownership of files and directories. The `-R` option stands for "recursive," which means it will apply the ownership change to the specified directory and all its contents, including subdirectories and files.
