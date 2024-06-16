@@ -34,9 +34,7 @@ Here is a summary of the sections that will follow:
 
 ### Create the Dockerfile
 
-In a folder create a dilw **Dockerfile.txt**. and paste the contents below. Then **remove** the **.txt** extension.
-
-Otherwise, download [this](Dockerfiles/Dockerfile__Bitnm_Vol)  file and save in a folder as `Dockerfile`[No extension]
+Create a  **Dockerfile.txt** with the contents below(remove .txt later). Or, save this [file](Dockerfiles/Dockerfile__Bitnm_Vol.txt) as **Dockerfile**(remove .txt)
 
 
 ```Dockerfile
@@ -74,7 +72,7 @@ WORKDIR /home/dwdas
 
 ### Create the docker-compose.yml file
 
-In the same folder, create a `docker-compose.yml` file and paste the contents below. Alternatively, download [this file](Dockerfiles/docker-compose_Bitnm_Vol.yml) and save it as `docker-compose.yml`.
+In the same folder, create a `docker-compose.yml` with the content below. Alternatively, save [this file](Dockerfiles/docker-compose_Bitnm_Vol.yml)  as `docker-compose.yml`.
 
 ```yaml
 version: '3'  # Specify the version of Docker Compose syntax
@@ -227,6 +225,11 @@ spark = SparkSession.builder \
     .enableHiveSupport() \
     .getOrCreate()
 
+# Explanation:
+# - `spark.sql.warehouse.dir`: Specifies the default location for managed databases and tables.
+# - `spark.sql.legacy.createHiveTableByDefault`: Ensures that Hive tables are not created by default unless explicitly specified.
+# - `enableHiveSupport()`: Enables Hive support, allowing Spark to leverage Hive Metastore, run HiveQL queries, and use Hive functions.
+
 # Sample data
 data = [("Kim Jong Obama", 28), ("Vladimir Trump", 35)]
 columns = ["Name", "Age"]
@@ -239,6 +242,15 @@ df.write.mode("overwrite").saveAsTable("people")
 
 # Verify the table creation
 spark.sql("SELECT * FROM people").show()
+
+# Additional Information:
+# - Hive Metastore Integration: Spark can directly access the Hive Metastore, providing a unified metadata layer for Spark and Hive.
+# - HiveQL Queries: You can run HiveQL queries using Spark SQL, using the familiar Hive syntax.
+# - Hive Functions: Spark supports Hive's built-in functions in Spark SQL queries.
+# - Table Management: Spark can read from and write to Hive-managed tables, including creating, dropping, and altering tables.
+# - Compatibility with Hive Data Formats: Spark can read from and write to Hive's data formats like ORC and Parquet.
+# - Access to Hive UDFs: User-defined functions created in Hive can be used within Spark SQL queries.
+
 ```
 If everything works fine, we will be able to see the spark internal table created!
 
