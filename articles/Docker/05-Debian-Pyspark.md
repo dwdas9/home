@@ -7,6 +7,7 @@ nav_order: 5
 - [Create a Container with Debian and Pyspark Installed](#create-a-container-with-debian-and-pyspark-installed)
   - [Steps to Create the Image and Container](#steps-to-create-the-image-and-container)
     - [**Create a Dockerfile**:](#create-a-dockerfile)
+    - [**Download  Python and place in the same folder**](#download--python-and-place-in-the-same-folder)
     - [**Build the Docker Image**:](#build-the-docker-image)
     - [**Run the Docker Container**:](#run-the-docker-container)
   - [Details of the Container](#details-of-the-container)
@@ -98,6 +99,9 @@ Debian is highly stable, making it ideal for servers. In this article, I will gu
      # Set the default command to start a bash shell
      CMD ["bash"]
      ```
+### **Download  Python and place in the same folder**
+
+Download Python 3.11.9 from [this site](https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz) and place it in the same directory.
 
 ### **Build the Docker Image**:
    - Open a terminal and navigate to the directory containing the Dockerfile.
