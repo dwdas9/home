@@ -9,8 +9,10 @@ nav_order: 2
     - [Summary of Steps](#summary-of-steps)
   - [Install Dev Containers Extension](#install-dev-containers-extension)
   - [Attach to the running container](#attach-to-the-running-container)
-  - [Install Jupyter notebook support extension in the conatiner](#install-jupyter-notebook-support-extension-in-the-conatiner)
+  - [Install Jupyter notebook support extension in conatiner](#install-jupyter-notebook-support-extension-in-conatiner)
+  - [Install Python Support Extension in Container](#install-python-support-extension-in-container)
   - [Install ipykernel](#install-ipykernel)
+  - [Install py4j(if required)](#install-py4jif-required)
   - [Errors](#errors)
     - [failed: mkdir -p /.vscode-server](#failed-mkdir--p-vscode-server)
       - [Wrong Resolution](#wrong-resolution)
@@ -41,7 +43,7 @@ The connection is mainly done using the VS Code Dev Containers extension, which 
 3. **Attach to the Running Container:**
    Open a remote window from the bottom left corner in VS Code.
 
-4. **Install Jupyter Notebook Support Extension** in the container.
+4. **Install Jupyter & Python extensions** in the container.
 
 5. **Install Required Python Packages:**
    Open a terminal and run the following commands in the container:
@@ -69,28 +71,39 @@ Note: Here you will encounter like this, go to the errors section to resolve it
 
 
 
-## <span style="color: Purple;">Install Jupyter notebook support extension in the conatiner</span>
+## <span style="color: Purple;">Install Jupyter notebook support extension in conatiner</span>
 
-To use Jupyter Notebook in a container, you need to **install** the VS Code extension **in the container**. When a create a notebook for the first time you'll be asked to install the extension in the container. You can also search for the extension in VS Code and install it.
+Go to extensions(left pane), search Jupyter, click on Install in container
 
-<img src="images/image4.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="images/custom-image-2024-06-18-17-25-13.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+## <span style="color: Purple;">Install Python Support Extension in Container</span>
+
+Go to extensions(left pane), search Python, click on Install in container
+
+<img src="images/custom-image-2024-06-18-17-15-37.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
 
 ## <span style="color: Purple;">Install ipykernel</span>
 
-To run Jupyter cells, you will need the ipykernel package. Usually, you will be prompted to install it in VS Code.
+Connect to the container from terminal(or EXEC in Docker container) and run this command:
 
-<img src="images/custom-image-2024-06-16-16-42-05.png" alt="Prompt to install ipykernel" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-
-Just click **Install** to install it.
-
-<img src="images/image10.png" alt="Installation in progress" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-
-**Note:** If installing it from VS Code doesn't work, you can directly install it in the container.
-
-```sh
+```bash
 sudo su
 pip install ipykernel
 ```
+
+Also, if you try to run a jupyter notebook, using the steps below
+
+<img src="images/image10.png" alt="Installation in progress" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+You may be prompted to isntall the extension:
+
+<img src="images/custom-image-2024-06-16-16-42-05.png" alt="Prompt to install ipykernel" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+
+
+## <span style="color: Red;">Install py4j(if required)</span>
 
 <img src="images/custom-image-2024-06-16-16-44-45.png" alt="Running pip install ipykernel" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
@@ -135,6 +148,8 @@ sudo su
 mkdir -p /.vscode-server
 chmod -R 777 /.vscode-server
 ```
+> sometimes, e.g. in debian, just su
+
 <img src="images/custom-image-2024-06-16-02-56-43.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
 
 

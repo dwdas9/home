@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Bitnami Spark Cluster Shared Volume Hive
+title: Bitnami Spark Cluster with Shared Volume For Hive
 parent: Docker
 nav_order: 4
 ---
@@ -9,7 +9,7 @@ nav_order: 4
     - [Create the Dockerfile](#create-the-dockerfile)
     - [Create the docker-compose.yml file](#create-the-docker-composeyml-file)
     - [Build Your Docker Images](#build-your-docker-images)
-    - [Run the Containers Using the Images](#run-the-containers-using-the-images)
+    - [Run the containers using the images](#run-the-containers-using-the-images)
     - [Check Permissions for /user/hive/warehouse](#check-permissions-for-userhivewarehouse)
     - [Connect to a container and create a spark session](#connect-to-a-container-and-create-a-spark-session)
   - [Common Errors](#common-errors)
@@ -153,7 +153,7 @@ There will be two images: One for the Master and the other for the worker nodes.
 
 <img src="images/custom-image-2024-06-16-02-22-52.png" alt="Dangling image notice" style="border: 2px solid #555; border-radius: 8px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); max-width: 100%; height: auto; margin: 20px;">
 
-### Run the Containers Using the Images
+### Run the containers using the images
 
 Now run the following:
 
