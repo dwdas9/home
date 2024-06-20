@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Debian Container With Pyspark
+title: Debian_PySpark
 parent: Docker
 nav_order: 5
 ---

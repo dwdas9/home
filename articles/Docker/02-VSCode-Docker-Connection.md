@@ -15,10 +15,10 @@ nav_order: 2
   - [Install py4j(if required)](#install-py4jif-required)
   - [Errors](#errors)
     - [failed: mkdir -p /.vscode-server](#failed-mkdir--p-vscode-server)
+      - [Correct Method](#correct-method)
       - [Wrong Resolution](#wrong-resolution)
         - [Add user:root method](#add-userroot-method)
         - [docker run -u root method](#docker-run--u-root-method)
-      - [Correct Method](#correct-method)
     - [No Kernel Visible](#no-kernel-visible)
     - [Py4J Error](#py4j-error)
 
@@ -121,21 +121,22 @@ When trying to attach to a Docker container using the VSCode Dev extension, you 
 For example, when it runs this command:
 
 ```sh
-mkdir -p /root/.vscode-remote-containers/bin/
+mkdir -p /root/.vscode-server/bin/
 ```
-#### Wrong Resolution
+**Note:**  
+When you attach to a running container, the Dev Container extension installs a remote server in the `.vscode-server` folder, defaulting to the root location. You can change this property by using:
 
-##### Add user:root method
+**User Settings (JSON):** Press `Ctrl+Shift+P` > "Preferences: Open User Settings (JSON)". Add:
+```json
+"remote.SSH.serverInstallPath": {
+    "<host>": "/test/location"
+}
+```
+<img src="images/custom-image-2024-06-20-16-41-41.png" alt="Custom Image">
 
-If you use a docker-compose file to create the containers you can add `user: root` to every container. 
+**Settings UI:** Go to File > Preferences > Settings, filter by `@ext:ms-vscode-remote.remote-ssh install`, and under "Server Install Path" > Add Item with Item = `<host>` and Value = `/test/location`.
 
-<img src="images/custom-image-2024-06-15-14-38-58.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 300; height: 500;">
-
-##### docker run -u root method
-
-Alternaively, you can start the container with root. This is feasible only for single containers.
-
-`docker run -u root -it --name myCont theImageFileName /bin/bash`
+![](images/custom-image-2024-06-20-16-51-22.png)
 
 #### Correct Method
 
@@ -154,6 +155,20 @@ chmod -R 777 /.vscode-server
 
 
 > Note: You may not always have su access or password. To resolve it you may have to create a Dockerfile and users inside it with elevated permission. Refer to my BitnamiSparkCluster [article](3-BitnamiSparkClusterOnDocker.html) to create such containers.
+
+#### Wrong Resolution
+
+##### Add user:root method
+
+If you use a docker-compose file to create the containers you can add `user: root` to every container. 
+
+<img src="images/custom-image-2024-06-15-14-38-58.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 300; height: 500;">
+
+##### docker run -u root method
+
+Alternaively, you can start the container with root. This is feasible only for single containers.
+
+`docker run -u root -it --name myCont theImageFileName /bin/bash`
 
 ### <span style="color: Chocolate;">No Kernel Visible</span>
 

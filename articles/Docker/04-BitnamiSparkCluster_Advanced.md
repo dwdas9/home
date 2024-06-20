@@ -1,40 +1,50 @@
 ---
 layout: default
-title: Bitnami Spark Cluster with Shared Volume For Hive
+title: Bitnami_Spark_Cluster_Adv
 parent: Docker
 nav_order: 4
 ---
-- [Bitnami Spark Cluster with Shared Volume for Hive](#bitnami-spark-cluster-with-shared-volume-for-hive)
+- [Bitnami Spark Cluster with Shared Volume](#bitnami-spark-cluster-with-shared-volume)
   - [Steps to create the environment](#steps-to-create-the-environment)
     - [Create the Dockerfile](#create-the-dockerfile)
     - [Create the docker-compose.yml file](#create-the-docker-composeyml-file)
     - [Build Your Docker Images](#build-your-docker-images)
     - [Run the containers using the images](#run-the-containers-using-the-images)
     - [Check Permissions for /user/hive/warehouse](#check-permissions-for-userhivewarehouse)
+    - [Connect to SparkSQL using spark-sql CLI](#connect-to-sparksql-using-spark-sql-cli)
     - [Connect to a container and create a spark session](#connect-to-a-container-and-create-a-spark-session)
   - [Common Errors](#common-errors)
 
-# Bitnami Spark Cluster with Shared Volume for Hive
+# Bitnami Spark Cluster with Shared Volume
 
-Here, I will show you how to set up a customized Bitnami Spark cluster with one master, two workers, and a shared volume for Hive. We will use a Dockerfile and a Docker-Compose.yml approach.
+Here, I will show you how to set up a Spark Cluster with the following Details:
 
-In the Dockerfile, we will create a root user with a password and a normal user with sudo privileges. In the docker-compose.yml file, we will create volumes, attach them to all nodes, and set up a network.
+| **Configuration Detail**      | **Value**                                   |
+|-------------------------------|---------------------------------------------|
+| **Image**     | `bitnami/spark:latest` (Spark 3.5.1), OS_FLAVOUR=debian-12 |
+| **Spark Mode**                | 1 Master + 2 Workers                        |
+| **Spark Submission URL**      | `spark://spark-master:7077`                 |
+| **Spark URLs Local**          | [Master http://localhost:8080/](http://localhost:8080/), [Worker 1 http://localhost:8081/](http://localhost:8081/), [Worker 2 http://localhost:8082/](http://localhost:8082/) |
+| **Spark Worker Specs**        | Memory 2G, Cores 2                          |
+| **Common Mounted Volumes**    | `spark-warehouse:/user/hive/warehouse` to all nodes      |
+| **Mounted Folder Details**    | Temp Dir: `/opt/bitnami/spark/tmp`, Spark Conf: `/opt/bitnami/spark/conf`, `/opt/bitnami/spark/work`, Logs Dir: `/opt/bitnami/spark/logs` |
+| **Networks**                  | `spark-network` (bridge network)            |
+| **User**                      | `dwdas` (Password: Passw0rd, Sudo Privileges: `NOPASSWD:ALL`), Working dir: `/home/dwdas` |
+| **Java Version**              | OpenJDK 17.0.11 (LTS)                       |
+| **Python Version**            | Python 3.11.9                               |
+| **JAVA_HOME**                 | `/opt/bitnami/java`                         |
+| **SPARK_HOME**                | `/opt/bitnami/spark`                        |
+| **PYTHONPATH**                | `/opt/bitnami/spark/python/`                |
+| **spark-sql CLI**                | Just use `spark-sql`. Location: `/opt/bitnami/spark/bin/spark-sql`                |
+| **spark-shell CLI**                | Just use `spark-shell`. Location: `/opt/bitnami/spark/bin/spark-shell`                |
 
-Finally, we will test the setup by connecting VS Code to a container, creating a Spark session, and then creating Hive tables inside the volume.
 
-Here is a summary of the sections that will follow:
-
-1. **Create Dockerfile**
-2. **Create docker-compose.yml**
-3. **Build and Run Docker Containers**
-4. **Connect with VS Code**
-5. **Create Spark Internal Tables in HIVE**
 
 ## Steps to create the environment
 
 ### Create the Dockerfile
 
-Create a  **Dockerfile.txt** with the contents below(remove .txt later). Or, save this [file](Dockerfiles/Dockerfile__Bitnm_Vol.txt) as **Dockerfile**(remove .txt)
+Create a  **Dockerfile.txt** with the contents below(remove .txt later).
 
 
 ```Dockerfile
@@ -72,7 +82,7 @@ WORKDIR /home/dwdas
 
 ### Create the docker-compose.yml file
 
-In the same folder, create a `docker-compose.yml` with the content below. Alternatively, save [this file](Dockerfiles/docker-compose_Bitnm_Vol.yml)  as `docker-compose.yml`.
+In the same folder, create a `docker-compose.yml` with the content below.
 
 ```yaml
 version: '3'  # Specify the version of Docker Compose syntax
@@ -108,6 +118,8 @@ services:  # Define the services (containers) that make up your application
       - SPARK_WORKER_CORES=2  # Set the number of CPU cores allocated for the worker
     depends_on:
       - spark-master  # Ensure that the master service is started before this worker
+    ports:
+      - "8081:8081"  # Map port 8081 on the host to port 8081 on the container for Spark Worker 1 web UI
     volumes:
       - spark-warehouse:/user/hive/warehouse  # Mount the shared volume for Hive warehouse
     networks:
@@ -126,6 +138,8 @@ services:  # Define the services (containers) that make up your application
       - SPARK_WORKER_CORES=2  # Set the number of CPU cores allocated for the worker
     depends_on:
       - spark-master  # Ensure that the master service is started before this worker
+    ports:
+      - "8082:8081"  # Map port 8082 on the host to port 8081 on the container for Spark Worker 2 web UI
     volumes:
       - spark-warehouse:/user/hive/warehouse  # Mount the shared volume for Hive warehouse
     networks:
@@ -144,7 +158,7 @@ networks:
 In command prompt run the following command to build your Docker images
 
 ```bash
-docker-compose -p bitnami-spark-custom build
+docker-compose -p bitnami-spark-cluster build
 ```
 
 <img src="images/custom-image-2024-06-16-02-16-50.png" alt="Docker build process" style="border: 2px solid #555; border-radius: 8px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); max-width: 100%; height: auto; margin: 20px;">
@@ -158,7 +172,7 @@ There will be two images: One for the Master and the other for the worker nodes.
 Now run the following:
 
 ```bash
-docker-compose -p bitnami-spark-custom up -d
+docker-compose -p bitnami-spark-cluster up -d
 ```
 
 You should see three containers running inside a compose stack.
@@ -206,6 +220,32 @@ If that doesn't work, you can use:
 ```bash
 chmod 777 /user/hive/warehouse
 ```
+
+### Connect to SparkSQL using spark-sql CLI
+
+Open any container's terminal(Master/worker) and input **spark-sql**.
+
+![](images/custom-image-2024-06-19-16-33-46.png)
+
+Let's create a simple table and see query it. paste the following in the terminal:
+
+```sql
+CREATE TABLE Hollywood (name STRING);
+INSERT INTO Hollywood VALUES ('Inception'), ('Titanic');
+SELECT * FROM Hollywood;
+```
+
+A table will be created in SPARK as extended tabble and you will be able to see the select result:
+![](images/custom-image-2024-06-19-16-37-10.png)
+
+```SQL
+DESCRIBE EXTENDED HOLLYWOOD
+```
+Will give this result:
+
+![](images/custom-image-2024-06-19-17-18-41.png)
+
+Note: its a manged table in location /home/dwdas/spark-warehouse/
 
 ### Connect to a container and create a spark session
 

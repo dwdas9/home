@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Bitnami Spark Cluster On Docker
+title: Bitnami_Spark_Cluster_Basic
 parent: Docker
 nav_order: 3
 ---

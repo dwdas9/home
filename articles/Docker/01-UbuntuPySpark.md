@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ubuntu Container With Pyspark
+title: Ubuntu_PySpark
 parent: Docker
 nav_order: 1
 ---
