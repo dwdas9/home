@@ -1,310 +1,211 @@
-## Core conceps
+---
+layout: default
+title: Spark Concepts
+parent: SynapseAnalytics
+nav_order: 1
+---
 
-- A Spark Database is just a folder of format **databasename.db** inside **spark-warehouse** folder.
-- A Managed/Internal/Spark-Metastore table is  a  subfolder inside the **databasename.db**
-- The partitions are also folders
-- The warehouse folder is the base folder. This contain Datbase folder, tables subfolder folder, partion subfolders.
-- The location of warehouse folder is set by **spark.sql.warehouse.dir**.
-- By default, if spark.sql.warehouse.dir is not set, Spark uses a default directory, which is usually a **spark-warehouse** folder in the current working directory of the application.
-- You can also find it out by this command in spark-sql prompt: SET spark.sql.warehouse.dir
+- [Concepts to get started](#concepts-to-get-started)
+- [What happens when you enter `spark-sql` on a freshly installed Spark server?](#what-happens-when-you-enter-spark-sql-on-a-freshly-installed-spark-server)
+- [What Happens When You Create a Table in Spark-SQL?](#what-happens-when-you-create-a-table-in-spark-sql)
+  - [Key Takeaway](#key-takeaway)
+  - [SPARK Managed Tables (AKA Internal / Spark-Metastore Tables) Using Spark-SQL Shell](#spark-managed-tables-aka-internal--spark-metastore-tables-using-spark-sql-shell)
+  - [Key Takeaways:](#key-takeaways)
+- [Metastore in Spark](#metastore-in-spark)
+  - [2. **Embedded Hive Metastore with Derby**](#2-embedded-hive-metastore-with-derby)
 
-![](images/custom-image-2024-06-19-11-27-01.png)
+## Concepts to get started
 
-- It is usually set as .config("spark.sql.warehouse.dir", "/path/to/your/warehouse") in session.
+- A Spark Database is just a folder named **databasename.db** inside the **spark-warehouse** folder.
+- A Managed/Internal/Spark-Metastore table is a subfolder within the **databasename.db** folder. Partitions are also stored as subfolders.
+- The location of the warehouse folder is set by the **spark.sql.warehouse.dir** setting.
+- If **spark.sql.warehouse.dir** is not set, Spark uses a default directory, usually a **spark-warehouse** folder in the current working directory of the application.
+- You can find out the warehouse directory by running the command `SET spark.sql.warehouse.dir` in the spark-sql prompt.
 
+    <img src="images/custom-image-2024-06-19-11-27-01.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
-spark-sql commands:
 
-show tables
-select current_database()
+- You can set the warehouse directory in your session with `.config("spark.sql.warehouse.dir", "/path/to/your/warehouse")`.
 
-spark-defaults.conf
+## What happens when you enter `spark-sql` on a freshly installed Spark server?
 
-## What happens when we start spark-sql shell on a fresh mmachine.
+Imagine you have a fresh standalone Spark server. You log into the server through the terminal, and your current directory is `/home/dwdas`. The moment you enter the `spark-sql` command, Spark starts an embedded Derby database and creates a `metastore_db` folder in your current directory. This folder serves as the root of the Derby database. Essentially, Spark "boots a Derby instance on `metastore_db`".
 
-Say, I have a standalone spark server. I log into the server thruogh terminal. My current directory is /home/dwdas. The momenet I enter spark-sql. This is what happens:
+By default, a fresh Spark setup uses its in-house Derby database as a 'metastore' to store the names and file locations of the Spark tables you create. This is Spark's basic way to manage its tables. Though you can upgrade it and use an external metastore and other advanced features.
 
-- Spark starts a debry database and creates a metastore_db folder inside the current folder. This folder is the root folder of the derby database. Technically 'boots a derby instance on metastore_db'
+<img src="images/custom-image-2024-06-20-15-36-20.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
-Note: my spark-defaults.conf file is completely commented out. Meaning, everything happenign is the default behaviour. Also, i didnt do anything related to hive, neither do I have any hive installation etc. Its just a standalone pure spark machine. I just stareted the spark-sql shell.
 
-So, without any customizaztion and anything related to hive, Spark still needs to manage the internal tables. It uses its in-house derby database for this case to store name and file location of the spark-tables locally that we will create.
+> 
 
-![](images/custom-image-2024-06-20-15-36-20.png)
 
-Now, let me create a table using spark-sql and store some data and see what happens:
-
-Your version looks quite good and covers the essential details. I've made some minor corrections for clarity and added a bit more detail where necessary:
-
-```plaintext
-24/06/20 07:44:39 WARN ResolveSessionCatalog: A Hive serde table will be created as there is no table provider specified. You can set spark.sql.legacy.createHiveTableByDefault to false so that native data source table will be created instead.
-```
-![](images/custom-image-2024-06-20-15-59-47.png)
-
-
-**Explanation**:
-- **Message**: Spark is informing you that it will create a Hive SerDe (Serializer/Deserializer) table because no specific table provider was specified in the `CREATE TABLE` statement.
-- - **Catalog Role**: When you execute a `CREATE TABLE` statement without specifying a table provider, the `ResolveSessionCatalog` warning is triggered. This indicates that Spark’s session catalog is defaulting to creating a Hive SerDe table. The session catalog is responsible for interpreting and resolving the SQL commands you issue, and by default, it chooses to create a Hive-compatible table if no specific provider is mentioned.
-- **Reason**: By default, Spark falls back to creating a Hive-compatible table when no table provider is specified.
-- **Note**: If we want a native Spark SQL data source table instead of a Hive-compatible table, we need to set the configuration property `spark.sql.legacy.createHiveTableByDefault` to `false`.
-
-- This can be done using the `spark-defaults.conf` file:
-  ```properties
-  spark.sql.legacy.createHiveTableByDefault=false
-  ```
-- Or when starting the Spark SQL shell:
-  ```sh
-  spark-sql --conf spark.sql.legacy.createHiveTableByDefault=false
-  ```
-- Also, this property can be set during session creation in PySpark:
-  ```python
-  from pyspark.sql import SparkSession
-
-  spark = SparkSession.builder \
-      .appName("example") \
-      .config("spark.sql.legacy.createHiveTableByDefault", "false") \
-      .getOrCreate()
-  ```
-
-```plaintext
-24/06/20 07:44:40 WARN HiveMetaStore: Location: file:/home/dwdas/spark-warehouse/movies specified for non-external table:movies
-```
-
-**Explanation**:
-- **Message**: Spark is indicating that the specified location for storing the table data is `file:/home/dwdas/spark-warehouse/movies`, which is the default directory for Spark's warehouse.
-- - **Catalog Role**: The Hive metastore warning relates to the location where the table’s data will be stored. This is managed by the Hive catalog, which stores metadata about where each table’s data is located. For non-external (managed) tables, the catalog specifies that data should be stored in the default warehouse directory unless otherwise configured.
-- **Note**: The default location for non-external tables is `spark-warehouse` inside the current working directory. However, this location can be changed by setting the `spark.sql.warehouse.dir` property either in the Spark configuration file or during the Spark session creation.
-
-- To change the warehouse directory using the `spark-defaults.conf` file:
-  ```properties
-  spark.sql.warehouse.dir=/your/custom/path
-  ```
-- Or when starting the Spark SQL shell:
-  ```sh
-  spark-sql --conf spark.sql.warehouse.dir=/your/custom/path
-  ```
-- Also, this property can be set during session creation in PySpark:
-  ```python
-  from pyspark.sql import SparkSession
-
-  spark = SparkSession.builder \
-      .appName("example") \
-      .config("spark.sql.warehouse.dir", "/your/custom/path") \
-      .getOrCreate()
-  ```
-### Configuring the Catalog
-
-You can configure the catalog behavior using various properties. Here are some key properties related to the catalog:
-
-#### `spark.sql.catalogImplementation`
-
-- Specifies the default catalog implementation. Options are `hive` for Hive support or `in-memory` for Spark’s native catalog.
-- Configuration:
-  ```properties
-  spark.sql.catalogImplementation=hive
-  ```
-
-#### `spark.sql.warehouse.dir`
-
-- Sets the default location for the database warehouse directory where managed table data is stored.
-- Configuration:
-  ```properties
-  spark.sql.warehouse.dir=/your/custom/path
-  ```
-
-### Example Configurations in `spark-defaults.conf`
-
-To use the Hive catalog and set a custom warehouse directory, your `spark-defaults.conf` might include:
-
-```properties
-spark.sql.catalogImplementation=hive
-spark.sql.warehouse.dir=/your/custom/path
-```
-
-### Setting Configuration at Runtime
-
-You can also set these properties when creating a Spark session in PySpark:
-
-```python
-from pyspark.sql import SparkSession
-
-spark = SparkSession.builder \
-    .appName("example") \
-    .config("spark.sql.catalogImplementation", "hive") \
-    .config("spark.sql.warehouse.dir", "/your/custom/path") \
-    .getOrCreate()
-```
-
-
-
-### SPARK Managed Tables(AKA Internal / Spark-Metastore Tables)
-
-I have a simple spark enviornment. There is no items like HDFS, Hive etc instlled by me. Let's see what happens if I create a table using spark-sql CLI.
-
-I opened the spark-sql CLI from the terminal and ran the followng statements:
-
-```sql
-CREATE TABLE Hollywood (name STRING);
-INSERT INTO Hollywood VALUES ('Inception'), ('Titanic');
-SELECT * FROM Hollywood;
-```
-
-A table was created and I was able to see the results of the select statement. When I ran DESCRIBE EXTENDED HOLLYWOOD; it showed the folloiwng:
-
-![](images/custom-image-2024-06-19-17-25-45.png)
-
-- **Catalog:** `spark_catalog` - Spark uses its own internal catalog to manage metadata.
-- **Database:** `default` - The default database provided by Spark.
-- **Table:** `hollywood` - The name of your table.
-- **Owner:** `spark` - Indicates the owner of the table.
-- **Created Time:** `Wed Jun 19 08:35:37 UTC 2024` - The timestamp when the table was created.
-- **Type:** `MANAGED` - Indicates that Spark manages the table's lifecycle.
-- **Provider:** `hive` - Although Hive is mentioned here, it likely refers to Spark's capability to handle Hive-compatible metadata.
-- **Serde Library:** `org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe` - Serialization and deserialization library.
-- **InputFormat:** `org.apache.hadoop.mapred.TextInputFormat` - Input format for reading the table data.
-- **OutputFormat:** `org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat` - Output format for writing the table data.
-- **Location:** `file:/home/dwdas/spark-warehouse/hollywood` - File path where the table data is stored.
-- **Partition Provider:** `Catalog` - Indicates that the catalog manages partitions.
-
-Even without a standalone Hive installation, Spark can still provide this functionality by leveraging its built-in catalog and Hive-compatible features. This allows you to use SQL-like operations and manage tables within Spark.
-
-![](images/custom-image-2024-06-19-18-03-34.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p style="color: navy; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f8f8f8; padding: 15px; border-left: 5px solid grey; border-radius: 10px; box-shadow: 2px 2px 10px grey;">
+<strong>Remember:</strong><br>
+Your current directory is crucial because everything is created inside it. This often confuses new learners who forget this, making it hard to find their tables later.<br>
+</p>
 
 
 
 <p style="color: navy; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f8f8f8; padding: 15px; border-left: 5px solid grey; border-radius: 10px; box-shadow: 2px 2px 10px grey;">
-<strong>Summary:</strong><br>
-<span style="color: darkgreen;">1. Data is stored in a Spark-connected ADLS container.</span><br>
-<span style="color: darkred;">2. Spark handles the storage.</span><br>
-<span style="color: darkblue;">3. Dropping a managed table deletes both the table metadata and the data.</span><br>
-<span style="color: Teal;">4. DO NOT provide the LOCATION field > Table becomes EXTERNAL.</span>
+<strong>Remember:</strong><br>
+<span style="color: darkgreen;">Spark SQL does not use a Hive metastore under the cover. By default, it uses in-memory catalogs if Hive support is not enabled.</span><br>
+<span style="color: darkred;">Spark-shell: By default, uses in-memory catalogs unless configured to use Hive metastore.</span><br>
+<span style="color: darkblue;">Set <code>spark.sql.catalogImplementation</code> to <code>hive</code> or <code>in-memory</code> to control this.</span><br>
 </p>
 
-> Every Spark managed table is a folder inside a db folder
 
-When you use enableHiveSupport() in Spark without specifying an external Hive metastore, Spark creates a default embedded metastore using Derby. Here’s how it works:
+## What Happens When You Create a Table in Spark-SQL?
 
-Hive Metastore and Metastore Database in Spark
-Embedded Derby Metastore:
+Let's open the spark-sql and enter this simple command:
 
-When you don't configure an external Hive metastore, Spark uses an embedded Derby database by default.
-The metadata for your tables is stored in a local Derby database file.
-Location of Derby Database:
+```sql
+CREATE TABLE movies (title STRING, genre STRING);
+INSERT INTO movies VALUES ('Inception', 'Sci-Fi');
+```
 
-The Derby database is typically stored in the metastore_db directory within your Spark working directory.
-This directory contains the metadata for your Hive tables.
-Default Warehouse Directory:
+You will see logs like these:
 
-The data files for your managed tables are stored in the default warehouse directory, usually spark-warehouse within your Spark working directory, unless configured otherwise.
-These files are stored in Parquet format, with associated .crc files for checksums.
+```plaintext
+24/06/20 07:44:39 WARN ResolveSessionCatalog: A Hive serde table will be created as there is no table provider specified. You can set spark.sql.legacy.createHiveTableByDefault to false so that native data source table will be created instead.
+```
 
-Now let's clear some concepts:
+<img src="images/custom-image-2024-06-20-15-59-47.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
-spark-warehouse folder: Its the folder where SparkSQL stores
-spark-catalogue
-Spark tables - Manged and External
-Hive, Derby database
-enableHiveSupport()
-metastoer(aka metastore_db) and catalogues
 
-=> Metastore (aka metastore_db) is a relational database that is used by Hive, Presto, Spark, etc. to manage the metadata of persistent relational entities (e.g. databases, tables, columns, partitions) for fast access. Additionally, a spark-warehouse is the directory where Spark SQL persists tables. 😀
+**Explanation**:
+- When you execute a `CREATE TABLE` statement without specifying a table provider, Spark’s session catalog defaults to creating a Hive SerDe table. The session catalog interprets and resolves SQL commands.
 
-Spark SQL by default uses an In-Memory catalog/metastore deployed with Apache Derby database. 
+- **Note**: To create a native Spark SQL table, set `spark.sql.legacy.createHiveTableByDefault` to `false`.
 
-spark.sql.warehouse.dir 
+  - In `spark-defaults.conf`:
 
-Unless configured otherwise, Spark will create an internal Derby database named metastore_db with a derby.log. Looks like you've not changed that.
+    ```properties
+    spark.sql.legacy.createHiveTableByDefault=false
+    ```
 
-When not configured by the hive-site.xml, the context automatically creates metastore_db in the current directory and creates a directory configured by spark.sql.warehouse.dir, which defaults to the directory spark-warehouse in the current directory that the Spark application is started
+  - In Spark SQL shell:
 
-$HIVE_HOME/conf/hive-site.xml
-hive.metastore.warehouse.dir
+    ```sh
+    spark-sql --conf spark.sql.legacy.createHiveTableByDefault=false
+    ```
 
-The base Apache Hadoop framework is composed of the following modules:
+  - In PySpark session:
 
-Hadoop Common — contains libraries and utilities needed by other Hadoop modules;
-Hadoop Distributed File System (HDFS) — a distributed file-system that stores data on commodity machines, providing very high aggregate bandwidth across the cluster;
-Hadoop YARN — (introduced in 2012) a platform responsible for managing computing resources in clusters and using them for scheduling users’ applications;
-Hadoop MapReduce — an implementation of the MapReduce programming model for large-scale data processing.
+    ```python
+    from pyspark.sql import SparkSession
 
-Serde library
-The default external catalog implementation is controlled by spark.sql.catalogImplementation internal property and can be one of the two possible values: hive and in-memory.
+    spark = SparkSession.builder \
+        .appName("example") \
+        .config("spark.sql.legacy.createHiveTableByDefault", "false") \
+        .enableHiveSupport() \
+        .getOrCreate()
+    ```
 
-Can there be hive without hadoop. Yes, a local spark has hive locally, you wont need a complex hadoop installation.
+You might also see a warning like this:
 
-The Apache Hive ™ data warehouse software facilitates querying and managing large datasets residing in distributed storage. Hive provides a mechanism to project structure onto this data and query the data using a SQL-like language called HiveQL.
-Apache Hive is a data warehouse infrastructure built on top of Hadoop for providing data summarization, query, and analysis.
+```plaintext
+24/06/20 07:44:40 WARN HiveMetaStore: Location: file:/home/dwdas/spark-warehouse/movies specified for non-external table: movies
+```
 
-In a simple Spark installation, hive-site.xml might not be directly included  since Spark itself doesn't manage Hive configurations. Here are two possibilities:
+**Explanation**: This indicates the default storage location for non-external tables is `spark-warehouse`.
 
-Spark with Pre-installed Hive:
-If you installed Spark alongside a pre-existing Hive installation, then hive-site.xml might be located in the typical Hive configuration directory:
+**Note**: Change the default location by setting `spark.sql.warehouse.dir`.
+To change the warehouse directory:
 
-/etc/hive/conf/hive-site.xml
-Spark without Hive:
-If Spark is installed independently without Hive, you likely won't find hive-site.xml. In this case, Spark wouldn't rely on Hive configurations by default.
+- In `spark-defaults.conf`:
+
+    ```properties
+    spark.sql.warehouse.dir=/your/custom/path
+    ```
+
+- In Spark SQL shell:
+
+    ```sh
+    spark-sql --conf spark.sql.warehouse.dir=/your/custom/path
+    ```
+
+- In PySpark session:
+
+    ```python
+    from pyspark.sql import SparkSession
+
+    spark = SparkSession.builder \
+        .appName("example") \
+        .config("spark.sql.warehouse.dir", "/your/custom/path") \
+        .getOrCreate()
+    ```
+### Key Takeaway
+
+When you run `spark-sql` with default settings, it will start a Derby database and create a `metastore_db` folder inside your current directory. So, be mindful of your current directory.
+
+If you create a table in a PySpark session, Spark will create both a `metastore_db` and a `spark-warehouse` folder.
+
+
+
+### SPARK Managed Tables (AKA Internal / Spark-Metastore Tables) Using Spark-SQL Shell
+
+When you create tables in the spark-sql shell using commands like the one below, Spark will create a managed table. The table data will be stored in the `spark-warehouse` folder, and the Derby database (`metastore_db` folder) will contain its metadata.
+
+```sql
+CREATE TABLE Hollywood (name STRING);
+```
+
+The table will be permanent, meaning you can query it even after restarting Spark. Here is an example output of `DESCRIBE EXTENDED Hollywood` in the spark-sql shell:
+
+<img src="images/custom-image-2024-06-19-17-25-45.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
+
+
+- **Catalog**: `spark_catalog` - Spark uses its own internal catalog to manage metadata.
+- **Database**: `default` - The default database provided by Spark.
+- **Table**: `hollywood` - The name of your table.
+- **Owner**: `spark` - Indicates the owner of the table.
+- **Created Time**: `Wed Jun 19 08:35:37 UTC 2024` - The timestamp when the table was created.
+- **Type**: `MANAGED` - Indicates that Spark manages the table's lifecycle.
+- **Provider**: `hive` - Refers to Spark's capability to handle Hive-compatible metadata.
+- **Serde Library**: `org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe` - Serialization and deserialization library.
+- **InputFormat**: `org.apache.hadoop.mapred.TextInputFormat` - Input format for reading the table data.
+- **OutputFormat**: `org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat` - Output format for writing the table data.
+- **Location**: `file:/home/dwdas/spark-warehouse/hollywood` - File path where the table data is stored.
+- **Partition Provider**: `Catalog` - Indicates that the catalog manages partitions.
+
+### Key Takeaways:
+
+- **Built-in Catalog**: Even without a standalone Hive installation, Spark provides managed table functionality by leveraging its built-in catalog and Hive-compatible features.
+- **SQL-like Operations**: You can use SQL-like operations to manage tables within Spark.
+- **Embedded Deployment Mode**: By default, Spark SQL uses an embedded deployment mode of a Hive metastore with an Apache Derby database.
+- **Production Use**: The default embedded deployment mode is not recommended for production use due to the limitation of only one active SparkSession at a time.
+
+
+<p style="color: navy; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f8f8f8; padding: 15px; border-left: 5px solid grey; border-radius: 10px; box-shadow: 2px 2px 10px grey;">
+<strong>Remember:</strong><br>
+This Derby-mini-Hive method that Spark uses to manage internal tables has a limitation: only one active session is allowed at a time. Attempting multiple `spark-sql` sessions will result in a Derby database exception.
+</p>
+
+<img src="images/custom-image-2024-06-21-02-59-01.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
+
+Would you take this to production?
+
+## Metastore in Spark
+
+The metastore in Spark stores metadata about tables, like their names and the locations of their files (e.g., Parquet files). In Spark, the metastore is typically configured in one of two common ways, but there are also more advanced options available.
+
+1. **Standalone Hive Metastore:** You can install and configure a standalone Hive metastore server. This server would manage the metadata independently and communicate with your Spark application.
+
+### 2. **Embedded Hive Metastore with Derby**
+
+Spark includes a built-in metastore that uses an embedded Apache Derby database. This database starts in the application's working directory and stores data in the `metastore_db` folder. It's a convenient, pseudo-metastore suitable for small applications or datasets. To use this, simply enable Hive support in your Spark session with `enableHiveSupport()`:
 
 ```python
 from pyspark.sql import SparkSession
 
-# Create or get a Spark session
 spark = SparkSession.builder \
-    .appName("MyApp") \
+    .appName("EmbeddedMetastoreExample") \
+    .enableHiveSupport() \
     .getOrCreate()
-
-# Get the current value of spark.sql.warehouse.dir
-warehouse_dir = spark.conf.get("spark.sql.warehouse.dir")
-print(f"Warehouse Directory: {warehouse_dir}")
 ```
 
-When working with Hive, one must instantiate SparkSession with Hive support, including connectivity to a persistent Hive metastore, support for Hive serdes, and Hive user-defined functions. Users who do not have an existing Hive deployment can still enable Hive support. When not configured by the hive-site.xml, the context automatically creates metastore_db in the current directory and creates a directory configured by spark.sql.warehouse.dir, which defaults to the directory spark-warehouse in the current directory that the Spark application is started. Note that the hive.metastore.warehouse.dir property in hive-site.xml is deprecated since Spark 2.0.0. Instead, use spark.sql.warehouse.dir to specify the default location of database in warehouse. You may need to grant write privilege to the user who starts the Spark application.
+
+<p style="color: navy; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f8f8f8; padding: 15px; border-left: 5px solid grey; border-radius: 10px; box-shadow: 2px 2px 10px grey;">
+<strong>Again:</strong><br>
+By default, Hive uses an embedded Apache Derby database to store its metadata. While this is a convenient option for initial setup, it has limitations. Notably, Derby can only support one active user at a time. This makes it unsuitable for scenarios requiring multiple concurrent Hive sessions. So, the solution is to use a standard database like MySQL/Postgrees or MSSQL as the metastore DB. And, let the poor derby take  some rest.
+</p>
