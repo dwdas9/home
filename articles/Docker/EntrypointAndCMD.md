@@ -7,7 +7,7 @@ nav_order: 4
 
 ## Understanding Dockerfile CMD and ENTRYPOINT Instructions
 
-CMD and ENTRYPOINT are crucial Dockerfile instructions that define what command runs when a Docker container starts. Here, I will try to explain the concepts:
+CMD and ENTRYPOINT are important Dockerfile instructions that define what command runs when a Docker container starts. Here, I will try to explain the concepts:
 ### What is ENTRYPOINT?
 
 ENTRYPOINT sets the main process that will run inside the container. For example:
