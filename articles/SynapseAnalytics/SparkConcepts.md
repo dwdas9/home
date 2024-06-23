@@ -12,7 +12,12 @@ nav_order: 1
   - [SPARK Managed Tables (AKA Internal / Spark-Metastore Tables) Using Spark-SQL Shell](#spark-managed-tables-aka-internal--spark-metastore-tables-using-spark-sql-shell)
   - [Key Takeaways:](#key-takeaways)
 - [Metastore in Spark](#metastore-in-spark)
-  - [2. **Embedded Hive Metastore with Derby**](#2-embedded-hive-metastore-with-derby)
+- [Catalog types in Spark](#catalog-types-in-spark)
+- [Spark configuration](#spark-configuration)
+  - [Steps to Verify Spark Using External Hive Metastore](#steps-to-verify-spark-using-external-hive-metastore)
+  - [Example Session in Spark Shell](#example-session-in-spark-shell)
+  - [Example Output of `DESCRIBE EXTENDED`](#example-output-of-describe-extended)
+  - [Summary](#summary)
 
 ## Concepts to get started
 
@@ -157,9 +162,6 @@ The table will be permanent, meaning you can query it even after restarting Spar
 
 - **Catalog**: `spark_catalog` - Spark uses its own internal catalog to manage metadata.
 - **Database**: `default` - The default database provided by Spark.
-- **Table**: `hollywood` - The name of your table.
-- **Owner**: `spark` - Indicates the owner of the table.
-- **Created Time**: `Wed Jun 19 08:35:37 UTC 2024` - The timestamp when the table was created.
 - **Type**: `MANAGED` - Indicates that Spark manages the table's lifecycle.
 - **Provider**: `hive` - Refers to Spark's capability to handle Hive-compatible metadata.
 - **Serde Library**: `org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe` - Serialization and deserialization library.
@@ -191,7 +193,7 @@ The metastore in Spark stores metadata about tables, like their names and the lo
 
 1. **Standalone Hive Metastore:** You can install and configure a standalone Hive metastore server. This server would manage the metadata independently and communicate with your Spark application.
 
-### 2. **Embedded Hive Metastore with Derby**
+2. **Embedded Hive Metastore with Derby**
 
 Spark includes a built-in metastore that uses an embedded Apache Derby database. This database starts in the application's working directory and stores data in the `metastore_db` folder. It's a convenient, pseudo-metastore suitable for small applications or datasets. To use this, simply enable Hive support in your Spark session with `enableHiveSupport()`:
 
@@ -209,3 +211,179 @@ spark = SparkSession.builder \
 <strong>Again:</strong><br>
 By default, Hive uses an embedded Apache Derby database to store its metadata. While this is a convenient option for initial setup, it has limitations. Notably, Derby can only support one active user at a time. This makes it unsuitable for scenarios requiring multiple concurrent Hive sessions. So, the solution is to use a standard database like MySQL/Postgrees or MSSQL as the metastore DB. And, let the poor derby take  some rest.
 </p>
+
+## Catalog types in Spark
+
+1. In-Memory Catalog: Default catalog. Stores data memory. Everything vanishes when session is closed. For some quick queries etc.
+
+2. Hive Catalog: A mini-version comes shipped with Spark. You need to enable hive support to use it. Data is stoerd permanently. Can have a full-fledged hivve as well.
+
+3. JDBC Catalog: When you want a full-database like MSSQL to store the catalog information. Can be like Hive+MSSQL.
+
+4. Custom Catalogs: Custom catalogs can be implemented using ExtendedCatalogInterface. AWS glue, Synapese databricks.
+
+5. Delta Lake Catalog: When using Delta Lake, it provides its own catalog implementation.
+
+## Spark configuration
+
+
+2. Default Configuration Directory
+By default, Spark looks for configuration files in the conf directory inside the Spark installation directory. This is typically /opt/spark/conf in many Docker images.
+
+First find SPARK_HOME using printenv
+
+It can be SPARK_HOME=/opt/bitnami/spark or opt/spark
+
+
+SPARK_CONF_DIR=/path/to/your/configuration/directory
+Some spark-shell commands for spark configuration:
+println(spark.conf.get("spark.sql.warehouse.dir"))
+spark.conf.getAll.foreach(println)
+println(spark.conf.get("spark.sql.catalogImplementation"))  // Should print "hive"
+println(spark.conf.get("spark.hadoop.hive.metastore.uris"))  // Should print "thrift://hive-metastore:9083"
+
+spark.conf.set("spark.hadoop.hive.metastore.uris", "thrift://hive-metastore:9083")
+spark.conf.set("spark.sql.catalogImplementation", "hive")
+
+// Verify the configurations
+println(spark.conf.get("spark.sql.catalogImplementation"))
+println(spark.conf.get("spark.hadoop.hive.metastore.uris"))
+
+
+
+---
+To verify if Spark is using the external Hive metastore for managed tables, you can perform the following steps:
+
+### Steps to Verify Spark Using External Hive Metastore
+
+1. **Start Spark Shell with Configuration**:
+   Ensure that the Spark shell is started with the correct Hive metastore configuration.
+
+   ```sh
+   spark-shell --conf spark.sql.catalogImplementation=hive --conf spark.hadoop.hive.metastore.uris=thrift://hive-metastore:9083
+   ```
+
+2. **Create and Query a Managed Table**:
+   Create a database and a managed table in Spark and insert data into it. Then, query the table to ensure it is using the Hive metastore.
+
+   ```scala
+   // Use the Hive database
+   spark.sql("CREATE DATABASE IF NOT EXISTS db_hollywood")
+   spark.sql("USE db_hollywood")
+
+   // Create a managed table in the Hive metastore
+   spark.sql("""
+     CREATE TABLE IF NOT EXISTS mgd_tbl_films (
+       id INT,
+       name STRING
+     )
+     ROW FORMAT DELIMITED
+     FIELDS TERMINATED BY ','
+     STORED AS TEXTFILE
+   """)
+
+   // Insert data into the managed table
+   spark.sql("INSERT INTO mgd_tbl_films VALUES (1, 'Titanic'), (2, 'Inception')")
+
+   // Query the managed table
+   spark.sql("SELECT * FROM mgd_tbl_films").show()
+   ```
+
+3. **Describe the Managed Table**:
+   Use the `DESCRIBE EXTENDED` command to get detailed information about the table and ensure it is using the Hive metastore.
+
+   ```scala
+   spark.sql("DESCRIBE EXTENDED mgd_tbl_films").show(truncate = false)
+   ```
+
+4. **Check Hive Metastore**:
+   Log into the Hive CLI and check if the table is present in the Hive metastore.
+
+   ```sh
+   hive
+   ```
+
+   In the Hive CLI:
+
+   ```sql
+   USE db_hollywood;
+   SHOW TABLES;
+   SELECT * FROM mgd_tbl_films;
+   ```
+
+### Example Session in Spark Shell
+
+```scala
+// Start Spark Shell
+spark-shell --conf spark.sql.catalogImplementation=hive --conf spark.hadoop.hive.metastore.uris=thrift://hive-metastore:9083
+
+// Create database and table
+spark.sql("CREATE DATABASE IF NOT EXISTS db_hollywood")
+spark.sql("USE db_hollywood")
+spark.sql("""
+  CREATE TABLE IF NOT EXISTS mgd_tbl_films (
+    id INT,
+    name STRING
+  )
+  ROW FORMAT DELIMITED
+  FIELDS TERMINATED BY ','
+  STORED AS TEXTFILE
+""")
+spark.sql("INSERT INTO mgd_tbl_films VALUES (1, 'Alice'), (2, 'Bob')")
+
+// Query the table
+spark.sql("SELECT * FROM mgd_tbl_films").show()
+
+// Describe the table
+spark.sql("DESCRIBE EXTENDED mgd_tbl_films").show(truncate = false)
+```
+
+### Example Output of `DESCRIBE EXTENDED`
+
+The output should include the location in the Hive warehouse directory and other properties indicating it is managed by Hive.
+
+```
++----------------------------+------------------------------------------------------------+-------+
+|col_name                    |data_type                                                   |comment|
++----------------------------+------------------------------------------------------------+-------+
+|id                          |int                                                         |null   |
+|name                        |string                                                      |null   |
+|                            |                                                            |       |
+|# Detailed Table Information|                                                            |       |
+|Database:                   |test_db                                                     |       |
+|Table:                      |managed_table                                               |       |
+|Owner:                      |user                                                        |       |
+|Created Time:               |...                                                         |       |
+|Last Access Time:           |...                                                         |       |
+|Created By:                 |Spark 3.x.x                                                 |       |
+|Type:                       |MANAGED                                                     |       |
+|Provider:                   |hive                                                        |       |
+|Table Properties:           |...                                                         |       |
+|Location:                   |hdfs://namenode:8020/user/hive/warehouse/test_db.db/managed_table|       |
+|Serde Library:              |org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe          |       |
+|InputFormat:                |org.apache.hadoop.mapred.TextInputFormat                    |       |
+|OutputFormat:               |org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat  |       |
+|Storage Properties:         |[serialization.format=,, field.delim=,]                     |       |
++----------------------------+------------------------------------------------------------+-------+
+```
+
+### Summary
+
+By following these steps, you can verify that Spark is using the external Hive metastore for managed tables. Creating a database and table in Spark, inserting data, and querying the table while checking the detailed table information will confirm if the Hive metastore is being used. Additionally, checking the Hive metastore directly through the Hive CLI will provide further confirmation.
+
+
+
+// Start Spark Shell
+spark-shell --conf spark.sql.catalogImplementation=hive --conf spark.hadoop.hive.metastore.uris=thrift://hive-metastore:9083
+
+// List all databases
+spark.sql("SHOW DATABASES").show()
+
+// Use the correct database
+spark.sql("USE db_hollywood")
+
+// List all tables in the database
+spark.sql("SHOW TABLES").show()
+
+// Describe the table
+spark.sql("DESCRIBE EXTENDED mgd_tbl_films").show(truncate = false)
