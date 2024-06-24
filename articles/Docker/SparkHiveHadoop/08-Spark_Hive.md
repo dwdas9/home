@@ -1,3 +1,10 @@
+---
+layout: post
+title: Debian_PySpark
+parent: Docker
+nav_order: 5
+---
+
 # Setting Up a Complete Data Warehouse with Spark Cluster & External  Hive with External Metastore (MSSQL)
 
 Here, I will show you how to create a complete warehouse setup with a Spark Cluster and a standalone Hive with an external metastore database (MSSQL). The setup will use 5 containers:
@@ -295,7 +302,9 @@ Key Points:
 
 From the spark serer command line enter:
 
+```shell
 spark-shell --conf spark.sql.catalogImplementation=hive --conf spark.hadoop.hive.metastore.uris=thrift://hive-metastore:9083
+```
 
 ### 3. Verify Spark Configuration
 
