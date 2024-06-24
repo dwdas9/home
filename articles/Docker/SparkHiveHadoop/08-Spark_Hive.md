@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: minimal
 title: Debian_PySpark
 parent: Docker
 nav_order: 5
