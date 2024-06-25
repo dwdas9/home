@@ -353,8 +353,10 @@ In this case, the tables will be `EXTERNAL` and stored in the directory specifie
 
 # <span style="color: red;">Errors</span>
 
-If DB_DRIVER=derby in env var but hive-site.xml has no mssql connection:
+- If DB_DRIVER=derby in env var but hive-site.xml has no mssql connection:
 ![](images/custom-image-2024-06-24-02-12-37.png)
+
+- If you are unable to create folders or perform any operation. It could be the user 1001 is not having enough permissions. This is a typical user Bitnami spark configures to run the container.
 
 
 # Server Details
