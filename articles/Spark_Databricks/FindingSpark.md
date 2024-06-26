@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Finding Spark
-parent: SynapseAnalytics
+parent: SparkDatabricks
 nav_order: 1
 ---
 

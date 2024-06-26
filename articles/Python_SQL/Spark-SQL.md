@@ -1,8 +1,8 @@
 ---
 layout: default
-title: spark-sql commands
-parent: SynapseAnalytics
-nav_order: 12
+title: Spark-SQL
+parent: PythonSQL
+nav_order: 3
 ---
 
 # Some essential spark-sql commands

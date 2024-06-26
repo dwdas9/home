@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Python Sets
-parent: Python
-nav_order: 1
+title: Python
+parent: PythonSQL
+nav_order: 2
 ---
 
 ## Python Sets Properties

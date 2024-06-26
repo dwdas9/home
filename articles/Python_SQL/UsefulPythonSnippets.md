@@ -1,3 +1,11 @@
+---
+layout: default
+title: Python Snippets
+parent: PythonSQL
+nav_order: 5
+---
+
+```python
 import os
 import getpass
 print("Current user:", getpass.getuser())
@@ -17,3 +25,4 @@ has_execute_permission = os.access(directory_to_check, os.X_OK)
 print(f"Read permission: {has_read_permission}")
 print(f"Write permission: {has_write_permission}")
 print(f"Execute permission: {has_execute_permission}")
+```
