@@ -5,6 +5,6 @@ nav_order: 6
 has_children: true
 ---
 
-Power Platform AI Capabilities.
+Articles on AIHub
 
 ---

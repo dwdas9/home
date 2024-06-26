@@ -5,6 +5,6 @@ nav_order: 9
 has_children: true
 ---
 
-Topics on Microsoft Fabric
+Topics on Spark, Pyspark and Databricks
 
 ---
