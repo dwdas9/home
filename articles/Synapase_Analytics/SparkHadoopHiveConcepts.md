@@ -1,20 +1,63 @@
----
-layout: default
-title: Spark Concepts
-parent: SynapseAnalytics
-nav_order: 1
----
+![](images/custom-image-2024-06-17-15-31-39.png)
 
-- [Concepts to get started](#concepts-to-get-started)
-- [What happens when you enter `spark-sql` on a freshly installed Spark server?](#what-happens-when-you-enter-spark-sql-on-a-freshly-installed-spark-server)
-- [What Happens When You Create a Table in Spark-SQL?](#what-happens-when-you-create-a-table-in-spark-sql)
-  - [Key Takeaway](#key-takeaway)
-  - [SPARK Managed Tables (AKA Internal / Spark-Metastore Tables) Using Spark-SQL Shell](#spark-managed-tables-aka-internal--spark-metastore-tables-using-spark-sql-shell)
-  - [Key Takeaways:](#key-takeaways)
-- [Metastore in Spark](#metastore-in-spark)
-- [Catalog types in Spark](#catalog-types-in-spark)
+## Apache Hive and Spark: An Overview
 
-## Concepts to get started
+### What is Apache Hive?
+
+**Apache Hive** is a database  like MSSQL Server. Its actually a data warehouse. It stores data in Hadoop File system(HDFS) as tables.Hive's query language is called **HiveQL**, similar to SQL. he **Hive metastore** stores information about Hive tables. Developed by Facebook, Hive later became an Apache project.
+
+### What is Hadoop?
+
+Haddop has three parts: HDFS - The file system. Mapreduce - The processing engine.Yarn - Resource manager
+
+### What is Spark?
+
+Its mainly a processing engine more like Mapreduce v2. It has no internal storage sytem like HDFS, but uses external file system lie ADLS, HDFS, S3 etc. Its processing engine is called Spark Core. It has standalone resource manager by default to manage its clusters.
+
+
+### Is spark replacing Hive, hadoop and the old-timers?
+
+Products like Azure Synapse, Microsft Fabric gives you ADLS, OneLake for storage. And Spark for processing. And creation fo warehouse is also so simple, just load the raw data form csvs into spark dataframe and save them as delta lake tables.
+
+Now, try to get a similar setup using Hive and Hadoop. The steps will be:
+
+Go through the complex installation setup of hive, which will include ccratinga hive metastore integrating with Hive metastore db, installing HDFS and manging it. And, the steps aren't simple enough, they include very low level humoungus settings and setup files.
+
+Also, if you use 
+
+### Never heard of Hive. We use only Spark and Synapse Analytics.
+
+
+Alright you never heard of Hive and you only create Internal spark tables. Internal tables(or spark internal tables) is a very new and very much used technology in Azure Synapse.
+
+Suppose 
+
+
+
+- **Hive on Spark** integrates Hive with Spark, using Spark's in-memory processing to boost performance.
+- It uses **HiveQL**, suitable for batch processing and ETL tasks.
+- Hive on Spark leverages the **Hive metastore** for managing table metadata.
+
+### Example: Hive on Spark
+
+```python
+spark = SparkSession \
+    .builder \
+    .appName("Python Spark SQL Hive integration example") \
+    .config("spark.sql.warehouse.dir", warehouse_location) \
+    .enableHiveSupport() \
+    .getOrCreate()
+```
+### What is Hadoop?
+
+Hadoop is a distributed file system and processing framework similar to an MSSQL cluster but designed for handling large-scale file systems and big data. Here are its main components:
+
+- **Hadoop Distributed File System (HDFS)**: The file system for big data, akin to NTFS or FAT in traditional systems.
+- **MapReduce**: The older generation of big data processing, similar to Spark.
+- **YARN (Yet Another Resource Negotiator)**: The cluster manager.
+- **Hadoop Common**: The set of shared libraries and utilities.
+
+# Spark Concepts to get started
 
 - A Spark Database is just a folder named **databasename.db** inside the **spark-warehouse** folder.
 - A Managed/Internal/Spark-Metastore table is a subfolder within the **databasename.db** folder. Partitions are also stored as subfolders.
@@ -218,3 +261,18 @@ By default, Hive uses an embedded Apache Derby database to store its metadata. W
 4. Custom Catalogs: Custom catalogs can be implemented using ExtendedCatalogInterface. AWS glue, Synapese databricks.
 
 5. Delta Lake Catalog: When using Delta Lake, it provides its own catalog implementation.
+
+## Spark RDDs
+## Spark In-memory computing
+
+When we talk about in-memory its not just conventioal caching. Its actually storing data in RAM, processing in RAM etc. So, spark uses it and thats why its faster than mapreduce.
+
+## Key components of spark
+
+Spark Core: Key component of spark. This has a core engine. 
+Spark SQL: Its a SQL engine. But, but a little diferent than traditional database. Here, dataframes are the main way of processing data.
+Spark Streming: This component makes spark capable of processing real-time data.
+Spark Mlib: This is basically collection of libraries
+GraphX: This graphs used in reports. But, data which can be collected some a network like facebook etc.
+
+RDDS: Spark core has RDD. These are building blocks of spark. 
