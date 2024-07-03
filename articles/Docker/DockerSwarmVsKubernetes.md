@@ -74,7 +74,7 @@ Kubernetes, developed by Google, offers a more complex structure with nodes, pod
 
 ## K3s, best of both worlds
 
-K3s, a lightweight version of Kubernetes, offers the full Kubernetes API without unnecessary complexity. It's easy to use and CNCF certified. Consider K3s if you want Kubernetes features with simpler management.
+[K3s](https://k3s.io/), a lightweight version of Kubernetes. It gives you the full Kubernetes API without complexity. It's easy to use and CNCF certified. Consider K3s if you want Kubernetes features with simpler management.
 
 ## Which One Should You Choose?
 
