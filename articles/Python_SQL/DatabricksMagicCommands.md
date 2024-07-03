@@ -40,3 +40,76 @@ nav_order: 2
 | <span style="color:#0a9396;">**%matplotlib**</span>   | Sets up the matplotlib backend.                | <span style="color:#0a9396;">`%matplotlib inline`</span>                                  |
 | <span style="color:#0a9396;">**%who**</span>          | Lists all the variables in the current scope.  | <span style="color:#0a9396;">`%who`</span>                                                |
 | <span style="color:#0a9396;">**%env**</span>          | Sets environment variables.                    | <span style="color:#0a9396;">`%env MY_VARIABLE=my_value`</span>                            |
+
+## Mounting and Unmounting Storage
+
+| <span style="color:#005f73;">**Command**</span>       | <span style="color:#005f73;">**Example**</span>                                                                                                                                       |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span style="color:#0a9396;">**Mount ADLS**</span>    | <span style="color:navy;">dbutils.fs.mount(<br>&nbsp;&nbsp;source = "adl://<storage-account-name>.azuredatalakestore.net/<filesystem-name>",<br>&nbsp;&nbsp;mount_point = "/mnt/<mount-name>",<br>&nbsp;&nbsp;extra_configs = {<br>&nbsp;&nbsp;&nbsp;&nbsp;"dfs.adls.oauth2.access.token.provider.type": "ClientCredential",<br>&nbsp;&nbsp;&nbsp;&nbsp;"dfs.adls.oauth2.client.id": dbutils.secrets.get(scope = "<scope-name>", key = "client-id"),<br>&nbsp;&nbsp;&nbsp;&nbsp;"dfs.adls.oauth2.credential": dbutils.secrets.get(scope = "<scope-name>", key = "client-secret"),<br>&nbsp;&nbsp;&nbsp;&nbsp;"dfs.adls.oauth2.refresh.url": "https://login.microsoftonline.com/<directory-id>/oauth2/token"}<br>)</span> |
+| <span style="color:#0a9396;">**Unmount Storage**</span> | <span style="color:#navy;">dbutils.fs.unmount("/mnt/<mount-name>")</span>                                                                                                                                  |
+| <span style="color:#0a9396;">**List Mount Points**</span> | <span style="color:#0a9396;">display(dbutils.fs.mounts())</span>                                                                                                                                               |
+
+## File Operations
+
+| <span style="color:#005f73;">**Command**</span>             | <span style="color:#005f73;">**Example**</span>                                                                                                  |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span style="color:#0a9396;">**Read CSV File**</span>       | <span style="color:navy;">df = spark.read.csv("/mnt/<mount-name>/data/file.csv", header=True, inferSchema=True)<br>display(df)</span>                                 |
+| <span style="color:#0a9396;">**Write CSV File**</span>      | <span style="color:navy;">df.write.mode("overwrite").csv("/mnt/<mount-name>/output/")</span>                                                                         |
+| <span style="color:#0a9396;">**List Files**</span>          | <span style="color:#0a9396;">display(dbutils.fs.ls("/mnt/<mount-name>"))</span>                                                                                          |
+
+## Secret Management
+
+| <span style="color:#005f73;">**Command**</span>       | <span style="color:#005f73;">**Example**</span>                                                                                                             |
+|------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| <span style="color:#0a9396;">**Set a Secret**</span> | <span style="color:#0a9396;">databricks secrets create-scope --scope <scope-name><br>databricks secrets put --scope <scope-name> --key <key-name> --string-value <value></span> |
+| <span style="color:#0a9396;">**Get a Secret**</span> | <span style="color:#0a9396;">secret = dbutils.secrets.get(scope = "<scope-name>", key = "<key-name>")</span>                                  |
+
+## Shell Commands
+
+| <span style="color:#005f73;">**Command**</span>        | <span style="color:#005f73;">**Example**</span>                                                                                                    |
+|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span style="color:#0a9396;">**Run Shell Command**</span> | <span style="color:#0a9396;">%sh ls -lh /dbfs/mnt/<mount-name>/</span>                                                                                                 |
+
+## SQL and Context Switching
+
+| <span style="color:#005f73;">**Command**</span>          | <span style="color:#005f73;">**Example**</span>                                                                                               |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span style="color:#0a9396;">**Run SQL Query**</span>    | <span style="color:#0a9396;">%sql SELECT * FROM table_name WHERE column = 'value'</span>                                                                                 |
+| <span style="color:#0a9396;">**Switch to Scala**</span>  | <span style="color:#0a9396;">%scala val x = 10</span>                                                                                                                 |
+| <span style="color:#0a9396;">**Switch to Python**</span> | <span style="color:#0a9396;">%python print("Hello, Databricks!")</span>                                                                                               |
+| <span style="color:#0a9396;">**Switch to R**</span>      | <span style="color:#0a9396;">%r summary(data_frame)</span>                                                                                                                |
+
+## Package Management
+
+| <span style="color:#005f73;">**Command**</span>     | <span style="color:#005f73;">**Example**</span>                                                                                              |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span style="color:#0a9396;">**Install Packages**</span> | <span style="color:#0a9396;">%pip install pandas matplotlib</span>                                                                                           |
+
+## Environment and Module Management
+
+| <span style="color:#005f73;">**Command**</span>    | <span style="color:#005f73;">**Example**</span>                                                                                                |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span style="color:#0a9396;">**Set Environment Variable**</span> | <span style="color:#0a9396;">%env MY_VARIABLE=my_value</span>                                                                                           |
+| <span style="color:#0a9396;">**Load Python File**</span>         | <span style="color:#0a9396;">%load ./scripts/helper.py</span>                                                                                              |
+| <span style="color:#0a9396;">**Reload Module**</span>            | <span style="color:#0a9396;">%reload my_module</span>                                                                                                    |
+
+## Variable and Configuration Management
+
+| <span style="color:#005f73;">**Command**</span>      | <span style="color:#005f73;">**Example**</span>                                                                                                |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span style="color:#0a9396;">**List Variables**</span> | <span style="color:#0a9396;">%who</span>                                                                                                                         |
+| <span style="color:#0a9396;">**Notebook Configuration**</span> | <span style="color:#0a9396;">%config notebook.display.max_rows=1000</span>                                                                                       |
+
+## Markdown and Plotting
+
+| <span style="color:#005f73;">**Command**</span>      | <span style="color:#005f73;">**Example**</span>                                                                                                |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span style="color:#0a9396;">**Write Markdown**</span> | <span style="color:#0a9396;">%md # This is a Markdown Header<br>Here is some detailed description.</span>                                       |
+| <span style="color:#0a9396;">**Setup Matplotlib**</span> | <span style="color:#0a9396;">%matplotlib inline<br>import matplotlib.pyplot as plt<br>plt.plot([1, 2, 3], [4, 5, 6])<br>plt.show()</span> |
+
+## Job Management
+
+| <span style="color:#005f73;">**Command**</span>      | <span style="color:#005f73;">**Example**</span>                                                                                                |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span style="color:#0a9396;">**List Running Jobs**</span> | <span style="color:#0a9396;">%jobs</span>                                                                                                                         |
+
