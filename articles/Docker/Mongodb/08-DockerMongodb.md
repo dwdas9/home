@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Docker Setup Mongo DB
-parent: Azure Articles
+title: MongoDB_On_Docker
+parent: Docker
+nav_order: 8
 ---
 
 ![alt text](<Image Size.png>)

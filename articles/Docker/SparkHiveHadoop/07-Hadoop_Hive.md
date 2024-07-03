@@ -1,3 +1,9 @@
+---
+layout: default
+title: Hadoop-Hive
+parent: Docker
+nav_order: 7
+---
 - [End-to-End Tutorial for Installing Hadoop and Hive in a Docker Container](#end-to-end-tutorial-for-installing-hadoop-and-hive-in-a-docker-container)
   - [Step 1: Download Hadoop and Hive](#step-1-download-hadoop-and-hive)
   - [Step 2: Prepare the Configuration Files](#step-2-prepare-the-configuration-files)

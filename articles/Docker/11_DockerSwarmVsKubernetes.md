@@ -2,7 +2,7 @@
 layout: default
 title: DockerSwarmVsKubernetes
 parent: Docker
-nav_order: 1
+nav_order: 11
 ---
 - [Orchestration Tools - Docker Swarm vs Kubernetes](#orchestration-tools---docker-swarm-vs-kubernetes)
   - [Docker Swarm](#docker-swarm)

@@ -2,7 +2,7 @@
 layout: minimal
 title: Spark-Hive_MSSQL
 parent: Docker
-nav_order: 5
+nav_order: 6
 ---
 - [Setup a complete data warehouse with Spark cluster \& external Hive(MSSQL Metastore)](#setup-a-complete-data-warehouse-with-spark-cluster--external-hivemssql-metastore)
   - [For the busy people](#for-the-busy-people)

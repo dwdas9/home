@@ -2,7 +2,7 @@
 layout: default
 title: Docker Concepts
 parent: Docker
-nav_order: 4
+nav_order: 10
 ---
 - [Understanding Dockerfile CMD and ENTRYPOINT Instructions](#understanding-dockerfile-cmd-and-entrypoint-instructions)
   - [What is ENTRYPOINT?](#what-is-entrypoint)

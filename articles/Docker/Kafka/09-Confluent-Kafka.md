@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Confluent Kafka All-in-one Docker
-parent: Azure Articles
+title: ConfluentKafkaAllInOneDocker
+parent: Docker
+nav_order: 9
 ---
-
 ## <span style="color: DimGray;">Table of Contents</span>
 
 - [Setting Up a Local Kafka Development Environment with Docker Compose ](#setting-up-a-local-kafka-development-environment-with-docker-compose-)
