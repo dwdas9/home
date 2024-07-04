@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Setting Up Azure Databricks
-parent: Azure Articles
+title: Azure Databricks Setup
+parent: Spark-Databricks
 nav_exclude: true
 ---
 

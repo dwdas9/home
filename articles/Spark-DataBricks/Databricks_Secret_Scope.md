@@ -1,3 +1,10 @@
+---
+layout: default
+title: Databricks Secret Scope
+parent: Spark-Databricks
+nav_exclude: true
+---
+
 # Working with Secret Scopes in Azure Databricks
 - [Working with Secret Scopes in Azure Databricks](#working-with-secret-scopes-in-azure-databricks)
   - [Introduction](#introduction)
@@ -64,7 +71,7 @@ Once the CLI is installed, the next step is to log in to your Databricks workspa
 
     <span style="color:blue">Note:</span> The databricks Host and token is saved inside <span style="color:red">"C:\Users\user-name\databrickscfg"</span>
 
-![Alt text](media/dbrkconfig.png)
+![Alt text](images/dbrkconfig.png)
 
 ### Create secret scope
 
@@ -79,7 +86,7 @@ With these details, the command will look like:
 ```bash
 databricks secrets create-scope --scope myscope --scope-backend-type DATABRICKS --initial-manage-principal users
 ```
-![Alt text](media/image.png)
+![Alt text](images/image.png)
 
 <span style="color:blue">**Note:**</span> 
 <span style="color:black">In Databricks, when creating a secret scope, the default assigns `MANAGE` permission only to the creator. For non-Premium accounts, override this by granting `MANAGE` permission to all users using </span><span style="color:red">`--initial-manage-principal users`</span><span style="color:black"> during scope creation.</span>
@@ -106,13 +113,13 @@ databricks secrets create-scope --scope myscope --scope-backend-type DATABRICKS 
    - For 'Resource ID', use the 'Resource ID' you noted down, something like:
 
      `/subscriptions/someid/resourceGroups/resgropname/providers/Microsoft.KeyVault/vaults/keyvaultname`
-![Alt text](media/vaulturiresid.png)
+![Alt text](images/vaulturiresid.png)
 5. **Create the Secret Scope**: Click 'Create'. After you do, you'll get a confirmation. But keep in mind, once created, you can't see this scope in the Databricks UI. To check it, you'll have to use the `databricks secrets list-scopes` command in the Databricks CLI.
 
-![Alt text](media/createsecretsuccess.png)
+![Alt text](images/createsecretsuccess.png)
 
 6. **Check the Secret Scope**: Keep in mind, once created, you can't see this scope in the Databricks UI. To check it, you'll have to use the `databricks secrets list-scopes` command in the Databricks CLI.
-![Alt text](media/listscope.png)
+![Alt text](images/listscope.png)
 
 ## Working with secret scopes
 ### Adding secrets to scope
@@ -138,7 +145,7 @@ databricks secrets put --scope <scope-name> --key <key-name> --binary-file <path
 <span style="color:blue">**Note:**</span> 
 <span style="color:black">To add secrets in Azure Key Vault, you must use the Azure SetSecret REST API or Azure portal UI. `Put` operation using databricks CLI will NOT work. </span><span>
 
-![Alt text](media/add_secret_wont_work_azkeyvault.png)
+![Alt text](images/add_secret_wont_work_azkeyvault.png)
 
 ### Listing Secrets from Scope
 
@@ -152,15 +159,15 @@ To list Azure Key Vault-backed scopes, run `dbutils.secrets.list(scope='az-kv-ba
 2. Grant required **role to AzureDatabricks app** in Azure Key Vault:
    - Open your Azure Key Vault.
    - Go to **Access control(IAM)**, **Role assignments**. Click **Add Icon**. Select **Add role assignment**.
-  ![Alt text](media/image11.png)
+  ![Alt text](images/image11.png)
    - In the **Members tab**, select the desired role, e.g. **Key Vaults Secrets**.User, click next
-  ![Alt text](media/image-12.png)
+  ![Alt text](images/image-12.png)
    - Now click on **Select members** and choose **AzureDatabricks**. Then click **Select**.
-  ![Alt text](media/image-21.png)
+  ![Alt text](images/image-21.png)
    - Finally click **Review + assign**
-  ![Alt text](media/image-31.png)
+  ![Alt text](images/image-31.png)
 3. Finally you can run the list command in databricks without issues
-   ![Alt text](media/image-11.png)
+   ![Alt text](images/image-11.png)
 
 
 #### List Databricks-backed Secret scopes
@@ -198,7 +205,7 @@ Replace `<scope-name>` with the name of the secret scope you wish to delete.
         1. **regappDirectoryID**: This is the **Directory (Tenant) ID** found under the 'Overview' section of your registered application in Azure.
         2. **regappClientID**: This is the **Application (Client) ID**, also found under the 'Overview' section of your registered app.
         3. **regappClientSecret**: Navigate to **Certificates and Secrets** in your registered app. Create a **New Client Secret** and use its value here.
-    ![Alt text](media/addkeys.png)
+    ![Alt text](images/addkeys.png)
    
 ### Code for OAuth Authentication:
 2. **Code for OAuth Authentication**:
@@ -237,16 +244,16 @@ Replace `<scope-name>` with the name of the secret scope you wish to delete.
 When attempting to add keys to the key vault, one might encounter errors such as:
 
 > The operation is not allowed by RBAC.
-![Alt text](media/image121.png)
+![Alt text](images/image121.png)
 
 **Solution**: Assign a role like **Key Vault Administrator** to the logged-in user. This should allow the user to add or remove keys.
-![Alt text](media/image-121.png)
+![Alt text](images/image-121.png)
 
 ---
 
 #### DeniedWithNoValidRBAC
 After addressing the first issue, another challenge might arise. When trying to access keys from Databricks using commands like `dbutils.secrets.list(scope='foronescope')`, errors such as **DeniedWithNoValidRBAC** and **ForbiddenByRbac** might appear.
-![Alt text](media/image-211.png)
+![Alt text](images/image-211.png)
 
 **Root Cause**: Insufficient permission for AzureDatabricks Identity. A hint lies in the error log:
 

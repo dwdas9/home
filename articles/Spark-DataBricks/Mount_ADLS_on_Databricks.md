@@ -1,3 +1,9 @@
+---
+layout: default
+title: Mount ADLS on Databricks
+parent: Spark-Databricks
+nav_exclude: true
+---
 
 ## Mounting ADLS Gen2 on Databricks using AAD OAuth & Service Principal
 

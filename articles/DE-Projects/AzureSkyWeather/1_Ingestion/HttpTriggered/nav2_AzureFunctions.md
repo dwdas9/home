@@ -108,18 +108,31 @@ Here I will show you how to deploy the function to Azure.
 Now, our function is ready and we need to deploy it to Azure. To deploy an azure function we need Azure Function App. This is like a container for the function. You can create the Azure Function app from the portal. But, here I will show you how to do it right from VS code.
 
 - Click the Azure icon, then select the thunder icon in the workspace.
+
 - Choose `Create Function app in Azure..(Advanced)`.
-![Alt text](images\image-73.png)
+
+  ![Alt text](images\image-73.png)
+
 - Assign a unique name to your function app.
-![Alt text](images\image-67.png)
+
+  ![Alt text](images\image-67.png)
+
 - If you're working on an Azure Function in Python, ensure you set the runtime environment to Python.
-![Alt text](images\image-68.png)
+
+  ![Alt text](images\image-68.png)
+
 - Decide on using an existing resource group or create a new one. Ensure consistency in the chosen region.
-![Alt text](images\image-69.png)
+
+  ![Alt text](images\image-69.png)
+
 - Carefully select the hosting plan. If you're budget-conscious, consider the Consumption-based plan. 
-![Alt text](images\image-70.png)
+
+  ![Alt text](images\image-70.png)
+
 - Allocate a storage account for the Azure Function App. Using separate storage accounts for each function app simplifies the structure.
-![Alt text](images\image-72.png)
+
+  ![Alt text](images\image-72.png)
+
 - Incorporate an Application Insights resource for detailed insights and improved monitoring.
 
 After these steps, your Azure Function App is set up. The next phase involves deploying your Azure Function to this newly created app.
@@ -128,9 +141,11 @@ After these steps, your Azure Function App is set up. The next phase involves de
 
 - The deployment process is straightforward. In the workspace, click the thunder icon and choose **Deploy to Function App**.
   ![Alt text](images\image-55.png)
+
 - Visual Studio Code will display the Function App where you can deploy our Azure Function. Select the Function App.
    
   ![Alt text](images\image-56.png)
+
 - Click **Deploy**
    
   ![Alt text](images\image-57.png)
@@ -152,6 +167,7 @@ Afer deploying the function, I will show you how to monitor it in the portal.
 - Open the Azure Function in the Azure portal.
   
   ![Alt text](images\image-60.png)
+
 
 - Go to the "Monitor" section to access detailed information about function invocations.
 
@@ -200,7 +216,7 @@ The V2 programming model for Python, gives more Python-centric development exper
 
 This is how the project folder structure looks like:
 
-![Alt text](images\image-83.png)
+  ![Alt text](images\image-83.png)
 
 Here is what each item means:
 
@@ -235,7 +251,8 @@ I will try to modify the section later to give you a better understanding of the
 ### What is this Azurite
 
 When you click F5 you will see a message which looks like the one below.  
-![Alt text](images\image-92.png)
+
+  ![Alt text](images\image-92.png)
 
 This is where Azurite comes into play. Azurite is a free tool to mimic Azure Storage on your computer. It helps in testing Azure storage without actually using the real Azure services. It saves money,can work offline, its safe, and quick.
 
@@ -268,7 +285,7 @@ Here are the events that take place when you debug an Azure Function using VS Co
 
 ### "AzureWebJobsStorage" app setting is not present
 
-![Alt text](images\image-36.png)
+  ![Alt text](images\image-36.png)
 
 The "AzureWebJobsStorage" app setting error indicates that our Azure Functions app is missing a crucial configuration related to the storage account connection string. This could also be realted to the following deployment failure message
 
