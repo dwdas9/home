@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Install Java, Spark, & Python PySpark
-parent: Azure Articles
+title: Install Pyspark on Windows
+parent: Languages
 ---
 
 ## Table of Contents

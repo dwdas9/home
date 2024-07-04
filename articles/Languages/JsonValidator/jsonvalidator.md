@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Download JARs from Apache Maven Repository
-parent: Azure Articles
+parent: Languages
 ---
 
 ## Table of Contents

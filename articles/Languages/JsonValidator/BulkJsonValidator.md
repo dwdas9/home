@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Bulk Json Validation and Cleanup Using Azure Functions
-parent: Azure Articles
+title: Azure Functions - Json Validate & Clean
+parent: Languages
 ---
 
 # <span style="color: SteelBlue;">Clean and Validate JSON Using Azure Functions</span>

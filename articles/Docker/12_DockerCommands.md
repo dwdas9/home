@@ -1,11 +1,11 @@
 ---
 layout: default
 title: Docker Commands
-parent: Misc Articles
-nav_order: 1
+parent: Docker
+nav_order: 12
 ---
 
-![alt text](DockerCommandImages.png)
+![alt text](images\DockerCommandImages.png)
 
 # Common docker commands
 
