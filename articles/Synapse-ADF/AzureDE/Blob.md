@@ -45,7 +45,7 @@ And much more..
 
 ### Let's Quiz
 
-1. **You want to store information about your girlfriend and later query the list to find out which girlfriend lived where. True or false: blob storage is a good choice for this data?**
+1. **You have a long list of exes' info, well-organized in a list, and want to query it to find their whereabouts. True or false: Is blob storage a good choice to store this data?**
 
    - True
    - False
