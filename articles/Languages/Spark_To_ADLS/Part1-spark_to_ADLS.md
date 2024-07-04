@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Accessing Azure Data Lake From Local Spark
-parent: Azure Articles
+title: ADLS-Local Spark  Connection
+parent: Languages
 ---
 
 ## Table of contents

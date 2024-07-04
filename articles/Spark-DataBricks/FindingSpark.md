@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Finding Spark
-parent: SparkDatabricks
+parent: Spark-Databricks
 nav_order: 1
 ---
 

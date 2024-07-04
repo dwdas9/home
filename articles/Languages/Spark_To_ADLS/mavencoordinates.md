@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Auto-download Spark Jars
-parent: Azure Articles
+title: Auto Download Spark Jars
+parent: Languages
 ---
 
 - [Understanding Spark Configuration: `spark.jars.packages` vs `spark.jars`](#understanding-spark-configuration-sparkjarspackages-vs-sparkjars)

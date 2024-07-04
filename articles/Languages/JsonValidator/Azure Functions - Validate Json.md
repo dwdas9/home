@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Azure Functions - Json Validate & Clean
+title: Azure Functions - Validate Json
 parent: Languages
 ---
 

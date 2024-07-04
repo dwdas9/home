@@ -4,6 +4,18 @@ title: Download JARs-Apache Maven Repo
 parent: Languages
 ---
 
+
+<img src="images/175533.png" alt="alt text" style="
+    border: 2px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 10px;
+    width: 500px; /* Maintain aspect ratio */
+    height: 500px; /* Maintain aspect ratio */
+    transition: transform 0.2s;
+"/>
+
 ## Table of Contents
 - [How to Download JAR Files from Apache Maven Repository](#how-to-download-jar-files-from-apache-maven-repository)
   - [Steps to Download JAR Files](#steps-to-download-jar-files)
@@ -11,9 +23,8 @@ parent: Languages
     - [Search for the JAR File](#search-for-the-jar-file)
     - [Pick the Version You Want](#pick-the-version-you-want)
     - [Download the JAR File](#download-the-jar-file)
-    - [How to Use the JARs](#how-to-use-the-jars)
+- [How to Use the JARs](#how-to-use-the-jars)
 
-![alt text](175533.png)
 
 # How to Download JAR Files from Apache Maven Repository
 
@@ -27,19 +38,18 @@ Open your browser and visit [mvnrepository.com](https://mvnrepository.com/). Thi
 ### Search for the JAR File
 In the website, there will be a search box. Type the name of the JAR file you are looking for (like `hadoop-azure`) and press enter. You will see a list of JAR files.
 
-   ![Alt text](image-1.png)
+<img src="images\adsdsad33.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
 ### Pick the Version You Want
 After you click on the JAR file name, you'll see different versions. Click on the version you need.
 
-   ![Alt text](image-2.png)
+<img src="images\73283838.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
 ### Download the JAR File
 In the page for your chosen version, look for the "Files" section. There will be a link for a `.jar` file. Click on this link to start downloading the file.
-   
-   ![Alt text](image-3.png)
+   <img src="images\920289348.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
-### How to Use the JARs
+# How to Use the JARs
 Once downloaded, you can store the JAR files in a location of your choice, for example, `C:\spark_jars\`. You can reference these JARs in your code when needed. For instance, if you are trying to access Azure Data Lake Storage (ADLS) from a local Spark installation on a Windows machine, you can set up your Spark session like this:
 
 ```python

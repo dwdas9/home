@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Download JARs from Apache Maven Repository
+title: Python - Validate Json
 parent: Languages
 ---
 

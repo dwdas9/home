@@ -4,6 +4,8 @@ title: Json To Parquet Using Spark And Azure
 parent: Languages
 ---
 
+<img src="images\json_spark_azure.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
+
 ## <span style="color: DimGray;">Table of Contents</span>
 - [Json Transformation Using Spark And Azure](#json-transformation-using-spark-and-azure)
   - [Prerequisites](#prerequisites)
@@ -18,7 +20,7 @@ parent: Languages
     - [The complete script](#the-complete-script)
   - [Conclusion](#conclusion)
 
-![alt text](json_spark_azure.png)
+
 
 # <span style="color: DarkOrchid;">Json Transformation Using Spark And Azure</span>
 

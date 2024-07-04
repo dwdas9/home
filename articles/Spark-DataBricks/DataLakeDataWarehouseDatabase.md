@@ -5,7 +5,7 @@ parent: Misc Articles
 nav_order: 1
 ---
 
-![alt text](image.png)
+<img src="images\datalekwarehousedbdiff.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
 
 ## <span style="color: Gray;">Database Vs Datawarehouse Vs DataLake Vs ECM/CMS</span>
