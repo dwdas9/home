@@ -2,7 +2,6 @@
 layout: default
 title: Azure Databricks Setup
 parent: Spark-Databricks
-nav_exclude: true
 ---
 
 ## Setting Up Azure Databricks

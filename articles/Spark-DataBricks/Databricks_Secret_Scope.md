@@ -2,7 +2,6 @@
 layout: default
 title: Databricks Secret Scope
 parent: Spark-Databricks
-nav_exclude: true
 ---
 
 # Working with Secret Scopes in Azure Databricks
