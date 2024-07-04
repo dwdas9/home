@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Essential Unix Commands
-parent: Unix
+parent: Languages
 ---
 # Some essential unix commands
 

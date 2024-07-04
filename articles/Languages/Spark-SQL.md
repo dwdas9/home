@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Spark-SQL
-parent: PythonSQL
+parent: Languages
 nav_order: 3
 ---
 

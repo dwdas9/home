@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SparkDatabricks
+title: Spark & Databricks
 nav_order: 9
 has_children: true
 ---

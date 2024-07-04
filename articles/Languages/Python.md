@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Python
-parent: PythonSQL
+parent: Languages
 nav_order: 2
 ---
 

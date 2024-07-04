@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Pyspark
-parent: PythonSQL
+parent: Languages
 nav_order: 1
 ---
 

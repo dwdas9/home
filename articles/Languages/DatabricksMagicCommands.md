@@ -1,7 +1,7 @@
 ---
 layout: default
 title: DatabricksMagicCmds
-parent: PythonSQL
+parent: Languages
 nav_order: 2
 ---
 
