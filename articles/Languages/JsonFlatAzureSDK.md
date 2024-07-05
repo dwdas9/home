@@ -15,6 +15,11 @@ parent: Languages
     - [The complete script](#the-complete-script)
     - [Azure Python SDK(libs) ecosystem](#azure-python-sdklibs-ecosystem)
     - [Convert the script into an Azure Function](#convert-the-script-into-an-azure-function)
+- [Additional samples](#additional-samples)
+  - [Uploading Data to Azure Blob Storage](#uploading-data-to-azure-blob-storage)
+  - [Downloading Data from Azure Blob Storage](#downloading-data-from-azure-blob-storage)
+  - [Listing Blobs in a Container](#listing-blobs-in-a-container)
+  - [Querying Data (Example with CSV Data)](#querying-data-example-with-csv-data)
 
 
 # <span style="color: Teal;Font-family: Segoe UI, sans-serif;">Flatten JSON Files in Azure Blob Storage using Azure SDK for Python</span>
@@ -221,7 +226,107 @@ The logic from my script can be easily incoporated into an azure function. You c
 
 The script in this article uses the Azure Blob Storage SDK for Python to flatten JSON files in an Azure Blob Storage container. The script first downloads the blob from the container, then flattens the JSON data, and finally uploads the flattened JSON data back to the container.
 
----
+# Additional samples
+
+## Uploading Data to Azure Blob Storage
+
+```python
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+
+# Connection string to your Azure Storage account
+connection_string = "your_connection_string"
+container_name = "your_container_name"
+blob_name = "your_blob_name"
+data = "Sample data about your exes"
+
+# Create a BlobServiceClient
+blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+
+# Create a container if it doesn't exist
+container_client = blob_service_client.get_container_client(container_name)
+container_client.create_container()
+
+# Create a BlobClient
+blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_name)
+
+# Upload data to the blob
+blob_client.upload_blob(data, overwrite=True)
+print("Data uploaded successfully")
+```
+
+## Downloading Data from Azure Blob Storage
+
+```python
+from azure.storage.blob import BlobServiceClient
+
+# Connection string to your Azure Storage account
+connection_string = "your_connection_string"
+container_name = "your_container_name"
+blob_name = "your_blob_name"
+
+# Create a BlobServiceClient
+blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+
+# Create a BlobClient
+blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_name)
+
+# Download data from the blob
+blob_data = blob_client.download_blob().readall()
+print("Downloaded data:", blob_data.decode())
+```
+
+## Listing Blobs in a Container
+
+```python
+from azure.storage.blob import BlobServiceClient
+
+# Connection string to your Azure Storage account
+connection_string = "your_connection_string"
+container_name = "your_container_name"
+
+# Create a BlobServiceClient
+blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+
+# Get a container client
+container_client = blob_service_client.get_container_client(container_name)
+
+# List blobs in the container
+blobs = container_client.list_blobs()
+for blob in blobs:
+    print("Blob name:", blob.name)
+```
+
+## Querying Data (Example with CSV Data)
+
+If your data is in a CSV format and stored in blobs, you can query it using Azure Synapse or Data Lake Analytics for more advanced queries. Here's a simple example using CSV data in blobs:
+
+```python
+import pandas as pd
+from azure.storage.blob import BlobServiceClient
+
+# Connection string to your Azure Storage account
+connection_string = "your_connection_string"
+container_name = "your_container_name"
+blob_name = "your_blob_name.csv"
+
+# Create a BlobServiceClient
+blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+
+# Create a BlobClient
+blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_name)
+
+# Download blob data to a stream
+stream = blob_client.download_blob().readall()
+
+# Read CSV data into a DataFrame
+df = pd.read_csv(pd.compat.BytesIO(stream))
+print("Data from CSV blob:\n", df)
+
+# Example query: Find whereabouts of a specific ex
+whereabouts = df[df['Name'] == 'ExName']['Whereabouts'].iloc[0]
+print("Whereabouts of ExName:", whereabouts)
+```
+
 
 © D Das  
 📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)
