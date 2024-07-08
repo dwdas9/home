@@ -424,6 +424,8 @@ rdd_filtered = rdd_transformed.filter(lambda x: x % 2 == 0)
 # Action: Collect the results
 result = rdd_filtered.collect()
 ```
+The syntax looks good. Here is the formatted version within the details tag:
+
 <details>
   <summary>Common transformations and actions in PySpark</summary>
 
@@ -454,9 +456,7 @@ result = rdd_filtered.collect()
 </details>
 
 <details>
-
   <summary>Q & A</summary>
-
 
 **Which of the following statements about the Spark driver is incorrect?**
 
