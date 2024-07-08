@@ -9,7 +9,7 @@ parent: Spark-Databricks
     Table of contents
   </summary>
   {: .text-delta }
-1. TOC
+TOC
 {:toc}
 </details>
 
@@ -251,7 +251,7 @@ To change the warehouse directory:
     ```
 ### Key Takeaway
 
-When you run `spark-sql` with default settings, it will start a Derby database and create a `metastore_db` folder inside your current directory. So, be mindful of your current directory.
+   When you run `spark-sql` with default settings, it will start a Derby database and create a `metastore_db` folder inside your current directory. So, be mindful of your current directory.
 
 If you create a table in a PySpark session, Spark will create both a `metastore_db` and a `spark-warehouse` folder.
 
@@ -295,7 +295,7 @@ Workers are simply machines(Virtual/Real). These workers run JVM processes, call
   **Example:** With a worker machine having 16 CPU cores and 64 GB of memory, you can configure Spark to run either 4 executors (4 cores, 16 GB each) or 2 executors (8 cores, 32 GB each).
 
   <p style="color: #003366; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f0f8ff; padding: 15px; border-left: 5px solid #6699cc; border-radius: 10px; box-shadow: 2px 2px 10px #6699cc;">
-  <strong>Note: </strong>The Spark cluster manager (e.g., YARN, Mesos, or the standalone cluster manager) is responsible for allocating resources to executors.
+  <strong>Note: </strong>Executor is a JVM process running on a worker node that executes tasks. The Spark cluster manager (e.g., YARN, Mesos, or the standalone cluster manager) is responsible for allocating resources to executors.
   </p>
 
 ## Databricks "slots" = Spark "cores" = Threads
@@ -352,7 +352,7 @@ So, each executor requires:
 - **Application**: The full python code. Contains multiple jobs.
 - **Jobs**: Job can have multiple stages
 - **Stages**: Each stage has many tasks.
-- **Tasks**: Each task processes a single partition of data.
+- **Tasks**: Each task processes a single partition of data. It is a block of data + Some transformation.
 
 ### Application
 - **Definition:** An application in Spark is a complete program that runs on the Spark cluster. This program includes the user's code that uses Spark’s API to perform data processing.
@@ -391,6 +391,63 @@ Let's see an example to understand these concepts:
 
 4. **Tasks:**
 For each stage, Spark creates tasks based on the number of partitions. If there are 10 partitions, Stage 1 (filtering) will have 10 tasks, and Stage 2 (aggregation) will also have 10 tasks, each processing one partition of data.
+
+## Transformation & Actions
+
+In PySpark, operations on data can be classified into two types: **transformations** and **actions**.
+
+### Transformations
+
+Transformations are operations on RDDs that return a new RDD, meaning they create a new dataset from an existing one. **Transformations are lazy**, meaning they are computed only when an action is called.
+
+(e.g., `map`, `filter`): Create a new RDD from an existing one. **They are lazy** and not executed until an action is called.
+
+### Actions
+
+Actions trigger the execution of the transformations to return a result to the driver program or write it to storage. When an action is called, Spark's execution engine computes the result of the transformations.
+
+(e.g., `collect`, `count`): Trigger the execution of the transformations and return a result.
+
+### Example 
+
+```python
+# Create an RDD from a list
+data = [1, 2, 3, 4, 5]
+rdd = spark.sparkContext.parallelize(data)
+
+# Transformation 1: Multiply each number by 2
+rdd_transformed = rdd.map(lambda x: x * 2)
+
+# Transformation 2: Filter out even numbers
+rdd_filtered = rdd_transformed.filter(lambda x: x % 2 == 0)
+
+# Action: Collect the results
+result = rdd_filtered.collect()
+```
+
+| **Transformation** | **Example API**                            | **Description**                                     |
+|--------------------|--------------------------------------------|-----------------------------------------------------|
+| `map`              | `rdd.map(lambda x: x * 2)`                 | Applies a function to each element in the RDD.      |
+| `filter`           | `rdd.filter(lambda x: x % 2 == 0)`         | Returns a new RDD containing only elements that satisfy a predicate. |
+| `flatMap`          | `rdd.flatMap(lambda x: (x, x * 2))`        | Similar to `map`, but each input item can be mapped to 0 or more output items (returns a flattened structure). |
+| `mapPartitions`    | `rdd.mapPartitions(lambda iter: [sum(iter)])` | Applies a function to each partition of the RDD.    |
+| `distinct`         | `rdd.distinct()`                           | Returns a new RDD containing the distinct elements. |
+| `union`            | `rdd1.union(rdd2)`                         | Returns a new RDD containing the union of elements. |
+| `intersection`     | `rdd1.intersection(rdd2)`                  | Returns a new RDD containing the intersection of elements. |
+| `groupByKey`       | `rdd.groupByKey()`                         | Groups the values for each key in the RDD.          |
+| `reduceByKey`      | `rdd.reduceByKey(lambda a, b: a + b)`      | Merges the values for each key using an associative function. |
+| `sortBy`           | `rdd.sortBy(lambda x: x)`                  | Returns a new RDD sorted by the specified function. |
+
+| **Action**         | **Example API**                            | **Description**                                     |
+|--------------------|--------------------------------------------|-----------------------------------------------------|
+| `collect`          | `rdd.collect()`                            | Returns all the elements of the RDD as a list.      |
+| `count`            | `rdd.count()`                              | Returns the number of elements in the RDD.          |
+| `first`            | `rdd.first()`                              | Returns the first element of the RDD.               |
+| `take`             | `rdd.take(5)`                              | Returns the first `n` elements of the RDD.          |
+| `reduce`           | `rdd.reduce(lambda a, b: a + b)`           | Aggregates the elements of the RDD using a function.|
+| `saveAsTextFile`   | `rdd.saveAsTextFile("path")`               | Saves the RDD to a text file.                       |
+| `countByKey`       | `rdd.countByKey()`                         | Returns the count of each key in the RDD.           |
+| `foreach`          | `rdd.foreach(lambda x: print(x))`          | Applies a function to each element of the RDD.      |
 
 # Q & A
 
@@ -470,6 +527,7 @@ E. Stage
 **Answer: E. Stage**
 
 **Explanation:**
+
 - **A** is incorrect because a job is an entire computation consisting of multiple stages.
 - **B** is incorrect because a slot is a resource for parallel task execution.
 - **C** is incorrect because an executor runs tasks on worker nodes.
@@ -477,6 +535,7 @@ E. Stage
 - **E** is correct because a stage is a set of tasks that can be executed in parallel to perform the same computation.
 
 **Which of the following describes a shuffle?**
+
 A. A shuffle is the process by which data is compared across partitions.  
 B. A shuffle is the process by which data is compared across executors.  
 C. A shuffle is the process by which partitions are allocated to tasks.  
@@ -486,6 +545,7 @@ E. A shuffle is the process by which tasks are ordered for execution.
 **Answer: A. A shuffle is the process by which data is compared across partitions.**
 
 **Explanation:**
+
 - **A** is correct because shuffling involves redistributing data across partitions to align with the needs of downstream transformations.
 - **B** is incorrect because shuffling happens across partitions, not specifically executors.
 - **C** is incorrect because partition allocation to tasks is not the definition of a shuffle.
@@ -493,6 +553,7 @@ E. A shuffle is the process by which tasks are ordered for execution.
 - **E** is incorrect because shuffling does not involve ordering tasks for execution.
 
 **DataFrame df is very large with a large number of partitions, more than there are executors in the cluster. Based on this situation, which of the following is incorrect? Assume there is one core per executor.**
+
 A. Performance will be suboptimal because not all executors will be utilized at the same time.  
 B. Performance will be suboptimal because not all data can be processed at the same time.  
 C. There will be a large number of shuffle connections performed on DataFrame df when operations inducing a shuffle are called.  
@@ -502,6 +563,7 @@ E. There might be risk of out-of-memory errors depending on the size of the exec
 **Answer: A. Performance will be suboptimal because not all executors will be utilized at the same time.**
 
 **Explanation:**
+
 - **A** is incorrect because having more partitions than executors does not necessarily mean executors will be underutilized; they will process partitions sequentially.
 - **B** is correct because more partitions than executors mean data processing cannot happen all at once, affecting performance.
 - **C** is correct because a high number of partitions can lead to many shuffle operations.
@@ -509,6 +571,7 @@ E. There might be risk of out-of-memory errors depending on the size of the exec
 - **E** is correct because large data volumes can risk out-of-memory errors if executor memory is insufficient.
 
 **Which of the following operations will trigger evaluation?**
+
 A. DataFrame.filter()  
 B. DataFrame.distinct()  
 C. DataFrame.intersect()  
