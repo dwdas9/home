@@ -425,8 +425,7 @@ rdd_filtered = rdd_transformed.filter(lambda x: x % 2 == 0)
 result = rdd_filtered.collect()
 ```
 <details>
-
-  <summary>Click me</summary>
+  <summary>Common transformations and actions in PySpark</summary>
 
 | **Transformation** | **Example API**                            | **Description**                                     |
 |--------------------|--------------------------------------------|-----------------------------------------------------|
@@ -454,7 +453,10 @@ result = rdd_filtered.collect()
 
 </details>
 
-# Q & A
+<details>
+
+  <summary>Q & A</summary>
+
 
 **Which of the following statements about the Spark driver is incorrect?**
 
@@ -608,3 +610,5 @@ E. Transformations are business logic operations that do not induce execution wh
 - **C** is incorrect because it incorrectly describes the role of transformations and actions.
 - **D** is incorrect because both transformations and actions work on DataFrames/Datasets.
 - **E** is correct because transformations define the computations without triggering them, while actions trigger the execution and return the results.
+</details>
+
