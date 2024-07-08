@@ -9,7 +9,7 @@ parent: Spark-Databricks
     Table of contents
   </summary>
   {: .text-delta }
-1 TOC
+1. TOC
 {:toc}
 </details>
 
@@ -354,6 +354,7 @@ Say, you have 10 GB of data to be processed. How can you calcultate the executor
 <img src="images/custom-image-2024-07-08-23-07-50.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
 **Applications** -> **jobs** -> **stages** -> **tasks**.
+
 
 | **Term**          | **Definition**                                                                                                          | **Example**                                                                                                                      |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|

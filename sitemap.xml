@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://dwdas9.github.io/home/</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav2-Azure-Articles.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/nav2_AzureFunctions.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav3-DE-Projects.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/DE-Projects/AzureSkyWeather/HomeProjectAzureSkyWeather.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/HTTPTriggered_AzureFunc.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/DE-Projects/AzureSkyWeather/1_Ingestion/TimerTriggered/TimerTriggered_AzureFunc.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/DE-Projects/Sparkzure/HomeProjectSparkzure.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/DE-Projects/StreamKraft/HomeProjectStreamKraft.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav4-M365.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/DocumentumToSharePoint.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/LicensingExamples.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/oAuthSharePointPython.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/SharePoint2016FarmUpgrade.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/SharePointFarmConsolidation.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/SharePointFormsOrPowerApps.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/SharePointMiniRole.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/SharePointVersionEvolution.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/SharePointVsOtherECM.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/SPMT.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/M365/WSS3DocumentUpload.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav5-Power-Platform.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/CustomConnectors.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/EnableMicrosoftSyntex.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/EnableSyntexOnYourDocumentLibrary.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/GoogleProviderPowerPages.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/HelloDataverse.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/HelloDynamics365.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/HelloPowerPlatform.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/ModelDrivenApps.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/OnPremiseGateway.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/PowerAutomateIsWorkflowTeams.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/PowerPlatformQ&amp;A.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav6-AIHub.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/AIHub/DocumentIntelligence/DocumentAutomation.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Power-Platform/ECMCaptureFlow.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav7-Synapse-ADF.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Synapse-ADF/01-Synapse-Basic-Concepts.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Synapse-ADF/CETAS.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Synapse-ADF/WarehouseWithJustPython.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Synapse-ADF/02-Analyse-SQLPool.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Synapse-ADF/03-Analyse-SparkPool.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Synapse-ADF/IntegrationRuntime.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Synapse-ADF/DatabaseTypesInSynapse.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Synapse-ADF/Pipeline-Local-ADLS.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Synapse-ADF/Q&amp;A.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Synapse-ADF/ADF_SA_Evolution.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav8-Microsoft-Fabric.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/HelloMicrosoftFabric.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/DataScience.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/DirectLake.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/Pyspark_SparkSQL.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/FabricSparkStreaming.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/ETL-Pyspark-Notebook-Lakehouse.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/FabricAdministration.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/DataFactory.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/FabricQ&amp;A.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/InspectingDataframes.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/KQL.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/RealTimeAnalytics.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Microsoft-Fabric/ETL-OPG-Copydata-JSON-Lakehouse.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav9-Spark-Databricks.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Spark-DataBricks/FindingSpark.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Spark-DataBricks/Azure_Databricks_Setup.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Spark-DataBricks/Spark-Concepts.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Spark-DataBricks/Databricks_Secret_Scope.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Spark-DataBricks/Mount_ADLS_on_Databricks.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav10-Languages.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/GraphAPIJupyter/GraphAPIUsingJuputer.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/Pyspark.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/DatabricksMagicCommands.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/Python.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/SQL.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/Spark_To_ADLS/Part1-spark_to_ADLS.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/Spark_To_ADLS/mavencoordinates.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/JsonValidator/Azure%20Functions%20-%20Validate%20Json.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/WaysToConnectSparkToAzure.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/Download-Haddop-Jars.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/Unix.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/JsonFlatAzureSDK.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/Install-Pyspark-Windows/Install-Pyspark-Windows.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/FetchJsonWriteParquet.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/LocalPython_AzureBlob.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/Csv-To-MSSQL.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/JsonValidator/Python-Validate%20Json.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/Spark_To_ADLS/Part2-SortingADLSContainerUsingSpark.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav12-Docker.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/SparkHiveHadoop/01-UbuntuPySpark.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/SparkHiveHadoop/02-VSCode-Docker-Connection.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/SparkHiveHadoop/03-BitnamiSparkCluster.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/SparkHiveHadoop/04-BitnamiSparkCluster_Advanced.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/SparkHiveHadoop/05-Debian-Pyspark.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/SparkHiveHadoop/06-Spark-Hive_MSSQL.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/SparkHiveHadoop/07-Hadoop_Hive.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/Kafka/09-Confluent-Kafka.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/AirflowDocker/10-AirflowDocker.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/SparkHiveHadoop/10_DockerConcepts.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/11_DockerSwarmVsKubernetes.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/12_DockerCommands.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Docker/Mongodb/08-DockerMongodb.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/nav15-Misc-Articles.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Languages/Colors.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dwdas9.github.io/home/articles/Spark-DataBricks/DataLakeDataWarehouseDatabase.html</loc>
+  <lastmod>2024-07-08T17:00:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
