@@ -426,8 +426,7 @@ result = rdd_filtered.collect()
 ```
 The syntax looks good. Here is the formatted version within the details tag:
 
-<details>
-  <summary>Common transformations and actions in PySpark</summary>
+## Common transformations and actions in PySpark
 
 | **Transformation** | **Example API**                            | **Description**                                     |
 |--------------------|--------------------------------------------|-----------------------------------------------------|
@@ -453,10 +452,7 @@ The syntax looks good. Here is the formatted version within the details tag:
 | `countByKey`       | `rdd.countByKey()`                         | Returns the count of each key in the RDD.           |
 | `foreach`          | `rdd.foreach(lambda x: print(x))`          | Applies a function to each element of the RDD.      |
 
-</details>
-
-<details>
-  <summary>Q & A</summary>
+## Q & A
 
 **Which of the following statements about the Spark driver is incorrect?**
 
@@ -610,5 +606,3 @@ E. Transformations are business logic operations that do not induce execution wh
 - **C** is incorrect because it incorrectly describes the role of transformations and actions.
 - **D** is incorrect because both transformations and actions work on DataFrames/Datasets.
 - **E** is correct because transformations define the computations without triggering them, while actions trigger the execution and return the results.
-</details>
-
