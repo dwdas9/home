@@ -277,6 +277,9 @@ When we talk about in-memory its not just conventioal caching. Its actually stor
 ## Cluster & Nodes
 Nodes are individual machines (physical or virtual). Cluster is a group of nodes.
 ## Driver & Worker
+
+<img src="images/custom-image-2024-07-08-23-03-55.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
+
 ### Driver
 - Machine where Main() method runs. It contains the SparkContext object.
 - Converts the application into stages using a DAG (Directed Acyclic Graph).
@@ -294,81 +297,70 @@ Workers are simply machines(Virtual/Real). These workers run JVM processes, call
 
   **Example:** With a worker machine having 16 CPU cores and 64 GB of memory, you can configure Spark to run either 4 executors (4 cores, 16 GB each) or 2 executors (8 cores, 32 GB each).
 
-  <p style="color: #003366; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f0f8ff; padding: 15px; border-left: 5px solid #6699cc; border-radius: 10px; box-shadow: 2px 2px 10px #6699cc;">
+  <p style="color: #003366; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: Beige; padding: 15px; border-left: 5px solid #6699cc; border-radius: 10px; box-shadow: 2px 2px 10px #6699cc;">
   <strong>Note: </strong>Executor is a JVM process running on a worker node that executes tasks. The Spark cluster manager (e.g., YARN, Mesos, or the standalone cluster manager) is responsible for allocating resources to executors.
   </p>
 
-## Databricks "slots" = Spark "cores" = Threads
+## Slots = Spark cores =  Synapse vCore ≈ Threads
 
-[**Cores in Spark = Slots in Databricks = Total threads.**](https://files.training.databricks.com/courses/ilt/Spark-ILT/Spark-ILT-5.1.1/amazon/instructor-notes/Spark%20Architecture.html#:~:text=The%20term%20%22core%22%20is%20unfortunate,these%20threads%2C%20to%20avoid%20confusion.)
+[**Cores in Spark = vCores in Synapse = Slots in Databricks = Total threads = Total parallel tasks**](https://files.training.databricks.com/courses/ilt/Spark-ILT/Spark-ILT-5.1.1/amazon/instructor-notes/Spark%20Architecture.html#:~:text=The%20term%20%22core%22%20is%20unfortunate,these%20threads%2C%20to%20avoid%20confusion.)
 
-<p style="color: #003366; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f0f8ff; padding: 15px; border-left: 5px solid #6699cc; border-radius: 10px; box-shadow: 2px 2px 10px #6699cc;">
+<p style="color: #003366; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #F0F8FF; padding: 15px; border-left: 5px solid #6699cc; border-radius: 10px; box-shadow: 2px 2px 10px #6699cc;">
 <strong>Note: </strong>Don't confuse cores with Intel/AMD CPU Ads. Cores in Spark means threads.
 </p>
+
+<p style="color: #003366; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #DCDCDC; padding: 15px; border-left: 5px solid #6699cc; border-radius: 10px; box-shadow: 2px 2px 10px #6699cc;">
+<strong>Note: </strong>Spark supports one task for each virtual CPU (vCPU) core by default. For example, if an executor has four CPU cores, it can run four concurrent tasks.
+</p>
+
+<p style="color: #003366; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: pink; padding: 15px; border-left: 5px solid #6699cc; border-radius: 10px; box-shadow: 2px 2px 10px #6699cc;">
+<strong>Note: </strong>Multiple threads can run on each core, but Spark typically uses one thread per core for each task to simplify execution and avoid the complexities of managing multiple threads on a single core.
+</p>
+
+This Databricks spark cluster can run 32 tasks parallely:
+
+<img src="images/custom-image-2024-07-09-00-01-25.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
+
+
 
 In Docker Compose, `SPARK_WORKER_CORES` sets worker threads (cores/slots). A cluster with 3 workers, each set to 2 cores, has 6 total threads.
 
 
-### Calculate no of executors for a 100 GB Data
 
-How to determine the number of executors to assign for a 10GB file in HDFS
 
-1. **Calculate the number of partitions**:
-   - Default partition size is 128 MB.
-   - 10 GB / 128 MB = 10 * 1024 MB / 128 MB = 80 partitions.
-   
-2. **Determine the number of CPU cores needed for maximum parallelism**:
-   - Each partition can be processed by one core.
-   - Therefore, you need 80 cores for maximum parallelism.
+### Executors, cores & memory for a 10 GB data
 
-3. **Find the maximum allowed CPU cores per executor**:
-   - You can use 5 cores per executor in YARN.
+Say, you have 10 GB of data to be processed. How can you calcultate the executors, cores and memory for such a secenairo?
 
-4. **Calculate the number of executors**:
-   - Total cores needed: 80
-   - Cores per executor: 5
-   - Number of executors = Total cores / Cores per executor = 80 / 5 = 16
+| **Step**                           | **Description**                                               | **Calculation/Value**       |
+|------------------------------------|---------------------------------------------------------------|-----------------------------|
+| **Calculate number of partitions** | Default partition size: 128 MB                                | 10 GB / 128 MB = 80 partitions |
+| **Determine CPU cores needed**     | One core per partition for maximum parallelism                | 80 cores                    |
+| **Max cores per executor**         | Cores per executor in YARN                                     | 5 cores per executor        |
+| **Calculate number of executors**  | Total cores / Cores per executor                               | 80 / 5 = 16 executors       |
+|                                    |                                                               |                             |
+| **Partition size**                 | Default partition size: 128 MB                                | 128 MB                      |
+| **Memory per core**                | Minimum memory per core (4x partition size)                   | 128 MB * 4 = 512 MB         |
+| **Executor cores**                 | Cores per executor                                            | 5 cores                     |
+| **Executor memory**                | Memory per core * Number of cores per executor                | 512 MB * 5 = 2560 MB        |
+|                                    |                                                               |                             |
+| **Each Executor Requires**         |                                                               |                             |
+| **Cores**                          |                                                               | 5 CPU cores                |
+| **Memory**                         |                                                               | 2560 MB                    |
 
-### Calculate cores and memory for executor
-
-To determine the cores and memory required for each executor, follow these steps:
-
-1. **Partition size**: The default partition size is 128 MB.
-
-2. **Minimum memory per core**: Assign a minimum of 4x memory for each core.
-   - 128 MB * 4 = 512 MB
-
-3. **Executor cores**: 5 CPU cores per executor (if using YARN).
-
-4. **Executor memory**: Multiply the memory per core by the number of cores per executor.
-   - 512 MB * 5 cores = 2560 MB
-
-So, each executor requires:
-
-- **Cores**: 5 CPU cores
-- **Memory**: 2560 MB
 
 ## Application, Jobs, Stages, Tasks
-- **Application**: The full python code. Contains multiple jobs.
-- **Jobs**: Job can have multiple stages
-- **Stages**: Each stage has many tasks.
-- **Tasks**: Each task processes a single partition of data. It is a block of data + Some transformation.
 
-### Application
-- **Definition:** An application in Spark is a complete program that runs on the Spark cluster. This program includes the user's code that uses Spark’s API to perform data processing.
-- **Example:** A Spark application can be a Python script that processes data from a CSV file, performs transformations, and writes the results to a database.
+<img src="images/custom-image-2024-07-08-23-07-50.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
-### Job
-- **Definition:** A job is triggered by an action (e.g., `count()`, `collect()`, `saveAsTextFile()`) in a Spark application. Each action in the code triggers a new job.
-- **Example:** If your application has two actions, like counting the number of rows and saving the result to a file, it will trigger two jobs.
+**Applications** -> **jobs** -> **stages** -> **tasks**.
 
-### Stages
-- **Definition:** A job is divided into stages, where each stage is a set of tasks that can be executed in parallel. Stages are separated by shuffle operations.
-- **Example:** If a job involves filtering and then aggregating data, the filtering might be one stage, and the aggregation another, especially if a shuffle operation (like a group by) is required between them.
-
-### Tasks
-- **Definition:** A stage is further divided into tasks, where each task is a unit of work that operates on a partition of the data. Tasks are the smallest unit of execution in Spark.
-- **Example:** If a stage needs to process 100 partitions of data, it will have 100 tasks, with each task processing one partition.
+| **Term**          | **Definition**                                                                                                          | **Example**                                                                                                                      |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| **Application**   | An application in Spark is a complete program that runs on the Spark cluster. This program includes the user's code that uses Spark’s API to perform data processing. | A Spark application can be a Python script that processes data from a CSV file, performs transformations, and writes the results to a database. |
+| **Job**           | A job is triggered by an action (e.g., `count()`, `collect()`, `saveAsTextFile()`) in a Spark application. Each action in the code triggers a new job. | If your application has two actions, like counting the number of rows and saving the result to a file, it will trigger two jobs. |
+| **Stages**        | A job is divided into stages, where each stage is a set of tasks that can be executed in parallel. Stages are separated by shuffle operations. | If a job involves filtering and then aggregating data, the filtering might be one stage, and the aggregation another, especially if a shuffle operation (like a group by) is required between them. |
+| **Tasks**         | A stage is further divided into tasks, where each task is a unit of work that operates on a partition of the data. Tasks are the smallest unit of execution in Spark. | If a stage needs to process 100 partitions of data, it will have 100 tasks, with each task processing one partition. |
 
 ### Let's put it all together
 Let's see an example to understand these concepts:
@@ -424,8 +416,6 @@ rdd_filtered = rdd_transformed.filter(lambda x: x % 2 == 0)
 # Action: Collect the results
 result = rdd_filtered.collect()
 ```
-The syntax looks good. Here is the formatted version within the details tag:
-
 ## Common transformations and actions in PySpark
 
 | **Transformation** | **Example API**                            | **Description**                                     |
@@ -451,6 +441,37 @@ The syntax looks good. Here is the formatted version within the details tag:
 | `saveAsTextFile`   | `rdd.saveAsTextFile("path")`               | Saves the RDD to a text file.                       |
 | `countByKey`       | `rdd.countByKey()`                         | Returns the count of each key in the RDD.           |
 | `foreach`          | `rdd.foreach(lambda x: print(x))`          | Applies a function to each element of the RDD.      |
+
+Certainly! Here's a concise explanation of shuffling in Apache Spark, using tables to keep it brief and clear.
+
+## What is a Shuffle?
+
+A **shuffle** in Spark is the process of redistributing data across different nodes in the cluster. It involves copying data between Executors(JVM Proceses). It typically happens when a transformation requires data exchange between partitions, involving disk I/O, data serialization, and network I/O.
+
+Shuffle is one of the most substantial factors in degraded performance of your Spark application. While storing the intermediate data, it can exhaust space on the executor's local disk, which causes the Spark job to fail.
+
+### When Does a Shuffle Occur?
+
+| **Operation**   | **Example**                               | **Description** |
+|-----------------|-------------------------------------------|-----------------|
+| `groupByKey`    | `rdd.groupByKey()`                        | Groups elements by key, requiring all data for a key to be in the same partition. |
+| `reduceByKey`   | `rdd.reduceByKey(lambda a, b: a + b)`     | Combines values for each key using a function, requiring data colocation. |
+| `sortByKey`     | `rdd.sortByKey()`                         | Sorts data, requiring all data for a key to be in the same partition. |
+| `join`          | `rdd1.join(rdd2)`                         | Joins two RDDs or DataFrames, requiring data with the same key to be colocated. |
+| `distinct`      | `rdd.distinct()`                          | Removes duplicates, requiring comparison across partitions. |
+
+### How to Optimize Shuffle in Spark
+
+| **Optimization**                | **Description**                                                                                                                                       | **Example/Note**                                                                                             |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| **Avoid join() unless essential** | The join() operation is a costly shuffle operation and can be a performance bottleneck.                                                              | Use join only if necessary for your business requirements.                                                   |
+| **Avoid collect() in production** | The collect() action returns all results to the Spark driver, which can cause OOM errors.                                                             | Default setting: `spark.driver.maxResultSize = 1GB`.                                                          |
+| **Cache/Persist DataFrames**      | Use `df.cache()` or `df.persist()` to cache repetitive DataFrames to avoid additional shuffle or computation.                                          | ```python df_high_rate = df.filter(col("star_rating") >= 4.0) df_high_rate.persist() ```                     |
+| **Unpersist when done**           | Use `unpersist` to discard cached data when it is no longer needed.                                                                                    | ```python df_high_rate.unpersist() ```                                                                       |
+| **Overcome data skew**            | Data skew causes uneven distribution of data across partitions, leading to performance bottlenecks.                                                    | Ensure data is uniformly distributed across partitions.                                                      |
+| **Use bucketing**                 | Bucketing pre-shuffles and pre-sorts input on join keys, writing sorted data to intermediary tables to reduce shuffle and sort costs.                  | Reduces load on executors during sort-merge joins.                                                           |
+| **Shuffle and broadcast hash joins** | Use broadcast hash join for small-to-large table joins to avoid shuffling.                                                                            | Applicable only when the small table can fit in the memory of a single Spark executor.                        |
+| **Optimize join**                 | Use high-level Spark APIs (SparkSQL, DataFrame, Datasets) for joins instead of RDD API or DynamicFrame join. Convert DynamicFrame to DataFrame if needed. | ```python df_joined = df1.join(df2, ["key"]) ```                                                              |
 
 ## Q & A
 
