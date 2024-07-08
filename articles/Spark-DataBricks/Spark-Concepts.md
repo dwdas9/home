@@ -1,84 +1,31 @@
-- [Spark Concepts to get started](#spark-concepts-to-get-started)
-  - [What happens when you enter `spark-sql` on a freshly installed Spark server?](#what-happens-when-you-enter-spark-sql-on-a-freshly-installed-spark-server)
-  - [What Happens When You Create a Table in Spark-SQL?](#what-happens-when-you-create-a-table-in-spark-sql)
-    - [Key Takeaway](#key-takeaway)
-    - [SPARK Managed Tables (AKA Internal / Spark-Metastore Tables) Using Spark-SQL Shell](#spark-managed-tables-aka-internal--spark-metastore-tables-using-spark-sql-shell)
-    - [Key Takeaways:](#key-takeaways)
-  - [Metastore in Spark](#metastore-in-spark)
-  - [Catalog types in Spark](#catalog-types-in-spark)
-  - [Spark RDDs](#spark-rdds)
-  - [Spark In-memory computing](#spark-in-memory-computing)
-  - [Key components of spark](#key-components-of-spark)
-- [Spark Architecture](#spark-architecture)
-  - [Cluster \& Nodes](#cluster--nodes)
-  - [Driver \& Worker](#driver--worker)
-    - [Driver](#driver)
-    - [Workers(now Executors)](#workersnow-executors)
-  - [Databricks "slots" = Spark "cores" = Threads](#databricks-slots--spark-cores--threads)
-    - [How to determine the number of executors to assign for a 10GB file in HDFS](#how-to-determine-the-number-of-executors-to-assign-for-a-10gb-file-in-hdfs)
-    - [To determine the cores and memory required for each executor, follow these steps:](#to-determine-the-cores-and-memory-required-for-each-executor-follow-these-steps)
-  - [Application, Jobs, Stages, Tasks](#application-jobs-stages-tasks)
-    - [Application](#application)
-    - [Job](#job)
-    - [Stages](#stages)
-    - [Tasks](#tasks)
-    - [Putting It All Together](#putting-it-all-together)
-    - [To summarize](#to-summarize)
-  - [Q \& A](#q--a)
+---
+layout: default
+title: Concepts
+parent: Spark-Databricks
+---
 
-![](images/custom-image-2024-06-17-15-31-39.png)
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
+# Overview
 
-
-## Apache Hive and Spark: An Overview
-
-### What is Apache Hive?
-
-**Apache Hive** is a database  like MSSQL Server. Its actually a data warehouse. It stores data in Hadoop File system(HDFS) as tables.Hive's query language is called **HiveQL**, similar to SQL. he **Hive metastore** stores information about Hive tables. Developed by Facebook, Hive later became an Apache project.
-
-### What is Hadoop?
-
-Haddop has three parts: HDFS - The file system. Mapreduce - The processing engine.Yarn - Resource manager
-
-### What is Spark?
+## What is Spark?
 
 Its mainly a processing engine more like Mapreduce v2. It has no internal storage sytem like HDFS, but uses external file system lie ADLS, HDFS, S3 etc. Its processing engine is called Spark Core. It has standalone resource manager by default to manage its clusters.
 
+## What is Apache Hive?
 
-### Is spark replacing Hive, hadoop and the old-timers?
+**Apache Hive** is a database  like MSSQL Server. Its actually a data warehouse. It stores data in Hadoop File system(HDFS) as tables. Hive's query language is called **HiveQL**, similar to SQL. he **Hive metastore** stores information about Hive tables. Developed by Facebook, Hive later became an Apache project.
 
-Products like Azure Synapse, Microsft Fabric gives you ADLS, OneLake for storage. And Spark for processing. And creation fo warehouse is also so simple, just load the raw data form csvs into spark dataframe and save them as delta lake tables.
+<img src="images/custom-image-2024-06-17-15-31-39.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
-Now, try to get a similar setup using Hive and Hadoop. The steps will be:
-
-Go through the complex installation setup of hive, which will include ccratinga hive metastore integrating with Hive metastore db, installing HDFS and manging it. And, the steps aren't simple enough, they include very low level humoungus settings and setup files.
-
-Also, if you use 
-
-### Never heard of Hive. We use only Spark and Synapse Analytics.
-
-
-Alright you never heard of Hive and you only create Internal spark tables. Internal tables(or spark internal tables) is a very new and very much used technology in Azure Synapse.
-
-Suppose 
-
-
-
-- **Hive on Spark** integrates Hive with Spark, using Spark's in-memory processing to boost performance.
-- It uses **HiveQL**, suitable for batch processing and ETL tasks.
-- Hive on Spark leverages the **Hive metastore** for managing table metadata.
-
-### Example: Hive on Spark
-
-```python
-spark = SparkSession \
-    .builder \
-    .appName("Python Spark SQL Hive integration example") \
-    .config("spark.sql.warehouse.dir", warehouse_location) \
-    .enableHiveSupport() \
-    .getOrCreate()
-```
-### What is Hadoop?
+## What is Hadoop?
 
 Hadoop is a distributed file system and processing framework similar to an MSSQL cluster but designed for handling large-scale file systems and big data. Here are its main components:
 
@@ -87,7 +34,23 @@ Hadoop is a distributed file system and processing framework similar to an MSSQL
 - **YARN (Yet Another Resource Negotiator)**: The cluster manager.
 - **Hadoop Common**: The set of shared libraries and utilities.
 
-# Spark Concepts to get started
+## Is Spark replacing MapReduce?
+
+Yes, Spark is like the next version of MapReduce.
+
+## Is branded Spark (Synapse/Databricks) replacing traditional Spark, Hadoop, and Hive?
+
+Imagine your company is new to data engineering and needs to process a lot of data. How long will it take to set up with Azure compared to using free open-source products on bare metal?
+
+With Azure, you just sign up and create the setup with a few clicks. If the company has the budget, the entire setup takes about an hour. On the other hand, using traditional Spark, Hive, and Hadoop, setting up servers, networks, installation, configuration, and connectivity can become a year-long project.
+
+That’s the difference between open-source and paid services. Open-source is free but risky. Paid services cost money but are easy, fast, accountable, and well-maintained.
+
+## Never heard of Hive. We use only Spark and Synapse Analytics.
+
+If you always use branded products like Synapse and Databricks, you might not use Hive much. However, Hive catalogs are still used in Databricks. Just run a command like `DESCRIBE EXTENDED TableName`, and you'll see where Hive is involved. But you don't have to worry about the setup.
+
+# Spark Database, Tables, Warehouse, Metastore & Catalogs
 
 - A Spark Database is just a folder named **databasename.db** inside the **spark-warehouse** folder.
 - A Managed/Internal/Spark-Metastore table is a subfolder within the **databasename.db** folder. Partitions are also stored as subfolders.
@@ -99,6 +62,85 @@ Hadoop is a distributed file system and processing framework similar to an MSSQL
 
 
 - You can set the warehouse directory in your session with `.config("spark.sql.warehouse.dir", "/path/to/your/warehouse")`.
+
+
+
+## SPARK Managed Tables (AKA Internal / Spark-Metastore Tables) Using Spark-SQL Shell
+
+When you create tables in the spark-sql shell using commands like the one below, Spark will create a managed table. The table data will be stored in the `spark-warehouse` folder, and the Derby database (`metastore_db` folder) will contain its metadata.
+
+```sql
+CREATE TABLE Hollywood (name STRING);
+```
+
+The table will be permanent, meaning you can query it even after restarting Spark. Here is an example output of `DESCRIBE EXTENDED Hollywood` in the spark-sql shell:
+
+<img src="images/custom-image-2024-06-19-17-25-45.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
+
+
+- **Catalog**: `spark_catalog` - Spark uses its own internal catalog to manage metadata.
+- **Database**: `default` - The default database provided by Spark.
+- **Type**: `MANAGED` - Indicates that Spark manages the table's lifecycle.
+- **Provider**: `hive` - Refers to Spark's capability to handle Hive-compatible metadata.
+- **Serde Library**: `org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe` - Serialization and deserialization library.
+- **InputFormat**: `org.apache.hadoop.mapred.TextInputFormat` - Input format for reading the table data.
+- **OutputFormat**: `org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat` - Output format for writing the table data.
+- **Location**: `file:/home/dwdas/spark-warehouse/hollywood` - File path where the table data is stored.
+- **Partition Provider**: `Catalog` - Indicates that the catalog manages partitions.
+
+### Key Takeaways:
+
+- **Built-in Catalog**: Even without a standalone Hive installation, Spark provides managed table functionality by leveraging its built-in catalog and Hive-compatible features.
+- **SQL-like Operations**: You can use SQL-like operations to manage tables within Spark.
+- **Embedded Deployment Mode**: By default, Spark SQL uses an embedded deployment mode of a Hive metastore with an Apache Derby database.
+- **Production Use**: The default embedded deployment mode is not recommended for production use due to the limitation of only one active SparkSession at a time.
+
+
+<p style="color: navy; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f8f8f8; padding: 15px; border-left: 5px solid grey; border-radius: 10px; box-shadow: 2px 2px 10px grey;">
+<strong>Remember:</strong><br>
+This Derby-mini-Hive method that Spark uses to manage internal tables has a limitation: only one active session is allowed at a time. Attempting multiple `spark-sql` sessions will result in a Derby database exception.
+</p>
+
+<img src="images/custom-image-2024-06-21-02-59-01.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
+
+Would you take this to production?
+
+## Metastore in Spark
+
+The metastore in Spark stores metadata about tables, like their names and the locations of their files (e.g., Parquet files). In Spark, the metastore is typically configured in one of two common ways, but there are also more advanced options available.
+
+1. **Standalone Hive Metastore:** You can install and configure a standalone Hive metastore server. This server would manage the metadata independently and communicate with your Spark application.
+
+2. **Embedded Hive Metastore with Derby**
+
+Spark includes a built-in metastore that uses an embedded Apache Derby database. This database starts in the application's working directory and stores data in the `metastore_db` folder. It's a convenient, pseudo-metastore suitable for small applications or datasets. To use this, simply enable Hive support in your Spark session with `enableHiveSupport()`:
+
+```python
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .appName("EmbeddedMetastoreExample") \
+    .enableHiveSupport() \
+    .getOrCreate()
+```
+
+
+<p style="color: navy; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f8f8f8; padding: 15px; border-left: 5px solid grey; border-radius: 10px; box-shadow: 2px 2px 10px grey;">
+<strong>Again:</strong><br>
+By default, Hive uses an embedded Apache Derby database to store its metadata. While this is a convenient option for initial setup, it has limitations. Notably, Derby can only support one active user at a time. This makes it unsuitable for scenarios requiring multiple concurrent Hive sessions. So, the solution is to use a standard database like MySQL/Postgrees or MSSQL as the metastore DB. And, let the poor derby take  some rest.
+</p>
+
+## Catalog types in Spark
+
+1. In-Memory Catalog: Default catalog. Stores data memory. Everything vanishes when session is closed. For some quick queries etc.
+
+2. Hive Catalog: A mini-version comes shipped with Spark. You need to enable hive support to use it. Data is stoerd permanently. Can have a full-fledged hivve as well.
+
+3. JDBC Catalog: When you want a full-database like MSSQL to store the catalog information. Can be like Hive+MSSQL.
+
+4. Custom Catalogs: Custom catalogs can be implemented using ExtendedCatalogInterface. AWS glue, Synapese databricks.
+
+5. Delta Lake Catalog: When using Delta Lake, it provides its own catalog implementation.
 
 ## What happens when you enter `spark-sql` on a freshly installed Spark server?
 
@@ -213,102 +255,25 @@ When you run `spark-sql` with default settings, it will start a Derby database a
 
 If you create a table in a PySpark session, Spark will create both a `metastore_db` and a `spark-warehouse` folder.
 
-
-
-### SPARK Managed Tables (AKA Internal / Spark-Metastore Tables) Using Spark-SQL Shell
-
-When you create tables in the spark-sql shell using commands like the one below, Spark will create a managed table. The table data will be stored in the `spark-warehouse` folder, and the Derby database (`metastore_db` folder) will contain its metadata.
-
-```sql
-CREATE TABLE Hollywood (name STRING);
-```
-
-The table will be permanent, meaning you can query it even after restarting Spark. Here is an example output of `DESCRIBE EXTENDED Hollywood` in the spark-sql shell:
-
-<img src="images/custom-image-2024-06-19-17-25-45.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
-
-
-- **Catalog**: `spark_catalog` - Spark uses its own internal catalog to manage metadata.
-- **Database**: `default` - The default database provided by Spark.
-- **Type**: `MANAGED` - Indicates that Spark manages the table's lifecycle.
-- **Provider**: `hive` - Refers to Spark's capability to handle Hive-compatible metadata.
-- **Serde Library**: `org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe` - Serialization and deserialization library.
-- **InputFormat**: `org.apache.hadoop.mapred.TextInputFormat` - Input format for reading the table data.
-- **OutputFormat**: `org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat` - Output format for writing the table data.
-- **Location**: `file:/home/dwdas/spark-warehouse/hollywood` - File path where the table data is stored.
-- **Partition Provider**: `Catalog` - Indicates that the catalog manages partitions.
-
-### Key Takeaways:
-
-- **Built-in Catalog**: Even without a standalone Hive installation, Spark provides managed table functionality by leveraging its built-in catalog and Hive-compatible features.
-- **SQL-like Operations**: You can use SQL-like operations to manage tables within Spark.
-- **Embedded Deployment Mode**: By default, Spark SQL uses an embedded deployment mode of a Hive metastore with an Apache Derby database.
-- **Production Use**: The default embedded deployment mode is not recommended for production use due to the limitation of only one active SparkSession at a time.
-
-
-<p style="color: navy; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f8f8f8; padding: 15px; border-left: 5px solid grey; border-radius: 10px; box-shadow: 2px 2px 10px grey;">
-<strong>Remember:</strong><br>
-This Derby-mini-Hive method that Spark uses to manage internal tables has a limitation: only one active session is allowed at a time. Attempting multiple `spark-sql` sessions will result in a Derby database exception.
-</p>
-
-<img src="images/custom-image-2024-06-21-02-59-01.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
-
-Would you take this to production?
-
-## Metastore in Spark
-
-The metastore in Spark stores metadata about tables, like their names and the locations of their files (e.g., Parquet files). In Spark, the metastore is typically configured in one of two common ways, but there are also more advanced options available.
-
-1. **Standalone Hive Metastore:** You can install and configure a standalone Hive metastore server. This server would manage the metadata independently and communicate with your Spark application.
-
-2. **Embedded Hive Metastore with Derby**
-
-Spark includes a built-in metastore that uses an embedded Apache Derby database. This database starts in the application's working directory and stores data in the `metastore_db` folder. It's a convenient, pseudo-metastore suitable for small applications or datasets. To use this, simply enable Hive support in your Spark session with `enableHiveSupport()`:
-
-```python
-from pyspark.sql import SparkSession
-
-spark = SparkSession.builder \
-    .appName("EmbeddedMetastoreExample") \
-    .enableHiveSupport() \
-    .getOrCreate()
-```
-
-
-<p style="color: navy; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f8f8f8; padding: 15px; border-left: 5px solid grey; border-radius: 10px; box-shadow: 2px 2px 10px grey;">
-<strong>Again:</strong><br>
-By default, Hive uses an embedded Apache Derby database to store its metadata. While this is a convenient option for initial setup, it has limitations. Notably, Derby can only support one active user at a time. This makes it unsuitable for scenarios requiring multiple concurrent Hive sessions. So, the solution is to use a standard database like MySQL/Postgrees or MSSQL as the metastore DB. And, let the poor derby take  some rest.
-</p>
-
-## Catalog types in Spark
-
-1. In-Memory Catalog: Default catalog. Stores data memory. Everything vanishes when session is closed. For some quick queries etc.
-
-2. Hive Catalog: A mini-version comes shipped with Spark. You need to enable hive support to use it. Data is stoerd permanently. Can have a full-fledged hivve as well.
-
-3. JDBC Catalog: When you want a full-database like MSSQL to store the catalog information. Can be like Hive+MSSQL.
-
-4. Custom Catalogs: Custom catalogs can be implemented using ExtendedCatalogInterface. AWS glue, Synapese databricks.
-
-5. Delta Lake Catalog: When using Delta Lake, it provides its own catalog implementation.
-
 ## Spark RDDs
 ## Spark In-memory computing
 
 When we talk about in-memory its not just conventioal caching. Its actually storing data in RAM, processing in RAM etc. So, spark uses it and thats why its faster than mapreduce.
 
-## Key components of spark
-
-Spark Core: Key component of spark. This has a core engine. 
-Spark SQL: Its a SQL engine. But, but a little diferent than traditional database. Here, dataframes are the main way of processing data.
-Spark Streming: This component makes spark capable of processing real-time data.
-Spark Mlib: This is basically collection of libraries
-GraphX: This graphs used in reports. But, data which can be collected some a network like facebook etc.
-
-RDDS: Spark core has RDD. These are building blocks of spark. 
-
-
 # Spark Architecture
+## Spark Components
+**Spark Core:** The main part of Spark with a core engine.
+
+**Spark SQL:** A SQL engine, but different from traditional databases. Here, data is processed mainly using DataFrames.
+
+**Spark Streaming:** This part allows Spark to process real-time data.
+
+**Spark MLlib:** A collection of machine learning libraries.
+
+**GraphX:** Used for graphs in reports, such as data collected from networks like Facebook.
+
+**RDDs:** Spark Core has RDDs (Resilient Distributed Datasets), which are the building blocks of Spark.
+
 ## Cluster & Nodes
 Nodes are individual machines (physical or virtual). Cluster is a group of nodes.
 ## Driver & Worker
@@ -318,9 +283,20 @@ Nodes are individual machines (physical or virtual). Cluster is a group of nodes
 - Schedules tasks on worker nodes and collects the results.
 - Should be close to worker nodes for better performance.
 ### Workers(now Executors)
-- Executors are formally called workers
-- Runs JVM Processes
-- The actual work is done by workers
+
+Workers are simply machines(Virtual/Real). These workers run JVM processes, called Executors. Multiple JVM Process(Executor) can be configured in a worker.
+
+  **Configuration:** In your spark configuration you can set:
+
+  - `--num-executors`: Specifies the total number of executors to be launched for the application.
+  - `--executor-cores`: Specifies the number of cores (slots) to be used by each executor.
+  - `--executor-memory`: Specifies the amount of memory to be allocated to each executor.
+
+  **Example:** With a worker machine having 16 CPU cores and 64 GB of memory, you can configure Spark to run either 4 executors (4 cores, 16 GB each) or 2 executors (8 cores, 32 GB each).
+
+  <p style="color: #003366; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #f0f8ff; padding: 15px; border-left: 5px solid #6699cc; border-radius: 10px; box-shadow: 2px 2px 10px #6699cc;">
+  <strong>Note: </strong>The Spark cluster manager (e.g., YARN, Mesos, or the standalone cluster manager) is responsible for allocating resources to executors.
+  </p>
 
 ## Databricks "slots" = Spark "cores" = Threads
 
@@ -333,7 +309,9 @@ Nodes are individual machines (physical or virtual). Cluster is a group of nodes
 In Docker Compose, `SPARK_WORKER_CORES` sets worker threads (cores/slots). A cluster with 3 workers, each set to 2 cores, has 6 total threads.
 
 
-### How to determine the number of executors to assign for a 10GB file in HDFS
+### Calculate no of executors for a 100 GB Data
+
+How to determine the number of executors to assign for a 10GB file in HDFS
 
 1. **Calculate the number of partitions**:
    - Default partition size is 128 MB.
@@ -351,7 +329,9 @@ In Docker Compose, `SPARK_WORKER_CORES` sets worker threads (cores/slots). A clu
    - Cores per executor: 5
    - Number of executors = Total cores / Cores per executor = 80 / 5 = 16
 
-### To determine the cores and memory required for each executor, follow these steps:
+### Calculate cores and memory for executor
+
+To determine the cores and memory required for each executor, follow these steps:
 
 1. **Partition size**: The default partition size is 128 MB.
 
@@ -390,7 +370,7 @@ So, each executor requires:
 - **Definition:** A stage is further divided into tasks, where each task is a unit of work that operates on a partition of the data. Tasks are the smallest unit of execution in Spark.
 - **Example:** If a stage needs to process 100 partitions of data, it will have 100 tasks, with each task processing one partition.
 
-### Putting It All Together
+### Let's put it all together
 Let's see an example to understand these concepts:
 
 1. **Application:** A Spark application that reads data from a CSV file, filters out certain rows, and then calculates the average of a column.
@@ -410,16 +390,9 @@ Let's see an example to understand these concepts:
    - **Stage 2:** Aggregating the data. This stage requires a shuffle because the aggregation (calculating the average) involves data from all partitions.
 
 4. **Tasks:**
-   - For each stage, Spark creates tasks based on the number of partitions. If there are 10 partitions, Stage 1 (filtering) will have 10 tasks, and Stage 2 (aggregation) will also have 10 tasks, each processing one partition of data.
+For each stage, Spark creates tasks based on the number of partitions. If there are 10 partitions, Stage 1 (filtering) will have 10 tasks, and Stage 2 (aggregation) will also have 10 tasks, each processing one partition of data.
 
-### To summarize
-- **Application:** The whole process of reading the data, filtering it, and computing the average.
-- **Job 1:** Loading data from the CSV file into a DataFrame.
-- **Job 2:** Performing the filter and aggregation actions.
-  - **Stage 1:** Filtering the DataFrame (tasks operate on each partition of the DataFrame).
-  - **Stage 2:** Aggregating the filtered data (tasks operate on each partition, but require data shuffling).
-
-## Q & A
+# Q & A
 
 **Which of the following statements about the Spark driver is incorrect?**
 
