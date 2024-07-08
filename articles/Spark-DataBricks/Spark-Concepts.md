@@ -9,7 +9,7 @@ parent: Spark-Databricks
     Table of contents
   </summary>
   {: .text-delta }
-TOC
+1 TOC
 {:toc}
 </details>
 
@@ -424,6 +424,9 @@ rdd_filtered = rdd_transformed.filter(lambda x: x % 2 == 0)
 # Action: Collect the results
 result = rdd_filtered.collect()
 ```
+<details>
+
+  <summary>Click me</summary>
 
 | **Transformation** | **Example API**                            | **Description**                                     |
 |--------------------|--------------------------------------------|-----------------------------------------------------|
@@ -448,6 +451,8 @@ result = rdd_filtered.collect()
 | `saveAsTextFile`   | `rdd.saveAsTextFile("path")`               | Saves the RDD to a text file.                       |
 | `countByKey`       | `rdd.countByKey()`                         | Returns the count of each key in the RDD.           |
 | `foreach`          | `rdd.foreach(lambda x: print(x))`          | Applies a function to each element of the RDD.      |
+
+</details>
 
 # Q & A
 
