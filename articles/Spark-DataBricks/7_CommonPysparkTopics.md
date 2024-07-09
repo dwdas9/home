@@ -9,7 +9,7 @@ nav_order: 7
     - [Standalone Python vs. Anaconda Python](#standalone-python-vs-anaconda-python)
       - [Standalone Python](#standalone-python)
       - [Anaconda Python](#anaconda-python)
-    - [PySpark via pip vs. Full Apache Spark Installation](#pyspark-via-pip-vs-full-apache-spark-installation)
+    - [PySpark vs full Apache Spark Installation](#pyspark-vs-full-apache-spark-installation)
       - [PySpark via pip](#pyspark-via-pip)
       - [Full Apache Spark Installation](#full-apache-spark-installation)
     - [Conclusion](#conclusion)
@@ -21,7 +21,7 @@ nav_order: 7
 
 ## Just PySpark vs Real Spark
 
-In this compact guide, I'll try to clear up the often-muddled area between PySpark and Apache Spark installations. 
+Here, I'll try to clear up the often-muddled area between PySpark and Full Spark installations. We will also touch upon different types of python installations available.
 
 ### Standalone Python vs. Anaconda Python
 
@@ -33,7 +33,7 @@ Thi is the python you directly install from [Python Software Foundation](https:/
 
 An open-source Python distribution for scientific computing and data science.Go for Anaconda for an easy-to-manage data science environment, especially when dealing with large datasets, machine learning, and analytics.
 
-### PySpark via pip vs. Full Apache Spark Installation
+### PySpark vs full Apache Spark Installation
 
 #### PySpark via pip
 

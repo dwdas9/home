@@ -18,7 +18,22 @@ nav_order: 6
 
 Integrate Databricks with Azure Data Lake Storage Gen2 (ADLS Gen2) securely using Azure Active Directory (AAD) OAuth and a service principal. 
 
-Follow these steps:
+### For the busy people
+
+Execute this in a databricks notebook:
+
+```python
+dbutils.fs.mount(
+  source = "adl://.azuredatalakestore.net/",
+  mount_point = "/mnt/",
+  extra_configs = {
+    "dfs.adls.oauth2.access.token.provider.type": "ClientCredential",
+    "dfs.adls.oauth2.client.id": dbutils.secrets.get(scope = "", key = "client-id"),
+    "dfs.adls.oauth2.credential": dbutils.secrets.get(scope = "", key = "client-secret"),
+    "dfs.adls.oauth2.refresh.url": "https://login.microsoftonline.com//oauth2/token"}
+)
+```
+### Detailed steps
 
 1. **Azure Setup**:
    - **Create Service Principal**: In the [Azure Portal](https://portal.azure.com/), navigate to **Azure Active Directory** > **App registrations** > **New registration**. Provide a name and register the application. Save the Application (client) ID and create a new client secret under **Certificates & secrets**. Save the client secret value.

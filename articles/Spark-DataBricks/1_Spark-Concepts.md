@@ -444,7 +444,6 @@ result = rdd_filtered.collect()
 | `countByKey`       | `rdd.countByKey()`                         | Returns the count of each key in the RDD.           |
 | `foreach`          | `rdd.foreach(lambda x: print(x))`          | Applies a function to each element of the RDD.      |
 
-Certainly! Here's a concise explanation of shuffling in Apache Spark, using tables to keep it brief and clear.
 
 ## What is a Shuffle?
 
