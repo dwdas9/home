@@ -5,7 +5,7 @@ parent: Spark-Databricks
 nav_order: 7
 ---
 - [Some common Pyspark Topics](#some-common-pyspark-topics)
-  - [Decoding Spark Installs: PySpark \& Spark on Windows](#decoding-spark-installs-pyspark--spark-on-windows)
+  - [Just PySpark vs Real Spark](#just-pyspark-vs-real-spark)
     - [Standalone Python vs. Anaconda Python](#standalone-python-vs-anaconda-python)
       - [Standalone Python](#standalone-python)
       - [Anaconda Python](#anaconda-python)
@@ -19,7 +19,7 @@ nav_order: 7
 
 # Some common Pyspark Topics
 
-## Decoding Spark Installs: PySpark & Spark on Windows
+## Just PySpark vs Real Spark
 
 In this compact guide, I'll try to clear up the often-muddled area between PySpark and Apache Spark installations. 
 
