@@ -3,6 +3,7 @@ layout: default
 title: Concepts
 parent: Spark-Databricks
 nav_order: 1
+has_children: true
 ---
 
 <details open markdown="block">
