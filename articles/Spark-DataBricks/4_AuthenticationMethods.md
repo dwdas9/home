@@ -1,0 +1,128 @@
+---
+layout: default
+title: Authentication Method
+parent: Spark-Databricks
+nav_order: 4
+---
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+### Authentication methods to connect with ADLS
+
+Azure Data Lake Storage (ADLS) offers several methods to authenticate access from Databricks. This guide will cover the three main methods:
+
+1. **ADLS Account Keys** (Shared Access Key method)
+2. **Shared Access Signature (SAS) tokens**
+3. **Service Principal with OAuth2**
+
+Each method has its use cases and security implications. 
+
+### 1. Accessing ADLS Using Account Keys
+
+The **Shared Access Key method** is the simplest but least secure. 
+
+#### Steps to Use ADLS Account Keys:
+
+1. **Retrieve the Account Key**:
+   - Go to the Azure Portal, navigate to your Storage account.
+   - Click on **Access keys** and copy either key1 or key2.
+
+2. **Use the Account Key in Databricks**:
+   - Set up the configuration in your Databricks notebook.
+
+```python
+# Configuration for accessing ADLS using the Shared Access Key method:
+storageAccountName = "your_storage_account_name"
+accountKey = "your_account_key"  # For production, use Databricks secret scope
+containerName = "your_container_name"
+filename = "your_file.csv"
+
+spark.conf.set(f"fs.azure.account.key.{storageAccountName}.dfs.core.windows.net", accountKey)
+
+adls_path = f"abfss://{containerName}@{storageAccountName}.dfs.core.windows.net/"
+spark.read.csv(adls_path + filename).show()
+```
+
+#### Recommended Production Setup:
+
+Instead of embedding the account key in your code, use Databricks secrets for better security:
+
+```python
+# Using Databricks secret management utility
+accountKey = dbutils.secrets.get(scope="your_scope_name", key="your_key_name")
+
+spark.conf.set(f"fs.azure.account.key.{storageAccountName}.dfs.core.windows.net", accountKey)
+
+adls_path = f"abfss://{containerName}@{storageAccountName}.dfs.core.windows.net/"
+spark.read.csv(adls_path + filename).show()
+```
+
+### 2. Accessing ADLS Using SAS Tokens
+
+SAS tokens provide more granular control over permissions and are generally more secure than account keys.
+
+#### Steps to Use SAS Tokens:
+
+1. **Generate a SAS Token**:
+   - In the Azure Portal, select your Storage account.
+   - Navigate to **Shared access signature** under **Security + networking**.
+   - Configure the permissions and generate the token.
+
+2. **Use the SAS Token in Databricks**:
+   - Set up the configuration in your Databricks notebook.
+
+```python
+storageAccountName = "your_storage_account_name"
+sasToken = "your_sas_token"
+containerName = "your_container_name"
+filename = "your_file.csv"
+
+spark.conf.set(f"fs.azure.sas.{containerName}.{storageAccountName}.dfs.core.windows.net", sasToken)
+
+adls_path = f"abfss://{containerName}@{storageAccountName}.dfs.core.windows.net/"
+spark.read.csv(adls_path + filename).show()
+```
+
+### 3. Accessing ADLS Using Service Principal with OAuth2
+
+This method is the most secure and suitable for production environments as it uses Azure AD for authentication.
+
+#### Steps to Use Service Principal with OAuth2:
+
+1. **Set Up Azure AD**:
+   - Register an application in Azure AD.
+   - Assign roles to the application for accessing ADLS.
+   - Note down the Client ID, Client Secret, and Directory (Tenant) ID.
+
+2. **Configure Databricks to Use Service Principal**:
+   - Store your credentials in Databricks secrets.
+
+```python
+storageAccountName = "your_storage_account_name"
+containerName = "your_container_name"
+filename = "your_file.csv"
+
+clientID = dbutils.secrets.get(scope="your_scope_name", key="your_client_id_key")
+clientSecret = dbutils.secrets.get(scope="your_scope_name", key="your_client_secret_key")
+directoryID = dbutils.secrets.get(scope="your_scope_name", key="your_directory_id_key")
+
+spark.conf.set(f"fs.azure.account.auth.type.{storageAccountName}.dfs.core.windows.net", "OAuth")
+spark.conf.set(f"fs.azure.account.oauth.provider.type.{storageAccountName}.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+spark.conf.set(f"fs.azure.account.oauth2.client.id.{storageAccountName}.dfs.core.windows.net", clientID)
+spark.conf.set(f"fs.azure.account.oauth2.client.secret.{storageAccountName}.dfs.core.windows.net", clientSecret)
+spark.conf.set(f"fs.azure.account.oauth2.client.endpoint.{storageAccountName}.dfs.core.windows.net", f"https://login.microsoftonline.com/{directoryID}/oauth2/token")
+
+adls_path = f"abfss://{containerName}@{storageAccountName}.dfs.core.windows.net/"
+spark.read.csv(adls_path + filename).show()
+```
+
+### Conclusion
+
+The Shared Access Key method is the simplest but least secure, while Service Principal with OAuth2 provides the highest level of security suitable for production environments. SAS tokens offer a balance between ease of use and security. 

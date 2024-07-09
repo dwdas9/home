@@ -1,3 +1,19 @@
+---
+layout: default
+title: Databricks Architecture
+parent: Spark-Databricks
+nav_order: 3
+---
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
 # Architecture
 Control Pane: Unity Catalog[Metastore, Access Control, Data Explorer] + Databricks web App, Cluster Manager, Workflow Manager, Jobs, Notebooks
 Data Plane: Actual clusters(Compute resources) + Actual Data

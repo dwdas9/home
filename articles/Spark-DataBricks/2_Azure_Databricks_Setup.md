@@ -1,8 +1,19 @@
 ---
 layout: default
-title: Azure Databricks Setup
+title: Databricks Setup
 parent: Spark-Databricks
+nav_order: 2
 ---
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
 
 ## Setting Up Azure Databricks
 
@@ -58,7 +69,3 @@ To avoid unnecessary charges:
 
 - Remember to terminate clusters when not in use. They will consume resources and can lead to unexpected costs.
 - If you're done experimenting with Databricks, consider deleting the resource in the Azure Portal.
-
----
-
-Azure Databricks is a powerful platform, and this guide just scratches the surface. As you become more familiar, you can explore advanced features and optimizations. Happy coding!

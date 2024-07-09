@@ -2,33 +2,20 @@
 layout: default
 title: Databricks Secret Scope
 parent: Spark-Databricks
+nav_order: 5
 ---
 
-# Working with Secret Scopes in Azure Databricks
-- [Working with Secret Scopes in Azure Databricks](#working-with-secret-scopes-in-azure-databricks)
-  - [Introduction](#introduction)
-  - [Different Types of Secret Scopes](#different-types-of-secret-scopes)
-  - [Create Databricks-backed Secret Scope](#create-databricks-backed-secret-scope)
-    - [Pre-requiesites](#pre-requiesites)
-      - [Install Databricks CLI](#install-databricks-cli)
-      - [Log into Databricks using the CLI](#log-into-databricks-using-the-cli)
-    - [Create secret scope](#create-secret-scope)
-  - [Create Azure-Key-Vault-Managed Secret Scope](#create-azure-key-vault-managed-secret-scope)
-  - [Working with secret scopes](#working-with-secret-scopes)
-    - [Adding secrets to scope](#adding-secrets-to-scope)
-    - [Listing Secrets from Scope](#listing-secrets-from-scope)
-      - [List Azure-Key-Vault-Backed scopes](#list-azure-key-vault-backed-scopes)
-      - [List Databricks-backed Secret scopes](#list-databricks-backed-secret-scopes)
-    - [Delete a Secret Scope](#delete-a-secret-scope)
-  - [Connecting ADLS to Databricks using OAuth2 with Service Principal Using Azure-backed Secret Scopes](#connecting-adls-to-databricks-using-oauth2-with-service-principal-using-azure-backed-secret-scopes)
-    - [Quick check:](#quick-check)
-    - [Setting Up Secrets in Azure Key Vault:](#setting-up-secrets-in-azure-key-vault)
-    - [Code for OAuth Authentication:](#code-for-oauth-authentication)
-    - [Common Errors And Resolutions](#common-errors-and-resolutions)
-      - [Key Vault Access Denied](#key-vault-access-denied)
-      - [DeniedWithNoValidRBAC](#deniedwithnovalidrbac)
-  
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
+  
+# Working with Secret Scopes in Azure Databricks
 ## Introduction
 
 Azure Databricks offers two secret scopes: Azure Key Vault-backed and Databricks-backed. This guide walks you through their creation, access in PySpark, and prerequisites such as Databricks CLI installation and understanding key vault-related roles. By the end, you'll possess all the fundamental knowledge required to use key vaults with Azure Databricks.
