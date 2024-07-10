@@ -12,16 +12,47 @@ nav_order: 1
 # Get all session information
 
 ```python
-print("Spark version:", spark.version)
-print("Application name:", spark.sparkContext.appName)
-print("Master URL:", spark.sparkContext.master)
-print("Application ID:", spark.sparkContext.applicationId)
-print("Number of executors:", len(spark.sparkContext._jsc.sc().statusTracker().getExecutorInfos()))
-print("Cores per executor:", spark.sparkContext.defaultParallelism)
-print("Memory per executor:", spark.conf.get("spark.executor.memory"))
-print("All configuration properties:", spark.sparkContext.getConf().getAll())
-print("Active jobs:", spark.sparkContext.statusTracker().getActiveJobIds())
-print("Active stages:", spark.sparkContext.statusTracker().getActiveStageIds())
+
+import os
+import sys
+from pyspark.sql import SparkSession
+
+# Initialize a Spark session
+spark = SparkSession.builder.appName("ExampleApp").getOrCreate()
+
+# Print Spark information in a presentable format
+print(f"Spark version: {spark.version}")
+print(f"Application name: {spark.sparkContext.appName}")
+print(f"Master URL: {spark.sparkContext.master}")
+print(f"Application ID: {spark.sparkContext.applicationId}")
+print(f"Number of executors: {len(spark.sparkContext._jsc.sc().statusTracker().getExecutorInfos())}")
+print(f"Cores per executor: {spark.sparkContext.defaultParallelism}")
+
+# Try to get the memory per executor configuration
+try:
+    executor_memory = spark.conf.get("spark.executor.memory")
+    print(f"Memory per executor: {executor_memory}")
+except Exception as e:
+    print("Memory per executor: Configuration not found.")
+
+# Print all configuration properties in a formatted way
+print("\nAll configuration properties:")
+for conf_key, conf_value in spark.sparkContext.getConf().getAll():
+    print(f"  {conf_key}: {conf_value}")
+
+# Print active jobs and stages using correct methods
+print(f"\nActive jobs: {spark.sparkContext.statusTracker().getActiveJobIds()}")
+print(f"Active stages: {spark.sparkContext.statusTracker().getActiveStageIds()}")
+
+# Print additional environment information
+print(f"\nSpark home: {os.getenv('SPARK_HOME')}")
+print(f"Java home: {os.getenv('JAVA_HOME')}")
+print(f"Python version: {sys.version}")
+print(f"Python executable: {sys.executable}")
+print(f"Current working directory: {os.getcwd()}")
+print(f"User home directory: {os.path.expanduser('~')}")
+print(f"System PATH: {os.getenv('PATH')}")
+
 ```
 
 # Common df operations - Part 1
