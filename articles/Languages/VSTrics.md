@@ -23,3 +23,7 @@ Quick datasets:
 
 df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/titanic.csv")
 display(df)
+
+## Intelisence not working in VS
+
+![](images/custom-image-2024-07-10-17-35-30.png)
