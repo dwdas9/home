@@ -5,7 +5,7 @@ parent: Languages
 nav_order: 1
 ---
 - [Get all session information](#get-all-session-information)
-- [Common df operations - Part1](#common-df-operations---part1)
+- [Common df operations - Part 1](#common-df-operations---part-1)
 - [Common df operations - Part2](#common-df-operations---part2)
   - [`withColumn` and `withColumnRenamed` in PySpark](#withcolumn-and-withcolumnrenamed-in-pyspark)
 
@@ -23,7 +23,8 @@ print("All configuration properties:", spark.sparkContext.getConf().getAll())
 print("Active jobs:", spark.sparkContext.statusTracker().getActiveJobIds())
 print("Active stages:", spark.sparkContext.statusTracker().getActiveStageIds())
 ```
-# Common df operations - Part1
+
+# Common df operations - Part 1
 
 | **Operation**                | **Description**                                                                                  | **Example**                                                                                   |
 |------------------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -58,6 +59,7 @@ print("Active stages:", spark.sparkContext.statusTracker().getActiveStageIds())
 | **withColumnRenamed()**      | Renames an existing column.                                                                      | `df.withColumnRenamed("old_name", "new_name")`                                                |
 | **cast()**                   | Converts the data type of a DataFrame column.                                                    | `df.withColumn("age", col("age").cast("integer"))`                                            |
 | **alias()**                  | Assigns an alias to a DataFrame column or DataFrame.                                             | `df.select(col("col1").alias("new_col1"))`                                                    |
+
 # Common df operations - Part2
 
 | **Operation**                | **Description**                                                                                  | **Example**                                                                                   |
