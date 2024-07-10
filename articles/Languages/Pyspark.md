@@ -7,6 +7,7 @@ nav_order: 1
 - [Get all session information](#get-all-session-information)
 - [Common df operations - Part1](#common-df-operations---part1)
 - [Common df operations - Part2](#common-df-operations---part2)
+  - [`withColumn` and `withColumnRenamed` in PySpark](#withcolumn-and-withcolumnrenamed-in-pyspark)
 
 # Get all session information
 
@@ -92,3 +93,20 @@ print("Active stages:", spark.sparkContext.statusTracker().getActiveStageIds())
 | **withColumnRenamed()**      | Renames an existing column.                                                                      | `df.withColumnRenamed("old_name", "new_name")`                                                |
 | **cast()**                   | Converts the data type of a DataFrame column.                                                    | `df.withColumn("age", col("age").cast("integer"))`                                            |
 | **alias()**                  | Assigns an alias to a DataFrame column or DataFrame.                                             | `df.select(col("col1").alias("new_col1"))`                                                    |
+
+## `withColumn` and `withColumnRenamed` in PySpark
+
+| Technique                     | Description                              | Example Code                                                                                                                                                                   |
+|-------------------------------|------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Add New Column                | Add a new column with a constant value   | `storesDF.withColumn("constantColumn", lit(1))`                                                                                                                                |
+| Rename Column                 | Rename an existing column                | `storesDF.withColumnRenamed("oldColumnName", "newColumnName")`                                                                                                                 |
+| Modify Existing Column        | Modify an existing column                | `storesDF.withColumn("existingColumn", col("existingColumn") * 2)`                                                                                                             |
+| Split Column into Multiple    | Split a column into multiple columns     | `storesDF.withColumn("part1", split(col("compositeColumn"), "_").getItem(0)).withColumn("part2", split(col("compositeColumn"), "_").getItem(1))`                               |
+| Cast Column to New Type       | Cast a column to a new type              | `storesDF.withColumn("castedColumn", col("columnToCast").cast("Integer"))`                                                                                                     |
+| Apply UDF                     | Apply a user-defined function (UDF)      | `storesDF.withColumn("newColumn", udfFunction(col("existingColumn")))`                                                                                                         |
+| Conditional Column            | Add a column based on a condition        | `storesDF.withColumn("newColumn", when(col("conditionColumn") > 0, "Positive").otherwise("Negative"))`                                                                         |
+| Add Column from Expression    | Add a column from an expression          | `storesDF.withColumn("expressionColumn", col("columnA") + col("columnB"))`                                                                                                     |
+| Drop Column                   | Drop a column                            | `storesDF.drop("columnToDrop")`                                                                                                                                               |
+| Add Column with SQL Expression| Add a column using SQL expression        | `storesDF.withColumn("newColumn", expr("existingColumn + 1"))`                                                                                                                 |
+
+
