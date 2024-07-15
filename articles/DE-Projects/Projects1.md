@@ -1,9 +1,8 @@
 ---
 layout: default
-title: Project 1
-parent: Projects
-grand_parent: SSIS
-nav_order: 1
+title: Blob Copy
+parent: DE-Projects
+nav_order: 3
 ---
 
 ## Project Overview: Automating Data Integration for an Insurance Company
