@@ -21,6 +21,8 @@ nav_order: 4
       - [Default Metadata (GridFS Metadata)](#default-metadata-gridfs-metadata)
       - [Custom Metadata](#custom-metadata)
 
+![](images/custom-image-2024-07-18-01-25-13.png)
+
 # Building a Simple CMS with MongoDB, Python, and Flask
 
 Usually, we use Content Management Software like IBM Filenet or OpenText Documentum to create content warehouses. These applications store content (PDFs, JPEGs) as objects and save the associated metadata in databases like MSSQL or Oracle. They offer front-end applications like Webtop and Documentum Administrator to access the files.
