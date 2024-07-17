@@ -15,6 +15,11 @@ nav_order: 4
       - [`search.html`](#searchhtml)
       - [`app.py`](#apppy)
     - [Use the search application](#use-the-search-application)
+  - [Appendix](#appendix)
+    - [How the pdf is uploaded and linked with the metadata](#how-the-pdf-is-uploaded-and-linked-with-the-metadata)
+    - [How MongoDB Stores Files and Metadata](#how-mongodb-stores-files-and-metadata)
+      - [Default Metadata (GridFS Metadata)](#default-metadata-gridfs-metadata)
+      - [Custom Metadata](#custom-metadata)
 
 # Building a Simple CMS with MongoDB, Python, and Flask
 
@@ -323,5 +328,51 @@ The search results will display the documents with a link to download the PDFs.
 " />
 
 
+## Appendix
 
+### How the pdf is uploaded and linked with the metadata
 
+- The script iterates over `.json` files in the directory, reading each metadata file.
+
+    ```python
+    for file in os.listdir(base_dir):
+        if file.endswith('.json'):
+            with open(os.path.join(base_dir, file), 'r') as f:
+                metadata = json.load(f)
+    ```
+- It extracts the `file_name` from the metadata to locate the PDF file.
+
+    ```python
+    file_name = metadata['file_name']
+    file_path = os.path.join(base_dir, file_name)
+    ```
+- If the PDF file exists, it is uploaded to GridFS, generating a unique `file_id`.
+
+    ```python
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as content_file:
+            file_id = fs.put(content_file, filename=file_name)
+    ```
+- The `file_id` is added to the metadata and stored in the `metadata` collection in MongoDB.
+
+    ```python
+    metadata['file_id'] = str(file_id)
+    db.metadata.insert_one(metadata)
+    ```
+### How MongoDB Stores Files and Metadata
+
+**Files**:
+
+Files are stored in MongoDB using GridFS, which breaks each file into 255 KB chunks. These chunks are stored as separate documents in the `fs.chunks` collection. The `fs.files` collection stores information about each file, like the filename, upload date, file length, and references to the chunks that make up the file.
+
+**Metadata**:
+
+Metadata for each PDF is stored in a separate collection called `cms_db.metadata`. This includes details like the title, description, and filename of the PDF. Each metadata document has a `file_id` field, which stores the ObjectId of the corresponding file in GridFS. This `file_id` links the metadata to the actual file, allowing the application to find and serve the file based on user requests.
+
+#### Default Metadata (GridFS Metadata)
+
+GridFS automatically handles the basic information about each file. It stores files in chunks of 255 KB in the `fs.chunks` collection. The `fs.files` collection holds metadata like the filename, upload date, file length, chunk size, MD5 hash for checking file integrity, and references to the file chunks. This ensures that files are stored and retrieved correctly.
+
+#### Custom Metadata
+
+Apart from the default metadata, custom metadata is stored in a separate collection (e.g., `cms_db.metadata`). This includes details specific to the application, such as the PDF title, description, and the user-friendly filename. Each custom metadata document also has a `file_id` field that links to the corresponding file in GridFS. This makes it easy for the application to find and serve the file when needed.
