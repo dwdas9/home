@@ -17,6 +17,11 @@ nav_order: 1
   - [Let's See This in Practice](#lets-see-this-in-practice-1)
     - [Storing a PDF File Using Python](#storing-a-pdf-file-using-python)
   - [Let's recap the splitting process](#lets-recap-the-splitting-process)
+  - [Now, let's see the actual details](#now-lets-see-the-actual-details)
+    - [Detailed Explanation](#detailed-explanation)
+    - [Example](#example)
+    - [Conceptual Understanding](#conceptual-understanding)
+    - [Summary](#summary)
 
 ![](images/custom-image-2024-07-20-01-21-49.png)
 
@@ -213,3 +218,57 @@ When you upload **Resume.pdf** using GridFS:
 - Each piece is stored as a separate JSON file in the `fs.chunks` collection. Yes, the Adobe PDF's binary data is stuffed inside the JSON file.
 - There will be one JSON file in the `fs.files` collection to store metadata about the real file, including its length, chunk size, and upload date.
 - Each chunk document in `fs.chunks` contains a reference to the file's metadata document in `fs.files`.
+
+
+## Now, let's see the actual details
+
+![](images/custom-image-2024-07-21-01-07-30.png)
+
+In actual fact, each row in a SQL table when saved in MongoDB becomes a document. Documents are not exactly .JSON files. Rather, they are stored in BSON (Binary JSON) format within MongoDB, which is an internal storage format optimized for performance and space efficiency.
+
+### Detailed Explanation
+
+- **SQL to MongoDB**: When migrating data from a SQL table to MongoDB, each row from the SQL table becomes a document in a MongoDB collection.
+- **Documents**: These documents are similar to JSON objects but are stored internally as BSON. BSON allows MongoDB to efficiently store and retrieve data.
+- **Storage in MongoDB**: 
+  - MongoDB does not store each document as a separate file on the filesystem. Instead, all documents within a collection are stored together in large database files managed by MongoDB’s storage engine.
+  - These database files typically reside in the `dbpath` directory of your MongoDB installation and have extensions like `.wt` for WiredTiger.
+- **Accessing Data**: When you query MongoDB, it retrieves the BSON documents from these large files and converts them to JSON-like structures for ease of use in your application.
+
+### Example
+
+1. **SQL Table**:
+
+| Country | Population | Language |
+|---------|------------|----------|
+| USA     | 300        | English  |
+| Cuba    | 100        | Spanish  |
+
+2. **MongoDB Collection (`countries`)**:
+
+- Document 1:
+    ```json
+    {
+       "Country": "USA",
+       "Population": 300,
+       "Language": "English"
+    }
+    ```
+- Document 2:
+    ```json
+    {
+       "Country": "Cuba",
+       "Population": 100,
+       "Language": "Spanish"
+    }
+    ```
+
+### Conceptual Understanding
+
+For conceptual understanding, you can think of each document as a JSON object. However, in reality, these documents are stored in a more efficient binary format (BSON) within MongoDB's internal database files.
+
+### Summary
+
+- **Documents in MongoDB**: Each row from the SQL table becomes a document in MongoDB.
+- **BSON Format**: Documents are stored in BSON format, not as separate JSON files.
+- **Database Files**: MongoDB manages these documents within large database files, ensuring efficient storage and retrieval.

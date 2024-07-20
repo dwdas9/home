@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Command Cheatsheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-bottom: 1px solid #3498db;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #3498db;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .command {
+            font-family: "Courier New", Courier, monospace;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>MongoDB Command Cheatsheet</h1>
+
+<h2>Using the MongoDB Shell</h2>
+<p>The Mongo Shell is a command line utility. You can enter <span class="command">mongo</span> (or <span class="command">mongosh</span>) in your CMD/Terminal/PowerShell and it will open the shell (you may have to enter connection info for more secured environments). From there you can run MongoDB commands.</p>
+<p>On your local machine, you can download the Shell by installing it from <a href="https://www.mongodb.com/try/download/shell">here</a>. It is installed by default on the MongoDB server.</p>
+
+    <h2>Connecting to MongoDB</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Connect to a MongoDB instance</td>
+            <td class="command">mongo</td>
+        </tr>
+        <tr>
+            <td>Connect to a specific database</td>
+            <td class="command">mongo &lt;database_name&gt;</td>
+        </tr>
+        <tr>
+            <td>Connect to a remote MongoDB server</td>
+            <td class="command">mongo &lt;hostname&gt;:&lt;port&gt;/&lt;database_name&gt;</td>
+        </tr>
+        <tr>
+            <td>Connect via mongosh</td>
+            <td class="command">mongosh</td>
+        </tr>
+        <tr>
+            <td>Connect to specific host and port via mongosh</td>
+            <td class="command">mongosh --host &lt;host&gt; --port &lt;port&gt; --authenticationDatabase admin -u &lt;user&gt; -p &lt;pwd&gt;</td>
+        </tr>
+        <tr>
+            <td>Connect via mongosh with connection string</td>
+            <td class="command">mongosh "mongodb://&lt;user&gt;:&lt;password&gt;@192.168.1.1:27017"</td>
+        </tr>
+        <tr>
+            <td>Connect to MongoDB Atlas via mongosh</td>
+            <td class="command">mongosh "mongodb+srv://cluster-name.abcde.mongodb.net/&lt;dbname&gt;" --apiVersion 1 --username &lt;username&gt;</td>
+        </tr>
+    </table>
+
+    <h2>Database Operations</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Show all databases</td>
+            <td class="command">show dbs</td>
+        </tr>
+        <tr>
+            <td>Use a specific database</td>
+            <td class="command">use &lt;database_name&gt;</td>
+        </tr>
+        <tr>
+            <td>Get the current database</td>
+            <td class="command">db</td>
+        </tr>
+        <tr>
+            <td>Drop the current database</td>
+            <td class="command">db.dropDatabase()</td>
+        </tr>
+    </table>
+
+    <h2>Collection Operations</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Show all collections in the current database</td>
+            <td class="command">show collections</td>
+        </tr>
+        <tr>
+            <td>Create a collection</td>
+            <td class="command">db.createCollection("&lt;collection_name&gt;")</td>
+        </tr>
+        <tr>
+            <td>Drop a collection</td>
+            <td class="command">db.&lt;collection_name&gt;.drop()</td>
+        </tr>
+    </table>
+
+    <h2>CRUD Operations</h2>
+
+    <h3>Create</h3>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Insert a document</td>
+            <td class="command">db.coll.insertOne({name: "Max"})</td>
+        </tr>
+        <tr>
+            <td>Insert multiple documents (ordered)</td>
+            <td class="command">db.coll.insertMany([{name: "Max"}, {name: "Alex"}])</td>
+        </tr>
+        <tr>
+            <td>Insert multiple documents (unordered)</td>
+            <td class="command">db.coll.insertMany([{name: "Max"}, {name: "Alex"}], {ordered: false})</td>
+        </tr>
+        <tr>
+            <td>Insert document with current date</td>
+            <td class="command">db.coll.insertOne({date: ISODate()})</td>
+        </tr>
+        <tr>
+            <td>Insert document with write concern</td>
+            <td class="command">db.coll.insertOne({name: "Max"}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})</td>
+        </tr>
+    </table>
+
+    <h3>Read</h3>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Find one document</td>
+            <td class="command">db.coll.findOne()</td>
+        </tr>
+        <tr>
+            <td>Find all documents</td>
+            <td class="command">db.coll.find()</td>
+        </tr>
+        <tr>
+            <td>Find all documents (pretty print)</td>
+            <td class="command">db.coll.find().pretty()</td>
+        </tr>
+        <tr>
+            <td>Find documents with a query</td>
+            <td class="command">db.coll.find({name: "Max", age: 32})</td>
+        </tr>
+        <tr>
+            <td>Find documents with date</td>
+            <td class="command">db.coll.find({date: ISODate("2020-09-25T13:57:17.180Z")})</td>
+        </tr>
+        <tr>
+            <td>Explain query execution stats</td>
+            <td class="command">db.coll.find({name: "Max", age: 32}).explain("executionStats")</td>
+        </tr>
+        <tr>
+            <td>Get distinct values of a field</td>
+            <td class="command">db.coll.distinct("name")</td>
+        </tr>
+        <tr>
+            <td>Count documents with a query</td>
+            <td class="command">db.coll.countDocuments({age: 32})</td>
+        </tr>
+        <tr>
+            <td>Get estimated document count</td>
+            <td class="command">db.coll.estimatedDocumentCount()</td>
+        </tr>
+    </table>
+
+    <h3>Update</h3>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Update a document (set fields)</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$set: {"year": 2016, name: "Max"}})</td>
+        </tr>
+        <tr>
+            <td>Update a document (unset fields)</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$unset: {"year": 1}})</td>
+        </tr>
+        <tr>
+            <td>Rename a field</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$rename: {"year": "date"}})</td>
+        </tr>
+        <tr>
+            <td>Increment a field</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$inc: {"year": 5}})</td>
+        </tr>
+        <tr>
+            <td>Multiply a field</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$mul: {price: NumberDecimal("1.25"), qty: 2}})</td>
+        </tr>
+        <tr>
+            <td>Set minimum value of a field</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$min: {"imdb": 5}})</td>
+        </tr>
+        <tr>
+            <td>Set maximum value of a field</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$max: {"imdb": 8}})</td>
+        </tr>
+        <tr>
+            <td>Set current date</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$currentDate: {"lastModified": true}})</td>
+        </tr>
+        <tr>
+            <td>Set current date as timestamp</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$currentDate: {"lastModified": {$type: "timestamp"}}})</td>
+        </tr>
+        <tr>
+            <td>Array updates (push)</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$push: {"array": 1}})</td>
+        </tr>
+        <tr>
+            <td>Array updates (pull)</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$pull: {"array": 1}})</td>
+        </tr>
+        <tr>
+            <td>Array updates (addToSet)</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$addToSet: {"array": 2}})</td>
+        </tr>
+        <tr>
+            <td>Array updates (pop last element)</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$pop: {"array": 1}})</td>
+        </tr>
+        <tr>
+            <td>Array updates (pop first element)</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$pop: {"array": -1}})</td>
+        </tr>
+        <tr>
+            <td>Array updates (pullAll)</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$pullAll: {"array": [3, 4, 5]}})</td>
+        </tr>
+        <tr>
+            <td>Array updates (push with each)</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$push: {"scores": {$each: [90, 92]}}})</td>
+        </tr>
+        <tr>
+            <td>Array updates (push with sort)</td>
+            <td class="command">db.coll.updateOne({"_id": 2}, {$push: {"scores": {$each: [40, 60], $sort: 1}}})</td>
+        </tr>
+        <tr>
+            <td>Update array element</td>
+            <td class="command">db.coll.updateOne({"_id": 1, "grades": 80}, {$set: {"grades.$": 82}})</td>
+        </tr>
+        <tr>
+            <td>Update all array elements</td>
+            <td class="command">db.coll.updateMany({}, {$inc: {"grades.$[]": 10}})</td>
+        </tr>
+        <tr>
+            <td>Update array elements with filter</td>
+            <td class="command">db.coll.updateMany({}, {$set: {"grades.$[element]": 100}}, {multi: true, arrayFilters: [{"element": {$gte: 100}}]})</td>
+        </tr>
+        <tr>
+            <td>Find and update</td>
+            <td class="command">db.coll.findOneAndUpdate({"name": "Max"}, {$inc: {"points": 5}}, {returnNewDocument: true})</td>
+        </tr>
+        <tr>
+            <td>Upsert (update or insert)</td>
+            <td class="command">db.coll.updateOne({"_id": 1}, {$set: {item: "apple"}, $setOnInsert: {defaultQty: 100}}, {upsert: true})</td>
+        </tr>
+        <tr>
+            <td>Replace a document</td>
+            <td class="command">db.coll.replaceOne({"name": "Max"}, {"firstname": "Maxime", "surname": "Beugnet"})</td>
+        </tr>
+        <tr>
+            <td>Update with write concern</td>
+            <td class="command">db.coll.updateMany({}, {$set: {"x": 1}}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})</td>
+        </tr>
+    </table>
+
+    <h3>Delete</h3>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Delete one document</td>
+            <td class="command">db.coll.deleteOne({name: "Max"})</td>
+        </tr>
+        <tr>
+            <td>Delete multiple documents</td>
+            <td class="command">db.coll.deleteMany({name: "Max"}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})</td>
+        </tr>
+        <tr>
+            <td>Delete all documents</td>
+            <td class="command">db.coll.deleteMany({})</td>
+        </tr>
+        <tr>
+            <td>Find and delete</td>
+            <td class="command">db.coll.findOneAndDelete({"name": "Max"})</td>
+        </tr>
+    </table>
+
+    <h2>Indexing</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Create an index on a field</td>
+            <td class="command">db.&lt;collection_name&gt;.createIndex({&lt;field&gt;: 1})</td>
+        </tr>
+        <tr>
+            <td>Create a unique index</td>
+            <td class="command">db.&lt;collection_name&gt;.createIndex({&lt;field&gt;: 1}, {unique: true})</td>
+        </tr>
+        <tr>
+            <td>List all indexes on a collection</td>
+            <td class="command">db.&lt;collection_name&gt;.getIndexes()</td>
+        </tr>
+        <tr>
+            <td>Drop an index</td>
+            <td class="command">db.&lt;collection_name&gt;.dropIndex("&lt;index_name&gt;")</td>
+        </tr>
+        <tr>
+            <td>Hide an index</td>
+            <td class="command">db.coll.hideIndex("name_1")</td>
+        </tr>
+        <tr>
+            <td>Unhide an index</td>
+            <td class="command">db.coll.unhideIndex("name_1")</td>
+        </tr>
+    </table>
+
+    <h2>Aggregation</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Aggregation framework</td>
+            <td class="command">db.&lt;collection_name&gt;.aggregate([ { $match: { &lt;field&gt;: &lt;value&gt; } }, { $group: { _id: "$&lt;group_field&gt;", total: { $sum: "$&lt;sum_field&gt;" } } }, { $sort: {total: -1} } ])</td>
+        </tr>
+    </table>
+
+    <h2>Backup and Restore</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Backup a database</td>
+            <td class="command">mongodump --db &lt;database_name&gt; --out &lt;backup_directory&gt;</td>
+        </tr>
+        <tr>
+            <td>Restore a database</td>
+            <td class="command">mongorestore --db &lt;database_name&gt; &lt;backup_directory&gt;/&lt;database_name&gt;</td>
+        </tr>
+    </table>
+
+    <h2>User Management</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Create a new user</td>
+            <td class="command">db.createUser({ user: "&lt;username&gt;", pwd: "&lt;password&gt;", roles: [ { role: "&lt;role&gt;", db: "&lt;database&gt;" } ] })</td>
+        </tr>
+        <tr>
+            <td>Show users</td>
+            <td class="command">show users</td>
+        </tr>
+        <tr>
+            <td>Drop a user</td>
+            <td class="command">db.dropUser("&lt;username&gt;")</td>
+        </tr>
+    </table>
+
+    <h2>Server Administration</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Server status</td>
+            <td class="command">db.serverStatus()</td>
+        </tr>
+        <tr>
+            <td>Database statistics</td>
+            <td class="command">db.stats()</td>
+        </tr>
+        <tr>
+            <td>Collection statistics</td>
+            <td class="command">db.&lt;collection_name&gt;.stats()</td>
+        </tr>
+        <tr>
+            <td>Current operations</td>
+            <td class="command">db.currentOp()</td>
+        </tr>
+        <tr>
+            <td>Kill an operation</td>
+            <td class="command">db.killOp(&lt;operation_id&gt;)</td>
+        </tr>
+        <tr>
+            <td>Lock the database</td>
+            <td class="command">db.fsyncLock()</td>
+        </tr>
+        <tr>
+            <td>Unlock the database</td>
+            <td class="command">db.fsyncUnlock()</td>
+        </tr>
+        <tr>
+            <td>Get collection names</td>
+            <td class="command">db.getCollectionNames()</td>
+        </tr>
+        <tr>
+            <td>Get collection info</td>
+            <td class="command">db.getCollectionInfos()</td>
+        </tr>
+        <tr>
+            <td>Print collection stats</td>
+            <td class="command">db.printCollectionStats()</td>
+        </tr>
+        <tr>
+            <td>Replication info</td>
+            <td class="command">db.getReplicationInfo()</td>
+        </tr>
+        <tr>
+            <td>Print replication info</td>
+            <td class="command">db.printReplicationInfo()</td>
+        </tr>
+        <tr>
+            <td>Server info</td>
+            <td class="command">db.hello()</td>
+        </tr>
+        <tr>
+            <td>Host info</td>
+            <td class="command">db.hostInfo()</td>
+        </tr>
+        <tr>
+            <td>Shutdown server</td>
+            <td class="command">db.shutdownServer()</td>
+        </tr>
+        <tr>
+            <td>Profiling status</td>
+            <td class="command">db.getProfilingStatus()</td>
+        </tr>
+        <tr>
+            <td>Set profiling level</td>
+            <td class="command">db.setProfilingLevel(1, 200)</td>
+        </tr>
+        <tr>
+            <td>Enable free monitoring</td>
+            <td class="command">db.enableFreeMonitoring()</td>
+        </tr>
+        <tr>
+            <td>Disable free monitoring</td>
+            <td class="command">db.disableFreeMonitoring()</td>
+        </tr>
+        <tr>
+            <td>Get free monitoring status</td>
+            <td class="command">db.getFreeMonitoringStatus()</td>
+        </tr>
+    </table>
+
+    <h2>Handy Commands</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Use admin database</td>
+            <td class="command">use admin</td>
+        </tr>
+        <tr>
+            <td>Create root user</td>
+            <td class="command">db.createUser({"user": "root", "pwd": passwordPrompt(), "roles": ["root"]})</td>
+        </tr>
+        <tr>
+            <td>Drop root user</td>
+            <td class="command">db.dropUser("root")</td>
+        </tr>
+        <tr>
+            <td>Authenticate user</td>
+            <td class="command">db.auth( "user", passwordPrompt() )</td>
+        </tr>
+        <tr>
+            <td>Switch to test database</td>
+            <td class="command">use test</td>
+        </tr>
+        <tr>
+            <td>Get sibling database</td>
+            <td class="command">db.getSiblingDB("dbname")</td>
+        </tr>
+        <tr>
+            <td>Get current operations</td>
+            <td class="command">db.currentOp()</td>
+        </tr>
+        <tr>
+            <td>Kill operation</td>
+            <td class="command">db.killOp(123)</td>
+        </tr>
+        <tr>
+            <td>Get collection stats</td>
+            <td class="command">db.printCollectionStats()</td>
+        </tr>
+        <tr>
+            <td>Get server status</td>
+            <td class="command">db.serverStatus()</td>
+        </tr>
+        <tr>
+            <td>Create a view</td>
+            <td class="command">db.createView("viewName", "sourceColl", [{$project:{department: 1}}])</td>
+        </tr>
+    </table>
+
+    <h2>Change Streams</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Watch for changes</td>
+            <td class="command">watchCursor = db.coll.watch([ { $match : {"operationType" : "insert" } } ])</td>
+        </tr>
+        <tr>
+            <td>Iterate change stream</td>
+            <td class="command">while (!watchCursor.isExhausted()){ if (watchCursor.hasNext()){ print(tojson(watchCursor.next())); } }</td>
+        </tr>
+    </table>
+
+    <h2>Replica Set</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Replica set status</td>
+            <td class="command">rs.status()</td>
+        </tr>
+        <tr>
+            <td>Initiate replica set</td>
+            <td class="command">rs.initiate({"_id": "RS1", members: [ { _id: 0, host: "mongodb1.net:27017" }, { _id: 1, host: "mongodb2.net:27017" }, { _id: 2, host: "mongodb3.net:27017" }]})</td>
+        </tr>
+        <tr>
+            <td>Add a member</td>
+            <td class="command">rs.add("mongodb4.net:27017")</td>
+        </tr>
+        <tr>
+            <td>Add an arbiter</td>
+            <td class="command">rs.addArb("mongodb5.net:27017")</td>
+        </tr>
+        <tr>
+            <td>Remove a member</td>
+            <td class="command">rs.remove("mongodb1.net:27017")</td>
+        </tr>
+        <tr>
+            <td>Get replica set config</td>
+            <td class="command">rs.conf()</td>
+        </tr>
+        <tr>
+            <td>Replica set hello</td>
+            <td class="command">rs.hello()</td>
+        </tr>
+        <tr>
+            <td>Print replication info</td>
+            <td class="command">rs.printReplicationInfo()</td>
+        </tr>
+        <tr>
+            <td>Print secondary replication info</td>
+            <td class="command">rs.printSecondaryReplicationInfo()</td>
+        </tr>
+        <tr>
+            <td>Reconfigure replica set</td>
+            <td class="command">rs.reconfig(config)</td>
+        </tr>
+        <tr>
+            <td>Set read preference</td>
+            <td class="command">db.getMongo().setReadPref('secondaryPreferred')</td>
+        </tr>
+        <tr>
+            <td>Step down primary</td>
+            <td class="command">rs.stepDown(20, 5)</td>
+        </tr>
+    </table>
+
+    <h2>Sharded Cluster</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Command</th>
+        </tr>
+        <tr>
+            <td>Print sharding status</td>
+            <td class="command">db.printShardingStatus()</td>
+        </tr>
+        <tr>
+            <td>Sharding status</td>
+            <td class="command">sh.status()</td>
+        </tr>
+        <tr>
+            <td>Add a shard</td>
+            <td class="command">sh.addShard("rs1/mongodb1.example.net:27017")</td>
+        </tr>
+        <tr>
+            <td>Shard a collection</td>
+            <td class="command">sh.shardCollection("mydb.coll", {zipcode: 1})</td>
+        </tr>
+        <tr>
+            <td>Move a chunk</td>
+            <td class="command">sh.moveChunk("mydb.coll", { zipcode: "53187" }, "shard0019")</td>
+        </tr>
+        <tr>
+            <td>Split a chunk at a key</td>
+            <td class="command">sh.splitAt("mydb.coll", {x: 70})</td>
+        </tr>
+        <tr>
+            <td>Split a chunk by find query</td>
+            <td class="command">sh.splitFind("mydb.coll", {x: 70})</td>
+        </tr>
+        <tr>
+            <td>Start balancer</td>
+            <td class="command">sh.startBalancer()</td>
+        </tr>
+        <tr>
+            <td>Stop balancer</td>
+            <td class="command">sh.stopBalancer()</td>
+        </tr>
+        <tr>
+            <td>Disable balancing</td>
+            <td class="command">sh.disableBalancing("mydb.coll")</td>
+        </tr>
+        <tr>
+            <td>Enable balancing</td>
+            <td class="command">sh.enableBalancing("mydb.coll")</td>
+        </tr>
+        <tr>
+            <td>Get balancer state</td>
+            <td class="command">sh.getBalancerState()</td>
+        </tr>
+        <tr>
+            <td>Set balancer state</td>
+            <td class="command">sh.setBalancerState(true/false)</td>
+        </tr>
+        <tr>
+            <td>Is balancer running</td>
+            <td class="command">sh.isBalancerRunning()</td>
+        </tr>
+        <tr>
+            <td>Start auto merger</td>
+            <td class="command">sh.startAutoMerger()</td>
+        </tr>
+        <tr>
+            <td>Stop auto merger</td>
+            <td class="command">sh.stopAutoMerger()</td>
+        </tr>
+        <tr>
+            <td>Enable auto merger</td>
+            <td class="command">sh.enableAutoMerger()</td>
+        </tr>
+        <tr>
+            <td>Disable auto merger</td>
+            <td class="command">sh.disableAutoMerger()</td>
+        </tr>
+        <tr>
+            <td>Update zone key range</td>
+            <td class="command">sh.updateZoneKeyRange("mydb.coll", {state: "NY", zip: MinKey }, { state: "NY", zip: MaxKey }, "NY")</td>
+        </tr>
+        <tr>
+            <td>Remove range from zone</td>
+            <td class="command">sh.removeRangeFromZone("mydb.coll", {state: "NY", zip: MinKey }, { state: "NY", zip: MaxKey })</td>
+        </tr>
+        <tr>
+            <td>Add shard to zone</td>
+            <td class="command">sh.addShardToZone("shard0000", "NYC")</td>
+        </tr>
+        <tr>
+            <td>Remove shard from zone</td>
+            <td class="command">sh.removeShardFromZone("shard0000", "NYC")</td>
+        </tr>
+    </table>
+</body>
+</html>
