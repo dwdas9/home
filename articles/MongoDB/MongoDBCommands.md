@@ -1,27 +1,13 @@
----
-layout: default
-title: MongoDB Commands
-parent: MongoDB
-nav_order: 2
----
-- [MongoDB Command Cheatsheet](#mongodb-command-cheatsheet)
-  - [Connecting to MongoDB](#connecting-to-mongodb)
-  - [Database Operations](#database-operations)
-  - [Collection Operations](#collection-operations)
-  - [Document Operations](#document-operations)
-  - [Indexing](#indexing)
-  - [Aggregation](#aggregation)
-  - [Backup and Restore](#backup-and-restore)
-  - [User Management](#user-management)
-  - [Server Administration](#server-administration)
-
-
 ### MongoDB Command Cheatsheet
+
+#### Using the MongoDB Shell
+
+To run MongoDB commands, you can install MongoDB Shell from [here](https://www.mongodb.com/try/download/shell).
 
 #### Connecting to MongoDB
 ```sh
 # Connect to a MongoDB instance
-mongo
+mongosh
 
 # Connect to a specific database
 mongo <database_name>
@@ -74,6 +60,12 @@ db.<collection_name>.find({<field>: <value>})
 # Find one document
 db.<collection_name>.findOne({<field>: <value>})
 
+# Find the first document in a collection
+db.<collection_name>.findOne()
+
+# Find a document by ID
+db.<collection_name>.findOne({_id: ObjectId("<id>")})
+
 # Update a document
 db.<collection_name>.updateOne({<query_field>: <query_value>}, {$set: {<field>: <value>}})
 
@@ -88,12 +80,36 @@ db.<collection_name>.deleteOne({<field>: <value>})
 
 # Delete multiple documents
 db.<collection_name>.deleteMany({<field>: <value>})
+
+# Count documents in a collection
+db.<collection_name>.count()
+```
+
+#### Querying MongoDB Collections
+```sh
+# Find a limited number of results
+db.<collection_name>.find().limit(<number>)
+
+# Find documents by a field
+db.<collection_name>.find({"<field>": "<value>"}).count()
+
+# Query documents by numeric ranges
+db.<collection_name>.find({<field>: {$gt: <number>}})  # greater than
+db.<collection_name>.find({<field>: <number>})  # equal to
+db.<collection_name>.find({<field>: {$ne: <number>}})  # not equal to
+
+# Sort results by a field
+db.<collection_name>.find().sort({<field>: 1})  # ascending
+db.<collection_name>.find().sort({<field>: -1})  # descending
 ```
 
 #### Indexing
 ```sh
 # Create an index on a field
 db.<collection_name>.createIndex({<field>: 1})  # 1 for ascending, -1 for descending
+
+# Create a unique index
+db.<collection_name>.createIndex({<field>: 1}, {unique: true})
 
 # List all indexes on a collection
 db.<collection_name>.getIndexes()
