@@ -1,3 +1,10 @@
+---
+layout: default
+title: MongoDB Commands
+parent: MongoDB
+nav_order: 2
+---
+
 ### MongoDB Command Cheatsheet
 
 #### Using the MongoDB Shell
