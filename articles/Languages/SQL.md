@@ -16,6 +16,15 @@ nav_order: 3
 - [APPROX\_COUNT\_DISTINCT when COUNT(DISTINCT ColName) runs forever](#approx_count_distinct-when-countdistinct-colname-runs-forever)
   - [How to run it?](#how-to-run-it)
   - [Some Fun facts about this T-SQL function](#some-fun-facts-about-this-t-sql-function)
+- [Practice Joins with MSSQL AdventureWorksLT2016](#practice-joins-with-mssql-adventureworkslt2016)
+  - [Table Descriptions](#table-descriptions)
+  - [Questions](#questions)
+    - [Question 1: List Customers with Their Orders](#question-1-list-customers-with-their-orders)
+    - [Question 2: List Products and Their Categories](#question-2-list-products-and-their-categories)
+    - [Question 3: Find Customers and Their Addresses](#question-3-find-customers-and-their-addresses)
+    - [Question 4: List All Products and Their Order Details](#question-4-list-all-products-and-their-order-details)
+    - [Question 5: Products with No Orders](#question-5-products-with-no-orders)
+    - [Question 6: Calculate Total Sales per Customer Using CTE](#question-6-calculate-total-sales-per-customer-using-cte)
 
 
 # Essential SparkSQL commands
@@ -216,3 +225,82 @@ In MS SQL Server `APPROX_COUNT_DISTINCT` it first came in **SQL Server 2019**. I
 2. **Amazon Redshift**: It offers the `APPROXIMATE COUNT(DISTINCT column)` function, which serves a similar purpose.
 3. **PostgreSQL**: The `approx_count_distinct` extension is available through the `HLL (HyperLogLog)` extension, which allows for approximate distinct counting.
 4. **Apache Spark**: The `approx_count_distinct` function is available in Spark SQL, which uses HyperLogLog for approximate counting.
+
+
+# Practice Joins with MSSQL AdventureWorksLT2016
+
+Download MSSQL Sample database AdventureWorksLT2016.bak and restore it. It will give you a full enviornment.
+
+https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2016.bak
+
+
+## Table Descriptions
+
+Here is a brief description of some of the key tables in the AdventureWorksLT2016 database:
+
+- **SalesLT.Customer**: Contains customer information such as CustomerID, FirstName, LastName, EmailAddress, etc.
+- **SalesLT.SalesOrderHeader**: Contains sales order information including SalesOrderID, OrderDate, CustomerID, TotalDue, etc.
+- **SalesLT.SalesOrderDetail**: Contains details of each sales order, such as SalesOrderID, ProductID, OrderQty, UnitPrice, etc.
+- **SalesLT.Product**: Contains product information including ProductID, Name, ProductNumber, Color, ListPrice, etc.
+- **SalesLT.ProductCategory**: Contains information about product categories including ProductCategoryID and Name.
+- **SalesLT.ProductModel**: Contains information about product models including ProductModelID and Name.
+- **SalesLT.Address**: Contains address information including AddressID, AddressLine1, City, StateProvince, etc.
+- **SalesLT.CustomerAddress**: A junction table linking customers to addresses.
+
+## Questions
+
+### Question 1: List Customers with Their Orders
+
+**Question**: Retrieve a list of customers along with their order details. Include the customer's first name, last name, and order date. Only include customers who have placed at least one order.
+
+**Hint**: 
+- Use `SalesLT.Customer` to get customer information.
+- Use `SalesLT.SalesOrderHeader` to get order information.
+- Use an INNER JOIN to connect these tables.
+
+### Question 2: List Products and Their Categories
+
+**Question**: Retrieve a list of products along with their category names. Include all products, even those that do not belong to any category.
+
+**Hint**:
+- Use `SalesLT.Product` to get product information.
+- Use `SalesLT.ProductCategory` to get category information.
+- Use a LEFT JOIN to include all products.
+
+### Question 3: Find Customers and Their Addresses
+
+**Question**: Retrieve a list of customers and their addresses. Include all customers, even if they do not have an address listed.
+
+**Hint**:
+- Use `SalesLT.Customer` to get customer information.
+- Use `SalesLT.CustomerAddress` to get the relationship between customers and addresses.
+- Use `SalesLT.Address` to get address information.
+- Use a LEFT JOIN to include all customers.
+
+### Question 4: List All Products and Their Order Details
+
+**Question**: Retrieve a list of all products and their order details. Include all products and orders, even if they do not match.
+
+**Hint**:
+- Use `SalesLT.Product` to get product information.
+- Use `SalesLT.SalesOrderDetail` to get order details.
+- Use a FULL OUTER JOIN to include all products and orders.
+
+### Question 5: Products with No Orders
+
+**Question**: Find products that have not been ordered by any customer.
+
+**Hint**:
+- Use `SalesLT.Product` to get product information.
+- Use `SalesLT.SalesOrderDetail` to get order details.
+- Use a LEFT JOIN and filter to find products with no matching orders.
+
+### Question 6: Calculate Total Sales per Customer Using CTE
+
+**Question**: Use a Common Table Expression (CTE) to calculate the total sales amount for each customer.
+
+**Hint**:
+- Use `SalesLT.Customer` to get customer information.
+- Use `SalesLT.SalesOrderHeader` to get order information.
+- Use SUM function to calculate total sales.
+- Use a CTE to organize the query.
