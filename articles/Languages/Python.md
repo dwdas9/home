@@ -4,11 +4,50 @@ title: Python
 parent: Languages
 nav_order: 2
 ---
+- [Python Variables](#python-variables)
+- [Python list](#python-list)
+  - [For item in list](#for-item-in-list)
+  - [While in list](#while-in-list)
+- [Python functions](#python-functions)
 - [Python Sets Properties](#python-sets-properties)
 - [Python Snippets](#python-snippets)
   - [Get Current User info](#get-current-user-info)
 - [Populat MSSQL Tables with random data](#populat-mssql-tables-with-random-data)
 
+# Python Variables
+
+Python variables don't have a type. They are just names. If you have a python list the variable holding it doesn't need to know what is the type. It just knows its a list and it has some collection.
+
+List in Python my look like arrays. But, they are more. They are full blown Python collection objects. This means, they come with ready-to-use list methods.
+
+# Python list
+
+**List are like Arrays v2**
+
+![](images/custom-image-2024-07-21-17-10-42.png)
+
+**Access list items with the Square Bracket []**
+
+![](images/custom-image-2024-07-21-17-14-15.png)
+
+First few important list methods
+
+print()
+pop()
+extend()
+insert()
+
+## For item in list
+
+![](images/custom-image-2024-07-21-17-29-57.png)
+
+## While in list
+
+![](images/custom-image-2024-07-21-17-32-50.png)
+
+# Python functions
+
+![](images/custom-image-2024-07-21-18-57-13.png)
 
 # Python Sets Properties
 
