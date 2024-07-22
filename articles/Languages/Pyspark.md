@@ -1,9 +1,11 @@
 ---
 layout: default
-title: Pyspark
+title: Python
 parent: Languages
 nav_order: 1
+has_children: true
 ---
+
 - [Get all session information](#get-all-session-information)
 - [Common df operations - Part 1](#common-df-operations---part-1)
 - [Common df operations - Part 2](#common-df-operations---part-2)

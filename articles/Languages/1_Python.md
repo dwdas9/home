@@ -2,10 +2,13 @@
 layout: default
 title: Python
 parent: Languages
-nav_order: 2
+nav_order: 1
+has_children: true
 ---
-- [Python Variables](#python-variables)
-- [Python comments](#python-comments)
+
+
+- [Variables](#variables)
+- [Python Comments](#python-comments)
 - [Python list](#python-list)
   - [For item in list](#for-item-in-list)
   - [While in list](#while-in-list)
@@ -15,13 +18,14 @@ nav_order: 2
   - [Get Current User info](#get-current-user-info)
 - [Populat MSSQL Tables with random data](#populat-mssql-tables-with-random-data)
 
-# Python Variables
+# <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Variables</span>
+
 
 Python variables don't have a type. They are just names. If you have a python list the variable holding it doesn't need to know what is the type. It just knows its a list and it has some collection.
 
 List in Python my look like arrays. But, they are more. They are full blown Python collection objects. This means, they come with ready-to-use list methods.
 
-# Python comments
+# <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Python Comments</span>
 
 ![](images/custom-image-2024-07-22-00-52-02.png)
 
@@ -56,7 +60,9 @@ insert()
 
 # Python Sets Properties
 
-- **No Order**: There is no order in Python sets. You might input `apple`, `orange`, `banana` and get `banana`, `apple`, `orange` as output.
+- **No Order[No 0,1,2,3]**: Python stores Set items. But, doesn't remember their order. Meaning, no first item, second item. That means, you might input `apple`, `orange`, `banana` and get `banana`, `apple`, `orange` as output.
+
+
 
 <img src="images\PYTHONSETSNOORDER.png" alt="alt text" style="
     border: 2px solid gray;
@@ -72,9 +78,11 @@ insert()
 ```python
 my_set = {1, 2, 3}
 print(my_set)  # Output could be {1, 2, 3} or {3, 1, 2} or any permutation
+
+my_set[0] # THIS IS AN ERROR. No one is sitting at 0. There is no order, no index.
 ```
 
-- **No Index**: There is no index in sets, like a jail where no inmate has a badge number.
+- **No Index**: Since, the items aren't stored as 0,1,2,3. There is no Index, Simple. Like a jail where no inmate has a badge number.
 
 <img src="images\setsareunindexed.png" alt="alt text" style="
     border: 2px solid gray;

@@ -62,4 +62,4 @@ spark = SparkSession.builder \
 ```
 ---
 © D Das  
-📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)
+📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) |
