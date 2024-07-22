@@ -18,6 +18,10 @@ These fonts should be already present in your system. You can download it from i
 
 <h1 style="font-family: 'Permanent Marker', sans-serif;">h1 in Permanent Marker</h2>
 
+<p1 style="font-family: 'Comic Sans MS', sans-serif;">h1 Comic Sans MS</p>
+
+
+
 
 # HTML Colors
 
