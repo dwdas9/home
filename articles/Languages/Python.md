@@ -5,6 +5,7 @@ parent: Languages
 nav_order: 2
 ---
 - [Python Variables](#python-variables)
+- [Python comments](#python-comments)
 - [Python list](#python-list)
   - [For item in list](#for-item-in-list)
   - [While in list](#while-in-list)
@@ -19,6 +20,10 @@ nav_order: 2
 Python variables don't have a type. They are just names. If you have a python list the variable holding it doesn't need to know what is the type. It just knows its a list and it has some collection.
 
 List in Python my look like arrays. But, they are more. They are full blown Python collection objects. This means, they come with ready-to-use list methods.
+
+# Python comments
+
+![](images/custom-image-2024-07-22-00-52-02.png)
 
 # Python list
 

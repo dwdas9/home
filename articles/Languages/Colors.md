@@ -6,9 +6,16 @@ nav_order: 1
 ---
 
 
-# My Color Palette
+# Fonts
 
-## Quick Reference
+<h1 style="font-family: 'LovelexieHandwritten', sans-serif;">h1 in LovelexieHandwritten</h2>
+
+<h1 style="font-family: 'Architects Daughter', sans-serif;">Architects Daughter</h2>
+
+<h1 style="font-family: 'Gunny Rewritten', sans-serif;">h1 in Gunny Rewritten</h2>
+
+<h1 style="font-family: 'Permanent Marker', sans-serif;">h1 in Permanent Marker</h2>
+
 
 # HTML Colors
 
