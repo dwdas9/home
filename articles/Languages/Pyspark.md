@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Python
+title: PySpark
 parent: Languages
 nav_order: 1
 has_children: true
