@@ -8,6 +8,8 @@ nav_order: 1
 
 # Fonts
 
+These fonts should be already present in your system. You can download it from internet and install them.
+
 <h1 style="font-family: 'LovelexieHandwritten', sans-serif;">h1 in LovelexieHandwritten</h2>
 
 <h1 style="font-family: 'Architects Daughter', sans-serif;">Architects Daughter</h2>
