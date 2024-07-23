@@ -57,6 +57,9 @@ insert()
 
 ![](images/custom-image-2024-07-21-18-57-13.png)
 
+Python function introduces two new keywords: **def** and **return**
+Python doesn't force you to provide type of arguments and return value
+You can send objects as arguments and get objects as return. You don't have to provide the type of the object
 
 # Python Snippets
 
