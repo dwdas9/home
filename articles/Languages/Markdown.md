@@ -284,3 +284,26 @@ This guide helps you quickly find and use HTML colors. You can style your text b
 | WhiteSmoke | #F5F5F5 | <span style="color: #F5F5F5;">This is a sample text■</span> |
 | YellowGreen | #9ACD32 | <span style="color: #9ACD32;">This is a sample text■</span> |
 
+
+# Sample Div
+
+This is how I create divs. I create the block once, and reuse it.
+
+<div style="padding: 20px; border: 2px solid #2E75B6; box-shadow: 2px 2px 10px #aaa; border-radius: 10px; background-color: #f9f9f9; font-family: 'Comic Sans MS', cursive, sans-serif;">
+
+  <h3 style="color: #2E75B6;">Note:</h3>
+  <p style="color: #555555;"><strong>Changeable items</strong> (also called mutable) are items that can be modified after they are created. For example:</p>
+  <ul>
+    <li><strong style="color: #C0504D;">Lists</strong>: <span style="color: #555555;">You can add, remove, or change elements.</span></li>
+    <li><strong style="color: #9C4C4B;">Dictionaries</strong>: <span style="color: #555555;">You can add, remove, or change key-value pairs.</span></li>
+  </ul>
+  <p style="color: #555555;">These items cannot be added to a set because sets need items that do not change.</p>
+  <br>
+  <p style="color: #555555;"><strong>Unchangeable items</strong> (also called immutable) are items that cannot be modified after they are created. For example:</p>
+  <ul>
+    <li><strong style="color: #2E8B57;">Numbers</strong>: <span style="color: #555555;">Once created, their values cannot be changed.</span></li>
+    <li><strong style="color: #4682B4;">Strings</strong>: <span style="color: #555555;">Any modification creates a new string.</span></li>
+    <li><strong style="color: #6A5ACD;">Tuples</strong>: <span style="color: #555555;">Their elements cannot be changed once created.</span></li>
+  </ul>
+  <p style="color: #555555;">These items can be added to a set because their values stay the same.</p>
+</div>
