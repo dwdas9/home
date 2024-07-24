@@ -1,6 +1,6 @@
 ---
 layout: default
-title: HTML Colors
+title: Markdown
 parent: Misc Articles
 nav_order: 1
 ---
@@ -21,6 +21,9 @@ These fonts should be already present in your system. You can download it from i
 <p1 style="font-family: 'Comic Sans MS', sans-serif;">h1 Comic Sans MS</p>
 
 
+# Escape PIPE character
+
+In markdown using | will create confusion. Use &#124;
 
 
 # HTML Colors
