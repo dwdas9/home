@@ -397,3 +397,57 @@ This is how I create divs. I create the block once, and reuse it.
 <div style="background-color: #4CAF50; color: white; text-align: center; padding: 20px;">
     <p>&copy; 2024 Dass creation. All rights reserved.</p>
 </div>
+
+<br>
+
+<div style="padding: 20px; border: 2px solid #4CAF50; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); border-radius: 10px; background-color: #f9f9f9;">
+    <div style="margin-bottom: 20px;">
+        <span style="font-size: 2em; font-weight: bold;">range(start, stop, step)</span>
+    </div>
+    <div style="display: inline-block; margin: 5px;">
+        <div style="padding: 10px; border: 1px solid #ddd; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); border-radius: 5px; background-color: #ffeb3b;">
+            <span style="font-size: 1.5em; color: #000;">Start optional</span>
+        </div>
+    </div>
+    <div style="display: inline-block; margin: 5px;">
+        <div style="padding: 10px; border: 1px solid #ddd; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); border-radius: 5px; background-color: #ffeb3b;">
+            <span style="font-size: 1.5em; color: #000;">Stop Must</span>
+        </div>
+    </div>
+    <div style="display: inline-block; margin: 5px;">
+        <div style="padding: 10px; border: 1px solid #ddd; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); border-radius: 5px; background-color: #ffeb3b;">
+            <span style="font-size: 1.5em; color: #000;">Step Optional</span>
+        </div>
+    </div>
+</div>
+<br>
+
+<div style="display: inline-block; margin: 5px;">
+    <div style="padding: 10px; border: 1px solid #ddd; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); border-radius: 5px; background-color: #ffeb3b;">
+        <span style="font-size: 1.5em; color: #000;">Stop Must</span>
+    </div>
+</div>
+
+
+<div style="padding: 10px; border: 2px solid #4CAF50; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 10px; background-color: #c0c0c0; width: 50%; margin: 0 auto;font-family: 'Comic Sans MS', sans-serif;">
+    <div style="margin-bottom: 10px;">
+        <span style="font-size: 1.5em; font-weight: bold;">print(*(i for i in range(5)))</span>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+        <div style="padding: 5px; border: 1px solid #4CAF50; border-radius: 5px; background-color: #ffffff; margin: 3px;">
+            <span style="font-size: 1.2em; color: #000;">0</span>
+        </div>
+        <div style="padding: 5px; border: 1px solid #4CAF50; border-radius: 5px; background-color: #ffffff; margin: 3px;">
+            <span style="font-size: 1.2em; color: #000;">1</span>
+        </div>
+        <div style="padding: 5px; border: 1px solid #4CAF50; border-radius: 5px; background-color: #ffffff; margin: 3px;">
+            <span style="font-size: 1.2em; color: #000;">2</span>
+        </div>
+        <div style="padding: 5px; border: 1px solid #4CAF50; border-radius: 5px; background-color: #ffffff; margin: 3px;">
+            <span style="font-size: 1.2em; color: #000;">3</span>
+        </div>
+        <div style="padding: 5px; border: 1px solid #4CAF50; border-radius: 5px; background-color: #ffffff; margin: 3px;">
+            <span style="font-size: 1.2em; color: #000;">4</span>
+        </div>
+    </div>
+</div>
