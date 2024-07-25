@@ -458,3 +458,13 @@ This is how I create divs. I create the block once, and reuse it.
 <div style="padding: 5px; border: 1px solid #ddd; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; background-color: #ffeb3b; margin: 3px;font-family: 'Comic Sans MS', sans-serif;">
     <span style="font-size: 1.2em; color: #000;">* unpacks the items</span>
 </div>
+
+<div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
+    <div style="padding: 5px; border: 1px solid #ddd; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; background-color: #ffeb3b; margin: 3px;font-family: 'Comic Sans MS', sans-serif;">
+        <span style="font-size: 1.2em; font-weight: bold;font-family: 'Courier New', Courier, monospace;">print(*(fruits[i] for i in range(len(fruits))))</span>
+    </div>
+</div>
+
+<div style="padding: 10px; border: 1px solid #ddd; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); border-radius: 5px; background-color: #ffeb3b;font-family: 'Comic Sans MS', sans-serif;">
+    <span style="font-size: 1.5em; color: #000;">Stop is Must. Start, Step Optional.</span>
+</div>
