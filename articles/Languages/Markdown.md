@@ -307,3 +307,93 @@ This is how I create divs. I create the block once, and reuse it.
   </ul>
   <p style="color: #555555;">These items can be added to a set because their values stay the same.</p>
 </div>
+
+<br>
+
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;">
+    <tr>
+        <td style="padding: 20px;">
+            <div style="display: inline-block; padding: 10px; background-color: yellow; border: 1px solid black; transform: rotate(-5deg); width: 100px; height: 100px;">
+                Note 1
+            </div>
+        </td>
+        <td style="padding: 20px;">
+            <div style="display: inline-block; padding: 10px; background-color: yellow; border: 1px solid black; transform: rotate(3deg); width: 100px; height: 100px;">
+                Note 2
+            </div>
+        </td>
+        <td style="padding: 20px;">
+            <div style="display: inline-block; padding: 10px; background-color: yellow; border: 1px solid black; transform: rotate(-2deg); width: 100px; height: 100px;">
+                Note 3
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 20px;">
+            <div style="display: inline-block; padding: 10px; background-color: yellow; border: 1px solid black; transform: rotate(4deg); width: 100px; height: 100px;">
+                Note 4
+            </div>
+        </td>
+        <td style="padding: 20px;">
+            <div style="display: inline-block; padding: 10px; background-color: yellow; border: 1px solid black; transform: rotate(-4deg); width: 100px; height: 100px;">
+                Note 5
+            </div>
+        </td>
+        <td style="padding: 20px;">
+            <div style="display: inline-block; padding: 10px; background-color: yellow; border: 1px solid black; transform: rotate(2deg); width: 100px; height: 100px;">
+                Note 6
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+
+<br>
+
+
+
+<div style="background-color: #4CAF50; color: white; text-align: center; padding: 20px;">
+    <h1>Dashboard</h1>
+</div>
+
+<!-- Sidebar and Content Wrapper -->
+<div style="display: flex; height: calc(100vh - 120px);">
+    <!-- Sidebar -->
+    <div style="background-color: #f4f4f4; width: 200px; padding: 20px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
+        <h2>Sidebar</h2>
+        <ul style="list-style-type: none; padding: 0;">
+            <li><a href="#" style="text-decoration: none; color: #333; display: block; padding: 10px 0;">Home</a></li>
+            <li><a href="#" style="text-decoration: none; color: #333; display: block; padding: 10px 0;">Profile</a></li>
+            <li><a href="#" style="text-decoration: none; color: #333; display: block; padding: 10px 0;">Settings</a></li>
+            <li><a href="#" style="text-decoration: none; color: #333; display: block; padding: 10px 0;">Logout</a></li>
+        </ul>
+    </div>
+
+  <!-- Content Area -->
+  <div style="flex: 1; padding: 20px;">
+      <div style="margin-bottom: 20px;">
+          <div style="background-color: #2196F3; color: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+              <h2>Content Block 1</h2>
+              <p>This is some content inside the first content block.</p>
+          </div>
+      </div>
+      <div style="margin-bottom: 20px;">
+          <div style="background-color: #FF5722; color: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+              <h2>Content Block 2</h2>
+              <p>This is some content inside the second content block.</p>
+          </div>
+      </div>
+      <div style="margin-bottom: 20px;">
+          <div style="background-color: #009688; color: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+              <h2>Content Block 3</h2>
+              <p>This is some content inside the third content block.</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div style="background-color: #4CAF50; color: white; text-align: center; padding: 20px;">
+    <p>&copy; 2024 Dashboard. All rights reserved.</p>
+</div>
