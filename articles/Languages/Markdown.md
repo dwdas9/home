@@ -395,5 +395,5 @@ This is how I create divs. I create the block once, and reuse it.
 
 <!-- Footer -->
 <div style="background-color: #4CAF50; color: white; text-align: center; padding: 20px;">
-    <p>&copy; 2024 Dashboard. All rights reserved.</p>
+    <p>&copy; 2024 Dass creation. All rights reserved.</p>
 </div>
