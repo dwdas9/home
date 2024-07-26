@@ -16,6 +16,8 @@ has_children: true
 - [Python Snippets](#python-snippets)
   - [Get Current User info](#get-current-user-info)
 - [Populat MSSQL Tables with random data](#populat-mssql-tables-with-random-data)
+- [Python Gotchas](#python-gotchas)
+  - [NameError in Python](#nameerror-in-python)
 
 # <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Variables</span>
 
@@ -152,3 +154,24 @@ conn.commit()
 conn.close()
 
 ```
+
+# Python Gotchas
+## NameError in Python
+
+
+If you don't create a variable an use it. You will get **NameError** in Python. 
+
+```python
+for i in range(5):
+    print(x)
+```
+
+To avoid, simple, create the variable and warm it up.
+
+```python
+x = 10 # Create and warm up
+for i in range(5):
+    print(x) # Then use
+```
+
+Note for code like `for i in range(x)` the initializatio happens. So, don't take such examples and start using variables without warming them up.
