@@ -22,7 +22,26 @@ has_children: true
 
 # Python version - python -V
 
-![](images/custom-image-2024-07-26-15-49-57.png)
+To check python version use run in terminal/CMD
+
+![](images/custom-image-2024-07-26-16-05-17.png)
+
+
+**Remember**: V in **CAPS**
+<figure>
+  <img src="images/custom-image-2024-07-26-15-49-57.png" alt="alt text" style="
+    border: 1px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 5px;
+    width: auto; /* Maintain aspect ratio */
+    height: 300; /* Maintain aspect ratio */
+    ;
+"/>
+  <figcaption></figcaption>
+</figure>
+
 
 # <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Variables</span>
 
