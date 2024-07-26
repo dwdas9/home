@@ -7,6 +7,7 @@ has_children: true
 ---
 
 
+- [Python version - python -V](#python-version---python--v)
 - [Variables](#variables)
 - [Python Comments](#python-comments)
 - [Python list](#python-list)
@@ -18,6 +19,10 @@ has_children: true
 - [Populat MSSQL Tables with random data](#populat-mssql-tables-with-random-data)
 - [Python Gotchas](#python-gotchas)
   - [NameError in Python](#nameerror-in-python)
+
+# Python version - python -V
+
+![](images/custom-image-2024-07-26-15-49-57.png)
 
 # <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Variables</span>
 
