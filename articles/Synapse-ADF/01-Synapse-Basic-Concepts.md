@@ -42,14 +42,6 @@ A Synapse workspace must be connected to a storage account (ADLS Gen2) and a fil
 You can see the connected ADLS storage from Data tab/Linked area.
 
 <img src="images/custom-image-2024-07-27-15-25-08.png" alt="alt text" style="
-    border: 1px solid gray;
-    border-radius: 6px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px auto; /* Center horizontally */
-    padding: 5px;
-    display: block; /* Center horizontally */
-    width: auto; /* Maintain aspect ratio */
-    height: 300px; /* Maintain aspect ratio */
 "/>
 
 ## <span style="color: DarkCyan">Linked Services</span>
@@ -75,14 +67,7 @@ You can see the connected ADLS storage from Data tab/Linked area.
 Manage Tab, External connections contains Linked Services section in Synapase and In Azure Data Factory.
 
 <img src="images/custom-image-2024-07-27-16-59-23.png" alt="alt text" style="
-    border: 1px solid gray;
-    border-radius: 6px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px auto; /* Center horizontally */
-    padding: 5px;
     display: block; /* Center horizontally */
-    width: auto; /* Maintain aspect ratio */
-    height: 300px; /* Maintain aspect ratio */
 "/>
 
 
