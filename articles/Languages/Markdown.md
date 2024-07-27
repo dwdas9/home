@@ -490,3 +490,18 @@ This is how I create divs. I create the block once, and reuse it.
         </span>
     </div>
 </div>
+
+
+<p style="
+    margin: 20px 0;
+    font-size: 18px;
+    color: #333;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #ffeb3b; /* Light yellow background */
+    padding: 10px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: inline-block; /* Shrink to fit content */
+">
+    Creating connection strings is pretty easy with the icons in Synapse Linked Service.
+</p>

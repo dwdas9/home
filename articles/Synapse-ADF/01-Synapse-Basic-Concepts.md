@@ -4,7 +4,7 @@ title: Core Concepts
 parent: SynapseAnalytics
 nav_order: 1
 ---
-- [The Core Concepts of Synapse Analytics](#the-core-concepts-of-synapse-analytics)
+- [Synapse Analytics Core Concepts](#synapse-analytics-core-concepts)
   - [Synapse Workspace](#synapse-workspace)
   - [Linked Services](#linked-services)
   - [Synapse SQL Pools](#synapse-sql-pools)
@@ -16,11 +16,10 @@ nav_order: 1
   - [Integration runtime](#integration-runtime)
   - [The Databases Types in Synapse](#the-databases-types-in-synapse)
 
-# <span style="color: BlueViolet">The Core Concepts of Synapse Analytics</span>
-
+# <span style="color: blueviolet;Font-family: Comic Sans MS, sans-serif;">Synapse Analytics Core Concepts</span>
 Here are the building blocks of Azure Synapse Analytics
 
-## <span style="color: DarkCyan">Synapse Workspace</span>
+## <span style="color: DarkCyan;Font-family: Comic Sans MS, sans-serif;">Synapse Workspace</span>
 
 It's the main portal of Synapse. It is present in a particular region. It has a ADLS G2 account linked and a folder there. It is always under a resource group.
 
@@ -39,19 +38,17 @@ A Synapse workspace must be connected to a storage account (ADLS Gen2) and a fil
     height: auto; /* Maintain aspect ratio */
 "/>
 
-You can see the connected ADLS storage from Data tab/Linked area.
-
+To see the storage account linked to your Synapase workspace, go to **Data** Tab then **Linked** Tab.
 <img src="images/custom-image-2024-07-27-15-25-08.png" alt="alt text" style="
 "/>
 
-## <span style="color: DarkCyan">Linked Services</span>
+## <span style="color: DarkCyan;Font-family: Comic Sans MS, sans-serif;">Linked Services</span>
 
 
-<div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
-    <div style="padding: 5px; border: 1px solid #ddd; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; background-color: #ffeb3b; margin: 3px;font-family: 'Comic Sans MS', sans-serif;">
-        <span style="font-size: 1.2em; font-weight: bold;font-family: 'Courier New', Courier, monospace;">Linked serviecs - Just a fancy name for connection Strings</span>
-    </div>
-</div>
+
+<p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
+Linked services in Synapase and ADF are just cconnection strings.
+</p>
 
 <img src="images/custom-image-2024-07-27-14-59-02.png" alt="alt text" style="
     border: 1px solid gray;
@@ -64,11 +61,18 @@ You can see the connected ADLS storage from Data tab/Linked area.
     height: 300px; /* Maintain aspect ratio */
 "/>
 
-Manage Tab, External connections contains Linked Services section in Synapase and In Azure Data Factory.
+Go to Manage Tab, External connections contains Linked Services section in Synapase and In Azure Data Factory to open Linked Services screen.
 
 <img src="images/custom-image-2024-07-27-16-59-23.png" alt="alt text" style="
     display: block; /* Center horizontally */
+    */
+    width: auto; /* Maintain aspect ratio */
+    height: 400px; /* Maintain aspect ratio */
 "/>
+
+The link services window makes it super easy to create connection strings. Now, you just have to select the irmspa
+
+![](images/custom-image-2024-07-27-18-12-55.png)
 
 
 ## <span style="color: DarkCyan">Synapse SQL Pools</span>
