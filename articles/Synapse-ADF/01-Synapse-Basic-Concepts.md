@@ -16,17 +16,18 @@ nav_order: 1
   - [Integration runtime](#integration-runtime)
   - [The Databases Types in Synapse](#the-databases-types-in-synapse)
 
-![alt text](images/ownstoragesynapse.png)
-
 # <span style="color: BlueViolet">The Core Concepts of Synapse Analytics</span>
 
 Here are the building blocks of Azure Synapse Analytics
 
 ## <span style="color: DarkCyan">Synapse Workspace</span>
 
-- It is like the IDE for Synapse.
+It's the main portal of Synapse. It is present in a particular region. It has a ADLS G2 account linked and a folder there. It is always under a resource group.
 
-> **Remember**: A Synapse workspace must be connected to a storage account (ADLS Gen2) and a file system (container inside that ADLS Gen2). At the time of creating a workspace you are asked to choose or create a new ADLS account and a container inside it
+
+<p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
+A Synapse workspace must be connected to a storage account (ADLS Gen2) and a file system (container inside that ADLS Gen2). Synapse will ask you to choose/create a new ADLS account and a container inside it
+</p>
 
 <img src="images\image-4.png" style="
     border: 2px solid gray;
@@ -36,37 +37,49 @@ Here are the building blocks of Azure Synapse Analytics
     padding: 1px;
     width: auto; /* Maintain aspect ratio */
     height: auto; /* Maintain aspect ratio */
-    transition: transform 0.2s;
-" onmouseover="this.style.transform='scale(2)'" onmouseout="this.style.transform='scale(1)'"/>
+"/>
 
 You can see the connected ADLS storage from Data tab/Linked area.
 
-<img src="images/image2112.png"  style="
-    border: 2px solid gray;
+<img src="images/custom-image-2024-07-27-15-25-08.png" alt="alt text" style="
+    border: 1px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-    padding: 1px;
+    margin: 20px auto; /* Center horizontally */
+    padding: 5px;
+    display: block; /* Center horizontally */
     width: auto; /* Maintain aspect ratio */
-    height: auto; /* Maintain aspect ratio */
-    transition: transform 0.2s;
-" onmouseover="this.style.transform='scale(2)'" onmouseout="this.style.transform='scale(1)'"/>
-
-- Your workspace can perform analytics using SQL or Apache Spark. The term 'Pool' is used for this. It's just the name for the application. For traditional users, 'Pool' might sound like a new technology, but it's simply the runtime infrastructure.
+    height: 300px; /* Maintain aspect ratio */
+"/>
 
 ## <span style="color: DarkCyan">Linked Services</span>
 
-These are just connection strings used by the Synapse workspace to connect to external resources.
-<img src="images/image-12244.png"  style="
-    border: 2px solid gray;
+Linked serviecs - Just a fancy name for connection Strings. 
+
+<img src="images/custom-image-2024-07-27-14-59-02.png" alt="alt text" style="
+    border: 1px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-    padding: 1px;
+    margin: 20px auto; /* Center horizontally */
+    padding: 5px;
+    display: block; /* Center horizontally */
     width: auto; /* Maintain aspect ratio */
-    height: auto; /* Maintain aspect ratio */
-    transition: transform 0.2s;
-" onmouseover="this.style.transform='scale(2)'" onmouseout="this.style.transform='scale(1)'"/>
+    height: 300px; /* Maintain aspect ratio */
+"/>
+
+Manage Tab, External connections contains Linked Services section in Synapase and In Azure Data Factory.
+
+<img src="images/custom-image-2024-07-27-16-59-23.png" alt="alt text" style="
+    border: 1px solid gray;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto; /* Center horizontally */
+    padding: 5px;
+    display: block; /* Center horizontally */
+    width: auto; /* Maintain aspect ratio */
+    height: 300px; /* Maintain aspect ratio */
+"/>
+
 
 ## <span style="color: DarkCyan">Synapse SQL Pools</span>
 
@@ -90,17 +103,6 @@ This is what you will see. Notice that everything is just a shell. The data is e
 ![External Data](images/custom-image-2024-06-14-14-03-23.png)
 
 However, with the dedicated MSSQL, everything is real and traditional. It is a SQL warehouse. Hence, it old name was SQL Data Warehouse. The Dedicated pool is just a fancy name.
-
-<img src="images/ownstoragesynapse.png"  style="
-    border: 2px solid gray;
-    border-radius: 6px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-    padding: 1px;
-    width: auto; /* Maintain aspect ratio */
-    height: auto; /* Maintain aspect ratio */
-    transition: transform 0.2s;
-" onmouseover="this.style.transform='scale(2)'" onmouseout="this.style.transform='scale(1)'"/>
 
 ### <span style="color: DodgerBlue">Serverless SQL Pool</span>
 
