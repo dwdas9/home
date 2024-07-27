@@ -54,7 +54,12 @@ You can see the connected ADLS storage from Data tab/Linked area.
 
 ## <span style="color: DarkCyan">Linked Services</span>
 
-Linked serviecs - Just a fancy name for connection Strings. 
+
+<div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
+    <div style="padding: 5px; border: 1px solid #ddd; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; background-color: #ffeb3b; margin: 3px;font-family: 'Comic Sans MS', sans-serif;">
+        <span style="font-size: 1.2em; font-weight: bold;font-family: 'Courier New', Courier, monospace;">Linked serviecs - Just a fancy name for connection Strings</span>
+    </div>
+</div>
 
 <img src="images/custom-image-2024-07-27-14-59-02.png" alt="alt text" style="
     border: 1px solid gray;
