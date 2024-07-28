@@ -1,7 +1,7 @@
 - [Synapse ETL Pipelines](#synapse-etl-pipelines)
   - [Activities](#activities)
-    - [Data Movement Activities](#data-movement-activities)
-    - [Data Transformation Activities](#data-transformation-activities)
+    - [Copy data](#copy-data)
+    - [Data flow](#data-flow)
     - [Other Activities](#other-activities)
     - [Control Flow Activities](#control-flow-activities)
     - [Additional Activities](#additional-activities)
@@ -14,11 +14,15 @@
 
 <div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
     <div style="padding: 5px; border: 1px solid #ddd; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; background-color: #ffeb3b; margin: 3px;font-family: 'Comic Sans MS', sans-serif;">
-        <span style="font-size: 1.2em; font-weight: bold;font-family: 'Courier New', Courier, monospace;">In Synapse or Azure Data Factory (ADF), a pipeline is simply the end-to-end workflow.</span>
+        <span style="font-size: 1.2em; font-weight: bold;font-family: 'Courier New', Courier, monospace;">In Synapse or ADF, a pipeline is simply a workflow. It's a collection of activities.</span>
     </div>
 </div>
 
-## Activities
+
+<img src="images/custom-image-2024-07-28-17-29-43.png" style="box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); border: none; border-radius: 10px;">
+
+
+##  <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;">Activities</span>
 
 <div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
     <div style="padding: 5px; border: 1px solid #ddd; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; background-color: #000000; margin: 3px;font-family: 'Comic Sans MS', sans-serif;">
@@ -27,11 +31,18 @@
 </div>
 
 
-### Data Movement Activities
-- **Copy Activity:** This lets you import data into the cloud. It's so important that you can build a project using just this activity. [Learn more](https://learn.microsoft.com/en-us/azure/data-factory/copy-activity-overview).
+### Copy data 
 
-### [Data Transformation Activities](https://learn.microsoft.com/en-us/azure/data-factory/transform-data)
-- **Dataflow:** The most important activity for data transformation.
+This lets you import data into the cloud. It's so important that you can build a project using just this activity. [Learn more](https://learn.microsoft.com/en-us/azure/data-factory/copy-activity-overview).
+
+![]()
+
+
+<img src="images/custom-image-2024-07-28-17-53-39.png" style="box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); border: none; border-radius: 10px;">
+
+
+### [Data flow](https://learn.microsoft.com/en-us/azure/data-factory/transform-data)
+- **Data flow:** The most important activity for data transformation.
   - **Mapping Data Flows:** Use a GUI to create data transformation steps. Azure runs these on a behind-the-scenes Spark cluster managed by Azure. [Learn more](https://learn.microsoft.com/en-us/training/modules/code-free-transformation-scale/4-author-azure-data-factory-mapping-data-flow).
   - **Wrangling Data Flows:** Use Excel-like Power Query for data preparation, integrating with Power Query Online and using Spark for execution.
 
