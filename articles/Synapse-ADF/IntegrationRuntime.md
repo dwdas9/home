@@ -6,7 +6,7 @@ nav_order: 11
 ---
 
 - [Integration Runtime in Azure Synapse Analytics and Azure Data Factory](#integration-runtime-in-azure-synapse-analytics-and-azure-data-factory)
-  - [A very simplistic introduction](#a-very-simplistic-introduction)
+  - [What is Integration Runtime?](#what-is-integration-runtime)
   - [Types of Integration Runtime](#types-of-integration-runtime)
     - [1. Azure Integration Runtime:](#1-azure-integration-runtime)
     - [2. Self-hosted Integration Runtime:](#2-self-hosted-integration-runtime)
@@ -18,7 +18,7 @@ nav_order: 11
 #  <span style="color: Teal">Integration Runtime in Azure Synapse Analytics and Azure Data Factory</span>
 
 ![alt text](images\IR.png)
-## <span style="color: CadetBlue">A very simplistic introduction</span>
+## <span style="color: CadetBlue">What is Integration Runtime?</span>
 
 Copying data is one of the main activity in Synapse and ADF. The main tool to do this **Integration Runtime** is used. It's like a **bridge** that connects Synapse and ADF with data from on-premises and external sources.
 
