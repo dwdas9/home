@@ -1,3 +1,10 @@
+---
+layout: default
+title: ETL Pipelines
+parent: SynapseAnalytics
+nav_order: 1
+---
+
 - [Synapse ETL Pipelines](#synapse-etl-pipelines)
   - [Activities](#activities)
     - [Copy data](#copy-data)
@@ -9,7 +16,7 @@
   - [Linked Service](#linked-service)
   - [Datasets](#datasets)
 
-#  <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;">Synapse ETL Pipelines</span>
+#  <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;font-size: 2.0 em">Synapse ETL Pipelines</span>
 
 
 <div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
