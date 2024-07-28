@@ -1,0 +1,64 @@
+The built-in copy task in Azure Data Factory can be used in the following typical scenarios.
+
+### 1. **Copying Data Between Azure SQL Databases**
+
+You have two Azure SQL Databases, and you need to copy data from a table in the first database to a table in the second database. The schema is the same, and you want to transfer data regularly, such as every day.
+
+**Example Use Case:**
+- **Source:** Azure SQL Database (Table: SalesData)
+- **Destination:** Azure SQL Database (Table: SalesDataBackup)
+- **Steps:** Use the built-in copy task to set up a daily data copy job.
+
+### 2. **Copying Data from Azure Blob Storage to Azure SQL Database**
+
+You have CSV files stored in Azure Blob Storage and you need to load this data into a table in an Azure SQL Database.
+
+**Example Use Case:**
+- **Source:** Azure Blob Storage (CSV file: customer_data.csv)
+- **Destination:** Azure SQL Database (Table: Customers)
+- **Steps:** Use the built-in copy task to map the CSV columns to the SQL table columns and set up a regular copy job.
+
+### 3. **Copying Data from On-Premises SQL Server to Azure Data Lake Storage (ADLS)**
+
+You have an on-premises SQL Server database and you need to copy data to Azure Data Lake Storage for further analysis.
+
+**Example Use Case:**
+- **Source:** On-Premises SQL Server (Table: EmployeeRecords)
+- **Destination:** Azure Data Lake Storage (Folder: EmployeeData)
+- **Steps:** Set up a self-hosted integration runtime, then use the built-in copy task to move data from the on-premises server to ADLS.
+
+### 4. **Copying Data from One Azure Blob Storage Container to Another**
+
+You want to copy files from one container in Azure Blob Storage to another container, perhaps for archival purposes.
+
+**Example Use Case:**
+- **Source:** Azure Blob Storage (Container: raw-data)
+- **Destination:** Azure Blob Storage (Container: archived-data)
+- **Steps:** Use the built-in copy task to set up the copy job and configure it to run on a schedule.
+
+### 5. **Copying Data from Azure Table Storage to Azure SQL Database**
+
+You have data in Azure Table Storage and you want to migrate this data to an Azure SQL Database.
+
+**Example Use Case:**
+- **Source:** Azure Table Storage (Table: Orders)
+- **Destination:** Azure SQL Database (Table: Orders)
+- **Steps:** Use the built-in copy task to configure the source and destination, mapping the columns appropriately.
+
+### 6. **Copying Data from REST API to Azure SQL Database**
+
+You need to fetch data from a REST API and load it into an Azure SQL Database table.
+
+**Example Use Case:**
+- **Source:** REST API (Endpoint: https://api.example.com/data)
+- **Destination:** Azure SQL Database (Table: ApiData)
+- **Steps:** Use the built-in copy task to connect to the REST API, transform the JSON data as needed, and load it into the SQL table.
+
+### 7. **Copying Data from Azure Cosmos DB to Azure SQL Database**
+
+You have data in Azure Cosmos DB and need to transfer it to an Azure SQL Database for reporting purposes.
+
+**Example Use Case:**
+- **Source:** Azure Cosmos DB (Collection: Users)
+- **Destination:** Azure SQL Database (Table: Users)
+- **Steps:** Use the built-in copy task to map the Cosmos DB documents to the SQL table columns.

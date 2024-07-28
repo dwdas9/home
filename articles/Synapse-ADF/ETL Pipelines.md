@@ -5,10 +5,13 @@ parent: SynapseAnalytics
 nav_order: 1
 ---
 
-- [Synapse ETL Pipelines](#synapse-etl-pipelines)
-  - [Activities](#activities)
-    - [Copy data](#copy-data)
-    - [Data flow](#data-flow)
+- [Pipelines](#pipelines)
+- [Activities](#activities)
+  - [Copy data Activity](#copy-data-activity)
+    - [Copy data tool](#copy-data-tool)
+      - [Built-in copy task](#built-in-copy-task)
+      - [Metadata-driven copy task](#metadata-driven-copy-task)
+  - [Data flow Activity](#data-flow-activity)
     - [Other Activities](#other-activities)
     - [Control Flow Activities](#control-flow-activities)
     - [Additional Activities](#additional-activities)
@@ -16,41 +19,65 @@ nav_order: 1
   - [Linked Service](#linked-service)
   - [Datasets](#datasets)
 
-#  <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;font-size: 2.0 em">Synapse ETL Pipelines</span>
+#  <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;font-size: 2.0 em">Pipelines</span>
 
 
 <div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
     <div style="padding: 5px; border: 1px solid #ddd; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; background-color: #ffeb3b; margin: 3px;font-family: 'Comic Sans MS', sans-serif;">
-        <span style="font-size: 1.2em; font-weight: bold;font-family: 'Courier New', Courier, monospace;">In Synapse or ADF, a pipeline is simply a workflow. It's a collection of activities.</span>
+        <span style="font-size: 1.2em; font-weight: bold;font-family: 'Courier New', Courier, monospace;">Pipeline = Workflow = Collection of Activities</span>
     </div>
 </div>
 
 
 <img src="images/custom-image-2024-07-28-17-29-43.png" style="box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); border: none; border-radius: 10px;">
 
+<br>
 
-##  <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;">Activities</span>
+#  <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;">Activities</span>
 
 <div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
     <div style="padding: 5px; border: 1px solid #ddd; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; background-color: #000000; margin: 3px;font-family: 'Comic Sans MS', sans-serif;">
-        <span style="font-size: 1.2em;color: #fff; font-weight: bold;font-family: 'Courier New', Courier, monospace;">These are just the tasks/steps in a pipeline.</span>
+        <span style="font-size: 1.2em;color: #fff; font-weight: bold;font-family: 'Courier New', Courier, monospace;">Activities = Steps/Tasks in a Pipeline</span>
     </div>
 </div>
 
 
-### Copy data 
+## <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;">[Copy data Activity](https://learn.microsoft.com/en-us/azure/data-factory/copy-activity-overview)</span>
 
-This lets you import data into the cloud. It's so important that you can build a project using just this activity. [Learn more](https://learn.microsoft.com/en-us/azure/data-factory/copy-activity-overview).
-
-![]()
-
+Copy data step/task copies data from here to there in the cloud. It's a `data import tool`. This is one of the most important activities in pipelines. Some projects have only this step doing all the work.
 
 <img src="images/custom-image-2024-07-28-17-53-39.png" style="box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); border: none; border-radius: 10px;">
 
+### [Copy data tool](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-hello-world-copy-data-tool)
 
-### [Data flow](https://learn.microsoft.com/en-us/azure/data-factory/transform-data)
-- **Data flow:** The most important activity for data transformation.
-  - **Mapping Data Flows:** Use a GUI to create data transformation steps. Azure runs these on a behind-the-scenes Spark cluster managed by Azure. [Learn more](https://learn.microsoft.com/en-us/training/modules/code-free-transformation-scale/4-author-azure-data-factory-mapping-data-flow).
+The Copy data tool is a GUI to make the Copy data activity easier. Using this GUI you can create a pipeline using just Next, Next. It has two type of tasks.
+
+<img src="images/custom-image-2024-07-28-21-10-14.png" style="box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); border: none; border-radius: 10px;">
+
+
+#### [Built-in copy task](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-hello-world-copy-data-tool)
+
+This method is enough for almost all cases. It's the original method. Just click 'next' using the tool, and ADF will take care of everything else.
+
+But, this is suitable for situations where we have fixed sources and fixed destinations.
+
+**Example:** Copying Data between two Azure SQL Databases. Azure Blob storage to Azure SQL Databases etc.
+
+#### [Metadata-driven copy task](https://learn.microsoft.com/en-us/azure/data-factory/copy-data-tool-metadata-driven)
+
+This method is for very large and complex situations. For example, copying hundreds of tables from an on-prem SQL Server to Azure Data Lake Storage (ADLS), with the list of tables and their destinations managed in a control table.
+
+
+**Example:**
+Imagine you have an on-premises SQL Server with hundreds of tables. You want to copy these tables to ADLS. Instead of creating individual copy tasks for each table, you create a control table that lists all the source tables and their corresponding destinations. ADF then uses this control table to dynamically copy each table to the specified destination.
+
+## <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;">[Data flow Activity](https://learn.microsoft.com/en-us/azure/data-factory/transform-data)</span>
+
+This is also the most important activity in Pipelines. Using this you create the transformation work.
+
+There are two types of Data flow activities:
+
+  - **Mapping Data Flows:** This is the common data flow activity which we usually use. Here we use a  GUI to create data transformation steps. Azure runs these on a behind-the-scenes Spark cluster managed by Azure. [Learn more](https://learn.microsoft.com/en-us/training/modules/code-free-transformation-scale/4-author-azure-data-factory-mapping-data-flow).
   - **Wrangling Data Flows:** Use Excel-like Power Query for data preparation, integrating with Power Query Online and using Spark for execution.
 
 Now, if you want to bypass ADF and do your own coding, manage your own env etc you you can use these activities.
