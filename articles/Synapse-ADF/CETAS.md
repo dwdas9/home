@@ -1,32 +1,19 @@
 ---
 layout: default
 title: CETAS
-parent: SynapseAnalytics
-nav_order: 1
+parent: Synapse-ADF
+nav_order: 4
 ---
 
-- [Background](#background)
-    - [If you have Synapse, why not save the data in Synapse SQL warehouse?](#if-you-have-synapse-why-not-save-the-data-in-synapse-sql-warehouse)
-  - [Give me some real examples](#give-me-some-real-examples)
-    - [Removing Patient's Identity and Sharing Their Data as ADLS Tables](#removing-patients-identity-and-sharing-their-data-as-adls-tables)
-    - [Inlet wants to store chip Sensor data and Share as Tables for university students](#inlet-wants-to-store-chip-sensor-data-and-share-as-tables-for-university-students)
-- [CETAS Scenarios](#cetas-scenarios)
-  - [Pull Data from Synapse Warehouse and put It in ADLS CETAS Tables](#pull-data-from-synapse-warehouse-and-put-it-in-adls-cetas-tables)
-    - [Get the access sorted](#get-the-access-sorted)
-    - [Custom DB to store connection info - Serverless SQL only](#custom-db-to-store-connection-info---serverless-sql-only)
-    - [Pull-from-Warehouse and Put-in ADLS CETAS](#pull-from-warehouse-and-put-in-adls-cetas)
-  - [Pull Data from ADLS and Pur as ADLS CETAS Tables](#pull-data-from-adls-and-pur-as-adls-cetas-tables)
-    - [Get the access sorted](#get-the-access-sorted-1)
-    - [Pull from ADLS \& Put in ADLS as CETAS](#pull-from-adls--put-in-adls-as-cetas)
-- [Service Principal Method and SAS Methods](#service-principal-method-and-sas-methods)
-  - [Service Principal Authentication Setup](#service-principal-authentication-setup)
-  - [Shared Access Signature (SAS) Setup](#shared-access-signature-sas-setup)
-- [Alternative to CETAS?](#alternative-to-cetas)
-    - [1. Azure Synapse Spark Pools](#1-azure-synapse-spark-pools)
-    - [2. Azure Data Factory (ADF)](#2-azure-data-factory-adf)
-    - [3. PolyBase](#3-polybase)
-  - [Let's test our knowledge](#lets-test-our-knowledge)
 
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # <span style="color: Teal">Background</span>
 

@@ -1,20 +1,18 @@
 ---
 layout: default
 title: Core Concepts
-parent: SynapseAnalytics
+parent: Synapse-ADF
 nav_order: 1
 ---
-- [Synapse Analytics Core Concepts](#synapse-analytics-core-concepts)
-  - [Synapse Workspace](#synapse-workspace)
-  - [Linked Services](#linked-services)
-  - [Synapse SQL Pools](#synapse-sql-pools)
-    - [Serverless SQL Pool](#serverless-sql-pool)
-    - [Dedicated Pool (AKA SQL DW)](#dedicated-pool-aka-sql-dw)
-  - [Synapse Spark Pool](#synapse-spark-pool)
-  - [Pipelines](#pipelines)
-  - [Integration Datasets](#integration-datasets)
-  - [Integration runtime](#integration-runtime)
-  - [The Databases Types in Synapse](#the-databases-types-in-synapse)
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # <span style="color: blueviolet;Font-family: Comic Sans MS, sans-serif;">Synapse Analytics Core Concepts</span>
 Here are the building blocks of Azure Synapse Analytics

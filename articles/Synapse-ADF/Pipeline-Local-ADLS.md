@@ -1,25 +1,18 @@
 ---
 layout: default
 title: Local-ADLS-SHIR-CopyData
-parent: SynapseAnalytics
-nav_order: 13
+parent: Synapse-ADF
+nav_order: 9
 ---
 
-- [A Simple Synapse Pipeline. Copy files from Laptop To ADLS](#a-simple-synapse-pipeline-copy-files-from-laptop-to-adls)
-  - [For the busy people](#for-the-busy-people)
-  - [Create and Configure an Integration Runtime](#create-and-configure-an-integration-runtime)
-  - [Create Two Linked Services (Connection Strings)](#create-two-linked-services-connection-strings)
-    - [Linked Service to Laptop's Folder](#linked-service-to-laptops-folder)
-      - [**A Common Error**](#a-common-error)
-    - [Linked Service to ADLS](#linked-service-to-adls)
-  - [Create a Pipeline with Copy Data Activity](#create-a-pipeline-with-copy-data-activity)
-    - [Crate a New Pipeline in Syanpse Workspace](#crate-a-new-pipeline-in-syanpse-workspace)
-    - [Add Copy Data Activity](#add-copy-data-activity)
-    - [Configure the Source Dataset etc](#configure-the-source-dataset-etc)
-    - [Configure the Sink Dataset](#configure-the-sink-dataset)
-    - [Execute the Pipeline](#execute-the-pipeline)
-  - [Appendix](#appendix)
-    - [Manually Installating Integration Runtime](#manually-installating-integration-runtime)
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 ![alt text](images\shir.png)
 

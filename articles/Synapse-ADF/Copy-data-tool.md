@@ -1,3 +1,21 @@
+---
+layout: default
+title: CETAS
+parent: Synapse-ADF
+nav_order: 5
+---
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+# ADF Built-in copy task scenarios
+
 The built-in copy task in Azure Data Factory can be used in the following typical scenarios.
 
 ### 1. **Copying Data Between Azure SQL Databases**

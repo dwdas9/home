@@ -1,26 +1,18 @@
 ---
 layout: default
-title: Database Types
-parent: SynapseAnalytics
-nav_order: 12
+title: Types of DB in Synapse
+parent: Synapse-ADF
+nav_order: 6
 ---
-- [The Databases Types in Synapse](#the-databases-types-in-synapse)
-- [Spark Databases](#spark-databases)
-  - [Spark DB v1 - Lake Database](#spark-db-v1---lake-database)
-    - [What Happens after the CREATE DB Command?](#what-happens-after-the-create-db-command)
-    - [What happens after the CREATE TABLE command?](#what-happens-after-the-create-table-command)
-    - [What happens after the INSERT data command?](#what-happens-after-the-insert-data-command)
-    - [Summary](#summary)
-  - [Spark DB v2 - Delta Lake/Lakehouse](#spark-db-v2---delta-lakelakehouse)
-  - [Managed and External Spark Tables](#managed-and-external-spark-tables)
-    - [Managed Tables](#managed-tables)
-    - [External Tables](#external-tables)
-  - [How to create Managed and External Spark Tables](#how-to-create-managed-and-external-spark-tables)
-    - [Empty Managed Table](#empty-managed-table)
-    - [Empty External Table](#empty-external-table)
-    - [Managed Tables From Existing Data](#managed-tables-from-existing-data)
-    - [External Tables From Existing Data](#external-tables-from-existing-data)
-    - [DESCRIBE EXTENDED TABLENAME](#describe-extended-tablename)
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # The Databases Types in Synapse
 

@@ -1,23 +1,19 @@
 ---
 layout: default
 title: ETL Pipelines
-parent: SynapseAnalytics
-nav_order: 1
+parent: Synapse-ADF
+nav_order: 7
 ---
 
-- [Pipelines](#pipelines)
-- [Activities](#activities)
-  - [Copy data Activity](#copy-data-activity)
-    - [Copy data tool](#copy-data-tool)
-      - [Built-in copy task](#built-in-copy-task)
-      - [Metadata-driven copy task](#metadata-driven-copy-task)
-  - [Data flow Activity](#data-flow-activity)
-    - [Other Activities](#other-activities)
-    - [Control Flow Activities](#control-flow-activities)
-    - [Additional Activities](#additional-activities)
-  - [Integration Runtime](#integration-runtime)
-  - [Linked Service](#linked-service)
-  - [Datasets](#datasets)
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
 
 #  <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;font-size: 2.0 em">Pipelines</span>
 

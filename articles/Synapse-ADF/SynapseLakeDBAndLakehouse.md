@@ -1,3 +1,20 @@
+---
+layout: default
+title: Lake DB-Lakehouse-Delta Lake
+parent: Synapse-ADF
+nav_order: 11
+---
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+
 # Synapse Lake Database, Lakehouse, and Delta Lake
 
 ## Synapse Lake Database & Synapse Lakehouse
@@ -124,5 +141,3 @@ A Dedicated SQL Pool is used for:
 - **Delta Lake Tables**: Parquet files saved as Delta format.
 - **Lakehouse**: Delta Lake tables registered in a Lake Database.
 - **Warehouse**: Real SQL tables in a Synapse Dedicated SQL Pool created from Lake Database tables for high-performance queries.
-
-This simplified explanation should help you get a clear understanding of these concepts without getting into too many details.

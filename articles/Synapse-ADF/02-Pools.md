@@ -1,20 +1,18 @@
-- [Use Azure Synapse Serverless SQL Pool to Query Files in a Data Lake](#use-azure-synapse-serverless-sql-pool-to-query-files-in-a-data-lake)
-  - [What are Serverless SQL pools and what they are capable of?](#what-are-serverless-sql-pools-and-what-they-are-capable-of)
-  - [Query CSV, JSON, and Parquet Files Using a Serverless SQL Pool](#query-csv-json-and-parquet-files-using-a-serverless-sql-pool)
-  - [Create External Database Objects in a Serverless SQL Pool](#create-external-database-objects-in-a-serverless-sql-pool)
-- [How to transform data using a serverless SQL pool](#how-to-transform-data-using-a-serverless-sql-pool)
-  - [Use a CREATE EXTERNAL TABLE AS SELECT (CETAS) Statement to Transform Data](#use-a-create-external-table-as-select-cetas-statement-to-transform-data)
-  - [Encapsulate a CETAS Statement in a Stored Procedure](#encapsulate-a-cetas-statement-in-a-stored-procedure)
-  - [Include a Data Transformation Stored Procedure in a Pipeline](#include-a-data-transformation-stored-procedure-in-a-pipeline)
-- [Create a Lake Database in Azure Synapse Analytics](#create-a-lake-database-in-azure-synapse-analytics)
-  - [Understand Lake Database Concepts and Components](#understand-lake-database-concepts-and-components)
-  - [Describe Database Templates in Azure Synapse Analytics](#describe-database-templates-in-azure-synapse-analytics)
-  - [Create a Lake Database](#create-a-lake-database)
-  - [Use a Lake Database](#use-a-lake-database)
-- [Transform Data with Spark in Azure Synapse Analytics](#transform-data-with-spark-in-azure-synapse-analytics)
-  - [Use Apache Spark to Modify and Save Dataframes](#use-apache-spark-to-modify-and-save-dataframes)
-  - [Partition Data Files for Improved Performance and Scalability](#partition-data-files-for-improved-performance-and-scalability)
-  - [Transform Data with SQL](#transform-data-with-sql)
+---
+layout: default
+title: Pools
+parent: Synapse-ADF
+nav_order: 2
+---
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 ## Use Azure Synapse Serverless SQL Pool to Query Files in a Data Lake
 
@@ -431,3 +429,61 @@ END
     DROP TABLE transformed_orders;
     DROP TABLE sales_orders;
     ```
+## Background
+
+Here we will see how to handle data usig Spark in Synapse.
+
+## Let's get started
+
+First thing we would need is a Spark Pool. The serverless Spark is similar to Serverless SQL Pool. That means, only when it is working you need to pay money. No need to worry when you are not proccessing anything. You wont be charged a penny. The spark pool decides the number of nodes in the actual spark cluster in the background. If you want to work with Spark, you must create a Serverless Spark pool.
+
+In Azure Databricks and in general Spark enviorments you create a spark cluster. But, in synapse you create a Serverless Spark Pool. This pool manages the Spark cluster for you.
+
+![alt text](images/image-10werwer.png)
+
+It will ahve auto pause etc. 
+
+## Background
+
+Here I will show you how to run query using Serverless SQL pool. Every SA workspae comes with a built-in serverless SQL pool. Its just an engine to run your SQL queries with no own storage. Just an engine.
+
+Its built-in/serverless/online/Auto
+
+![alt text](images/image-73434.png)
+
+## Using Serverless SQL Pool
+### Let's get started
+
+Firs let's upload some data. We know every SA workspace is connected to a default ADLS folder. Let's upload a csv file to it.
+
+![alt text](images/image-834343.png)
+
+### Let's run the script
+
+```sql
+SELECT *
+
+FROM
+OPENROWSET( 
+    BULK 'abfss://contusendel@adlsusendel.dfs.core.windows.net/customers-100.csv',
+    FORMAT = 'csv',
+    HEADER_ROW = TRUE,
+    PARSER_VERSION = '2.0'
+)AS [result]
+```
+
+```sql
+SELECT Country, Count(*)
+FROM
+OPENROWSET( 
+    BULK 'abfss://contusendel@adlsusendel.dfs.core.windows.net/customers-100.csv',
+    FORMAT = 'csv',
+    HEADER_ROW = TRUE,
+    PARSER_VERSION = '2.0'
+)AS [result]
+
+GROUP by Country
+```
+![alt text](images/IOOUO.png)
+
+## Using Dedicated SQL Pool

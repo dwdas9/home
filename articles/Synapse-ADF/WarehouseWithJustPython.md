@@ -1,11 +1,18 @@
 ---
 layout: default
-title: Warehouse with Just Pyspark
-parent: SynapseAnalytics
-nav_order: 1
+title: Warehouse with PySpark
+parent: Synapse-ADF
+nav_order: 12
 ---
-- [Create a Warehouse with Just a simple Pyspark setup](#create-a-warehouse-with-just-a-simple-pyspark-setup)
-  - [Using Delta Tables](#using-delta-tables)
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Create a Warehouse with Just a simple Pyspark setup
 

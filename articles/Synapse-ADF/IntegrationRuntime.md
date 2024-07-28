@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Integration Runtime
-parent: SynapseAnalytics
-nav_order: 11
+parent: Synapse-ADF
+nav_order: 8
 ---
 
 - [Integration Runtime in Azure Synapse Analytics and Azure Data Factory](#integration-runtime-in-azure-synapse-analytics-and-azure-data-factory)

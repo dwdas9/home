@@ -1,9 +1,18 @@
 ---
 layout: default
 title: 100 Synapse FAQs
-parent: SynapseAnalytics
-nav_order: 14
+parent: Synapse-ADF
+nav_order: 10
 ---
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 
 # 100 Azure Synapse Analytics Questions

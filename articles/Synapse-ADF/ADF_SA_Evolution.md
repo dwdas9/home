@@ -1,15 +1,21 @@
 ---
 layout: default
 title: ADF & Synapse Evolution
-parent: SynapseAnalytics
+parent: Synapse-ADF
+nav_order: 3
 ---
-- [How Azure Data Factory and Synapse analytics evolved over time](#how-azure-data-factory-and-synapse-analytics-evolved-over-time)
-  - [Background](#background)
-  - [Azure Data Factory](#azure-data-factory)
-  - [Azure Synapse analytics](#azure-synapse-analytics)
 
----
-![alt text](<Create Frame Animation.png>)
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+
+![alt text](<images/Create Frame Animation.png>)
 
 # <span style="color: Teal;Font-family: Segoe UI, sans-serif;">How Azure Data Factory and Synapse analytics evolved over time</span>
 
