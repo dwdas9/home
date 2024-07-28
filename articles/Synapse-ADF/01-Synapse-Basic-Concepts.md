@@ -50,7 +50,7 @@ To see the storage account linked to your Synapase workspace, go to **Data** Tab
 Linked services in Synapase and ADF are just cconnection strings.
 </p>
 
-<img src="images/custom-image-2024-07-27-14-59-02.png" alt="alt text" style="
+<img src="images/custom-image-2024-07-28-16-47-32.png" alt="alt text" style="
     border: 1px solid gray;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
