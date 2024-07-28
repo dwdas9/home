@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Azure Articles
+title: AzureArticles
 nav_order: 2
 has_children: true
 ---
