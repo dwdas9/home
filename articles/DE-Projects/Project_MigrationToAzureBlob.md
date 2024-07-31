@@ -1,17 +1,20 @@
 ---
 layout: default
-title: Content Migration to Blob
+title: CMS Migration to Azure Blob
 parent: DE-Projects
 nav_order: 1
 ---
 
 ### Project Overview: Migrating and Enabling Search for Archived PDF Data in Azure Blob Storage
 
-The client, a Canadian lending organization with many field offices, needed to update their data storage and make it more accessible. They had several hundred GBs of archived data, mostly in PDF format, stored in another CMS. The goal was to move this data to Azure Blob Storage and enable efficient search capabilities to improve accessibility.
+The client, had several hundred GBs of archived data, mostly in PDF format, stored in another CMS. The CMS incurred heavy licensing fees and was on-prem without any DR or HA.
+
+
+The goal was to move this data to Azure Blob Storage and enable efficient search capabilities to improve accessibility and enable DR and reduce maintance costs from the current CMS system.
 
 ### Solution Implementation
 
-We began by assessing the existing data structure, which was organized by FieldOffice/Product. We developed a migration plan to transfer the data in batches, ensuring minimal disruption to the client’s operations.
+We began by assessing the existing data structure, which was organized by deparment. We developed a migration plan to transfer the data in batches, ensuring minimal disruption to the client’s operations.
 
 **Tools Used**:
 - Azure Blob Storage
