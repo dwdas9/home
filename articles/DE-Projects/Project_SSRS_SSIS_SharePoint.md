@@ -5,7 +5,7 @@ parent: DE-Projects
 nav_order: 4
 ---
 
-# Case Study: Setting Up SSRS Reports in SharePoint for a Client with 100+ Field Offices
+# Setting Up SSRS Reports in SharePoint for a Client with 100+ Field Offices
 
 ## Background
 
