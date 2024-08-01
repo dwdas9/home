@@ -1,187 +1,157 @@
-### Case Study: Moving Azure Data Factory (ADF) from Development to Production using CI/CD with GitHub and Azure DevOps
+# Moving Azure Data Factory (ADF) from Development to Production using CI/CD with GitHub and Azure DevOps
 
-#### Background:
-You have an Azure Data Factory (ADF) set up in your development environment. Now, you need to move it to production smoothly and automatically using Continuous Integration and Continuous Deployment (CI/CD).
+Moving your Azure Data Factory (ADF) from a development environment to production can be a smooth process if you use Continuous Integration and Continuous Deployment (CI/CD). In this guide, we will see how to do it using GitHub and Azure DevOps.
 
-### Using GitHub
+## Using GitHub
 
-#### Steps to Follow with GitHub:
+### Set Up Version Control
+- **Connect ADF with GitHub**: Open your ADF in the development environment. Go to the "Manage" tab and connect your ADF to a GitHub repository.
+- **Continuous Integration (CI)**: Develop and test your ADF pipelines, datasets, and linked services. Commit and push your changes to the GitHub repository.
 
-1. **Set Up Version Control**:
-   - **Connect ADF with GitHub**:
-     - Open your ADF in the development environment.
-     - Go to the "Manage" tab and connect your ADF to a GitHub repository.
+### Create a GitHub Actions Workflow
+Use the following simple YAML code for your workflow:
 
-2. **Continuous Integration (CI)**:
-   - **Save Changes**:
-     - Develop and test your ADF pipelines, datasets, and linked services.
-     - Commit and push your changes to the GitHub repository.
+```yaml
+name: ADF CI
 
-3. **Create a GitHub Actions Workflow**:
-   - **Create a Workflow**:
-     - In your GitHub repository, go to the "Actions" tab and set up a new workflow.
-     - Use the following simple YAML code for your workflow:
+on:
+  push:
+    branches:
+      - main  # or your development branch
 
-     ```yaml
-     name: ADF CI
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-     on:
-       push:
-         branches:
-           - main  # or your development branch
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-     jobs:
-       build:
-         runs-on: ubuntu-latest
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.x'
 
-         steps:
-         - name: Checkout code
-           uses: actions/checkout@v2
+    - name: Restore dependencies
+      run: dotnet restore
 
-         - name: Set up .NET
-           uses: actions/setup-dotnet@v1
-           with:
-             dotnet-version: '3.x'
+    - name: Build
+      run: dotnet build --no-restore
 
-         - name: Restore dependencies
-           run: dotnet restore
+    - name: Publish artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: drop
+        path: |
+          ARMTemplateForFactory.json
+          ARMTemplateParametersForFactory.json
+```
 
-         - name: Build
-           run: dotnet build --no-restore
+### Continuous Deployment (CD)
+Create a deployment workflow in `.github/workflows`:
 
-         - name: Publish artifacts
-           uses: actions/upload-artifact@v2
-           with:
-             name: drop
-             path: |
-               ARMTemplateForFactory.json
-               ARMTemplateParametersForFactory.json
-     ```
+```yaml
+name: ADF CD
 
-4. **Continuous Deployment (CD)**:
-   - **Create a Deployment Workflow**:
-     - Add another workflow file in `.github/workflows` for deployment.
+on:
+  push:
+    branches:
+      - main
 
-     ```yaml
-     name: ADF CD
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-     on:
-       push:
-         branches:
-           - main
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-     jobs:
-       deploy:
-         runs-on: ubuntu-latest
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-         steps:
-         - name: Checkout code
-           uses: actions/checkout@v2
+    - name: Deploy ARM Template
+      uses: azure/arm-deploy@v1
+      with:
+        resource-group: 'YOUR_RESOURCE_GROUP_NAME'
+        template: './ARMTemplateForFactory.json'
+        parameters: './ARMTemplateParametersForFactory.json'
+        deployment-name: 'adf-deployment'
+```
 
-         - name: Azure Login
-           uses: azure/login@v1
-           with:
-             creds: ${{ secrets.AZURE_CREDENTIALS }}
+### Manage Parameters
+Set different values for production in your parameters file, like connections and dataset paths.
 
-         - name: Deploy ARM Template
-           uses: azure/arm-deploy@v1
-           with:
-             resource-group: 'YOUR_RESOURCE_GROUP_NAME'
-             template: './ARMTemplateForFactory.json'
-             parameters: './ARMTemplateParametersForFactory.json'
-             deployment-name: 'adf-deployment'
-     ```
+### Run the Workflow
+Push changes to the GitHub repository to trigger the CI workflow. After a successful build, the CD workflow will automatically deploy changes to the production ADF.
 
-5. **Manage Parameters**:
-   - **Set Parameters**:
-     - In your parameters file, set different values for production, like connections and dataset paths.
+## Using Azure DevOps
 
-6. **Run the Workflow**:
-   - **Automate Deployment**:
-     - Push changes to the GitHub repository to trigger the CI workflow.
-     - After a successful build, the CD workflow will automatically deploy changes to the production ADF.
+### Set Up Version Control
+- **Connect ADF with Azure Repos**: Open your ADF in the development environment. Go to the "Manage" tab and connect your ADF to an Azure Repos Git repository.
+- **Continuous Integration (CI)**: Develop and test your ADF pipelines, datasets, and linked services. Commit and push your changes to the Azure Repos Git repository.
 
-### Using Azure DevOps
+### Create a Build Pipeline
+Go to Azure DevOps > Pipelines > Builds > New Pipeline. Select your Azure Repos Git repository. Use the following YAML code:
 
-#### Steps to Follow with Azure DevOps:
+```yaml
+trigger:
+  branches:
+    include:
+      - main  # or your development branch
 
-1. **Set Up Version Control**:
-   - **Connect ADF with Azure Repos**:
-     - Open your ADF in the development environment.
-     - Go to the "Manage" tab and connect your ADF to an Azure Repos Git repository.
+pool:
+  vmImage: 'ubuntu-latest'
 
-2. **Continuous Integration (CI)**:
-   - **Save Changes**:
-     - Develop and test your ADF pipelines, datasets, and linked services.
-     - Commit and push your changes to the Azure Repos Git repository.
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '3.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
 
-3. **Create a Build Pipeline**:
-   - **Build Pipeline in Azure DevOps**:
-     - Go to Azure DevOps > Pipelines > Builds > New Pipeline.
-     - Select your Azure Repos Git repository.
-     - Use the following simple YAML code for your pipeline:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
 
-     ```yaml
-     trigger:
-       branches:
-         include:
-           - main  # or your development branch
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
 
-     pool:
-       vmImage: 'ubuntu-latest'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'drop'
+```
 
-     steps:
-     - task: UseDotNet@2
-       inputs:
-         packageType: 'sdk'
-         version: '3.x'
-         installationPath: $(Agent.ToolsDirectory)/dotnet
+### Continuous Deployment (CD)
+Create a release pipeline in Azure DevOps:
 
-     - task: DotNetCoreCLI@2
-       inputs:
-         command: 'restore'
-         projects: '**/*.csproj'
+1. Go to Azure DevOps > Pipelines > Releases > New pipeline.
+2. Select an empty job, add an artifact, and choose the build pipeline you created.
+3. Add a new stage for deployment.
 
-     - task: DotNetCoreCLI@2
-       inputs:
-         command: 'build'
-         projects: '**/*.csproj'
+Add a task to deploy the ARM template of your ADF in the deployment stage:
 
-     - task: PublishPipelineArtifact@1
-       inputs:
-         targetPath: '$(Build.ArtifactStagingDirectory)'
-         artifact: 'drop'
-     ```
+```yaml
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'AzureRMConnection'
+    subscriptionId: 'YOUR_SUBSCRIPTION_ID'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'YOUR_RESOURCE_GROUP_NAME'
+    location: 'YOUR_RESOURCE_LOCATION'
+    templateLocation: 'Linked artifact'
+    csmFile: '$(System.DefaultWorkingDirectory)/_your-build-pipeline/drop/ARMTemplateForFactory.json'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/_your-build-pipeline/drop/ARMTemplateParametersForFactory.json'
+```
 
-4. **Continuous Deployment (CD)**:
-   - **Create a Release Pipeline**:
-     - Go to Azure DevOps > Pipelines > Releases > New pipeline.
-     - Select an empty job, add an artifact, and choose the build pipeline you created.
-     - Add a new stage for deployment.
+### Manage Parameters
+Set different values for production in your parameters file, like connections and dataset paths.
 
-   - **Deploy Task**:
-     - In the deployment stage, add a task to deploy the ARM template of your ADF. This will typically include `ARMTemplateForFactory.json` and `ARMTemplateParametersForFactory.json`.
-
-     ```yaml
-     - task: AzureResourceManagerTemplateDeployment@3
-       inputs:
-         deploymentScope: 'Resource Group'
-         azureResourceManagerConnection: 'AzureRMConnection'
-         subscriptionId: 'YOUR_SUBSCRIPTION_ID'
-         action: 'Create Or Update Resource Group'
-         resourceGroupName: 'YOUR_RESOURCE_GROUP_NAME'
-         location: 'YOUR_RESOURCE_LOCATION'
-         templateLocation: 'Linked artifact'
-         csmFile: '$(System.DefaultWorkingDirectory)/_your-build-pipeline/drop/ARMTemplateForFactory.json'
-         csmParametersFile: '$(System.DefaultWorkingDirectory)/_your-build-pipeline/drop/ARMTemplateParametersForFactory.json'
-     ```
-
-5. **Manage Parameters**:
-   - **Set Parameters**:
-     - In your parameters file, set different values for production, like connections and dataset paths.
-
-6. **Run the Pipeline**:
-   - **Automate Deployment**:
-     - Push changes to the Azure Repos Git repository to trigger the CI pipeline.
-     - After a successful build, the CD pipeline will automatically deploy changes to the production ADF.
-
+### Run the Pipeline
+Push changes to the Azure Repos Git repository to trigger the CI pipeline. After a successful build, the CD pipeline will automatically deploy changes to the production ADF.
