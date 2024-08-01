@@ -1,6 +1,6 @@
 # Moving Azure Data Factory (ADF) from Development to Production using CI/CD with GitHub and Azure DevOps
 
-Moving your Azure Data Factory (ADF) from a development environment to production can be a smooth process if you use Continuous Integration and Continuous Deployment (CI/CD). In this guide, we will see how to do it using GitHub and Azure DevOps.
+Moving your Azure Data Factory (ADF) from a development environment to production can be a smooth process if you use Continuous Integration and Continuous Deployment (CI/CD). In this guide, we will see how to do it using both GitHub and Azure DevOps.
 
 ## Using GitHub
 
