@@ -1,7 +1,7 @@
 ---
 layout: default
-title: MSSQL
-nav_order: 13
+title: SQL
+nav_order: 7
 has_children: true
 ---
 

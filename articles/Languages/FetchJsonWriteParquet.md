@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Json To Parquet Using Spark And Azure
-parent: Languages
+parent: PythonEcosystem
 ---
 
 <img src="images\json_spark_azure.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">

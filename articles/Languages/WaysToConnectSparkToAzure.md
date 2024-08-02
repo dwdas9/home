@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Azure Storage To Spark
-parent: Languages
+parent: PythonEcosystem
 ---
 ## <span style="color: #7e0041;">Table Of Contents</span>
 

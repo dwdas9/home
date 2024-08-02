@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Misc Articles
-nav_order: 15
+nav_order: 12
 has_children: true
 ---
 

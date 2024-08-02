@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Essential Unix Commands
-parent: Languages
+parent: PythonEcosystem
 ---
 # Some essential unix commands
 

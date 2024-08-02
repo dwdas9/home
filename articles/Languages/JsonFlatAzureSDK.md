@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Flatten Json Using Azure SDK
-parent: Languages
+parent: PythonEcosystem
 ---
 
 ## <span style="color: SlateGray;Font-family: Segoe UI, sans-serif;">Table of Contents</span>

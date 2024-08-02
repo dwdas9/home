@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Download JARs-Apache Maven Repo
-parent: Languages
+parent: PythonEcosystem
 ---
 
 

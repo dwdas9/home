@@ -1,7 +1,7 @@
 ---
 layout: default
 title: DatabricksMagicCmds
-parent: Languages
+parent: PythonEcosystem
 nav_order: 2
 ---
 
