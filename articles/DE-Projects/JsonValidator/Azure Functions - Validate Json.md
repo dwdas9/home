@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Azure Functions - Validate Json
-parent: Languages
+title: Azure Functions - Validate JSONs
+parent: DE-Projects
 ---
 
 # <span style="color: SteelBlue;">Clean and Validate JSON Using Azure Functions</span>

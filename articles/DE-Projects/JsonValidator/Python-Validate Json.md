@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Python - Validate Json
-parent: Languages
+title: Validate JSON using Python
+parent: DE-Projects
 ---
 
 ## Table of Contents
