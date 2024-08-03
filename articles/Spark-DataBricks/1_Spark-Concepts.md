@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Concepts
+title: SparkConcepts
 parent: Spark-Databricks
 nav_order: 1
 has_children: true
