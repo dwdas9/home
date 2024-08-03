@@ -28,26 +28,34 @@ The setup:
 
 ```sql
 -- Create the database
-CREATE DATABASE EmployeeDataDB;
+CREATE DATABASE InsuranceDB;
 GO
 
 -- Use the newly created database
-USE EmployeeDataDB;
+USE InsuranceDB;
 GO
 
 -- Create the table
-CREATE TABLE EmployeeDetails (
-    id INT PRIMARY KEY,
-    first_name NVARCHAR(50),
-    last_name NVARCHAR(50),
-    passport_number NVARCHAR(20),
-    country NVARCHAR(50),
-    date_of_birth DATE,
-    profession NVARCHAR(100)
+CREATE TABLE PolicyIssuance (
+    policy_number INT PRIMARY KEY,
+    policyholder_name NVARCHAR(100),
+    insured_name NVARCHAR(100),
+    policy_type NVARCHAR(50),
+    effective_date DATE,
+    expiration_date DATE,
+    premium_amount DECIMAL(10, 2),
+    beneficiary_name NVARCHAR(100),
+    beneficiary_contact NVARCHAR(50),
+    agent_name NVARCHAR(100),
+    agent_contact NVARCHAR(50),
+    coverage_details NVARCHAR(255),
+    endorsements_riders NVARCHAR(255),
+    underwriter_name NVARCHAR(100)
 );
 GO
 
 -- Verify the table creation
-SELECT * FROM EmployeeDetails;
+SELECT * FROM PolicyIssuance;
 GO
+
 ```
