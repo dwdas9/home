@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Spark-SQL
-parent: PythonEcosystem
+parent: Python Ecosystem
 nav_order: 3
 ---
 - [Essential SparkSQL commands](#essential-sparksql-commands)

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PythonEcosystem
+title: Python Ecosystem
 nav_order: 6
 has_children: true
 ---

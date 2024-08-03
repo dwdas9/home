@@ -1,7 +1,7 @@
 ---
 layout: default
 title: PySpark
-parent: PythonEcosystem
+parent: Python Ecosystem
 nav_order: 1
 has_children: true
 ---
