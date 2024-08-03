@@ -1,12 +1,10 @@
 ---
 layout: default
 title: Python
-parent: Languages
+parent: Python Ecosystem
 nav_order: 1
 has_children: true
 ---
-
-
 - [Python version - python -V](#python-version---python--v)
 - [Variables](#variables)
 - [Python Comments](#python-comments)
