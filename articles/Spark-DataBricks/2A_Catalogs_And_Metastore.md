@@ -13,7 +13,13 @@ Databricks is actually spark. So initially they used to use Hive metastore to ma
 
 ## Hive Metastore in Databricks
 
-## [[Unity Catalog Metastore in Databricks](https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/)]
+Before Unity catalog Databricks used to use the default Hive metastore. This is what Spark uses normally.
+
+Here the naming schema used to be db_name.table_name. Its two-level.
+
+## [Unity Catalog Metastore in Databricks](https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/)
+
+After Unity catalog. Table names becamse: catalog_name.schema_name.table_name(three  tier)
 
 ![](images/custom-image-2024-08-03-11-01-49.png)
 
