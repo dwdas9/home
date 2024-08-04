@@ -106,15 +106,19 @@ Python script to generate CSV files specifically for the Policy Issuance Process
 import csv
 import os
 from faker import Faker
+from datetime import datetime
 
 # Initialize Faker
 fake = Faker()
 
-def generate_random_data(num_rows):
+def generate_random_data(num_rows, start_index):
     data = []
-    for _ in range(num_rows):
+    for i in range(num_rows):
+        # Use timestamp and start_index to generate a unique policy number
+        policy_number = f'{start_index + i}_{int(datetime.now().timestamp() * 1000)}'
+        
         row = {
-            'policy_number': fake.unique.random_int(min=1000000, max=9999999),
+            'policy_number': policy_number,
             'policyholder_name': fake.name(),
             'insured_name': fake.name(),
             'policy_type': fake.random_element(elements=('Life', 'Health', 'Auto', 'Home')),
@@ -132,8 +136,8 @@ def generate_random_data(num_rows):
         data.append(row)
     return data
 
-def create_csv_file(file_name, num_rows):
-    data = generate_random_data(num_rows)
+def create_csv_file(file_name, num_rows, start_index):
+    data = generate_random_data(num_rows, start_index)
     with open(file_name, mode='w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=data[0].keys())
         writer.writeheader()
@@ -142,7 +146,7 @@ def create_csv_file(file_name, num_rows):
 def create_multiple_files(num_files, num_rows):
     for i in range(num_files):
         file_name = f'policy_issuance_file_{i+1}.csv'
-        create_csv_file(file_name, num_rows)
+        create_csv_file(file_name, num_rows, i * num_rows)
         print(f'Created {file_name}')
 
 # Specify the number of files and rows per file
@@ -150,6 +154,7 @@ num_files = 5  # Change this to the number of files you want to create
 num_rows = 100  # Change this to the number of rows per file
 
 create_multiple_files(num_files, num_rows)
+
 ```
 
 ### Explanation:
