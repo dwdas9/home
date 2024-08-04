@@ -19,6 +19,8 @@ nav_order: 1
 
 This project is a small version of a real-time project often used in the banking and insurance sectors. Here, data is received from different sources as flat files (like .csv or .xml). In banking, this file is sometimes called a control file. The file may come from Dynamics 365,right-fax servers, through web services, etc. This data needs to be ingested into SQL Server. The data comes from various branches or field offices throughout the day, and the workflow needs to run at a regular time each day to process all the files.
 
+> This kind of ETL is best suited for handling large volumes of data in batch mode, such as end-of-day processing for banks etc.
+
 ## <span style="color: DodgerBlue; font-family: 'Trebuchet MS', Helvetica, sans-serif;">Project Overview</span>
 
 - **Data Source**: A folder containing .csv files with the following data:
