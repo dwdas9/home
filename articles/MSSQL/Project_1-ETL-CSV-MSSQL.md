@@ -33,7 +33,7 @@ This project is a small version of a real-time project often used in the banking
 - **SSIS Workflow**: The workflow will contain a Foreach Loop container. Inside the Foreach Loop, there will be a Data Flow Task. The Data Flow Task will contain: Flat File Source -> Data Conversion -> OLE DB Destination.
 
 - **Setup Required**: You can develop this easily on a Windows machine. You will need MSSQL server. Visual Studio(Community edition will do). SSDT(to create the SSIS package in VS).
-</p>
+
 
 ## <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif; color: #2E75B6;font-size: 2.0 em">Step 1: Create the Required Database in MSSQL</span>
 
@@ -126,14 +126,14 @@ sp_help PolicyIssuance;
 
 ### **Add Data Conversion Transformation**
   - Add a **Data Conversion Transformation**.
-  - Configure it to convert the necessary columns as described in the previous steps:
+  - Configure it to convert the necessary columns :
     - `policyholder_name` (original) converted to `Copy of policyholder_name`
     - `insured_name` (original) converted to `Copy of insured_name`
-    - `beneficiary_name` (original) converted to `Copy of beneficiary_name`
+    - Other columns..
 
 ### **Add SQL Server Destination**
   - Add an **OLE DB Destination** to the Data Flow.
-  - Connect the Data Conversion Transformation (if used) or Flat File Source to the OLE DB Destination.
+  - Connect the Data Conversion Transformation to the OLE DB Destination.
   - Configure the OLE DB Destination to map the columns correctly to the `PolicyIssuance` table.
 
 ### **Map Columns in OLE DB Destination**
