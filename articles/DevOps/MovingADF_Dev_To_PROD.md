@@ -1,15 +1,23 @@
+---
+layout: default
+title: ADF-CI-CD
+parent: AzureDevOps
+nav_order: 4
+---
+
+
 # Moving Azure Data Factory (ADF) from Development to Production using CI/CD with GitHub and Azure DevOps
 
-Moving your Azure Data Factory (ADF) from a development environment to production can be a smooth process if you use Continuous Integration and Continuous Deployment (CI/CD). In this guide, we will see how to do it using both GitHub and Azure DevOps.
+Moving your Azure Data Factory (ADF) from a development environment to production can be easy if you use Continuous Integration and Continuous Deployment (CI/CD). Here’s how to do it using GitHub and Azure DevOps.
 
 ## Using GitHub
 
-### Set Up Version Control
+**Set Up Version Control**
 - **Connect ADF with GitHub**: Open your ADF in the development environment. Go to the "Manage" tab and connect your ADF to a GitHub repository.
 - **Continuous Integration (CI)**: Develop and test your ADF pipelines, datasets, and linked services. Commit and push your changes to the GitHub repository.
 
-### Create a GitHub Actions Workflow
-Use the following simple YAML code for your workflow:
+**Create a GitHub Actions Workflow**
+Use this YAML code for your workflow:
 
 ```yaml
 name: ADF CI
@@ -47,7 +55,7 @@ jobs:
           ARMTemplateParametersForFactory.json
 ```
 
-### Continuous Deployment (CD)
+**Continuous Deployment (CD)**
 Create a deployment workflow in `.github/workflows`:
 
 ```yaml
@@ -80,20 +88,20 @@ jobs:
         deployment-name: 'adf-deployment'
 ```
 
-### Manage Parameters
+**Manage Parameters**
 Set different values for production in your parameters file, like connections and dataset paths.
 
-### Run the Workflow
+**Run the Workflow**
 Push changes to the GitHub repository to trigger the CI workflow. After a successful build, the CD workflow will automatically deploy changes to the production ADF.
 
 ## Using Azure DevOps
 
-### Set Up Version Control
+**Set Up Version Control**
 - **Connect ADF with Azure Repos**: Open your ADF in the development environment. Go to the "Manage" tab and connect your ADF to an Azure Repos Git repository.
 - **Continuous Integration (CI)**: Develop and test your ADF pipelines, datasets, and linked services. Commit and push your changes to the Azure Repos Git repository.
 
-### Create a Build Pipeline
-Go to Azure DevOps > Pipelines > Builds > New Pipeline. Select your Azure Repos Git repository. Use the following YAML code:
+**Create a Build Pipeline**
+Go to Azure DevOps > Pipelines > Builds > New Pipeline. Select your Azure Repos Git repository. Use this YAML code:
 
 ```yaml
 trigger:
@@ -127,9 +135,10 @@ steps:
     artifact: 'drop'
 ```
 
-### Continuous Deployment (CD)
+**Continuous Deployment (CD)**
 Create a release pipeline in Azure DevOps:
 
+**Create a Release Pipeline**
 1. Go to Azure DevOps > Pipelines > Releases > New pipeline.
 2. Select an empty job, add an artifact, and choose the build pipeline you created.
 3. Add a new stage for deployment.
@@ -150,8 +159,8 @@ Add a task to deploy the ARM template of your ADF in the deployment stage:
     csmParametersFile: '$(System.DefaultWorkingDirectory)/_your-build-pipeline/drop/ARMTemplateParametersForFactory.json'
 ```
 
-### Manage Parameters
+**Manage Parameters**
 Set different values for production in your parameters file, like connections and dataset paths.
 
-### Run the Pipeline
+**Run the Pipeline**
 Push changes to the Azure Repos Git repository to trigger the CI pipeline. After a successful build, the CD pipeline will automatically deploy changes to the production ADF.

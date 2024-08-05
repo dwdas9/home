@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Misc Articles
-nav_order: 13
+title: AzureDevOps
+nav_order: 12
 has_children: true
 ---
 
