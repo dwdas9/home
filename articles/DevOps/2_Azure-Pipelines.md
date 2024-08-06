@@ -2,9 +2,18 @@
 layout: default
 title: Azure-Pipelines
 parent: AzureDevOps
-nav_order: 4
+nav_order: 2
 has_children: true
 ---
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # <span style="color: Teal">Azure Pipelines</span>
 

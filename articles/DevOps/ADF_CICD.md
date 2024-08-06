@@ -6,9 +6,18 @@ nav_order: 4
 ---
 
 
-# Moving Azure Data Factory (ADF) from Development to Production using CI/CD with GitHub and Azure DevOps
+# ADF -  Dev to PROD using GitHub workflows and Azure Pipelines
 
-Moving your Azure Data Factory (ADF) from a development environment to production can be easy if you use Continuous Integration and Continuous Deployment (CI/CD). Here’s how to do it using GitHub and Azure DevOps.
+Moving your Azure Data Factory from Dev to PROD can be CI/CDed using GitHub Actions Workflows or using Azure DevOps Pipelines.
+
+[Main Article](https://learn.microsoft.com/en-us/azure/data-factory/continuous-integration-delivery)
+
+> ADF uses ARM templates to store the configuration of pipelines, datasets, data flows, etc.
+
+There are two methods to deploy a data factory to another environment:
+
+- **Automated deployment** using Data Factory's integration with Azure Pipelines or GitHub workflows.
+- **Manual deployment** by uploading a Resource Manager template using Data Factory UX integration with Azure Resource Manager.
 
 ## Using GitHub
 
