@@ -15,18 +15,20 @@ has_children: true
 {:toc}
 </details>
 
-# Repositories, Branches, Push, Pull, Commit
+# Getting started with GitHub
+
+## Repositories, Branches, Push, Pull, Commit
    - Repositories
    - Branches
    - Push
    - Pull
    - Commits
 
-# Understanding GitHub Actions
+## Understanding GitHub Actions
 
 In this article, I'll explain the core concepts of GitHub Actions using simple language and minimal words.
 
-## For the Busy Readers
+### For the Busy Readers
 
 GitHub Actions is a tool to automate code building and deployment tasks. With GitHub Actions, you create **workflows**. These workflows are YAML files inside the `.github/workflows` folder in your project. Workflows contain jobs, and jobs contain steps. Steps can be simple commands, scripts, or pre-built actions from the GitHub community.
 
@@ -45,12 +47,12 @@ Here are the key terms you will hear most of the time when dealing with GitHub A
 3. **Jobs Execution**: Jobs within the workflow run, either independently or in sequence.
 4. **Runners**: Jobs use virtual machines provided by GitHub or self-hosted machines to run.
 
-## Example Workflow
+### Example Workflow
 You commit code to your repository. The workflow is triggered. Your code is built, tested, and deployed automatically.
 
 > GitHub provides virtual machines for Linux, Windows, and macOS.
 
-## Anatomy of a GitHub Workflow
+### Anatomy of a GitHub Workflow
 
 A GitHub Actions workflow is written as a YAML file inside the `.github/workflows` directory of a project/repository. Each workflow is stored as a separate YAML file in your code repository.
 

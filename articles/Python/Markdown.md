@@ -508,3 +508,51 @@ This is how I create divs. I create the block once, and reuse it.
 ">
     Creating connection strings is pretty easy with the icons in Synapse Linked Service.
 </p>
+
+
+
+```markdown
+# <span style="color: blueviolet;Font-family: Comic Sans MS, sans-serif;">Synapse Analytics Core Concepts</span>
+
+# <span style="color: DarkCyan;Font-family: Comic Sans MS, sans-serif;">Synapse Workspace</span>
+
+# <span style="color: DodgerBlue">Serverless SQL Pool</span>
+
+# <span style="color: FireBrick">Synapse Spark Pool</span>
+
+# <span style="color: CadetBlue">What is Integration Runtime?</span>
+
+# <span style="color: BlueViolet">1. Azure Integration Runtime:</span>
+
+# <span style="color: PaleVioletRed;Font-family: Segoe UI, sans-serif;">Background</span>
+
+# <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Azure Synapse analytics</span>
+
+# <span style="color: DarkSeaGreen; font-family: 'Comic Sans MS', sans-serif;">Accessing Items in a Tuple: Indexing</span>
+
+
+ <p style="color: #804000; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: BurlyWood; padding: 15px; border-left: 5px solid #b35900;">
+A service to to run SQL Server Integration Services (SSIS) packages in the Azure cloud.
+</p>
+
+
+<p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
+A cloud-based compute resource for running data integration and transformation tasks in Azure Data Factory and Azure Synapse Analytics.
+</p>
+
+ <p style="color: #804000; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #fff5e6; padding: 15px; border-left: 5px solid #b35900;">
+A tool for connecting and moving data between on-premises sources and Azure cloud services.
+</p>
+
+<div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
+    <div style="padding: 5px; border: 1px solid #ddd; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; background-color: #000000; margin: 3px;font-family: 'Comic Sans MS', sans-serif;">
+        <span style="font-size: 1.2em;color: #fff; font-weight: bold;font-family: 'Courier New', Courier, monospace;">print(*(fruits[i] for i in range(len(fruits))))</span>
+    </div>
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
+    <div style="padding: 5px; border: 1px solid #ddd; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; background-color: #ffeb3b; margin: 3px;font-family: 'Comic Sans MS', sans-serif;">
+        <span style="font-size: 1.2em;color: #000; font-weight: bold;font-family: 'Courier New', Courier, monospace;">This text will wrap itself. In Synapse or Azure Data Factory (ADF), a pipeline is simply the end-to-end workflow.</span>
+    </div>
+</div> 
+```
