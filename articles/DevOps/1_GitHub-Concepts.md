@@ -15,24 +15,39 @@ has_children: true
 {:toc}
 </details>
 
-# Getting started with GitHub
+# <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Getting started with GitHub</span>
 
-## Repositories, Branches, Push, Pull, Commit
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Repositories, Branches, Push, Pull, Commit</span>
    - Repositories
    - Branches
    - Push
    - Pull
    - Commits
 
-## Understanding GitHub Actions
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Understanding GitHub Actions</span>
 
 In this article, I'll explain the core concepts of GitHub Actions using simple language and minimal words.
 
-### For the Busy Readers
+### <span style="color: PaleVioletRed ">For the Busy Readers</span>
 
 GitHub Actions is a tool to automate code building and deployment tasks. With GitHub Actions, you create **workflows**. These workflows are YAML files inside the `.github/workflows` folder in your project. Workflows contain jobs, and jobs contain steps. Steps can be simple commands, scripts, or pre-built actions from the GitHub community.
 
-### Key Concepts in GitHub Actions
+<p style="
+    margin: 20px 0;
+    font-size: 18px;
+    color: #333;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #ffeb3b; /* Light yellow background */
+    padding: 10px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: inline-block; /* Shrink to fit content */
+">
+   GitHub Action is a tool. GitHub Actions Workflow is the output of the tool.
+</p>
+
+
+### <span style="color: PaleVioletRed ">Key Concepts in GitHub Actions</span>
 
 Here are the key terms you will hear most of the time when dealing with GitHub Actions:
 
@@ -47,12 +62,12 @@ Here are the key terms you will hear most of the time when dealing with GitHub A
 3. **Jobs Execution**: Jobs within the workflow run, either independently or in sequence.
 4. **Runners**: Jobs use virtual machines provided by GitHub or self-hosted machines to run.
 
-### Example Workflow
+### <span style="color: PaleVioletRed">Example Workflow</span>
 You commit code to your repository. The workflow is triggered. Your code is built, tested, and deployed automatically.
 
 > GitHub provides virtual machines for Linux, Windows, and macOS.
 
-### Anatomy of a GitHub Workflow
+### <span style="color: PaleVioletRed">Anatomy of a GitHub Workflow</span>
 
 A GitHub Actions workflow is written as a YAML file inside the `.github/workflows` directory of a project/repository. Each workflow is stored as a separate YAML file in your code repository.
 
