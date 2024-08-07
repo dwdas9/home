@@ -512,6 +512,7 @@ This is how I create divs. I create the block once, and reuse it.
 
 
 ```markdown
+
 # <span style="color: blueviolet;Font-family: Comic Sans MS, sans-serif;">Synapse Analytics Core Concepts</span>
 
 # <span style="color: DarkCyan;Font-family: Comic Sans MS, sans-serif;">Synapse Workspace</span>
@@ -555,4 +556,5 @@ A tool for connecting and moving data between on-premises sources and Azure clou
         <span style="font-size: 1.2em;color: #000; font-weight: bold;font-family: 'Courier New', Courier, monospace;">This text will wrap itself. In Synapse or Azure Data Factory (ADF), a pipeline is simply the end-to-end workflow.</span>
     </div>
 </div> 
+
 ```
