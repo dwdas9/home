@@ -28,6 +28,8 @@ has_children: true
 
 In this article, I'll explain the core concepts of GitHub Actions using simple language and minimal words.
 
+[Further reading.](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions)
+
 ### <span style="color: PaleVioletRed ">For the Busy Readers</span>
 
 GitHub Actions is a tool to automate code building and deployment tasks. With GitHub Actions, you create **workflows**. These workflows are YAML files inside the `.github/workflows` folder in your project. Workflows contain jobs, and jobs contain steps. Steps can be simple commands, scripts, or pre-built actions from the GitHub community.
