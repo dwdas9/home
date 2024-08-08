@@ -38,7 +38,7 @@ GitHub Actions is a tool to automate code building and deployment tasks. With Gi
     margin: 20px 0;
     font-size: 18px;
     color: #333;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: Font-family: Segoe UI, sans-serif;
     background-color: #ffeb3b; /* Light yellow background */
     padding: 10px;
     border-radius: 8px; /* Rounded corners */
