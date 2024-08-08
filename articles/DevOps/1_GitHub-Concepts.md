@@ -26,13 +26,28 @@ has_children: true
 
 ## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Understanding GitHub Actions</span>
 
-In this article, I'll explain the core concepts of GitHub Actions using simple language and minimal words.
+In this article, I'll explain the core concepts of GitHub Actions.
 
 [Further reading.](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions)
 
 ### <span style="color: PaleVioletRed ">For the Busy Readers</span>
 
 GitHub Actions is a tool to automate code building and deployment tasks. With GitHub Actions, you create **workflows**. These workflows are YAML files inside the `.github/workflows` folder in your project. Workflows contain jobs, and jobs contain steps. Steps can be simple commands, scripts, or pre-built actions from the GitHub community.
+
+**Another explanation:**
+
+GitHub Actions is a GitHub feature that lets you run tasks when certain events happen in your code repository. You can use it to trigger any part of a CI/CD pipeline using webhooks on GitHub.
+
+GitHub Actions offers over 13,000 pre-written and tested CI/CD workflows. You can also write your own workflows or customize existing ones using YAML files.
+
+GitHub Actions is not just for CI/CD pipelines. Here are some other uses:
+
+- Running nightly builds in the master branch for testing.
+- Cleaning up old issues or bug reports.
+- Creating bots that respond to comments or commands on pull requests or issues.
+
+In short, GitHub Actions is the GitHub feature that automates CI/CD and more.
+
 
 <p style="
     margin: 20px 0;
