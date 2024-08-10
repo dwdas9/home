@@ -52,3 +52,4 @@ It can be installed on-prem, on Docker containers, or on the cloud.
 ## Can You Use Kafka with Azure Event Hubs?
 
 Yes, you can. Even though Azure Event Hubs isn’t Kafka, it has a Kafka-compatible endpoint. This means you can continue using your Kafka tools and applications with Event Hubs without much change.
+
