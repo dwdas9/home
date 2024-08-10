@@ -35,9 +35,19 @@ Event Hubs integrates smoothly with other Azure services, making it a good choic
 
 Open-source Kafka on-premises is appealing because you don’t pay for licensing. But it’s not a “set it and forget it” solution. Servers need updates, maintenance, and support. All this is covered if you use Event Hubs. You won’t have to worry about backend servers or patching. And, the product will be supported by Microsoft, meaning you can chase them if something goes wrong. Can you do this with open-source products like Kafka? No, you can’t.
 
-## How are they installed/Setup?
+## How is Auzre EventHub Setup/Installed?
 
-Setting up Event Hubs is as simple as logging into the Azure portal and selecting the resource. Everything is set up with just a browser. But Kafka requires installation. It can be installed on-prem, on Docker containers, or on the cloud. Did you know you can have a kind of Azure-Kafka? These are actual Kafka servers, which can be easily set up using Azure HDInsight. This means you don’t have to install the software on-prem or on Docker. It’s like a hybrid solution. You use a bit of Azure (their servers, etc.) but still have actual Kafka.
+Setting up Event Hubs is as simple as logging into the Azure portal and selecting the resource. Everything is set up with just a browser.
+
+## How is Kafka Setup/Installed?
+It can be installed on-prem, on Docker containers, or on the cloud. 
+
+> Did you know you can have a kind of Azure-Kafka? These are actual Kafka servers, which can be easily set up using Azure HDInsight. This means you don’t have to install the software on-prem or on Docker. It’s like a hybrid solution. You use a bit of Azure (their servers, etc.) but still have actual Kafka.
+
+> Also, Confluent Company provides Kafka on Azure MarketPlace:
+
+![](images/2024-08-10-16-40-29.png)
+
 
 ## Can You Use Kafka with Azure Event Hubs?
 
