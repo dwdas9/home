@@ -5,7 +5,7 @@ parent: StreamProcessing
 nav_order: 1
 ---
 
-![](images/2024-08-10-16-03-27.png)
+![](images/2024-08-10-16-20-54.png)
 
 # Azure Event Hubs Vs Kafka: A Quick Comparison
 
