@@ -22,8 +22,11 @@ Again: Event Hub is not Kafka. But, it supports Kafka natively. “Natively” i
 **Who manages the platform?**  
 With Kafka, you have full control since you’re running it yourself. With Azure Event Hubs, Microsoft manages the service (backend servers, etc.), so you don’t have to worry about maintenance or scaling.
 
+
 **How easy is it?**  
 Event Hubs is easier if you want a managed service without the hassle of setup. Kafka requires you to handle everything from setup to scaling.
+
+>**Event Hubs:** There are no servers, disks, or networks to manage and monitor and no brokers to consider or configure, ever. You create a namespace, which is an endpoint with a fully qualified domain name, and then you create Event Hubs (topics) within that namespace.
 
 **Integration:**  
 Event Hubs integrates smoothly with other Azure services, making it a good choice if you’re already in the Azure ecosystem.
