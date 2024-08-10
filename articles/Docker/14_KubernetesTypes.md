@@ -9,30 +9,26 @@ nav_order: 14
 
 Kubernetes is a system for managing containerized applications, but there are many ways to set it up based on your needs. The table below summriazes the various available kubernetes 'brands':
 
-## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Kubernetes Brands<span>
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">**For the busy people:**</span>
+- **Development**: **Minikube**, **K3d**, **Docker Desktop Kubernetes**, and **Kind** are geared toward development and testing.
+- **Production**: **Kubeadm**, **Rancher**, **K3s**, and managed services like **Amazon EKS**, **Google GKE**, and **Azure AKS** are suited for production environments.
+- **Mixed Use**: **K3s** and **MicroK8s** can be used both in development and production, especially in edge computing and IoT.
 
-| **Kubernetes Tool** | **Company/Provider** | **Best For** | **Environment** | **Single Machine Setup** | **Multi-Machine Setup** | **Installation Glimpse** |
-|----------------------|----------------------|--------------|-----------------|--------------------------|-------------------------|--------------------------|
-| **Minikube** | Kubernetes Community (CNCF) | Local development and testing | Local, Development | Yes | No | Install via package manager (brew on macOS, choco on Windows) and run `minikube start`. |
-| **Kubeadm** | Kubernetes Community (CNCF) | Production environments, full control | On-Premises, Cloud | Yes (single node) | Yes | Install Docker, kubeadm, kubelet, and kubectl, then initialize with `kubeadm init` and join nodes with `kubeadm join`. |
-| **Rancher** | SUSE | Multi-cluster management, enterprise environments | On-Premises, Cloud, Hybrid | Yes (for management) | Yes | Install Rancher on Docker (`docker run` command) or via Helm chart on an existing Kubernetes cluster. |
-| **K3s** | Rancher (SUSE) | Lightweight Kubernetes, edge computing, IoT | Edge, IoT, Development | Yes | Yes | Install via a single command: `curl -sfL https://get.k3s.io | sh -` on each node. |
-| **K3d** | Rancher (SUSE) | Local multi-node Kubernetes clusters | Local, Development | Yes | No | Install K3d via package manager and create a cluster using `k3d cluster create mycluster --agents 2`. |
-| **Docker Desktop Kubernetes** | Docker, Inc. | Local development and integration with Docker | Local, Development | Yes | No | Enable Kubernetes in Docker Desktop settings and wait for it to start. |
-| **MicroK8s** | Canonical (Ubuntu) | Lightweight Kubernetes, IoT, Edge, CI/CD pipelines | Local, Edge, Development, CI/CD | Yes | Yes | Install with `snap install microk8s --classic`, then use `microk8s start`. |
-| **Amazon EKS** | Amazon Web Services (AWS) | Managed Kubernetes service, production environments | Cloud | No | Yes | Set up via AWS Management Console or CLI, configure using eksctl or AWS CloudFormation. |
-| **Google GKE** | Google Cloud | Managed Kubernetes service, production environments | Cloud | No | Yes | Set up via Google Cloud Console or CLI, configure with gcloud commands. |
-| **Azure AKS** | Microsoft Azure | Managed Kubernetes service, production environments | Cloud | No | Yes | Set up via Azure Portal or CLI, configure using Azure CLI commands. |
-| **OpenShift** | Red Hat (IBM) | Enterprise Kubernetes with additional PaaS features | On-Premises, Cloud, Hybrid | Yes (for single node) | Yes | Install via the OpenShift installer or on an existing Kubernetes cluster with `oc` CLI tools. |
-| **Kind (Kubernetes in Docker)** | Kubernetes Community (CNCF) | Kubernetes testing and CI environments | Local, CI/CD | Yes | No | Install via package manager and create clusters using `kind create cluster`. |
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">**Kubernetes Brands**<span>
 
-## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">So, let's summarize</span>
+Here's the revised table with the "Environment" column removed:
 
-Kubernetes is a powerful tool used to manage containerized applications in a cloud or on-premises environment. But there are different ways to set up Kubernetes depending on what you need. 
-
-- **Minikube** is like a quick start for developers. It’s very easy to set up on your laptop and is good for learning or trying out Kubernetes on a small scale.
-- **Kubeadm** is for those who want to set up Kubernetes in a more serious, production-ready environment. It gives you more control but needs a bit more work.
-- **Rancher** is best if you have many Kubernetes clusters and want an easy way to manage them all. It’s very popular in companies.
-- **K3s** is a lightweight version of Kubernetes, perfect for small devices or when you don’t have many resources. 
-- **Docker Desktop** has Kubernetes built in, so if you’re already using Docker, this is a very convenient option.
-- **Managed services like EKS, GKE, and AKS** are provided by big cloud companies like Amazon, Google, and Microsoft. They take care of most of the hard work for you, so you can focus on your apps.
+| **Kubernetes Tool** | **Company/Provider** | **Best For** | **Single Machine Setup** | **Multi-Machine Setup** | **Used By** |
+|----------------------|----------------------|--------------|--------------------------|-------------------------|-------------|
+| **Minikube** | Kubernetes Community (CNCF) | Development | Yes | No | Individual developers, small startups. |
+| **Kubeadm** | Kubernetes Community (CNCF) | Production | Yes (single node) | Yes | Enterprises, cloud service providers. |
+| **Rancher** | SUSE | Production | Yes (for management) | Yes | Enterprises, companies managing multi-cloud or hybrid environments. |
+| **K3s** | Rancher (SUSE) | Development/Production | Yes | Yes | IoT companies, edge computing solutions, small and medium enterprises. |
+| **K3d** | Rancher (SUSE) | Development | Yes | No | Developers, small companies for testing multi-node setups. |
+| **Docker Desktop Kubernetes** | Docker, Inc. | Development | Yes | No | Developers using Docker, small teams. |
+| **MicroK8s** | Canonical (Ubuntu) | Development/Production | Yes | Yes | IoT and edge computing companies, startups. |
+| **Amazon EKS** | Amazon Web Services (AWS) | Production | No | Yes | Large enterprises, companies using AWS. |
+| **Google GKE** | Google Cloud | Production | No | Yes | Large enterprises, companies using Google Cloud. |
+| **Azure AKS** | Microsoft Azure | Production | No | Yes | Enterprises, companies using Azure services. |
+| **OpenShift** | Red Hat (IBM) | Production | Yes (for single node) | Yes | Enterprises needing integrated CI/CD, large companies in regulated industries. |
+| **Kind (Kubernetes in Docker)** | Kubernetes Community (CNCF) | Development | Yes | No | Developers, CI/CD pipelines in tech companies. |
