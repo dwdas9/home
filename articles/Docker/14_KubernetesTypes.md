@@ -7,7 +7,7 @@ nav_order: 14
 
 # <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Types of Kubernetes</span>
 
-Kubernetes is a system for managing containerized applications, but there are many ways to set it up based on your needs. The table below summriazes the various available kubernetes offerings:
+Kubernetes is a system for managing containerized applications, but there are many ways to set it up based on your needs. The table below summriazes the various available kubernetes 'brands':
 
 ## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Kubernetes Brands<span>
 
