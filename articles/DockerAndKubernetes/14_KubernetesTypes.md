@@ -9,12 +9,12 @@ nav_order: 14
 
 Kubernetes is a system for managing containerized applications, but there are many ways to set it up based on your needs. The table below summriazes the various available kubernetes 'brands':
 
-## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">**For the busy people:**</span>
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">For the busy people:</span>
 - **Development**: **Minikube**, **K3d**, **Docker Desktop Kubernetes**, and **Kind** are geared toward development and testing.
 - **Production**: **Kubeadm**, **Rancher**, **K3s**, and managed services like **Amazon EKS**, **Google GKE**, and **Azure AKS** are suited for production environments.
 - **Mixed Use**: **K3s** and **MicroK8s** can be used both in development and production, especially in edge computing and IoT.
 
-## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">**Kubernetes Brands**<span>
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Kubernetes Brands<span>
 
 Here's the revised table with the "Environment" column removed:
 
