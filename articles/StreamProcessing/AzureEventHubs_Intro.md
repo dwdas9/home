@@ -60,6 +60,24 @@ Did you know you can have a kind of Azure-Kafka? These are actual Kafka servers,
 
 <img src="images/2024-08-10-16-40-29.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
+## All installation methods
+
+| **Installation Method**          | **Details**                                                                     |
+|----------------------------------|---------------------------------------------------------------------------------|
+| **On Your Own Servers**          |                                                                                 |
+| Manual Installation              | Set up Kafka on your own servers when you want full control.                    |
+| Docker                           | Run Kafka inside a Docker container for easy management and portability.        |
+| Kubernetes                       | Deploy Kafka on a Kubernetes cluster when you need easy scaling.                |
+| **On the Cloud**                 |                                                                                 |
+| Virtual Machines                 | Install Kafka on cloud VMs when using cloud infrastructure.                     |
+| Managed Services                 |                                                                                 |
+| Confluent Cloud                  | Use Confluent Cloud for fully managed Kafka when you want hassle-free management.|
+| Amazon MSK                       | Opt for Amazon MSK if you're on AWS and need managed Kafka.                     |
+| Azure Event Hubs                 | Choose Azure Event Hubs for a Kafka-compatible service on Azure.                |
+| **Hybrid**                       | Deploy Kafka on both servers and cloud when you need both on-premises and cloud.|
+| **For Developers (Local Use)**   |                                                                                 |
+| Docker                           | Run Kafka locally inside Docker for development and testing.                    |
+| Confluent Platform               | Use Confluent Platform for an easy local setup with extra tools.                |
 
 
 ## <span style="color: #333399;font-family: 'Trebuchet MS', Helvetica, sans-serif;">Can You Use Kafka with Azure Event Hubs?</span>
