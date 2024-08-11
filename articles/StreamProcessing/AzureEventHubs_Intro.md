@@ -60,7 +60,7 @@ Did you know you can have a kind of Azure-Kafka? These are actual Kafka servers,
 
 <img src="images/2024-08-10-16-40-29.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
-## All installation methods
+## <span style="color: #333399;font-family: 'Trebuchet MS', Helvetica, sans-serif;">All installation methods</span>
 
 | **Installation Method**          | **Details**                                                                     |
 |----------------------------------|---------------------------------------------------------------------------------|
@@ -79,8 +79,4 @@ Did you know you can have a kind of Azure-Kafka? These are actual Kafka servers,
 | Docker                           | Run Kafka locally inside Docker for development and testing.                    |
 | Confluent Platform               | Use Confluent Platform for an easy local setup with extra tools.                |
 
-
-## <span style="color: #333399;font-family: 'Trebuchet MS', Helvetica, sans-serif;">Can You Use Kafka with Azure Event Hubs?</span>
-
-Yes, you can. Even though Azure Event Hubs isn’t Kafka, it has a Kafka-compatible endpoint. This means you can continue using your Kafka tools and applications with Event Hubs without much change.
 
