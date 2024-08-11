@@ -12,13 +12,13 @@ nav_order: 11
   - [Which One Should You Choose?](#which-one-should-you-choose)
 - [Summary](#summary)
 
-# Orchestration Tools - Docker Swarm vs Kubernetes
+# <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Orchestration Tools - Docker Swarm vs Kubernetes</span>
 
 To manage complex applications, many developers use containers. Containers package all the necessary dependencies, making applications portable, fast, secure, scalable, and easy to manage. To handle multiple containers, you need an orchestration tool like Docker Swarm or Kubernetes.
 
 Both tools manage containers but have different strengths and weaknesses. This article will help you decide which one is right for you.
 
-## Docker Swarm
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Docker Swarm</span>
 
 Docker Swarm, an open-source orchestration tool by Docker, turns multiple Docker instances into a single virtual host. Here are its key components:
 
@@ -37,7 +37,7 @@ Docker Swarm, an open-source orchestration tool by Docker, turns multiple Docker
 - **Limited Functionality:** Less powerful compared to Kubernetes.
 - **Basic Automation:** Not as robust as Kubernetes.
 
-## Kubernetes
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Kubernetes</span>
 
 Kubernetes, developed by Google, offers a more complex structure with nodes, pods, namespaces, and more.
 
@@ -61,7 +61,7 @@ Kubernetes, developed by Google, offers a more complex structure with nodes, pod
 - **Transition:** Moving from Docker Swarm can be challenging.
 - **Overhead:** Can be overly complex for simple applications.
 
-## Comparing Docker Swarm and Kubernetes
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Comparing Docker Swarm and Kubernetes</span>
 
 | Aspect               | Docker Swarm                               | Kubernetes                                  |
 |----------------------|--------------------------------------------|--------------------------------------------|
@@ -72,18 +72,18 @@ Kubernetes, developed by Google, offers a more complex structure with nodes, pod
 | Security             | Uses TLS for security.                     | Supports multiple security protocols (RBAC, SSL/TLS, secrets management). |
 | Load Balancing       | Automatic load balancing using DNS.        | Uses tools like Nginx Ingress for load balancing. |
 
-## K3s, best of both worlds
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">K3s, best of both worlds</span>
 
 [K3s](https://k3s.io/), a lightweight version of Kubernetes. It gives you the full Kubernetes API without complexity. It's easy to use and CNCF certified. Consider K3s if you want Kubernetes features with simpler management.
 
-## Which One Should You Choose?
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Which One Should You Choose?</span>
 
 - **Docker Swarm:** Best for beginners and small-scale applications due to its ease of use.
 - **Kubernetes:** Ideal for complex and large-scale projects requiring robust features and automation.
 - **K3s:** Suitable if you want Kubernetes features with less complexity.
 
 
-# Summary
+# <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Summary</span>
 
 | <span style="color:#005f73;">**Feature**</span>           | <span style="color:#005f73;">**Docker Swarm**</span>                                                                                       | <span style="color:#005f73;">**Kubernetes**</span>                                                                                                                                                                 | <span style="color:#005f73;">**K3s**</span>                                                                                                       |
 |----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

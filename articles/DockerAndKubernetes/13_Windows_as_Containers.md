@@ -5,13 +5,13 @@ parent: Docker
 nav_order: 13
 ---
 
-### Running Windows OS as a Container in Docker
+# <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Running Windows OS as a Container in Docker</span>
 
 When you think of containers, you usually picture a small Linux OS. And you’re right! But did you know that containers can run a small Windows OS too?
 
-### Switching Docker Desktop to Windows Mode
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Switching Docker Desktop to Windows Mode</span>
 
-When you run Docker Desktop on your Windows laptop and download popular apps like MongoDB or Spark, you’re using Linux OS containers. However, Windows can also be run in containers. To do this, you need to switch Docker Desktop to Windows mode.
+For most of your tasks, you've likely been using Docker containers, which are typically Linux-based. Running a Windows container might seem unusual. By default, Docker on your Windows machine operates in 'Linux mode.' To run Windows containers, you'll need to switch from this default Linux mode to Windows mode.
 
 ![Switch to Windows containers](images/custom-image-2024-08-05-23-10-16.png)
 
@@ -23,7 +23,7 @@ And you can switch back to Linux containers easily.
 
 ![](images/custom-image-2024-08-05-23-39-34.png)
 
-### Switching Using Command Line
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Switching Using Command Line</span>
 
 You can also switch using the command line:
 
@@ -31,11 +31,11 @@ You can also switch using the command line:
 & $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchDaemon
 ```
 
-### Further Reading
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Further Reading</span>
 
 For more information, check out: [Windows Containers Documentation](https://learn.microsoft.com/en-us/virtualization/windowscontainers/)
 
-### Microsoft Base Images
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Microsoft Base Images</span>
 
 Microsoft offers several base images to start building your own container images:
 
@@ -44,13 +44,13 @@ Microsoft offers several base images to start building your own container images
 - **Windows Server Core**: A smaller image with a subset of Windows Server APIs, including the full .NET framework and most server roles (excluding some like Fax Server).
 - **Nano Server**: The smallest Windows Server image, supporting .NET Core APIs and some server roles.
 
-### Ready-Made Bundles
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Ready-Made Bundles</span>
 
 Microsoft offers ready-made bundles that combine Windows Server 2022 with apps like MongoDB.
 
 For example, if you need MongoDB on Windows Server 2022, you can use this [Dockerfile](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/main/windows-container-samples/mongodb).
 
-### Other Combinations
+## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Other Combinations</span>
 
 Other combinations you can create include:
 
