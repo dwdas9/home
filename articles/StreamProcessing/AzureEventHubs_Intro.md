@@ -47,10 +47,7 @@ Open-source Kafka on-premises is appealing because you don’t pay for licensing
 
 ## <span style="color: #333399;font-family: 'Trebuchet MS', Helvetica, sans-serif;">How is Auzre EventHub Setup/Installed?</span>
 
-Setting up Event Hubs is as simple as logging into the Azure portal and selecting the resource. Everything is set up with just a browser.
-
-## <span style="color: #333399;font-family: 'Trebuchet MS', Helvetica, sans-serif;">How is Kafka Setup/Installed?</span>
-It can be installed on-prem, on Docker containers, or on the cloud. 
+All this while, I've been saying that Kafka installation is complex. It's not as complex as I've made it seem, though it is still more involved than setting up Event Hubs. For example, in HDInsight, Microsoft provides a ready-made template for Kafka setup, making it as simple as setting up Event Hubs. With HDInsight, everything is done through the browser, with all setup on the cloud. Additionally, there's Confluent Cloud on Azure (and other clouds) that further simplifies the process.
 
 <p style="color: #004d99; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6f7ff; padding: 15px; border-left: 5px solid #3399ff;">
 Did you know you can have a kind of Azure-Kafka? These are actual Kafka servers, which can be easily set up using Azure HDInsight. This means you don’t have to install the software on-prem or on Docker. It’s like a hybrid solution. You use a bit of Azure (their servers, etc.) but still have actual Kafka.
