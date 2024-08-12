@@ -4,7 +4,7 @@ title: About
 nav_order: 1
 ---
 
-![alt text](DALL·E-2024-08-12-23.41.jpg)
+![alt text](images\2024-08-13-01-20-44.png)
 # About Me
 
 
