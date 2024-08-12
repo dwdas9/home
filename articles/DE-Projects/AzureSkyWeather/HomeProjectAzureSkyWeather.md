@@ -6,7 +6,7 @@ nav_order: 1
 has_children: true
 ---
 
-![alt text](project_skyazure.png)
+![alt text](project_skyazure.jpg)
 
 # Overview
 
