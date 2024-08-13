@@ -7,7 +7,6 @@ nav_order: 1
 
 - [Overview](#overview)
   - [How MongoDB would store your normal SQL Data(simple text)?](#how-mongodb-would-store-your-normal-sql-datasimple-text)
-    - [Create the Database and Collection](#create-the-database-and-collection)
   - [Storing unstructured data like files in MongoDB](#storing-unstructured-data-like-files-in-mongodb)
     - [How GridFS Splits Files](#how-gridfs-splits-files)
     - [Storing a sample file `Resume.pdf`](#storing-a-sample-file-resumepdf)
@@ -44,8 +43,6 @@ Suppose, we have a simple MSSQL table but, we want to store the data now in Mong
 Now, let's do some practical to see it in reality. Follow the steps below.
 
 > To run MongoDB commands, you can install MongoDB Shell from [here](https://www.mongodb.com/try/download/shell).
-
-### <span style="color: #8B0000;Font-family: Segoe UI, sans-serif;">Create the Database and Collection</span>
 
 - Open CMD and key in `mongosh`. It will log in and start a `test` database:
 
