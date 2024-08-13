@@ -7,14 +7,11 @@ nav_order: 1
 
 - [Overview](#overview)
   - [Storing structured data(like SQL rows and columns) in MongoDB](#storing-structured-datalike-sql-rows-and-columns-in-mongodb)
-    - [Example Documents:](#example-documents)
-  - [Let's See This in Practice](#lets-see-this-in-practice)
-    - [Creating the Database and Collection](#creating-the-database-and-collection)
-    - [Verifying the Data](#verifying-the-data)
+    - [Create the Database and Collection](#create-the-database-and-collection)
   - [Storing unstructured data like files in MongoDB](#storing-unstructured-data-like-files-in-mongodb)
     - [How GridFS Splits Files](#how-gridfs-splits-files)
     - [Example: Storing `Resume.pdf`](#example-storing-resumepdf)
-  - [Let's See This in Practice](#lets-see-this-in-practice-1)
+  - [Let's See This in Practice](#lets-see-this-in-practice)
     - [Storing a PDF File Using Python](#storing-a-pdf-file-using-python)
   - [Let's recap the splitting process](#lets-recap-the-splitting-process)
   - [Now, let's see the actual details](#now-lets-see-the-actual-details)
@@ -38,62 +35,23 @@ Let's see below how the data, structured(sql tables) and unstructured(pdf docume
 
 ## Storing structured data(like SQL rows and columns) in MongoDB
 
-Let's first see how MongoDB stores a usual SQL table.
+Suppose, we have a simple MSSQL table but, we want to store the data now in MongoDB. How would MongoDB store it. When you save this data in MongoDB, each row becomes a JSON file. These documents are stored inside a collection (like a table) called `countries` inside a database called `Earth`.
 
-Here is our table, which is present in, say, a Microsoft SQL Database. How would MongoDB store it?
+![](images/2024-08-13-15-17-19.png)
 
-```
-Country  | Population | Language
----------|------------|----------
-USA      | 300        | English
-Cuba     | 100        | Spanish
-```
+Now, let's do some practical to see it in reality. Follow the steps below.
 
-When you save this data in MongoDB, each row becomes a JSON file.
+> To run MongoDB commands, you can install MongoDB Shell from [here](https://www.mongodb.com/try/download/shell).
 
-### Example Documents:
+### Create the Database and Collection
 
-1. **File 1 - USA:**
-    ```json
-    {
-      "Country": "USA",
-      "Population": 300,
-      "Language": "English"
-    }
-    ```
-
-2. **File 2 - Cuba:**
-    ```json
-    {
-      "Country": "Cuba",
-      "Population": 100,
-      "Language": "Spanish"
-    }
-    ```
-
-These documents are stored inside a collection (like a table) called `countries` inside a database called `Earth`.
-
-## Let's See This in Practice
-
-To run MongoDB commands, you can install MongoDB Shell from [here](https://www.mongodb.com/try/download/shell).
-
-### Creating the Database and Collection
-
-1. **Open the Mongo shell in CMD**:
-    ```bash
-    mongosh
-    ```
+- Open CMD and key in `mongosh`. It will log in and start a `test` database:
 
     ![](images/custom-image-2024-07-20-02-12-02.png)
 
-2. **Create the `Earth` Database**:
-    Just use `Earth`. It will create the database. No need to create it separately.
+- Create the `Earth` Database. Just enter `Earth` and it will create the database. No need to create it separately.
     
-    ```javascript
-    use Earth;
-    ```
-
-3. **Insert the Data into the `countries` Collection**:
+- Now, insert the Data into the `countries` Collection:
    
    This will create the collection. No need to create it beforehand.
 
@@ -105,19 +63,11 @@ To run MongoDB commands, you can install MongoDB Shell from [here](https://www.m
     ```
     ![](images/custom-image-2024-07-20-02-22-46.png)
 
-4. **You can see the data in MongoDB Compass**
+- You can see the data in MongoDB Compass
 
     ![](images/custom-image-2024-07-20-02-26-34.png)
 
-### Verifying the Data
-
-To ensure the data has been inserted correctly, you can query the collection:
-
-```javascript
-db.countries.find().pretty();
-```
-
-This command will display the documents stored in the `countries` collection in a readable format.
+- To make sure the data is inserted properly. you can query the collection using this command: `db.countries.find().pretty();`. This command will display the documents stored in the `countries` collection in a readable format.
 
 ## Storing unstructured data like files in MongoDB
 
