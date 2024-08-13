@@ -558,3 +558,96 @@ A tool for connecting and moving data between on-premises sources and Azure clou
 </div> 
 
 ```
+
+# My progressively darkening color themes for many colors---
+
+### **1. BlueViolet to Darker Shades:**
+```markdown
+# <span style="color: BlueViolet; font-family: Comic Sans MS, sans-serif;">"BlueViolet; Font-family: Comic Sans MS, sans-serif;"</span>
+## <span style="color: #7A3DAA; font-family: Comic Sans MS, sans-serif;">"#7A3DAA; Font-family: Comic Sans MS, sans-serif;"</span>
+### <span style="color: #653090; font-family: Comic Sans MS, sans-serif;">"#653090; Font-family: Comic Sans MS, sans-serif;"</span>
+#### <span style="color: #502276; font-family: Comic Sans MS, sans-serif;">"#502276; Font-family: Comic Sans MS, sans-serif;"</span>
+##### <span style="color: #3B165C; font-family: Comic Sans MS, sans-serif;">"#3B165C; Font-family: Comic Sans MS, sans-serif;"</span>
+###### <span style="color: #260A42; font-family: Comic Sans MS, sans-serif;">"#260A42; Font-family: Comic Sans MS, sans-serif;"</span>
+```
+
+### **2. MediumOrchid to Darker Shades:**
+```markdown
+# <span style="color: MediumOrchid; font-family: Segoe UI, sans-serif;">"MediumOrchid; Font-family: Segoe UI, sans-serif;"</span>
+## <span style="color: #AD49B3; font-family: Segoe UI, sans-serif;">"#AD49B3; Font-family: Segoe UI, sans-serif;"</span>
+### <span style="color: #963F9C; font-family: Segoe UI, sans-serif;">"#963F9C; Font-family: Segoe UI, sans-serif;"</span>
+#### <span style="color: #7F3585; font-family: Segoe UI, sans-serif;">"#7F3585; Font-family: Segoe UI, sans-serif;"</span>
+##### <span style="color: #682A6E; font-family: Segoe UI, sans-serif;">"#682A6E; Font-family: Segoe UI, sans-serif;"</span>
+###### <span style="color: #511F57; font-family: Segoe UI, sans-serif;">"#511F57; Font-family: Segoe UI, sans-serif;"</span>
+```
+
+### **3. PaleVioletRed to Darker Shades:**
+```markdown
+# <span style="color: PaleVioletRed; font-family: Segoe UI, sans-serif;">"PaleVioletRed; Font-family: Segoe UI, sans-serif;"</span>
+## <span style="color: #D86487; font-family: Segoe UI, sans-serif;">"#D86487; Font-family: Segoe UI, sans-serif;"</span>
+### <span style="color: #C05075; font-family: Segoe UI, sans-serif;">"#C05075; Font-family: Segoe UI, sans-serif;"</span>
+#### <span style="color: #A93C63; font-family: Segoe UI, sans-serif;">"#A93C63; Font-family: Segoe UI, sans-serif;"</span>
+##### <span style="color: #932851; font-family: Segoe UI, sans-serif;">"#932851; Font-family: Segoe UI, sans-serif;"</span>
+###### <span style="color: #7C143F; font-family: Segoe UI, sans-serif;">"#7C143F; Font-family: Segoe UI, sans-serif;"</span>
+```
+
+### **4. FireBrick to Darker Shades:**
+```markdown
+# <span style="color: FireBrick;">"FireBrick;"</span>
+## <span style="color: #C22E2E;">"#C22E2E;"</span>
+### <span style="color: #A12828;">"#A12828;"</span>
+#### <span style="color: #801F1F;">"#801F1F;"</span>
+##### <span style="color: #601515;">"#601515;"</span>
+###### <span style="color: #400B0B;">"#400B0B;"</span>
+```
+
+### **5. MediumSlateBlue to Darker Shades:**
+```markdown
+# <span style="color: MediumSlateBlue;">"MediumSlateBlue;"</span>
+## <span style="color: #695ED6;">"#695ED6;"</span>
+### <span style="color: #574BB3;">"#574BB3;"</span>
+#### <span style="color: #463890;">"#463890;"</span>
+##### <span style="color: #35256D;">"#35256D;"</span>
+###### <span style="color: #24124A;">"#24124A;"</span>
+```
+
+### **6. DodgerBlue to Darker Shades:**
+```markdown
+# <span style="color: DodgerBlue;">"DodgerBlue;"</span>
+## <span style="color: #1E7FCC;">"#1E7FCC;"</span>
+### <span style="color: #1B6FB2;">"#1B6FB2;"</span>
+#### <span style="color: #185F99;">"#185F99;"</span>
+##### <span style="color: #144F7F;">"#144F7F;"</span>
+###### <span style="color: #103F66;">"#103F66;"</span>
+```
+
+### **7. CadetBlue to Darker Shades:**
+```markdown
+# <span style="color: CadetBlue;">"CadetBlue;"</span>
+## <span style="color: #4D8C8C;">"#4D8C8C;"</span>
+### <span style="color: #437A7A;">"#437A7A;"</span>
+#### <span style="color: #396868;">"#396868;"</span>
+##### <span style="color: #2F5656;">"#2F5656;"</span>
+###### <span style="color: #253B3B;">"#253B3B;"</span>
+```
+
+### **8. DarkSeaGreen to Darker Shades:**
+```markdown
+# <span style="color: DarkSeaGreen; font-family: 'Comic Sans MS', sans-serif;">"DarkSeaGreen; Font-family: 'Comic Sans MS', sans-serif;"</span>
+## <span style="color: #89A989; font-family: 'Comic Sans MS', sans-serif;">"#89A989; Font-family: 'Comic Sans MS', sans-serif;"</span>
+### <span style="color: #768E76; font-family: 'Comic Sans MS', sans-serif;">"#768E76; Font-family: 'Comic Sans MS', sans-serif;"</span>
+#### <span style="color: #627362; font-family: 'Comic Sans MS', sans-serif;">"#627362; Font-family: 'Comic Sans MS', sans-serif;"</span>
+##### <span style="color: #4F584F; font-family: 'Comic Sans MS', sans-serif;">"#4F584F; Font-family: 'Comic Sans MS', sans-serif;"</span>
+###### <span style="color: #3B3D3B; font-family: 'Comic Sans MS', sans-serif;">"#3B3D3B; Font-family: 'Comic Sans MS', sans-serif;"</span>
+```
+
+### **9. DarkCyan to Darker Shades:**
+```markdown
+# <span style="color: DarkCyan; font-family: Comic Sans MS, sans-serif;">"DarkCyan; Font-family: Comic Sans MS, sans-serif;"</span>
+## <span style="color: #007A7A; font-family: Comic Sans MS, sans-serif;">"#007A7A; Font-family: Comic Sans MS, sans-serif;"</span>
+### <span style="color: #006767; font-family: Comic Sans MS, sans-serif;">"#006767; Font-family: Comic Sans MS, sans-serif;"</span>
+#### <span style="color: #005454; font-family: Comic Sans MS, sans-serif;">"#005454; Font-family: Comic Sans MS, sans-serif;"</span>
+##### <span style="color: #004141; font-family: Comic Sans MS, sans-serif;">"#004141; Font-family: Comic Sans MS, sans-serif;"</span>
+###### <span style="color: #002E2E; font-family: Comic Sans MS, sans-serif;">"#002E2E; Font-family: Comic Sans MS, sans-serif;"</span>
+```
+

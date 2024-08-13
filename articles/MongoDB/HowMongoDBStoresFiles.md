@@ -11,7 +11,6 @@ nav_order: 1
     - [How GridFS Splits Files](#how-gridfs-splits-files)
     - [Storing a sample file `Resume.pdf`](#storing-a-sample-file-resumepdf)
   - [Let's See This in Practice](#lets-see-this-in-practice)
-    - [Storing a PDF File Using Python](#storing-a-pdf-file-using-python)
   - [Let's recap the splitting process](#lets-recap-the-splitting-process)
   - [Now, let's see the actual details](#now-lets-see-the-actual-details)
     - [Detailed Explanation](#detailed-explanation)
@@ -85,7 +84,7 @@ There will be one metadata file for the entire PDF stored as a JSON file in the 
 
 When you save the `Resume.pdf` file in MongoDB, it is broken into chunks and stored across two collections: `fs.files` and `fs.chunks`.
 
-1. **File Metadata - `fs.files`**:
+- **File Metadata - `fs.files`**:
    Each file has a metadata document in the `fs.files` collection.
 
     ```json
@@ -101,7 +100,7 @@ When you save the `Resume.pdf` file in MongoDB, it is broken into chunks and sto
    
     <img src="images/custom-image-2024-07-20-02-59-47.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
-2. **File Chunks - `fs.chunks`**:
+- **File Chunks - `fs.chunks`**:
    The file data is stored in chunks in the `fs.chunks` collection. Each chunk is linked to the file via the `files_id`.
 
     ```json
@@ -123,18 +122,16 @@ When you save the `Resume.pdf` file in MongoDB, it is broken into chunks and sto
 
 ## <span style="color: #D87093;Font-family: Segoe UI, sans-serif;">Let's See This in Practice</span>
 
-To run MongoDB commands, you can install MongoDB Shell from [here](https://www.mongodb.com/try/download/shell).
+To run MongoDB commands, you can install MongoDB Shell from [here](https://www.mongodb.com/try/download/shell). Now, let's try to create a Python code to upload a sample file into MongoDB.
 
-### <span style="color: #8B0000;Font-family: Segoe UI, sans-serif;">Storing a PDF File Using Python</span>
-
-1. **Install Required Packages**:
+- **Install Required Packages**:
    Make sure you have `pymongo` installed. You can install it using pip:
 
    ```bash
    pip install pymongo gridfs
    ```
 
-2. **Python Code to Store `Resume.pdf`**:
+- **Python Code to Store `Resume.pdf`**:
 
     ```python
     from pymongo import MongoClient
@@ -154,7 +151,7 @@ To run MongoDB commands, you can install MongoDB Shell from [here](https://www.m
     print(f'File stored with id: {file_id}')
     ```
 
-3. **Verify the File Storage**:
+- **Verify the File Storage**:
 
    You can verify that the file has been stored correctly by querying the `fs.files` collection:
 
