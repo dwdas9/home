@@ -5,13 +5,13 @@ parent: MongoDB
 nav_order: 1
 ---
 
-- [How MongoDB Stores Data](#how-mongodb-stores-data)
-- [Saving Traditional SQL tables in MongoDB](#saving-traditional-sql-tables-in-mongodb)
+- [Overview](#overview)
+  - [Storing structured data(like SQL rows and columns) in MongoDB](#storing-structured-datalike-sql-rows-and-columns-in-mongodb)
     - [Example Documents:](#example-documents)
   - [Let's See This in Practice](#lets-see-this-in-practice)
     - [Creating the Database and Collection](#creating-the-database-and-collection)
     - [Verifying the Data](#verifying-the-data)
-- [Saving Files like .pdfs](#saving-files-like-pdfs)
+  - [Storing unstructured data like files in MongoDB](#storing-unstructured-data-like-files-in-mongodb)
     - [How GridFS Splits Files](#how-gridfs-splits-files)
     - [Example: Storing `Resume.pdf`](#example-storing-resumepdf)
   - [Let's See This in Practice](#lets-see-this-in-practice-1)
@@ -20,16 +20,23 @@ nav_order: 1
   - [Now, let's see the actual details](#now-lets-see-the-actual-details)
     - [Detailed Explanation](#detailed-explanation)
     - [Example](#example)
-    - [Conceptual Understanding](#conceptual-understanding)
     - [Summary](#summary)
 
 ![](images/custom-image-2024-07-20-01-21-49.png)
 
-# How MongoDB Stores Data
+# Overview
 
-When we talk about data, it can be like SQL tables or it can be files (like .pdf).
+MongoDB is a document database. What do we mean by "document" database? Does that mean it's best for storing PDF files or Word documents?
 
-# Saving Traditional SQL tables in MongoDB
+While it can be a good choice for storing PDFs and Word docs, that's not why it's called a document database. The reason it's called a document database is that whatever data it stores—whether it's files or SQL table data—it stores as JSON files.
+
+What? Yes, even for storing something simple like Name and Roll Number, it will be saved like this: `{Name: "Donald", Roll Number: 100}`. And for storing a PDF, the 0s and 1s (binary data of the PDF) are stored as entries in JSON files.
+
+So, whatever data you store, it’s stored in a JSON document. Hence, it's called a document database.
+
+Let's see below how the data, structured(sql tables) and unstructured(pdf documents) are stored in MongoDB.
+
+## Storing structured data(like SQL rows and columns) in MongoDB
 
 Let's first see how MongoDB stores a usual SQL table.
 
@@ -112,7 +119,7 @@ db.countries.find().pretty();
 
 This command will display the documents stored in the `countries` collection in a readable format.
 
-# Saving Files like .pdfs
+## Storing unstructured data like files in MongoDB
 
 Let's now see how MongoDB stores a PDF file.
 
@@ -263,12 +270,6 @@ In actual fact, each row in a SQL table when saved in MongoDB becomes a document
     }
     ```
 
-### Conceptual Understanding
-
-For conceptual understanding, you can think of each document as a JSON object. However, in reality, these documents are stored in a more efficient binary format (BSON) within MongoDB's internal database files.
-
 ### Summary
 
-- **Documents in MongoDB**: Each row from the SQL table becomes a document in MongoDB.
-- **BSON Format**: Documents are stored in BSON format, not as separate JSON files.
-- **Database Files**: MongoDB manages these documents within large database files, ensuring efficient storage and retrieval.
+For conceptual understanding, you can think of each document as a JSON object. However, in reality, these documents are stored in a more efficient binary format (BSON) within MongoDB's internal database files.
