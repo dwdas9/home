@@ -6,6 +6,10 @@ parent: DE-Projects
 
 # <span style="color: #7A3DAA; font-family: Segoe UI, sans-serif;">Installing Microsoft OpenJDK</span>
 
+Many popular applications and platforms use OpenJDK as their Java runtime. For example, **Minecraft (Java Edition)**, **Apache Cassandra**, **Apache Kafka**, **Jenkins**, and **ElasticSearch** all rely on OpenJDK. Development tools like **IntelliJ IDEA** and **Eclipse** also run well on it. **Spring Boot applications**, **Atlassian** products like **Jira** and **Confluence**, big data tools like **Apache Hadoop** and **Apache Spark**, as well as **Docker images** and web servers like **Apache Tomcat** and **Jetty**, commonly use OpenJDK. Even **Android Studio** can run with OpenJDK. So, OpenJDK is used a lot in  real-world applications.
+
+In this article I will give you a brief intro to Microsoft OpenJDK and how to install it.
+
 ## <span style="color: #7A3DAA; font-family: Segoe UI, sans-serif;">When to Use Microsoft OpenJDK?</span>
 
 Microsoft Build of OpenJDK is a good option if you're using Microsoft products, especially Azure or Windows. It's designed to work well in those setups and comes with support from Microsoft. But if you're working in a more general setup or prefer tools that aren't tied to one company, the regular OpenJDK might be a better fit.
