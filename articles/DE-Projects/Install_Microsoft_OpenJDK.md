@@ -8,7 +8,7 @@ parent: DE-Projects
 
 # <span style="color: #7A3DAA; font-family: Segoe UI, sans-serif;">Installing Microsoft OpenJDK</span>
 
-Many popular applications and platforms use OpenJDK as their Java runtime. For example, **Minecraft (Java Edition)**, **Apache Cassandra**, **Apache Kafka**, **Jenkins**, and **ElasticSearch** all rely on OpenJDK. Development tools like **IntelliJ IDEA** and **Eclipse** also run well on it. **Spring Boot applications**, **Atlassian** products like **Jira** and **Confluence**, big data tools like **Apache Hadoop** and **Apache Spark**, as well as **Docker images** and web servers like **Apache Tomcat** and **Jetty**, commonly use OpenJDK. Even **Android Studio** can run with OpenJDK. So, OpenJDK is used a lot in  real-world applications.
+There are many versions of JDK. Refer to the table at the end to see them. Here we will focus on OpenJDK. Many popular applications and platforms use OpenJDK as their Java runtime. For example, **Minecraft (Java Edition)**, **Apache Cassandra**, **Apache Kafka**, **Jenkins**, and **ElasticSearch** all rely on OpenJDK. Development tools like **IntelliJ IDEA** and **Eclipse** also run well on it. **Spring Boot applications**, **Atlassian** products like **Jira** and **Confluence**, big data tools like **Apache Hadoop** and **Apache Spark**, as well as **Docker images** and web servers like **Apache Tomcat** and **Jetty**, commonly use OpenJDK. Even **Android Studio** can run with OpenJDK. So, OpenJDK is used a lot in  real-world applications.
 
 In this article I will give you a brief intro to Microsoft OpenJDK and how to install it.
 
@@ -93,3 +93,15 @@ Microsoft also says their OpenJDK can replace any OpenJDK, even in non-Microsoft
 ## <span style="color: #7A3DAA; font-family: Segoe UI, sans-serif;">Conclusion</span>
 
 Microsoft Build of OpenJDK is just like the regular OpenJDK when it comes to working with apps. The main difference is that it's made by Microsoft, so it might work better with Microsoft products. Plus, if you're using it on Azure and something goes wrong with Java, you can get help from Microsoft support. In short, it's basically OpenJDK with Microsoft's name on it.
+
+## <span style="color: #7A3DAA; font-family: Segoe UI, sans-serif;">JDK Brands</span>
+
+| **JDK Version**                  | **Free to Download** | **Advantages**                                                                 |
+|----------------------------------|----------------------|--------------------------------------------------------------------------------|
+| **Oracle JDK**                   | Yes (for personal use, development, and testing)** | Official JDK from Oracle, commercial support, and long-term updates available. |
+| **OpenJDK**                      | Yes                  | Open-source, reference implementation of Java SE, widely supported.            |
+| **Amazon Corretto**              | Yes                  | Production-ready, free support, optimized for AWS, multiplatform.              |
+| **Eclipse Temurin (AdoptOpenJDK)** | Yes                 | Free, well-supported, and widely used in various environments.                 |
+| **Microsoft Build of OpenJDK**   | Yes                  | Free, optimized for Azure and Microsoft products, integrated with MS ecosystem.|
+| **GraalVM**                      | Yes (Community Edition) | High-performance, supports multiple languages, ahead-of-time compilation.      |
+| **Azul Zulu**                    | Yes                  | Certified OpenJDK build, various support options, optimized for enterprise use. |
