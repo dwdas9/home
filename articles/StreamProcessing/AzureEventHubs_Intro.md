@@ -76,4 +76,22 @@ Did you know you can have a kind of Azure-Kafka? These are actual Kafka servers,
 | Docker                           | Run Kafka locally inside Docker for development and testing.                    |
 | Confluent Platform               | Use Confluent Platform for an easy local setup with extra tools.                |
 
+## <span style="color: #333399;font-family: 'Trebuchet MS', Helvetica, sans-serif;">Can you replace Kafka fully with Azure Event Hubs?</span>
 
+
+If you have a streaming data source, **you can replace** Kafka with Azure Event Hubs instead. Event Hubs can handle the ingestion, streaming, and processing of real-time data. You won’t need Kafka at all. Here’s how open-source tools map to Azure services for streaming projects:
+
+1. Kafka - Azure Event Hubs
+2. Kafka Streams - Azure Stream Analytics
+3. Kafka Connect - Azure Data Factory
+
+With these, there will not be a need for Kafka in the entire project.Look at the table below, it shows open-source products and their Azure counterpart.
+
+| **Open-Source Tool**                         | **Azure Equivalent**                        | **Functionality**                                                                                       |
+|----------------------------------------------|---------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Kafka (Streaming Data Platform)**          | **Azure Event Hubs**                        | Can replace Kafka for ingesting and streaming large volumes of real-time data.                           |
+| **Kafka Streams (Stream Processing)**        | **Azure Stream Analytics**                  | Can replace Kafka Streams for real-time data processing and transformation as data flows through Event Hubs. |
+| **Kafka Connect (Data Integration)**         | **Azure Data Factory**                      | Can replace Kafka Connect by connecting and transforming data across different sources.                  |
+| **Schema Registry (Data Schema Management)** | **Azure Event Grid / Azure Schema Registry**| Can replace Schema Registry for managing and ensuring compatibility of event schemas.                     |
+| **Kafka Topics (Data Segmentation)**         | **Event Hubs Partitions**                   | Can replace Kafka Topics by segmenting data streams for organization and scaling.                        |
+| **Monitoring and Management**                | **Azure Monitor / Azure Metrics**           | Can replace custom Kafka monitoring tools for managing and monitoring streaming data.                    |
