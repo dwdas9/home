@@ -14,7 +14,9 @@ In this article I will give you a brief intro to Microsoft OpenJDK and how to in
 
 ## <span style="color: #7A3DAA; font-family: Segoe UI, sans-serif;">When to Use Microsoft OpenJDK?</span>
 
-Microsoft Build of OpenJDK is a good option if you're using Microsoft products, especially Azure or Windows. It's designed to work well in those setups and comes with support from Microsoft. But if you're working in a more general setup or prefer tools that aren't tied to one company, the regular OpenJDK might be a better fit.
+If you're using JDK in the Microsoft ecosystem, it's best to go with Microsoft's JDK. If any issues come up, you can easily get support from Microsoft. But if you're in a general setup or prefer tools not tied to one company, OpenJDK might be a better choice.
+
+Microsoft also says their OpenJDK can replace any OpenJDK, even in non-Microsoft environments like AWS + Linux. Plus, their version has extra fixes and enhancements, making it work better in the Microsoft ecosystem.
 
 ## <span style="color: #7A3DAA; font-family: Segoe UI, sans-serif;">Installation Steps</span>
 
