@@ -1,32 +1,36 @@
 ---
 layout: default
-title: Ubuntu_PySpark
+title: Ubuntu PySpark
 parent: Docker
 nav_order: 1
 ---
 
-## <span style="color: navy;">Table of contents</span>
+# <span style="color: MediumOrchid; font-family: Segoe UI, sans-serif;">Ubuntu Docker Container - Python, OpenJDK & PySpark</span>
 
-- [Create An Ubuntu Container With PySpark Installed](#create-an-ubuntu-container-with-pyspark-installed)
-  - [Step 1: Create the Dockerfile](#step-1-create-the-dockerfile)
-  - [Step 2: Build the Docker Image](#step-2-build-the-docker-image)
-  - [Step 3: Run the Docker Container](#step-3-run-the-docker-container)
-  - [Setup Details](#setup-details)
+## <span style="color: #682A6E; font-family: Segoe UI, sans-serif;">For Busy People</span>
 
+1. Save the [Dockerfile](#dockerfile) content as `Dockerfile` (no extension).
+2. `cd` to the folder containtng  the Dockerfile
+3. **Run Commands**:
+   ```sh
+   docker build -t ubuntu-pyspark .
+   docker run -it --name Ubuntu-PySpark --network dasnet ubuntu-pyspark
+   ```
 
-# <span style="color: teal;">Create An Ubuntu Container With PySpark Installed</span>
+That’s it!
 
-In this tutorial, I will guide you through creating a simple Ubuntu container with Python and PySpark installed. Follow the steps below to proceed.
+## <span style="color: #AD49B3; font-family: Segoe UI, sans-serif;">Background</span>
 
->The Ubuntu Image base alredy comes pre-installed wtih Python 3.8, 3.9. This dockerfile additionally installs 3.12
+In this article I will show you how to create a single container with Ubuntu OS, Python and PySpark. We will use just a dockerfile to create it.
 
-## <span style="color: BlueViolet;">Step 1: Create the Dockerfile</span>
+Follow the steps below to create the container.
 
-Save the following contents in **Dockerfile.txt** then **remove** the **.txt** extension.
+## <span style="color: #682A6E; font-family: Segoe UI, sans-serif;">Step1: Create the Dockerfile</span>
 
-```yaml
+In a folder create a file **Dockerfile**(No extension) with the content below.
+
+```Dockerfile
 # Use Ubuntu 20.04 as the base image to avoid "externally-managed-environment" restrictions
-# This concept was introduced in Ubuntu 22.04 to better manage Python environments
 FROM ubuntu:20.04
 
 # Set environment variable to avoid interactive prompts during package installation
@@ -41,11 +45,14 @@ RUN apt-get install -y curl sudo nano software-properties-common
 # Add the 'deadsnakes' PPA (Personal Package Archive) to access newer Python versions
 RUN add-apt-repository ppa:deadsnakes/ppa
 
-# Update the package list again to include the new PPA
+# Add the OpenJDK PPA to get the latest JDK versions
+RUN add-apt-repository ppa:openjdk-r/ppa
+
+# Update the package list again to include the new PPAs
 RUN apt-get update
 
-# Install Python 3.12, pip, and OpenJDK 11
-RUN apt-get install -y python3.12 python3-pip openjdk-11-jdk-headless
+# Install Python 3.12, pip, and OpenJDK 17
+RUN apt-get install -y python3.12 python3-pip openjdk-17-jdk-headless
 
 # Install the PySpark library using pip
 RUN pip3 install pyspark
@@ -54,11 +61,9 @@ RUN pip3 install pyspark
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create a root user and set its password
-# 'rootpassword' should be replaced with a secure password
 RUN echo 'root:Passw0rd' | chpasswd
 
 # Create a new user 'dwdas', set a password, and add this user to the sudo group
-# 'Passw0rd' should be replaced with a secure password
 RUN useradd -ms /bin/bash dwdas && echo 'dwdas:Passw0rd' | chpasswd && adduser dwdas sudo
 
 # Allow the 'dwdas' user to run sudo commands without a password
@@ -75,16 +80,16 @@ EXPOSE 8888
 
 # Set the default command to start a bash shell
 CMD ["bash"]
-
 ```
 
-## <span style="color: BlueViolet;">Step 2: Build the Docker Image</span>
+## <span style="color: #682A6E; font-family: Segoe UI, sans-serif;">Step 2: Build the Docker Image</span>
 
-Open CMD, navigate to the folder with the Dockerfile, and run
+Open CMD, navigate to the folder with the Dockerfile, and run:
 
 ```sh
 docker build -t ubuntu-pyspark-img .
 ```
+
 <img src="images/custom-image-2024-06-16-15-01-42.png" style="
     border: 2px solid gray;
     border-radius: 6px;
@@ -107,12 +112,12 @@ After successfully running the command, you will see an image in your Docker Des
     height: auto; /* Maintain aspect ratio */
    "/>
 
-## <span style="color: BlueViolet;">Step 3: Run the Docker Container</span>
+## <span style="color: #682A6E; font-family: Segoe UI, sans-serif;">Step 3: Run the Docker Container</span>
 
 In command prompt, run:
 
 ```sh
-docker run -it --name ubuntu-pyspark-cont ubuntu-pyspark-img
+docker run -it --name Debian-PySpark --network dasnet debian-pyspark
 ```
 
 This will create a container with the image we created earlier and start it. You can see it from the Container section of your Docker window.
@@ -127,28 +132,41 @@ This will create a container with the image we created earlier and start it. You
     height: auto; /* Maintain aspect ratio */
    "/>
 
-## <span style="color: Blue;">Setup Details</span>
+## <span style="color: #963F9C; font-family: Segoe UI, sans-serif;">Details of the container</span>
 
-Here is a table describing the features and components of the setup:
+Here are the details of the installed components. The table will be a handy reference to know which components are installed and important locations, variables etc.
 
-| **Feature/Component**                               | **Description**                                                                                 |
-|-----------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| **Base Image**                                      | `ubuntu:20.04`                                                                                  |
-| **Environment Variable**                            | `DEBIAN_FRONTEND=noninteractive` to avoid interactive prompts during package installation       |
-| **Package List Update**                             | `apt-get update` to ensure the latest information about available packages                      |
-| **Essential Packages Installation**                 | `curl`, `sudo`, `nano`, and `software-properties-common` installed                              |
-| **Python PPA Addition**                             | `add-apt-repository ppa:deadsnakes/ppa` to access newer Python versions                         |
-| **Package List Update (Post-PPA Addition)**         | `apt-get update` to include the new PPA                                                         |
-| **Python and Java Installation**                    | `python3.12`, `python3-pip`, and `openjdk-11-jdk-headless` installed                            |
-| **PySpark Installation**                            | `pip3 install pyspark` to install the PySpark library                                           |
-| **Package List Cleanup**                            | `apt-get clean && rm -rf /var/lib/apt/lists/*` to reduce image size                             |
-| **Root User Setup**                                 | Root user created with a password (to be replaced with a secure one)                            |
-| **New User Creation**                               | `dwdas` user created with a password, added to the sudo group, and allowed to run sudo commands without a password |
-| **Working Directory**                               | Set to the home directory of the new user `dwdas`                                               |
-| **User Switch**                                     | Switch to the new user `dwdas`                                                                  |
-| **Port Exposure**                                   | Port `8888` exposed, commonly used for Jupyter Notebook                                         |
-| **Default Command**                                 | `bash` shell set as the default command                                                         |
+| **Component**                      | **Details**                                                                                     |
+|------------------------------------|-------------------------------------------------------------------------------------------------|
+| **Base Image**                     | `ubuntu:20.04`                                                                                  |
+| **Python Version**                 | Python 3.12, installed via the `deadsnakes` PPA                                                 |
+| **Java Version**                   | OpenJDK 17 (Headless), installed via the `openjdk-r` PPA                                        |
+| **PySpark Version**                | Latest version of PySpark installed via pip                                                     |
+| **Home Directory for User**        | `/home/dwdas`                                                                                   |
+| **Spark Home**                     | `/opt/bitnami/spark`                                                                            |
+| **Java Home**                      | `/opt/bitnami/java`                                                                             |
+| **Python Path**                    | `/opt/bitnami/spark/python/` (for PySpark integration)                                          |
+| **Spark Configuration Directory**  | `/opt/bitnami/spark/conf`                                                                       |
+| **Spark Worker Directory**         | `/opt/bitnami/spark/work`                                                                       |
+| **Environment Variables**          | `DEBIAN_FRONTEND=noninteractive` to avoid interactive prompts during installation               |
+| **User Created**                   | `dwdas` with sudo privileges and passwordless sudo access                                       |
+| **Exposed Port**                   | Port `8888`, commonly used for Jupyter Notebooks                                                |
+| **Default Command**                | `bash` shell set as the default command                                                         |
+| **Network Configuration**          | Connected to the `dasnet` network                                                               |
+| **Spark Ports**                    | Spark Master: `7077` (mapped to host port `17077`), Spark Master UI: `8080` (mapped to host port `16080`), Spark Worker UI: `8081` (mapped to host port `16002`), `8082` (mapped to host port `16004`) |
 
-*For any questions or further assistance, please contact D Das at das.d@hotmail.com.*
+### <span style="color: #963F9C; font-family: Segoe UI, sans-serif;">Error: Package Not Found (404 Not Found)</span>
 
+When building the Docker image, I got a `404 Not Found` error because some packages like `python3.12` and `openjdk-17-jdk-headless` couldn't be found. This usually happens if the package lists are outdated or there's an issue with the repositories. Here's how to fix it:
 
+1. **Update Package Lists**: Run `apt-get update` first to make sure your package lists are current.
+
+2. **Add Correct PPAs**: Update the Dockerfile to include these PPAs:
+   - `deadsnakes` for Python.
+   - `openjdk-r` for OpenJDK.
+
+3. **Use `--fix-missing` Option**: If the problem continues, try `apt-get install --fix-missing` to fix missing packages.
+
+4. **Install Specific Versions**: If the latest version isn't available, try installing a slightly older but stable version.
+
+*For any questions or further assistance, please contact me at das.d@hotmail.com.*

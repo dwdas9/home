@@ -32,9 +32,9 @@ Here, I will show you how to create a complete warehouse setup with a Spark Clus
 
 | **Service**            | **URL/Connection**                                        | **Image**                                     |
 |------------------------|-----------------------------------------------------------|-----------------------------------------------|
-| Spark Master           | [http://localhost:8080/](http://localhost:8080/)          | `spark:3.5.1-debian-12-r7`                    |
-| Spark Worker 1         | [http://localhost:8081/](http://localhost:8081/)          | `spark:3.5.1-debian-12-r7`                    |
-| Spark Worker 2         | [http://localhost:8082/](http://localhost:8082/)          | `spark:3.5.1-debian-12-r7`                    |
+| Spark Master           | [http://localhost:16789/](http://localhost:16789/)          | `spark:3.5.1-debian-12-r7`                    |
+| Spark Worker 1         | [http://localhost:16791/](http://localhost:16791/)          | `spark:3.5.1-debian-12-r7`                    |
+| Spark Worker 2         | [http://localhost:16792/](http://localhost:16792/)          | `spark:3.5.1-debian-12-r7`                    |
 | SQL Server (SSMS)      | `localhost,1433`, SQL Server Auth: `dwdas/Passw0rd`       | `mcr.microsoft.com/mssql/server:2019-latest`  |
 | Hive Metastore         | `thrift://hive-metastore:9083`                            | `apache/hive:4.0.0`                           |
 
@@ -360,15 +360,6 @@ In this case, the tables will be `EXTERNAL` and stored in the directory specifie
 
 
 # Server Details
-
-
-| **Service**            | **URL/Connection**                                        | **Image**                                     |
-|------------------------|-----------------------------------------------------------|-----------------------------------------------|
-| Spark Master           | [http://localhost:8080/](http://localhost:8080/)          | `spark:3.5.1-debian-12-r7`                    |
-| Spark Worker 1         | [http://localhost:8081/](http://localhost:8081/)          | `spark:3.5.1-debian-12-r7`                    |
-| Spark Worker 2         | [http://localhost:8082/](http://localhost:8082/)          | `spark:3.5.1-debian-12-r7`                    |
-| SQL Server (SSMS)      | `localhost,1433`, SQL Server Auth: `dwdas/Passw0rd`       | `mcr.microsoft.com/mssql/server:2019-latest`  |
-| Hive Metastore         | `thrift://hive-metastore:9083`                            | `apache/hive:4.0.0`                           |
 
 | **Configuration**      | **Details**                                                                                           |
 |------------------------|-------------------------------------------------------------------------------------------------------|
