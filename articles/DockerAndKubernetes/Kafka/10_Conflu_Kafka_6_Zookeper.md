@@ -6,14 +6,34 @@ nav_order: 9
 ---
 ![](images/2024-08-19-14-15-27.png)
 
-# <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Kafka 6 with Zookeeper on Docker in Windows</span>
+# <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Setting Up Kafka 6 with Zookeeper on Docker in Windows</span>
 
-In this article, I will show you how to setup Confluent Kafka on Docker on Windows. There will be altogether 9 containers. This will be a very stable setup. All it needs is just one docker-compose.yml file and no Dockerfile.
+In this article, I will show you how to set up Confluent Kafka on Docker in Windows. We will be using a total of 9 containers, and this setup is very stable. You will only need one `docker-compose.yml` file, and there is no need for a Dockerfile. The setup will install the following Confluent Kafka components:
+
+- confluentinc/cp-zookeeper:6.0.1
+- confluentinc/cp-server:6.0.1
+- confluentinc/cp-schema-registry:6.0.1
+- confluentinc/cp-kafka-connect-base:6.0.1
+- confluentinc/cp-enterprise-control-center:6.0.1
+- confluentinc/cp-ksqldb-server:6.0.1
+- confluentinc/cp-ksqldb-cli:6.0.1
+- confluentinc/ksqldb-examples:6.0.1
+- confluentinc/cp-kafka-rest:6.0.1
+
+<div style="border: 2px solid #7A3DAA; border-radius: 10px; padding: 20px; background-color: MediumSlateBlue; font-family: 'Segoe UI, sans-serif'; color: white;">
+    <p><strong>For the busy people</strong></p>
+    <ol style="margin-left: 20px;">
+        <li>Download and unzip the <a href="Docker-Compose.zip" style="color: #260A42; text-decoration: none;"><strong>file</strong></a> to any folder on your local machine.</li>
+        <li>Open Command Prompt and <code>cd</code> to this folder using .</li>
+        <li>Run <code>docker-compose up -d</code>.</li>
+    </ol>
+    <p>That's all! You will see 9 containers ready to serve you!</p>
+</div>
+
 
 ## <span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Overview</span>
 
-Lot's of people face challenges in setting up Confluent Kafka locally. It's easier to setup using 'templates' on AWS/Azure. But, local setup can be very complex. Hence, I thought of providing this appraoch as it creates a solid fully-working production-like envinrment on your local envinrment.
-
+Many people struggle with setting up Confluent Kafka on their local machines. While it's easier to use 'templates' on AWS or Azure, setting it up locally can be quite complicated. That’s why I’m sharing this method—it helps you create a stable, fully-working, production-like environment on your local system.
 
 ## <span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Prerequisites</span>
 Before you start, ensure that you have the following installed:
@@ -22,12 +42,12 @@ Before you start, ensure that you have the following installed:
 
 > Note: I use a network so that all my containers are part of the same network. But, this is not necessary. Also, using external network makes it a better setup.
 
-## <span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Follow these steps</span>
+## <span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Steps to create the setup</span>
 The steps are simple. Just follow these two steps and your setup will be up and running.
 
 ### <span style="color: #DimGray; font-family: Segoe UI, sans-serif;">1. Create the `docker-compose.yaml`</span>
 
-Create a `docker-compose.yaml` file with the content below inside any folder.
+Create a `docker-compose.yaml` file with the content below inside any folder. Alternatively download the file from the link given at the start of the article.
 
 > I have verbosely commented the file. Hope you will find it useful.
 
@@ -268,6 +288,10 @@ networks:  # Network configuration for Docker containers.
 
 - Open the [control centre](http://localhost:9121/clusters) to see the actual working.
 ![](images/2024-08-19-13-54-24.png)
+
+- Go through the tabs to see all the functionalities
+
+![alt text](Animation.gif)
 
 ## <span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Component Details</span>
 
