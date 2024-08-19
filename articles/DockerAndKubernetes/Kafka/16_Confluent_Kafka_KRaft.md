@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Confluent Kafka KRaft Docker
+title: Confluent Kafka With KRaft
 parent: Docker
 nav_order: 16
 ---
 ## <span style="color: DimGray;">Table of Contents</span>
 
 - [Confluent Kafka with KRaft on Docker](#confluent-kafka-with-kraft-on-docker)
-  - [Download the Docker Compose file](#download-the-docker-compose-file)
-  - [Steps to Launch the Kafka Environment](#steps-to-launch-the-kafka-environment)
+  - [Step 1: Download the Docker Compose file](#step-1-download-the-docker-compose-file)
+  - [Step 2: Run the container](#step-2-run-the-container)
   - [Appendix](#appendix)
     - [Connecting to Kafka Containers](#connecting-to-kafka-containers)
     - [Troubleshooting Broker Connection Issues](#troubleshooting-broker-connection-issues)
@@ -25,41 +25,31 @@ nav_order: 16
 
 
 <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
-In this guide, I'll walk through setting up a local Kafka development environment using Docker Compose. The provided `docker-compose` file sets up all the necessary components, including Kafka broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. I have tested the installation in both Windows and Mac machines with M1 chip.
+Here, I will show you how to setup a Kafka setup on Docker. We will use KRaft rather than Zookeper. We will use a docker-compose.yaml file and setup Kafka broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. I have tested the installation in both Windows and Mac machines with M1 chip.
 </p>
 
-##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Download the Docker Compose file</span>
 
-To get started with setting up Confluent Platform, you'll need the `docker-compose.yml` file. This file contains all the necessary configurations to run Confluent Platform services using Docker.
+##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Step 1: Download the Docker Compose file</span>
 
-Here's what you need to do:
+The first step is to download the docker-compose.yaml file, KRaft version from confluent's github [site](https://github.com/confluentinc/cp-all-in-one/blob/7.5.1-post/cp-all-in-one-kraft/docker-compose.yml)
 
-1. Click this [link](https://github.com/confluentinc/cp-all-in-one/blob/7.5.1-post/cp-all-in-one-kraft/docker-compose.yml) to access KRaft version of the `docker-compose.yml` file on GitHub.
-
-Note: When choosing between KRaft and ZooKeeper as the metadata service for your Apache Kafka cluster, **KRaft** is the **recommended** option.
-
-2. Copy the content of the file and paste it in a text file and rename it to docker-compose.yml(remove the .txt ext)
+> Note: When choosing between KRaft and ZooKeeper as the metadata service for your Apache Kafka cluster, **KRaft** is the **recommended** option.
 
 ![Alt text](images/image.png)
    
-**Remember**: The container group wil l be named after the folder containing the docker-compose. I.e. If it is inside London/docker-compose.yml then the container group in docker will be London.
+##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Step 2: Run the container</span>
 
-##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Steps to Launch the Kafka Environment</span>
+- Open command prompt/terminal and CD to the folder containing the `docker-compose.yml`
 
-1. Open command prompt/terminal and CD to the folder containing the `docker-compose.yml`
-
-2. Run the following command to start all services:`docker-compose up -d`
-
-
-
-![Alt text](images/image-1.png)
+-  Run the following command to start all services:`docker-compose up -d`
+  ![Alt text](images/image-1.png)
 
 3. The Docker Compose will start all the necessary services in the background. Once finished, go to the docker desktop window and see the services
 
-![Alt text](images/image-4.png)
+  ![Alt text](images/image-4.png)
 
-4. You can access the Control Center at http://localhost:9021 once the container is operational.
-5. To create topics and proceed further you can refer to the  this quickstart [guide](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1).
+-  You can access the Control Center at http://localhost:9021 once the container is operational.
+- To create topics and proceed further you can refer to the  this quickstart [guide](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1).
 
 ##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Appendix</span>
 
