@@ -6,7 +6,7 @@ nav_order: 9
 ---
 ## <span style="color: DimGray;">Table of Contents</span>
 
-- [Setting Up a Local Kafka Development Environment with Docker Compose ](#setting-up-a-local-kafka-development-environment-with-docker-compose-)
+- [Confluent Kafka with KRaft on Docker](#confluent-kafka-with-kraft-on-docker)
   - [Prerequisites](#prerequisites)
   - [Download the Docker Compose file](#download-the-docker-compose-file)
   - [Steps to Launch the Kafka Environment](#steps-to-launch-the-kafka-environment)
@@ -20,11 +20,11 @@ nav_order: 9
   - [Conclusion](#conclusion)
   - [Further reading](#further-reading)
 
+![](images/2024-08-19-14-21-02.png)
 
-![alt text](image-8.png)
 
 
-# <span style="color: DodgerBlue;">Setting Up a Local Kafka Development Environment with Docker Compose </span>
+# <span style="color: DodgerBlue;">Confluent Kafka with KRaft on Docker</span>
 
 
 <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
