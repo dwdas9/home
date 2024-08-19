@@ -42,7 +42,7 @@ Note: When choosing between KRaft and ZooKeeper as the metadata service for your
 
 2. Copy the content of the file and paste it in a text file and rename it to docker-compose.yml(remove the .txt ext)
 
-![Alt text](image.png)
+![Alt text](images/image.png)
    
 **Remember**: The container group wil l be named after the folder containing the docker-compose. I.e. If it is inside London/docker-compose.yml then the container group in docker will be London.
 
@@ -54,11 +54,11 @@ Note: When choosing between KRaft and ZooKeeper as the metadata service for your
 
 
 
-![Alt text](image-1.png)
+![Alt text](images/image-1.png)
 
 4. The Docker Compose will start all the necessary services in the background. Once finished, go to the docker desktop window and see the services
 
-![Alt text](image-4.png)
+![Alt text](images/image-4.png)
 
 5. You can access the Control Center at http://localhost:9021 once the container is operational.
 6. To create topics and proceed further you can refer to the  this quickstart [guide](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1).
@@ -121,7 +121,7 @@ We might run into an error like no matching manifest for linux/arm65/v8 this err
 
 When deploying Kafka Rest Proxy using Docker Compose, port conflicts are a common issue that can prevent the service from starting successfully. 
 
-![Alt text](image-2.png)
+![Alt text](images/image-2.png)
 
 Here is a typical example of this error:
 
@@ -138,7 +138,7 @@ Cannot start Docker Compose application. Reason: compose [start] exit status 1. 
    - For Windows: `netstat -ano | findstr :<PORT>`
    - For Linux/Mac: `sudo lsof -i :<PORT>` or `sudo netstat -tulnp | grep :<PORT>`
 
-      ![Alt text](image-3.png)
+      ![Alt text](images/image-3.png)
 
 2. **Modify Docker Compose File**: If the port is in use, select an unused port and update the `docker-compose.yml` file. Change the host port mapping for the `rest-proxy` service:
 
@@ -149,7 +149,7 @@ Cannot start Docker Compose application. Reason: compose [start] exit status 1. 
 
    e.g:
 
-    ![Alt text](image-5.png)
+    ![Alt text](images/image-5.png)
 
 3. **Restart Docker Compose**: Apply the changes by running:
 

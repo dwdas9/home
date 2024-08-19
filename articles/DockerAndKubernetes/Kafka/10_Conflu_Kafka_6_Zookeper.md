@@ -6,7 +6,7 @@ nav_order: 9
 ---
 ![](images/2024-08-19-14-15-27.png)
 
-# <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Setting Up Kafka 6 with Zookeeper on Docker in Windows</span>
+# <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Kafka 6 with Zookeeper on Windows Docker</span>
 
 In this article, I will show you how to set up Confluent Kafka on Docker in Windows. We will be using a total of 9 containers, and this setup is very stable. You will only need one `docker-compose.yml` file, and there is no need for a Dockerfile. The setup will install the following Confluent Kafka components:
 
@@ -20,11 +20,11 @@ In this article, I will show you how to set up Confluent Kafka on Docker in Wind
 - confluentinc/ksqldb-examples:6.0.1
 - confluentinc/cp-kafka-rest:6.0.1
 
-<div style="border: 2px solid #7A3DAA; border-radius: 10px; padding: 20px; background-color: gray; font-family: 'Segoe UI, sans-serif'; color: white;">
+<div style="border: 2px solid #7A3DAA; border-radius: 10px; padding: 20px; background-color: #e6ffe6; font-family: 'Segoe UI, sans-serif'; color: black;">
     <p><strong>For the busy people</strong></p>
     <ol style="margin-left: 20px;">
         <li>Download and unzip the <a href="Docker-Compose.zip" style="color: #260A42; text-decoration: none;"><strong>file</strong></a> to any folder on your local machine.</li>
-        <li>Open Command Prompt and <code>cd</code> to this folder using .</li>
+        <li>Open Command Prompt and <code>cd</code> to that folder.</li>
         <li>Run <code>docker-compose up -d</code>.</li>
     </ol>
     <p>That's all! You will see 9 containers ready to serve you! Refer to the image below.</p>
@@ -300,7 +300,7 @@ networks:  # Network configuration for Docker containers.
 
 - Go through the tabs to see all the functionalities
 
-<img src="Animation.gif" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="images/Animation.gif" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 ## <span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Component Details</span>
 
