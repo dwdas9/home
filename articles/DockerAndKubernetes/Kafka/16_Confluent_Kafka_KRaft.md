@@ -4,14 +4,14 @@ title: Confluent Kafka With KRaft
 parent: Docker
 nav_order: 16
 ---
-## <span style="color: DimGray;">Table of Contents</span>
+## <span style="color: #003366;">Table of Contents</span>
 
 - [Confluent Kafka with KRaft on Docker](#confluent-kafka-with-kraft-on-docker)
   - [Step 1: Download the Docker Compose file](#step-1-download-the-docker-compose-file)
   - [Step 2: Run the container](#step-2-run-the-container)
-  - [Appendix](#appendix)
-    - [Connecting to Kafka Containers](#connecting-to-kafka-containers)
-    - [Troubleshooting Broker Connection Issues](#troubleshooting-broker-connection-issues)
+- [Appendix](#appendix)
+  - [Connecting to Kafka Containers](#connecting-to-kafka-containers)
+  - [Troubleshooting Broker Connection Issues](#troubleshooting-broker-connection-issues)
     - [Error: no matching manifest for linux/arm64/v8](#error-no-matching-manifest-for-linuxarm64v8)
     - [Resolving Port Conflicts for Kafka Rest Proxy in Docker](#resolving-port-conflicts-for-kafka-rest-proxy-in-docker)
     - [About the docker-compose.yml](#about-the-docker-composeyml)
@@ -19,9 +19,7 @@ nav_order: 16
   - [Conclusion](#conclusion)
   - [Further reading](#further-reading)
 
-![](images/2024-08-19-14-21-02.png)
-
-#  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Confluent Kafka with KRaft on Docker</span>
+#  <span style="color: #003366;font-family: Segoe UI, sans-serif;">Confluent Kafka with KRaft on Docker</span>
 
 
 <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
@@ -29,7 +27,7 @@ Here, I will show you how to setup a Kafka setup on Docker. We will use KRaft ra
 </p>
 
 
-##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Step 1: Download the Docker Compose file</span>
+##  <span style="color: #003366;font-family: Segoe UI, sans-serif;">Step 1: Download the Docker Compose file</span>
 
 The first step is to download the docker-compose.yaml file, KRaft version from confluent's github [site](https://github.com/confluentinc/cp-all-in-one/blob/7.5.1-post/cp-all-in-one-kraft/docker-compose.yml)
 
@@ -37,24 +35,24 @@ The first step is to download the docker-compose.yaml file, KRaft version from c
 
 ![Alt text](images/image.png)
    
-##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Step 2: Run the container</span>
+##  <span style="color: #003366;font-family: Segoe UI, sans-serif;">Step 2: Run the container</span>
 
 - Open command prompt/terminal and CD to the folder containing the `docker-compose.yml`
 
 -  Run the following command to start all services:`docker-compose up -d`
   ![Alt text](images/image-1.png)
 
-3. The Docker Compose will start all the necessary services in the background. Once finished, go to the docker desktop window and see the services
+- The Docker Compose will start all the necessary services in the background. Once finished, go to the docker desktop window and see the services
 
   ![Alt text](images/image-4.png)
 
 -  You can access the Control Center at http://localhost:9021 once the container is operational.
 - To create topics and proceed further you can refer to the  this quickstart [guide](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1).
 
-##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Appendix</span>
+#  <span style="color: Teal; font-family: Segoe UI, sans-serif;">Appendix</span>
 
 
-###  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Connecting to Kafka Containers</span>
+##  <span style="color: Teal; font-family: Segoe UI, sans-serif;">Connecting to Kafka Containers</span>
 
 The container group created using the docker-compose become part of  `confluent-kafka_default` network group, restricting access from external containers or local machines not in this network. This means, you won't be able to connect to the broker from outside containers or local machine. To connect to Kafka from an external container, add it to the `confluent-kafka_default` network:
 
@@ -81,7 +79,7 @@ streaming_df = spark.readStream \
     .load()
 ```
 
-###  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Troubleshooting Broker Connection Issues</span>
+##  <span style="color: Teal; font-family: Segoe UI, sans-serif;">Troubleshooting Broker Connection Issues</span>
 
 Inspect the Kafka broker container using `docker inspect [broker-container-id]`. For detailed network information:
 
@@ -101,11 +99,11 @@ Test connectivity to the broker:
 nc -vz -w 5 [broker-ip] [listener-port]
 ```
 
-### <span style="color: DimGray;">Error: no matching manifest for linux/arm64/v8</span>
+### <span style="color: Teal;">Error: no matching manifest for linux/arm64/v8</span>
 
 We might run into an error like no matching manifest for linux/arm65/v8 this error error indicates that the Docker images specified in the `docker-compose.yml` file do not have a version compatible with the architecture of our Mac's processor. This error is less likely if you use the KRaft version. I have tested the KRaft versin on both Windows and Mac M1, they both showed no error in architecture or compatibility.
 
-### <span style="color: DimGray;">Resolving Port Conflicts for Kafka Rest Proxy in Docker</span> 
+### <span style="color: Teal;">Resolving Port Conflicts for Kafka Rest Proxy in Docker</span> 
 
 When deploying Kafka Rest Proxy using Docker Compose, port conflicts are a common issue that can prevent the service from starting successfully. 
 
@@ -121,14 +119,14 @@ Cannot start Docker Compose application. Reason: compose [start] exit status 1. 
 
 **Detailed investigation**:
 
-1. **Identify Port Usage**: Use `netstat` or `lsof` to check if the intended port is already in use.
+- **Identify Port Usage**: Use `netstat` or `lsof` to check if the intended port is already in use.
 
    - For Windows: `netstat -ano | findstr :<PORT>`
    - For Linux/Mac: `sudo lsof -i :<PORT>` or `sudo netstat -tulnp | grep :<PORT>`
 
       ![Alt text](images/image-3.png)
 
-2. **Modify Docker Compose File**: If the port is in use, select an unused port and update the `docker-compose.yml` file. Change the host port mapping for the `rest-proxy` service:
+- **Modify Docker Compose File**: If the port is in use, select an unused port and update the `docker-compose.yml` file. Change the host port mapping for the `rest-proxy` service:
 
    ```yaml
    ports:
@@ -139,16 +137,16 @@ Cannot start Docker Compose application. Reason: compose [start] exit status 1. 
 
     ![Alt text](images/image-5.png)
 
-3. **Restart Docker Compose**: Apply the changes by running:
+- **Restart Docker Compose**: Apply the changes by running:
 
    ```bash
    docker-compose down
    docker-compose up -d
    ```
 
-4. **Update Applications**: Ensure all applications that interact with Kafka Rest Proxy are updated to use the new port.
+- **Update Applications**: Ensure all applications that interact with Kafka Rest Proxy are updated to use the new port.
 
-### <span style="color: DimGray;">About the docker-compose.yml</span> 
+### <span style="color: Teal;">About the docker-compose.yml</span> 
 
 Here is an explanation of the differnet services in the docker-compose.yml
 
@@ -161,15 +159,15 @@ Here is an explanation of the differnet services in the docker-compose.yml
 - **ksql-datagen**: A tool for generating sample data for Kafka topics and provides a source of continuously flowing data.
 - **rest-proxy**: Provides a RESTful interface to Kafka clusters.
 
-###  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Fully commented docker-compose.yml</span>
+###  <span style="color: Teal; font-family: Segoe UI, sans-serif;">Fully commented docker-compose.yml</span>
 
 If you want to know each step of the docker compose file. I have placed a fully commented [docker-compose.yml](docker-compose-commented.yml)
 
-##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Conclusion</span>
+##  <span style="color: Teal; font-family: Segoe UI, sans-serif;">Conclusion</span>
 
 You now have a fully functional local Kafka development environment that includes a broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. The KRaft version of the docker compose has been tested in both WIndows and Mac M1 machines.
 
-##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Further reading</span>
+##  <span style="color: Teal; font-family: Segoe UI, sans-serif;">Further reading</span>
 
 [Confluent Documentation. Quick Start. Docker Container](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1)
 
