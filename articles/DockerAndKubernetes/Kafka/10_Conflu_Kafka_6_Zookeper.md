@@ -288,14 +288,15 @@ networks:  # Network configuration for Docker containers.
 
 - Open Docker Desktop. You should see all the containres up and running
 
-![](images/2024-08-19-13-50-24.png)
+<img src="images/2024-08-19-13-50-24.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 - Open the [control centre](http://localhost:9121/clusters) to see the actual working.
-![](images/2024-08-19-13-54-24.png)
+
+<img src="images/2024-08-19-13-54-24.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 - Go through the tabs to see all the functionalities
 
-![alt text](Animation.gif)
+<img src="Animation.gif" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 ## <span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Component Details</span>
 
