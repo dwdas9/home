@@ -1,6 +1,6 @@
 ---
 layout: default
-title: AirflowOnDocker
+title: Airflow On Docker
 parent: Docker
 nav_order: 9
 ---
@@ -19,7 +19,7 @@ nav_order: 9
     - [Create a Docker Volume](#create-a-docker-volume)
     - [Initialize Airflow Database](#initialize-airflow-database)
     - [Start the Airflow Webserver](#start-the-airflow-webserver)
-  - [Key Components of the setup:](#key-components-of-the-setup)
+  - [Key Components of Method1](#key-components-of-method1)
 
 
 <img src="images/AirflowIcon.png" alt="Description of the image" style="max-width: 70%; height: 40%; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -33,10 +33,6 @@ Here, I will show you how to install Airflow on a Docker container using two met
 - **Method 2**: Setup Airflow and use Docker volume to save data. This is for development.
 
 ## <span style="color: #695ED6; font-family: Segoe UI, sans-serif;">Method 1 - With Local Mounted Folders</span>
-
-<p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
-Make sure you already have Docker Desktop installed.
-</p>
 
 
 ### <span style="color: #574BB3; font-family: Segoe UI, sans-serif;">Create Required Folders</span>
@@ -75,11 +71,6 @@ Make sure you already have Docker Desktop installed.
 
 ## <span style="color: #003366;font-family: Segoe UI, sans-serif;">Method 2 - Using a Docker volume for data persistence</span>
 
-<p style="color: #004d99; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6f7ff; padding: 15px; border-left: 5px solid #3399ff;">
-In Method1, I showed how to install Airflow and use your local folder to store data permanently. Here, we will the same method but, store the data in Docker Volume and not on local laptop.
-</p>
-
-> Make sure you have Docker Desktop installed already
 
 ### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Download Airflow Docker Image</span>
 Run the following command in your command prompt or power shell to pull the latest Airflow Docker image: `docker pull apache/airflow:latest`
@@ -90,15 +81,12 @@ Run the following command in your command prompt or power shell to pull the late
 Execute this command to create a Docker volume named `airflow-volume` for data persistence: `docker volume create airflow-volume`
 
 ### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Initialize Airflow Database</span>
-Initialize the Airflow database using the following command:
+Initialize the Airflow database using the following two commands:
 ```bash
-docker run --rm --network dasnet -v airflow-volume:/opt/airflow apache/airflow:latest users create \
-  --username airflow \
-  --firstname FIRST_NAME \
-  --lastname LAST_NAME \
-  --role Admin \
-  --email admin@example.com \
-  --password airflow
+docker run --rm --network dasnet -v airflow-volume:/opt/airflow apache/airflow:latest db init
+```
+```bash
+docker run --rm --network dasnet -v airflow-volume:/opt/airflow apache/airflow:latest users create  --username airflow  --firstname FIRST_NAME  --lastname LAST_NAME   --role Admin   --email admin@example.com   --password airflow
 ```
 > Note: I use a network dasnet. Hence --network part. You can totally remove the --network.
 
@@ -119,7 +107,7 @@ Access the Airflow UI at(UID/Pwd: airflow) [http://localhost:8080](http://localh
 <p style="color: #004d99; font-family: font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6f7ff; padding: 15px; border-left: 5px solid #66cdaa;">
 <strong>Conclusion:</strong> The method I described here is good for development purpose but, for production environment, we will stick to Method 1</p>
 
-## Key Components of the setup:
+## <span style="color: #003366;font-family: Segoe UI, sans-serif;">Key Components of Method1</span>
 
 The table shows some important components of our Airflow setup.
 
