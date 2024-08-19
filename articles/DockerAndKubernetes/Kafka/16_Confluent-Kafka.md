@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ConfluentKafkaAllInOneDocker
+title: Confluent Kafka KRaft Docker
 parent: Docker
 nav_order: 16
 ---
