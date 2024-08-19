@@ -2,7 +2,7 @@
 layout: default
 title: ConfluentKafkaAllInOneDocker
 parent: Docker
-nav_order: 9
+nav_order: 16
 ---
 ## <span style="color: DimGray;">Table of Contents</span>
 
@@ -21,16 +21,14 @@ nav_order: 9
 
 ![](images/2024-08-19-14-21-02.png)
 
-
-
-# <span style="color: Blue;">Confluent Kafka with KRaft on Docker</span>
+#  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Confluent Kafka with KRaft on Docker</span>
 
 
 <p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
 In this guide, I'll walk through setting up a local Kafka development environment using Docker Compose. The provided `docker-compose` file sets up all the necessary components, including Kafka broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. I have tested the installation in both Windows and Mac machines with M1 chip.
 </p>
 
-## <span style="color: Blue;">Download the Docker Compose file</span>
+##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Download the Docker Compose file</span>
 
 To get started with setting up Confluent Platform, you'll need the `docker-compose.yml` file. This file contains all the necessary configurations to run Confluent Platform services using Docker.
 
@@ -46,7 +44,7 @@ Note: When choosing between KRaft and ZooKeeper as the metadata service for your
    
 **Remember**: The container group wil l be named after the folder containing the docker-compose. I.e. If it is inside London/docker-compose.yml then the container group in docker will be London.
 
-## <span style="color: Blue;">Steps to Launch the Kafka Environment</span>
+##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Steps to Launch the Kafka Environment</span>
 
 1. Open command prompt/terminal and CD to the folder containing the `docker-compose.yml`
 
@@ -56,17 +54,17 @@ Note: When choosing between KRaft and ZooKeeper as the metadata service for your
 
 ![Alt text](images/image-1.png)
 
-4. The Docker Compose will start all the necessary services in the background. Once finished, go to the docker desktop window and see the services
+3. The Docker Compose will start all the necessary services in the background. Once finished, go to the docker desktop window and see the services
 
 ![Alt text](images/image-4.png)
 
-5. You can access the Control Center at http://localhost:9021 once the container is operational.
-6. To create topics and proceed further you can refer to the  this quickstart [guide](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1).
+4. You can access the Control Center at http://localhost:9021 once the container is operational.
+5. To create topics and proceed further you can refer to the  this quickstart [guide](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1).
 
-## <span style="color: DarkRed;">Appendix</span>
+##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Appendix</span>
 
 
-### <span style="color: Blue;">Connecting to Kafka Containers</span>
+###  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Connecting to Kafka Containers</span>
 
 The container group created using the docker-compose become part of  `confluent-kafka_default` network group, restricting access from external containers or local machines not in this network. This means, you won't be able to connect to the broker from outside containers or local machine. To connect to Kafka from an external container, add it to the `confluent-kafka_default` network:
 
@@ -93,7 +91,7 @@ streaming_df = spark.readStream \
     .load()
 ```
 
-### <span style="color: Blue;">Troubleshooting Broker Connection Issues</span>
+###  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Troubleshooting Broker Connection Issues</span>
 
 Inspect the Kafka broker container using `docker inspect [broker-container-id]`. For detailed network information:
 
@@ -173,15 +171,15 @@ Here is an explanation of the differnet services in the docker-compose.yml
 - **ksql-datagen**: A tool for generating sample data for Kafka topics and provides a source of continuously flowing data.
 - **rest-proxy**: Provides a RESTful interface to Kafka clusters.
 
-### <span style="color: Navy;">Fully commented docker-compose.yml</span>
+###  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Fully commented docker-compose.yml</span>
 
 If you want to know each step of the docker compose file. I have placed a fully commented [docker-compose.yml](docker-compose-commented.yml)
 
-## <span style="color: Blue;">Conclusion</span>
+##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Conclusion</span>
 
 You now have a fully functional local Kafka development environment that includes a broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. The KRaft version of the docker compose has been tested in both WIndows and Mac M1 machines.
 
-## <span style="color: Blue;">Further reading</span>
+##  <span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Further reading</span>
 
 [Confluent Documentation. Quick Start. Docker Container](https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1)
 

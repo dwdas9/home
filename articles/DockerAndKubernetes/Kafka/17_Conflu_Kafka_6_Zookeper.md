@@ -2,7 +2,7 @@
 layout: default
 title: Confluent Kafka With Zookeeper
 parent: Docker
-nav_order: 9
+nav_order: 17
 ---
 ![](images/2024-08-19-14-15-27.png)
 
