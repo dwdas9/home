@@ -5,34 +5,65 @@ parent: Docker
 nav_order: 9
 ---
 
-## Table of Contents
+![](images/2024-08-19-23-48-34.png)
 
-- [Setting Up Apache Airflow with Docker on Windows](#setting-up-apache-airflow-with-docker-on-windows)
-  - [Method 1 - With Local Mounted Folders](#method-1---with-local-mounted-folders)
-    - [Create Required Folders](#create-required-folders)
-    - [Download the Docker Compose File](#download-the-docker-compose-file)
-      - [Note on `docker-compose.yaml`](#note-on-docker-composeyaml)
-    - [Initialize and Run Airflow](#initialize-and-run-airflow)
-    - [Verify the Installation](#verify-the-installation)
-  - [Method 2 - Using a Docker volume for data persistence](#method-2---using-a-docker-volume-for-data-persistence)
-    - [Download Airflow Docker Image](#download-airflow-docker-image)
-    - [Create a Docker Volume](#create-a-docker-volume)
-    - [Initialize Airflow Database](#initialize-airflow-database)
-    - [Start the Airflow Webserver](#start-the-airflow-webserver)
-  - [Key Components of Method1](#key-components-of-method1)
-
-
-<img src="images/AirflowIcon.png" alt="Description of the image" style="max-width: 70%; height: 40%; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-
-
-# <span style="color: MediumSlateBlue;">Setting Up Apache Airflow with Docker on Windows</span>
+# <span style="color: MediumSlateBlue;">Apache Airflow on Windows Docker</span>
 
 Here, I will show you how to install Airflow on a Docker container using two methods:
+### <span style="color: gray; font-family: Segoe UI, sans-serif;">**Method 1: Simple Development Setup**</span>
+- **Single Container**: This method runs everything inside **one container**. It includes all Airflow services like the scheduler, webserver, worker, etc., bundled together.
+- **Database**: Uses **SQLite** as the database
+- **Docker Volume**: A Docker volume is used to store data.
 
-- **Method 1**: Setup Airflow and use local mounted folders to save data permanently. This is a full-fledge production-grade installation.
-- **Method 2**: Setup Airflow and use Docker volume to save data. This is for development.
+### <span style="color: gray; font-family: Segoe UI, sans-serif;">**Method 2: Full Production Setup**</span>
+- **Number of Containers**: This method sets up **seven containers**. These include:
+  - **Scheduler**: Manages task scheduling.
+  - **Webserver**: Provides the Airflow user interface.
+  - **Worker**: Executes the tasks.
+  - **PostgreSQL**: Used as the database to store metadata.
+  - **Redis**: Acts as a message broker between the components.
+  - **Triggerer**: Manages task triggering.
+  - **Flower**: For monitoring the Celery workers.
+- **Local Folders**: Data is stored in local(laptop) folders.
 
-## <span style="color: #695ED6; font-family: Segoe UI, sans-serif;">Method 1 - With Local Mounted Folders</span>
+
+## <span style="color: #003366;font-family: Segoe UI, sans-serif;">Method 1 - Simple Development Setup</span>
+
+
+### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Download Airflow Docker Image</span>
+Run the following command in your command prompt or power shell to pull the latest Airflow Docker image: `docker pull apache/airflow:latest`
+
+  <img src="images/image.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Create a Docker Volume</span>
+Execute this command to create a Docker volume named `airflow-volume` for data persistence: `docker volume create airflow-volume`
+
+### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Initialize Airflow Database</span>
+Initialize the Airflow database using the following two commands:
+```bash
+docker run --rm --network dasnet -v airflow-volume:/opt/airflow apache/airflow:latest db init
+```
+```bash
+docker run --rm --network dasnet -v airflow-volume:/opt/airflow apache/airflow:latest users create  --username airflow  --firstname FIRST_NAME  --lastname LAST_NAME   --role Admin   --email admin@example.com   --password airflow
+```
+> Note: I use a network dasnet. Hence --network part. You can totally remove the --network.
+
+### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Start the Airflow Webserver</span>
+To start the Airflow webserver, use this command:
+
+```bash
+docker run -d --name airflow --network dasnet -p 8080:8080 -e AIRFLOW_UID=50000 -v airflow-volume:/opt/airflow apache/airflow:latest webserver
+```
+<img src="images/2024-08-19-21-21-52.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+
+> Note: I use a network dasnet. Hence --network part. You can totally remove the --network.
+
+### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Login into Airflow UI</span>
+
+To login open [http://localhost:8080](http://localhost:8080) and enter credential: **airflow/airflow**
+
+## <span style="color: #695ED6; font-family: Segoe UI, sans-serif;">Method 2 - Full Production Setup</span>
 
 
 ### <span style="color: #574BB3; font-family: Segoe UI, sans-serif;">Create Required Folders</span>
@@ -69,45 +100,7 @@ Here, I will show you how to install Airflow on a Docker container using two met
 - Log in with the username and password: `airflow`.
     <img src="images/image-5.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
-## <span style="color: #003366;font-family: Segoe UI, sans-serif;">Method 2 - Using a Docker volume for data persistence</span>
-
-
-### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Download Airflow Docker Image</span>
-Run the following command in your command prompt or power shell to pull the latest Airflow Docker image: `docker pull apache/airflow:latest`
-
-  <img src="images/image.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-
-### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Create a Docker Volume</span>
-Execute this command to create a Docker volume named `airflow-volume` for data persistence: `docker volume create airflow-volume`
-
-### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Initialize Airflow Database</span>
-Initialize the Airflow database using the following two commands:
-```bash
-docker run --rm --network dasnet -v airflow-volume:/opt/airflow apache/airflow:latest db init
-```
-```bash
-docker run --rm --network dasnet -v airflow-volume:/opt/airflow apache/airflow:latest users create  --username airflow  --firstname FIRST_NAME  --lastname LAST_NAME   --role Admin   --email admin@example.com   --password airflow
-```
-> Note: I use a network dasnet. Hence --network part. You can totally remove the --network.
-
-### <span style="color: #003366;font-family: Segoe UI, sans-serif;">Start the Airflow Webserver</span>
-To start the Airflow webserver, use this command:
-
-```bash
-docker run -d --name airflow --network dasnet -p 8080:8080 -e AIRFLOW_UID=50000 -v airflow-volume:/opt/airflow apache/airflow:latest webserver
-```
-<img src="images/2024-08-19-21-21-52.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-
-
-> Note: I use a network dasnet. Hence --network part. You can totally remove the --network.
-
-Access the Airflow UI at(UID/Pwd: airflow) [http://localhost:8080](http://localhost:8080).
-
-
-<p style="color: #004d99; font-family: font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6f7ff; padding: 15px; border-left: 5px solid #66cdaa;">
-<strong>Conclusion:</strong> The method I described here is good for development purpose but, for production environment, we will stick to Method 1</p>
-
-## <span style="color: #003366;font-family: Segoe UI, sans-serif;">Key Components of Method1</span>
+### <span style="color: #574BB3; font-family: Segoe UI, sans-serif;">Components Installed</span>
 
 The table shows some important components of our Airflow setup.
 
