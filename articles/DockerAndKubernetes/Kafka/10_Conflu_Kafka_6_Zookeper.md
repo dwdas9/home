@@ -20,7 +20,7 @@ In this article, I will show you how to set up Confluent Kafka on Docker in Wind
 - confluentinc/ksqldb-examples:6.0.1
 - confluentinc/cp-kafka-rest:6.0.1
 
-<div style="border: 2px solid #7A3DAA; border-radius: 10px; padding: 20px; background-color: MediumSlateBlue; font-family: 'Segoe UI, sans-serif'; color: white;">
+<div style="border: 2px solid #7A3DAA; border-radius: 10px; padding: 20px; background-color: gray; font-family: 'Segoe UI, sans-serif'; color: white;">
     <p><strong>For the busy people</strong></p>
     <ol style="margin-left: 20px;">
         <li>Download and unzip the <a href="Docker-Compose.zip" style="color: #260A42; text-decoration: none;"><strong>file</strong></a> to any folder on your local machine.</li>
