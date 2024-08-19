@@ -122,14 +122,16 @@ Access the Airflow UI at(UID/Pwd: airflow) [http://localhost:8080](http://localh
 
 ## Key Components of the setup:
 
-| **Component** | **Description** | **Environment Variables** | **Volumes** | **Ports** | **Executable** | **Folder Locations** | **Pros** |
-|---------------|-----------------|---------------------------|-------------|-----------|----------------|----------------------|-----------|
-| **Webserver** | The main UI component of Airflow where users can manage DAGs, view logs, and monitor workflows. | `AIRFLOW__CORE__EXECUTOR` (sets executor type), `AIRFLOW__WEBSERVER__WORKERS` (number of worker processes) | `./dags:/opt/airflow/dags`, `./logs:/opt/airflow/logs`, `./plugins:/opt/airflow/plugins` | `8080:8080` | `airflow webserver` | `/opt/airflow` (inside container) | Provides an easy-to-use web interface. |
-| **Scheduler** | Responsible for scheduling DAG runs and triggering tasks based on schedule or external triggers. | `AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL` (interval for DAG directory polling) | `./dags:/opt/airflow/dags`, `./logs:/opt/airflow/logs`, `./plugins:/opt/airflow/plugins` | N/A | `airflow scheduler` | `/opt/airflow` | Efficiently manages DAG runs, allowing for scalable task scheduling. |
-| **Worker** | Executes the tasks defined in DAGs. Required when using CeleryExecutor. | `AIRFLOW__CORE__EXECUTOR` (CeleryExecutor), `AIRFLOW__CELERY__BROKER_URL` (URL for Celery broker) | `./dags:/opt/airflow/dags`, `./logs:/opt/airflow/logs`, `./plugins:/opt/airflow/plugins` | N/A | `airflow celery worker` | `/opt/airflow` | Enables distributed execution of tasks, increasing scalability. |
-| **Postgres** | The metadata database for Airflow, storing state information for DAGs, tasks, and more. | `POSTGRES_USER=airflow`, `POSTGRES_PASSWORD=airflow`, `POSTGRES_DB=airflow` | `postgres_data:/var/lib/postgresql/data` | N/A | `postgres` | `/var/lib/postgresql/data` | Reliable and robust database backend for Airflow metadata. |
-| **Redis** | A message broker for CeleryExecutor, handling task queues and communication between workers. | `REDIS_PASSWORD=redis_password` (if secured) | `redis_data:/data` | N/A | `redis-server` | `/data` | Provides fast, in-memory message brokering for Celery tasks. |
-| **Flower** | A web-based tool for monitoring Celery workers and tasks. | `FLOWER_BASIC_AUTH=admin:password` (for securing access) | N/A | `5555:5555` | `flower` | N/A | Simplifies monitoring of distributed Celery tasks. |
+The table shows some important components of our Airflow setup.
+
+| **Component** | **What It Does** | **Environment Variables** | **Folders** | **Ports** | **Command** | **Locations Inside Container** |
+|---------------|-----------------|---------------------------|-------------|-----------|-------------|------------------------------|
+| **Webserver** | The main part of Airflow where you can see and manage your workflows, logs, etc. | `AIRFLOW__CORE__EXECUTOR` (sets the type of executor), `AIRFLOW__WEBSERVER__WORKERS` (number of workers) | `./dags:/opt/airflow/dags`, `./logs:/opt/airflow/logs`, `./plugins:/opt/airflow/plugins` | `8080:8080` | `airflow webserver` | `/opt/airflow` (inside container) |
+| **Scheduler** | Handles the scheduling of workflows, making sure tasks run on time. | `AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL` (how often to check the DAG folder) | `./dags:/opt/airflow/dags`, `./logs:/opt/airflow/logs`, `./plugins:/opt/airflow/plugins` | N/A | `airflow scheduler` | `/opt/airflow` |
+| **Worker** | Runs the tasks in the workflows. Needed when using CeleryExecutor. | `AIRFLOW__CORE__EXECUTOR` (CeleryExecutor), `AIRFLOW__CELERY__BROKER_URL` (URL for Celery broker) | `./dags:/opt/airflow/dags`, `./logs:/opt/airflow/logs`, `./plugins:/opt/airflow/plugins` | N/A | `airflow celery worker` | `/opt/airflow` |
+| **Postgres** | The database that stores all the Airflow information like DAGs, task statuses, etc. | `POSTGRES_USER=airflow`, `POSTGRES_PASSWORD=airflow`, `POSTGRES_DB=airflow` | `postgres_data:/var/lib/postgresql/data` | N/A | `postgres` | `/var/lib/postgresql/data` |
+| **Redis** | A messaging service that helps workers communicate with each other when using CeleryExecutor. | `REDIS_PASSWORD=redis_password` (if you want to secure it) | `redis_data:/data` | N/A | `redis-server` | `/data` |
+| **Flower** | A tool to monitor and manage Celery workers and tasks. | `FLOWER_BASIC_AUTH=admin:password` (to secure it) | N/A | `5555:5555` | `flower` | N/A |
 
 © D Das  
 📧 [das.d@hotmail.com](mailto:das.d@hotmail.com) | [ddasdocs@gmail.com](mailto:ddasdocs@gmail.com)
