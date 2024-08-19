@@ -20,15 +20,16 @@ In this article, I will show you how to set up Confluent Kafka on Docker in Wind
 - confluentinc/ksqldb-examples:6.0.1
 - confluentinc/cp-kafka-rest:6.0.1
 
-<div style="border: 2px solid #7A3DAA; border-radius: 10px; padding: 20px; background-color: #e6ffe6; font-family: 'Segoe UI, sans-serif'; color: black;">
-    <p><strong>For the busy people</strong></p>
-    <ol style="margin-left: 20px;">
-        <li>Download and unzip the <a href="Docker-Compose.zip" style="color: #260A42; text-decoration: none;"><strong>file</strong></a> to any folder on your local machine.</li>
-        <li>Open Command Prompt and <code>cd</code> to that folder.</li>
-        <li>Run <code>docker-compose up -d</code>.</li>
+<div style="border: 2px solid #7A3DAA; border-radius: 10px; padding: 20px; background-color: #f5f5f5; font-family: 'Segoe UI, sans-serif'; color: #333;">
+    <p style="font-weight: bold; font-size: 1.2em; color: #3B165C;">For the Busy Professionals</p>
+    <ol style="margin-left: 20px; font-size: 1em; line-height: 1.5;">
+        <li>Download and unzip the <a href="Docker-Compose.zip" style="color: #3B165C; text-decoration: none; font-weight: bold;">Docker Compose file</a> to a folder on your machine.</li>
+        <li>Open Command Prompt and navigate to the folder by running <code>cd [folder_name]</code>.</li>
+        <li>Execute <code>docker-compose up -d</code> to start the services.</li>
     </ol>
-    <p>That's all! You will see 9 containers ready to serve you! Refer to the image below.</p>
+    <p style="margin-top: 20px;">That's it! You will have 9 containers up and running, ready to serve. See the example image below for reference.</p>
 </div>
+
 
 <br>
 
