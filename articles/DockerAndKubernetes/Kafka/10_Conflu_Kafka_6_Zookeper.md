@@ -44,7 +44,11 @@ Before you start, ensure that you have the following installed:
 - **Docker Desktop**: Install it from the [Docker website](https://www.docker.com/products/docker-desktop). **Docker Compose**: It usually comes with Docker Desktop, so you don’t need to install it separately.
 - Run the command `docker network create dasnet` in **CMD**. 
 
-> Note: I use a network so that all my containers are part of the same network. But, this is not necessary. Also, using external network makes it a better setup.
+
+  <p style="color: #804000; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: BurlyWood; padding: 15px; border-left: 5px solid #b35900;">
+  Note: I use a network so that all my containers are part of the same network. This is just an extra step. It’s necessary because the Docker Compose file has the dasnet network mentioned everywhere. If you don’t want to use this network, then just remove all occurrences of it from the Docker Compose file.
+  </p>
+
 
 ## <span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Steps to create the setup</span>
 The steps are simple. Just follow these two steps and your setup will be up and running.
