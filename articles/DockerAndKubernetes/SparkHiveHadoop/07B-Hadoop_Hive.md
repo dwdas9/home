@@ -5,24 +5,24 @@ parent: Docker
 nav_order: 7
 ---
 - [End-to-End Tutorial for Installing Hadoop and Hive in a Single Docker Container](#end-to-end-tutorial-for-installing-hadoop-and-hive-in-a-single-docker-container)
-- [Step 1: Download Hadoop and Hive](#step-1-download-hadoop-and-hive)
-- [Step 2: Prepare the Configuration Files](#step-2-prepare-the-configuration-files)
-- [Step 3: Create the Dockerfile](#step-3-create-the-dockerfile)
-- [Step 4: Build the Docker Image](#step-4-build-the-docker-image)
-- [Step 5: Create and Connect to the Docker Network](#step-5-create-and-connect-to-the-docker-network)
-- [Step 6: Run the Docker Container](#step-6-run-the-docker-container)
+  - [Step 1: Download Hadoop and Hive](#step-1-download-hadoop-and-hive)
+  - [Step 2: Prepare the Configuration Files](#step-2-prepare-the-configuration-files)
+  - [Step 3: Create the Dockerfile](#step-3-create-the-dockerfile)
+  - [Step 4: Build the Docker Image](#step-4-build-the-docker-image)
+  - [Step 5: Create and Connect to the Docker Network](#step-5-create-and-connect-to-the-docker-network)
+  - [Step 6: Run the Docker Container](#step-6-run-the-docker-container)
 - [Testing the Hadoop and Hive Setup](#testing-the-hadoop-and-hive-setup)
-- [Notes:](#notes)
-- [Error Handling and Troubleshooting](#error-handling-and-troubleshooting)
-- [Common Errors and Resolutions](#common-errors-and-resolutions)
-- [User `dwdas`](#user-dwdas)
-- [Important Locations and Variables for Hadoop and Hive Setup in Docker](#important-locations-and-variables-for-hadoop-and-hive-setup-in-docker)
-- [Summary](#summary)
+  - [Notes](#notes)
+  - [Error Handling and Troubleshooting](#error-handling-and-troubleshooting)
+  - [Common Errors and Resolutions](#common-errors-and-resolutions)
+  - [User `dwdas`](#user-dwdas)
+  - [Important Locations and Variables for Hadoop and Hive Setup in Docker](#important-locations-and-variables-for-hadoop-and-hive-setup-in-docker)
+  - [Summary](#summary)
 
 
 ![](images/custom-image-2024-06-17-01-54-52.png)
 
-## End-to-End Tutorial for Installing Hadoop and Hive in a Single Docker Container
+# End-to-End Tutorial for Installing Hadoop and Hive in a Single Docker Container
 
 This tutorial I'll guide you through the process of setting up a Docker container with Hadoop and Hive, downloaded from the official Apache websites. 
 
@@ -198,10 +198,10 @@ docker build -t hadoop-hive-single-node .
 
 ## Step 5: Create and Connect to the Docker Network
 
-Ensure that the network `spark-network` exists. If not, create it:
+Ensure that the network `dasnet` exists. If not, create it:
 
 ```sh
-docker network create spark-network
+docker network create dasnet
 ```
 
 ## Step 6: Run the Docker Container
@@ -209,16 +209,16 @@ docker network create spark-network
 Run the Docker container with the appropriate port mappings and connect it to the `spark-network`:
 
 ```sh
-docker run -it --network spark-network -p 60070:50070 -p 6088:8088 -p 11000:10000 -p 11002:10002 hadoop-hive-single-node
+docker run -it --network dasnet -p 60070:50070 -p 6088:8088 -p 11000:10000 -p 11002:10002 hadoop-hive-single-node
 ```
 
-## Testing the Hadoop and Hive Setup
+# Testing the Hadoop and Hive Setup
 
 The table below shows some important test for the Hadoop and Hive setup:
 
 | **Category**               | **Action**                                    | **Command/URL**                                                                            | **Description**                                                                 |
 |----------------------------|-----------------------------------------------|--------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| **Start Docker Container** | Start the Docker container                    | ```docker run -it --network spark-network -p 60070:50070 -p 6088:8088 -p 11000:10000 -p 11002:10002 hadoop-hive-single-node``` | Start the container and map the necessary ports.                               |
+| **Start Docker Container** | Start the Docker container                    | ```docker run -it --network dasnet -p 60070:50070 -p 6088:8088 -p 11000:10000 -p 11002:10002 hadoop-hive-single-node``` | Start the container and map the necessary ports.                               |
 | **Verify HDFS**            | Check HDFS status                             | `hdfs dfsadmin -report`                                                                    | Provides a report on the HDFS cluster.                                          |
 |                            | Browse HDFS                                   | `http://localhost:60070`                                                                   | Access the HDFS NameNode web interface.                                         |
 |                            | Create a directory                            | `hdfs dfs -mkdir /test` <br> `hdfs dfs -ls /`                                              | Create and list a directory in HDFS.                                            |
@@ -228,7 +228,7 @@ The table below shows some important test for the Hadoop and Hive setup:
 |                            | Create and query a Hive table                 | ```sql<br>CREATE TABLE test_table (id INT, name STRING);<br>INSERT INTO test_table (id, name) VALUES (1, 'Alice'), (2, 'Bob');<br>SELECT * FROM test_table;<br>``` | Create a table and perform a query in the Hive CLI.                             |
 | **Access HiveServer2**     | Test HiveServer2 connection                   | `beeline -u jdbc:hive2://localhost:10000`                                                  | Use Beeline to connect to HiveServer2 and run queries.                          |
 
-## Notes:
+## Notes
 - **Start Docker Container**: Ensure that the container is running with the specified network and port mappings.
 - **Verify HDFS**: Check the HDFS status, browse the NameNode web interface, and create a directory in HDFS to ensure HDFS is operational.
 - **Verify YARN**: Check the YARN status and access the ResourceManager web interface to ensure YARN is running correctly.
