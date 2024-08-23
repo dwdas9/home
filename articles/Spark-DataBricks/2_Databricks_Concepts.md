@@ -35,8 +35,8 @@ has_children: true
   - **Job:** When things don't need any interaction. To run jobs.
 
 - And two modes of clusters
-  - **Standard(Multi-mode):** THis is the default mode. Has at-least two VMS - one master, one worker.
-  - **Single node:** Low cost. Only one node. Say for some curious student.
+  - **Standard/Multi-Node:** THis is the default mode. 1 Driver + Multiple Worker Nodes.
+  - **Single node:** 1-Drive. No Worker. Driver works as both driver and worker. For light work load.
 
 - Runtime has three versions
   - **Standard:** Normal spark and normal stuff.
@@ -44,6 +44,6 @@ has_children: true
   - **Photon**: Has some speed for SQL
 
 - And Access mode
-  - Single User is always there
-  - Shared mode is for Premium plan. Has unity Catalog
-  - 
+  - **Single User**:  is always there
+  - **Shared:** Many users can access the same nodes. Seprate environment for each user. One fails, doesn't affecct other.
+  - **No Isolattioin shared:** Multiple users can access. But, enviornment is the same. One process fails, all users affected.
