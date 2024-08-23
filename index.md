@@ -9,9 +9,11 @@ nav_order: 1
 
 
 <p> 
-I am a Microsoft specialist with over 15 years of experience in creating data-centric and automation solutions using the Azure Data Stack, Power Platform, and M365.
 
-If you wish to reach out, please email me at <a href="mailto:das.d@hotmail.com">das.d@hotmail.com</a>. Thanks!
+I specialize in Data, Automation and Cloud solutions.
+If you wish to reach out, please email me at <a href="mailto:das.d@hotmail.com">das.d@hotmail.com</a>. 
+
+Thanks!
 
 </p>
 
