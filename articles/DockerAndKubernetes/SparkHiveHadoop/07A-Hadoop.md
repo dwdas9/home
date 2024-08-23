@@ -245,3 +245,19 @@ In this guide, we'll walk through the process of setting up an Apache Hadoop clu
 
 ### Conclusion
 Remember to convert any scripts created on Windows to Unix format before using them in your Docker containers to avoid potential issues. Happy coding!
+
+### Config reference
+
+| **Element**               | **Location/Value**                                    | **Description**                                                                                  |
+|---------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Hadoop Installation Dir**| `/usr/local/hadoop`                                   | The directory where Hadoop is installed inside the Docker containers (`HADOOP_HOME`).            |
+| **Hadoop Config Dir**      | `/usr/local/hadoop/etc/hadoop`                        | Directory containing Hadoop configuration files (`HADOOP_CONF_DIR`).                             |
+| **HDFS Data Directory**    | `/hadoop/dfs/name` (NameNode), `/hadoop/dfs/data` (DataNode) | Directories used to store HDFS data, mapped to Docker volumes for persistence.                |
+| **Mapped Ports**           | See `docker-compose.yml`                              | Ports mapped between host and container for accessing Hadoop Web UIs.                            |
+| **NameNode Web UI**        | `http://localhost:29870`                              | Access URL for NameNode Web UI from the host machine.                                            |
+| **HDFS NameNode UI**       | `http://localhost:29070`                              | Access URL for HDFS NameNode Web UI from the host machine.                                       |
+| **ResourceManager Web UI** | `http://localhost:28088`                              | Access URL for YARN ResourceManager Web UI from the host machine.                                |
+| **NodeManager Web UI**     | `http://localhost:29864`                              | Access URL for YARN NodeManager Web UI from the host machine.                                    |
+| **HistoryServer Web UI**   | `http://localhost:29866`                              | Access URL for MapReduce Job HistoryServer Web UI from the host machine.                         |
+| **HDFS Input Directory**   | `/input` in HDFS                                      | Directory where input files for MapReduce jobs are stored in HDFS.                               |
+| **HDFS Output Directory**  | `/output` in HDFS                                     | Directory where output files from MapReduce jobs are stored in HDFS.                             |
