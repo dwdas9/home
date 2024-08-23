@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hadoop
+title: Hadoop-7Nodes
 parent: Docker
 nav_order: 7
 ---

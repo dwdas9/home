@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hadoop-Hive
+title: Hadoop-Hive-1Node
 parent: Docker
 nav_order: 7
 ---
