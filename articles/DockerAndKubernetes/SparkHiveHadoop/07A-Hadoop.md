@@ -8,7 +8,7 @@ nav_order: 7
 ## Setting Up a Hadoop Cluster Using Docker
 
 ### Introduction
-In this guide, we'll walk through the process of setting up an Apache Hadoop cluster using Docker containers. This setup is ideal for development and testing purposes on your local machine. We'll cover the configuration files, container setup, and how to verify that the cluster is functioning correctly.
+In this guide, I'll walk through the process of setting up an Apache Hadoop cluster using Docker containers. This setup is ideal for development and testing purposes on your local machine. I'll cover the configuration files, container setup, and how to verify that the cluster is functioning correctly.
 
 **For busy people:**
 
