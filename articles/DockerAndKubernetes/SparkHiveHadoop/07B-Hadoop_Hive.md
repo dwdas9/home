@@ -1,20 +1,20 @@
 ---
 layout: default
-title: Hadoop-Hive-1Node
+title: Hadoop-Hive-SingleNode
 parent: Docker
 nav_order: 7
 ---
-- [End-to-End Tutorial for Installing Hadoop and Hive in a Docker Container](#end-to-end-tutorial-for-installing-hadoop-and-hive-in-a-docker-container)
-  - [Step 1: Download Hadoop and Hive](#step-1-download-hadoop-and-hive)
-  - [Step 2: Prepare the Configuration Files](#step-2-prepare-the-configuration-files)
-  - [Step 3: Create the Dockerfile](#step-3-create-the-dockerfile)
-  - [Step 4: Build the Docker Image](#step-4-build-the-docker-image)
-  - [Step 5: Create and Connect to the Docker Network](#step-5-create-and-connect-to-the-docker-network)
-  - [Step 6: Run the Docker Container](#step-6-run-the-docker-container)
+- [End-to-End Tutorial for Installing Hadoop and Hive in a Single Docker Container](#end-to-end-tutorial-for-installing-hadoop-and-hive-in-a-single-docker-container)
+- [Step 1: Download Hadoop and Hive](#step-1-download-hadoop-and-hive)
+- [Step 2: Prepare the Configuration Files](#step-2-prepare-the-configuration-files)
+- [Step 3: Create the Dockerfile](#step-3-create-the-dockerfile)
+- [Step 4: Build the Docker Image](#step-4-build-the-docker-image)
+- [Step 5: Create and Connect to the Docker Network](#step-5-create-and-connect-to-the-docker-network)
+- [Step 6: Run the Docker Container](#step-6-run-the-docker-container)
 - [Testing the Hadoop and Hive Setup](#testing-the-hadoop-and-hive-setup)
 - [Notes:](#notes)
 - [Error Handling and Troubleshooting](#error-handling-and-troubleshooting)
-  - [Common Errors and Resolutions](#common-errors-and-resolutions)
+- [Common Errors and Resolutions](#common-errors-and-resolutions)
 - [User `dwdas`](#user-dwdas)
 - [Important Locations and Variables for Hadoop and Hive Setup in Docker](#important-locations-and-variables-for-hadoop-and-hive-setup-in-docker)
 - [Summary](#summary)
@@ -22,11 +22,11 @@ nav_order: 7
 
 ![](images/custom-image-2024-06-17-01-54-52.png)
 
-### End-to-End Tutorial for Installing Hadoop and Hive in a Docker Container
+## End-to-End Tutorial for Installing Hadoop and Hive in a Single Docker Container
 
-This tutorial will guide you through the process of setting up a Docker container with Hadoop and Hive, downloaded from the official Apache websites. 
+This tutorial I'll guide you through the process of setting up a Docker container with Hadoop and Hive, downloaded from the official Apache websites. 
 
-#### Step 1: Download Hadoop and Hive
+## Step 1: Download Hadoop and Hive
 
 Download the following files from the Apache official websites:
 
@@ -35,7 +35,7 @@ Download the following files from the Apache official websites:
 
 Place these files in a directory where you will create your Dockerfile and configuration files.
 
-#### Step 2: Prepare the Configuration Files
+## Step 2: Prepare the Configuration Files
 
 Create the five .xml files in the same folder with the contents below (`core-site.xml`, `hdfs-site.xml`, `mapred-site.xml`, `yarn-site.xml`, `hive-site.xml`).
 
@@ -109,7 +109,7 @@ Create the five .xml files in the same folder with the contents below (`core-sit
 </configuration>
 ```
 
-#### Step 3: Create the Dockerfile
+## Step 3: Create the Dockerfile
 
 Create a Dockerfile in the same directory where you have placed the Hadoop and Hive tar.gz files.
 
@@ -188,7 +188,7 @@ CMD rm -rf /metastore_db && \
     /bin/bash
 ```
 
-#### Step 4: Build the Docker Image
+## Step 4: Build the Docker Image
 
 Navigate to the directory containing your Dockerfile and run the following command to build the Docker image:
 
@@ -196,7 +196,7 @@ Navigate to the directory containing your Dockerfile and run the following comma
 docker build -t hadoop-hive-single-node .
 ```
 
-#### Step 5: Create and Connect to the Docker Network
+## Step 5: Create and Connect to the Docker Network
 
 Ensure that the network `spark-network` exists. If not, create it:
 
@@ -204,7 +204,7 @@ Ensure that the network `spark-network` exists. If not, create it:
 docker network create spark-network
 ```
 
-#### Step 6: Run the Docker Container
+## Step 6: Run the Docker Container
 
 Run the Docker container with the appropriate port mappings and connect it to the `spark-network`:
 
@@ -212,7 +212,7 @@ Run the Docker container with the appropriate port mappings and connect it to th
 docker run -it --network spark-network -p 60070:50070 -p 6088:8088 -p 11000:10000 -p 11002:10002 hadoop-hive-single-node
 ```
 
-### Testing the Hadoop and Hive Setup
+## Testing the Hadoop and Hive Setup
 
 The table below shows some important test for the Hadoop and Hive setup:
 
@@ -228,17 +228,17 @@ The table below shows some important test for the Hadoop and Hive setup:
 |                            | Create and query a Hive table                 | ```sql<br>CREATE TABLE test_table (id INT, name STRING);<br>INSERT INTO test_table (id, name) VALUES (1, 'Alice'), (2, 'Bob');<br>SELECT * FROM test_table;<br>``` | Create a table and perform a query in the Hive CLI.                             |
 | **Access HiveServer2**     | Test HiveServer2 connection                   | `beeline -u jdbc:hive2://localhost:10000`                                                  | Use Beeline to connect to HiveServer2 and run queries.                          |
 
-### Notes:
+## Notes:
 - **Start Docker Container**: Ensure that the container is running with the specified network and port mappings.
 - **Verify HDFS**: Check the HDFS status, browse the NameNode web interface, and create a directory in HDFS to ensure HDFS is operational.
 - **Verify YARN**: Check the YARN status and access the ResourceManager web interface to ensure YARN is running correctly.
 - **Verify Hive**: Start the Hive CLI, create and query a table to ensure Hive is working, and test the HiveServer2 connection using Beeline.
 
-### Error Handling and Troubleshooting
+## Error Handling and Troubleshooting
 
 In this section, we’ll cover some common errors you might encounter during the setup process and how to resolve them.
 
-#### Common Errors and Resolutions
+## Common Errors and Resolutions
 
 1. **Port Binding Error**:
    - **Error**: `Ports are not available: exposing port TCP 0.0.0.0:50070 -> 0.0.0.0:0: listen tcp 0.0.0.0:50070: bind: An attempt was made to access a socket in a way forbidden by its access permissions.`
@@ -278,7 +278,7 @@ In this section, we’ll cover some common errors you might encounter during the
    - **Error**: `SLF4J: Class path contains multiple SLF4J bindings.`
    - **Resolution**: This is typically a warning rather than an error. It indicates multiple SLF4J bindings in the classpath. This can usually be ignored, but if it causes issues, you might need to clean up the classpath by removing conflicting SLF4J jars.
 
-### User `dwdas`
+## User `dwdas`
 
 In this setup, a non-root user `dwdas` is created to run Hadoop and Hive services. This approach follows best practices for running services in a secure and controlled environment.
 
@@ -302,7 +302,7 @@ In this setup, a non-root user `dwdas` is created to run Hadoop and Hive service
   RUN $HADOOP_HOME/bin/hdfs namenode -format
   ```
 
-### Important Locations and Variables for Hadoop and Hive Setup in Docker
+## Important Locations and Variables for Hadoop and Hive Setup in Docker
 
 | **Category**                  | **Variable/Location**                  | **Value/Description**                                                                                 |
 |-------------------------------|----------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -327,7 +327,7 @@ In this setup, a non-root user `dwdas` is created to run Hadoop and Hive service
 |                               | `YARN_RESOURCEMANAGER_USER`            | `dwdas` - User running the YARN ResourceManager service                                               |
 |                               | `YARN_NODEMANAGER_USER`                | `dwdas` - User running the YARN NodeManager service                                                   |
 
-### Summary
+## Summary
 
 1. Download Hadoop and Hive.
 2. Creae the necessary configuration files.
