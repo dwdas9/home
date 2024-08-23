@@ -137,3 +137,10 @@ The connection to SQL Server failed with the error: `The certificate chain was i
 
 #### <span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Resolution:</span>
 To resolve this, add `trust_cert: true` to your `profiles.yml` file. This will bypass the SSL certificate validation error and allow dbt to connect to SQL Server.
+
+
+# <span style="color: #7A3DAA; font-family: Segoe UI, sans-serif;">Connect Local dbt with spark</span>
+
+
+Further reading
+https://github.com/dbt-labs/dbt-spark

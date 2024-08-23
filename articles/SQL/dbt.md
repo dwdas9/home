@@ -10,7 +10,7 @@ has_children: true
 
 dbt stands for data built tool. It's a tool to run SQL as workflows. It's almost all-SQL.
 
-**dbt is the T in ELT.**
+**dbt is the T in ELT.** When you use dbt the data is already present in the final destination.
 
 ## Why dbt?
 
