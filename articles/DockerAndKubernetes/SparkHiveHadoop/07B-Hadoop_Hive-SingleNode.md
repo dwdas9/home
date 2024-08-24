@@ -4,7 +4,7 @@ title: Hadoop-Hive-SingleNode
 parent: Docker
 nav_order: 7
 ---
-- [End-to-End Tutorial for Installing Hadoop and Hive in a Single Docker Container](#end-to-end-tutorial-for-installing-hadoop-and-hive-in-a-single-docker-container)
+- [Hive And Hadoop Single Node](#hive-and-hadoop-single-node)
   - [Step 1: Download Hadoop and Hive](#step-1-download-hadoop-and-hive)
   - [Step 2: Prepare the Configuration Files](#step-2-prepare-the-configuration-files)
   - [Step 3: Create the Dockerfile](#step-3-create-the-dockerfile)
@@ -18,12 +18,9 @@ nav_order: 7
   - [Common Errors and Resolutions](#common-errors-and-resolutions)
   - [User `dwdas`](#user-dwdas)
   - [Important Locations and Variables for Hadoop and Hive Setup in Docker](#important-locations-and-variables-for-hadoop-and-hive-setup-in-docker)
-  - [Summary](#summary)
 
 
-![](images/custom-image-2024-06-17-01-54-52.png)
-
-# End-to-End Tutorial for Installing Hadoop and Hive in a Single Docker Container
+# Hive And Hadoop Single Node
 
 This tutorial I'll guide you through the process of setting up a Docker container with Hadoop and Hive, downloaded from the official Apache websites. 
 
@@ -249,6 +246,12 @@ and
 $HIVE_HOME/bin/hive --service hiveserver2 &
 ```
 
+**Hive Logs**
+
+Very important Location shows teh hvie logs.
+```bash
+cat /tmp/root/hive.log
+```
 # Testing the Hadoop and Hive Setup
 
 The table below shows some important test for the Hadoop and Hive setup:
@@ -363,12 +366,3 @@ In this setup, a non-root user `dwdas` is created to run Hadoop and Hive service
 |                               | `HDFS_SECONDARYNAMENODE_USER`          | `dwdas` - User running the Hadoop Secondary NameNode service                                          |
 |                               | `YARN_RESOURCEMANAGER_USER`            | `dwdas` - User running the YARN ResourceManager service                                               |
 |                               | `YARN_NODEMANAGER_USER`                | `dwdas` - User running the YARN NodeManager service                                                   |
-
-## Summary
-
-1. Download Hadoop and Hive.
-2. Creae the necessary configuration files.
-3. Create a Dockerfile and place it in the same directory as the downloaded files.
-4. Build the Docker image.
-5. Create a Docker network (if it doesn’t exist).
-6. Run the Docker container, mapping the necessary ports and connecting it to the network.
