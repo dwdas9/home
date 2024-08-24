@@ -11,6 +11,7 @@ nav_order: 7
   - [Step 4: Build the Docker Image](#step-4-build-the-docker-image)
   - [Step 5: Create and Connect to the Docker Network](#step-5-create-and-connect-to-the-docker-network)
   - [Step 6: Run the Docker Container](#step-6-run-the-docker-container)
+  - [Very Important Steps](#very-important-steps)
 - [Testing the Hadoop and Hive Setup](#testing-the-hadoop-and-hive-setup)
   - [Notes](#notes)
   - [Error Handling and Troubleshooting](#error-handling-and-troubleshooting)
@@ -210,6 +211,42 @@ Run the Docker container with the appropriate port mappings and connect it to th
 
 ```sh
 docker run -it --network dasnet -p 60070:50070 -p 6088:8088 -p 11000:10000 -p 11002:10002 hadoop-hive-single-node
+```
+
+## Very Important Steps
+
+After starting the container. Some of the services will not run. You need to run them manually
+
+**Start the namenode**
+```sh
+$HADOOP_HOME/sbin/hadoop-daemon.sh start namenode
+```
+**Start the datanode**
+
+```sh
+$HADOOP_HOME/sbin/hadoop-daemon.sh start datanode
+```
+
+Enter `jps` in the terminal. You should see the two services
+
+![](images/2024-08-24-02-51-36.png)
+
+Then run
+```sh
+hdfs dfsadmin -report
+```
+You shuould see a report like this:
+![](images/2024-08-24-02-56-50.png) 
+
+Then you will have to start the hive metastore
+
+```sh
+$HIVE_HOME/bin/hive --service metastore &
+```
+and
+
+```sh
+$HIVE_HOME/bin/hive --service hiveserver2 &
 ```
 
 # Testing the Hadoop and Hive Setup
