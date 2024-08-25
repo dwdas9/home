@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hadoop-7Nodes
+title: Hadoop-Cluster-7Nodes
 parent: Docker
 nav_order: 7
 ---
@@ -261,3 +261,7 @@ Remember to convert any scripts created on Windows to Unix format before using t
 | **HistoryServer Web UI**   | `http://localhost:29866`                              | Access URL for MapReduce Job HistoryServer Web UI from the host machine.                         |
 | **HDFS Input Directory**   | `/input` in HDFS                                      | Directory where input files for MapReduce jobs are stored in HDFS.                               |
 | **HDFS Output Directory**  | `/output` in HDFS                                     | Directory where output files from MapReduce jobs are stored in HDFS.                             |
+
+### Reference
+
+[Official Hadoop Link](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html)

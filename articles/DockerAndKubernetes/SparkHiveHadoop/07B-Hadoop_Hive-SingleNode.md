@@ -113,7 +113,7 @@ Create a Dockerfile in the same directory where you have placed the Hadoop and H
 
 **Dockerfile**:
 ```Dockerfile
-# Use a base image with Java
+# Use a base image with Java. Hive/Hadoop works only with java8
 FROM openjdk:8-jdk
 
 # Set environment variables
