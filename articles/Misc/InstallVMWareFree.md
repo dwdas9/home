@@ -40,3 +40,15 @@ nav_order: 1
    - After installation, open the software, select 'personal use', and you're all set to create VM images!
 
    ![VM Creation](images/2024-08-25-12-13-15.png)
+
+# Install and use Linux OS
+
+Download Ubuntu Linux. Its free on their website. It will be dowloaded as `ubuntu-24.04-desktop-amd64.iso` or some other version.
+
+Then Use the VMWare workstation to create the image
+
+![](images/2024-08-25-13-21-25.png)
+
+![](images/2024-08-25-12-43-43.png)
+
+![](images/2024-08-25-12-42-39.png)
