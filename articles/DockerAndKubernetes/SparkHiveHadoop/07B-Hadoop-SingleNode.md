@@ -25,28 +25,29 @@ If you create a .sh file or any file on Windows and plan to use it in Linux, mak
 
 
 
-   - Download the [hadoop-singlenode.zip](Dockerfiles/hadoop-singlenode.zip) file.
-   - Unzip it to a folder on your laptop.
-   - Open command prompt/terminal and cd to the folder where you unziped the files
-  
-  ```bash
-    cd path_to_unzipped_folder
-  ```
-   - Build the doccker image from the Dockerfile. There is a **dot**
-   ```bash
-   docker build -t hadoop-singlenode .
-   ```
-   - Run the container from the built image
-   ```bash
- docker run -it --name hadoop-singlenode --network dasnet -p 9870:9870 -p 8088:8088 -v namenode-data:/hadoop/dfs/namenode  -v datanode-data:/hadoop/dfs/datanode -v secondarynamenode-data:/hadoop/dfs/secondarynamenode  hadoop-singlenode
-   ```
-  - From inside the running container, start the Hadoop services:
+- Download the [hadoop-singlenode.zip](Dockerfiles/hadoop-singlenode.zip) file.
+- Unzip it to a folder on your laptop.
+- Open command prompt/terminal and cd to the folder where you unziped the files
 
-   ```bash
-   sudo service ssh start
-   $HADOOP_HOME/sbin/start-dfs.sh
-   $HADOOP_HOME/sbin/start-yarn.sh
-   ```
+    ```bash
+    cd path_to_unzipped_folder
+    ```
+- Build the doccker image from the Dockerfile. There is a **dot**
+    ```bash
+    docker build -t hadoop-singlenode .
+    ```
+- Run the container from the built image
+
+    ```bash
+    docker run -it --name hadoop-singlenode --network dasnet -p 9870:9870 -p 8088:8088 -v namenode-data:/hadoop/dfs/namenode  -v datanode-data:/hadoop/dfs/datanode -v secondarynamenode-data:/hadoop/dfs/secondarynamenode  hadoop-singlenode
+    ```
+- From inside the running container, start the Hadoop services:
+
+    ```bash
+    sudo service ssh start
+    $HADOOP_HOME/sbin/start-dfs.sh
+    $HADOOP_HOME/sbin/start-yarn.sh
+    ```
 ### <span style="color: #963F9C; font-family: Segoe UI, sans-serif;">Check the setup</span>
   - Once the services are up you can access the Hadoop links:
      - **HDFS NameNode Web UI:** http://localhost:9870
@@ -217,12 +218,12 @@ The setup uses 6 files, `Dockerfile`, `core-site.xml`, `hdfs-site.xml`, `mapred-
     ```
 
 
-- **hadoop-env.sh:** I haven’t included this entire file because it’s large, and there’s only **one change** you need to make. Refer to the `hadoop-env.sh` file in the zip folder. The only modification required is:
+- **hadoop-env.sh:** I haven’t included this entire file because it’s large, and there’s only **one change** you need to make. Refer to the `hadoop-env.sh` file in the zip folder. The only modification required is shown below. Note: This step is crucial. Without this, Hadoop will give an error saying it can’t find `JAVA_HOME`, even if you’ve already set it as an environment variable. This change follows Apache's instructions.
 
-```bash
-export JAVA_HOME=/usr/local/openjdk-8
-```
-This step is crucial. Without this, Hadoop will give an error saying it can’t find `JAVA_HOME`, even if you’ve already set it as an environment variable. This change follows Apache's instructions.
+
+    ```bash
+    export JAVA_HOME=/usr/local/openjdk-8
+    ```
 
 ### <span style="color: #963F9C; font-family: Segoe UI, sans-serif;">Building, Running, and Testing the Setup</span>
 
@@ -273,25 +274,24 @@ The table below shows how various components and functionalities could be tested
 ## <span style="color: #AD49B3; font-family: Segoe UI, sans-serif;">Appendix</span>
 
 - **Alternate command - Start the Namenode**
-```sh
-$HADOOP_HOME/sbin/hadoop-daemon.sh start namenode
-```
+    ```sh
+    $HADOOP_HOME/sbin/hadoop-daemon.sh start namenode
+    ```
 - **Alternate command - Start the Datanode**
-```sh
-$HADOOP_HOME/sbin/hadoop-daemon.sh start datanode
-```
+    ```sh
+    $HADOOP_HOME/sbin/hadoop-daemon.sh start datanode
+    ```
 
 - **Enter `jps` to see all the hadoop services**
 
-<img src="images/2024-08-24-02-51-36.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <img src="images/2024-08-24-02-51-36.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 - **Command to get a report on the Hadoop setup**
-```sh
-hdfs dfsadmin -report
-```
-The report looks like this:
 
-<img src="images/2024-08-24-02-56-50.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    ```sh
+    hdfs dfsadmin -report
+    ```
+    <img src="images/2024-08-24-02-56-50.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 ## <span style="color: #AD49B3; font-family: Segoe UI, sans-serif;">Common Errors and Their Solutions</span>
 
