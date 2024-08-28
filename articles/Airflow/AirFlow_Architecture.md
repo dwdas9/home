@@ -1,4 +1,4 @@
-What is Airflow(AirBnB + Workflow?
+What is Airflow(AirBnB + Workflow)?
 
 Open source **linux-based** workflow engine. Its essentially a job scheduler. But, a very complex job scheduler. The main idea behind Airflow is defining a workflow using a DAG.
 
