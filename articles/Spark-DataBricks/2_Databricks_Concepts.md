@@ -16,6 +16,36 @@ has_children: true
 </details>
 
 
+# What is databricks?
+
+Databricks is like repackaged Apache Spark with some extra goodies inside the box. You can’t use Databricks on its own—you always have to start it from within Azure, GCP, or AWS. When you use Databricks, it uses your Azure subscription and resources like Azure VMs, Azure Storage, network and secuirty, to set up a Spark environment in the background. So, everything runs on your Azure account. You don’t get a separate bill from Databricks; you just pay your regular Azure bill, and the money is split between Databricks and Microsoft.
+
+>Fun fact. All Databricks Spark cluster is created inside Azure. Azure manages it using Azure Kubernetes Service.
+
+Now, when I say Databricks is Spark with some extra features, here’s what I mean:
+
+- **Databricks Runtime**: This is Spark, but it’s been made faster with some `Databricks engine oil`.
+- **Databricks Workflows**: This is a special feature from Databricks that you won’t find in open-source Spark.
+- **Databricks Workspace**: This is like the main dashboard, and it’s completely from Databricks.
+
+Databricks is like a branded bottled water where the content, water, is open-source, but you still pay extra for the assurance and conveneince. Also, Databricks works like Uber—it uses Azure, GCP, etc.’s infrastructure and charges a fancy service fee.
+
+If you don’t want Databricks and prefer to stick to open-source, you can have your own cluster (on-prem or on Azure VMs), use Azure HDInsight (a bit of management and extra features from Microsoft, but just Microsoft, no other party), or Google Dataproc (similar to Microsoft).
+
+# Architecture of Azure Databricks Spark Cluster
+
+There are drivers/masters and workers/slaves. So how does the Driver look like? Eh. The your spark notebook is the driver. It contains the main progreamms which make use of workers.
+
+Driver
+Worker
+Jobs
+Task
+Slot
+
+Every cluseter has **Only One Driver** JVM and multiple Executor JVMs
+
+# 
+
 # Databricks Architecture
 - **Control Plane**: This is where all the management happens. It includes the Databricks web app, Unity Catalog, Cluster Manager, Workflow Manager, Jobs, Notebooks, etc. Think of it as the control center where you manage everything.
 
@@ -25,7 +55,7 @@ has_children: true
 
 - **Personas**: This is the look and feel of your Databricks web UI. There are different personas like Data Science and Engineering, Analyst, and Practitioner, each giving you a different experience based on what you do.
 
-> Databricks is like the **Uber of Apache Spark**. It doesn't own any servers; it just runs on the cloud with your subscription. Both Databricks and Microsoft/Google takes a cut from the bill :-) Well played, Databricks—take open-source, add some sauce, use cloud infrastructure, and make money! Honestly, running a Spark cluster on HDInsight is way more cost-effective. At least there, you're not paying extra for the open-source and that Databricks sauce.
+
 
 
 ## Databricks Clusters

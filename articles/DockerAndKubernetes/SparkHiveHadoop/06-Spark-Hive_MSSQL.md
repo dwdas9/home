@@ -176,6 +176,8 @@ Setting up the Hive server can be very tricky. I used the official Apache Hive i
 
 ### Hive-MSSQL Connection
 
+![](images/2024-08-27-12-03-56.png)
+
 Apache Hive containers usually use a startup script called '/entrypoint.sh'. This script is set to use **Derby**(*${DB_DRIVER:=derby}*) database by default. To use MSSQL instead:
 
 1. Change the DB_DRIVER environment variable to 'mssql'.
