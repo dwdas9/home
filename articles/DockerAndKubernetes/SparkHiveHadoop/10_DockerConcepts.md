@@ -14,6 +14,7 @@ nav_order: 10
 - [Backup entire docker to your laptop](#backup-entire-docker-to-your-laptop)
   - [Save Docker Containers, Images, and Volumes on Mac/Linux](#save-docker-containers-images-and-volumes-on-maclinux)
   - [Save Docker Containers, Images, and Volumes on Windows](#save-docker-containers-images-and-volumes-on-windows)
+- [Docker common errors](#docker-common-errors)
 
 
 
@@ -182,3 +183,16 @@ To back up Docker containers, images, and volumes on Windows, follow these steps
 This way you can back up all your Docker containers, images, and volumes to the current folder.
 
 ![](images/custom-image-2024-06-24-13-59-03.png)
+
+
+# Docker common errors
+
+`HTTP code 500) server error - Ports are not available: exposing port TCP 0.0.0.0:50070 -> 0.0.0.0:0: listen tcp 0.0.0.0:50070: bind: An attempt was made to access a socket in a way forbidden by its access permissions.`
+
+Execute command
+
+```bash
+net stop winnat
+docker start <full container name>
+net start winnat
+```
