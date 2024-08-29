@@ -96,6 +96,8 @@ To login open [http://localhost:8080](http://localhost:8080) and enter credentia
 
     <img src="images/image-4.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
+> Note: airflow-init-1, init container will exit after initialization. This is the expected, normal, beheviour. Don't panic.
+
 - Open `localhost:8080` in a web browser.
 - Log in with the username and password: `airflow`.
     <img src="images/image-5.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
