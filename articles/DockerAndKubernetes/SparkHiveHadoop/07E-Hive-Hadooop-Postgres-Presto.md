@@ -262,4 +262,58 @@ spark.sql("SHOW DATABASES").show()
 
 ## Further reading
 
+### Create the first project
+
+Download the keggel [dataset](https://www.kaggle.com/datasets/manjeetsingh/retaildataset/data) to a folder retailkegraw
+Copy the folder to the container /home/dwdas
+
+
+Frst create a virtual enviornment. It resolves many permission issues and makes work very smooth. It's not just an improvement it helps work with pyspark easier.
+
+mv C:\Users\dwaip\Desktop\retailkegraw master:/home/dwdas
+
+**dwdas@1478d9ddd5d8:**`/home/dwdas$ python -m venv keglrtl-venv`
+
+source keglrtl-venv/bin/activate
+
 https://medium.com/@madtopcoder/putting-hadoop-hive-and-spark-together-for-the-first-time-bf44262575bd
+
+
+
+| **Error** | **Description** | **Possible Reason** | **How to Troubleshoot** | **Resolution** |
+|-----------|-----------------|---------------------|-------------------------|----------------|
+| `SparkClassNotFoundException: [DATA_SOURCE_NOT_FOUND] Failed to find the data source: delta` | Spark could not find the Delta Lake source. | Missing Delta Lake libraries or incorrect configuration. | Ensure Delta Lake is installed and correctly configured in the Spark session. | Installed `delta-spark` and configured Spark with the appropriate Delta Lake JARs. |
+| `java.io.FileNotFoundException: /opt/bitnami/spark/.ivy2/cache/resolved-org.apache.spark-spark-submit-parent...` | Spark was unable to write to the Ivy cache directory. | Permission issues in the directory. | Check and adjust directory permissions or set a custom Ivy cache directory. | Adjusted permissions or set a custom Ivy cache directory with write permissions. |
+| `Permission denied: '/.local/lib'` | Insufficient permissions to install Python packages globally. | Trying to install packages globally without sufficient privileges. | Use `pip install --user` or run with `sudo -H`. | Installed with `--user` flag or `sudo -H`. |
+| `java.lang.NoClassDefFoundError: scala/collection/SeqOps` | A Scala version mismatch where a dependency required Scala 2.13. | Using libraries compiled with Scala 2.13 with Spark compiled for Scala 2.12. | Ensure all libraries match Scala 2.12 and clear any Scala 2.13 JARs. | Used Scala 2.12-compatible Delta Lake JARs and cleared cached Scala 2.13 JARs. |
+| `java.lang.NoClassDefFoundError: scala/collection/IterableOnce` | Another Scala version mismatch due to Scala 2.13 libraries. | Similar to the SeqOps error; mixing Scala 2.13 libraries with a Scala 2.12 Spark environment. | Check library versions, ensure consistency, and clear any Scala 2.13 dependencies. | Aligned all dependencies with Scala 2.12 and cleared conflicting JARs. |
+| `Py4JJavaError: An error occurred while calling o37.applyModifiableSettings.` | Spark encountered issues applying settings due to a version mismatch. | Likely caused by using incompatible versions of libraries or JARs. | Review and match versions of all libraries with Spark’s Scala version. | Ensured correct Delta Lake version for Scala 2.12 and cleared cache. |
+| `Cannot use io.delta.sql.DeltaSparkSessionExtension to configure session extensions.` | Spark was unable to use Delta Lake extensions. | Incorrect or missing dependencies, likely due to Scala version mismatch. | Ensure the Delta Lake JAR matches the Scala version used by Spark. | Used the correct Delta Lake JARs for Scala 2.12 and Spark 3.5.2. |
+| `rm -rf ~/.ivy2/cache/io.delta` <br> `rm -rf ~/.ivy2/jars/io.delta` <br> `rm -rf ~/.m2/repository/io/delta` | Commands used to clear cached JAR files. | Old or conflicting cached dependencies causing version conflicts. | Clear Ivy or Maven cache to remove outdated or conflicting JARs. | Removed cached JARs to prevent conflicts and ensure fresh downloads. |
+
+```python
+
+from pyspark.sql import SparkSession
+from delta import configure_spark_with_delta_pip
+
+# Build the Spark session with Delta Lake support
+# - config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension"): Adds Delta Lake SQL extensions to Spark, allowing it to recognize and work with Delta Lake features.
+# - config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog"): Configures Spark to use Delta Lake as the default catalog for managing tables.
+# - config("spark.jars.packages", "io.delta:delta-core_2.12:2.3.0"): Specifies the Maven coordinates for the Delta Lake library compatible with Scala 2.12 and Spark 3.5.2. This ensures the necessary Delta Lake JARs are included in the Spark session.
+builder = SparkSession.builder.appName("DeltaTutorial") \
+    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
+    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
+    .config("spark.jars.packages", "io.delta:delta-core_2.12:2.3.0")
+
+# Set up Spark to work with Delta Lake
+# - configure_spark_with_delta_pip(builder): This function from Delta Lake makes sure Spark is ready to use Delta features.
+spark = configure_spark_with_delta_pip(builder).getOrCreate()
+
+spark.sparkContext.setLogLevel("ERROR")
+df = spark.createDataFrame(data, ["id", "value"])
+
+# - save("/tmp/delta-table"): Specifies the location where the Delta table will be saved. In this case, it's saved in the `/tmp/delta-table` directory.
+df.write.format("delta").mode("overwrite").save("/tmp/delta-table")
+df_read = spark.read.format("delta").load("/tmp/delta-table")
+df_read.show()
+```

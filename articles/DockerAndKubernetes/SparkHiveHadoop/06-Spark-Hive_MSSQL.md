@@ -265,9 +265,6 @@ spark.sql.warehouse.dir=/data/spark-warehouse
     </description>
   </property>
 ```
-
-
-
 ## Repository and Metastore Folder Creation
 
 We have two options to decide on the folder structure:
