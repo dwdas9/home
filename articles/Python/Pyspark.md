@@ -7,6 +7,7 @@ has_children: true
 ---
 
 - [Get all session information](#get-all-session-information)
+  - [Analyse a dataframe](#analyse-a-dataframe)
 - [Common df operations - Part 1](#common-df-operations---part-1)
 - [Common df operations - Part 2](#common-df-operations---part-2)
   - [`withColumn` and `withColumnRenamed` in PySpark](#withcolumn-and-withcolumnrenamed-in-pyspark)
@@ -55,6 +56,61 @@ print(f"Current working directory: {os.getcwd()}")
 print(f"User home directory: {os.path.expanduser('~')}")
 print(f"System PATH: {os.getenv('PATH')}")
 
+```
+
+## Analyse a dataframe
+
+```python
+# 1. Print the Schema
+df.printSchema()  # Displays the schema (column names, data types, nullability)
+
+# 2. Show the First Few Rows
+df.show(10, truncate=False)  # Displays the first 10 rows without truncating columns
+
+# 3. Describe the Data
+df.describe().show()  # Provides summary statistics for numeric columns
+
+# 4. Count the Number of Rows
+row_count = df.count()  # Returns the total number of rows
+print(f"Total number of rows: {row_count}")
+
+# 5. Check for Null Values
+from pyspark.sql.functions import isnull, when, count
+df.select([count(when(isnull(c), c)).alias(c) for c in df.columns]).show()  # Counts null values in each column
+
+# 6. Get Column Names
+columns = df.columns  # Returns a list of column names
+print(f"Column names: {columns}")
+
+# 7. Summary Statistics for All Columns
+df.summary().show()  # Provides summary statistics for all columns
+
+# 8. Distinct Values in a Column
+df.select("Invoice").distinct().show()  # Shows all distinct values in the "Invoice" column
+
+# 9. Data Types of Columns
+df.dtypes  # Returns a list of tuples with each column’s name and data type
+
+# 10. Display Summary Statistics for Specific Columns
+df.describe("Quantity", "Price").show()  # Summary stats for "Quantity" and "Price" columns
+
+# 11. Group and Aggregate Data
+df.groupBy("Country").count().show()  # Groups data by "Country" and counts occurrences
+
+# 12. Sample Data
+df.sample(0.1).show()  # Returns a 10% random sample of the DataFrame
+
+# 13. Check DataFrame Size
+row_count = df.count()
+column_count = len(df.columns)
+print(f"Number of rows: {row_count}, Number of columns: {column_count}")
+
+# 14. Drop Duplicates
+df.dropDuplicates(["InvoiceNo"]).show()  # Removes duplicate rows based on "InvoiceNo"
+
+# 15. Check DataFrame Memory Usage
+memory_usage = df.rdd.map(lambda row: len(str(row))).reduce(lambda a, b: a + b)
+print(f"Estimated memory usage: {memory_usage} bytes")
 ```
 
 # Common df operations - Part 1
@@ -142,6 +198,4 @@ print(f"System PATH: {os.getenv('PATH')}")
 | Conditional Column            | Add a column based on a condition        | `storesDF.withColumn("newColumn", when(col("conditionColumn") > 0, "Positive").otherwise("Negative"))`                                                                         |
 | Add Column from Expression    | Add a column from an expression          | `storesDF.withColumn("expressionColumn", col("columnA") + col("columnB"))`                                                                                                     |
 | Drop Column                   | Drop a column                            | `storesDF.drop("columnToDrop")`                                                                                                                                               |
-| Add Column with SQL Expression| Add a column using SQL expression        | `storesDF.withColumn("newColumn", expr("existingColumn + 1"))`                                                                                                                 |
-
-
+| Add Column with SQL Expression| Add a column using SQL expression        | `storesDF.withColumn("newColumn", expr("existingColumn + 1"))`                                                                                                                 

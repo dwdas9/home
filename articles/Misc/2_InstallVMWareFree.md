@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Markdown
-parent: VMWare Workstation For Free
-nav_order: 1
+title: VMWare For Free
+parent: Misc Articles
+nav_order: 2
 ---
 
 # How to Download and Install VMware Workstation Pro from Broadcom And Use for Free!

@@ -1,3 +1,10 @@
+---
+layout: default
+title: Visual Studio Code Tricks
+parent: Misc Articles
+nav_order: 4
+---
+
 1. Replace all .png files with images\.png
 
 !\[([^\]]*)\]\(([^\/]+\.png)\)
