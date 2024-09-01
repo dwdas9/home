@@ -62,55 +62,67 @@ print(f"System PATH: {os.getenv('PATH')}")
 
 ```python
 # 1. Print the Schema
+print("# 1. Schema of the DataFrame:")
 df.printSchema()  # Displays the schema (column names, data types, nullability)
 
 # 2. Show the First Few Rows
+print("\n# 2. First 10 Rows of the DataFrame:")
 df.show(10, truncate=False)  # Displays the first 10 rows without truncating columns
 
 # 3. Describe the Data
+print("\n# 3. Summary Statistics for Numeric Columns:")
 df.describe().show()  # Provides summary statistics for numeric columns
 
 # 4. Count the Number of Rows
 row_count = df.count()  # Returns the total number of rows
-print(f"Total number of rows: {row_count}")
+print(f"\n# 4. Total Number of Rows: {row_count}")
 
 # 5. Check for Null Values
 from pyspark.sql.functions import isnull, when, count
+print("\n# 5. Number of Null Values in Each Column:")
 df.select([count(when(isnull(c), c)).alias(c) for c in df.columns]).show()  # Counts null values in each column
 
 # 6. Get Column Names
 columns = df.columns  # Returns a list of column names
-print(f"Column names: {columns}")
+print(f"\n# 6. Column Names: {columns}")
 
 # 7. Summary Statistics for All Columns
+print("\n# 7. Summary Statistics for All Columns:")
 df.summary().show()  # Provides summary statistics for all columns
 
 # 8. Distinct Values in a Column
+print("\n# 8. Distinct Values in the 'Invoice' Column:")
 df.select("Invoice").distinct().show()  # Shows all distinct values in the "Invoice" column
 
 # 9. Data Types of Columns
-df.dtypes  # Returns a list of tuples with each column’s name and data type
+print("\n# 9. Data Types of Each Column:")
+print(df.dtypes)  # Returns a list of tuples with each column’s name and data type
 
 # 10. Display Summary Statistics for Specific Columns
+print("\n# 10. Summary Statistics for 'Quantity' and 'Price' Columns:")
 df.describe("Quantity", "Price").show()  # Summary stats for "Quantity" and "Price" columns
 
 # 11. Group and Aggregate Data
+print("\n# 11. Group and Count by 'Country':")
 df.groupBy("Country").count().show()  # Groups data by "Country" and counts occurrences
 
 # 12. Sample Data
+print("\n# 12. Random 10% Sample of the DataFrame:")
 df.sample(0.1).show()  # Returns a 10% random sample of the DataFrame
 
 # 13. Check DataFrame Size
 row_count = df.count()
 column_count = len(df.columns)
-print(f"Number of rows: {row_count}, Number of columns: {column_count}")
+print(f"\n# 13. Number of Rows: {row_count}, Number of Columns: {column_count}")
 
 # 14. Drop Duplicates
+print("\n# 14. DataFrame After Dropping Duplicates Based on 'InvoiceNo':")
 df.dropDuplicates(["InvoiceNo"]).show()  # Removes duplicate rows based on "InvoiceNo"
 
 # 15. Check DataFrame Memory Usage
 memory_usage = df.rdd.map(lambda row: len(str(row))).reduce(lambda a, b: a + b)
-print(f"Estimated memory usage: {memory_usage} bytes")
+print(f"\n# 15. Estimated Memory Usage: {memory_usage} bytes")
+
 ```
 
 # Common df operations - Part 1
