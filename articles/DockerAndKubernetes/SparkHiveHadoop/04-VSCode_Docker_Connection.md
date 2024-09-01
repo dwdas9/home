@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Connect VS Code To Docker
+title: Visual Studio-Docker_Connection
 parent: Docker
-nav_order: 2
+nav_order: 4
 ---
 
 - [Connect to docker container from Visual Studio Code](#connect-to-docker-container-from-visual-studio-code)

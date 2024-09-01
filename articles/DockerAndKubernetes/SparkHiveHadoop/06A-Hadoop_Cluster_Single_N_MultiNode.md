@@ -2,7 +2,7 @@
 layout: default
 title: Hadoop-Cluster-Single-And-MultiNode
 parent: Docker
-nav_order: 7
+nav_order: 6
 ---
 - [Create a Seven-Node Hadoop Container on Docker](#create-a-seven-node-hadoop-container-on-docker)
   - [Introduction](#introduction)

@@ -2,7 +2,7 @@
 layout: default
 title: Debian_PySpark
 parent: Docker
-nav_order: 5
+nav_order: 2
 ---
 - [Debian OS + Downloaded Python + Pyspark - no venv.](#debian-os--downloaded-python--pyspark---no-venv)
   - [Steps to Create the Image and Container](#steps-to-create-the-image-and-container)
