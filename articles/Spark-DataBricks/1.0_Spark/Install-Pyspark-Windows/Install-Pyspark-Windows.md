@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Install Pyspark on Windows
-parent: Languages
+title: Install-PySpark-Windows
+parent: SparkConcepts
+grand_parent: Spark-Databricks
 ---
-
 ## Table of Contents
 - [Getting Started with Data Engineering: Key Installations of Java, Spark, \& Python PySpark](#getting-started-with-data-engineering-key-installations-of-java-spark--python-pyspark)
   - [Install Java \[Oracle JDK\]](#install-java-oracle-jdk)
