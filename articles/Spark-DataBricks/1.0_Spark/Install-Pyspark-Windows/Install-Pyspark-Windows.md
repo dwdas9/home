@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Install-PySpark-Windows
-parent: SparkConcepts
+parent: Spark
 grand_parent: Spark-Databricks
 ---
 ## Table of Contents
