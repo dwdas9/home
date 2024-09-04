@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Airflow On Docker
+title: Airflow
 parent: Docker
-nav_order: 9
+nav_order: 1
 ---
 
 ![](images/2024-08-19-23-48-34.png)
