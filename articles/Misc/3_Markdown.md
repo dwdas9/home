@@ -651,3 +651,65 @@ A tool for connecting and moving data between on-premises sources and Azure clou
 ###### <span style="color: #002E2E; font-family: Comic Sans MS, sans-serif;">"#002E2E; Font-family: Comic Sans MS, sans-serif;"</span>
 ```
 
+# How to use headers in markdown and still apply some style
+
+### Teal Style
+```html
+<h2 style="text-align: center; background-color: #008080; color: white; font-family: 'Segoe UI', sans-serif; padding: 15px 20px; border-radius: 10px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); border: 2px solid #005F5F; letter-spacing: 1px;">
+    Single-Node Bitnami Spark With Master and Worker
+</h2>
+```
+<h2 style="text-align: center; background-color: #008080; color: white; font-family: 'Segoe UI', sans-serif; padding: 15px 20px; border-radius: 10px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); border: 2px solid #005F5F; letter-spacing: 1px;">
+    Some text here bla bla bla
+</h2>
+
+
+### Light Blue Style
+```html
+<h2 style="text-align: center; background-color: #4682B4; color: white; font-family: 'Segoe UI', sans-serif; padding: 15px 20px; border-radius: 10px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); border: 2px solid #365f82; letter-spacing: 1px;">
+    Single-Node Bitnami Spark With Master and Worker
+</h2>
+```
+- **Background**: Steel Blue (`#4682B4`)
+- **Border**: Dark Steel Blue (`#365f82`)
+- **Text**: White
+
+### Green Style
+```html
+<h2 style="text-align: center; background-color: #228B22; color: white; font-family: 'Segoe UI', sans-serif; padding: 15px 20px; border-radius: 10px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); border: 2px solid #176317; letter-spacing: 1px;">
+    Single-Node Bitnami Spark With Master and Worker
+</h2>
+```
+- **Background**: Forest Green (`#228B22`)
+- **Border**: Darker Forest Green (`#176317`)
+- **Text**: White
+
+### Navy Blue Style
+```html
+<h2 style="text-align: center; background-color: #000080; color: white; font-family: 'Segoe UI', sans-serif; padding: 15px 20px; border-radius: 10px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); border: 2px solid #00004f; letter-spacing: 1px;">
+    Single-Node Bitnami Spark With Master and Worker
+</h2>
+```
+- **Background**: Navy (`#000080`)
+- **Border**: Dark Navy (`#00004f`)
+- **Text**: White
+
+### Olive Green Style
+```html
+<h2 style="text-align: center; background-color: #808000; color: white; font-family: 'Segoe UI', sans-serif; padding: 15px 20px; border-radius: 10px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); border: 2px solid #5f5f00; letter-spacing: 1px;">
+    Single-Node Bitnami Spark With Master and Worker
+</h2>
+```
+- **Background**: Olive (`#808000`)
+- **Border**: Dark Olive (`#5f5f00`)
+- **Text**: White
+
+### Cyan Style
+```html
+<h2 style="text-align: center; background-color: #00CED1; color: white; font-family: 'Segoe UI', sans-serif; padding: 15px 20px; border-radius: 10px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); border: 2px solid #009ca0; letter-spacing: 1px;">
+    Single-Node Bitnami Spark With Master and Worker
+</h2>
+```
+- **Background**: Dark Turquoise (`#00CED1`)
+- **Border**: Darker Cyan (`#009ca0`)
+- **Text**: White
