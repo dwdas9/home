@@ -25,6 +25,20 @@ nav_order: 3
     - [Question 4: List All Products and Their Order Details](#question-4-list-all-products-and-their-order-details)
     - [Question 5: Products with No Orders](#question-5-products-with-no-orders)
     - [Question 6: Calculate Total Sales per Customer Using CTE](#question-6-calculate-total-sales-per-customer-using-cte)
+- [Comprehensive List of SQL Joins](#comprehensive-list-of-sql-joins)
+  - [1. **INNER JOIN** (also known as **JOIN**)](#1-inner-join-also-known-as-join)
+  - [2. **LEFT JOIN** (also known as **LEFT OUTER JOIN**)](#2-left-join-also-known-as-left-outer-join)
+  - [3. **RIGHT JOIN** (also known as **RIGHT OUTER JOIN**)](#3-right-join-also-known-as-right-outer-join)
+  - [4. **FULL JOIN** (also known as **FULL OUTER JOIN**)](#4-full-join-also-known-as-full-outer-join)
+  - [5. **CROSS JOIN**](#5-cross-join)
+  - [6. **SELF JOIN**](#6-self-join)
+  - [7. **NATURAL JOIN**](#7-natural-join)
+  - [8. **ANTI JOIN** (also known as **LEFT ANTI JOIN**)](#8-anti-join-also-known-as-left-anti-join)
+  - [9. **SEMI JOIN** (also known as **LEFT SEMI JOIN** or **RIGHT SEMI JOIN**)](#9-semi-join-also-known-as-left-semi-join-or-right-semi-join)
+  - [10. **EXCEPT JOIN**](#10-except-join)
+  - [11. **OUTER APPLY**](#11-outer-apply)
+  - [12. **INNER APPLY**](#12-inner-apply)
+  - [Summary Table](#summary-table)
 
 
 # Essential SparkSQL commands
@@ -304,3 +318,166 @@ Here is a brief description of some of the key tables in the AdventureWorksLT201
 - Use `SalesLT.SalesOrderHeader` to get order information.
 - Use SUM function to calculate total sales.
 - Use a CTE to organize the query.
+
+# Comprehensive List of SQL Joins
+
+## 1. **INNER JOIN** (also known as **JOIN**)
+   - **Description**: Returns only the rows where there is a match in both tables.
+   - **Alternative Names**: None
+   - **Use Case**: Used when you only want the matching rows between two tables. Common in relational queries.
+   - **Example**:
+     ```sql
+     SELECT * 
+     FROM employees
+     INNER JOIN departments
+     ON employees.department_id = departments.id;
+     ```
+
+## 2. **LEFT JOIN** (also known as **LEFT OUTER JOIN**)
+   - **Description**: Returns all rows from the left table, and the matching rows from the right table. If no match, NULL values are returned for the right table.
+   - **Alternative Names**: **LEFT OUTER JOIN**
+   - **Use Case**: Used when you want all rows from the left table, even if there's no match in the right table.
+   - **Example**:
+     ```sql
+     SELECT * 
+     FROM employees
+     LEFT JOIN departments
+     ON employees.department_id = departments.id;
+     ```
+
+## 3. **RIGHT JOIN** (also known as **RIGHT OUTER JOIN**)
+   - **Description**: Returns all rows from the right table, and the matching rows from the left table. If no match, NULL values are returned for the left table.
+   - **Alternative Names**: **RIGHT OUTER JOIN**
+   - **Use Case**: Used when you want all rows from the right table, even if there's no match in the left table.
+   - **Example**:
+     ```sql
+     SELECT * 
+     FROM employees
+     RIGHT JOIN departments
+     ON employees.department_id = departments.id;
+     ```
+
+## 4. **FULL JOIN** (also known as **FULL OUTER JOIN**)
+   - **Description**: Returns all rows from both tables, with matching rows from both sides. Non-matching rows are returned as NULL.
+   - **Alternative Names**: **FULL OUTER JOIN**
+   - **Use Case**: Used when you need to include all rows from both tables, even if no matches exist.
+   - **Example**:
+     ```sql
+     SELECT * 
+     FROM employees
+     FULL JOIN departments
+     ON employees.department_id = departments.id;
+     ```
+
+## 5. **CROSS JOIN**
+   - **Description**: Returns the Cartesian product of both tables. Each row from the first table is combined with each row from the second table.
+   - **Alternative Names**: None
+   - **Use Case**: Used when you want to combine every row from one table with every row from another table. Typically used for generating combinations or testing.
+   - **Example**:
+     ```sql
+     SELECT * 
+     FROM products
+     CROSS JOIN suppliers;
+     ```
+
+## 6. **SELF JOIN**
+   - **Description**: A table is joined with itself to compare rows within the same table.
+   - **Alternative Names**: None
+   - **Use Case**: Used for hierarchical relationships (e.g., finding managers for employees in the same table).
+   - **Example**:
+     ```sql
+     SELECT e1.name AS Employee, e2.name AS Manager
+     FROM employees e1
+     LEFT JOIN employees e2
+     ON e1.manager_id = e2.id;
+     ```
+
+## 7. **NATURAL JOIN**
+   - **Description**: Automatically joins tables based on columns with the same name in both tables. No need to explicitly specify the join condition.
+   - **Alternative Names**: None
+   - **Use Case**: Used when both tables have the same column names and you want an automatic join on those columns.
+   - **Example**:
+     ```sql
+     SELECT * 
+     FROM employees
+     NATURAL JOIN departments;
+     ```
+
+## 8. **ANTI JOIN** (also known as **LEFT ANTI JOIN**)
+   - **Description**: Returns rows from the left table where no matching rows exist in the right table.
+   - **Alternative Names**: **LEFT ANTI JOIN**
+   - **Use Case**: Used when you need rows from the left table that do not have a corresponding match in the right table.
+   - **Example** (using `LEFT JOIN` and filtering `NULL`):
+     ```sql
+     SELECT employees.name
+     FROM employees
+     LEFT JOIN departments
+     ON employees.department_id = departments.id
+     WHERE departments.id IS NULL;
+     ```
+
+## 9. **SEMI JOIN** (also known as **LEFT SEMI JOIN** or **RIGHT SEMI JOIN**)
+   - **Description**: Returns rows from the left table where a match exists in the right table, but only columns from the left table are returned.
+   - **Alternative Names**: **LEFT SEMI JOIN**, **RIGHT SEMI JOIN**
+   - **Use Case**: Used when you need to know which rows in the left table have a match in the right table but only need the left table's columns.
+   - **Example** (using `EXISTS`):
+     ```sql
+     SELECT employees.name
+     FROM employees
+     WHERE EXISTS (
+         SELECT 1 
+         FROM departments
+         WHERE employees.department_id = departments.id
+     );
+     ```
+
+## 10. **EXCEPT JOIN**
+   - **Description**: Combines two result sets and returns rows from the left set that are not in the right set.
+   - **Alternative Names**: None
+   - **Use Case**: Used for set difference operations where you need to find rows in one table that don't exist in another.
+   - **Example**:
+     ```sql
+     SELECT * FROM employees
+     EXCEPT
+     SELECT * FROM employees_in_department;
+     ```
+
+## 11. **OUTER APPLY**
+   - **Description**: Similar to a left join but with subqueries evaluated per row in the left table.
+   - **Alternative Names**: None
+   - **Use Case**: Used when you need a subquery or table-valued function evaluated once per row in the left table.
+   - **Example**:
+     ```sql
+     SELECT employees.name, department_details.*
+     FROM employees
+     OUTER APPLY getDepartmentDetails(employees.department_id) AS department_details;
+     ```
+
+## 12. **INNER APPLY**
+   - **Description**: Similar to an inner join but with subqueries evaluated per row in the left table.
+   - **Alternative Names**: None
+   - **Use Case**: Used when you want to perform an inner join with a subquery or table-valued function evaluated per row.
+   - **Example**:
+     ```sql
+     SELECT employees.name, department_details.*
+     FROM employees
+     INNER APPLY getDepartmentDetails(employees.department_id) AS department_details;
+     ```
+
+## Summary Table
+
+| **Join Type**           | **Alternative Name(s)**     | **Description** | **Use Case** |
+|-------------------------|-----------------------------|-----------------|--------------|
+| **INNER JOIN**          | JOIN                       | Matches rows in both tables | General use, finding common records |
+| **LEFT JOIN**           | LEFT OUTER JOIN            | All rows from left, matched from right | When you need all rows from the left table |
+| **RIGHT JOIN**          | RIGHT OUTER JOIN           | All rows from right, matched from left | When you need all rows from the right table |
+| **FULL JOIN**           | FULL OUTER JOIN            | All rows from both tables, with NULLs for non-matches | When you need complete data from both tables |
+| **CROSS JOIN**          | None                       | Cartesian product of both tables | Generating combinations or large result sets |
+| **SELF JOIN**           | None                       | Joining a table with itself | For hierarchical relationships within a table |
+| **NATURAL JOIN**        | None                       | Automatically joins on matching columns | When tables have common column names |
+| **ANTI JOIN**           | LEFT ANTI JOIN             | Rows from the left table without a match in the right | When you need records that don't match |
+| **SEMI JOIN**           | LEFT SEMI JOIN, RIGHT SEMI JOIN | Rows from left with matching right rows, only left columns | When you need to check for existence in the right table |
+| **EXCEPT JOIN**         | None                       | Rows from left that are not in right | For set difference operations |
+| **OUTER APPLY**         | None                       | Subqueries evaluated once per row in the left table | Using subqueries for each row |
+| **INNER APPLY**         | None                       | Subqueries evaluated once per row in the left table, like an inner join | Inner joins with subqueries |
+
