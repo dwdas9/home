@@ -502,3 +502,40 @@ Here is a brief description of some of the key tables in the AdventureWorksLT201
 
 
 ![](images/20250112150818.png)
+
+
+**SQL Concepts:**
+
+1. **What is the difference between `WHERE` and `HAVING` clauses in SQL?**
+   - The `WHERE` clause filters rows before any grouping is performed, while the `HAVING` clause filters groups after the `GROUP BY` operation.
+
+2. **Explain the purpose of the `GROUP BY` clause.**
+   - The `GROUP BY` clause groups rows that have the same values into summary rows, often used with aggregate functions like `COUNT`, `SUM`, `AVG`, `MAX`, or `MIN`.
+
+3. **What are aggregate functions in SQL? Can you name a few?**
+   - Aggregate functions perform a calculation on a set of values and return a single value. Examples include `COUNT`, `SUM`, `AVG`, `MAX`, and `MIN`.
+
+4. **What is a primary key, and why is it important?**
+   - A primary key is a unique identifier for a record in a table. It ensures that each record can be uniquely identified and prevents duplicate records.
+
+5. **What is a foreign key, and how does it relate to a primary key?**
+   - A foreign key is a field in one table that uniquely identifies a row of another table. It establishes a link between the two tables, ensuring referential integrity.
+
+6. **Describe the different types of joins in SQL.**
+   - - **INNER JOIN**: Returns records that have matching values in both tables.
+   - **LEFT JOIN (or LEFT OUTER JOIN)**: Returns all records from the left table and the matched records from the right table; if no match, NULL values are returned for columns from the right table.
+   - **RIGHT JOIN (or RIGHT OUTER JOIN)**: Returns all records from the right table and the matched records from the left table; if no match, NULL values are returned for columns from the left table.
+   - **FULL JOIN (or FULL OUTER JOIN)**: Returns all records when there is a match in either left or right table; if no match, NULL values are returned for columns from the table without a match.
+
+7. **What is normalization in database design?**
+   - Normalization is the process of organizing data to reduce redundancy and dependency by dividing large tables into smaller ones and defining relationships between them.
+
+8. **What are indexes in SQL, and how do they improve query performance?**
+   - Indexes are database objects that improve the speed of data retrieval operations on a table at the cost of additional space and decreased performance on data modification operations. They function similarly to an index in a book, allowing the database to find data more quickly.
+
+9. **Explain the concept of a transaction in SQL.**
+   - A transaction is a sequence of one or more SQL operations executed as a single unit. Transactions ensure data integrity and are governed by the ACID properties: Atomicity, Consistency, Isolation, and Durability.
+
+10. **What is the purpose of the `DISTINCT` keyword?**
+    - The `DISTINCT` keyword is used to return only distinct (different) values in the result set, eliminating duplicate records.
+

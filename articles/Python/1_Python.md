@@ -17,6 +17,14 @@ has_children: true
 - [Populat MSSQL Tables with random data](#populat-mssql-tables-with-random-data)
 - [Python Gotchas](#python-gotchas)
   - [NameError in Python](#nameerror-in-python)
+- [Python Object-Oriented Programming (OOP)](#python-object-oriented-programming-oop)
+    - [1. **Class**](#1-class)
+    - [2. **Object**](#2-object)
+    - [3. **Encapsulation**](#3-encapsulation)
+    - [4. **Inheritance**](#4-inheritance)
+    - [5. **Polymorphism**](#5-polymorphism)
+    - [6. **Abstraction**](#6-abstraction)
+    - [Key Benefits of OOP:](#key-benefits-of-oop)
 
 # Python version - python -V
 
@@ -197,3 +205,168 @@ for i in range(5):
 ```
 
 Note for code like `for i in range(x)` the initializatio happens. So, don't take such examples and start using variables without warming them up.
+
+**Python Concepts:**
+
+1. **What are Python's built-in data types?**
+   - Python's built-in data types include:
+     - **Numbers**: `int`, `float`, `complex`
+     - **Sequences**: `list`, `tuple`, `range`
+     - **Text**: `str`
+     - **Sets**: `set`, `frozenset`
+     - **Mappings**: `dict`
+     - **Booleans**: `bool`
+     - **Binary Types**: `bytes`, `bytearray`, `memoryview`
+
+2. **Explain the difference between a list and a tuple in Python.**
+   - A **list** is a mutable sequence, meaning its elements can be changed after creation. A **tuple** is an immutable sequence, meaning its elements cannot be changed after creation.
+
+3. **What is a dictionary in Python, and how is it different from a list?**
+   - A **dictionary** is an unordered collection of key-value pairs, where each key is unique. A **list** is an ordered collection of elements that can be of any type and can contain duplicates.
+
+4. **What are functions in Python, and why are they used?**
+   - Functions in Python are blocks of reusable code that perform a specific task. They help in organizing code, avoiding repetition, and improving readability.
+
+5. **Explain the concept of list comprehensions in Python.**
+   - List comprehensions provide a concise way to create lists by specifying an expression followed by a `for` clause. They are more compact and faster than traditional `for` loops.
+
+6. **What is the purpose of the `self` keyword in Python classes?**
+   - The `self` keyword in Python is used to represent the instance of the class. It allows access to the attributes and methods of the class within its own scope.
+
+7. **What are decorators in Python?**
+   - Decorators are functions that modify the behavior of other functions or methods. They are used to add functionality to existing code in a clean and readable way.
+
+8. **Explain the difference between shallow copy and deep copy in Python.**
+   - A **shallow copy** creates a new object but does not create copies of nested objects; it references the original nested objects. A **deep copy** creates a new object and recursively copies all objects found within the original, ensuring no references to the original objects.
+
+9. **What is exception handling in Python?**
+   - Exception handling in Python is done using `try`, `except`, `else`, and `finally` blocks. It allows programmers to handle runtime errors gracefully without crashing the program.
+
+
+
+# Python Object-Oriented Programming (OOP)
+
+Object-Oriented Programming (OOP) is a programming paradigm based on the concept of **objects** that represent real-world entities. These objects encapsulate **data** (attributes or properties) and **behavior** (methods or functions). Below are the core concepts of OOP:
+
+---
+
+### 1. **Class**
+- A blueprint or template for creating objects.
+- Defines the structure (attributes) and behavior (methods) that the objects of the class will have.
+  
+**Example:**
+```python
+class Car:
+    def __init__(self, brand, model):
+        self.brand = brand  # Attribute
+        self.model = model  # Attribute
+
+    def drive(self):  # Method
+        print(f"The {self.brand} {self.model} is driving.")
+```
+
+---
+
+### 2. **Object**
+- An instance of a class. Objects are created using the class blueprint.
+- Each object can have unique values for its attributes.
+
+**Example:**
+```python
+car1 = Car("Toyota", "Camry")
+car1.drive()  # Output: The Toyota Camry is driving.
+```
+
+---
+
+### 3. **Encapsulation**
+- Restricts direct access to some of an object's data and methods, ensuring controlled interaction.
+- Attributes can be made private by prefixing them with an underscore (`_`) or double underscore (`__`).
+
+**Example:**
+```python
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # Private attribute
+
+    def deposit(self, amount):
+        self.__balance += amount  # Controlled access
+
+    def get_balance(self):
+        return self.__balance  # Controlled retrieval
+```
+
+---
+
+### 4. **Inheritance**
+- Allows a class (child) to inherit attributes and methods from another class (parent).
+- Promotes code reuse.
+
+**Example:**
+```python
+class Vehicle:
+    def __init__(self, brand):
+        self.brand = brand
+
+class Car(Vehicle):
+    def __init__(self, brand, model):
+        super().__init__(brand)
+        self.model = model
+```
+
+---
+
+### 5. **Polymorphism**
+- Allows objects to take on multiple forms.
+- Enables methods to have the same name but behave differently based on the object calling them.
+
+**Example:**
+```python
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+class Dog(Animal):
+    def speak(self):  # Overriding the parent class method
+        print("Dog barks")
+
+class Cat(Animal):
+    def speak(self):  # Overriding the parent class method
+        print("Cat meows")
+
+animals = [Dog(), Cat()]
+for animal in animals:
+    animal.speak()
+```
+
+---
+
+### 6. **Abstraction**
+- Hides complex implementation details and shows only the necessary features.
+- Achieved using abstract classes or interfaces.
+
+**Example:**
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):  # Implementation of the abstract method
+        return self.width * self.height
+```
+
+---
+
+### Key Benefits of OOP:
+1. **Code Reusability**: Inheritance allows reusing code in new contexts.
+2. **Modularity**: Encapsulation and classes make code easier to manage.
+3. **Scalability**: Easier to extend functionality without altering existing code.
+4. **Maintenance**: Organized and readable structure simplifies debugging and updates.
