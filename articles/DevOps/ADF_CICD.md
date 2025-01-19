@@ -5,6 +5,15 @@ parent: AzureDevOps
 nav_order: 4
 ---
 
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
 
 # ADF -  Dev to PROD using GitHub workflows and Azure Pipelines
 
