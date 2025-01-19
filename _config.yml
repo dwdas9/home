@@ -1,7 +1,7 @@
 title: Das Digital Digest
 description: Data Engineering | M365 | Power Platform
 # theme: just-the-docs
-remote_theme: hydecorp/hydejack
+remote_theme: just-the-docs/just-the-docs@v0.4.0.rc3
 search_enabled: true
 
 #url: https://just-the-docs.github.io
