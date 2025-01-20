@@ -1,6 +1,6 @@
 ---
 layout: default
-title: [Deprecated]SharePoint Event Receiver
+title: SharePoint Event Receiver
 parent: M365
 nav_order: 1
 ---
