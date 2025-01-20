@@ -30,12 +30,6 @@ ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (t
 # For copy button on code
 enable_copy_code_button: true
 
-plugins:
-  - jekyll-seo-tag
-  - jekyll-github-metadata
-  - jekyll-include-cache
-  - jekyll-sitemap
-
 mermaid:
   # Version of mermaid library
   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
