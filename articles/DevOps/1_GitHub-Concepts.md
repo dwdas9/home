@@ -1,7 +1,7 @@
 ---
 layout: default
 title: GitHub Concepts
-parent: AzureDevOps
+parent: Devops
 nav_order: 1
 has_children: true
 ---

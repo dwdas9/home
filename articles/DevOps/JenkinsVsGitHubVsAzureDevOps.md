@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Jenkins Vs GitHub Vs AzureDevOps
-parent: AzureDevOps
+title: Jenkins Vs GitHub Vs Devops
+parent: Devops
 nav_order: 1
 ---
 
