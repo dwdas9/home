@@ -1,7 +1,7 @@
 ---
 layout: default
 title: ADF-CI-CD
-parent: AzureDevOps
+parent: Devops
 nav_order: 4
 ---
 
