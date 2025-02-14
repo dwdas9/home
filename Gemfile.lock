@@ -46,7 +46,6 @@ GEM
     fiber-storage (0.1.0)
     forwardable-extended (2.6.0)
     google-protobuf (4.29.3-arm64-darwin)
->>>>>>> upstream/main
       bigdecimal
       rake (>= 13)
     google-protobuf (4.29.3-x86_64-linux)
