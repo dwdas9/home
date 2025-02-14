@@ -5,7 +5,7 @@ nav_order: 12
 has_children: true
 ---
 
-Devops concepts explained.
+Devops concepts explained in this article.
 
 ---
 
