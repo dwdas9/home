@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Spark Interview Questions - My Docs</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Airflow</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Airflow/1.0.0_AirFlow_Concepts/" class="dropdown-item">Airflow Concepts</a>
+</li>
+                                    
+<li>
+    <a href="../../../Airflow/1.0.1_A_Dags_Anatomy/" class="dropdown-item">A dags anatomy</a>
+</li>
+                                    
+<li>
+    <a href="../../../Airflow/1.0.2_Hello_Airflow/" class="dropdown-item">Hello-Airflow</a>
+</li>
+                                    
+<li>
+    <a href="../../../Airflow/1.0.3_Airflow_Dbt_Docker/" class="dropdown-item">Project Airflow dbt</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">DE Projects</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../DE-Projects/Csv-To-MSSQL/" class="dropdown-item">Python - CSV To MSSQL</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/CurrencyPredictor/" class="dropdown-item">CurrencyPredictor</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Dbrk-E2E-AttritionProject/" class="dropdown-item">Problem Statement</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Download-Haddop-Jars/" class="dropdown-item">Download JARs-Apache Maven Repo</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/FetchJsonWriteParquet/" class="dropdown-item">Json To Parquet Using Spark And Azure</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/InstallScala/" class="dropdown-item">Scala Install</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/JsonFlatAzureSDK/" class="dropdown-item">Flatten Json Using Azure SDK</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/LocalPython_AzureBlob/" class="dropdown-item">Local Python Code to Rearrange Files in a Azure Blob Container</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Microsoft_OpenJDK/" class="dropdown-item">Microsoft OpenJDK</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Project_MigrationToAzureBlob/" class="dropdown-item">CMS Migration to Azure Blob</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Project_MongoCMS/" class="dropdown-item">CMS using MongoDB</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Project_SSRS_SSIS_SharePoint/" class="dropdown-item">Project - ETL and Reporting Lending Org</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Raw-Json-To-Hive/" class="dropdown-item">Raw Json To Hive</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/SPY_ETF_Buy_Recommender/" class="dropdown-item">SPY ETF Buy Recommender</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">AzureSkyWeather</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/AzureSkyWeather/HomeProjectAzureSkyWeather/" class="dropdown-item">Project AzureSkyWeather</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1 Ingestion</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">HttpTriggered</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/HTTPTriggered_AzureFunc/" class="dropdown-item">Part 1A - Using Azure HTTP-Triggered Function</a>
+</li>
+            
+<li>
+    <a href="../../../DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/nav2_AzureFunctions/" class="dropdown-item">Azure Functions Quickstart</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">TimerTriggered</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/AzureSkyWeather/1_Ingestion/TimerTriggered/TimerTriggered_AzureFunc/" class="dropdown-item">Part 1B - Using Azure Timer-Triggered Function</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2 Transformation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/AzureSkyWeather/2_Transformation/Solution_Details/" class="dropdown-item">Solution Details</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JsonValidator</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/JsonValidator/AzureFunction-ValidateJSOns/" class="dropdown-item">Azure Functions - Validate JSONs</a>
+</li>
+            
+<li>
+    <a href="../../../DE-Projects/JsonValidator/Python-ValidateJSONs/" class="dropdown-item">Validate JSON using Python</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Sparkzure</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/Sparkzure/HomeProjectSparkzure/" class="dropdown-item">Project Sparkzure</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">StreamKraft</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/StreamKraft/HomeProjectStreamKraft/" class="dropdown-item">Project StreamKraft</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">DevOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../DevOps/1.1_Hello_GitHub_Actions_Workflow/" class="dropdown-item">Hello GitHub Actions Workflow</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/1.1_Sample_Workflows/" class="dropdown-item">Sample Workflows</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/1_GitHub-Concepts/" class="dropdown-item">GitHub Concepts</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/2.1_Self-Hosted_Agent_Windows/" class="dropdown-item">Self-Hosted-Agent-Windows</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/2.2_Self-Hosted_Agent_Windows_Container/" class="dropdown-item">Self-Hosted-Agent-Win-Container</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/2.3_Self-Hosted_Agent_Linux_Container/" class="dropdown-item">Self-Hosted-Agent-Ubuntu-Container</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/2_Azure-Pipelines/" class="dropdown-item">Azure-Pipelines</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/ADF_CICD/" class="dropdown-item">ADF-CI-CD</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/Biceps/" class="dropdown-item">What is Bicep?</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/CI-CD_in%20ADF/" class="dropdown-item">CI CD in ADF</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/GitScenarios/" class="dropdown-item">GitScenarios</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/JenkinsVsGitHubVsAzureDevOps/" class="dropdown-item">Jenkins Vs GitHub Vs Devops</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">DockerAndKubernetes</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">AirflowDocker</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DockerAndKubernetes/AirflowDocker/1_AirflowDocker/" class="dropdown-item">Airflow</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Kafka</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DockerAndKubernetes/Kafka/2_Confluent%20Kafka/" class="dropdown-item">Confluent Kafka</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Mongodb</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DockerAndKubernetes/Mongodb/3_DockerMongodb/" class="dropdown-item">MongoDB</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SparkHiveHadoop</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.1_PySpark/" class="dropdown-item">PySpark</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.2_Bitnami_Spark_Cluster/" class="dropdown-item">Bitnami Spark</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.3_VSCode_Docker_Connection/" class="dropdown-item">VSCode-Docker-Connection</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL/" class="dropdown-item">Spark-Hive_MSSQL</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode/" class="dropdown-item">Hadoop Cluster</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto/" class="dropdown-item">bde2020-Hive-Hadoop-Presto</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL/" class="dropdown-item">Hive-Hadoop-MySQL-SingleNode</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial/" class="dropdown-item">Hive Official Setup</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.9.1_Hive_Concepts/" class="dropdown-item">Hive Concepts</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.9.2_Hadoop_Concepts/" class="dropdown-item">Hadoop Concepts</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts/" class="dropdown-item">Docker Misc Concepts</a>
+</li>
+            
+<li>
+    <a href="../../../DockerAndKubernetes/SparkHiveHadoop/4_Spark-Hive-Hadoop/" class="dropdown-item">4 Spark Hive Hadoop</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">M365</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../M365/DocumentumToSharePoint/" class="dropdown-item">Documentum-SharePoint Online</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/LicensingExamples/" class="dropdown-item">M365 Licensing Examples</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SPMT/" class="dropdown-item">SPMT - SharePoint Migration</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePoint2007FarmUpgrade/" class="dropdown-item">SharePoint Farm Upgrade</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePoint2016FarmUpgrade/" class="dropdown-item">SharePoint Farm 2016 Farm Setup</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointEvents/" class="dropdown-item">SharePoint Event Receiver</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointFarmConsolidation/" class="dropdown-item">SharePoint Farm Consolidation</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointFormsOrPowerApps/" class="dropdown-item">SharePoint Forms or PowerApps</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointMiniRole/" class="dropdown-item">SharePoint Mini Role</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointVersionEvolution/" class="dropdown-item">SharePoint Evolution</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointVsOtherECM/" class="dropdown-item">SharePoint vs Other ECMS</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/WSS3DocumentUpload/" class="dropdown-item">Project - C# - WSS 3 Bulk ingestion</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/oAuthSharePointPython/" class="dropdown-item">Python-oAuth-SharePointOnline</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Microsoft Fabric</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/DataFactory/" class="dropdown-item">Pipelines&DataFlows</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/DataScience/" class="dropdown-item">Data Science on Fabric Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/DataWareHouse/" class="dropdown-item">DataWareHouse</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/DirectLake/" class="dropdown-item">DirectLake|Fabric|PowerBI</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/E2EProject/" class="dropdown-item">E2EProject</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/ETL-OPG-Copydata-JSON-Lakehouse/" class="dropdown-item">JSON-DeltaLake-OPG</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/ETL-Pyspark-Notebook-Lakehouse/" class="dropdown-item">ETL-Load data into Lakehouse - Pyspark Notebook</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/FabricAdministration/" class="dropdown-item">Administration</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/FabricQ%26A/" class="dropdown-item">Fabric Q&A</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/FabricSparkStreaming/" class="dropdown-item">Spark Streaming</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/HelloMicrosoftFabric/" class="dropdown-item">Hello Fabric</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/InspectingDataframes/" class="dropdown-item">Whats in your df?</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/KQL/" class="dropdown-item">KQL</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/PandasVsSparkDf/" class="dropdown-item">PandasVsSparkDf</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/Pyspark_SparkSQL/" class="dropdown-item">Pyspark|SparkSQL CheatSheet</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/RealTimeAnalytics/" class="dropdown-item">Real-time Intelligence</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Misc</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Misc/10_Fact_vs_Dimension_tables/" class="dropdown-item">Fact Vs Dimension Table</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/1_GoogleCloudSeeUsage/" class="dropdown-item">Check Google Usage</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/2_InstallVMWareFree/" class="dropdown-item">VMWare For Free</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/3_Markdown/" class="dropdown-item">Markdown</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/4_VSTrics/" class="dropdown-item">Visual Studio Code Tricks</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/5_WhichDatastsToUse/" class="dropdown-item">Free Datasets for Data Practice</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/6_RunningAppsInBg/" class="dropdown-item">Running Service in Background</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/7_Azure_Budget/" class="dropdown-item">How to set a Azure Budget</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/9_WhyUbuntuIsGood/" class="dropdown-item">Why Ubuntu is good to learn</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/markdown_pdf_export_html/" class="dropdown-item">Markdown pdf export html</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">MarkdownColor.md</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Misc/MarkdownColor.md/Color/" class="dropdown-item">Color Reference</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Images</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Misc/MarkdownColor.md/images/Color/" class="dropdown-item">Color Palettes</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MongoDB</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../MongoDB/HowMongoDBStoresFiles/" class="dropdown-item">How MongoDB Stores Data</a>
+</li>
+                                    
+<li>
+    <a href="../../../MongoDB/MongbDB_Vs_Atlas_VsCosmosDB/" class="dropdown-item">MongoDB Vs CosmosDB</a>
+</li>
+                                    
+<li>
+    <a href="../../../MongoDB/MongoDBCommands/" class="dropdown-item">MongoDB Commands</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">PowerPlatform</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../PowerPlatform/CalculationGroups/" class="dropdown-item">CalculationGroups</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/CustomConnectors/" class="dropdown-item">Building Custom Connectors</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/ECMCaptureFlow/" class="dropdown-item">Power Automate Or Kofax/Captiva?</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/EnableMicrosoftSyntex/" class="dropdown-item">Enable Microsoft Syntex on your Office 365 tenant</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/EnableSyntexOnYourDocumentLibrary/" class="dropdown-item">Create a model on SharePoint - Syntex</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/GoogleProviderPowerPages/" class="dropdown-item">Google Authentication</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/HealthClinicDataverseSecurity/" class="dropdown-item">HealthClinicDataverseSecurity</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/HelloDataverse/" class="dropdown-item">Hello Dataverse</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/HelloDynamics365/" class="dropdown-item">Dynamics 365 Ecosystem</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/HelloPowerPlatform/" class="dropdown-item">PowerPlatform Ecosystem</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/ModelDrivenApps/" class="dropdown-item">Model-Driven Apps</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/OnPremiseGateway/" class="dropdown-item">Onpremise Gateway</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/PowerAutomateIsWorkflowTeams/" class="dropdown-item">Workflow is Power Automate</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/PowerPlatformAdminCentral/" class="dropdown-item">PowerPlatformAdminCentral</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/PowerPlatformQ%26A/" class="dropdown-item">Pl-900-Q&A</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">DocumentIntelligence</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../PowerPlatform/DocumentIntelligence/AAIDI_AzureCognitiveSearch/" class="dropdown-item">Integrate AI Search and Azure AI Document Intelligence</a>
+</li>
+            
+<li>
+    <a href="../../../PowerPlatform/DocumentIntelligence/AAIDI_Q%26A/" class="dropdown-item">AAIDI Q&A</a>
+</li>
+            
+<li>
+    <a href="../../../PowerPlatform/DocumentIntelligence/AzureAIDocumentIntelligence/" class="dropdown-item">Azure AI Document Intelligence</a>
+</li>
+            
+<li>
+    <a href="../../../PowerPlatform/DocumentIntelligence/DocumentAutomation/" class="dropdown-item">Document automation base kit</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Python</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Python/1.0_Sets/" class="dropdown-item">Sets</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.0_assert_methods/" class="dropdown-item">assert methods</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.1_decorators/" class="dropdown-item">decorators</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.2_argv/" class="dropdown-item">argv</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.3_Diff_And_Patch/" class="dropdown-item">diffAndpatch</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.3_error_handling/" class="dropdown-item">Error Handling</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.4_pdb/" class="dropdown-item">pdb</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.5_pyformat/" class="dropdown-item">format method</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.10_Func_Modl_Summary/" class="dropdown-item">LFM Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.11_ifelifelse/" class="dropdown-item">ifelifelse</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.12_Operators/" class="dropdown-item">operators</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.13_For_Loops/" class="dropdown-item">for loops</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.14_enumerate/" class="dropdown-item">1.14 enumerate</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.15_range_function/" class="dropdown-item">range function</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.16_built_in_functions/" class="dropdown-item">1.16 built in functions</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.17_withStatement/" class="dropdown-item">with statement</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.18_unittest_pytest/" class="dropdown-item">pytest</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.19_if_name_main.md/" class="dropdown-item">if__name__main</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1_Tuples/" class="dropdown-item">Tuples</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.2_Tuples_Advanced/" class="dropdown-item">Advanced Tuples</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.3_List/" class="dropdown-item">1.3 List</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.4_Dictionaries/" class="dropdown-item">1.4 Dictionaries</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.5_Lamda_Functions/" class="dropdown-item">Lamda Functions</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.9_Func_Modl_Lib/" class="dropdown-item">Library-Modules-Funcs</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1_Python/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/Linux/" class="dropdown-item">Essential Unix Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/Pyspark/" class="dropdown-item">PySpark</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/PythonScripts/" class="dropdown-item">Python Sample Scripts</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">GraphAPIJupyter</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Python/GraphAPIJupyter/GraphAPIUsingJuputer/" class="dropdown-item">Graph API - Juputer</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SQL</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../SQL/1.0.0_dbt/" class="dropdown-item">dbt</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/1.0.1_setup_simple_dbt_project/" class="dropdown-item">1.0.1 setup simple dbt project</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/FlatFileSoure/" class="dropdown-item">FlatFileSoure</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/InputAndOutputProperties/" class="dropdown-item">Understanding External Columns and Output Columns in SSIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/MSSQL_Versions/" class="dropdown-item">SQL Server Versions</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/Project_1-ETL-CSV-MSSQL/" class="dropdown-item">Project 1 - ETL Flat Files to MSSQL</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/Project_2-UsingWebServicesInSSIS/" class="dropdown-item">Project 2 - Web Service SSIS Script Task</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/SQL/" class="dropdown-item">Spark-SQL</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/SQL_AdvancedTopics/" class="dropdown-item">SQL Advanced Topics</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/SSIS/" class="dropdown-item">SQL Server Integration Services</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/SSRS/" class="dropdown-item">SSRS</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/Windows_Functions/" class="dropdown-item">Window Functions</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/connecting-with-dbt/" class="dropdown-item">Connect Local dbt with MSSQL Server</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Spark DataBricks</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1.0 Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../1.0_Spark-Concepts/" class="dropdown-item">Spark</a>
+</li>
+            
+<li>
+    <a href="../1.10_Scala_Cheatsheet/" class="dropdown-item">Scala Cheatsheet</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Spark Interview Questions</a>
+</li>
+            
+<li>
+    <a href="../1.12_Spark_Shuffle/" class="dropdown-item">Shuffle in Spark</a>
+</li>
+            
+<li>
+    <a href="../1.13_SparkDatabaseTablesCatalogsMetastore/" class="dropdown-item">Spark DB-Tables-Metastore-Catalogs</a>
+</li>
+            
+<li>
+    <a href="../1.14_Q%26A/" class="dropdown-item">Q&A</a>
+</li>
+            
+<li>
+    <a href="../1.15_CommonPysparkTopics/" class="dropdown-item">PySpark Concepts I</a>
+</li>
+            
+<li>
+    <a href="../1.16_ConnectingSparkToHive/" class="dropdown-item">Spark-Hive-Delta Connection</a>
+</li>
+            
+<li>
+    <a href="../1.1_NarrowVsWideTransformation/" class="dropdown-item">Narrow_Vs_Wide_Transformation</a>
+</li>
+            
+<li>
+    <a href="../1.2_SparkArchitecture/" class="dropdown-item">Spark Architecture</a>
+</li>
+            
+<li>
+    <a href="../1.3_persist_and_cache/" class="dropdown-item">persist and cache</a>
+</li>
+            
+<li>
+    <a href="../1.4_broadcastvariables/" class="dropdown-item">Broadcast Variables</a>
+</li>
+            
+<li>
+    <a href="../1.5_DataSkewHandling/" class="dropdown-item">Data Skew in Spark</a>
+</li>
+            
+<li>
+    <a href="../1.6_dropna_fillna_df_missing_val_handling/" class="dropdown-item">dropna and fillna</a>
+</li>
+            
+<li>
+    <a href="../1.7_distinct_dropDuplicate_windowsFunc/" class="dropdown-item">Removing Duplicates - PySpark</a>
+</li>
+            
+<li>
+    <a href="../1.8_Partition_Grouping/" class="dropdown-item">Partition And Bucket</a>
+</li>
+            
+<li>
+    <a href="../1.9_RDD_Dataframe_Dataset/" class="dropdown-item">RDD-Dataframe-Dataset</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Install Pyspark Windows</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../Install-Pyspark-Windows/Install-Pyspark-Windows/" class="dropdown-item">Install-PySpark-Windows</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.0 Spark To ADLS</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../2.0_Spark_To_ADLS/2.0_Spark_To_ADLS/" class="dropdown-item">Spark-To-ADLS-Connection</a>
+</li>
+            
+<li>
+    <a href="../../2.0_Spark_To_ADLS/2.1_Spark-To_ADLS_Summary/" class="dropdown-item">Spark-To-ADLS-Summary</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">3.0 Databricks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../3.0_Databricks/3.0_Databricks_Concepts/" class="dropdown-item">Databricks</a>
+</li>
+            
+<li>
+    <a href="../../3.0_Databricks/3.1_Catalogs_And_Metastore/" class="dropdown-item">Hive Metastore and the hive_metastore folder</a>
+</li>
+            
+<li>
+    <a href="../../3.0_Databricks/3.2_AuthenticationMethods/" class="dropdown-item">Authentication Method</a>
+</li>
+            
+<li>
+    <a href="../../3.0_Databricks/3.3_Mount_ADLS_on_Databricks/" class="dropdown-item">Mount ADLS on Databricks</a>
+</li>
+            
+<li>
+    <a href="../../3.0_Databricks/3.4_Databricks_Secret_Scope/" class="dropdown-item">Secret Scope</a>
+</li>
+            
+<li>
+    <a href="../../3.0_Databricks/3.5_Databricks_SQL/" class="dropdown-item">CREATE TABLE USING</a>
+</li>
+            
+<li>
+    <a href="../../3.0_Databricks/3.6_DatabricksMagicCommands/" class="dropdown-item">Magic Commands</a>
+</li>
+            
+<li>
+    <a href="../../3.0_Databricks/3.7_DeltaLake_And_Lakehouse/" class="dropdown-item">Delta Lake And Lakehouse</a>
+</li>
+            
+<li>
+    <a href="../../3.0_Databricks/4.8_Databricks_ProjectA1/" class="dropdown-item">Project-A</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">4.0 Hive</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../4.0_Hive/Hive_Concepts/" class="dropdown-item">Hive Concepts</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">StreamProcessing</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../StreamProcessing/1.0_What_Is_Stream_Processing/" class="dropdown-item">1.0 What Is Stream Processing</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/2.0.1_EventHubs_Vs_Kafka/" class="dropdown-item">EventHubs Vs Kafka</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/2.0.2_Project_Hello_EventHubs/" class="dropdown-item">Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/2.0.3_EventHubsLocalEmulator/" class="dropdown-item">Event Hubs Emulator - End to End</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/2.0_Azure_EventHubs/" class="dropdown-item">EventHubs</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/4_EventProcessingChoices/" class="dropdown-item">Stream Processing Product Combination</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/5_AmazonKinesisSparkIntegration/" class="dropdown-item">5 AmazonKinesisSparkIntegration</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Synapse ADF</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.0_SynapseConcepts/" class="dropdown-item">SynapseConcepts</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.1_Pools/" class="dropdown-item">Pools</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.3_ETL%20Pipelines/" class="dropdown-item">ETL Pipelines</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.4_Copy-data-tool/" class="dropdown-item">ADF Copy task - When to use</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.5_IntegrationRuntime/" class="dropdown-item">Integration Runtime</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.6_DB_Types_In_Synapse/" class="dropdown-item">Types of DB in Synapse</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.7_SynapseLakeDBAndLakehouse/" class="dropdown-item">Lake DB-Lakehouse-Delta Lake</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.8_ADF_SA_Evolution/" class="dropdown-item">ADF & Synapse Evolution</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.9_CETAS/" class="dropdown-item">CETAS</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.0_Projects/" class="dropdown-item">2.0 Projects</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.1_Pipeline-Local-ADLS/" class="dropdown-item">CopyData-LocalToADLS</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.2_PySparkWarehouse/" class="dropdown-item">PysparkWarehouse</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.3_ADF_RestAPI_Databricks/" class="dropdown-item">2.3 ADF RestAPI Databricks</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.4_Monitor_ADF_Pipelines/" class="dropdown-item">ADF Pipelines Monitoring</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.5_ADF_Pipeline_Copy/" class="dropdown-item">Export ADF Pipeline</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/Q%26A/" class="dropdown-item">100 Synapse FAQs</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../1.10_Scala_Cheatsheet/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../1.12_Spark_Shuffle/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#common-spark-concepts-which-may-be-asked-in-an-interview" class="nav-link">Common Spark Concepts which may be asked in an interview</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#types-of-join-strateries" class="nav-link">Types of join strateries</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#types-of-joins" class="nav-link">Types of Joins</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#common-spark-optimization-techniques" class="nav-link">Common Spark optimization techniques</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#different-phases-of-spark-sql-engine" class="nav-link">Different phases of Spark-SQL engine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#common-reasons-for-analysis-exception-in-spark" class="nav-link">Common reasons for analysis exception in Spark</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#flow-of-how-spark-works-internally" class="nav-link">Flow of how Spark works internally</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#explain-dag-in-spark" class="nav-link">Explain DAG in Spark</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#explain-sparksqlshufflepartitions-variable" class="nav-link">Explain spark.sql.shuffle.partitions Variable</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<ul>
+<li><a href="#common-spark-concepts-which-may-be-asked-in-an-interview">Common Spark Concepts which may be asked in an interview</a></li>
+<li><a href="#types-of-join-strateries">Types of join strateries</a></li>
+<li><a href="#types-of-joins">Types of Joins</a></li>
+<li><a href="#common-spark-optimization-techniques">Common Spark optimization techniques</a></li>
+<li><a href="#different-phases-of-spark-sql-engine">Different phases of Spark-SQL engine</a></li>
+<li><a href="#common-reasons-for-analysis-exception-in-spark">Common reasons for analysis exception in Spark</a></li>
+<li><a href="#flow-of-how-spark-works-internally">Flow of how Spark works internally</a></li>
+<li><a href="#explain-dag-in-spark">Explain DAG in Spark</a></li>
+<li><a href="#explain-sparksqlshufflepartitions-variable">Explain spark.sql.shuffle.partitions Variable</a></li>
+</ul>
+<h1 id="common-spark-concepts-which-may-be-asked-in-an-interview">Common Spark Concepts which may be asked in an interview</h1>
+<p>In this article I will try to put some common Spark concepts in a tabular format(So that its compact). These are good concepts to remember. Also, they may be asked in Interview questions.</p>
+<h2 id="types-of-join-strateries">Types of join strateries</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Join Strategy</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Use Case</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shuffle Hash Join</td>
+<td>Both DataFrames are shuffled based on the join keys, and then a hash join is performed.</td>
+<td>Useful when both DataFrames are large and have a good distribution of keys.</td>
+<td><code>spark.conf.set("spark.sql.join.preferSortMergeJoin", "false")</code><br><code>df1.join(df2, "key")</code></td>
+</tr>
+<tr>
+<td>Broadcast Hash Join</td>
+<td>One of the DataFrames is small enough to fit in memory and is broadcasted to all worker nodes. A hash join is then performed.</td>
+<td>Efficient when one DataFrame is much smaller than the other.</td>
+<td><code>val broadcastDF = broadcast(df2)</code><br><code>df1.join(broadcastDF, "key")</code></td>
+</tr>
+<tr>
+<td>Sort-Merge Join</td>
+<td>Both DataFrames are sorted on the join keys and then merged. This requires a shuffle if the data is not already sorted.</td>
+<td>Suitable for large DataFrames when the join keys are sorted or can be sorted efficiently.</td>
+<td><code>spark.conf.set("spark.sql.join.preferSortMergeJoin", "true")</code><br><code>df1.join(df2, "key")</code></td>
+</tr>
+<tr>
+<td>Cartesian Join (Cross Join)</td>
+<td>Every row of one DataFrame is paired with every row of the other DataFrame.</td>
+<td>Generally not recommended due to its computational expense, but can be used for generating combinations of all rows.</td>
+<td><code>df1.crossJoin(df2)</code></td>
+</tr>
+<tr>
+<td>Broadcast Nested Loop Join</td>
+<td>The smaller DataFrame is broadcasted, and a nested loop join is performed.</td>
+<td>Used when there are no join keys or the join condition is complex and cannot be optimized with hash or sort-merge joins.</td>
+<td><code>val broadcastDF = broadcast(df2)</code><br><code>df1.join(broadcastDF)</code></td>
+</tr>
+<tr>
+<td>Shuffle-and-Replicate Nested Loop Join</td>
+<td>Both DataFrames are shuffled and replicated to perform a nested loop join.</td>
+<td>Used for complex join conditions that cannot be handled by other join strategies.</td>
+<td><code>df1.join(df2, expr("complex_condition"))</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="types-of-joins">Types of Joins</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Join Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inner Join</td>
+<td>Returns rows that have matching values in both DataFrames.</td>
+<td><code>df1.join(df2, "key")</code></td>
+</tr>
+<tr>
+<td>Outer Join</td>
+<td>Returns all rows when there is a match in either DataFrame. Missing values are filled with nulls.</td>
+<td><code>df1.join(df2, Seq("key"), "outer")</code></td>
+</tr>
+<tr>
+<td>Left Outer Join</td>
+<td>Returns all rows from the left DataFrame, and matched rows from the right DataFrame.</td>
+<td><code>df1.join(df2, Seq("key"), "left_outer")</code></td>
+</tr>
+<tr>
+<td>Right Outer Join</td>
+<td>Returns all rows from the right DataFrame, and matched rows from the left DataFrame.</td>
+<td><code>df1.join(df2, Seq("key"), "right_outer")</code></td>
+</tr>
+<tr>
+<td>Left Semi Join</td>
+<td>Returns only the rows from the left DataFrame that have a match in the right DataFrame.</td>
+<td><code>df1.join(df2, Seq("key"), "left_semi")</code></td>
+</tr>
+<tr>
+<td>Left Anti Join</td>
+<td>Returns only the rows from the left DataFrame that do not have a match in the right DataFrame.</td>
+<td><code>df1.join(df2, Seq("key"), "left_anti")</code></td>
+</tr>
+<tr>
+<td>Cross Join</td>
+<td>Returns the Cartesian product of both DataFrames. Every row in the left DataFrame will be combined with every row in the right DataFrame.</td>
+<td><code>df1.crossJoin(df2)</code></td>
+</tr>
+<tr>
+<td>Self Join</td>
+<td>A join in which a DataFrame is joined with itself. This can be an inner, outer, left, or right join.</td>
+<td><code>df.join(df, df("key1") === df("key2"))</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-spark-optimization-techniques">Common Spark optimization techniques</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Technique</strong></th>
+<th><strong>What it is</strong></th>
+<th><strong>When to use</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Caching and Persistence</strong></td>
+<td>Storing data in memory for quick access</td>
+<td>When you need to reuse the same data multiple times</td>
+<td><code>scala val cachedData = df.cache()</code></td>
+</tr>
+<tr>
+<td><strong>Broadcast Variables</strong></td>
+<td>Sending a small dataset to all worker nodes</td>
+<td>When one dataset is much smaller than the other</td>
+<td><code>scala val broadcastData = spark.broadcast(smallDF) largeDF.join(broadcastData.value, "key")</code></td>
+</tr>
+<tr>
+<td><strong>Partitioning</strong></td>
+<td>Dividing data into smaller, manageable chunks</td>
+<td>When dealing with large datasets to improve parallel processing</td>
+<td><code>scala val partitionedData = df.repartition(10, $"key")</code></td>
+</tr>
+<tr>
+<td><strong>Avoiding Shuffles</strong></td>
+<td>Reducing the movement of data between nodes</td>
+<td>To improve performance by minimizing network overhead</td>
+<td>Use <code>mapPartitions</code> instead of <code>groupBy</code> when possible</td>
+</tr>
+<tr>
+<td><strong>Coalesce</strong></td>
+<td>Reducing the number of partitions</td>
+<td>When the data has become sparse after a transformation</td>
+<td><code>scala val coalescedData = df.coalesce(1)</code></td>
+</tr>
+<tr>
+<td><strong>Predicate Pushdown</strong></td>
+<td>Filtering data as early as possible in the processing</td>
+<td>To reduce the amount of data read and processed</td>
+<td><code>scala val filteredData = df.filter($"column" &gt; 10)</code></td>
+</tr>
+<tr>
+<td><strong>Using the Right Join Strategy</strong></td>
+<td>Choosing the most efficient way to join two datasets</td>
+<td>Based on the size and distribution of data</td>
+<td>Prefer broadcast joins for small datasets</td>
+</tr>
+<tr>
+<td><strong>Tuning Spark Configurations</strong></td>
+<td>Adjusting settings to optimize resource usage</td>
+<td>To match the workload and cluster resources</td>
+<td><code>scala spark.conf.set("spark.executor.memory", "4g")</code></td>
+</tr>
+<tr>
+<td><strong>Using DataFrames/Datasets API</strong></td>
+<td>Leveraging the high-level APIs for optimizations</td>
+<td>To benefit from Catalyst optimizer and Tungsten execution engine</td>
+<td><code>scala val df = spark.read.csv("data.csv") df.groupBy("column").count()</code></td>
+</tr>
+<tr>
+<td><strong>Vectorized Query Execution</strong></td>
+<td>Processing multiple rows of data at a time</td>
+<td>For high-performance operations on large datasets</td>
+<td>Use built-in SQL functions and DataFrame methods</td>
+</tr>
+</tbody>
+</table>
+<h2 id="different-phases-of-spark-sql-engine">Different phases of Spark-SQL engine</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Phase</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Details</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parsing</td>
+<td>Converting SQL queries into a logical plan.</td>
+<td>The SQL query is parsed into an abstract syntax tree (AST).</td>
+<td>Converting <code>SELECT * FROM table WHERE id = 1</code> into an internal format.</td>
+</tr>
+<tr>
+<td>Analysis</td>
+<td>Resolving references and verifying the logical plan.</td>
+<td>Resolves column names, table names, and function names; checks for errors.</td>
+<td>Ensuring that the table <code>table</code> and the column <code>id</code> exist in the database.</td>
+</tr>
+<tr>
+<td>Optimization</td>
+<td>Improving the logical plan for better performance.</td>
+<td>Transforms the logical plan using various optimization techniques; applies rules via Catalyst optimizer.</td>
+<td>Reordering filters to reduce the amount of data processed early on.</td>
+</tr>
+<tr>
+<td>Physical Planning</td>
+<td>Converting the logical plan into a physical plan.</td>
+<td>Converts the optimized logical plan into one or more physical plans; selects the most efficient plan.</td>
+<td>Deciding whether to use a hash join or a sort-merge join.</td>
+</tr>
+<tr>
+<td>Code Generation</td>
+<td>Generating executable code from the physical plan.</td>
+<td>Generates Java bytecode to execute the physical plan; this code runs on Spark executors.</td>
+<td>Creating code to perform join operations, filter data, and compute results.</td>
+</tr>
+<tr>
+<td>Execution</td>
+<td>Running the generated code on the Spark cluster.</td>
+<td>Distributes generated code across the Spark cluster; executed by Spark executors; results collected and returned.</td>
+<td>Running join and filter operations on different nodes in the cluster and aggregating results.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-reasons-for-analysis-exception-in-spark">Common reasons for analysis exception in Spark</h2>
+<p>Here are some common reasons why you might encounter an AnalysisException in Spark:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Reason</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Non-Existent Column or Table</td>
+<td>Column or table specified does not exist.</td>
+<td>Referring to a non-existent column <code>id</code>.</td>
+</tr>
+<tr>
+<td>Ambiguous Column Reference</td>
+<td>Same column name exists in multiple tables without qualification.</td>
+<td>Joining two DataFrames with the same column name <code>id</code>.</td>
+</tr>
+<tr>
+<td>Invalid SQL Syntax</td>
+<td>SQL query has syntax errors.</td>
+<td>Using incorrect SQL syntax like <code>SELCT</code>.</td>
+</tr>
+<tr>
+<td>Unsupported Operations</td>
+<td>Using an operation that Spark SQL does not support.</td>
+<td>Using an unsupported function.</td>
+</tr>
+<tr>
+<td>Schema Mismatch</td>
+<td>Schema of the DataFrame does not match the expected schema.</td>
+<td>Inserting data with different column types.</td>
+</tr>
+<tr>
+<td>Missing File or Directory</td>
+<td>Specified file or directory does not exist.</td>
+<td>Referring to a non-existent CSV file.</td>
+</tr>
+<tr>
+<td>Incorrect Data Type</td>
+<td>Operations expecting a specific data type are given the wrong type.</td>
+<td>Performing a math operation on a string column.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="flow-of-how-spark-works-internally">Flow of how Spark works internally</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Component/Step</strong></th>
+<th><strong>Role/Process</strong></th>
+<th><strong>Function/Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Driver Program</strong></td>
+<td>Entry point for the Spark application</td>
+<td>- Manages application lifecycle<br>- Defines RDD transformations and actions</td>
+</tr>
+<tr>
+<td><strong>SparkContext</strong></td>
+<td>Acts as the master of the Spark application</td>
+<td>- Connects to cluster manager<br>- Coordinates tasks</td>
+</tr>
+<tr>
+<td><strong>Cluster Manager</strong></td>
+<td>Manages the cluster of machines</td>
+<td>- Allocates resources to Spark applications<br>- Examples: YARN, Mesos, standalone</td>
+</tr>
+<tr>
+<td><strong>Executors</strong></td>
+<td>Worker nodes that run tasks and store data</td>
+<td>- Execute assigned code<br>- Return results to the driver<br>- Cache data in memory for quick access</td>
+</tr>
+<tr>
+<td><strong>Spark Application Submission</strong></td>
+<td>Submitting the driver program to the cluster manager</td>
+<td>- Example: Submitting a job using <code>spark-submit</code></td>
+</tr>
+<tr>
+<td><strong>SparkContext Initialization</strong></td>
+<td>Driver program initializes SparkContext</td>
+<td>- Example: <code>val sc = new SparkContext(conf)</code></td>
+</tr>
+<tr>
+<td><strong>Job Scheduling</strong></td>
+<td>Driver program defines transformations and actions on RDDs/DataFrames</td>
+<td>- Example: <code>val rdd = sc.textFile("data.txt").map(line =&gt; line.split(" "))</code></td>
+</tr>
+<tr>
+<td><strong>DAG (Directed Acyclic Graph) Creation</strong></td>
+<td>Constructing a DAG of stages for the job</td>
+<td>- Stages are sets of tasks that can be executed in parallel<br>- Example: A series of <code>map</code> and <code>filter</code> transformations create a DAG</td>
+</tr>
+<tr>
+<td><strong>Task Execution</strong></td>
+<td>Dividing the DAG into stages, creating tasks, and sending them to executors</td>
+<td>- Tasks are distributed across executors<br>- Each executor processes a partition of the data</td>
+</tr>
+<tr>
+<td><strong>Data Shuffling</strong></td>
+<td>Exchanging data between nodes during operations like <code>reduceByKey</code></td>
+<td>- Data is grouped by key across nodes<br>- Example: Shuffling data for aggregations</td>
+</tr>
+<tr>
+<td><strong>Result Collection</strong></td>
+<td>Executors process the tasks and send the results back to the driver program</td>
+<td>- Example: Final results of <code>collect</code> or <code>count</code> are returned to the driver</td>
+</tr>
+<tr>
+<td><strong>Job Completion</strong></td>
+<td>Driver program completes the execution</td>
+<td>- Example: Driver terminates after executing <code>sc.stop()</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="explain-dag-in-spark">Explain DAG in Spark</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Topic</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Details</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DAG in Spark</strong></td>
+<td>DAG stands for Directed Acyclic Graph.</td>
+<td>- Series of steps representing the operations on data.<br>- <strong>Directed</strong>: Operations flow in one direction.<br>- <strong>Acyclic</strong>: No cycles or loops.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Why We Need DAG</strong></td>
+<td>Optimizes Execution, Fault Tolerance, and Parallel Processing.</td>
+<td>- <strong>Optimizes Execution</strong>: Spark can optimize operations.<br>- <strong>Fault Tolerance</strong>: Recomputes lost data if a node fails.<br>- <strong>Parallel Processing</strong>: Divides tasks into stages for parallel execution.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Without DAG</strong></td>
+<td>No Optimization, No Fault Tolerance, and Less Parallelism.</td>
+<td>- <strong>No Optimization</strong>: Operations would run as written, slower performance.<br>- <strong>No Fault Tolerance</strong>: Inefficient data recomputation.<br>- <strong>Less Parallelism</strong>: Harder to parallelize tasks.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td>Example of a Spark job and DAG construction.</td>
+<td>- <strong>Read Data</strong>: <code>sc.textFile("file.txt")</code><br>- <strong>Split Lines into Words</strong>: <code>data.flatMap(...)</code><br>- <strong>Map Words to Key-Value Pairs</strong>: <code>words.map(...)</code><br>- <strong>Reduce by Key</strong>: <code>wordCounts.reduceByKey(...)</code><br>- <strong>Collect Results</strong>: <code>wordCounts.collect()</code></td>
+<td><code>scala val data = sc.textFile("file.txt") val words = data.flatMap(line =&gt; line.split(" ")) val wordCounts = words.map(word =&gt; (word, 1)).reduceByKey(_ + _) wordCounts.collect()</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="explain-sparksqlshufflepartitions-variable">Explain spark.sql.shuffle.partitions Variable</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Topic</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Details</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>spark.sql.shuffle.partitions</strong></td>
+<td>Configuration setting for shuffle partitions</td>
+<td>- <strong>Default Value</strong>: 200 partitions<br>- Defines the default number of partitions used when shuffling data for wide transformations</td>
+<td><code>scala spark.conf.set("spark.sql.shuffle.partitions", "number_of_partitions")</code></td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Optimize Performance and Control Data Distribution</td>
+<td>- <strong>Optimize Performance</strong>: Balances workload across the cluster<br>- <strong>Control Data Distribution</strong>: Manages how data is distributed and processed during shuffle operations</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>When It's Used</strong></td>
+<td>Wide Transformations and SQL Queries</td>
+<td>- <strong>Wide Transformations</strong>: <code>reduceByKey</code>, <code>groupByKey</code>, <code>join</code>, etc.<br>- <strong>SQL Queries</strong>: Operations involving shuffling data like joins and aggregations</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>How to Set It</strong></td>
+<td>Setting via Configuration and spark-submit</td>
+<td>- <strong>Configuration</strong>: <code>spark.conf.set("spark.sql.shuffle.partitions", "number_of_partitions")</code><br>- <strong>spark-submit</strong>: <code>spark-submit --conf spark.sql.shuffle.partitions=number_of_partitions ...</code></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td>Default and Custom Settings</td>
+<td>- <strong>Default Setting</strong>: <code>scala val spark = SparkSession.builder.appName("Example").getOrCreate() println(spark.conf.get("spark.sql.shuffle.partitions")) // Output: 200</code><br>- <strong>Custom Setting</strong>: <code>scala val spark = SparkSession.builder.appName("Example").getOrCreate() spark.conf.set("spark.sql.shuffle.partitions", "50") val df = spark.read.json("data.json") df.groupBy("column").count().show()</code></td>
+<td><code>scala val spark = SparkSession.builder.appName("Example").getOrCreate() println(spark.conf.get("spark.sql.shuffle.partitions")) // Output: 200</code></td>
+</tr>
+<tr>
+<td><strong>Why Adjust This Setting?</strong></td>
+<td>Small and Large Datasets</td>
+<td>- <strong>Small Datasets</strong>: Reduce the number of partitions to avoid too many small tasks, leading to overhead<br>- <strong>Large Datasets</strong>: Increase the number of partitions to distribute data evenly and avoid large partitions that slow down processing</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

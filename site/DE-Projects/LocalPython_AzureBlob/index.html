@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Local Python Code to Rearrange Files in a Azure Blob Container - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Airflow</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Airflow/1.0.0_AirFlow_Concepts/" class="dropdown-item">Airflow Concepts</a>
+</li>
+                                    
+<li>
+    <a href="../../Airflow/1.0.1_A_Dags_Anatomy/" class="dropdown-item">A dags anatomy</a>
+</li>
+                                    
+<li>
+    <a href="../../Airflow/1.0.2_Hello_Airflow/" class="dropdown-item">Hello-Airflow</a>
+</li>
+                                    
+<li>
+    <a href="../../Airflow/1.0.3_Airflow_Dbt_Docker/" class="dropdown-item">Project Airflow dbt</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">DE Projects</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../Csv-To-MSSQL/" class="dropdown-item">Python - CSV To MSSQL</a>
+</li>
+                                    
+<li>
+    <a href="../CurrencyPredictor/" class="dropdown-item">CurrencyPredictor</a>
+</li>
+                                    
+<li>
+    <a href="../Dbrk-E2E-AttritionProject/" class="dropdown-item">Problem Statement</a>
+</li>
+                                    
+<li>
+    <a href="../Download-Haddop-Jars/" class="dropdown-item">Download JARs-Apache Maven Repo</a>
+</li>
+                                    
+<li>
+    <a href="../FetchJsonWriteParquet/" class="dropdown-item">Json To Parquet Using Spark And Azure</a>
+</li>
+                                    
+<li>
+    <a href="../InstallScala/" class="dropdown-item">Scala Install</a>
+</li>
+                                    
+<li>
+    <a href="../JsonFlatAzureSDK/" class="dropdown-item">Flatten Json Using Azure SDK</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Local Python Code to Rearrange Files in a Azure Blob Container</a>
+</li>
+                                    
+<li>
+    <a href="../Microsoft_OpenJDK/" class="dropdown-item">Microsoft OpenJDK</a>
+</li>
+                                    
+<li>
+    <a href="../Project_MigrationToAzureBlob/" class="dropdown-item">CMS Migration to Azure Blob</a>
+</li>
+                                    
+<li>
+    <a href="../Project_MongoCMS/" class="dropdown-item">CMS using MongoDB</a>
+</li>
+                                    
+<li>
+    <a href="../Project_SSRS_SSIS_SharePoint/" class="dropdown-item">Project - ETL and Reporting Lending Org</a>
+</li>
+                                    
+<li>
+    <a href="../Raw-Json-To-Hive/" class="dropdown-item">Raw Json To Hive</a>
+</li>
+                                    
+<li>
+    <a href="../SPY_ETF_Buy_Recommender/" class="dropdown-item">SPY ETF Buy Recommender</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">AzureSkyWeather</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../AzureSkyWeather/HomeProjectAzureSkyWeather/" class="dropdown-item">Project AzureSkyWeather</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1 Ingestion</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">HttpTriggered</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../AzureSkyWeather/1_Ingestion/HttpTriggered/HTTPTriggered_AzureFunc/" class="dropdown-item">Part 1A - Using Azure HTTP-Triggered Function</a>
+</li>
+            
+<li>
+    <a href="../AzureSkyWeather/1_Ingestion/HttpTriggered/nav2_AzureFunctions/" class="dropdown-item">Azure Functions Quickstart</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">TimerTriggered</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../AzureSkyWeather/1_Ingestion/TimerTriggered/TimerTriggered_AzureFunc/" class="dropdown-item">Part 1B - Using Azure Timer-Triggered Function</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2 Transformation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../AzureSkyWeather/2_Transformation/Solution_Details/" class="dropdown-item">Solution Details</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JsonValidator</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../JsonValidator/AzureFunction-ValidateJSOns/" class="dropdown-item">Azure Functions - Validate JSONs</a>
+</li>
+            
+<li>
+    <a href="../JsonValidator/Python-ValidateJSONs/" class="dropdown-item">Validate JSON using Python</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Sparkzure</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../Sparkzure/HomeProjectSparkzure/" class="dropdown-item">Project Sparkzure</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">StreamKraft</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../StreamKraft/HomeProjectStreamKraft/" class="dropdown-item">Project StreamKraft</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">DevOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../DevOps/1.1_Hello_GitHub_Actions_Workflow/" class="dropdown-item">Hello GitHub Actions Workflow</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/1.1_Sample_Workflows/" class="dropdown-item">Sample Workflows</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/1_GitHub-Concepts/" class="dropdown-item">GitHub Concepts</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/2.1_Self-Hosted_Agent_Windows/" class="dropdown-item">Self-Hosted-Agent-Windows</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/2.2_Self-Hosted_Agent_Windows_Container/" class="dropdown-item">Self-Hosted-Agent-Win-Container</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/2.3_Self-Hosted_Agent_Linux_Container/" class="dropdown-item">Self-Hosted-Agent-Ubuntu-Container</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/2_Azure-Pipelines/" class="dropdown-item">Azure-Pipelines</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/ADF_CICD/" class="dropdown-item">ADF-CI-CD</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/Biceps/" class="dropdown-item">What is Bicep?</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/CI-CD_in%20ADF/" class="dropdown-item">CI CD in ADF</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/GitScenarios/" class="dropdown-item">GitScenarios</a>
+</li>
+                                    
+<li>
+    <a href="../../DevOps/JenkinsVsGitHubVsAzureDevOps/" class="dropdown-item">Jenkins Vs GitHub Vs Devops</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">DockerAndKubernetes</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">AirflowDocker</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../DockerAndKubernetes/AirflowDocker/1_AirflowDocker/" class="dropdown-item">Airflow</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Kafka</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../DockerAndKubernetes/Kafka/2_Confluent%20Kafka/" class="dropdown-item">Confluent Kafka</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Mongodb</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../DockerAndKubernetes/Mongodb/3_DockerMongodb/" class="dropdown-item">MongoDB</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SparkHiveHadoop</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.1_PySpark/" class="dropdown-item">PySpark</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.2_Bitnami_Spark_Cluster/" class="dropdown-item">Bitnami Spark</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.3_VSCode_Docker_Connection/" class="dropdown-item">VSCode-Docker-Connection</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL/" class="dropdown-item">Spark-Hive_MSSQL</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode/" class="dropdown-item">Hadoop Cluster</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto/" class="dropdown-item">bde2020-Hive-Hadoop-Presto</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL/" class="dropdown-item">Hive-Hadoop-MySQL-SingleNode</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial/" class="dropdown-item">Hive Official Setup</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.9.1_Hive_Concepts/" class="dropdown-item">Hive Concepts</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.9.2_Hadoop_Concepts/" class="dropdown-item">Hadoop Concepts</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts/" class="dropdown-item">Docker Misc Concepts</a>
+</li>
+            
+<li>
+    <a href="../../DockerAndKubernetes/SparkHiveHadoop/4_Spark-Hive-Hadoop/" class="dropdown-item">4 Spark Hive Hadoop</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">M365</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../M365/DocumentumToSharePoint/" class="dropdown-item">Documentum-SharePoint Online</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/LicensingExamples/" class="dropdown-item">M365 Licensing Examples</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/SPMT/" class="dropdown-item">SPMT - SharePoint Migration</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/SharePoint2007FarmUpgrade/" class="dropdown-item">SharePoint Farm Upgrade</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/SharePoint2016FarmUpgrade/" class="dropdown-item">SharePoint Farm 2016 Farm Setup</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/SharePointEvents/" class="dropdown-item">SharePoint Event Receiver</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/SharePointFarmConsolidation/" class="dropdown-item">SharePoint Farm Consolidation</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/SharePointFormsOrPowerApps/" class="dropdown-item">SharePoint Forms or PowerApps</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/SharePointMiniRole/" class="dropdown-item">SharePoint Mini Role</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/SharePointVersionEvolution/" class="dropdown-item">SharePoint Evolution</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/SharePointVsOtherECM/" class="dropdown-item">SharePoint vs Other ECMS</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/WSS3DocumentUpload/" class="dropdown-item">Project - C# - WSS 3 Bulk ingestion</a>
+</li>
+                                    
+<li>
+    <a href="../../M365/oAuthSharePointPython/" class="dropdown-item">Python-oAuth-SharePointOnline</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Microsoft Fabric</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/DataFactory/" class="dropdown-item">Pipelines&DataFlows</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/DataScience/" class="dropdown-item">Data Science on Fabric Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/DataWareHouse/" class="dropdown-item">DataWareHouse</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/DirectLake/" class="dropdown-item">DirectLake|Fabric|PowerBI</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/E2EProject/" class="dropdown-item">E2EProject</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/ETL-OPG-Copydata-JSON-Lakehouse/" class="dropdown-item">JSON-DeltaLake-OPG</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/ETL-Pyspark-Notebook-Lakehouse/" class="dropdown-item">ETL-Load data into Lakehouse - Pyspark Notebook</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/FabricAdministration/" class="dropdown-item">Administration</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/FabricQ%26A/" class="dropdown-item">Fabric Q&A</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/FabricSparkStreaming/" class="dropdown-item">Spark Streaming</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/HelloMicrosoftFabric/" class="dropdown-item">Hello Fabric</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/InspectingDataframes/" class="dropdown-item">Whats in your df?</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/KQL/" class="dropdown-item">KQL</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/PandasVsSparkDf/" class="dropdown-item">PandasVsSparkDf</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/Pyspark_SparkSQL/" class="dropdown-item">Pyspark|SparkSQL CheatSheet</a>
+</li>
+                                    
+<li>
+    <a href="../../Microsoft-Fabric/RealTimeAnalytics/" class="dropdown-item">Real-time Intelligence</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Misc</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Misc/10_Fact_vs_Dimension_tables/" class="dropdown-item">Fact Vs Dimension Table</a>
+</li>
+                                    
+<li>
+    <a href="../../Misc/1_GoogleCloudSeeUsage/" class="dropdown-item">Check Google Usage</a>
+</li>
+                                    
+<li>
+    <a href="../../Misc/2_InstallVMWareFree/" class="dropdown-item">VMWare For Free</a>
+</li>
+                                    
+<li>
+    <a href="../../Misc/3_Markdown/" class="dropdown-item">Markdown</a>
+</li>
+                                    
+<li>
+    <a href="../../Misc/4_VSTrics/" class="dropdown-item">Visual Studio Code Tricks</a>
+</li>
+                                    
+<li>
+    <a href="../../Misc/5_WhichDatastsToUse/" class="dropdown-item">Free Datasets for Data Practice</a>
+</li>
+                                    
+<li>
+    <a href="../../Misc/6_RunningAppsInBg/" class="dropdown-item">Running Service in Background</a>
+</li>
+                                    
+<li>
+    <a href="../../Misc/7_Azure_Budget/" class="dropdown-item">How to set a Azure Budget</a>
+</li>
+                                    
+<li>
+    <a href="../../Misc/9_WhyUbuntuIsGood/" class="dropdown-item">Why Ubuntu is good to learn</a>
+</li>
+                                    
+<li>
+    <a href="../../Misc/markdown_pdf_export_html/" class="dropdown-item">Markdown pdf export html</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">MarkdownColor.md</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Misc/MarkdownColor.md/Color/" class="dropdown-item">Color Reference</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Images</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Misc/MarkdownColor.md/images/Color/" class="dropdown-item">Color Palettes</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MongoDB</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../MongoDB/HowMongoDBStoresFiles/" class="dropdown-item">How MongoDB Stores Data</a>
+</li>
+                                    
+<li>
+    <a href="../../MongoDB/MongbDB_Vs_Atlas_VsCosmosDB/" class="dropdown-item">MongoDB Vs CosmosDB</a>
+</li>
+                                    
+<li>
+    <a href="../../MongoDB/MongoDBCommands/" class="dropdown-item">MongoDB Commands</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">PowerPlatform</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../PowerPlatform/CalculationGroups/" class="dropdown-item">CalculationGroups</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/CustomConnectors/" class="dropdown-item">Building Custom Connectors</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/ECMCaptureFlow/" class="dropdown-item">Power Automate Or Kofax/Captiva?</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/EnableMicrosoftSyntex/" class="dropdown-item">Enable Microsoft Syntex on your Office 365 tenant</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/EnableSyntexOnYourDocumentLibrary/" class="dropdown-item">Create a model on SharePoint - Syntex</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/GoogleProviderPowerPages/" class="dropdown-item">Google Authentication</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/HealthClinicDataverseSecurity/" class="dropdown-item">HealthClinicDataverseSecurity</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/HelloDataverse/" class="dropdown-item">Hello Dataverse</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/HelloDynamics365/" class="dropdown-item">Dynamics 365 Ecosystem</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/HelloPowerPlatform/" class="dropdown-item">PowerPlatform Ecosystem</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/ModelDrivenApps/" class="dropdown-item">Model-Driven Apps</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/OnPremiseGateway/" class="dropdown-item">Onpremise Gateway</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/PowerAutomateIsWorkflowTeams/" class="dropdown-item">Workflow is Power Automate</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/PowerPlatformAdminCentral/" class="dropdown-item">PowerPlatformAdminCentral</a>
+</li>
+                                    
+<li>
+    <a href="../../PowerPlatform/PowerPlatformQ%26A/" class="dropdown-item">Pl-900-Q&A</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">DocumentIntelligence</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../PowerPlatform/DocumentIntelligence/AAIDI_AzureCognitiveSearch/" class="dropdown-item">Integrate AI Search and Azure AI Document Intelligence</a>
+</li>
+            
+<li>
+    <a href="../../PowerPlatform/DocumentIntelligence/AAIDI_Q%26A/" class="dropdown-item">AAIDI Q&A</a>
+</li>
+            
+<li>
+    <a href="../../PowerPlatform/DocumentIntelligence/AzureAIDocumentIntelligence/" class="dropdown-item">Azure AI Document Intelligence</a>
+</li>
+            
+<li>
+    <a href="../../PowerPlatform/DocumentIntelligence/DocumentAutomation/" class="dropdown-item">Document automation base kit</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Python</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Python/1.0_Sets/" class="dropdown-item">Sets</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.1.0_assert_methods/" class="dropdown-item">assert methods</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.1.1_decorators/" class="dropdown-item">decorators</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.1.2_argv/" class="dropdown-item">argv</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.1.3_Diff_And_Patch/" class="dropdown-item">diffAndpatch</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.1.3_error_handling/" class="dropdown-item">Error Handling</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.1.4_pdb/" class="dropdown-item">pdb</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.1.5_pyformat/" class="dropdown-item">format method</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.10_Func_Modl_Summary/" class="dropdown-item">LFM Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.11_ifelifelse/" class="dropdown-item">ifelifelse</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.12_Operators/" class="dropdown-item">operators</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.13_For_Loops/" class="dropdown-item">for loops</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.14_enumerate/" class="dropdown-item">1.14 enumerate</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.15_range_function/" class="dropdown-item">range function</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.16_built_in_functions/" class="dropdown-item">1.16 built in functions</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.17_withStatement/" class="dropdown-item">with statement</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.18_unittest_pytest/" class="dropdown-item">pytest</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.19_if_name_main.md/" class="dropdown-item">if__name__main</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.1_Tuples/" class="dropdown-item">Tuples</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.2_Tuples_Advanced/" class="dropdown-item">Advanced Tuples</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.3_List/" class="dropdown-item">1.3 List</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.4_Dictionaries/" class="dropdown-item">1.4 Dictionaries</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.5_Lamda_Functions/" class="dropdown-item">Lamda Functions</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1.9_Func_Modl_Lib/" class="dropdown-item">Library-Modules-Funcs</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/1_Python/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/Linux/" class="dropdown-item">Essential Unix Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/Pyspark/" class="dropdown-item">PySpark</a>
+</li>
+                                    
+<li>
+    <a href="../../Python/PythonScripts/" class="dropdown-item">Python Sample Scripts</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">GraphAPIJupyter</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Python/GraphAPIJupyter/GraphAPIUsingJuputer/" class="dropdown-item">Graph API - Juputer</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SQL</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../SQL/1.0.0_dbt/" class="dropdown-item">dbt</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/1.0.1_setup_simple_dbt_project/" class="dropdown-item">1.0.1 setup simple dbt project</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/FlatFileSoure/" class="dropdown-item">FlatFileSoure</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/InputAndOutputProperties/" class="dropdown-item">Understanding External Columns and Output Columns in SSIS</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/MSSQL_Versions/" class="dropdown-item">SQL Server Versions</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/Project_1-ETL-CSV-MSSQL/" class="dropdown-item">Project 1 - ETL Flat Files to MSSQL</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/Project_2-UsingWebServicesInSSIS/" class="dropdown-item">Project 2 - Web Service SSIS Script Task</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/SQL/" class="dropdown-item">Spark-SQL</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/SQL_AdvancedTopics/" class="dropdown-item">SQL Advanced Topics</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/SSIS/" class="dropdown-item">SQL Server Integration Services</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/SSRS/" class="dropdown-item">SSRS</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/Windows_Functions/" class="dropdown-item">Window Functions</a>
+</li>
+                                    
+<li>
+    <a href="../../SQL/connecting-with-dbt/" class="dropdown-item">Connect Local dbt with MSSQL Server</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Spark DataBricks</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1.0 Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts/" class="dropdown-item">Spark</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.10_Scala_Cheatsheet/" class="dropdown-item">Scala Cheatsheet</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.11_Spark_Interview_Questions/" class="dropdown-item">Spark Interview Questions</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.12_Spark_Shuffle/" class="dropdown-item">Shuffle in Spark</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.13_SparkDatabaseTablesCatalogsMetastore/" class="dropdown-item">Spark DB-Tables-Metastore-Catalogs</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.14_Q%26A/" class="dropdown-item">Q&A</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.15_CommonPysparkTopics/" class="dropdown-item">PySpark Concepts I</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.16_ConnectingSparkToHive/" class="dropdown-item">Spark-Hive-Delta Connection</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.1_NarrowVsWideTransformation/" class="dropdown-item">Narrow_Vs_Wide_Transformation</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.2_SparkArchitecture/" class="dropdown-item">Spark Architecture</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.3_persist_and_cache/" class="dropdown-item">persist and cache</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.4_broadcastvariables/" class="dropdown-item">Broadcast Variables</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.5_DataSkewHandling/" class="dropdown-item">Data Skew in Spark</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.6_dropna_fillna_df_missing_val_handling/" class="dropdown-item">dropna and fillna</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.7_distinct_dropDuplicate_windowsFunc/" class="dropdown-item">Removing Duplicates - PySpark</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.8_Partition_Grouping/" class="dropdown-item">Partition And Bucket</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/1.9_RDD_Dataframe_Dataset/" class="dropdown-item">RDD-Dataframe-Dataset</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Install Pyspark Windows</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Spark-DataBricks/1.0_Spark/Install-Pyspark-Windows/Install-Pyspark-Windows/" class="dropdown-item">Install-PySpark-Windows</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.0 Spark To ADLS</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Spark-DataBricks/2.0_Spark_To_ADLS/2.0_Spark_To_ADLS/" class="dropdown-item">Spark-To-ADLS-Connection</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/2.0_Spark_To_ADLS/2.1_Spark-To_ADLS_Summary/" class="dropdown-item">Spark-To-ADLS-Summary</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">3.0 Databricks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Spark-DataBricks/3.0_Databricks/3.0_Databricks_Concepts/" class="dropdown-item">Databricks</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/3.0_Databricks/3.1_Catalogs_And_Metastore/" class="dropdown-item">Hive Metastore and the hive_metastore folder</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/3.0_Databricks/3.2_AuthenticationMethods/" class="dropdown-item">Authentication Method</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/3.0_Databricks/3.3_Mount_ADLS_on_Databricks/" class="dropdown-item">Mount ADLS on Databricks</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/3.0_Databricks/3.4_Databricks_Secret_Scope/" class="dropdown-item">Secret Scope</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/3.0_Databricks/3.5_Databricks_SQL/" class="dropdown-item">CREATE TABLE USING</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/3.0_Databricks/3.6_DatabricksMagicCommands/" class="dropdown-item">Magic Commands</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/3.0_Databricks/3.7_DeltaLake_And_Lakehouse/" class="dropdown-item">Delta Lake And Lakehouse</a>
+</li>
+            
+<li>
+    <a href="../../Spark-DataBricks/3.0_Databricks/4.8_Databricks_ProjectA1/" class="dropdown-item">Project-A</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">4.0 Hive</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Spark-DataBricks/4.0_Hive/Hive_Concepts/" class="dropdown-item">Hive Concepts</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">StreamProcessing</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../StreamProcessing/1.0_What_Is_Stream_Processing/" class="dropdown-item">1.0 What Is Stream Processing</a>
+</li>
+                                    
+<li>
+    <a href="../../StreamProcessing/2.0.1_EventHubs_Vs_Kafka/" class="dropdown-item">EventHubs Vs Kafka</a>
+</li>
+                                    
+<li>
+    <a href="../../StreamProcessing/2.0.2_Project_Hello_EventHubs/" class="dropdown-item">Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../StreamProcessing/2.0.3_EventHubsLocalEmulator/" class="dropdown-item">Event Hubs Emulator - End to End</a>
+</li>
+                                    
+<li>
+    <a href="../../StreamProcessing/2.0_Azure_EventHubs/" class="dropdown-item">EventHubs</a>
+</li>
+                                    
+<li>
+    <a href="../../StreamProcessing/4_EventProcessingChoices/" class="dropdown-item">Stream Processing Product Combination</a>
+</li>
+                                    
+<li>
+    <a href="../../StreamProcessing/5_AmazonKinesisSparkIntegration/" class="dropdown-item">5 AmazonKinesisSparkIntegration</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Synapse ADF</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Synapse-ADF/1.0_SynapseConcepts/" class="dropdown-item">SynapseConcepts</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/1.1_Pools/" class="dropdown-item">Pools</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/1.3_ETL%20Pipelines/" class="dropdown-item">ETL Pipelines</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/1.4_Copy-data-tool/" class="dropdown-item">ADF Copy task - When to use</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/1.5_IntegrationRuntime/" class="dropdown-item">Integration Runtime</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/1.6_DB_Types_In_Synapse/" class="dropdown-item">Types of DB in Synapse</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/1.7_SynapseLakeDBAndLakehouse/" class="dropdown-item">Lake DB-Lakehouse-Delta Lake</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/1.8_ADF_SA_Evolution/" class="dropdown-item">ADF & Synapse Evolution</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/1.9_CETAS/" class="dropdown-item">CETAS</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/2.0_Projects/" class="dropdown-item">2.0 Projects</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/2.1_Pipeline-Local-ADLS/" class="dropdown-item">CopyData-LocalToADLS</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/2.2_PySparkWarehouse/" class="dropdown-item">PysparkWarehouse</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/2.3_ADF_RestAPI_Databricks/" class="dropdown-item">2.3 ADF RestAPI Databricks</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/2.4_Monitor_ADF_Pipelines/" class="dropdown-item">ADF Pipelines Monitoring</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/2.5_ADF_Pipeline_Copy/" class="dropdown-item">Export ADF Pipeline</a>
+</li>
+                                    
+<li>
+    <a href="../../Synapse-ADF/Q%26A/" class="dropdown-item">100 Synapse FAQs</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../JsonFlatAzureSDK/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../Microsoft_OpenJDK/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            
+            <li class="nav-item" data-bs-level="2"><a href="#rearranging-files-in-azure-blob-storage-using-python" class="nav-link">Rearranging Files in Azure Blob Storage Using Python</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h3 id="table-of-contents">Table of contents</h3>
+<ul>
+<li><a href="#rearranging-files-in-azure-blob-storage-using-python">Rearranging Files in Azure Blob Storage Using Python</a></li>
+<li><a href="#background">Background</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#kickstart-step-by-step-guide-to-writing-the-code">Kickstart: Step-by-step guide to writing the code</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#appendix">Appendix</a><ul>
+<li><a href="#why-use-a-structure-like-year2023month10day23hour00json">Why use a structure like <code>year=2023/month=10/day=23/hour=00.json</code>?</a></li>
+<li><a href="#complete-tested-code">Complete tested code</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="rearranging-files-in-azure-blob-storage-using-python">Rearranging Files in Azure Blob Storage Using Python</h2>
+<h3 id="background">Background</h3>
+<p>During some of my projects, I often had to rearrange files inside Azure blob containers. In this write-up, I'm sharing a simple Python method I frequently use with the Azure SDKs. </p>
+<p>But before we dive in, it's essential to understand there are many other ways to achieve the same thing, some of which might be better for regular company setups:</p>
+<ol>
+<li>You can run Spark externally and use Hadoop Jars with Pyspark. This is quite useful if you're looking for an in-house solution and don't want to spend too much on Databricks or ADFs. I've explained this method in detail in other articles on my site.</li>
+<li>There are also options like Databricks, Azure Logic Apps, ADF, and the like.</li>
+</ol>
+<p>One thing to note: While this Python method is easy, it's a bit slower compared to using Hadoop Jars with Spark. Also, if you're using Python externally, monitoring and maintenance can be a bit challenging.</p>
+<p>I'm sharing this technique because it shows the capabilities of Azure SDK when paired with Python for Blob containers. It's good to know what can be done, even if there might be faster or more efficient methods out there.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ol>
+<li>Azure Blob Storage Account and a container with files.</li>
+<li><code>azure-identity</code> and <code>azure-storage-blob</code> Python packages. Install these with:
+   <code>bash
+   pip install azure-identity azure-storage-blob</code></li>
+</ol>
+<h3 id="overview">Overview</h3>
+<p>Our primary goal is to rearrange files stored in my container named like <code>2023-10-23-00.json</code> into a hierarchical structured format like <code>year=2023/month=10/day=23/hour=00.json</code>.</p>
+<h3 id="kickstart-step-by-step-guide-to-writing-the-code">Kickstart: Step-by-step guide to writing the code</h3>
+<ol>
+<li><strong>Set up Azure Blob Storage SDK</strong>:
+   Start by authenticating against Azure with the credentials from your registered Azure app:
+   ```python
+   from azure.identity import ClientSecretCredential
+   from azure.storage.blob import BlobServiceClient</li>
+</ol>
+<p>credential = ClientSecretCredential(
+       tenant_id="YOUR_TENANT_ID", 
+       client_id="YOUR_CLIENT_ID", 
+       client_secret="YOUR_CLIENT_SECRET"
+   )</p>
+<p>account_url = "https://YOUR_STORAGE_ACCOUNT_NAME.blob.core.windows.net/"<br />
+   blob_service_client = BlobServiceClient(account_url=account_url, credential=credential)
+   ```</p>
+<ol>
+<li>
+<p><strong>Listing Blobs</strong>:
+   Retrieve all blobs in your container and then filter the desired files:
+   <code>python
+   container_client = blob_service_client.get_container_client("YOUR_CONTAINER_NAME")
+   blobs = container_client.list_blobs()
+   old_files = [blob.name for blob in blobs if "-*.json" in blob.name]</code></p>
+</li>
+<li>
+<p><strong>File Rearrangement</strong>:
+   Deconstruct each blob's name to get the year, month, day, and hour. Then, design the new path:
+   <code>python
+   for old_file_path in old_files:
+       filename = old_file_path.split('/')[-1]
+       year, month, day, hour = filename.split('-')[:4]
+       new_directory = f"year={year}/month={month}/day={day}/"
+       new_blob_path = new_directory + f"hour={hour}.json"</code></p>
+</li>
+<li>
+<p><strong>Copying &amp; Deleting Blobs</strong>:
+   Azure Blob Storage requires copying the blob to the new position and deleting the original:
+   <code>python
+   source_blob = container_client.get_blob_client(old_file_path)
+   destination_blob = container_client.get_blob_client(new_blob_path)
+   destination_blob.start_copy_from_url(source_blob.url)
+   source_blob.delete_blob()</code></p>
+</li>
+<li>
+<p><strong>Simulating Directory-like Structure</strong>:
+   Azure Blob Storage doesn't have real directories. Instead, using <code>/</code> in blob names can emulate directory structures. By copying a blob to a new path with <code>/</code>, we can recreate a folder-like structure.</p>
+</li>
+<li>
+<p><strong>Error Handling</strong>:
+   It's essential to manage errors. I ran into an <code>InvalidUri</code> error when attempting to create a directory-like structure  using 0-byte blobs. I tackled this by directly copying the blob to the desired path, which handled the pathing effectively.</p>
+</li>
+</ol>
+<h3 id="conclusion">Conclusion</h3>
+<p>Shifting files in Azure Blob Storage can initially appear challenging, mainly due to its flat structure. Nevertheless, with the Azure SDK for Python and the correct strategy, restructuring blobs becomes feasible. Always remember to rigorously test your approach in a non-production environment before applying it to vital data.</p>
+<h3 id="appendix">Appendix</h3>
+<h4 id="why-use-a-structure-like-year2023month10day23hour00json">Why use a structure like <code>year=2023/month=10/day=23/hour=00.json</code>?</h4>
+<p>This hierarchical directory structure aligns very well with common best practices for storing data in columnar storage formats like Parquet and ORC. Here's how:</p>
+<ol>
+<li>
+<p><strong>Partitioning</strong>: The structure <code>year=2023/month=10/day=23/hour=00.json</code> inherently sets up partitioning for the data. When converted to Parquet or other storage formats, this structure will make it incredibly efficient to read specific partitions (like all data from a particular month or day) without scanning through the entire dataset. This reduces the amount of data that needs to be read and thus speeds up queries.</p>
+</li>
+<li>
+<p><strong>Column Pruning</strong>: If your dataset inside the JSON files includes multiple columns, Parquet (and other columnar formats) allows for column pruning. This means that if a particular analysis requires only a subset of columns, only those specific columns are read from the storage, saving both time and resources.</p>
+</li>
+<li>
+<p><strong>Compression</strong>: Both Parquet and ORC are known for efficient compression. When you have data organized hierarchically, and you're storing it in a columnar format, you can achieve significant storage savings. The structure also ensures that similar data types (like timestamps) are stored together, which can result in better compression ratios.</p>
+</li>
+<li>
+<p><strong>Compatibility with Big Data Tools</strong>: Tools like Spark and Hive work exceptionally well with columnar storage formats and can directly utilize the hierarchical structure for optimized data reads. If you ever decide to analyze the data using these tools, having them in this structure and format would be advantageous.</p>
+</li>
+<li>
+<p><strong>Schema Evolution</strong>: One of the advantages of Parquet (and to some extent, ORC) is the support for schema evolution. If your data structure changes over time (new columns are added, for example), these formats can handle those changes gracefully. Having an organized directory structure makes managing these schema changes over different time periods more straightforward.</p>
+</li>
+</ol>
+<p><strong>Long story short:</strong></p>
+<p>Given these advantages, if you're considering a transition to Parquet or another efficient storage format in the future, this hierarchical structure will certainly come in handy and help in making the data storage and retrieval processes more efficient.</p>
+<h4 id="complete-tested-code">Complete tested code</h4>
+<p>If you want to test the complete code together here is it. Remember, place your original ids, secret in the placeholder. Also, its not a good practice to use creds like this they shoudl be stored in vaults. But for focussing on the core functionality and to reduce the number of code I used the ids and passwords right in the code.</p>
+<pre><code class="language-python"># Import necessary libraries
+from azure.identity import ClientSecretCredential
+from azure.storage.blob import BlobServiceClient
+import re
+
+# Replace your actual Azure 'App registrations' credentials here
+tenant_dir_id_regd_app = &quot;YOUR_TENANT_ID&quot;
+client_id_regd_app = &quot;YOUR_CLIENT_ID&quot;
+client_secret_regd_app = &quot;YOUR_CLIENT_SECRET&quot;
+
+# Specify the Azure Blob container name and storage account name
+container_name = &quot;YOUR_CONTAINER_NAME&quot;
+storage_act_name = &quot;YOUR_STORAGE_ACCOUNT_NAME&quot;
+
+# Set up authentication using Azure ClientSecretCredential
+# This is useful when you're using Azure AD for authentication
+credential = ClientSecretCredential(
+    tenant_id=tenant_dir_id_regd_app, 
+    client_id=client_id_regd_app, 
+    client_secret=client_secret_regd_app
+)
+
+# Initialize BlobServiceClient with the given account and credentials
+account_url = f&quot;https://{storage_act_name}.blob.core.windows.net/&quot;
+blob_service_client = BlobServiceClient(account_url=account_url, credential=credential)
+container_client = blob_service_client.get_container_client(container_name)
+
+# List all blobs in the specified ADLS container
+# Then, filter out the files using a regular expression to match the desired format
+blobs = container_client.list_blobs()
+old_files = [blob.name for blob in blobs if re.match(r'^\d{4}-\d{2}-\d{2}-\d{2}.json$', blob.name)]
+
+# Display the number of files that match the format and will be processed
+print(f&quot;Number of files to be processed: {len(old_files)}&quot;)
+
+for old_file_path in old_files:
+    # Break down the old file path to extract year, month, day, and hour
+    filename = old_file_path.split('/')[-1]
+    year, month, day, hour = filename.split('-')[:4]
+
+    # Create the new hierarchical directory structure based on extracted date and time details
+    new_blob_path = f&quot;year={year}/month={month}/day={day}/hour={hour}&quot;
+
+    # Display the file movement details
+    print(f&quot;Moving {old_file_path} to {new_blob_path}&quot;)
+
+    # Copy content from the old blob to the new blob location
+    source_blob = container_client.get_blob_client(old_file_path)
+    destination_blob = container_client.get_blob_client(new_blob_path)
+    destination_blob.start_copy_from_url(source_blob.url)
+
+    # Once the content is successfully copied, remove the old blob
+    source_blob.delete_blob()
+
+print(&quot;Files rearranged successfully!&quot;)
+
+</code></pre>
+<hr />
+<p>© D Das<br />
+📧 <a href="mailto:das.d@hotmail.com">das.d@hotmail.com</a> | <a href="mailto:ddasdocs@gmail.com">ddasdocs@gmail.com</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

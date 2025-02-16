@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Confluent Kafka - My Docs</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Airflow</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Airflow/1.0.0_AirFlow_Concepts/" class="dropdown-item">Airflow Concepts</a>
+</li>
+                                    
+<li>
+    <a href="../../../Airflow/1.0.1_A_Dags_Anatomy/" class="dropdown-item">A dags anatomy</a>
+</li>
+                                    
+<li>
+    <a href="../../../Airflow/1.0.2_Hello_Airflow/" class="dropdown-item">Hello-Airflow</a>
+</li>
+                                    
+<li>
+    <a href="../../../Airflow/1.0.3_Airflow_Dbt_Docker/" class="dropdown-item">Project Airflow dbt</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">DE Projects</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../DE-Projects/Csv-To-MSSQL/" class="dropdown-item">Python - CSV To MSSQL</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/CurrencyPredictor/" class="dropdown-item">CurrencyPredictor</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Dbrk-E2E-AttritionProject/" class="dropdown-item">Problem Statement</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Download-Haddop-Jars/" class="dropdown-item">Download JARs-Apache Maven Repo</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/FetchJsonWriteParquet/" class="dropdown-item">Json To Parquet Using Spark And Azure</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/InstallScala/" class="dropdown-item">Scala Install</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/JsonFlatAzureSDK/" class="dropdown-item">Flatten Json Using Azure SDK</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/LocalPython_AzureBlob/" class="dropdown-item">Local Python Code to Rearrange Files in a Azure Blob Container</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Microsoft_OpenJDK/" class="dropdown-item">Microsoft OpenJDK</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Project_MigrationToAzureBlob/" class="dropdown-item">CMS Migration to Azure Blob</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Project_MongoCMS/" class="dropdown-item">CMS using MongoDB</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Project_SSRS_SSIS_SharePoint/" class="dropdown-item">Project - ETL and Reporting Lending Org</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/Raw-Json-To-Hive/" class="dropdown-item">Raw Json To Hive</a>
+</li>
+                                    
+<li>
+    <a href="../../../DE-Projects/SPY_ETF_Buy_Recommender/" class="dropdown-item">SPY ETF Buy Recommender</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">AzureSkyWeather</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/AzureSkyWeather/HomeProjectAzureSkyWeather/" class="dropdown-item">Project AzureSkyWeather</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1 Ingestion</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">HttpTriggered</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/HTTPTriggered_AzureFunc/" class="dropdown-item">Part 1A - Using Azure HTTP-Triggered Function</a>
+</li>
+            
+<li>
+    <a href="../../../DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/nav2_AzureFunctions/" class="dropdown-item">Azure Functions Quickstart</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">TimerTriggered</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/AzureSkyWeather/1_Ingestion/TimerTriggered/TimerTriggered_AzureFunc/" class="dropdown-item">Part 1B - Using Azure Timer-Triggered Function</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2 Transformation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/AzureSkyWeather/2_Transformation/Solution_Details/" class="dropdown-item">Solution Details</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JsonValidator</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/JsonValidator/AzureFunction-ValidateJSOns/" class="dropdown-item">Azure Functions - Validate JSONs</a>
+</li>
+            
+<li>
+    <a href="../../../DE-Projects/JsonValidator/Python-ValidateJSONs/" class="dropdown-item">Validate JSON using Python</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Sparkzure</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/Sparkzure/HomeProjectSparkzure/" class="dropdown-item">Project Sparkzure</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">StreamKraft</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../DE-Projects/StreamKraft/HomeProjectStreamKraft/" class="dropdown-item">Project StreamKraft</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">DevOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../DevOps/1.1_Hello_GitHub_Actions_Workflow/" class="dropdown-item">Hello GitHub Actions Workflow</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/1.1_Sample_Workflows/" class="dropdown-item">Sample Workflows</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/1_GitHub-Concepts/" class="dropdown-item">GitHub Concepts</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/2.1_Self-Hosted_Agent_Windows/" class="dropdown-item">Self-Hosted-Agent-Windows</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/2.2_Self-Hosted_Agent_Windows_Container/" class="dropdown-item">Self-Hosted-Agent-Win-Container</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/2.3_Self-Hosted_Agent_Linux_Container/" class="dropdown-item">Self-Hosted-Agent-Ubuntu-Container</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/2_Azure-Pipelines/" class="dropdown-item">Azure-Pipelines</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/ADF_CICD/" class="dropdown-item">ADF-CI-CD</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/Biceps/" class="dropdown-item">What is Bicep?</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/CI-CD_in%20ADF/" class="dropdown-item">CI CD in ADF</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/GitScenarios/" class="dropdown-item">GitScenarios</a>
+</li>
+                                    
+<li>
+    <a href="../../../DevOps/JenkinsVsGitHubVsAzureDevOps/" class="dropdown-item">Jenkins Vs GitHub Vs Devops</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">DockerAndKubernetes</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">AirflowDocker</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../AirflowDocker/1_AirflowDocker/" class="dropdown-item">Airflow</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Kafka</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Confluent Kafka</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Mongodb</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Mongodb/3_DockerMongodb/" class="dropdown-item">MongoDB</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SparkHiveHadoop</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.1_PySpark/" class="dropdown-item">PySpark</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.2_Bitnami_Spark_Cluster/" class="dropdown-item">Bitnami Spark</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.3_VSCode_Docker_Connection/" class="dropdown-item">VSCode-Docker-Connection</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.4_Spark_Hive_MSSQL/" class="dropdown-item">Spark-Hive_MSSQL</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode/" class="dropdown-item">Hadoop Cluster</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto/" class="dropdown-item">bde2020-Hive-Hadoop-Presto</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL/" class="dropdown-item">Hive-Hadoop-MySQL-SingleNode</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.8_Hive-ApacheOfficial/" class="dropdown-item">Hive Official Setup</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.9.1_Hive_Concepts/" class="dropdown-item">Hive Concepts</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.9.2_Hadoop_Concepts/" class="dropdown-item">Hadoop Concepts</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4.9_DockerConcepts/" class="dropdown-item">Docker Misc Concepts</a>
+</li>
+            
+<li>
+    <a href="../../SparkHiveHadoop/4_Spark-Hive-Hadoop/" class="dropdown-item">4 Spark Hive Hadoop</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">M365</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../M365/DocumentumToSharePoint/" class="dropdown-item">Documentum-SharePoint Online</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/LicensingExamples/" class="dropdown-item">M365 Licensing Examples</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SPMT/" class="dropdown-item">SPMT - SharePoint Migration</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePoint2007FarmUpgrade/" class="dropdown-item">SharePoint Farm Upgrade</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePoint2016FarmUpgrade/" class="dropdown-item">SharePoint Farm 2016 Farm Setup</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointEvents/" class="dropdown-item">SharePoint Event Receiver</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointFarmConsolidation/" class="dropdown-item">SharePoint Farm Consolidation</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointFormsOrPowerApps/" class="dropdown-item">SharePoint Forms or PowerApps</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointMiniRole/" class="dropdown-item">SharePoint Mini Role</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointVersionEvolution/" class="dropdown-item">SharePoint Evolution</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/SharePointVsOtherECM/" class="dropdown-item">SharePoint vs Other ECMS</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/WSS3DocumentUpload/" class="dropdown-item">Project - C# - WSS 3 Bulk ingestion</a>
+</li>
+                                    
+<li>
+    <a href="../../../M365/oAuthSharePointPython/" class="dropdown-item">Python-oAuth-SharePointOnline</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Microsoft Fabric</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/DataFactory/" class="dropdown-item">Pipelines&DataFlows</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/DataScience/" class="dropdown-item">Data Science on Fabric Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/DataWareHouse/" class="dropdown-item">DataWareHouse</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/DirectLake/" class="dropdown-item">DirectLake|Fabric|PowerBI</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/E2EProject/" class="dropdown-item">E2EProject</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/ETL-OPG-Copydata-JSON-Lakehouse/" class="dropdown-item">JSON-DeltaLake-OPG</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/ETL-Pyspark-Notebook-Lakehouse/" class="dropdown-item">ETL-Load data into Lakehouse - Pyspark Notebook</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/FabricAdministration/" class="dropdown-item">Administration</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/FabricQ%26A/" class="dropdown-item">Fabric Q&A</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/FabricSparkStreaming/" class="dropdown-item">Spark Streaming</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/HelloMicrosoftFabric/" class="dropdown-item">Hello Fabric</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/InspectingDataframes/" class="dropdown-item">Whats in your df?</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/KQL/" class="dropdown-item">KQL</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/PandasVsSparkDf/" class="dropdown-item">PandasVsSparkDf</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/Pyspark_SparkSQL/" class="dropdown-item">Pyspark|SparkSQL CheatSheet</a>
+</li>
+                                    
+<li>
+    <a href="../../../Microsoft-Fabric/RealTimeAnalytics/" class="dropdown-item">Real-time Intelligence</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Misc</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Misc/10_Fact_vs_Dimension_tables/" class="dropdown-item">Fact Vs Dimension Table</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/1_GoogleCloudSeeUsage/" class="dropdown-item">Check Google Usage</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/2_InstallVMWareFree/" class="dropdown-item">VMWare For Free</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/3_Markdown/" class="dropdown-item">Markdown</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/4_VSTrics/" class="dropdown-item">Visual Studio Code Tricks</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/5_WhichDatastsToUse/" class="dropdown-item">Free Datasets for Data Practice</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/6_RunningAppsInBg/" class="dropdown-item">Running Service in Background</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/7_Azure_Budget/" class="dropdown-item">How to set a Azure Budget</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/9_WhyUbuntuIsGood/" class="dropdown-item">Why Ubuntu is good to learn</a>
+</li>
+                                    
+<li>
+    <a href="../../../Misc/markdown_pdf_export_html/" class="dropdown-item">Markdown pdf export html</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">MarkdownColor.md</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Misc/MarkdownColor.md/Color/" class="dropdown-item">Color Reference</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Images</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Misc/MarkdownColor.md/images/Color/" class="dropdown-item">Color Palettes</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MongoDB</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../MongoDB/HowMongoDBStoresFiles/" class="dropdown-item">How MongoDB Stores Data</a>
+</li>
+                                    
+<li>
+    <a href="../../../MongoDB/MongbDB_Vs_Atlas_VsCosmosDB/" class="dropdown-item">MongoDB Vs CosmosDB</a>
+</li>
+                                    
+<li>
+    <a href="../../../MongoDB/MongoDBCommands/" class="dropdown-item">MongoDB Commands</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">PowerPlatform</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../PowerPlatform/CalculationGroups/" class="dropdown-item">CalculationGroups</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/CustomConnectors/" class="dropdown-item">Building Custom Connectors</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/ECMCaptureFlow/" class="dropdown-item">Power Automate Or Kofax/Captiva?</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/EnableMicrosoftSyntex/" class="dropdown-item">Enable Microsoft Syntex on your Office 365 tenant</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/EnableSyntexOnYourDocumentLibrary/" class="dropdown-item">Create a model on SharePoint - Syntex</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/GoogleProviderPowerPages/" class="dropdown-item">Google Authentication</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/HealthClinicDataverseSecurity/" class="dropdown-item">HealthClinicDataverseSecurity</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/HelloDataverse/" class="dropdown-item">Hello Dataverse</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/HelloDynamics365/" class="dropdown-item">Dynamics 365 Ecosystem</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/HelloPowerPlatform/" class="dropdown-item">PowerPlatform Ecosystem</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/ModelDrivenApps/" class="dropdown-item">Model-Driven Apps</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/OnPremiseGateway/" class="dropdown-item">Onpremise Gateway</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/PowerAutomateIsWorkflowTeams/" class="dropdown-item">Workflow is Power Automate</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/PowerPlatformAdminCentral/" class="dropdown-item">PowerPlatformAdminCentral</a>
+</li>
+                                    
+<li>
+    <a href="../../../PowerPlatform/PowerPlatformQ%26A/" class="dropdown-item">Pl-900-Q&A</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">DocumentIntelligence</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../PowerPlatform/DocumentIntelligence/AAIDI_AzureCognitiveSearch/" class="dropdown-item">Integrate AI Search and Azure AI Document Intelligence</a>
+</li>
+            
+<li>
+    <a href="../../../PowerPlatform/DocumentIntelligence/AAIDI_Q%26A/" class="dropdown-item">AAIDI Q&A</a>
+</li>
+            
+<li>
+    <a href="../../../PowerPlatform/DocumentIntelligence/AzureAIDocumentIntelligence/" class="dropdown-item">Azure AI Document Intelligence</a>
+</li>
+            
+<li>
+    <a href="../../../PowerPlatform/DocumentIntelligence/DocumentAutomation/" class="dropdown-item">Document automation base kit</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Python</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Python/1.0_Sets/" class="dropdown-item">Sets</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.0_assert_methods/" class="dropdown-item">assert methods</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.1_decorators/" class="dropdown-item">decorators</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.2_argv/" class="dropdown-item">argv</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.3_Diff_And_Patch/" class="dropdown-item">diffAndpatch</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.3_error_handling/" class="dropdown-item">Error Handling</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.4_pdb/" class="dropdown-item">pdb</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1.5_pyformat/" class="dropdown-item">format method</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.10_Func_Modl_Summary/" class="dropdown-item">LFM Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.11_ifelifelse/" class="dropdown-item">ifelifelse</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.12_Operators/" class="dropdown-item">operators</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.13_For_Loops/" class="dropdown-item">for loops</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.14_enumerate/" class="dropdown-item">1.14 enumerate</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.15_range_function/" class="dropdown-item">range function</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.16_built_in_functions/" class="dropdown-item">1.16 built in functions</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.17_withStatement/" class="dropdown-item">with statement</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.18_unittest_pytest/" class="dropdown-item">pytest</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.19_if_name_main.md/" class="dropdown-item">if__name__main</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.1_Tuples/" class="dropdown-item">Tuples</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.2_Tuples_Advanced/" class="dropdown-item">Advanced Tuples</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.3_List/" class="dropdown-item">1.3 List</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.4_Dictionaries/" class="dropdown-item">1.4 Dictionaries</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.5_Lamda_Functions/" class="dropdown-item">Lamda Functions</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1.9_Func_Modl_Lib/" class="dropdown-item">Library-Modules-Funcs</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/1_Python/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/Linux/" class="dropdown-item">Essential Unix Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/Pyspark/" class="dropdown-item">PySpark</a>
+</li>
+                                    
+<li>
+    <a href="../../../Python/PythonScripts/" class="dropdown-item">Python Sample Scripts</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">GraphAPIJupyter</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Python/GraphAPIJupyter/GraphAPIUsingJuputer/" class="dropdown-item">Graph API - Juputer</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SQL</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../SQL/1.0.0_dbt/" class="dropdown-item">dbt</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/1.0.1_setup_simple_dbt_project/" class="dropdown-item">1.0.1 setup simple dbt project</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/FlatFileSoure/" class="dropdown-item">FlatFileSoure</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/InputAndOutputProperties/" class="dropdown-item">Understanding External Columns and Output Columns in SSIS</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/MSSQL_Versions/" class="dropdown-item">SQL Server Versions</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/Project_1-ETL-CSV-MSSQL/" class="dropdown-item">Project 1 - ETL Flat Files to MSSQL</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/Project_2-UsingWebServicesInSSIS/" class="dropdown-item">Project 2 - Web Service SSIS Script Task</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/SQL/" class="dropdown-item">Spark-SQL</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/SQL_AdvancedTopics/" class="dropdown-item">SQL Advanced Topics</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/SSIS/" class="dropdown-item">SQL Server Integration Services</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/SSRS/" class="dropdown-item">SSRS</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/Windows_Functions/" class="dropdown-item">Window Functions</a>
+</li>
+                                    
+<li>
+    <a href="../../../SQL/connecting-with-dbt/" class="dropdown-item">Connect Local dbt with MSSQL Server</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Spark DataBricks</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1.0 Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts/" class="dropdown-item">Spark</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.10_Scala_Cheatsheet/" class="dropdown-item">Scala Cheatsheet</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.11_Spark_Interview_Questions/" class="dropdown-item">Spark Interview Questions</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.12_Spark_Shuffle/" class="dropdown-item">Shuffle in Spark</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.13_SparkDatabaseTablesCatalogsMetastore/" class="dropdown-item">Spark DB-Tables-Metastore-Catalogs</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.14_Q%26A/" class="dropdown-item">Q&A</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.15_CommonPysparkTopics/" class="dropdown-item">PySpark Concepts I</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.16_ConnectingSparkToHive/" class="dropdown-item">Spark-Hive-Delta Connection</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.1_NarrowVsWideTransformation/" class="dropdown-item">Narrow_Vs_Wide_Transformation</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.2_SparkArchitecture/" class="dropdown-item">Spark Architecture</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.3_persist_and_cache/" class="dropdown-item">persist and cache</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.4_broadcastvariables/" class="dropdown-item">Broadcast Variables</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.5_DataSkewHandling/" class="dropdown-item">Data Skew in Spark</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.6_dropna_fillna_df_missing_val_handling/" class="dropdown-item">dropna and fillna</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.7_distinct_dropDuplicate_windowsFunc/" class="dropdown-item">Removing Duplicates - PySpark</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.8_Partition_Grouping/" class="dropdown-item">Partition And Bucket</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/1.9_RDD_Dataframe_Dataset/" class="dropdown-item">RDD-Dataframe-Dataset</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Install Pyspark Windows</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Spark-DataBricks/1.0_Spark/Install-Pyspark-Windows/Install-Pyspark-Windows/" class="dropdown-item">Install-PySpark-Windows</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.0 Spark To ADLS</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Spark-DataBricks/2.0_Spark_To_ADLS/2.0_Spark_To_ADLS/" class="dropdown-item">Spark-To-ADLS-Connection</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/2.0_Spark_To_ADLS/2.1_Spark-To_ADLS_Summary/" class="dropdown-item">Spark-To-ADLS-Summary</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">3.0 Databricks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Spark-DataBricks/3.0_Databricks/3.0_Databricks_Concepts/" class="dropdown-item">Databricks</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/3.0_Databricks/3.1_Catalogs_And_Metastore/" class="dropdown-item">Hive Metastore and the hive_metastore folder</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/3.0_Databricks/3.2_AuthenticationMethods/" class="dropdown-item">Authentication Method</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/3.0_Databricks/3.3_Mount_ADLS_on_Databricks/" class="dropdown-item">Mount ADLS on Databricks</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/3.0_Databricks/3.4_Databricks_Secret_Scope/" class="dropdown-item">Secret Scope</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/3.0_Databricks/3.5_Databricks_SQL/" class="dropdown-item">CREATE TABLE USING</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/3.0_Databricks/3.6_DatabricksMagicCommands/" class="dropdown-item">Magic Commands</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/3.0_Databricks/3.7_DeltaLake_And_Lakehouse/" class="dropdown-item">Delta Lake And Lakehouse</a>
+</li>
+            
+<li>
+    <a href="../../../Spark-DataBricks/3.0_Databricks/4.8_Databricks_ProjectA1/" class="dropdown-item">Project-A</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">4.0 Hive</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Spark-DataBricks/4.0_Hive/Hive_Concepts/" class="dropdown-item">Hive Concepts</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">StreamProcessing</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../StreamProcessing/1.0_What_Is_Stream_Processing/" class="dropdown-item">1.0 What Is Stream Processing</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/2.0.1_EventHubs_Vs_Kafka/" class="dropdown-item">EventHubs Vs Kafka</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/2.0.2_Project_Hello_EventHubs/" class="dropdown-item">Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/2.0.3_EventHubsLocalEmulator/" class="dropdown-item">Event Hubs Emulator - End to End</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/2.0_Azure_EventHubs/" class="dropdown-item">EventHubs</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/4_EventProcessingChoices/" class="dropdown-item">Stream Processing Product Combination</a>
+</li>
+                                    
+<li>
+    <a href="../../../StreamProcessing/5_AmazonKinesisSparkIntegration/" class="dropdown-item">5 AmazonKinesisSparkIntegration</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Synapse ADF</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.0_SynapseConcepts/" class="dropdown-item">SynapseConcepts</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.1_Pools/" class="dropdown-item">Pools</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.3_ETL%20Pipelines/" class="dropdown-item">ETL Pipelines</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.4_Copy-data-tool/" class="dropdown-item">ADF Copy task - When to use</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.5_IntegrationRuntime/" class="dropdown-item">Integration Runtime</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.6_DB_Types_In_Synapse/" class="dropdown-item">Types of DB in Synapse</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.7_SynapseLakeDBAndLakehouse/" class="dropdown-item">Lake DB-Lakehouse-Delta Lake</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.8_ADF_SA_Evolution/" class="dropdown-item">ADF & Synapse Evolution</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/1.9_CETAS/" class="dropdown-item">CETAS</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.0_Projects/" class="dropdown-item">2.0 Projects</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.1_Pipeline-Local-ADLS/" class="dropdown-item">CopyData-LocalToADLS</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.2_PySparkWarehouse/" class="dropdown-item">PysparkWarehouse</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.3_ADF_RestAPI_Databricks/" class="dropdown-item">2.3 ADF RestAPI Databricks</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.4_Monitor_ADF_Pipelines/" class="dropdown-item">ADF Pipelines Monitoring</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/2.5_ADF_Pipeline_Copy/" class="dropdown-item">Export ADF Pipeline</a>
+</li>
+                                    
+<li>
+    <a href="../../../Synapse-ADF/Q%26A/" class="dropdown-item">100 Synapse FAQs</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../AirflowDocker/1_AirflowDocker/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../Mongodb/3_DockerMongodb/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#confluent-kafka-with-kraft-on-docker" class="nav-link">Confluent Kafka with KRaft on Docker</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#step-1-download-the-docker-compose-file" class="nav-link">Step 1: Download the Docker Compose file</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-2-run-the-container" class="nav-link">Step 2: Run the container</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#appendix" class="nav-link">Appendix</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#connecting-to-kafka-containers" class="nav-link">Connecting to Kafka Containers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting-broker-connection-issues" class="nav-link">Troubleshooting Broker Connection Issues</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#conclusion" class="nav-link">Conclusion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#further-reading" class="nav-link">Further reading</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#kafka-6-with-zookeeper-on-windows-docker" class="nav-link">Kafka 6 with Zookeeper on Windows Docker</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#steps-to-create-the-setup" class="nav-link">Steps to create the setup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#component-details" class="nav-link">Component Details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="table-of-contents"><span style="color: #003366;">Table of Contents</span></h2>
+<ul>
+<li><a href="#confluent-kafka-with-kraft-on-docker">Confluent Kafka with KRaft on Docker</a></li>
+<li><a href="#step-1-download-the-docker-compose-file">Step 1: Download the Docker Compose file</a></li>
+<li><a href="#step-2-run-the-container">Step 2: Run the container</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#connecting-to-kafka-containers">Connecting to Kafka Containers</a></li>
+<li><a href="#troubleshooting-broker-connection-issues">Troubleshooting Broker Connection Issues</a><ul>
+<li><a href="#error-no-matching-manifest-for-linuxarm64v8">Error: no matching manifest for linux/arm64/v8</a></li>
+<li><a href="#resolving-port-conflicts-for-kafka-rest-proxy-in-docker">Resolving Port Conflicts for Kafka Rest Proxy in Docker</a></li>
+<li><a href="#about-the-docker-composeyml">About the docker-compose.yml</a></li>
+<li><a href="#fully-commented-docker-composeyml">Fully commented docker-compose.yml</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#further-reading">Further reading</a></li>
+<li><a href="#kafka-6-with-zookeeper-on-windows-docker">Kafka 6 with Zookeeper on Windows Docker</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#steps-to-create-the-setup">Steps to create the setup</a><ul>
+<li><a href="#1-create-the-docker-composeyaml">1. Create the <code>docker-compose.yaml</code></a></li>
+<li><a href="#2-start-the-services">2. Start the Services</a></li>
+<li><a href="#3-check-the-setup">3. Check the setup</a></li>
+</ul>
+</li>
+<li><a href="#component-details">Component Details</a></li>
+</ul>
+<h1 id="confluent-kafka-with-kraft-on-docker"><span style="color: #003366;font-family: Segoe UI, sans-serif;">Confluent Kafka with KRaft on Docker</span></h1>
+<p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
+Here, I will show you how to setup a Kafka setup on Docker. We will use KRaft rather than Zookeper. We will use a docker-compose.yaml file and setup Kafka broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. I have tested the installation in both Windows and Mac machines with M1 chip.
+</p>
+
+<h2 id="step-1-download-the-docker-compose-file"><span style="color: #003366;font-family: Segoe UI, sans-serif;">Step 1: Download the Docker Compose file</span></h2>
+<p>The first step is to download the docker-compose.yaml file, KRaft version from confluent's github <a href="https://github.com/confluentinc/cp-all-in-one/blob/7.5.1-post/cp-all-in-one-kraft/docker-compose.yml">site</a></p>
+<blockquote>
+<p>Note: When choosing between KRaft and ZooKeeper as the metadata service for your Apache Kafka cluster, <strong>KRaft</strong> is the <strong>recommended</strong> option.</p>
+</blockquote>
+<p><img alt="Alt text" src="../images/image.png" /></p>
+<h2 id="step-2-run-the-container"><span style="color: #003366;font-family: Segoe UI, sans-serif;">Step 2: Run the container</span></h2>
+<ul>
+<li>
+<p>Open command prompt/terminal and CD to the folder containing the <code>docker-compose.yml</code></p>
+</li>
+<li>
+<p>Run the following command to start all services:<code>docker-compose up -d</code>
+  <img alt="Alt text" src="../images/image-1.png" /></p>
+</li>
+<li>
+<p>The Docker Compose will start all the necessary services in the background. Once finished, go to the docker desktop window and see the services</p>
+</li>
+</ul>
+<p><img alt="Alt text" src="../images/image-4.png" /></p>
+<ul>
+<li>You can access the Control Center at http://localhost:9021 once the container is operational.</li>
+<li>To create topics and proceed further you can refer to the  this quickstart <a href="https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1">guide</a>.</li>
+</ul>
+<h1 id="appendix"><span style="color: Teal; font-family: Segoe UI, sans-serif;">Appendix</span></h1>
+<h2 id="connecting-to-kafka-containers"><span style="color: Teal; font-family: Segoe UI, sans-serif;">Connecting to Kafka Containers</span></h2>
+<p>The container group created using the docker-compose become part of  <code>confluent-kafka_default</code> network group, restricting access from external containers or local machines not in this network. This means, you won't be able to connect to the broker from outside containers or local machine. To connect to Kafka from an external container, add it to the <code>confluent-kafka_default</code> network:</p>
+<pre><code class="language-bash">docker network connect confluent-kafka_default [external-container-name-or-id]
+</code></pre>
+<p>After adding, connect to the Kafka broker at <code>broker:29092</code>. Example for Spark:</p>
+<pre><code class="language-python">from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .appName(&quot;Streaming from Kafka&quot;) \
+    .config(&quot;spark.streaming.stopGracefullyOnShutdown&quot;, True) \
+    .config('spark.jars.packages', 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0') \
+    .getOrCreate()
+
+streaming_df = spark.readStream \
+    .format(&quot;kafka&quot;) \
+    .option(&quot;kafka.bootstrap.servers&quot;, &quot;broker:29092) \
+    .option(&quot;subscribe&quot;, &quot;sometopic&quot;) \
+    .option(&quot;startingOffsets&quot;, &quot;earliest&quot;) \
+    .load()
+</code></pre>
+<h2 id="troubleshooting-broker-connection-issues"><span style="color: Teal; font-family: Segoe UI, sans-serif;">Troubleshooting Broker Connection Issues</span></h2>
+<p>Inspect the Kafka broker container using <code>docker inspect [broker-container-id]</code>. For detailed network information:</p>
+<pre><code class="language-bash">docker network inspect [network-name]
+</code></pre>
+<p>To find the broker's IP address:</p>
+<pre><code class="language-bash">docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' [container-name-or-id]
+</code></pre>
+<p>Test connectivity to the broker:</p>
+<pre><code class="language-bash">nc -vz -w 5 [broker-ip] [listener-port]
+</code></pre>
+<h3 id="error-no-matching-manifest-for-linuxarm64v8"><span style="color: Teal;">Error: no matching manifest for linux/arm64/v8</span></h3>
+<p>We might run into an error like no matching manifest for linux/arm65/v8 this error error indicates that the Docker images specified in the <code>docker-compose.yml</code> file do not have a version compatible with the architecture of our Mac's processor. This error is less likely if you use the KRaft version. I have tested the KRaft versin on both Windows and Mac M1, they both showed no error in architecture or compatibility.</p>
+<h3 id="resolving-port-conflicts-for-kafka-rest-proxy-in-docker"><span style="color: Teal;">Resolving Port Conflicts for Kafka Rest Proxy in Docker</span></h3>
+<p>When deploying Kafka Rest Proxy using Docker Compose, port conflicts are a common issue that can prevent the service from starting successfully. </p>
+<p><img alt="Alt text" src="../images/image-2.png" /></p>
+<p>Here is a typical example of this error:</p>
+<pre><code class="language-bash">Cannot start Docker Compose application. Reason: compose [start] exit status 1. Container broker Starting Container broker Started Container schema-registry Starting Container schema-registry Started Container rest-proxy Starting Container connect Starting Container connect Started Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:8082 -&gt; 0.0.0.0:0: listen tcp 0.0.0.0:8082: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+</code></pre>
+<p><strong>Long story short:</strong> Use this  <a href="../docker-compose.yml">modified docker-compose.yml</a> which uses port <strong>8086</strong> instead of <strong>8082</strong></p>
+<p><strong>Detailed investigation</strong>:</p>
+<ul>
+<li>
+<p><strong>Identify Port Usage</strong>: Use <code>netstat</code> or <code>lsof</code> to check if the intended port is already in use.</p>
+</li>
+<li>
+<p>For Windows: <code>netstat -ano | findstr :&lt;PORT&gt;</code></p>
+</li>
+<li>
+<p>For Linux/Mac: <code>sudo lsof -i :&lt;PORT&gt;</code> or <code>sudo netstat -tulnp | grep :&lt;PORT&gt;</code></p>
+<p><img alt="Alt text" src="../images/image-3.png" /></p>
+</li>
+<li>
+<p><strong>Modify Docker Compose File</strong>: If the port is in use, select an unused port and update the <code>docker-compose.yml</code> file. Change the host port mapping for the <code>rest-proxy</code> service:</p>
+</li>
+</ul>
+<p><code>yaml
+   ports:
+     - &lt;UNUSED_PORT&gt;:8082 # Change &lt;UNUSED_PORT&gt; to an available port on your host</code></p>
+<p>e.g:</p>
+<pre><code>![Alt text](images/image-5.png)
+</code></pre>
+<ul>
+<li><strong>Restart Docker Compose</strong>: Apply the changes by running:</li>
+</ul>
+<p><code>bash
+   docker-compose down
+   docker-compose up -d</code></p>
+<ul>
+<li><strong>Update Applications</strong>: Ensure all applications that interact with Kafka Rest Proxy are updated to use the new port.</li>
+</ul>
+<h3 id="about-the-docker-composeyml"><span style="color: Teal;">About the docker-compose.yml</span></h3>
+<p>Here is an explanation of the differnet services in the docker-compose.yml</p>
+<ul>
+<li><strong>broker</strong>: A Kafka broker service with custom environment configurations for topics, listeners, ports, IDs, etc.</li>
+<li><strong>schema-registry</strong>: This service provides a serving layer for your metadata. It is configured to communicate with the Kafka broker and expose port 8081.</li>
+<li><strong>connect</strong>: Kafka Connect with dependencies on the broker and schema-registry, configured to run connectors.</li>
+<li><strong>control-center</strong>: Confluent's web-based tool for managing and monitoring the Kafka ecosystem.</li>
+<li><strong>ksqldb-server</strong>: The server for ksqlDB, streaming SQL engine that enables real-time data processing against Apache Kafka.</li>
+<li><strong>ksqldb-cli</strong>: A command-line interface for interacting with ksqlDB Server.</li>
+<li><strong>ksql-datagen</strong>: A tool for generating sample data for Kafka topics and provides a source of continuously flowing data.</li>
+<li><strong>rest-proxy</strong>: Provides a RESTful interface to Kafka clusters.</li>
+</ul>
+<h3 id="fully-commented-docker-composeyml"><span style="color: Teal; font-family: Segoe UI, sans-serif;">Fully commented docker-compose.yml</span></h3>
+<p>If you want to know each step of the docker compose file. I have placed a fully commented <a href="../docker-compose-commented.yml">docker-compose.yml</a></p>
+<h2 id="conclusion"><span style="color: Teal; font-family: Segoe UI, sans-serif;">Conclusion</span></h2>
+<p>You now have a fully functional local Kafka development environment that includes a broker, Schema Registry, Kafka Connect, Control Center, ksqlDB, and a REST Proxy. The KRaft version of the docker compose has been tested in both WIndows and Mac M1 machines.</p>
+<h2 id="further-reading"><span style="color: Teal; font-family: Segoe UI, sans-serif;">Further reading</span></h2>
+<p><a href="https://docs.confluent.io/platform/current/platform-quickstart.html#cp-quickstart-step-1">Confluent Documentation. Quick Start. Docker Container</a></p>
+<p><a href="https://developer.confluent.io/quickstart/kafka-local/?_gl=1*1hbigt8*_ga*MzYyMDI3ODc1LjE2OTkyODY3MTE.*_ga_D2D3EGKSGD*MTY5OTMzMTY0Ni41LjEuMTY5OTM0MDk0MS40MC4wLjA.">Confluent Documentation. Quick Start using CLI</a></p>
+<p><img alt="" src="../images/2024-08-19-14-15-27.png" /></p>
+<h1 id="kafka-6-with-zookeeper-on-windows-docker"><span style="color: FireBrick; font-family: Segoe UI, sans-serif;">Kafka 6 with Zookeeper on Windows Docker</span></h1>
+<p>In this article, I will show you how to set up Confluent Kafka on Docker in Windows. We will be using a total of 9 containers, and this setup is very stable. You will only need one <code>docker-compose.yml</code> file, and there is no need for a Dockerfile. The setup will install the following Confluent Kafka components:</p>
+<ul>
+<li>confluentinc/cp-zookeeper:6.0.1</li>
+<li>confluentinc/cp-server:6.0.1</li>
+<li>confluentinc/cp-schema-registry:6.0.1</li>
+<li>confluentinc/cp-kafka-connect-base:6.0.1</li>
+<li>confluentinc/cp-enterprise-control-center:6.0.1</li>
+<li>confluentinc/cp-ksqldb-server:6.0.1</li>
+<li>confluentinc/cp-ksqldb-cli:6.0.1</li>
+<li>confluentinc/ksqldb-examples:6.0.1</li>
+<li>confluentinc/cp-kafka-rest:6.0.1</li>
+</ul>
+<div style="border: 2px solid #7A3DAA; border-radius: 10px; padding: 20px; background-color: #f5f5f5; font-family: 'Segoe UI, sans-serif'; color: #333;">
+    <p style="font-weight: bold; font-size: 1.2em; color: #3B165C;">For the Busy Professionals</p>
+    <ol style="margin-left: 20px; font-size: 1em; line-height: 1.5;">
+        <li>Download and unzip the <a href="Docker-Compose.zip" style="color: #3B165C; text-decoration: none; font-weight: bold;">Docker Compose file</a> to a folder on your machine.</li>
+        <li>Open Command Prompt and navigate to the folder by running <code>cd [folder_name]</code>.</li>
+        <li>Execute <code>docker-compose up -d</code> to start the services.</li>
+    </ol>
+    <p style="margin-top: 20px;">That's it! You will have 9 containers up and running, ready to serve. See the example image below for reference.</p>
+</div>
+
+<p><br></p>
+<p><img src="images/2024-08-19-16-39-40.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></p>
+<h2 id="overview"><span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Overview</span></h2>
+<p>Many people struggle with setting up Confluent Kafka on their local machines. While it's easier to use 'templates' on AWS or Azure, setting it up locally can be quite complicated. That’s why I’m sharing this method—it helps you create a stable, fully-working, production-like environment on your local system.</p>
+<h2 id="prerequisites"><span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Prerequisites</span></h2>
+<p>Before you start, ensure that you have the following installed:
+- <strong>Docker Desktop</strong>: Install it from the <a href="https://www.docker.com/products/docker-desktop">Docker website</a>. <strong>Docker Compose</strong>: It usually comes with Docker Desktop, so you don’t need to install it separately.
+- Run the command <code>docker network create dasnet</code> in <strong>CMD</strong>. </p>
+<p style="color: #804000; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: BurlyWood; padding: 15px; border-left: 5px solid #b35900;">
+  Note: I use a network so that all my containers are part of the same network. This is just an extra step. It’s necessary because the Docker Compose file has the dasnet network mentioned everywhere. If you don’t want to use this network, then just remove all occurrences of it from the Docker Compose file.
+  </p>
+
+<h2 id="steps-to-create-the-setup"><span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Steps to create the setup</span></h2>
+<p>The steps are simple. Just follow these two steps and your setup will be up and running.</p>
+<h3 id="1-create-the-docker-composeyaml"><span style="color: #DimGray; font-family: Segoe UI, sans-serif;">1. Create the <code>docker-compose.yaml</code></span></h3>
+<p>Create a <code>docker-compose.yaml</code> file with the content below inside any folder. Alternatively download the file from the link given at the start of the article.</p>
+<blockquote>
+<p>I have verbosely commented the file. Hope you will find it useful.</p>
+</blockquote>
+<pre><code class="language-yaml"># Docker Compose file for setting up a Confluent Platform environment with various services.
+# Author: DDas
+
+version: '2'  # Specifies the Docker Compose version. Version 2 is stable and compatible with most setups.
+
+services:  # This section defines all the services (containers) that will be created as part of this setup.
+
+  zookeeper:  # Zookeeper service - essential for managing and coordinating Kafka brokers.
+    image: confluentinc/cp-zookeeper:6.0.1  # Zookeeper version 6.0.1 from Confluent.
+    hostname: zookeeper  # Internal hostname used within the Docker network.
+    container_name: zookeeper  # Name of the container as it will appear in Docker.
+    ports:
+      - &quot;2181:2181&quot;  # laptop:container
+    environment:  # Environment variables that configure Zookeeper.
+      ZOOKEEPER_CLIENT_PORT: 2181  # Port where Zookeeper listens for client connections.
+      ZOOKEEPER_TICK_TIME: 2000  # Basic time unit in milliseconds used by Zookeeper.
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_INIT_LIMIT: 5
+      ZOOKEEPER_SYNC_LIMIT: 2
+      ZOOKEEPER_CLIENT_CNXNS: 60
+    networks:
+      - dasnet  # Connecting Zookeeper to the custom network 'dasnet'.
+
+  broker:  # Kafka broker service - handles message publishing and subscribing.
+    image: confluentinc/cp-server:6.0.1  # Kafka broker version 6.0.1 from Confluent.
+    hostname: broker  # Internal hostname used within the Docker network.
+    container_name: broker  # Name of the container as it will appear in Docker.
+    depends_on:  # Ensures Zookeeper is started before the broker.
+      - zookeeper
+    ports:
+      - &quot;9192:9092&quot;  # laptop:container
+      - &quot;9111:9101&quot;  # laptop:container
+    environment:  # Environment variables that configure the Kafka broker.
+      KAFKA_BROKER_ID: 1  # Unique identifier for the broker.
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'  # Address of the Zookeeper service.
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT  # Protocol mapping.
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092  # Advertised listeners.
+      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter  # Metrics reporter.
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1  # Replication factor for the offsets topic.
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0  # Delay in rebalancing consumer groups.
+      KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 1  # Replication factor for the license topic.
+      KAFKA_CONFLUENT_BALANCER_TOPIC_REPLICATION_FACTOR: 1  # Replication factor for the balancer topic.
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1  # Minimum in-sync replicas for transaction state log.
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1  # Replication factor for the transaction state log.
+      KAFKA_JMX_PORT: 9101  # Port for JMX monitoring.
+      KAFKA_JMX_HOSTNAME: localhost  # Hostname for JMX monitoring.
+      KAFKA_CONFLUENT_SCHEMA_REGISTRY_URL: http://schema-registry:8081  # Schema Registry URL.
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: broker:29092  # Bootstrap servers for metrics reporter.
+      CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1  # Replication factor for metrics topics.
+      CONFLUENT_METRICS_ENABLE: 'true'  # Enable Confluent metrics.
+      CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'  # Customer ID for support.
+      KAFKA_SASL_JAAS_CONFIG: &quot;org.apache.kafka.common.security.plain.PlainLoginModule required username=\&quot;admin\&quot; password=\&quot;Passw0rd\&quot;;&quot;
+
+    networks:
+      - dasnet  # Connecting the Kafka broker to the custom network 'dasnet'.
+
+  schema-registry:  # Schema Registry service - manages Avro schemas for Kafka topics.
+    image: confluentinc/cp-schema-registry:6.0.1  # Schema Registry version 6.0.1 from Confluent.
+    hostname: schema-registry  # Internal hostname used within the Docker network.
+    container_name: schema-registry  # Name of the container as it will appear in Docker.
+    depends_on:  # Ensures the broker is started before the Schema Registry.
+      - broker
+    ports:
+      - &quot;8181:8081&quot;  # laptop:container
+    environment:  # Environment variables that configure the Schema Registry.
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry  # Internal hostname for Schema Registry.
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'broker:29092'  # Kafka broker address for Schema Registry.
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081  # Listeners for Schema Registry.
+      SCHEMA_REGISTRY_AUTH: &quot;admin:Passw0rd&quot;
+
+    networks:
+      - dasnet  # Connecting the Schema Registry to the custom network 'dasnet'.
+
+  connect:  # Kafka Connect service - facilitates integration with external systems.
+    image: confluentinc/cp-kafka-connect-base:6.0.1  # Kafka Connect version 6.0.1 from Confluent.
+    hostname: connect  # Internal hostname used within the Docker network.
+    container_name: kafka-connect  # Name of the container as it will appear in Docker.
+    depends_on:  # Ensures the broker and Schema Registry are started before Kafka Connect.
+      - broker
+      - schema-registry
+    ports:
+      - &quot;8183:8083&quot;  # laptop:container
+    environment:  # Environment variables that configure Kafka Connect.
+      CONNECT_BOOTSTRAP_SERVERS: 'broker:29092'  # Kafka broker address for Kafka Connect.
+      CONNECT_REST_ADVERTISED_HOST_NAME: connect  # Hostname for the Kafka Connect REST API.
+      CONNECT_REST_PORT: 8083  # Port for the Kafka Connect REST API.
+      CONNECT_GROUP_ID: kafka-connect  # Group ID for Kafka Connect.
+      CONNECT_CONFIG_STORAGE_TOPIC: docker-connect-configs  # Topic for storing connector configs.
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: 1  # Replication factor for the config storage topic.
+      CONNECT_OFFSET_FLUSH_INTERVAL_MS: 10000  # Interval for flushing offsets.
+      CONNECT_OFFSET_STORAGE_TOPIC: docker-connect-offsets  # Topic for storing connector offsets.
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1  # Replication factor for the offset storage topic.
+      CONNECT_STATUS_STORAGE_TOPIC: docker-connect-status  # Topic for storing connector statuses.
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1  # Replication factor for the status storage topic.
+      CONNECT_KEY_CONVERTER: org.apache.kafka.connect.storage.StringConverter  # Converter for Kafka Connect keys.
+      CONNECT_VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter  # Converter for Kafka Connect values.
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081  # Schema Registry URL.
+      CLASSPATH: /usr/share/java/monitoring-interceptors/monitoring-interceptors-6.0.1.jar  # Additional classpath for interceptors.
+      CONNECT_PRODUCER_INTERCEPTOR_CLASSES: &quot;io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor&quot;  # Producer interceptor.
+      CONNECT_CONSUMER_INTERCEPTOR_CLASSES: &quot;io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor&quot;  # Consumer interceptor.
+      CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR  # Logging configuration.
+      CONNECT_PLUGIN_PATH: &quot;/usr/share/java,/usr/share/confluent-hub-components,/data/connect-jars&quot;  # Plugin paths.
+      CONNECT_SASL_JAAS_CONFIG: &quot;org.apache.kafka.common.security.plain.PlainLoginModule required username=\&quot;admin\&quot; password=\&quot;Passw0rd\&quot;;&quot;
+
+    volumes:  # Mounting a volume for persistent storage.
+        - ${PWD}/data:/data
+
+    networks:
+      - dasnet  # Connecting Kafka Connect to the custom network 'dasnet'.
+
+  control-center:  # Confluent Control Center service - web interface for managing and monitoring Kafka.
+    image: confluentinc/cp-enterprise-control-center:6.0.1  # Control Center version 6.0.1 from Confluent.
+    hostname: control-center  # Internal hostname used within the Docker network.
+    container_name: control-center  # Name of the container as it will appear in Docker.
+    depends_on:  # Ensures the broker, Schema Registry, and Kafka Connect are started before Control Center.
+      - broker
+      - schema-registry
+      - connect
+      - ksqldb-server
+    ports:
+      - &quot;9121:9021&quot;  # laptop:container
+    environment:  # Environment variables that configure the Control Center.
+      CONTROL_CENTER_BOOTSTRAP_SERVERS: 'broker:29092'  # Kafka broker address for Control Center.
+      CONTROL_CENTER_CONNECT_CLUSTER: 'connect:8083'  # Kafka Connect cluster address for Control Center.
+      CONTROL_CENTER_KSQL_KSQLDB1_URL: &quot;http://ksqldb-server:8088&quot;  # KSQL server URL for Control Center.
+      CONTROL_CENTER_KSQL_KSQLDB1_ADVERTISED_URL: &quot;http://localhost:8088&quot;  # Advertised KSQL server URL.
+      CONTROL_CENTER_SCHEMA_REGISTRY_URL: &quot;http://schema-registry:8081&quot;  # Schema Registry URL for Control Center.
+      CONTROL_CENTER_REPLICATION_FACTOR: 1  # Replication factor for Control Center's internal topics.
+      CONTROL_CENTER_INTERNAL_TOPICS_PARTITIONS: 1  # Number of partitions for Control Center's internal topics.
+      CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: 1  # Partitions for monitoring interceptor topic.
+      CONFLUENT_METRICS_TOPIC_REPLICATION: 1  # Replication factor for metrics topics.
+      PORT: 9021  # Internal port for Control Center.
+
+    networks:
+      - dasnet  # Connecting Control Center to the custom network 'dasnet'.
+
+  ksqldb-server:  # KSQL server service - SQL engine for processing real-time streams.
+    image: confluentinc/cp-ksqldb-server:6.0.1  # KSQL server version 6.0.1 from Confluent.
+    hostname: ksqldb-server  # Internal hostname used within the Docker network.
+    container_name: ksqldb-server  # Name of the container as it will appear in Docker.
+    depends_on:  # Ensures the broker and Kafka Connect are started before KSQL server.
+      - broker
+      - connect
+    ports:
+      - &quot;8188:8088&quot;  # laptop:container
+    environment:  # Environment variables that configure KSQL server.
+      KSQL_CONFIG_DIR: &quot;/etc/ksql&quot;  # Directory for KSQL configuration files.
+      KSQL_BOOTSTRAP_SERVERS: &quot;broker:29092&quot;  # Kafka broker address for KSQL server.
+      KSQL_HOST_NAME: ksqldb-server  # Internal hostname for KSQL server.
+      KSQL_LISTENERS: &quot;http://0.0.0.0:8088&quot;  # Listeners for KSQL server.
+      KSQL_CACHE_MAX_BYTES_BUFFERING: 0  # Disables caching in KSQL.
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: &quot;http://schema-registry:8081&quot;  # Schema Registry URL for KSQL server.
+      KSQL_PRODUCER_INTERCEPTOR_CLASSES: &quot;io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor&quot;  # Producer interceptor.
+      KSQL_CONSUMER_INTERCEPTOR_CLASSES: &quot;io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor&quot;  # Consumer interceptor.
+      KSQL_KSQL_CONNECT_URL: &quot;http://connect:8083&quot;  # Kafka Connect URL for KSQL server.
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_REPLICATION_FACTOR: 1  # Replication factor for logging processing topics.
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: 'true'  # Auto-create logging processing topics.
+      KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: 'true'  # Auto-create logging processing streams.
+
+    networks:
+      - dasnet  # Connecting KSQL server to the custom network 'dasnet'.
+
+  ksqldb-cli:  # KSQL CLI service - command-line interface for interacting with KSQL server.
+    image: confluentinc/cp-ksqldb-cli:6.0.1  # KSQL CLI version 6.0.1 from Confluent.
+    container_name: ksqldb-cli  # Name of the container as it will appear in Docker.
+    depends_on:  # Ensures the broker, Kafka Connect, and KSQL server are started before KSQL CLI.
+      - broker
+      - connect
+      - ksqldb-server
+    entrypoint: /bin/sh  # Entry point for the container to start a shell.
+    tty: true  # Allocate a pseudo-TTY for interactive use.
+
+    networks:
+      - dasnet  # Connecting KSQL CLI to the custom network 'dasnet'.
+
+  ksql-datagen:  # KSQL DataGen service - generates sample data for KSQL.
+    image: confluentinc/ksqldb-examples:6.0.1  # KSQL DataGen version 6.0.1 from Confluent.
+    hostname: ksql-datagen  # Internal hostname used within the Docker network.
+    container_name: ksql-datagen  # Name of the container as it will appear in Docker.
+    depends_on:  # Ensures KSQL server, broker, Schema Registry, and Kafka Connect are started before KSQL DataGen.
+      - ksqldb-server
+      - broker
+      - schema-registry
+      - connect
+    command: &quot;bash -c 'echo Waiting for Kafka to be ready... &amp;&amp; \
+                       cub kafka-ready -b broker:29092 1 40 &amp;&amp; \
+                       echo Waiting for Confluent Schema Registry to be ready... &amp;&amp; \
+                       cub sr-ready schema-registry 8081 40 &amp;&amp; \
+                       echo Waiting a few seconds for topic creation to finish... &amp;&amp; \
+                       sleep 11 &amp;&amp; \
+                       tail -f /dev/null'&quot;  # Command to ensure services are ready before starting data generation.
+    environment:  # Environment variables that configure KSQL DataGen.
+      KSQL_CONFIG_DIR: &quot;/etc/ksql&quot;  # Directory for KSQL configuration files.
+      STREAMS_BOOTSTRAP_SERVERS: broker:29092  # Kafka broker address for KSQL DataGen.
+      STREAMS_SCHEMA_REGISTRY_HOST: schema-registry  # Schema Registry host for KSQL DataGen.
+      STREAMS_SCHEMA_REGISTRY_PORT: 8081  # Schema Registry port for KSQL DataGen.
+
+    networks:
+      - dasnet  # Connecting KSQL DataGen to the custom network 'dasnet'.
+
+  rest-proxy:  # Kafka REST Proxy service - provides a RESTful interface to Kafka.
+    image: confluentinc/cp-kafka-rest:6.0.1  # Kafka REST Proxy version 6.0.1 from Confluent.
+    hostname: rest-proxy  # Internal hostname used within the Docker network.
+    container_name: rest-proxy  # Name of the container as it will appear in Docker.
+    depends_on:  # Ensures the broker and Schema Registry are started before REST Proxy.
+      - broker
+      - schema-registry
+    ports:
+      - &quot;8182:8082&quot;  # laptop:container
+    environment:  # Environment variables that configure the REST Proxy.
+      KAFKA_REST_HOST_NAME: rest-proxy  # Internal hostname for REST Proxy.
+      KAFKA_REST_BOOTSTRAP_SERVERS: 'broker:29092'  # Kafka broker address for REST Proxy.
+      KAFKA_REST_LISTENERS: &quot;http://0.0.0.0:8082&quot;  # Listeners for REST Proxy.
+      KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'  # Schema Registry URL for REST Proxy.
+
+    networks:
+      - dasnet  # Connecting REST Proxy to the custom network 'dasnet'.
+
+networks:  # Network configuration for Docker containers.
+  dasnet:  # Defines the custom network 'dasnet'.
+    external: true  # Indicates that 'dasnet' is a pre-existing external network.
+
+</code></pre>
+<h3 id="2-start-the-services"><span style="color: #DimGray; font-family: Segoe UI, sans-serif;">2. Start the Services</span></h3>
+<ul>
+<li><strong>CD</strong> to <code>docker-compose.yml</code> folder. Run the command  <code>docker-compose up -d</code></li>
+</ul>
+<h3 id="3-check-the-setup"><span style="color: #DimGray; font-family: Segoe UI, sans-serif;">3. Check the setup</span></h3>
+<ul>
+<li>Open Docker Desktop. You should see all the containres up and running</li>
+</ul>
+<p><img src="images/2024-08-19-13-50-24.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></p>
+<ul>
+<li>Open the <a href="http://localhost:9121/clusters">control centre</a> to see the actual working.</li>
+</ul>
+<p><img src="images/2024-08-19-13-54-24.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></p>
+<ul>
+<li>Go through the tabs to see all the functionalities</li>
+</ul>
+<p><img src="images/Animation.gif" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></p>
+<h2 id="component-details"><span style="color: #7F3585; font-family: Segoe UI, sans-serif;">Component Details</span></h2>
+<p>Refer to the table for quick info on the the setup:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Component</strong></th>
+<th><strong>Purpose</strong></th>
+<th><strong>Host Name</strong></th>
+<th><strong>Ports (Laptop:Container)</strong></th>
+<th><strong>Key Environment Variables</strong></th>
+<th><strong>Network</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Zookeeper</strong></td>
+<td>Coordinates and manages Kafka brokers.</td>
+<td><code>zookeeper</code></td>
+<td>2181:2181</td>
+<td><code>ZOOKEEPER_CLIENT_PORT=2181</code><br><code>ZOOKEEPER_TICK_TIME=2000</code></td>
+<td><code>dasnet</code></td>
+</tr>
+<tr>
+<td><strong>Kafka Broker</strong></td>
+<td>Handles message publishing and subscribing.</td>
+<td><code>broker</code></td>
+<td>9192:9092<br>9111:9101</td>
+<td><code>KAFKA_BROKER_ID=1</code><br><code>KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181</code><br><code>KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://broker:29092</code></td>
+<td><code>dasnet</code></td>
+</tr>
+<tr>
+<td><strong>Schema Registry</strong></td>
+<td>Manages Avro schemas for Kafka topics.</td>
+<td><code>schema-registry</code></td>
+<td>8181:8081</td>
+<td><code>SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=broker:29092</code><br><code>SCHEMA_REGISTRY_LISTENERS=http://0.0.0.0:8081</code></td>
+<td><code>dasnet</code></td>
+</tr>
+<tr>
+<td><strong>Kafka Connect</strong></td>
+<td>Integrates Kafka with external systems (e.g., databases).</td>
+<td><code>connect</code></td>
+<td>8183:8083</td>
+<td><code>CONNECT_BOOTSTRAP_SERVERS=broker:29092</code><br><code>CONNECT_REST_PORT=8083</code><br><code>CONNECT_GROUP_ID=kafka-connect</code></td>
+<td><code>dasnet</code></td>
+</tr>
+<tr>
+<td><strong>Control Center</strong></td>
+<td>Web interface for managing and monitoring Kafka.</td>
+<td><code>control-center</code></td>
+<td>9121:9021</td>
+<td><code>CONTROL_CENTER_BOOTSTRAP_SERVERS=broker:29092</code><br><code>CONTROL_CENTER_CONNECT_CLUSTER=connect:8083</code></td>
+<td><code>dasnet</code></td>
+</tr>
+<tr>
+<td><strong>KSQL Server</strong></td>
+<td>SQL engine for processing real-time data streams.</td>
+<td><code>ksqldb-server</code></td>
+<td>8188:8088</td>
+<td><code>KSQL_BOOTSTRAP_SERVERS=broker:29092</code><br><code>KSQL_LISTENERS=http://0.0.0.0:8088</code><br><code>KSQL_KSQL_SCHEMA_REGISTRY_URL=http://schema-registry:8081</code></td>
+<td><code>dasnet</code></td>
+</tr>
+<tr>
+<td><strong>REST Proxy</strong></td>
+<td>Provides a RESTful interface to Kafka.</td>
+<td><code>rest-proxy</code></td>
+<td>8182:8082</td>
+<td><code>KAFKA_REST_BOOTSTRAP_SERVERS=broker:29092</code><br><code>KAFKA_REST_LISTENERS=http://0.0.0.0:8082</code></td>
+<td><code>dasnet</code></td>
+</tr>
+<tr>
+<td><strong>KSQL DataGen</strong></td>
+<td>Generates sample data for KSQL testing (optional).</td>
+<td><code>ksql-datagen</code></td>
+<td>N/A</td>
+<td><code>STREAMS_BOOTSTRAP_SERVERS=broker:29092</code><br><code>STREAMS_SCHEMA_REGISTRY_HOST=schema-registry</code></td>
+<td><code>dasnet</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>All components are connected via the <code>dasnet</code> custom Docker network.</p>
+</blockquote></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
