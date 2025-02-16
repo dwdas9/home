@@ -1,0 +1,28 @@
+# This requirements file is sufficient for creating a virtual environment.
+
+# Core MkDocs and Material theme
+mkdocs
+mkdocs-material
+
+# Extensions and plugins for Material theme
+pymdown-extensions  # Provides advanced Markdown extensions
+mkdocs-glightbox  # Plugin for media lightboxes
+mkdocs-include-markdown-plugin
+
+# Additional dependencies required by mkdocs-material
+markdown  # Markdown parser
+pyyaml  # YAML parsing library
+requests  # For handling HTTP requests (used by plugins)
+jinja2  # Templating engine
+markdown-include  # Markdown support for file inclusion
+
+# Optional dependencies for syntax highlighting and diagrams
+pygments  # Syntax highlighting for code blocks
+mkdocs-mermaid2-plugin  # Diagram generation
+
+# Watchdog for live reload during development
+watchdog
+
+# Optional pagination and localization
+babel  # Localization support
+paginate  # Pagination for long lists
