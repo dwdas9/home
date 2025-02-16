@@ -1,4 +1,173 @@
-site_name: My Documentation
+# =========================
+# Site Configuration
+# =========================
+site_name: Das Digital Digest  # Site name
 site_url: https://dwdas9.github.io/home/
 theme:
   name: material
+
+# =========================
+# Navigation Structure
+# =========================
+nav: # Sidebar menu structure. Each file path is relative to the `docs` directory.
+  - Home: 'index.md'
+  - Data Engineering & Analytics:
+    - Apache Airflow:
+      - Overview: 'Airflow/index.md'
+      - Concepts: 'Airflow/1.0.0_AirFlow_Concepts.md'
+      - DAG Anatomy: 'Airflow/1.0.1_A_Dags_Anatomy.md'
+      - Hello Airflow: 'Airflow/1.0.2_Hello_Airflow.md'
+      - Airflow DBT Docker: 'Airflow/1.0.3_Airflow_Dbt_Docker.md'
+    - Spark & Databricks:
+      - Overview: 'Spark-DataBricks/index.md'
+      - Basic Concepts: 'Spark-DataBricks/basics.md'
+      - Advanced Topics: 'Spark-DataBricks/advanced.md'
+    - Stream Processing:
+      - Overview: 'StreamProcessing/index.md'
+    - SQL:
+      - Overview: 'SQL/index.md'
+      - Best Practices: 'SQL/best-practices.md'
+      - Performance Tuning: 'SQL/performance-tuning.md'
+  
+  - Cloud & DevOps:
+    - Microsoft Fabric:
+      - Overview: 'Microsoft-Fabric/index.md'
+    - Azure Services:
+      - Synapse Analytics: 'Synapse-ADF/synapse.md'
+      - Data Factory: 'Synapse-ADF/adf.md'
+    - DevOps:
+      - GitHub Actions: 
+        - Concepts: 'DevOps/1_GitHub-Concepts.md'
+        - Hello GitHub Actions: 'DevOps/1.1_Hello_GitHub_Actions_Workflow.md'
+      - Azure DevOps:
+        - Azure Pipelines: 'DevOps/2_Azure-Pipelines.md'
+        - ADF CI/CD: 'DevOps/ADF_CICD.md'
+    - Containers:
+      - Docker:
+        - Airflow on Docker: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
+        - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.md'
+      - Kubernetes: 'DockerAndKubernetes/kubernetes/index.md'
+
+  - Enterprise Solutions:
+    - Microsoft 365:
+      - Overview: 'M365/index.md'
+      - SharePoint: 'M365/sharepoint.md'
+    - Power Platform:
+      - Overview: 'PowerPlatform/index.md'
+      - Power BI: 'PowerPlatform/powerbi.md'
+      - Power Automate: 'PowerPlatform/automate.md'
+    - MongoDB:
+      - Overview: 'MongoDB/index.md'
+      - Best Practices: 'MongoDB/best-practices.md'
+    - Python:
+      - Overview: 'Python/index.md'
+      - Data Processing: 'Python/data-processing.md'
+      - Automation: 'Python/automation.md'
+
+  - Projects:
+    - Data Engineering:
+      - Azure Sky Weather: 'DE-Projects/AzureSkyWeather/index.md'
+      - Currency Predictor: 'DE-Projects/CurrencyPredictor.md'
+      - JSON Validator: 'DE-Projects/JsonValidator/index.md'
+      - ETL Projects:
+        - CSV to MSSQL: 'DE-Projects/Csv-To-MSSQL.md'
+        - JSON to Parquet: 'DE-Projects/FetchJsonWriteParquet.md'
+      - Databricks E2E Project: 'DE-Projects/Dbrk-E2E-AttritionProject.md'
+
+  - Resources:
+    - Miscellaneous: 'Misc/6_RunningAppsInBg.md'
+    - Contributing: 'contributing.md'
+    - About: 'about.md'
+
+
+# =========================
+# Theme Configuration
+# =========================
+theme:
+  name: material  # Change to 'readthedocs' or 'mkdocs' for other themes
+  font:
+    text: "Roboto"  # Font for the text (alternative: "Inter")
+  features:  # Enable/disable site features
+    - navigation.top  # Back to top button
+    - search.suggest  # Search suggestions
+    - search.highlight  # Highlight matching search terms
+    - content.code.copy  # Add copy button to code blocks
+  palette:
+
+      # Palette toggle for light mode
+      - media: "(prefers-color-scheme: light)"
+        scheme: default
+        toggle:
+          icon: material/brightness-7
+          name: Switch to dark mode
+
+      # Palette toggle for dark mode
+      - media: "(prefers-color-scheme: dark)"
+        scheme: slate
+        toggle:
+          icon: material/brightness-4
+          name: Switch to light mode
+# =========================
+# Plugins Configuration
+# =========================
+plugins:
+  - search  # Enable search functionality (required for most themes)
+  - glightbox:  # Plugin for image and media lightboxes
+      touchNavigation: true       # Allow touch navigation on mobile
+      loop: false                 # Disable continuous looping
+      effect: zoom                # Add zoom effect for images
+      slide_effect: slide         # Slide transition for media
+      width: 100%                 # Responsive width
+      height: auto                # Adaptive height
+      zoomable: true              # Enable zoom functionality
+      draggable: true             # Allow media dragging
+      auto_caption: true          # Generate captions automatically
+      caption_position: bottom    # Place captions at the bottom
+      shadow: true                # Enable shadow effects
+  - offline  # Make site searchable offline (enable if distributing offline)
+  - include-markdown #pip install mkdocs-include-markdown-plugin. To reuse markdown files in other markdown files
+
+# =========================
+# Markdown Extensions
+# =========================
+markdown_extensions:
+  - admonition # for notes, warnings, etc.
+  - pymdownx.details  # Add collapsible details blocks
+  - pymdownx.highlight:  # Syntax highlighting for code blocks
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite  # Inline code highlighting
+  - pymdownx.snippets  # Include external snippets in Markdown
+  - pymdownx.superfences:  # Enable complex fences (e.g., for Mermaid diagrams)
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:  # Add tabbed content blocks
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - attr_list  # Enable attribute lists (e.g., `{ .class }`)
+  - pymdownx.emoji:  # Enable emojis
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:  # Table of contents with permalinks
+      permalink: true
+  - markdown_include.include:
+        base_path: docs
+
+# =========================
+# Additional Assets
+# =========================
+extra_css:
+  - stylesheets/extra.css  # Add custom CSS for styling
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js  # Enable Mermaid diagrams
+
+# =========================
+# Footer Configuration
+# =========================
+copyright: Copyright &copy; 2024 - Das  # Footer text
+
