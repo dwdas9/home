@@ -125,7 +125,7 @@ plugins:
       caption_position: bottom    # Place captions at the bottom
       shadow: true                # Enable shadow effects
   - offline  # Make site searchable offline (enable if distributing offline)
-  - include-markdown #pip install mkdocs-include-markdown-plugin. To reuse markdown files in other markdown files
+  #- include-markdown ## Sidebar menu structure. Each file path is relative to the `docs` directory.. To reuse markdown files in other markdown files
 
 # =========================
 # Markdown Extensions
@@ -155,8 +155,8 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - toc:  # Table of contents with permalinks
       permalink: true
-  - markdown_include.include:
-        base_path: docs
+  #- markdown_include.include:
+  #      base_path: docs
 
 # =========================
 # Additional Assets

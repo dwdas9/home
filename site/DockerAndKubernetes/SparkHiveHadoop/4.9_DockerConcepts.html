@@ -1,0 +1,3067 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://dwdas9.github.io/home/DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.html">
+      
+      
+        <link rel="prev" href="../AirflowDocker/1_AirflowDocker.html">
+      
+      
+        <link rel="next" href="../../DE-Projects/CurrencyPredictor.html">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Docker Misc Concepts - Das Digital Digest</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#understanding-dockerfile-cmd-and-entrypoint-instructions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Das Digital Digest" class="md-header__button md-logo" aria-label="Das Digital Digest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Das Digital Digest
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker Misc Concepts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Das Digital Digest" class="md-nav__button md-logo" aria-label="Das Digital Digest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Das Digital Digest
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Engineering & Analytics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Engineering & Analytics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apache Airflow
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apache Airflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.0_AirFlow_Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.1_A_Dags_Anatomy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAG Anatomy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.2_Hello_Airflow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello Airflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.3_Airflow_Dbt_Docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Airflow DBT Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spark & Databricks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spark & Databricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Spark-DataBricks/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Spark-DataBricks/basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Spark-DataBricks/advanced.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Stream Processing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stream Processing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../StreamProcessing/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/performance-tuning.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance Tuning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud & DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud & DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Microsoft Fabric
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft Fabric
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Microsoft-Fabric/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure Services
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Synapse-ADF/synapse.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synapse Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Synapse-ADF/adf.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Factory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GitHub Actions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            GitHub Actions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/1_GitHub-Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/1.1_Hello_GitHub_Actions_Workflow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello GitHub Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/2_Azure-Pipelines.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/ADF_CICD.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADF CI/CD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Containers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Containers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_1" id="__nav_3_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AirflowDocker/1_AirflowDocker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Airflow on Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="4.9_DockerConcepts.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-entrypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is ENTRYPOINT?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is CMD?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-differences-between-entrypoint-and-cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Differences Between ENTRYPOINT and CMD
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Enterprise Solutions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Enterprise Solutions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Microsoft 365
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft 365
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../M365/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../M365/sharepoint.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SharePoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power Platform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Power Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerPlatform/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerPlatform/powerbi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power BI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerPlatform/automate.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power Automate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MongoDB
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            MongoDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MongoDB/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MongoDB/best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/data-processing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/automation.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Engineering
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Engineering
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/AzureSkyWeather/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Sky Weather
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/CurrencyPredictor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Currency Predictor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/JsonValidator/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON Validator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_4" id="__nav_5_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ETL Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            ETL Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/Csv-To-MSSQL.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV to MSSQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/FetchJsonWriteParquet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON to Parquet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/Dbrk-E2E-AttritionProject.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Databricks E2E Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/6_RunningAppsInBg.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-entrypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is ENTRYPOINT?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is CMD?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-differences-between-entrypoint-and-cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Differences Between ENTRYPOINT and CMD
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<ul>
+<li><a href="#understanding-dockerfile-cmd-and-entrypoint-instructions">Understanding Dockerfile CMD and ENTRYPOINT Instructions</a></li>
+<li><a href="#what-is-entrypoint">What is ENTRYPOINT?</a></li>
+<li><a href="#what-is-cmd">What is CMD?</a></li>
+<li><a href="#key-differences-between-entrypoint-and-cmd">Key Differences Between ENTRYPOINT and CMD</a></li>
+<li><a href="#docker-ps-error">Docker PS Error</a></li>
+<li><a href="#for-our-windows-users">For Our Windows Users:</a></li>
+<li><a href="#for-our-mac-users">For Our Mac Users:</a></li>
+<li><a href="#backup-entire-docker-to-your-laptop">Backup entire docker to your laptop</a></li>
+<li><a href="#save-docker-containers-images-and-volumes-on-maclinux">Save Docker Containers, Images, and Volumes on Mac/Linux</a></li>
+<li><a href="#save-docker-containers-images-and-volumes-on-windows">Save Docker Containers, Images, and Volumes on Windows</a></li>
+<li><a href="#docker-common-errors">Docker common errors</a></li>
+<li><a href="#orchestration-tools---docker-swarm-vs-kubernetes">Orchestration Tools - Docker Swarm vs Kubernetes</a></li>
+<li><a href="#docker-swarm">Docker Swarm</a></li>
+<li><a href="#kubernetes">Kubernetes</a></li>
+<li><a href="#comparing-docker-swarm-and-kubernetes">Comparing Docker Swarm and Kubernetes</a></li>
+<li><a href="#k3s-best-of-both-worlds">K3s, best of both worlds</a></li>
+<li><a href="#which-one-should-you-choose">Which One Should You Choose?</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#common-docker-commands">Common docker commands</a></li>
+<li><a href="#running-windows-os-as-a-container-in-docker">Running Windows OS as a Container in Docker</a></li>
+<li><a href="#switching-docker-desktop-to-windows-mode">Switching Docker Desktop to Windows Mode</a></li>
+<li><a href="#switching-using-command-line">Switching Using Command Line</a></li>
+<li><a href="#further-reading">Further Reading</a></li>
+<li><a href="#microsoft-base-images">Microsoft Base Images</a></li>
+<li><a href="#ready-made-bundles">Ready-Made Bundles</a></li>
+<li><a href="#other-combinations">Other Combinations</a></li>
+<li><a href="#types-of-kubernetes">Types of Kubernetes</a></li>
+<li><a href="#for-the-busy-people">For the busy people:</a></li>
+<li><a href="#kubernetes-brands">Kubernetes Brands</a></li>
+<li><a href="#how-i-push-customized-images-to-docker-hubwebsite">How I push customized Images to Docker Hub(Website)</a><ul>
+<li><a href="#step-1-log-in-to-docker-hub">Step 1: Log In to Docker Hub</a></li>
+<li><a href="#step-2-find-the-image-names">Step 2: Find the Image Names</a></li>
+<li><a href="#step-3-tag-the-images">Step 3: Tag the Images</a></li>
+<li><a href="#step-4-push-the-images-to-docker-hub">Step 4: Push the Images to Docker Hub</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#troubleshooting-docker-errors">Troubleshooting docker errors</a></li>
+<li><a href="#steps-to-debug-the-issue">Steps to Debug the Issue</a><ul>
+<li><a href="#1-check-the-container-logs">1. <strong>Check the Container Logs</strong></a></li>
+<li><a href="#2-inspect-the-container-status">2. <strong>Inspect the Container Status</strong></a></li>
+<li><a href="#3-check-for-file-permissions-and-volume-issues">3. <strong>Check for File Permissions and Volume Issues</strong></a></li>
+</ul>
+</li>
+</ul>
+<h1 id="understanding-dockerfile-cmd-and-entrypoint-instructions">Understanding Dockerfile CMD and ENTRYPOINT Instructions<a class="headerlink" href="#understanding-dockerfile-cmd-and-entrypoint-instructions" title="Permanent link">&para;</a></h1>
+<p>CMD and ENTRYPOINT are important Dockerfile instructions that define what command runs when a Docker container starts. Here, I will try to explain the concepts:</p>
+<h2 id="what-is-entrypoint">What is ENTRYPOINT?<a class="headerlink" href="#what-is-entrypoint" title="Permanent link">&para;</a></h2>
+<p>ENTRYPOINT sets the main process that will run inside the container. For example:
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/usr/bin/my-app&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+In this case, <code>/usr/bin/my-app</code> is the process that will run when the container starts.</p>
+<h2 id="what-is-cmd">What is CMD?<a class="headerlink" href="#what-is-cmd" title="Permanent link">&para;</a></h2>
+<p>CMD specifies the default arguments for the ENTRYPOINT process. For instance:
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/usr/bin/my-app&quot;</span><span class="p">]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;help&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+Here, <code>help</code> is passed as an argument to <code>/usr/bin/my-app</code>.</p>
+<h2 id="key-differences-between-entrypoint-and-cmd">Key Differences Between ENTRYPOINT and CMD<a class="headerlink" href="#key-differences-between-entrypoint-and-cmd" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ENTRYPOINT</strong>: Defines the main process to run in the container.</li>
+<li><strong>CMD</strong>: Provides default arguments for the ENTRYPOINT process.</li>
+<li><strong>Override</strong>:</li>
+<li>CMD can be easily overridden by passing arguments in the <code>docker run</code> command.</li>
+<li>ENTRYPOINT can be changed using the <code>--entrypoint</code> flag in <code>docker run</code>, but this is rarely necessary.</li>
+</ul>
+<h1 id="docker-ps-error">Docker PS Error<a class="headerlink" href="#docker-ps-error" title="Permanent link">&para;</a></h1>
+<h2 id="for-our-windows-users">For Our Windows Users:<a class="headerlink" href="#for-our-windows-users" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Verify Docker's Installation Path:</strong> </li>
+<li>Navigate to <code>C:\Program Files\Docker\Docker\resources\bin</code> via your command prompt or PowerShell. </li>
+<li>
+<p>While you're there, try running <code>docker ps</code>. If it responds, you're in luck! If not, let's move to the next step.</p>
+</li>
+<li>
+<p><strong>Update the System PATH:</strong> </p>
+</li>
+<li>Sometimes, Windows isn't aware of where Docker is. We'll need to tell it.</li>
+<li>Open 'System Properties' by right-clicking on the Windows start button and selecting 'System'.</li>
+<li>Click on 'Advanced system settings', then choose 'Environment Variables'.</li>
+<li>Locate the PATH variable under 'System Variables'. Click on it and then select 'Edit'.</li>
+<li>Add a new entry with the path: <code>C:\Program Files\Docker\Docker\resources\bin</code>.</li>
+<li>
+<p>Confirm with 'OK'.</p>
+</li>
+<li>
+<p><strong>Using PowerShell to Update the PATH:</strong> </p>
+</li>
+<li>If you're a fan of PowerShell, you can also add the path using the following command:
+     <div class="language-powershell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="no">[Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s2">&quot;PATH&quot;</span><span class="p">,</span> <span class="nv">$env:PATH</span> <span class="p">+</span> <span class="s2">&quot;;C:\Program Files\Docker\Docker\resources\bin&quot;</span><span class="p">,</span> <span class="s2">&quot;Machine&quot;</span><span class="p">)</span>
+</span></code></pre></div></li>
+<li><strong>Check</strong> if its running now. Just open command prompt and run <code>docker ps</code>. You should get some output. For example:</li>
+</ol>
+<p><a class="glightbox" href="images/runningdockerps.png" data-type="image" data-width="100%" data-height="auto" data-title="Alt text" data-desc-position="bottom"><img alt="Alt text" src="images/runningdockerps.png" /></a></p>
+<h2 id="for-our-mac-users">For Our Mac Users:<a class="headerlink" href="#for-our-mac-users" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Verify Docker's Installation:</strong> </li>
+<li>
+<p>Open your terminal and type in <code>docker --version</code>. This ensures that Docker is installed.</p>
+</li>
+<li>
+<p><strong>Is Docker Running?</strong> </p>
+</li>
+<li>
+<p>Check if the Docker Desktop application is running. If it's not, fire it up!</p>
+</li>
+<li>
+<p><strong>Update the Shell's PATH:</strong> </p>
+</li>
+<li>
+<p>Sometimes, the shell doesn’t know where Docker is located. To fix this:
+     <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export PATH=/usr/local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">source</span><span class="w"> </span>~/.bash_profile
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Final Check:</strong> </p>
+</li>
+<li>Close and reopen your terminal, then try <code>docker ps</code>. If all's well, it should work!</li>
+</ol>
+<h1 id="backup-entire-docker-to-your-laptop">Backup entire docker to your laptop<a class="headerlink" href="#backup-entire-docker-to-your-laptop" title="Permanent link">&para;</a></h1>
+<h2 id="save-docker-containers-images-and-volumes-on-maclinux">Save Docker Containers, Images, and Volumes on Mac/Linux<a class="headerlink" href="#save-docker-containers-images-and-volumes-on-maclinux" title="Permanent link">&para;</a></h2>
+<p>To back up Docker containers, images, and volumes on Mac/Linux, you can use the following script:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Create directories to store backups</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>docker_image_backups<span class="w"> </span>docker_container_backups<span class="w"> </span>docker_volume_backups
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Backup Docker images</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">for</span><span class="w"> </span>image<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>images<span class="w"> </span>--format<span class="w"> </span><span class="s2">&quot;{{.Repository}}:{{.Tag}}&quot;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nv">sanitized_image_name</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$image</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>/<span class="w"> </span>_<span class="k">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span>docker<span class="w"> </span>save<span class="w"> </span>-o<span class="w"> </span>docker_image_backups/<span class="si">${</span><span class="nv">sanitized_image_name</span><span class="si">}</span>.tar<span class="w"> </span><span class="nv">$image</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">done</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Backup Docker containers</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">for</span><span class="w"> </span>container<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>ps<span class="w"> </span>-a<span class="w"> </span>--format<span class="w"> </span><span class="s2">&quot;{{.Names}}&quot;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span>docker<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-o<span class="w"> </span>docker_container_backups/<span class="si">${</span><span class="nv">container</span><span class="si">}</span>.tar<span class="w"> </span><span class="nv">$container</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="k">done</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1"># Backup Docker volumes</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="k">for</span><span class="w"> </span>volume<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>volume<span class="w"> </span>ls<span class="w"> </span>--format<span class="w"> </span><span class="s2">&quot;{{.Name}}&quot;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">  </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">volume</span><span class="si">}</span>:/volume<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/docker_volume_backups:/backup<span class="w"> </span>alpine<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /volume &amp;&amp; tar czf /backup/</span><span class="si">${</span><span class="nv">volume</span><span class="si">}</span><span class="s2">.tar.gz .&quot;</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="k">done</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="c1"># Create a single tarball containing all backups</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>tar<span class="w"> </span>czf<span class="w"> </span>docker_backup_<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span>.tar.gz<span class="w"> </span>docker_image_backups<span class="w"> </span>docker_container_backups<span class="w"> </span>docker_volume_backups
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Backup completed successfully!&quot;</span>
+</span></code></pre></div>
+<p>To run the script:</p>
+<ol>
+<li>Save the script to a file, e.g., <code>backup_docker.sh</code>.</li>
+<li>Make the script executable:</li>
+</ol>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>backup_docker.sh
+</span></code></pre></div>
+<ol>
+<li>Run the script:</li>
+</ol>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>./backup_docker.sh
+</span></code></pre></div>
+<p>This will create a full backup of all Docker images, containers, and volumes.</p>
+<h2 id="save-docker-containers-images-and-volumes-on-windows">Save Docker Containers, Images, and Volumes on Windows<a class="headerlink" href="#save-docker-containers-images-and-volumes-on-windows" title="Permanent link">&para;</a></h2>
+<p>To back up Docker containers, images, and volumes on Windows, follow these steps:</p>
+<ol>
+<li>
+<p>Create a folder and save the following content as <code>backup_docker.ps1</code>:</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c"># Backup Docker Images</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">docker</span> <span class="n">images</span> <span class="n">-q</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="n">docker</span> <span class="n">save</span> <span class="n">-o</span> <span class="s2">&quot;</span><span class="p">$(</span><span class="nv">$_</span><span class="p">)</span><span class="s2">.tar&quot;</span> <span class="nv">$_</span> <span class="p">}</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c"># Backup Running Containers</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">docker</span> <span class="nb">ps </span><span class="n">-q</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="n">docker</span> <span class="n">export</span> <span class="n">-o</span> <span class="s2">&quot;</span><span class="p">$(</span><span class="nv">$_</span><span class="p">)</span><span class="s2">.tar&quot;</span> <span class="nv">$_</span> <span class="p">}</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c"># Backup Docker Volumes</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nv">$volumes</span> <span class="p">=</span> <span class="n">docker</span> <span class="n">volume</span> <span class="nb">ls </span><span class="n">-q</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">foreach</span> <span class="p">(</span><span class="nv">$volume</span> <span class="k">in</span> <span class="nv">$volumes</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">docker</span> <span class="n">run</span> <span class="p">-</span><span class="n">-rm</span> <span class="n">-v</span> <span class="p">${</span><span class="n">volume</span><span class="p">}:/</span><span class="n">volume</span> <span class="n">-v</span> <span class="p">$(</span><span class="n">pwd</span><span class="p">):/</span><span class="n">backup</span> <span class="n">ubuntu</span> <span class="n">tar</span> <span class="n">cvf</span> <span class="p">/</span><span class="n">backup</span><span class="p">/${</span><span class="n">volume</span><span class="p">}</span><span class="n">_backup</span><span class="p">.</span><span class="n">tar</span> <span class="p">/</span><span class="n">volume</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">}</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c"># Backup Docker Configurations</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="nb">Copy-Item</span> <span class="n">-Path</span> <span class="s2">&quot;C:\path\to\your\docker\configurations&quot;</span> <span class="n">-Destination</span> <span class="s2">&quot;C:\path\to\your\backup\location&quot;</span> <span class="n">-Recurse</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Open PowerShell with administrative privileges and navigate to the folder you created:</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd </span><span class="n">path</span><span class="p">\</span><span class="n">to</span><span class="p">\</span><span class="n">your</span><span class="p">\</span><span class="n">folder</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Set the execution policy to allow the script to run temporarily:</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">Set-ExecutionPolicy</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="n">-Scope</span> <span class="k">Process</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Run the script:</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">.\</span><span class="n">backup_docker</span><span class="p">.</span><span class="n">ps1</span>
+</span></code></pre></div>
+</li>
+</ol>
+<p>This way you can back up all your Docker containers, images, and volumes to the current folder.</p>
+<p><a class="glightbox" href="images/custom-image-2024-06-24-13-59-03.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/custom-image-2024-06-24-13-59-03.png" /></a></p>
+<h1 id="docker-common-errors">Docker common errors<a class="headerlink" href="#docker-common-errors" title="Permanent link">&para;</a></h1>
+<p><code>HTTP code 500) server error - Ports are not available: exposing port TCP 0.0.0.0:50070 -&gt; 0.0.0.0:0: listen tcp 0.0.0.0:50070: bind: An attempt was made to access a socket in a way forbidden by its access permissions.</code></p>
+<p>Execute command</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>net<span class="w"> </span>stop<span class="w"> </span>winnat
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>docker<span class="w"> </span>start<span class="w"> </span>&lt;full<span class="w"> </span>container<span class="w"> </span>name&gt;
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>net<span class="w"> </span>start<span class="w"> </span>winnat
+</span></code></pre></div>
+<h1 id="orchestration-tools-docker-swarm-vs-kubernetes"><span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Orchestration Tools - Docker Swarm vs Kubernetes</span><a class="headerlink" href="#orchestration-tools-docker-swarm-vs-kubernetes" title="Permanent link">&para;</a></h1>
+<p>To manage complex applications, many developers use containers. Containers package all the necessary dependencies, making applications portable, fast, secure, scalable, and easy to manage. To handle multiple containers, you need an orchestration tool like Docker Swarm or Kubernetes.</p>
+<p>Both tools manage containers but have different strengths and weaknesses. This article will help you decide which one is right for you.</p>
+<h2 id="docker-swarm"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Docker Swarm</span><a class="headerlink" href="#docker-swarm" title="Permanent link">&para;</a></h2>
+<p>Docker Swarm, an open-source orchestration tool by Docker, turns multiple Docker instances into a single virtual host. Here are its key components:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nodes</td>
+<td>Individual Docker instances.</td>
+</tr>
+<tr>
+<td>Services and Tasks</td>
+<td>The applications you run.</td>
+</tr>
+<tr>
+<td>Load Balancers</td>
+<td>Distribute requests across nodes.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Advantages of Docker Swarm:</strong>
+- <strong>Ease of Use:</strong> Simple installation and understanding.
+- <strong>Integration:</strong> Works seamlessly with Docker CLI.
+- <strong>Automated Load Balancing:</strong> Distributes traffic within the cluster automatically.</p>
+<p><strong>Disadvantages of Docker Swarm:</strong>
+- <strong>Limited Functionality:</strong> Less powerful compared to Kubernetes.
+- <strong>Basic Automation:</strong> Not as robust as Kubernetes.</p>
+<h2 id="kubernetes"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Kubernetes</span><a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h2>
+<p>Kubernetes, developed by Google, offers a more complex structure with nodes, pods, namespaces, and more.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nodes</td>
+<td>Worker machines in the cluster.</td>
+</tr>
+<tr>
+<td>Pods</td>
+<td>Smallest deployable units, containing one or more containers.</td>
+</tr>
+<tr>
+<td>Namespaces</td>
+<td>Logical isolation for resources.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Advantages of Kubernetes:</strong>
+- <strong>Community Support:</strong> Backed by Google, with a large open-source community.
+- <strong>Operating System Support:</strong> Works on all OS.
+- <strong>Scalability and Management:</strong> Handles large and complex workloads.
+- <strong>Automation and Self-Healing:</strong> Automatically scales and repairs itself.
+- <strong>Built-in Monitoring:</strong> Includes monitoring tools.
+- <strong>Cloud Support:</strong> Available on Google Cloud, Azure, and AWS.</p>
+<p><strong>Disadvantages of Kubernetes:</strong>
+- <strong>Complexity:</strong> Difficult to install and learn.
+- <strong>Separate Tools:</strong> Requires learning new CLI tools.
+- <strong>Transition:</strong> Moving from Docker Swarm can be challenging.
+- <strong>Overhead:</strong> Can be overly complex for simple applications.</p>
+<h2 id="comparing-docker-swarm-and-kubernetes"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Comparing Docker Swarm and Kubernetes</span><a class="headerlink" href="#comparing-docker-swarm-and-kubernetes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Docker Swarm</th>
+<th>Kubernetes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Installation</td>
+<td>Easy to install and use. Works with Docker CLI.</td>
+<td>Complex installation, separate CLI tools.</td>
+</tr>
+<tr>
+<td>Application Deployment</td>
+<td>YAML or Docker Compose for services or microservices.</td>
+<td>More options like namespaces, pods, and deployments.</td>
+</tr>
+<tr>
+<td>Availability and Scaling</td>
+<td>High availability, but no automatic scaling.</td>
+<td>Highly available, fault-tolerant, self-healing, and automatic scaling.</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>Requires third-party tools.</td>
+<td>Built-in monitoring and third-party integrations.</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Uses TLS for security.</td>
+<td>Supports multiple security protocols (RBAC, SSL/TLS, secrets management).</td>
+</tr>
+<tr>
+<td>Load Balancing</td>
+<td>Automatic load balancing using DNS.</td>
+<td>Uses tools like Nginx Ingress for load balancing.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="k3s-best-of-both-worlds"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">K3s, best of both worlds</span><a class="headerlink" href="#k3s-best-of-both-worlds" title="Permanent link">&para;</a></h2>
+<p><a href="https://k3s.io/">K3s</a>, a lightweight version of Kubernetes. It gives you the full Kubernetes API without complexity. It's easy to use and CNCF certified. Consider K3s if you want Kubernetes features with simpler management.</p>
+<h2 id="which-one-should-you-choose"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Which One Should You Choose?</span><a class="headerlink" href="#which-one-should-you-choose" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Docker Swarm:</strong> Best for beginners and small-scale applications due to its ease of use.</li>
+<li><strong>Kubernetes:</strong> Ideal for complex and large-scale projects requiring robust features and automation.</li>
+<li><strong>K3s:</strong> Suitable if you want Kubernetes features with less complexity.</li>
+</ul>
+<h1 id="summary"><span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Summary</span><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th><span style="color:#005f73;"><strong>Feature</strong></span></th>
+<th><span style="color:#005f73;"><strong>Docker Swarm</strong></span></th>
+<th><span style="color:#005f73;"><strong>Kubernetes</strong></span></th>
+<th><span style="color:#005f73;"><strong>K3s</strong></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span style="color:#0a9396;"><strong>Component</strong></span></td>
+<td><span style="color:#0a9396;">- <strong>Nodes:</strong> Individual Docker instances.<br>- <strong>Services and Tasks:</strong> The applications you run.<br>- <strong>Load Balancers:</strong> Distribute requests across nodes.</span></td>
+<td><span style="color:#0a9396;">- <strong>Nodes:</strong> Worker and master nodes.<br>- <strong>Pods:</strong> Smallest deployable units.<br>- <strong>Namespaces:</strong> Virtual clusters.<br>- <strong>Config Maps:</strong> Manage configuration.</span></td>
+<td><span style="color:#0a9396;">- <strong>Nodes:</strong> Worker and master nodes.<br>- <strong>Pods:</strong> Smallest deployable units.<br>- <strong>Namespaces:</strong> Virtual clusters.<br>- <strong>Config Maps:</strong> Manage configuration.</span></td>
+</tr>
+<tr>
+<td><span style="color:#0a9396;"><strong>Advantages</strong></span></td>
+<td><span style="color:#005f73;">- <strong>Ease of Use:</strong> Simple installation and understanding.<br>- <strong>Integration:</strong> Works seamlessly with Docker CLI.<br>- <strong>Automated Load Balancing:</strong> Distributes traffic within the cluster automatically.</span></td>
+<td><span style="color:#005f73;">- <strong>Community Support:</strong> Backed by Google, large open-source community.<br>- <strong>Operating System Support:</strong> Works on all OS.<br>- <strong>Scalability and Management:</strong> Handles large and complex workloads.<br>- <strong>Automation and Self-Healing:</strong> Automatically scales and repairs itself.<br>- <strong>Built-in Monitoring:</strong> Comes with monitoring tools.<br>- <strong>Cloud Support:</strong> Available on Google Cloud, Azure, and AWS.</span></td>
+<td><span style="color:#005f73;">- <strong>Lightweight:</strong> Easier and faster to set up.<br>- <strong>Complete Kubernetes API:</strong> Offers all features without extra complexity.<br>- <strong>CNCF Certified:</strong> Ensures compatibility and support.</span></td>
+</tr>
+<tr>
+<td><span style="color:#ae2012;"><strong>Disadvantages</strong></span></td>
+<td><span style="color:#ae2012;">- <strong>Limited Functionality:</strong> Less powerful compared to Kubernetes.<br>- <strong>Basic Automation:</strong> Not as robust as Kubernetes.</span></td>
+<td><span style="color:#ae2012;">- <strong>Complexity:</strong> Difficult to install and learn.<br>- <strong>Separate Tools:</strong> Requires learning new CLI tools.<br>- <strong>Transition:</strong> Moving from Docker Swarm can be hard.<br>- <strong>Overhead:</strong> Can be overly complex for simple applications.</span></td>
+<td><span style="color:#ae2012;">- <strong>Limited Community Support:</strong> Smaller user base compared to Kubernetes.<br>- <strong>Fewer Integrations:</strong> May not support all third-party tools.</span></td>
+</tr>
+<tr>
+<td><span style="color:#0a9396;"><strong>Application Deployment</strong></span></td>
+<td><span style="color:#0a9396;">Deploy services or microservices using YAML or Docker Compose.</span></td>
+<td><span style="color:#0a9396;">Offers more options like namespaces, pods, and deployments.</span></td>
+<td><span style="color:#0a9396;">Supports deployments using YAML files with simplified configurations.</span></td>
+</tr>
+<tr>
+<td><span style="color:#0a9396;"><strong>Availability and Scaling</strong></span></td>
+<td><span style="color:#0a9396;">High availability, but no automatic scaling.</span></td>
+<td><span style="color:#0a9396;">Highly available, fault-tolerant, self-healing, and automatic scaling.</span></td>
+<td><span style="color:#0a9396;">Provides high availability and simple scaling mechanisms.</span></td>
+</tr>
+<tr>
+<td><span style="color:#0a9396;"><strong>Monitoring</strong></span></td>
+<td><span style="color:#0a9396;">Requires third-party tools.</span></td>
+<td><span style="color:#0a9396;">Built-in monitoring and third-party integrations.</span></td>
+<td><span style="color:#0a9396;">Supports basic monitoring with options for third-party integrations.</span></td>
+</tr>
+<tr>
+<td><span style="color:#0a9396;"><strong>Security</strong></span></td>
+<td><span style="color:#0a9396;">Uses TLS for security.</span></td>
+<td><span style="color:#0a9396;">Supports multiple security protocols like RBAC, SSL/TLS, secrets management.</span></td>
+<td><span style="color:#0a9396;">Provides essential security features with easier management.</span></td>
+</tr>
+<tr>
+<td><span style="color:#0a9396;"><strong>Load Balancing</strong></span></td>
+<td><span style="color:#0a9396;">Automatic load balancing using DNS.</span></td>
+<td><span style="color:#0a9396;">Uses tools like Nginx Ingress for load balancing.</span></td>
+<td><span style="color:#0a9396;">Simplified load balancing with integrated tools.</span></td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" href="images\DockerCommandImages.png" data-type="image" data-width="100%" data-height="auto" data-title="alt text" data-desc-position="bottom"><img alt="alt text" src="images\DockerCommandImages.png" /></a></p>
+<h1 id="common-docker-commands"><span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Common docker commands</span><a class="headerlink" href="#common-docker-commands" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🏃 Run</td>
+<td><code>docker run &lt;image&gt;</code></td>
+</tr>
+<tr>
+<td>⏹️ Stop</td>
+<td><code>docker stop &lt;container&gt;</code></td>
+</tr>
+<tr>
+<td>▶️ Start</td>
+<td><code>docker start &lt;container&gt;</code></td>
+</tr>
+<tr>
+<td>🗑️ Remove Ctr</td>
+<td><code>docker rm &lt;container&gt;</code></td>
+</tr>
+<tr>
+<td>🖼️ Remove Img</td>
+<td><code>docker rmi &lt;image&gt;</code></td>
+</tr>
+<tr>
+<td>📃 List Ctrs</td>
+<td><code>docker ps</code></td>
+</tr>
+<tr>
+<td>🖼️ List Imgs</td>
+<td><code>docker images</code></td>
+</tr>
+<tr>
+<td>⬇️ Pull</td>
+<td><code>docker pull &lt;image&gt;</code></td>
+</tr>
+<tr>
+<td>⌨️ Exec</td>
+<td><code>docker exec &lt;container&gt;</code></td>
+</tr>
+<tr>
+<td>🏗️ Build</td>
+<td><code>docker build -t &lt;tag&gt; .</code></td>
+</tr>
+<tr>
+<td>🔊 Logs</td>
+<td><code>docker logs &lt;container&gt;</code></td>
+</tr>
+<tr>
+<td>🔍 Inspect</td>
+<td><code>docker inspect &lt;container_or_image&gt;</code></td>
+</tr>
+<tr>
+<td>📊 Stats</td>
+<td><code>docker stats &lt;container&gt;</code></td>
+</tr>
+<tr>
+<td>📁 Volume List</td>
+<td><code>docker volume ls</code></td>
+</tr>
+<tr>
+<td>🆕 Volume Create</td>
+<td><code>docker volume create &lt;volume_name&gt;</code></td>
+</tr>
+<tr>
+<td>🚮 Volume Remove</td>
+<td><code>docker volume rm &lt;volume_name&gt;</code></td>
+</tr>
+<tr>
+<td>🌐 Network List</td>
+<td><code>docker network ls</code></td>
+</tr>
+<tr>
+<td>🌉 Network Create</td>
+<td><code>docker network create &lt;network&gt;</code></td>
+</tr>
+<tr>
+<td>📡 Network Connect</td>
+<td><code>docker network connect &lt;network&gt; &lt;container&gt;</code></td>
+</tr>
+<tr>
+<td>🔌 Network Disconnect</td>
+<td><code>docker network disconnect &lt;network&gt; &lt;container&gt;</code></td>
+</tr>
+<tr>
+<td>🔄 Pull Latest</td>
+<td><code>docker pull &lt;image&gt;:latest</code></td>
+</tr>
+<tr>
+<td>🚫 Build No Cache</td>
+<td><code>docker build --no-cache -t &lt;tag&gt; .</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="running-windows-os-as-a-container-in-docker"><span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Running Windows OS as a Container in Docker</span><a class="headerlink" href="#running-windows-os-as-a-container-in-docker" title="Permanent link">&para;</a></h1>
+<p>When you think of containers, you usually picture a small Linux OS. And you’re right! But did you know that containers can run a small Windows OS too?</p>
+<h2 id="switching-docker-desktop-to-windows-mode"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Switching Docker Desktop to Windows Mode</span><a class="headerlink" href="#switching-docker-desktop-to-windows-mode" title="Permanent link">&para;</a></h2>
+<p>For most of your tasks, you've likely been using Docker containers, which are typically Linux-based. Running a Windows container might seem unusual. By default, Docker on your Windows machine operates in 'Linux mode.' To run Windows containers, you'll need to switch from this default Linux mode to Windows mode.</p>
+<p><a class="glightbox" href="images/custom-image-2024-08-05-23-10-16.png" data-type="image" data-width="100%" data-height="auto" data-title="Switch to Windows containers" data-desc-position="bottom"><img alt="Switch to Windows containers" src="images/custom-image-2024-08-05-23-10-16.png" /></a></p>
+<p>And you can switch back to Linux containers easily.</p>
+<p><a class="glightbox" href="images/custom-image-2024-08-05-23-16-07.png" data-type="image" data-width="100%" data-height="auto" data-title="Switch to Linux containers" data-desc-position="bottom"><img alt="Switch to Linux containers" src="images/custom-image-2024-08-05-23-16-07.png" /></a></p>
+<p><strong>Note:</strong> When you switch to Windows mode, you won’t be able to see your Linux containers.</p>
+<p><a class="glightbox" href="images/custom-image-2024-08-05-23-39-34.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/custom-image-2024-08-05-23-39-34.png" /></a></p>
+<h2 id="switching-using-command-line"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Switching Using Command Line</span><a class="headerlink" href="#switching-using-command-line" title="Permanent link">&para;</a></h2>
+<p>You can also switch using the command line:</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">&amp;</span> <span class="nv">$Env:ProgramFiles</span><span class="p">\</span><span class="n">Docker</span><span class="p">\</span><span class="n">Docker</span><span class="p">\</span><span class="n">DockerCli</span><span class="p">.</span><span class="n">exe</span> <span class="n">-SwitchDaemon</span>
+</span></code></pre></div>
+<h2 id="further-reading"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Further Reading</span><a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<p>For more information, check out: <a href="https://learn.microsoft.com/en-us/virtualization/windowscontainers/">Windows Containers Documentation</a></p>
+<h2 id="microsoft-base-images"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Microsoft Base Images</span><a class="headerlink" href="#microsoft-base-images" title="Permanent link">&para;</a></h2>
+<p>Microsoft offers several base images to start building your own container images:</p>
+<ul>
+<li><strong>Windows</strong>: Contains the full set of Windows APIs and system services (excluding server roles).</li>
+<li><strong>Windows Server</strong>: Contains the full set of Windows APIs and system services.</li>
+<li><strong>Windows Server Core</strong>: A smaller image with a subset of Windows Server APIs, including the full .NET framework and most server roles (excluding some like Fax Server).</li>
+<li><strong>Nano Server</strong>: The smallest Windows Server image, supporting .NET Core APIs and some server roles.</li>
+</ul>
+<h2 id="ready-made-bundles"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Ready-Made Bundles</span><a class="headerlink" href="#ready-made-bundles" title="Permanent link">&para;</a></h2>
+<p>Microsoft offers ready-made bundles that combine Windows Server 2022 with apps like MongoDB.</p>
+<p>For example, if you need MongoDB on Windows Server 2022, you can use this <a href="https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/main/windows-container-samples/mongodb">Dockerfile</a>.</p>
+<h2 id="other-combinations"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Other Combinations</span><a class="headerlink" href="#other-combinations" title="Permanent link">&para;</a></h2>
+<p>Other combinations you can create include:</p>
+<ul>
+<li>aspnet</li>
+<li>iis</li>
+<li>Django</li>
+<li>apache-http-php</li>
+<li>nginx</li>
+<li>dotnet35</li>
+<li>golang</li>
+<li>nodejs</li>
+<li>python</li>
+<li>python-django</li>
+<li>rails</li>
+<li>ruby</li>
+<li>server-jre-8u51-windows-x64</li>
+<li>mongodb</li>
+<li>mysql</li>
+<li>redis</li>
+<li>sqlite</li>
+<li>sqlserver-express</li>
+<li>PowerShellDSC_iis-10.0</li>
+</ul>
+<p>Now you know that containers are not just small Linux OSs. They can be a mini Windows OS too!</p>
+<h1 id="types-of-kubernetes"><span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Types of Kubernetes</span><a class="headerlink" href="#types-of-kubernetes" title="Permanent link">&para;</a></h1>
+<p>Kubernetes is a system for managing containerized applications, but there are many ways to set it up based on your needs. The table below summriazes the various available kubernetes 'brands':</p>
+<h2 id="for-the-busy-people"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">For the busy people:</span><a class="headerlink" href="#for-the-busy-people" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Development</strong>: <strong>Minikube</strong>, <strong>K3d</strong>, <strong>Docker Desktop Kubernetes</strong>, and <strong>Kind</strong> are geared toward development and testing.</li>
+<li><strong>Production</strong>: <strong>Kubeadm</strong>, <strong>Rancher</strong>, <strong>K3s</strong>, and managed services like <strong>Amazon EKS</strong>, <strong>Google GKE</strong>, and <strong>Azure AKS</strong> are suited for production environments.</li>
+<li><strong>Mixed Use</strong>: <strong>K3s</strong> and <strong>MicroK8s</strong> can be used both in development and production, especially in edge computing and IoT.</li>
+</ul>
+<h2 id="kubernetes-brands"><span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Kubernetes Brands<span><a class="headerlink" href="#kubernetes-brands" title="Permanent link">&para;</a></h2>
+<p>Here's the revised table with the "Environment" column removed:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Kubernetes Tool</strong></th>
+<th><strong>Company/Provider</strong></th>
+<th><strong>Best For</strong></th>
+<th><strong>Single Machine Setup</strong></th>
+<th><strong>Multi-Machine Setup</strong></th>
+<th><strong>Used By</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Minikube</strong></td>
+<td>Kubernetes Community (CNCF)</td>
+<td>Development</td>
+<td>Yes</td>
+<td>No</td>
+<td>Individual developers, small startups.</td>
+</tr>
+<tr>
+<td><strong>Kubeadm</strong></td>
+<td>Kubernetes Community (CNCF)</td>
+<td>Production</td>
+<td>Yes (single node)</td>
+<td>Yes</td>
+<td>Enterprises, cloud service providers.</td>
+</tr>
+<tr>
+<td><strong>Rancher</strong></td>
+<td>SUSE</td>
+<td>Production</td>
+<td>Yes (for management)</td>
+<td>Yes</td>
+<td>Enterprises, companies managing multi-cloud or hybrid environments.</td>
+</tr>
+<tr>
+<td><strong>K3s</strong></td>
+<td>Rancher (SUSE)</td>
+<td>Development/Production</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>IoT companies, edge computing solutions, small and medium enterprises.</td>
+</tr>
+<tr>
+<td><strong>K3d</strong></td>
+<td>Rancher (SUSE)</td>
+<td>Development</td>
+<td>Yes</td>
+<td>No</td>
+<td>Developers, small companies for testing multi-node setups.</td>
+</tr>
+<tr>
+<td><strong>Docker Desktop Kubernetes</strong></td>
+<td>Docker, Inc.</td>
+<td>Development</td>
+<td>Yes</td>
+<td>No</td>
+<td>Developers using Docker, small teams.</td>
+</tr>
+<tr>
+<td><strong>MicroK8s</strong></td>
+<td>Canonical (Ubuntu)</td>
+<td>Development/Production</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>IoT and edge computing companies, startups.</td>
+</tr>
+<tr>
+<td><strong>Amazon EKS</strong></td>
+<td>Amazon Web Services (AWS)</td>
+<td>Production</td>
+<td>No</td>
+<td>Yes</td>
+<td>Large enterprises, companies using AWS.</td>
+</tr>
+<tr>
+<td><strong>Google GKE</strong></td>
+<td>Google Cloud</td>
+<td>Production</td>
+<td>No</td>
+<td>Yes</td>
+<td>Large enterprises, companies using Google Cloud.</td>
+</tr>
+<tr>
+<td><strong>Azure AKS</strong></td>
+<td>Microsoft Azure</td>
+<td>Production</td>
+<td>No</td>
+<td>Yes</td>
+<td>Enterprises, companies using Azure services.</td>
+</tr>
+<tr>
+<td><strong>OpenShift</strong></td>
+<td>Red Hat (IBM)</td>
+<td>Production</td>
+<td>Yes (for single node)</td>
+<td>Yes</td>
+<td>Enterprises needing integrated CI/CD, large companies in regulated industries.</td>
+</tr>
+<tr>
+<td><strong>Kind (Kubernetes in Docker)</strong></td>
+<td>Kubernetes Community (CNCF)</td>
+<td>Development</td>
+<td>Yes</td>
+<td>No</td>
+<td>Developers, CI/CD pipelines in tech companies.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="how-i-push-customized-images-to-docker-hubwebsite">How I push customized Images to Docker Hub(Website)<a class="headerlink" href="#how-i-push-customized-images-to-docker-hubwebsite" title="Permanent link">&para;</a></h1>
+<p>Recently, I set up a Kafka environment using the base images from Confluent. After tweaking and customizing these images to fit my specific needs, I realized that these modified images should be pushed to Docker Hub so I can easily reuse them later or share them with others. I had 9 images in total, so here’s the process I followed.</p>
+<h3 id="step-1-log-in-to-docker-hub">Step 1: Log In to Docker Hub<a class="headerlink" href="#step-1-log-in-to-docker-hub" title="Permanent link">&para;</a></h3>
+<p>The first thing I did was log in to Docker Hub using my Docker Hub username, <code>dwdas9</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>login
+</span></code></pre></div>
+<p>It asked for my Docker Hub username and password, and once I provided those, I was logged in.</p>
+<h3 id="step-2-find-the-image-names">Step 2: Find the Image Names<a class="headerlink" href="#step-2-find-the-image-names" title="Permanent link">&para;</a></h3>
+<p>To push the images, I needed to know their names. I used the following command to list all the Docker images on my local machine:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span>images
+</span></code></pre></div>
+<p>This command gave me a list of all the images, including their names, tags, and IDs. I picked out the relevant images that I had customized.</p>
+<h3 id="step-3-tag-the-images">Step 3: Tag the Images<a class="headerlink" href="#step-3-tag-the-images" title="Permanent link">&para;</a></h3>
+<p>Before I could push the images, I had to tag them with my Docker Hub username and the repository name I wanted them to go into. Here’s how I did it for each of the 9 images:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker<span class="w"> </span>tag<span class="w"> </span>confluentinc/cp-ksqldb-server:6.0.1<span class="w"> </span>dwdas9/cp-ksqldb-server:v6
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>docker<span class="w"> </span>tag<span class="w"> </span>confluentinc/cp-kafka-rest:6.0.1<span class="w"> </span>dwdas9/cp-kafka-rest:v6
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>docker<span class="w"> </span>tag<span class="w"> </span>confluentinc/cp-schema-registry:6.0.1<span class="w"> </span>dwdas9/cp-schema-registry:v6
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>docker<span class="w"> </span>tag<span class="w"> </span>confluentinc/cp-enterprise-control-center:6.0.1<span class="w"> </span>dwdas9/cp-enterprise-control-center:v6
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>docker<span class="w"> </span>tag<span class="w"> </span>confluentinc/cp-kafka-connect-base:6.0.1<span class="w"> </span>dwdas9/cp-kafka-connect-base:v6
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>docker<span class="w"> </span>tag<span class="w"> </span>confluentinc/cp-server:6.0.1<span class="w"> </span>dwdas9/cp-server:v6
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>docker<span class="w"> </span>tag<span class="w"> </span>confluentinc/cp-zookeeper:6.0.1<span class="w"> </span>dwdas9/cp-zookeeper:v6
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>docker<span class="w"> </span>tag<span class="w"> </span>confluentinc/ksqldb-examples:6.0.1<span class="w"> </span>dwdas9/ksqldb-examples:v6
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>docker<span class="w"> </span>tag<span class="w"> </span>confluentinc/cp-ksqldb-cli:6.0.1<span class="w"> </span>dwdas9/cp-ksqldb-cli:v6
+</span></code></pre></div>
+<p>I replaced <code>confluentinc</code> with my username <code>dwdas9</code> and added a custom tag <code>v6</code> to each image.</p>
+<h3 id="step-4-push-the-images-to-docker-hub">Step 4: Push the Images to Docker Hub<a class="headerlink" href="#step-4-push-the-images-to-docker-hub" title="Permanent link">&para;</a></h3>
+<p>With the images tagged, the next step was to push them to Docker Hub. I ran the following commands:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker<span class="w"> </span>push<span class="w"> </span>dwdas9/cp-ksqldb-server:v6
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>docker<span class="w"> </span>push<span class="w"> </span>dwdas9/cp-kafka-rest:v6
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>docker<span class="w"> </span>push<span class="w"> </span>dwdas9/cp-schema-registry:v6
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>docker<span class="w"> </span>push<span class="w"> </span>dwdas9/cp-enterprise-control-center:v6
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>docker<span class="w"> </span>push<span class="w"> </span>dwdas9/cp-kafka-connect-base:v6
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>docker<span class="w"> </span>push<span class="w"> </span>dwdas9/cp-server:v6
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>docker<span class="w"> </span>push<span class="w"> </span>dwdas9/cp-zookeeper:v6
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>docker<span class="w"> </span>push<span class="w"> </span>dwdas9/ksqldb-examples:v6
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>docker<span class="w"> </span>push<span class="w"> </span>dwdas9/cp-ksqldb-cli:v6
+</span></code></pre></div>
+<p>Docker started uploading each image to the repository. Once the upload was complete, I could see all my modified images on Docker Hub under my account.</p>
+<p><a class="glightbox" href="images/2024-08-19-16-34-38.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/2024-08-19-16-34-38.png" /></a></p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h3>
+<p>And that’s it! Now, my customized Kafka environment images are safely stored on Docker Hub, ready to be pulled down whenever I need them. If you’re working on something similar, these steps should help you push your images too.</p>
+<h1 id="troubleshooting-docker-errors">Troubleshooting docker errors<a class="headerlink" href="#troubleshooting-docker-errors" title="Permanent link">&para;</a></h1>
+<p>If your Docker container is showing up as orange (in Docker Desktop) or failed to start without giving specific details, it means the container likely encountered an error during startup. Docker doesn’t always show detailed error messages in the UI, but you can retrieve more information using the following methods.</p>
+<h2 id="steps-to-debug-the-issue">Steps to Debug the Issue<a class="headerlink" href="#steps-to-debug-the-issue" title="Permanent link">&para;</a></h2>
+<h3 id="1-check-the-container-logs">1. <strong>Check the Container Logs</strong><a class="headerlink" href="#1-check-the-container-logs" title="Permanent link">&para;</a></h3>
+<p>You can check the logs for the failed container to see what went wrong. Run this command to inspect the container logs:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>your-container-name
+</span></code></pre></div>
+<p>This will show you any errors or issues that occurred during the container’s initialization. Look for specific errors related to:
+- Missing environment variables.
+- Errors in Spark or system configuration.
+- Issues with file mounting (e.g., mapping the <code>conf</code> directory).</p>
+<h3 id="2-inspect-the-container-status">2. <strong>Inspect the Container Status</strong><a class="headerlink" href="#2-inspect-the-container-status" title="Permanent link">&para;</a></h3>
+<p>You can inspect the container to get more information about why it failed. Use the <code>docker inspect</code> command:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span>inspect<span class="w"> </span>your-container-name
+</span></code></pre></div>
+<p>This will provide detailed information about the container's configuration, including the exit code. Look for anything abnormal in the output, especially the <code>State</code> and <code>ExitCode</code> sections.</p>
+<h3 id="3-check-for-file-permissions-and-volume-issues">3. <strong>Check for File Permissions and Volume Issues</strong><a class="headerlink" href="#3-check-for-file-permissions-and-volume-issues" title="Permanent link">&para;</a></h3>
+<p>Sometimes, volume mapping can cause issues, especially when the local directory being mounted doesn’t have the correct permissions, or Docker has trouble accessing it.</p>
+<p>Make sure that the local <code>mapped-folder</code> folder has the correct permissions for Docker to access it. For example:</p>
+<ul>
+<li>Check if the directory exists and has read/write permissions:</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ls<span class="w"> </span>-ld<span class="w"> </span>mapped-folder
+</span></code></pre></div>
+<p>If the directory is not accessible by Docker, try giving it the correct permissions:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span><span class="w"> </span>mapped-folder
+</span></code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 - Das
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

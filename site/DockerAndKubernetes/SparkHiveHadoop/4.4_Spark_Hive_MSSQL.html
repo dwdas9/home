@@ -1,0 +1,2748 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://dwdas9.github.io/home/DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL.html">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Spark-Hive_MSSQL - Das Digital Digest</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setup-a-complete-data-warehouse-with-spark-cluster-external-hivemssql-metastore" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Das Digital Digest" class="md-header__button md-logo" aria-label="Das Digital Digest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Das Digital Digest
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spark-Hive_MSSQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Das Digital Digest" class="md-nav__button md-logo" aria-label="Das Digital Digest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Das Digital Digest
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Engineering & Analytics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Engineering & Analytics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apache Airflow
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apache Airflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.0_AirFlow_Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.1_A_Dags_Anatomy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAG Anatomy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.2_Hello_Airflow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello Airflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.3_Airflow_Dbt_Docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Airflow DBT Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spark & Databricks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spark & Databricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Spark-DataBricks/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Spark-DataBricks/basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Spark-DataBricks/advanced.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Stream Processing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stream Processing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../StreamProcessing/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/performance-tuning.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance Tuning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud & DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud & DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Microsoft Fabric
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft Fabric
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Microsoft-Fabric/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure Services
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Synapse-ADF/synapse.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synapse Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Synapse-ADF/adf.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Factory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GitHub Actions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            GitHub Actions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/1_GitHub-Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/1.1_Hello_GitHub_Actions_Workflow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello GitHub Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/2_Azure-Pipelines.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/ADF_CICD.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADF CI/CD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Containers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Containers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_1" id="__nav_3_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AirflowDocker/1_AirflowDocker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Airflow on Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.9_DockerConcepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Enterprise Solutions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Enterprise Solutions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Microsoft 365
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft 365
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../M365/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../M365/sharepoint.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SharePoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power Platform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Power Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerPlatform/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerPlatform/powerbi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power BI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerPlatform/automate.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power Automate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MongoDB
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            MongoDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MongoDB/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MongoDB/best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/data-processing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/automation.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Engineering
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Engineering
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/AzureSkyWeather/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Sky Weather
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/CurrencyPredictor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Currency Predictor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/JsonValidator/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON Validator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_4" id="__nav_5_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ETL Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            ETL Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/Csv-To-MSSQL.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV to MSSQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/FetchJsonWriteParquet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON to Parquet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/Dbrk-E2E-AttritionProject.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Databricks E2E Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/6_RunningAppsInBg.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#for-the-busy-people" class="md-nav__link">
+    <span class="md-ellipsis">
+      For the busy people
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<ul>
+<li><a href="#setup-a-complete-data-warehouse-with-spark-cluster--external-hivemssql-metastore">Setup a complete data warehouse with Spark cluster \&amp; external Hive(MSSQL Metastore)</a></li>
+<li><a href="#for-the-busy-people">For the busy people</a></li>
+<li><a href="#how-was-the-setup-created">How was the setup created</a></li>
+<li><a href="#bit-background-about-bitnami-spark-container">Bit Background About Bitnami Spark Container</a><ul>
+<li><a href="#their-dockerfile">Their Dockerfile</a></li>
+<li><a href="#non-root-containers">Non-Root Containers</a></li>
+<li><a href="#the-user-1001">The User 1001</a></li>
+<li><a href="#folder-structure">Folder Structure</a></li>
+</ul>
+</li>
+<li><a href="#spark-container-setup-details">Spark container setup details</a></li>
+<li><a href="#mssql-2019-container-setup-details">MSSQL 2019 container setup details</a></li>
+<li><a href="#hive-server-container-setup-details">Hive Server container setup details</a><ul>
+<li><a href="#hive-mssql-connection">Hive-MSSQL Connection</a></li>
+</ul>
+</li>
+<li><a href="#spark-defaultsconf--hive-sitexml">spark-defaults.conf \&amp; hive-site.xml</a><ul>
+<li><a href="#spark-defaultsconf--hive-sitexml-1">spark-defaults.conf \&amp; hive-site.xml</a></li>
+<li><a href="#spark-defaultsconf-important-details">spark-defaults.conf important details</a></li>
+<li><a href="#hive-site-important-details">hive-site important details</a></li>
+</ul>
+</li>
+<li><a href="#repository-and-metastore-folder-creation">Repository and Metastore Folder Creation</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#when-will-be-managed-or-external-tables-created">When will be managed or external tables created?</a></li>
+<li><a href="#errors">Errors</a></li>
+<li><a href="#server-details">Server Details</a></li>
+</ul>
+<h1 id="setup-a-complete-data-warehouse-with-spark-cluster-external-hivemssql-metastore"><span style="color: teal;">Setup a complete data warehouse with Spark cluster &amp; external Hive(MSSQL Metastore)</span><a class="headerlink" href="#setup-a-complete-data-warehouse-with-spark-cluster-external-hivemssql-metastore" title="Permanent link">&para;</a></h1>
+<p>Here, I will show you how to create a complete warehouse setup with a Spark Cluster and a standalone Hive with an external metastore database (MSSQL). The setup will use 5 containers:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Service</strong></th>
+<th><strong>URL/Connection</strong></th>
+<th><strong>Image</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spark Master</td>
+<td><a href="http://localhost:16789/">http://localhost:16789/</a></td>
+<td><code>spark:3.5.1-debian-12-r7</code></td>
+</tr>
+<tr>
+<td>Spark Worker 1</td>
+<td><a href="http://localhost:16791/">http://localhost:16791/</a></td>
+<td><code>spark:3.5.1-debian-12-r7</code></td>
+</tr>
+<tr>
+<td>Spark Worker 2</td>
+<td><a href="http://localhost:16792/">http://localhost:16792/</a></td>
+<td><code>spark:3.5.1-debian-12-r7</code></td>
+</tr>
+<tr>
+<td>SQL Server (SSMS)</td>
+<td><code>localhost,1433</code>, SQL Server Auth: <code>dwdas/Passw0rd</code></td>
+<td><code>mcr.microsoft.com/mssql/server:2019-latest</code></td>
+</tr>
+<tr>
+<td>Hive Metastore</td>
+<td><code>thrift://hive-metastore:9083</code></td>
+<td><code>apache/hive:4.0.0</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="for-the-busy-people"><span style="color: BlueViolet;">For the busy people</span><a class="headerlink" href="#for-the-busy-people" title="Permanent link">&para;</a></h2>
+<p>Follow these steps to get your setup ready:</p>
+<ul>
+<li>Download the <a href="Dockerfiles/spark-hive-mssql-dockerfiles.zip">zip</a> file on your laptop.</li>
+<li>Go to <code>Step1xx</code>, <code>Step2xx</code>, and <code>Step3xx</code> folders and run <code>run.bat</code> in each.</li>
+</ul>
+<p>This will create a setup like the one shown below:</p>
+<p><a class="glightbox" href="images/custom-image-2024-06-24-16-11-45.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/custom-image-2024-06-24-16-11-45.png" /></a></p>
+<p>A shared volume should be present in the volumes with the mapping shown below:</p>
+<p><a class="glightbox" href="images/custom-image-2024-06-24-16-12-32.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/custom-image-2024-06-24-16-12-32.png" /></a></p>
+<p>Here are some important details about the setup:</p>
+<h1 id="how-was-the-setup-created">How was the setup created<a class="headerlink" href="#how-was-the-setup-created" title="Permanent link">&para;</a></h1>
+<h2 id="bit-background-about-bitnami-spark-container">Bit Background About Bitnami Spark Container<a class="headerlink" href="#bit-background-about-bitnami-spark-container" title="Permanent link">&para;</a></h2>
+<h3 id="their-dockerfile">Their Dockerfile<a class="headerlink" href="#their-dockerfile" title="Permanent link">&para;</a></h3>
+<p>The official Dockerfile used by Bitnami to create their Spark container can be found on <a href="https://hub.docker.com/r/bitnami/spark/dockerfile">GitHub</a>. Some key parts of the file are:</p>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">RUN</span><span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span><span class="m">1001</span>:1001<span class="w"> </span>/opt/bitnami/spark
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/opt/bitnami/spark</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">USER</span><span class="w"> </span><span class="s">1001</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;/opt/bitnami/scripts/spark/entrypoint.sh&quot;</span><span class="w"> </span><span class="p">]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;/opt/bitnami/scripts/spark/run.sh&quot;</span><span class="w"> </span><span class="p">]</span>
+</span></code></pre></div>
+<h3 id="non-root-containers">Non-Root Containers<a class="headerlink" href="#non-root-containers" title="Permanent link">&para;</a></h3>
+<p>By default, Bitnami containers run as non-root users. This means when you log into the container, you are not the root user. The container itself runs as a non-root user, but you can change this by specifying <code>User: root</code> in your Dockerfile or Docker-compose.</p>
+<p>More details can be found <a href="https://docs.vmware.com/en/VMware-Tanzu-Application-Catalog/services/tutorials/GUID-why-non-root-containers-are-important-for-security-index.html">here</a>.</p>
+<h3 id="the-user-1001">The User 1001<a class="headerlink" href="#the-user-1001" title="Permanent link">&para;</a></h3>
+<p>Bitnami Spark containers use the non-root user ID 1001. When you start the container and log in, you will be user 1001. It's important that this user has access to all required directories and volumes. Ensure necessary permissions are set when building the container.</p>
+<h3 id="folder-structure">Folder Structure<a class="headerlink" href="#folder-structure" title="Permanent link">&para;</a></h3>
+<p>Bitnami containers store application files in <code>/opt/bitnami/APPNAME/</code>. For example, Spark files are located in <code>/opt/bitnami/spark</code>. More details can be found in the <a href="https://docs.bitnami.com/aws/faq/get-started/understand-directory-structure/">Bitnami directory structure documentation</a>.</p>
+<h2 id="spark-container-setup-details">Spark container setup details<a class="headerlink" href="#spark-container-setup-details" title="Permanent link">&para;</a></h2>
+<p>First, I created the Spark cluster using the Bitnami Spark image <code>bitnami/spark:3.5.1-debian-12-r7</code>. I chose Bitnami because it is popular and offers a constant version for stability. However, you can also use <code>bitnami/spark:latest</code>.</p>
+<ul>
+<li>I used a Dockerfile and docker-compose approach.</li>
+<li>Created a <code>spark-defaults.conf</code> with just one setting:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>spark.sql.warehouse.dir = /data/spark-warehouse
+</span></code></pre></div></li>
+<li>Created a <code>Dockerfile</code> with the following important activities:</li>
+<li>Created a <code>/data</code> folder.</li>
+<li>Copied the custom <code>spark-defaults.conf</code> from laptop to <code>/conf</code>.</li>
+<li>Set the root password and provided user 1001 permissions to /data folder.</li>
+<li>
+<p>Created a <code>docker-compose.yml</code> file that included these changes(rest are usual:
+   <div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shared-data:/data</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SPARK_MODE=master</span><span class="w">  </span><span class="c1"># Environment variable to set the Spark mode to master</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SPARK_LOCAL_DIRS=/data/tmp</span><span class="w">  </span><span class="c1"># Local directories for Spark</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Finally, created a <code>run.bat</code> to do the following:
+   <div class="language-bat highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">REM Create the Docker volume</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker volume create shared-data
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">REM Build and run the Docker Compose services</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>docker-compose -p bitnami-spark-cluster build
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>docker-compose -p bitnami-spark-cluster up -d
+</span></code></pre></div></p>
+</li>
+</ul>
+<h2 id="mssql-2019-container-setup-details">MSSQL 2019 container setup details<a class="headerlink" href="#mssql-2019-container-setup-details" title="Permanent link">&para;</a></h2>
+<p>Setting up the MSSQL container was more straightforward and required less customization than the Spark cluster. I used a Dockerfile and docker-compose approach.</p>
+<ul>
+<li>Created a <code>Dockerfile</code> with the following important activities:</li>
+<li>Created a user <code>dwdas</code> with the password <code>Passw0rd</code>.</li>
+<li>
+<p>Set the root user password to <code>Passw0rd</code>.</p>
+</li>
+<li>
+<p>Created a <code>docker-compose.yml</code> file that included these changes:
+   <div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;1433:1433&quot;</span><span class="w">  </span><span class="c1"># Map port 1433 of the host to port 1433 of the container for MSSQL communication.</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SA_PASSWORD=Passw0rd</span><span class="w">  </span><span class="c1"># Set the system administrator password for MSSQL.</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nt">networks</span><span class="p">:</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">spark-network</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Finally, created a <code>run.bat</code> to do the following:
+   <div class="language-bat highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">REM Create the Docker volumes. This is mapped to all Spark containers and the Hive container.</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>docker volume create shared-data
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">REM Build and run the Docker Compose services</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>docker-compose -p bitnami-spark-cluster build
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>docker-compose -p bitnami-spark-cluster up -d
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">REM Post-Setup: Create MSSQL user and database</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>docker exec -it mssql-container-name /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P <span class="s2">&quot;Passw0rd&quot;</span> -Q <span class="s2">&quot;CREATE LOGIN dwdas WITH PASSWORD=&#39;Passw0rd&#39;; CREATE DATABASE hive_metastore;&quot;</span>
+</span></code></pre></div></p>
+<blockquote>
+<p>run.bat: After the container started, I created an MSSQL user <code>dwdas</code> with the password <code>Passw0rd</code> and an empty database <code>hive_metastore</code>. This was done inside the <code>run.bat</code> file.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="hive-server-container-setup-details">Hive Server container setup details<a class="headerlink" href="#hive-server-container-setup-details" title="Permanent link">&para;</a></h2>
+<p>Setting up the Hive server can be very tricky. I used the official Apache Hive image with a Dockerfile and docker-compose approach.</p>
+<ul>
+<li><strong>Download JDBC Driver</strong>:</li>
+<li>
+<p>Downloaded <code>sqljdbc_7.2.2.0_enu.tar.gz</code> from <a href="https://www.microsoft.com/en-us/download/details.aspx?id=57782">Microsoft Download Center</a>.</p>
+<p><a class="glightbox" href="images/custom-image-2024-06-24-16-42-53.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/custom-image-2024-06-24-16-42-53.png" /></a></p>
+</li>
+<li>
+<p>Extracted the <code>mssql-jdbc-7.2.2.jre8.jar</code> driver to the current folder.</p>
+</li>
+<li>
+<p><strong>Create a custom <code>hive-site.xml</code></strong>: Created a custom <code>hive-site.xml</code> with MSSQL connection information and directory configurations. Refer to the Step3-Hive/hive-site.xml in the setup folder for more details.</p>
+</li>
+<li>
+<p><strong>Create a Dockerfile</strong>: Refer to the dockerfile in Step3-Hive folder for more details. Apart from usual activity these two steps are most immortant. I.e. placing the driver to the /lib and hive-site.xml to conf.
+   <div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">COPY</span><span class="w"> </span>./mssql-jdbc-7.2.2.jre8.jar<span class="w"> </span>/opt/hive/lib/
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">COPY</span><span class="w"> </span>./hive-site.xml<span class="w"> </span>/opt/hive/conf/
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Docker-compose Configuration</strong>: Apart from usual stuff the most important was to  the environment variable <code>DB_DRIVER=mssql</code>.</p>
+</li>
+<li>
+<p><strong>Run.bat</strong>:</p>
+</li>
+<li>The <code>run.bat</code> script builds the images, runs the container.</li>
+</ul>
+<h3 id="hive-mssql-connection">Hive-MSSQL Connection<a class="headerlink" href="#hive-mssql-connection" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="images/2024-08-27-12-03-56.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/2024-08-27-12-03-56.png" /></a></p>
+<p>Apache Hive containers usually use a startup script called '/entrypoint.sh'. This script is set to use <strong>Derby</strong>(<em>${DB_DRIVER:=derby}</em>) database by default. To use MSSQL instead:</p>
+<ol>
+<li>Change the DB_DRIVER environment variable to 'mssql'.</li>
+<li>Create an empty database called 'hive_metastore' on your MSSQL server.</li>
+<li>Put your MSSQL connection and db  details in the 'hive-site.xml' file.</li>
+<li>Add the MSSQL driver file (mssql-jdbc-7.2.2.jre8.jar) to the '/lib' folder.</li>
+</ol>
+<p><strong>/entrypoint.sh</strong>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">set</span><span class="w"> </span>-x
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>:<span class="w"> </span><span class="si">${</span><span class="nv">DB_DRIVER</span><span class="p">:=derby</span><span class="si">}</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nv">SKIP_SCHEMA_INIT</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">IS_RESUME</span><span class="k">:-</span><span class="nv">false</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">function</span><span class="w"> </span>initialize_hive<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="nv">COMMAND</span><span class="o">=</span><span class="s2">&quot;-initOrUpgradeSchema&quot;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HIVE_VER</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="w"> </span>-f1<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>-lt<span class="w"> </span><span class="s2">&quot;4&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">     </span><span class="nv">COMMAND</span><span class="o">=</span><span class="s2">&quot;-</span><span class="si">${</span><span class="nv">SCHEMA_COMMAND</span><span class="k">:-</span><span class="nv">initSchema</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="k">fi</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="nv">$HIVE_HOME</span>/bin/schematool<span class="w"> </span>-dbType<span class="w"> </span><span class="nv">$DB_DRIVER</span><span class="w"> </span><span class="nv">$COMMAND</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Initialized schema successfully..&quot;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span><span class="k">else</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Schema initialization failed!&quot;</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">  </span><span class="k">fi</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="o">}</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="c1"># Additional script content...</span>
+</span></code></pre></div>
+So, how I did this:</p>
+<ol>
+<li>During mssql creation I already creatd the hive_metastore empty database and the user</li>
+<li>The dockerfile managed the copying of the driver and the custom hive-site.xml
+   <div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">COPY</span><span class="w"> </span>./mssql-jdbc-7.2.2.jre8.jar<span class="w"> </span>/opt/hive/lib/
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">COPY</span><span class="w"> </span>./hive-site.xml<span class="w"> </span>/opt/hive/conf/
+</span></code></pre></div></li>
+<li>docker-compose managed set the  <code>DB_DRIVER=mssql</code></li>
+</ol>
+<p><strong>Note:</strong> An alternative approach to achieve the same feature would be to:</p>
+<ol>
+<li>Let the container start with the default settings.</li>
+<li>Open <code>/entrypoint.sh</code> and change <code>${DB_DRIVER:=mssql}</code>.</li>
+<li>Run <code>su -c "chmod 777 /entrypoint.sh"</code> with the password <code>Passw0rd</code> as the permission will change.</li>
+<li>Copy <code>hive-site.xml</code> containing MSSQL connection info to <code>/opt/hive/conf/</code>.</li>
+<li>Restart the container.</li>
+</ol>
+<h2 id="spark-defaultsconf-hive-sitexml">spark-defaults.conf &amp; hive-site.xml<a class="headerlink" href="#spark-defaultsconf-hive-sitexml" title="Permanent link">&para;</a></h2>
+<p>Only two configureation files were touched. Spark-defaults.conf  in spark server and hive-site.xml in hive server.</p>
+<h3 id="spark-defaultsconf-hive-sitexml_1">spark-defaults.conf &amp; hive-site.xml<a class="headerlink" href="#spark-defaultsconf-hive-sitexml_1" title="Permanent link">&para;</a></h3>
+<h4 id="spark-defaultsconf-important-details">spark-defaults.conf important details<a class="headerlink" href="#spark-defaultsconf-important-details" title="Permanent link">&para;</a></h4>
+<p>Here, only one value was added. The same file is present in all the spark containres.
+spark.sql.warehouse.dir=/data/spark-warehouse</p>
+<h4 id="hive-site-important-details">hive-site important details<a class="headerlink" href="#hive-site-important-details" title="Permanent link">&para;</a></h4>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w"> </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nt">&lt;name&gt;</span>hive.metastore.warehouse.dir<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">&lt;value&gt;</span>/data/hive-warehouse<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nt">&lt;name&gt;</span>javax.jdo.option.ConnectionDriverName<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="nt">&lt;value&gt;</span>com.microsoft.sqlserver.jdbc.SQLServerDriver<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="nt">&lt;name&gt;</span>javax.jdo.option.ConnectionURL<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="nt">&lt;value&gt;</span>jdbc:sqlserver://mssql:1433;DatabaseName=hive_metastore;<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">  </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">  </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">  </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="nt">&lt;name&gt;</span>hive.metastore.uris<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="nt">&lt;value&gt;</span>thrift://hive-metastore:9083<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">  </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">   </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="nt">&lt;name&gt;</span>hive.metastore.db.type<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="nt">&lt;value&gt;</span>mssql<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="nt">&lt;description&gt;</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">      </span>Expects<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>[derby,<span class="w"> </span>oracle,<span class="w"> </span>mysql,<span class="w"> </span>mssql,<span class="w"> </span>postgres].
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">    </span><span class="nt">&lt;/description&gt;</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">  </span><span class="nt">&lt;/property&gt;</span>
+</span></code></pre></div>
+<h2 id="repository-and-metastore-folder-creation">Repository and Metastore Folder Creation<a class="headerlink" href="#repository-and-metastore-folder-creation" title="Permanent link">&para;</a></h2>
+<p>We have two options to decide on the folder structure:</p>
+<p><strong>Our choice:</strong> Separate warehouses for Spark and Hive
+1. Keep Hive warehouse as is:
+   - In <code>hive-site.xml</code>:
+     <div class="language-xml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&lt;name&gt;</span>hive.metastore.warehouse.dir<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&lt;value&gt;</span>/data/hive/warehouse<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nt">&lt;/property&gt;</span>
+</span></code></pre></div>
+2. Set a different warehouse for Spark:
+   - In Spark configuration:
+    <code>spark.sql.warehouse.dir=/data/spark/warehouse</code>
+```
+/data
+├── hive-warehouse/
+│   └── (Hive managed tables)
+├── spark-warehouse/
+│   └── (Spark-managed tables)</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>**Option 2:** Use Hive Warehouse for both Spark and Hive
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>1. Configure Spark to use the Hive metastore:
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>   - Set `spark.sql.hive.metastore.version` and `spark.sql.hive.metastore.jars` in Spark configuration.
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>2. Use the same warehouse directory for both:
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>   - In `hive-site.xml`:
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>     ```xml
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>     &lt;property&gt;
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>       &lt;name&gt;hive.metastore.warehouse.dir&lt;/name&gt;
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>       &lt;value&gt;/data/spark-warehouse&lt;/value&gt;
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>     &lt;/property&gt;
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>     ```
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>   - In Spark configuration. Using(`spark-defaults.conf`) or setting during session etc.
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>     ```
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>     spark.sql.warehouse.dir=/data/spark-warehouse
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>     ```
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a># &lt;span style=&quot;color: Blue;&quot;&gt;Testing&lt;/span&gt;
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>**Testing Hive**
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>Go the the hive container and type **hive**. You should see output lilke this:
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>![](images/custom-image-2024-06-24-21-30-25.png)
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>**Testing spark-shell**
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>Go to any of hte spark containers&#39;s terminal and key in **spark-shell**, you should see output liek this:
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>![](images/custom-image-2024-06-25-23-52-53.png)
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>**Testing spark-sql**
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>Go to any of hte spark containers&#39;s terminal and key in **spark-sql**, you should see output liek this:
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>![](images/custom-image-2024-06-25-23-51-47.png)
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a># When will be managed or external tables created?
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>When configuring Spark to work with Hive, the type of table created (managed vs. external) depends on specific settings in your Spark configuration.
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>If `spark-defaults.xml` includes:
+</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>```xml
+</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>spark.hadoop.hive.metastore.uris=thrift://hive-metastore:9083
+</span></code></pre></div>
+Then, spark will create all tables as <code>EXTERNAL</code>. Regardless of whatever settigngs you try.</p>
+<p><a class="glightbox" href="images/custom-image-2024-06-25-20-08-20.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/custom-image-2024-06-25-20-08-20.png" /></a></p>
+<p>If <code>spark-defaults.xml</code> does not include:
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>spark.hadoop.hive.metastore.uris=thrift://hive-metastore:9083
+</span></code></pre></div>
+Then tables are created as <code>MANAGED</code> by default and stored in the directory specified by <code>spark.sql.warehouse.dir</code>.</p>
+<p><a class="glightbox" href="images/custom-image-2024-06-25-20-08-39.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/custom-image-2024-06-25-20-08-39.png" /></a></p>
+<p>You can still create Hive tables stored in the Hive warehouse. To do this, include:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.hadoop.hive.metastore.uris&quot;</span><span class="p">,</span> <span class="s2">&quot;thrift://hive-metastore:9083&quot;</span><span class="p">)</span> \
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="o">.</span><span class="n">enableHiveSupport</span><span class="p">()</span> \
+</span></code></pre></div>
+In this case, the tables will be <code>EXTERNAL</code> and stored in the directory specified by hive.<code>metastore.warehouse.dir</code> in <code>hive-site.xml</code></p>
+<h1 id="errors"><span style="color: red;">Errors</span><a class="headerlink" href="#errors" title="Permanent link">&para;</a></h1>
+<ul>
+<li>
+<p>If DB_DRIVER=derby in env var but hive-site.xml has no mssql connection:
+<a class="glightbox" href="images/custom-image-2024-06-24-02-12-37.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/custom-image-2024-06-24-02-12-37.png" /></a></p>
+</li>
+<li>
+<p>If you are unable to create folders or perform any operation. It could be the user 1001 is not having enough permissions. This is a typical user Bitnami spark configures to run the container.</p>
+</li>
+</ul>
+<h1 id="server-details">Server Details<a class="headerlink" href="#server-details" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th><strong>Configuration</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hive Metastore URI</td>
+<td><code>spark.hadoop.hive.metastore.uris=thrift://hive-metastore:9083</code></td>
+</tr>
+<tr>
+<td>User and Database</td>
+<td>User <code>dwdas</code> (PASSWORD=<code>Passw0rd</code>), Database <code>hive_metastore</code>.</td>
+</tr>
+<tr>
+<td><strong>hive-site.xml</strong></td>
+<td><strong>Details</strong></td>
+</tr>
+<tr>
+<td><code>hive.metastore.warehouse.dir</code></td>
+<td><code>/user/hive/warehouse</code></td>
+</tr>
+<tr>
+<td><code>javax.jdo.option.ConnectionURL</code></td>
+<td><code>jdbc:sqlserver://mssql:1433;databaseName=hive_metastore</code></td>
+</tr>
+<tr>
+<td><strong>spark-defaults.conf</strong></td>
+<td><strong>Details</strong></td>
+</tr>
+<tr>
+<td><code>spark.sql.warehouse.dir</code></td>
+<td><code>/data/spark-warehouse</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Service</strong></th>
+<th><strong>Configuration Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Spark Server Configuration</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Image</td>
+<td><code>spark:3.5.1-debian-12-r7</code></td>
+</tr>
+<tr>
+<td>User running container</td>
+<td><code>1001:1001</code></td>
+</tr>
+<tr>
+<td>Environment Variables</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>JAVA_HOME=/opt/bitnami/java</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PYTHONPATH=/opt/bitnami/spark/python/</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>SPARK_HOME=/opt/bitnami/spark</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>SPARK_USER=spark</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>root: Passw0rd</code></td>
+</tr>
+<tr>
+<td>Mounted Volume</td>
+<td><code>shared-data:/data</code></td>
+</tr>
+<tr>
+<td><strong>SQL Server Configuration</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Environment Variables</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>SA_PASSWORD=Passw0rd</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Server name: mssql</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>/opt/mssql/bin/sqlservr</code></td>
+</tr>
+<tr>
+<td><strong>Hive Configuration</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Environment Variables</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>HIVE_HOME=/opt/hive</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>SERVICE_NAME=metastore</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>DB_DRIVER=mssql</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>TEZ_HOME=/opt/tez</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>HIVE_VER=4.0.0</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>JAVA_HOME=/usr/local/openjdk-8</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PWD=/home/dwdas</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>HADOOP_HOME=/opt/hadoop</code></td>
+</tr>
+<tr>
+<td>Thrift Server URL</td>
+<td><code>thrift://hive-metastore:9083</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 - Das
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

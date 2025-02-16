@@ -1,0 +1,3028 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://dwdas9.github.io/home/SQL/SQL.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Spark-SQL - Das Digital Digest</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#essential-sparksql-commands" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Das Digital Digest" class="md-header__button md-logo" aria-label="Das Digital Digest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Das Digital Digest
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spark-SQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Das Digital Digest" class="md-nav__button md-logo" aria-label="Das Digital Digest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Das Digital Digest
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Engineering & Analytics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Engineering & Analytics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apache Airflow
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apache Airflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Airflow/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Airflow/1.0.0_AirFlow_Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Airflow/1.0.1_A_Dags_Anatomy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAG Anatomy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Airflow/1.0.2_Hello_Airflow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello Airflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Airflow/1.0.3_Airflow_Dbt_Docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Airflow DBT Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spark & Databricks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spark & Databricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spark-DataBricks/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spark-DataBricks/basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spark-DataBricks/advanced.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Stream Processing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stream Processing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../StreamProcessing/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="performance-tuning.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance Tuning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud & DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud & DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Microsoft Fabric
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft Fabric
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Microsoft-Fabric/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure Services
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synapse-ADF/synapse.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synapse Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synapse-ADF/adf.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Factory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GitHub Actions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            GitHub Actions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DevOps/1_GitHub-Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DevOps/1.1_Hello_GitHub_Actions_Workflow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello GitHub Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DevOps/2_Azure-Pipelines.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DevOps/ADF_CICD.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADF CI/CD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Containers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Containers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_1" id="__nav_3_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DockerAndKubernetes/AirflowDocker/1_AirflowDocker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Airflow on Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DockerAndKubernetes/kubernetes/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Enterprise Solutions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Enterprise Solutions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Microsoft 365
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft 365
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M365/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M365/sharepoint.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SharePoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power Platform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Power Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PowerPlatform/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PowerPlatform/powerbi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power BI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PowerPlatform/automate.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power Automate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MongoDB
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            MongoDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MongoDB/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MongoDB/best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/data-processing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/automation.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Engineering
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Engineering
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DE-Projects/AzureSkyWeather/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Sky Weather
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DE-Projects/CurrencyPredictor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Currency Predictor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DE-Projects/JsonValidator/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON Validator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_4" id="__nav_5_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ETL Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            ETL Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DE-Projects/Csv-To-MSSQL.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV to MSSQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DE-Projects/FetchJsonWriteParquet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON to Parquet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DE-Projects/Dbrk-E2E-AttritionProject.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Databricks E2E Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Misc/6_RunningAppsInBg.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<ul>
+<li><a href="#essential-sparksql-commands">Essential SparkSQL commands</a></li>
+<li><a href="#openrowset---the-powerful-transact-sql-for-data-engineering">OPENROWSET - The Powerful Transact-SQL for Data Engineering.</a></li>
+<li><a href="#what-is-openrowset">What is OPENROWSET?</a></li>
+<li><a href="#practical-scenarios-where-openrowset-is-preferred">Practical scenarios where OPENROWSET is preferred</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#key-options">Key Options</a></li>
+<li><a href="#options-for-csv">Options for CSV</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#what-other-options-we-have">What other options we have?</a></li>
+<li><a href="#approx_count_distinct-when-countdistinct-colname-runs-forever">APPROX_COUNT_DISTINCT when COUNT(DISTINCT ColName) runs forever</a></li>
+<li><a href="#how-to-run-it">How to run it?</a></li>
+<li><a href="#some-fun-facts-about-this-t-sql-function">Some Fun facts about this T-SQL function</a></li>
+<li><a href="#practice-joins-with-mssql-adventureworkslt2016">Practice Joins with MSSQL AdventureWorksLT2016</a></li>
+<li><a href="#table-descriptions">Table Descriptions</a></li>
+<li><a href="#questions">Questions</a><ul>
+<li><a href="#question-1-list-customers-with-their-orders">Question 1: List Customers with Their Orders</a></li>
+<li><a href="#question-2-list-products-and-their-categories">Question 2: List Products and Their Categories</a></li>
+<li><a href="#question-3-find-customers-and-their-addresses">Question 3: Find Customers and Their Addresses</a></li>
+<li><a href="#question-4-list-all-products-and-their-order-details">Question 4: List All Products and Their Order Details</a></li>
+<li><a href="#question-5-products-with-no-orders">Question 5: Products with No Orders</a></li>
+<li><a href="#question-6-calculate-total-sales-per-customer-using-cte">Question 6: Calculate Total Sales per Customer Using CTE</a></li>
+</ul>
+</li>
+<li><a href="#comprehensive-list-of-sql-joins">Comprehensive List of SQL Joins</a></li>
+<li><a href="#1-inner-join-also-known-as-join">1. <strong>INNER JOIN</strong> (also known as <strong>JOIN</strong>)</a></li>
+<li><a href="#2-left-join-also-known-as-left-outer-join">2. <strong>LEFT JOIN</strong> (also known as <strong>LEFT OUTER JOIN</strong>)</a></li>
+<li><a href="#3-right-join-also-known-as-right-outer-join">3. <strong>RIGHT JOIN</strong> (also known as <strong>RIGHT OUTER JOIN</strong>)</a></li>
+<li><a href="#4-full-join-also-known-as-full-outer-join">4. <strong>FULL JOIN</strong> (also known as <strong>FULL OUTER JOIN</strong>)</a></li>
+<li><a href="#5-cross-join">5. <strong>CROSS JOIN</strong></a></li>
+<li><a href="#6-self-join">6. <strong>SELF JOIN</strong></a></li>
+<li><a href="#7-natural-join">7. <strong>NATURAL JOIN</strong></a></li>
+<li><a href="#8-anti-join-also-known-as-left-anti-join">8. <strong>ANTI JOIN</strong> (also known as <strong>LEFT ANTI JOIN</strong>)</a></li>
+<li><a href="#9-semi-join-also-known-as-left-semi-join-or-right-semi-join">9. <strong>SEMI JOIN</strong> (also known as <strong>LEFT SEMI JOIN</strong> or <strong>RIGHT SEMI JOIN</strong>)</a></li>
+<li><a href="#10-except-join">10. <strong>EXCEPT JOIN</strong></a></li>
+<li><a href="#11-outer-apply">11. <strong>OUTER APPLY</strong></a></li>
+<li><a href="#12-inner-apply">12. <strong>INNER APPLY</strong></a></li>
+<li><a href="#summary-table">Summary Table</a></li>
+<li><a href="#sql-keys">SQL Keys</a></li>
+</ul>
+<h1 id="essential-sparksql-commands">Essential SparkSQL commands<a class="headerlink" href="#essential-sparksql-commands" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th><strong>Command</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SET -v</code></td>
+<td>Shows all Spark SQL settings.</td>
+<td><code>SET -v;</code></td>
+</tr>
+<tr>
+<td><code>SHOW DATABASES</code></td>
+<td>Lists all databases.</td>
+<td><code>SHOW DATABASES;</code></td>
+</tr>
+<tr>
+<td><code>CREATE DATABASE</code></td>
+<td>Creates a new database.</td>
+<td><code>CREATE DATABASE db_name;</code></td>
+</tr>
+<tr>
+<td><code>DROP DATABASE</code></td>
+<td>Drops an existing database.</td>
+<td><code>DROP DATABASE db_name;</code></td>
+</tr>
+<tr>
+<td><code>USE</code></td>
+<td>Sets the current database.</td>
+<td><code>USE db_name;</code></td>
+</tr>
+<tr>
+<td><code>SHOW TABLES</code></td>
+<td>Lists all tables in the current database.</td>
+<td><code>SHOW TABLES;</code></td>
+</tr>
+<tr>
+<td><code>DESCRIBE TABLE</code></td>
+<td>Provides the schema of a table.</td>
+<td><code>DESCRIBE TABLE table_name;</code></td>
+</tr>
+<tr>
+<td><code>DESCRIBE EXTENDED</code></td>
+<td>Provides detailed information about a table, including metadata.</td>
+<td><code>DESCRIBE EXTENDED table_name;</code></td>
+</tr>
+<tr>
+<td><code>CREATE TABLE</code></td>
+<td>Creates a new table.</td>
+<td><code>CREATE TABLE table_name (col1 INT, ...);</code></td>
+</tr>
+<tr>
+<td><code>CREATE EXTERNAL TABLE</code></td>
+<td>Creates an external table.</td>
+<td><code>CREATE EXTERNAL TABLE table_name ...;</code></td>
+</tr>
+<tr>
+<td><code>DROP TABLE</code></td>
+<td>Drops an existing table.</td>
+<td><code>DROP TABLE table_name;</code></td>
+</tr>
+<tr>
+<td><code>INSERT INTO</code></td>
+<td>Inserts data into a table.</td>
+<td><code>INSERT INTO table_name VALUES (...);</code></td>
+</tr>
+<tr>
+<td><code>SELECT</code></td>
+<td>Queries data from tables.</td>
+<td><code>SELECT * FROM table_name;</code></td>
+</tr>
+<tr>
+<td><code>CREATE VIEW</code></td>
+<td>Creates a view based on a query.</td>
+<td><code>CREATE VIEW view_name AS SELECT ...;</code></td>
+</tr>
+<tr>
+<td><code>DROP VIEW</code></td>
+<td>Drops an existing view.</td>
+<td><code>DROP VIEW view_name;</code></td>
+</tr>
+<tr>
+<td><code>CACHE TABLE</code></td>
+<td>Caches a table in memory.</td>
+<td><code>CACHE TABLE table_name;</code></td>
+</tr>
+<tr>
+<td><code>UNCACHE TABLE</code></td>
+<td>Removes a table from the in-memory cache.</td>
+<td><code>UNCACHE TABLE table_name;</code></td>
+</tr>
+<tr>
+<td><code>SHOW COLUMNS</code></td>
+<td>Lists all columns of a table.</td>
+<td><code>SHOW COLUMNS FROM table_name;</code></td>
+</tr>
+<tr>
+<td><code>ALTER TABLE</code></td>
+<td>Changes the structure of an existing table.</td>
+<td><code>ALTER TABLE table_name ADD COLUMNS (...);</code></td>
+</tr>
+<tr>
+<td><code>TRUNCATE TABLE</code></td>
+<td>Removes all rows from a table without deleting the table.</td>
+<td><code>TRUNCATE TABLE table_name;</code></td>
+</tr>
+<tr>
+<td><code>MSCK REPAIR TABLE</code></td>
+<td>Recovers partitions of a table.</td>
+<td><code>MSCK REPAIR TABLE table_name;</code></td>
+</tr>
+<tr>
+<td><code>SHOW PARTITIONS</code></td>
+<td>Lists all partitions of a table.</td>
+<td><code>SHOW PARTITIONS table_name;</code></td>
+</tr>
+<tr>
+<td><code>EXPLAIN</code></td>
+<td>Provides a detailed execution plan for a query.</td>
+<td><code>EXPLAIN SELECT * FROM table_name;</code></td>
+</tr>
+<tr>
+<td><code>SHOW CREATE TABLE</code></td>
+<td>Displays the <code>CREATE TABLE</code> statement for an existing table.</td>
+<td><code>SHOW CREATE TABLE table_name;</code></td>
+</tr>
+<tr>
+<td><code>LOAD DATA</code></td>
+<td>Loads data into a table from a file.</td>
+<td><code>LOAD DATA INPATH 'path' INTO TABLE ...;</code></td>
+</tr>
+<tr>
+<td><code>SET</code></td>
+<td>Sets a Spark SQL configuration property.</td>
+<td><code>SET property_name=value;</code></td>
+</tr>
+<tr>
+<td><code>SHOW FUNCTIONS</code></td>
+<td>Lists all functions available in the Spark SQL environment.</td>
+<td><code>SHOW FUNCTIONS;</code></td>
+</tr>
+<tr>
+<td><code>DESCRIBE FUNCTION</code></td>
+<td>Provides information about a function.</td>
+<td><code>DESCRIBE FUNCTION function_name;</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="openrowset-the-powerful-transact-sql-for-data-engineering">OPENROWSET - The Powerful Transact-SQL for Data Engineering.<a class="headerlink" href="#openrowset-the-powerful-transact-sql-for-data-engineering" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-openrowset">What is OPENROWSET?<a class="headerlink" href="#what-is-openrowset" title="Permanent link">&para;</a></h2>
+<p><code>OPENROWSET</code> is a Transact-SQL function. Using this, you can create a select statement from external data sources (CSV, Parquet, JSON, Delta, ADLS, Blob) as if it were a local database. You don't need to create a table or linked service to run this. Hence, it's fast and requires fewer lines of code.</p>
+<p>It is used in SQL Server, Azure SQL DB, Synapse Analytics, Fabric, and Databricks.</p>
+<p style="color: #006600; font-family: 'Trebuchet MS', Helvetica, sans-serif; background-color: #e6ffe6; padding: 15px; border-left: 5px solid #00cc66;">
+For `OPENROWSET` to work, you need to ensure that the Synapse workspace or the query has the appropriate authentication to access the external data source.
+</p>
+
+<h2 id="practical-scenarios-where-openrowset-is-preferred">Practical scenarios where OPENROWSET is preferred<a class="headerlink" href="#practical-scenarios-where-openrowset-is-preferred" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Ad-Hoc Data Retrieval:</strong></li>
+<li><strong>Scenario:</strong> A business analyst needs to quickly retrieve data from an Excel file for an ad-hoc report.</li>
+<li>
+<p><strong>Reason:</strong> OPENROWSET allows for on-the-fly access to the Excel file without the need to import it into SQL Server first, providing immediate data retrieval for analysis.</p>
+</li>
+<li>
+<p><strong>Cross-Database Queries:</strong></p>
+</li>
+<li><strong>Scenario:</strong> A developer needs to run a query that joins tables from different SQL Server instances.</li>
+<li>
+<p><strong>Reason:</strong> OPENROWSET can be used to run distributed queries across different servers, avoiding the need to set up linked servers which can be more complex and require additional configuration and permissions.</p>
+</li>
+<li>
+<p><strong>Accessing External Data Sources:</strong></p>
+</li>
+<li><strong>Scenario:</strong> A company needs to integrate data from a remote Oracle database for a one-time data migration task.</li>
+<li>
+<p><strong>Reason:</strong> OPENROWSET provides a quick way to query data from the Oracle database using an OLE DB provider, bypassing the need for more permanent and complex solutions like linked servers or SSIS packages.</p>
+</li>
+<li>
+<p><strong>Temporary Data Access:</strong></p>
+</li>
+<li><strong>Scenario:</strong> During a data validation process, a data engineer needs to access data from a CSV file provided by a client.</li>
+<li>
+<p><strong>Reason:</strong> OPENROWSET allows the engineer to read the CSV file directly into a SQL query, facilitating temporary data access without the overhead of creating permanent database tables or ETL processes.</p>
+</li>
+<li>
+<p><strong>Data Import for Development and Testing:</strong></p>
+</li>
+<li><strong>Scenario:</strong> Developers need to import data from various formats (e.g., Excel, CSV) into a development environment for testing purposes.</li>
+<li><strong>Reason:</strong> OPENROWSET can be used to import data directly into the development environment without the need for pre-configured data import processes, speeding up the testing and development cycles.</li>
+</ol>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- General Syntax</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">OPENROWSET</span><span class="p">(</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">BULK</span><span class="w"> </span><span class="s1">&#39;file_path&#39;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;file_format&#39;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="p">[</span><span class="n">DATA_SOURCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data_source_name&#39;</span><span class="p">],</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">[</span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="n">column_type</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s1">&#39;column_ordinal&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;json_path&#39;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">)]</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">alias_name</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1">-- Example for CSV</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">FROM</span><span class="w"> </span><span class="n">OPENROWSET</span><span class="p">(</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="n">BULK</span><span class="w"> </span><span class="s1">&#39;https://storageaccount.blob.core.windows.net/container/file.csv&#39;</span><span class="p">,</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CSV&#39;</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="n">FIRSTROW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">FIELDTERMINATOR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">ROWTERMINATOR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">result</span><span class="p">]</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1">-- Example for Parquet</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="k">FROM</span><span class="w"> </span><span class="n">OPENROWSET</span><span class="p">(</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="n">BULK</span><span class="w"> </span><span class="s1">&#39;https://storageaccount.blob.core.windows.net/container/file.parquet&#39;</span><span class="p">,</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="n">FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PARQUET&#39;</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">result</span><span class="p">]</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="c1">-- Example for Delta Lake</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="k">FROM</span><span class="w"> </span><span class="n">OPENROWSET</span><span class="p">(</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="n">BULK</span><span class="w"> </span><span class="s1">&#39;https://storageaccount.blob.core.windows.net/container/file.delta&#39;</span><span class="p">,</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="n">FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DELTA&#39;</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">result</span><span class="p">]</span>
+</span></code></pre></div>
+<h3 id="key-options">Key Options<a class="headerlink" href="#key-options" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>BULK</strong>: Specifies the path to the file(s).</li>
+<li><strong>FORMAT</strong>: Specifies the file format (<code>CSV</code>, <code>PARQUET</code>, or <code>DELTA</code>).</li>
+<li><strong>DATA_SOURCE</strong>: (Optional) Specifies the external data source.</li>
+<li><strong>WITH</strong>: Defines the schema of the columns to be read.</li>
+</ul>
+<h3 id="options-for-csv">Options for CSV<a class="headerlink" href="#options-for-csv" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>FIELDTERMINATOR</strong>: Character used to separate fields (default is <code>,</code>).</li>
+<li><strong>ROWTERMINATOR</strong>: Character used to separate rows (default is <code>\n</code>).</li>
+<li><strong>FIRSTROW</strong>: Specifies the first row to read (default is 1).</li>
+<li><strong>HEADER_ROW</strong>: Indicates if the CSV file contains a header row (<code>TRUE</code> or <code>FALSE</code>).</li>
+</ul>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Reading a CSV file without specifying a schema:</strong>
+    <div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">OPENROWSET</span><span class="p">(</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">BULK</span><span class="w"> </span><span class="s1">&#39;https://storageaccount.blob.core.windows.net/container/data.csv&#39;</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CSV&#39;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">data</span><span class="p">]</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Reading specific columns from a CSV file:</strong>
+    <div class="language-sql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">OPENROWSET</span><span class="p">(</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">BULK</span><span class="w"> </span><span class="s1">&#39;https://storageaccount.blob.core.windows.net/container/data.csv&#39;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CSV&#39;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">FIELDTERMINATOR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">ROWTERMINATOR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">FIRSTROW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">WITH</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">col1</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="n">col2</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="n">col3</span><span class="w"> </span><span class="nb">DATE</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">data</span><span class="p">]</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Reading a Parquet file:</strong>
+    <div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">OPENROWSET</span><span class="p">(</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">BULK</span><span class="w"> </span><span class="s1">&#39;https://storageaccount.blob.core.windows.net/container/data.parquet&#39;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PARQUET&#39;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">data</span><span class="p">]</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Reading a Delta Lake file:</strong>
+    <div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">OPENROWSET</span><span class="p">(</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">BULK</span><span class="w"> </span><span class="s1">&#39;https://storageaccount.blob.core.windows.net/container/data.delta&#39;</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DELTA&#39;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">data</span><span class="p">]</span>
+</span></code></pre></div></p>
+</li>
+</ol>
+<h2 id="what-other-options-we-have">What other options we have?<a class="headerlink" href="#what-other-options-we-have" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Alternative</th>
+<th>Usage Scenario</th>
+<th>Efficiency</th>
+<th>Microsoft Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BULK INSERT</td>
+<td>Loading large volumes of data from a file into a SQL Server table.</td>
+<td>High for large files</td>
+<td>Use when importing large data volumes directly.</td>
+</tr>
+<tr>
+<td>PolyBase</td>
+<td>Querying external data in Hadoop, Azure Blob Storage, and Azure Data Lake.</td>
+<td>High</td>
+<td>Use for big data environments and distributed systems.</td>
+</tr>
+<tr>
+<td>EXTERNAL TABLE</td>
+<td>Accessing external data sources seamlessly as if they are regular SQL tables.</td>
+<td>Moderate to High</td>
+<td>Recommended for persistent access to external data.</td>
+</tr>
+<tr>
+<td>Linked Servers</td>
+<td>Connecting SQL Server to other data sources, like another SQL Server or an OLE DB data source.</td>
+<td>Varies</td>
+<td>Use for diverse data sources and quick data joins.</td>
+</tr>
+<tr>
+<td>Databricks</td>
+<td>Reading data from various sources using Spark SQL (not native to Databricks but works with Synapse).</td>
+<td>High for big data</td>
+<td>Use for Spark SQL integrations and large-scale analytics.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="approx_count_distinct-when-countdistinct-colname-runs-forever"><span style="color: BlueViolet">APPROX_COUNT_DISTINCT</span> when <span style="color: CornflowerBlue">COUNT(DISTINCT ColName)</span> runs forever<a class="headerlink" href="#approx_count_distinct-when-countdistinct-colname-runs-forever" title="Permanent link">&para;</a></h1>
+<p>Imagine your table has 1 trillion rows. You want to count distinct customer names. Do you think <code>COUNT(DISTINCT CustomerName)</code> will show you results in your lifetime?</p>
+<p>No, for such scenarios, use <code>APPROX_COUNT_DISTINCT(ColName)</code>. It will give you around 97% accuracy.</p>
+<h2 id="how-to-run-it"><span style="color: DarkCyan">How to run it?</span><a class="headerlink" href="#how-to-run-it" title="Permanent link">&para;</a></h2>
+<p>Pretty simple and straightforward.</p>
+<p><strong>Normal Count</strong>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">CustomerName</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Customers</span><span class="p">;</span>
+</span></code></pre></div></p>
+<p><strong>Approximate Count</strong></p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">APPROX_COUNT_DISTINCT</span><span class="p">(</span><span class="n">CustomerName</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Customers</span><span class="p">;</span><span class="w"> </span>
+</span></code></pre></div>
+<h2 id="some-fun-facts-about-this-t-sql-function"><span style="color: Gray">Some Fun facts about this T-SQL function</span><a class="headerlink" href="#some-fun-facts-about-this-t-sql-function" title="Permanent link">&para;</a></h2>
+<p>In MS SQL Server <code>APPROX_COUNT_DISTINCT</code> it first came in <strong>SQL Server 2019</strong>. It is <strong>available in Synapse SQL</strong>. These other brands support this function:</p>
+<ol>
+<li><strong>Google BigQuery</strong></li>
+<li><strong>Amazon Redshift</strong>: It offers the <code>APPROXIMATE COUNT(DISTINCT column)</code> function, which serves a similar purpose.</li>
+<li><strong>PostgreSQL</strong>: The <code>approx_count_distinct</code> extension is available through the <code>HLL (HyperLogLog)</code> extension, which allows for approximate distinct counting.</li>
+<li><strong>Apache Spark</strong>: The <code>approx_count_distinct</code> function is available in Spark SQL, which uses HyperLogLog for approximate counting.</li>
+</ol>
+<h1 id="practice-joins-with-mssql-adventureworkslt2016">Practice Joins with MSSQL AdventureWorksLT2016<a class="headerlink" href="#practice-joins-with-mssql-adventureworkslt2016" title="Permanent link">&para;</a></h1>
+<p>Download MSSQL Sample database AdventureWorksLT2016.bak and restore it. It will give you a full enviornment.</p>
+<p>https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2016.bak</p>
+<h2 id="table-descriptions">Table Descriptions<a class="headerlink" href="#table-descriptions" title="Permanent link">&para;</a></h2>
+<p>Here is a brief description of some of the key tables in the AdventureWorksLT2016 database:</p>
+<ul>
+<li><strong>SalesLT.Customer</strong>: Contains customer information such as CustomerID, FirstName, LastName, EmailAddress, etc.</li>
+<li><strong>SalesLT.SalesOrderHeader</strong>: Contains sales order information including SalesOrderID, OrderDate, CustomerID, TotalDue, etc.</li>
+<li><strong>SalesLT.SalesOrderDetail</strong>: Contains details of each sales order, such as SalesOrderID, ProductID, OrderQty, UnitPrice, etc.</li>
+<li><strong>SalesLT.Product</strong>: Contains product information including ProductID, Name, ProductNumber, Color, ListPrice, etc.</li>
+<li><strong>SalesLT.ProductCategory</strong>: Contains information about product categories including ProductCategoryID and Name.</li>
+<li><strong>SalesLT.ProductModel</strong>: Contains information about product models including ProductModelID and Name.</li>
+<li><strong>SalesLT.Address</strong>: Contains address information including AddressID, AddressLine1, City, StateProvince, etc.</li>
+<li><strong>SalesLT.CustomerAddress</strong>: A junction table linking customers to addresses.</li>
+</ul>
+<h2 id="questions">Questions<a class="headerlink" href="#questions" title="Permanent link">&para;</a></h2>
+<h3 id="question-1-list-customers-with-their-orders">Question 1: List Customers with Their Orders<a class="headerlink" href="#question-1-list-customers-with-their-orders" title="Permanent link">&para;</a></h3>
+<p><strong>Question</strong>: Retrieve a list of customers along with their order details. Include the customer's first name, last name, and order date. Only include customers who have placed at least one order.</p>
+<p><strong>Hint</strong>: 
+- Use <code>SalesLT.Customer</code> to get customer information.
+- Use <code>SalesLT.SalesOrderHeader</code> to get order information.
+- Use an INNER JOIN to connect these tables.</p>
+<h3 id="question-2-list-products-and-their-categories">Question 2: List Products and Their Categories<a class="headerlink" href="#question-2-list-products-and-their-categories" title="Permanent link">&para;</a></h3>
+<p><strong>Question</strong>: Retrieve a list of products along with their category names. Include all products, even those that do not belong to any category.</p>
+<p><strong>Hint</strong>:
+- Use <code>SalesLT.Product</code> to get product information.
+- Use <code>SalesLT.ProductCategory</code> to get category information.
+- Use a LEFT JOIN to include all products.</p>
+<h3 id="question-3-find-customers-and-their-addresses">Question 3: Find Customers and Their Addresses<a class="headerlink" href="#question-3-find-customers-and-their-addresses" title="Permanent link">&para;</a></h3>
+<p><strong>Question</strong>: Retrieve a list of customers and their addresses. Include all customers, even if they do not have an address listed.</p>
+<p><strong>Hint</strong>:
+- Use <code>SalesLT.Customer</code> to get customer information.
+- Use <code>SalesLT.CustomerAddress</code> to get the relationship between customers and addresses.
+- Use <code>SalesLT.Address</code> to get address information.
+- Use a LEFT JOIN to include all customers.</p>
+<h3 id="question-4-list-all-products-and-their-order-details">Question 4: List All Products and Their Order Details<a class="headerlink" href="#question-4-list-all-products-and-their-order-details" title="Permanent link">&para;</a></h3>
+<p><strong>Question</strong>: Retrieve a list of all products and their order details. Include all products and orders, even if they do not match.</p>
+<p><strong>Hint</strong>:
+- Use <code>SalesLT.Product</code> to get product information.
+- Use <code>SalesLT.SalesOrderDetail</code> to get order details.
+- Use a FULL OUTER JOIN to include all products and orders.</p>
+<h3 id="question-5-products-with-no-orders">Question 5: Products with No Orders<a class="headerlink" href="#question-5-products-with-no-orders" title="Permanent link">&para;</a></h3>
+<p><strong>Question</strong>: Find products that have not been ordered by any customer.</p>
+<p><strong>Hint</strong>:
+- Use <code>SalesLT.Product</code> to get product information.
+- Use <code>SalesLT.SalesOrderDetail</code> to get order details.
+- Use a LEFT JOIN and filter to find products with no matching orders.</p>
+<h3 id="question-6-calculate-total-sales-per-customer-using-cte">Question 6: Calculate Total Sales per Customer Using CTE<a class="headerlink" href="#question-6-calculate-total-sales-per-customer-using-cte" title="Permanent link">&para;</a></h3>
+<p><strong>Question</strong>: Use a Common Table Expression (CTE) to calculate the total sales amount for each customer.</p>
+<p><strong>Hint</strong>:
+- Use <code>SalesLT.Customer</code> to get customer information.
+- Use <code>SalesLT.SalesOrderHeader</code> to get order information.
+- Use SUM function to calculate total sales.
+- Use a CTE to organize the query.</p>
+<h1 id="comprehensive-list-of-sql-joins">Comprehensive List of SQL Joins<a class="headerlink" href="#comprehensive-list-of-sql-joins" title="Permanent link">&para;</a></h1>
+<h2 id="1-inner-join-also-known-as-join">1. <strong>INNER JOIN</strong> (also known as <strong>JOIN</strong>)<a class="headerlink" href="#1-inner-join-also-known-as-join" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Returns only the rows where there is a match in both tables.</li>
+<li><strong>Alternative Names</strong>: None</li>
+<li><strong>Use Case</strong>: Used when you only want the matching rows between two tables. Common in relational queries.</li>
+<li><strong>Example</strong>:
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="2-left-join-also-known-as-left-outer-join">2. <strong>LEFT JOIN</strong> (also known as <strong>LEFT OUTER JOIN</strong>)<a class="headerlink" href="#2-left-join-also-known-as-left-outer-join" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Returns all rows from the left table, and the matching rows from the right table. If no match, NULL values are returned for the right table.</li>
+<li><strong>Alternative Names</strong>: <strong>LEFT OUTER JOIN</strong></li>
+<li><strong>Use Case</strong>: Used when you want all rows from the left table, even if there's no match in the right table.</li>
+<li><strong>Example</strong>:
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="3-right-join-also-known-as-right-outer-join">3. <strong>RIGHT JOIN</strong> (also known as <strong>RIGHT OUTER JOIN</strong>)<a class="headerlink" href="#3-right-join-also-known-as-right-outer-join" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Returns all rows from the right table, and the matching rows from the left table. If no match, NULL values are returned for the left table.</li>
+<li><strong>Alternative Names</strong>: <strong>RIGHT OUTER JOIN</strong></li>
+<li><strong>Use Case</strong>: Used when you want all rows from the right table, even if there's no match in the left table.</li>
+<li><strong>Example</strong>:
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="4-full-join-also-known-as-full-outer-join">4. <strong>FULL JOIN</strong> (also known as <strong>FULL OUTER JOIN</strong>)<a class="headerlink" href="#4-full-join-also-known-as-full-outer-join" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Returns all rows from both tables, with matching rows from both sides. Non-matching rows are returned as NULL.</li>
+<li><strong>Alternative Names</strong>: <strong>FULL OUTER JOIN</strong></li>
+<li><strong>Use Case</strong>: Used when you need to include all rows from both tables, even if no matches exist.</li>
+<li><strong>Example</strong>:
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">FULL</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="5-cross-join">5. <strong>CROSS JOIN</strong><a class="headerlink" href="#5-cross-join" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Returns the Cartesian product of both tables. Each row from the first table is combined with each row from the second table.</li>
+<li><strong>Alternative Names</strong>: None</li>
+<li><strong>Use Case</strong>: Used when you want to combine every row from one table with every row from another table. Typically used for generating combinations or testing.</li>
+<li><strong>Example</strong>:
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">products</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">suppliers</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="6-self-join">6. <strong>SELF JOIN</strong><a class="headerlink" href="#6-self-join" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: A table is joined with itself to compare rows within the same table.</li>
+<li><strong>Alternative Names</strong>: None</li>
+<li><strong>Use Case</strong>: Used for hierarchical relationships (e.g., finding managers for employees in the same table).</li>
+<li><strong>Example</strong>:
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">e1</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Employee</span><span class="p">,</span><span class="w"> </span><span class="n">e2</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Manager</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="n">e1</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="n">e2</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="k">ON</span><span class="w"> </span><span class="n">e1</span><span class="p">.</span><span class="n">manager_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e2</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="7-natural-join">7. <strong>NATURAL JOIN</strong><a class="headerlink" href="#7-natural-join" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Automatically joins tables based on columns with the same name in both tables. No need to explicitly specify the join condition.</li>
+<li><strong>Alternative Names</strong>: None</li>
+<li><strong>Use Case</strong>: Used when both tables have the same column names and you want an automatic join on those columns.</li>
+<li><strong>Example</strong>:
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">NATURAL</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="8-anti-join-also-known-as-left-anti-join">8. <strong>ANTI JOIN</strong> (also known as <strong>LEFT ANTI JOIN</strong>)<a class="headerlink" href="#8-anti-join-also-known-as-left-anti-join" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Returns rows from the left table where no matching rows exist in the right table.</li>
+<li><strong>Alternative Names</strong>: <strong>LEFT ANTI JOIN</strong></li>
+<li><strong>Use Case</strong>: Used when you need rows from the left table that do not have a corresponding match in the right table.</li>
+<li><strong>Example</strong> (using <code>LEFT JOIN</code> and filtering <code>NULL</code>):
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">name</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">id</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="9-semi-join-also-known-as-left-semi-join-or-right-semi-join">9. <strong>SEMI JOIN</strong> (also known as <strong>LEFT SEMI JOIN</strong> or <strong>RIGHT SEMI JOIN</strong>)<a class="headerlink" href="#9-semi-join-also-known-as-left-semi-join-or-right-semi-join" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Returns rows from the left table where a match exists in the right table, but only columns from the left table are returned.</li>
+<li><strong>Alternative Names</strong>: <strong>LEFT SEMI JOIN</strong>, <strong>RIGHT SEMI JOIN</strong></li>
+<li><strong>Use Case</strong>: Used when you need to know which rows in the left table have a match in the right table but only need the left table's columns.</li>
+<li><strong>Example</strong> (using <code>EXISTS</code>):
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">name</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">departments</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">id</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="p">);</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="10-except-join">10. <strong>EXCEPT JOIN</strong><a class="headerlink" href="#10-except-join" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Combines two result sets and returns rows from the left set that are not in the right set.</li>
+<li><strong>Alternative Names</strong>: None</li>
+<li><strong>Use Case</strong>: Used for set difference operations where you need to find rows in one table that don't exist in another.</li>
+<li><strong>Example</strong>:
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">EXCEPT</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees_in_department</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="11-outer-apply">11. <strong>OUTER APPLY</strong><a class="headerlink" href="#11-outer-apply" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Similar to a left join but with subqueries evaluated per row in the left table.</li>
+<li><strong>Alternative Names</strong>: None</li>
+<li><strong>Use Case</strong>: Used when you need a subquery or table-valued function evaluated once per row in the left table.</li>
+<li><strong>Example</strong>:
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">department_details</span><span class="p">.</span><span class="o">*</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">OUTER</span><span class="w"> </span><span class="n">APPLY</span><span class="w"> </span><span class="n">getDepartmentDetails</span><span class="p">(</span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">department_details</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="12-inner-apply">12. <strong>INNER APPLY</strong><a class="headerlink" href="#12-inner-apply" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Description</strong>: Similar to an inner join but with subqueries evaluated per row in the left table.</li>
+<li><strong>Alternative Names</strong>: None</li>
+<li><strong>Use Case</strong>: Used when you want to perform an inner join with a subquery or table-valued function evaluated per row.</li>
+<li><strong>Example</strong>:
+     <div class="language-sql highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">department_details</span><span class="p">.</span><span class="o">*</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">INNER</span><span class="w"> </span><span class="n">APPLY</span><span class="w"> </span><span class="n">getDepartmentDetails</span><span class="p">(</span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">department_details</span><span class="p">;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="summary-table">Summary Table<a class="headerlink" href="#summary-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Join Type</strong></th>
+<th><strong>Alternative Name(s)</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Use Case</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>INNER JOIN</strong></td>
+<td>JOIN</td>
+<td>Matches rows in both tables</td>
+<td>General use, finding common records</td>
+</tr>
+<tr>
+<td><strong>LEFT JOIN</strong></td>
+<td>LEFT OUTER JOIN</td>
+<td>All rows from left, matched from right</td>
+<td>When you need all rows from the left table</td>
+</tr>
+<tr>
+<td><strong>RIGHT JOIN</strong></td>
+<td>RIGHT OUTER JOIN</td>
+<td>All rows from right, matched from left</td>
+<td>When you need all rows from the right table</td>
+</tr>
+<tr>
+<td><strong>FULL JOIN</strong></td>
+<td>FULL OUTER JOIN</td>
+<td>All rows from both tables, with NULLs for non-matches</td>
+<td>When you need complete data from both tables</td>
+</tr>
+<tr>
+<td><strong>CROSS JOIN</strong></td>
+<td>None</td>
+<td>Cartesian product of both tables</td>
+<td>Generating combinations or large result sets</td>
+</tr>
+<tr>
+<td><strong>SELF JOIN</strong></td>
+<td>None</td>
+<td>Joining a table with itself</td>
+<td>For hierarchical relationships within a table</td>
+</tr>
+<tr>
+<td><strong>NATURAL JOIN</strong></td>
+<td>None</td>
+<td>Automatically joins on matching columns</td>
+<td>When tables have common column names</td>
+</tr>
+<tr>
+<td><strong>ANTI JOIN</strong></td>
+<td>LEFT ANTI JOIN</td>
+<td>Rows from the left table without a match in the right</td>
+<td>When you need records that don't match</td>
+</tr>
+<tr>
+<td><strong>SEMI JOIN</strong></td>
+<td>LEFT SEMI JOIN, RIGHT SEMI JOIN</td>
+<td>Rows from left with matching right rows, only left columns</td>
+<td>When you need to check for existence in the right table</td>
+</tr>
+<tr>
+<td><strong>EXCEPT JOIN</strong></td>
+<td>None</td>
+<td>Rows from left that are not in right</td>
+<td>For set difference operations</td>
+</tr>
+<tr>
+<td><strong>OUTER APPLY</strong></td>
+<td>None</td>
+<td>Subqueries evaluated once per row in the left table</td>
+<td>Using subqueries for each row</td>
+</tr>
+<tr>
+<td><strong>INNER APPLY</strong></td>
+<td>None</td>
+<td>Subqueries evaluated once per row in the left table, like an inner join</td>
+<td>Inner joins with subqueries</td>
+</tr>
+</tbody>
+</table>
+<h1 id="sql-keys">SQL Keys<a class="headerlink" href="#sql-keys" title="Permanent link">&para;</a></h1>
+<p><a class="glightbox" href="images/20250112150749.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/20250112150749.png" /></a></p>
+<table>
+<thead>
+<tr>
+<th><strong>Key Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Key Feature</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Key</strong></td>
+<td>Uniquely identifies each row in a table</td>
+<td>Ensures uniqueness and no NULL values</td>
+</tr>
+<tr>
+<td><strong>Foreign Key</strong></td>
+<td>Refers to a primary key in another table</td>
+<td>Creates relationships between tables</td>
+</tr>
+<tr>
+<td><strong>Unique Key</strong></td>
+<td>Ensures unique values in a column</td>
+<td>Allows one NULL value</td>
+</tr>
+<tr>
+<td><strong>Candidate Key</strong></td>
+<td>Potential primary key</td>
+<td>Can uniquely identify a row</td>
+</tr>
+<tr>
+<td><strong>Composite Key</strong></td>
+<td>Made of multiple columns</td>
+<td>Combines columns to create uniqueness</td>
+</tr>
+<tr>
+<td><strong>Alternate Key</strong></td>
+<td>Any candidate key not chosen as the primary</td>
+<td>Alternative unique identifier</td>
+</tr>
+<tr>
+<td><strong>Superkey</strong></td>
+<td>A set of columns that can uniquely identify a row</td>
+<td>May include extra columns</td>
+</tr>
+<tr>
+<td><strong>Natural Key</strong></td>
+<td>A key formed from real-world data</td>
+<td>Represents real-world attributes</td>
+</tr>
+<tr>
+<td><strong>Surrogate Key</strong></td>
+<td>An artificial key generated by the system</td>
+<td>No inherent meaning outside the database</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" href="images/20250112150818.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="images/20250112150818.png" /></a></p>
+<p><strong>SQL Concepts:</strong></p>
+<ol>
+<li><strong>What is the difference between <code>WHERE</code> and <code>HAVING</code> clauses in SQL?</strong></li>
+<li>
+<p>The <code>WHERE</code> clause filters rows before any grouping is performed, while the <code>HAVING</code> clause filters groups after the <code>GROUP BY</code> operation.</p>
+</li>
+<li>
+<p><strong>Explain the purpose of the <code>GROUP BY</code> clause.</strong></p>
+</li>
+<li>
+<p>The <code>GROUP BY</code> clause groups rows that have the same values into summary rows, often used with aggregate functions like <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MAX</code>, or <code>MIN</code>.</p>
+</li>
+<li>
+<p><strong>What are aggregate functions in SQL? Can you name a few?</strong></p>
+</li>
+<li>
+<p>Aggregate functions perform a calculation on a set of values and return a single value. Examples include <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MAX</code>, and <code>MIN</code>.</p>
+</li>
+<li>
+<p><strong>What is a primary key, and why is it important?</strong></p>
+</li>
+<li>
+<p>A primary key is a unique identifier for a record in a table. It ensures that each record can be uniquely identified and prevents duplicate records.</p>
+</li>
+<li>
+<p><strong>What is a foreign key, and how does it relate to a primary key?</strong></p>
+</li>
+<li>
+<p>A foreign key is a field in one table that uniquely identifies a row of another table. It establishes a link between the two tables, ensuring referential integrity.</p>
+</li>
+<li>
+<p><strong>Describe the different types of joins in SQL.</strong></p>
+</li>
+<li>
+<ul>
+<li><strong>INNER JOIN</strong>: Returns records that have matching values in both tables.</li>
+</ul>
+</li>
+<li><strong>LEFT JOIN (or LEFT OUTER JOIN)</strong>: Returns all records from the left table and the matched records from the right table; if no match, NULL values are returned for columns from the right table.</li>
+<li><strong>RIGHT JOIN (or RIGHT OUTER JOIN)</strong>: Returns all records from the right table and the matched records from the left table; if no match, NULL values are returned for columns from the left table.</li>
+<li>
+<p><strong>FULL JOIN (or FULL OUTER JOIN)</strong>: Returns all records when there is a match in either left or right table; if no match, NULL values are returned for columns from the table without a match.</p>
+</li>
+<li>
+<p><strong>What is normalization in database design?</strong></p>
+</li>
+<li>
+<p>Normalization is the process of organizing data to reduce redundancy and dependency by dividing large tables into smaller ones and defining relationships between them.</p>
+</li>
+<li>
+<p><strong>What are indexes in SQL, and how do they improve query performance?</strong></p>
+</li>
+<li>
+<p>Indexes are database objects that improve the speed of data retrieval operations on a table at the cost of additional space and decreased performance on data modification operations. They function similarly to an index in a book, allowing the database to find data more quickly.</p>
+</li>
+<li>
+<p><strong>Explain the concept of a transaction in SQL.</strong></p>
+</li>
+<li>
+<p>A transaction is a sequence of one or more SQL operations executed as a single unit. Transactions ensure data integrity and are governed by the ACID properties: Atomicity, Consistency, Isolation, and Durability.</p>
+</li>
+<li>
+<p><strong>What is the purpose of the <code>DISTINCT</code> keyword?</strong></p>
+<ul>
+<li>The <code>DISTINCT</code> keyword is used to return only distinct (different) values in the result set, eliminating duplicate records.</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 - Das
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

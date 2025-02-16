@@ -1,0 +1,2748 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://dwdas9.github.io/home/Spark-DataBricks/1.0_Spark/1.11_Spark_Interview_Questions.html">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Spark Interview Questions - Das Digital Digest</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#common-spark-concepts-which-may-be-asked-in-an-interview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Das Digital Digest" class="md-header__button md-logo" aria-label="Das Digital Digest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Das Digital Digest
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spark Interview Questions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Das Digital Digest" class="md-nav__button md-logo" aria-label="Das Digital Digest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Das Digital Digest
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Engineering & Analytics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Engineering & Analytics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apache Airflow
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apache Airflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.0_AirFlow_Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.1_A_Dags_Anatomy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAG Anatomy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.2_Hello_Airflow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello Airflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Airflow/1.0.3_Airflow_Dbt_Docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Airflow DBT Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spark & Databricks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spark & Databricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Stream Processing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stream Processing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../StreamProcessing/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/performance-tuning.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance Tuning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud & DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud & DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Microsoft Fabric
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft Fabric
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Microsoft-Fabric/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure Services
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Synapse-ADF/synapse.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synapse Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Synapse-ADF/adf.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Factory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GitHub Actions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            GitHub Actions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/1_GitHub-Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/1.1_Hello_GitHub_Actions_Workflow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello GitHub Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/2_Azure-Pipelines.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/ADF_CICD.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADF CI/CD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Containers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Containers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_1" id="__nav_3_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerAndKubernetes/AirflowDocker/1_AirflowDocker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Airflow on Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerAndKubernetes/kubernetes/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Enterprise Solutions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Enterprise Solutions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Microsoft 365
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft 365
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../M365/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../M365/sharepoint.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SharePoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power Platform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Power Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerPlatform/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerPlatform/powerbi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power BI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerPlatform/automate.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power Automate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MongoDB
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            MongoDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MongoDB/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MongoDB/best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/data-processing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/automation.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Engineering
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Engineering
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/AzureSkyWeather/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Sky Weather
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/CurrencyPredictor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Currency Predictor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/JsonValidator/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON Validator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_4" id="__nav_5_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ETL Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            ETL Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/Csv-To-MSSQL.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV to MSSQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/FetchJsonWriteParquet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON to Parquet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DE-Projects/Dbrk-E2E-AttritionProject.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Databricks E2E Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/6_RunningAppsInBg.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-join-strateries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of join strateries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-joins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Joins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-spark-optimization-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Spark optimization techniques
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#different-phases-of-spark-sql-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Different phases of Spark-SQL engine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-reasons-for-analysis-exception-in-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common reasons for analysis exception in Spark
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flow-of-how-spark-works-internally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flow of how Spark works internally
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-dag-in-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explain DAG in Spark
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-sparksqlshufflepartitions-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explain spark.sql.shuffle.partitions Variable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<ul>
+<li><a href="#common-spark-concepts-which-may-be-asked-in-an-interview">Common Spark Concepts which may be asked in an interview</a></li>
+<li><a href="#types-of-join-strateries">Types of join strateries</a></li>
+<li><a href="#types-of-joins">Types of Joins</a></li>
+<li><a href="#common-spark-optimization-techniques">Common Spark optimization techniques</a></li>
+<li><a href="#different-phases-of-spark-sql-engine">Different phases of Spark-SQL engine</a></li>
+<li><a href="#common-reasons-for-analysis-exception-in-spark">Common reasons for analysis exception in Spark</a></li>
+<li><a href="#flow-of-how-spark-works-internally">Flow of how Spark works internally</a></li>
+<li><a href="#explain-dag-in-spark">Explain DAG in Spark</a></li>
+<li><a href="#explain-sparksqlshufflepartitions-variable">Explain spark.sql.shuffle.partitions Variable</a></li>
+</ul>
+<h1 id="common-spark-concepts-which-may-be-asked-in-an-interview">Common Spark Concepts which may be asked in an interview<a class="headerlink" href="#common-spark-concepts-which-may-be-asked-in-an-interview" title="Permanent link">&para;</a></h1>
+<p>In this article I will try to put some common Spark concepts in a tabular format(So that its compact). These are good concepts to remember. Also, they may be asked in Interview questions.</p>
+<h2 id="types-of-join-strateries">Types of join strateries<a class="headerlink" href="#types-of-join-strateries" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Join Strategy</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Use Case</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shuffle Hash Join</td>
+<td>Both DataFrames are shuffled based on the join keys, and then a hash join is performed.</td>
+<td>Useful when both DataFrames are large and have a good distribution of keys.</td>
+<td><code>spark.conf.set("spark.sql.join.preferSortMergeJoin", "false")</code><br><code>df1.join(df2, "key")</code></td>
+</tr>
+<tr>
+<td>Broadcast Hash Join</td>
+<td>One of the DataFrames is small enough to fit in memory and is broadcasted to all worker nodes. A hash join is then performed.</td>
+<td>Efficient when one DataFrame is much smaller than the other.</td>
+<td><code>val broadcastDF = broadcast(df2)</code><br><code>df1.join(broadcastDF, "key")</code></td>
+</tr>
+<tr>
+<td>Sort-Merge Join</td>
+<td>Both DataFrames are sorted on the join keys and then merged. This requires a shuffle if the data is not already sorted.</td>
+<td>Suitable for large DataFrames when the join keys are sorted or can be sorted efficiently.</td>
+<td><code>spark.conf.set("spark.sql.join.preferSortMergeJoin", "true")</code><br><code>df1.join(df2, "key")</code></td>
+</tr>
+<tr>
+<td>Cartesian Join (Cross Join)</td>
+<td>Every row of one DataFrame is paired with every row of the other DataFrame.</td>
+<td>Generally not recommended due to its computational expense, but can be used for generating combinations of all rows.</td>
+<td><code>df1.crossJoin(df2)</code></td>
+</tr>
+<tr>
+<td>Broadcast Nested Loop Join</td>
+<td>The smaller DataFrame is broadcasted, and a nested loop join is performed.</td>
+<td>Used when there are no join keys or the join condition is complex and cannot be optimized with hash or sort-merge joins.</td>
+<td><code>val broadcastDF = broadcast(df2)</code><br><code>df1.join(broadcastDF)</code></td>
+</tr>
+<tr>
+<td>Shuffle-and-Replicate Nested Loop Join</td>
+<td>Both DataFrames are shuffled and replicated to perform a nested loop join.</td>
+<td>Used for complex join conditions that cannot be handled by other join strategies.</td>
+<td><code>df1.join(df2, expr("complex_condition"))</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="types-of-joins">Types of Joins<a class="headerlink" href="#types-of-joins" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Join Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inner Join</td>
+<td>Returns rows that have matching values in both DataFrames.</td>
+<td><code>df1.join(df2, "key")</code></td>
+</tr>
+<tr>
+<td>Outer Join</td>
+<td>Returns all rows when there is a match in either DataFrame. Missing values are filled with nulls.</td>
+<td><code>df1.join(df2, Seq("key"), "outer")</code></td>
+</tr>
+<tr>
+<td>Left Outer Join</td>
+<td>Returns all rows from the left DataFrame, and matched rows from the right DataFrame.</td>
+<td><code>df1.join(df2, Seq("key"), "left_outer")</code></td>
+</tr>
+<tr>
+<td>Right Outer Join</td>
+<td>Returns all rows from the right DataFrame, and matched rows from the left DataFrame.</td>
+<td><code>df1.join(df2, Seq("key"), "right_outer")</code></td>
+</tr>
+<tr>
+<td>Left Semi Join</td>
+<td>Returns only the rows from the left DataFrame that have a match in the right DataFrame.</td>
+<td><code>df1.join(df2, Seq("key"), "left_semi")</code></td>
+</tr>
+<tr>
+<td>Left Anti Join</td>
+<td>Returns only the rows from the left DataFrame that do not have a match in the right DataFrame.</td>
+<td><code>df1.join(df2, Seq("key"), "left_anti")</code></td>
+</tr>
+<tr>
+<td>Cross Join</td>
+<td>Returns the Cartesian product of both DataFrames. Every row in the left DataFrame will be combined with every row in the right DataFrame.</td>
+<td><code>df1.crossJoin(df2)</code></td>
+</tr>
+<tr>
+<td>Self Join</td>
+<td>A join in which a DataFrame is joined with itself. This can be an inner, outer, left, or right join.</td>
+<td><code>df.join(df, df("key1") === df("key2"))</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-spark-optimization-techniques">Common Spark optimization techniques<a class="headerlink" href="#common-spark-optimization-techniques" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Technique</strong></th>
+<th><strong>What it is</strong></th>
+<th><strong>When to use</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Caching and Persistence</strong></td>
+<td>Storing data in memory for quick access</td>
+<td>When you need to reuse the same data multiple times</td>
+<td><code>scala val cachedData = df.cache()</code></td>
+</tr>
+<tr>
+<td><strong>Broadcast Variables</strong></td>
+<td>Sending a small dataset to all worker nodes</td>
+<td>When one dataset is much smaller than the other</td>
+<td><code>scala val broadcastData = spark.broadcast(smallDF) largeDF.join(broadcastData.value, "key")</code></td>
+</tr>
+<tr>
+<td><strong>Partitioning</strong></td>
+<td>Dividing data into smaller, manageable chunks</td>
+<td>When dealing with large datasets to improve parallel processing</td>
+<td><code>scala val partitionedData = df.repartition(10, $"key")</code></td>
+</tr>
+<tr>
+<td><strong>Avoiding Shuffles</strong></td>
+<td>Reducing the movement of data between nodes</td>
+<td>To improve performance by minimizing network overhead</td>
+<td>Use <code>mapPartitions</code> instead of <code>groupBy</code> when possible</td>
+</tr>
+<tr>
+<td><strong>Coalesce</strong></td>
+<td>Reducing the number of partitions</td>
+<td>When the data has become sparse after a transformation</td>
+<td><code>scala val coalescedData = df.coalesce(1)</code></td>
+</tr>
+<tr>
+<td><strong>Predicate Pushdown</strong></td>
+<td>Filtering data as early as possible in the processing</td>
+<td>To reduce the amount of data read and processed</td>
+<td><code>scala val filteredData = df.filter($"column" &gt; 10)</code></td>
+</tr>
+<tr>
+<td><strong>Using the Right Join Strategy</strong></td>
+<td>Choosing the most efficient way to join two datasets</td>
+<td>Based on the size and distribution of data</td>
+<td>Prefer broadcast joins for small datasets</td>
+</tr>
+<tr>
+<td><strong>Tuning Spark Configurations</strong></td>
+<td>Adjusting settings to optimize resource usage</td>
+<td>To match the workload and cluster resources</td>
+<td><code>scala spark.conf.set("spark.executor.memory", "4g")</code></td>
+</tr>
+<tr>
+<td><strong>Using DataFrames/Datasets API</strong></td>
+<td>Leveraging the high-level APIs for optimizations</td>
+<td>To benefit from Catalyst optimizer and Tungsten execution engine</td>
+<td><code>scala val df = spark.read.csv("data.csv") df.groupBy("column").count()</code></td>
+</tr>
+<tr>
+<td><strong>Vectorized Query Execution</strong></td>
+<td>Processing multiple rows of data at a time</td>
+<td>For high-performance operations on large datasets</td>
+<td>Use built-in SQL functions and DataFrame methods</td>
+</tr>
+</tbody>
+</table>
+<h2 id="different-phases-of-spark-sql-engine">Different phases of Spark-SQL engine<a class="headerlink" href="#different-phases-of-spark-sql-engine" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Phase</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Details</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parsing</td>
+<td>Converting SQL queries into a logical plan.</td>
+<td>The SQL query is parsed into an abstract syntax tree (AST).</td>
+<td>Converting <code>SELECT * FROM table WHERE id = 1</code> into an internal format.</td>
+</tr>
+<tr>
+<td>Analysis</td>
+<td>Resolving references and verifying the logical plan.</td>
+<td>Resolves column names, table names, and function names; checks for errors.</td>
+<td>Ensuring that the table <code>table</code> and the column <code>id</code> exist in the database.</td>
+</tr>
+<tr>
+<td>Optimization</td>
+<td>Improving the logical plan for better performance.</td>
+<td>Transforms the logical plan using various optimization techniques; applies rules via Catalyst optimizer.</td>
+<td>Reordering filters to reduce the amount of data processed early on.</td>
+</tr>
+<tr>
+<td>Physical Planning</td>
+<td>Converting the logical plan into a physical plan.</td>
+<td>Converts the optimized logical plan into one or more physical plans; selects the most efficient plan.</td>
+<td>Deciding whether to use a hash join or a sort-merge join.</td>
+</tr>
+<tr>
+<td>Code Generation</td>
+<td>Generating executable code from the physical plan.</td>
+<td>Generates Java bytecode to execute the physical plan; this code runs on Spark executors.</td>
+<td>Creating code to perform join operations, filter data, and compute results.</td>
+</tr>
+<tr>
+<td>Execution</td>
+<td>Running the generated code on the Spark cluster.</td>
+<td>Distributes generated code across the Spark cluster; executed by Spark executors; results collected and returned.</td>
+<td>Running join and filter operations on different nodes in the cluster and aggregating results.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-reasons-for-analysis-exception-in-spark">Common reasons for analysis exception in Spark<a class="headerlink" href="#common-reasons-for-analysis-exception-in-spark" title="Permanent link">&para;</a></h2>
+<p>Here are some common reasons why you might encounter an AnalysisException in Spark:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Reason</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Non-Existent Column or Table</td>
+<td>Column or table specified does not exist.</td>
+<td>Referring to a non-existent column <code>id</code>.</td>
+</tr>
+<tr>
+<td>Ambiguous Column Reference</td>
+<td>Same column name exists in multiple tables without qualification.</td>
+<td>Joining two DataFrames with the same column name <code>id</code>.</td>
+</tr>
+<tr>
+<td>Invalid SQL Syntax</td>
+<td>SQL query has syntax errors.</td>
+<td>Using incorrect SQL syntax like <code>SELCT</code>.</td>
+</tr>
+<tr>
+<td>Unsupported Operations</td>
+<td>Using an operation that Spark SQL does not support.</td>
+<td>Using an unsupported function.</td>
+</tr>
+<tr>
+<td>Schema Mismatch</td>
+<td>Schema of the DataFrame does not match the expected schema.</td>
+<td>Inserting data with different column types.</td>
+</tr>
+<tr>
+<td>Missing File or Directory</td>
+<td>Specified file or directory does not exist.</td>
+<td>Referring to a non-existent CSV file.</td>
+</tr>
+<tr>
+<td>Incorrect Data Type</td>
+<td>Operations expecting a specific data type are given the wrong type.</td>
+<td>Performing a math operation on a string column.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="flow-of-how-spark-works-internally">Flow of how Spark works internally<a class="headerlink" href="#flow-of-how-spark-works-internally" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Component/Step</strong></th>
+<th><strong>Role/Process</strong></th>
+<th><strong>Function/Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Driver Program</strong></td>
+<td>Entry point for the Spark application</td>
+<td>- Manages application lifecycle<br>- Defines RDD transformations and actions</td>
+</tr>
+<tr>
+<td><strong>SparkContext</strong></td>
+<td>Acts as the master of the Spark application</td>
+<td>- Connects to cluster manager<br>- Coordinates tasks</td>
+</tr>
+<tr>
+<td><strong>Cluster Manager</strong></td>
+<td>Manages the cluster of machines</td>
+<td>- Allocates resources to Spark applications<br>- Examples: YARN, Mesos, standalone</td>
+</tr>
+<tr>
+<td><strong>Executors</strong></td>
+<td>Worker nodes that run tasks and store data</td>
+<td>- Execute assigned code<br>- Return results to the driver<br>- Cache data in memory for quick access</td>
+</tr>
+<tr>
+<td><strong>Spark Application Submission</strong></td>
+<td>Submitting the driver program to the cluster manager</td>
+<td>- Example: Submitting a job using <code>spark-submit</code></td>
+</tr>
+<tr>
+<td><strong>SparkContext Initialization</strong></td>
+<td>Driver program initializes SparkContext</td>
+<td>- Example: <code>val sc = new SparkContext(conf)</code></td>
+</tr>
+<tr>
+<td><strong>Job Scheduling</strong></td>
+<td>Driver program defines transformations and actions on RDDs/DataFrames</td>
+<td>- Example: <code>val rdd = sc.textFile("data.txt").map(line =&gt; line.split(" "))</code></td>
+</tr>
+<tr>
+<td><strong>DAG (Directed Acyclic Graph) Creation</strong></td>
+<td>Constructing a DAG of stages for the job</td>
+<td>- Stages are sets of tasks that can be executed in parallel<br>- Example: A series of <code>map</code> and <code>filter</code> transformations create a DAG</td>
+</tr>
+<tr>
+<td><strong>Task Execution</strong></td>
+<td>Dividing the DAG into stages, creating tasks, and sending them to executors</td>
+<td>- Tasks are distributed across executors<br>- Each executor processes a partition of the data</td>
+</tr>
+<tr>
+<td><strong>Data Shuffling</strong></td>
+<td>Exchanging data between nodes during operations like <code>reduceByKey</code></td>
+<td>- Data is grouped by key across nodes<br>- Example: Shuffling data for aggregations</td>
+</tr>
+<tr>
+<td><strong>Result Collection</strong></td>
+<td>Executors process the tasks and send the results back to the driver program</td>
+<td>- Example: Final results of <code>collect</code> or <code>count</code> are returned to the driver</td>
+</tr>
+<tr>
+<td><strong>Job Completion</strong></td>
+<td>Driver program completes the execution</td>
+<td>- Example: Driver terminates after executing <code>sc.stop()</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="explain-dag-in-spark">Explain DAG in Spark<a class="headerlink" href="#explain-dag-in-spark" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Topic</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Details</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DAG in Spark</strong></td>
+<td>DAG stands for Directed Acyclic Graph.</td>
+<td>- Series of steps representing the operations on data.<br>- <strong>Directed</strong>: Operations flow in one direction.<br>- <strong>Acyclic</strong>: No cycles or loops.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Why We Need DAG</strong></td>
+<td>Optimizes Execution, Fault Tolerance, and Parallel Processing.</td>
+<td>- <strong>Optimizes Execution</strong>: Spark can optimize operations.<br>- <strong>Fault Tolerance</strong>: Recomputes lost data if a node fails.<br>- <strong>Parallel Processing</strong>: Divides tasks into stages for parallel execution.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Without DAG</strong></td>
+<td>No Optimization, No Fault Tolerance, and Less Parallelism.</td>
+<td>- <strong>No Optimization</strong>: Operations would run as written, slower performance.<br>- <strong>No Fault Tolerance</strong>: Inefficient data recomputation.<br>- <strong>Less Parallelism</strong>: Harder to parallelize tasks.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td>Example of a Spark job and DAG construction.</td>
+<td>- <strong>Read Data</strong>: <code>sc.textFile("file.txt")</code><br>- <strong>Split Lines into Words</strong>: <code>data.flatMap(...)</code><br>- <strong>Map Words to Key-Value Pairs</strong>: <code>words.map(...)</code><br>- <strong>Reduce by Key</strong>: <code>wordCounts.reduceByKey(...)</code><br>- <strong>Collect Results</strong>: <code>wordCounts.collect()</code></td>
+<td><code>scala val data = sc.textFile("file.txt") val words = data.flatMap(line =&gt; line.split(" ")) val wordCounts = words.map(word =&gt; (word, 1)).reduceByKey(_ + _) wordCounts.collect()</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="explain-sparksqlshufflepartitions-variable">Explain spark.sql.shuffle.partitions Variable<a class="headerlink" href="#explain-sparksqlshufflepartitions-variable" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Topic</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Details</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>spark.sql.shuffle.partitions</strong></td>
+<td>Configuration setting for shuffle partitions</td>
+<td>- <strong>Default Value</strong>: 200 partitions<br>- Defines the default number of partitions used when shuffling data for wide transformations</td>
+<td><code>scala spark.conf.set("spark.sql.shuffle.partitions", "number_of_partitions")</code></td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Optimize Performance and Control Data Distribution</td>
+<td>- <strong>Optimize Performance</strong>: Balances workload across the cluster<br>- <strong>Control Data Distribution</strong>: Manages how data is distributed and processed during shuffle operations</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>When It's Used</strong></td>
+<td>Wide Transformations and SQL Queries</td>
+<td>- <strong>Wide Transformations</strong>: <code>reduceByKey</code>, <code>groupByKey</code>, <code>join</code>, etc.<br>- <strong>SQL Queries</strong>: Operations involving shuffling data like joins and aggregations</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>How to Set It</strong></td>
+<td>Setting via Configuration and spark-submit</td>
+<td>- <strong>Configuration</strong>: <code>spark.conf.set("spark.sql.shuffle.partitions", "number_of_partitions")</code><br>- <strong>spark-submit</strong>: <code>spark-submit --conf spark.sql.shuffle.partitions=number_of_partitions ...</code></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td>Default and Custom Settings</td>
+<td>- <strong>Default Setting</strong>: <code>scala val spark = SparkSession.builder.appName("Example").getOrCreate() println(spark.conf.get("spark.sql.shuffle.partitions")) // Output: 200</code><br>- <strong>Custom Setting</strong>: <code>scala val spark = SparkSession.builder.appName("Example").getOrCreate() spark.conf.set("spark.sql.shuffle.partitions", "50") val df = spark.read.json("data.json") df.groupBy("column").count().show()</code></td>
+<td><code>scala val spark = SparkSession.builder.appName("Example").getOrCreate() println(spark.conf.get("spark.sql.shuffle.partitions")) // Output: 200</code></td>
+</tr>
+<tr>
+<td><strong>Why Adjust This Setting?</strong></td>
+<td>Small and Large Datasets</td>
+<td>- <strong>Small Datasets</strong>: Reduce the number of partitions to avoid too many small tasks, leading to overhead<br>- <strong>Large Datasets</strong>: Increase the number of partitions to distribute data evenly and avoid large partitions that slow down processing</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 - Das
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
