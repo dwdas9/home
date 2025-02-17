@@ -78,8 +78,9 @@ nav: # Sidebar menu structure. Each file path is relative to the `docs` director
       - Databricks E2E Project: 'DE-Projects/Dbrk-E2E-AttritionProject.md'
 
   - Resources:
-    - Miscellaneous:
-      - Fact vs Dimension Tables: 'Misc/10_Fact_vs_Dimension_tables.md'
+    - MkDocs:
+      - Common Issues: 'MkDocs/Issues.md'
+    - Miscellaneous: 'Misc/6_RunningAppsInBg.md'
     - Contributing: 'contributing.md'
     - About: 'about.md'
 
