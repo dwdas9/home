@@ -56,6 +56,7 @@ nav: # Sidebar menu structure. Each file path is relative to the `docs` director
       - Overview: 'PowerPlatform/index.md'
       - Power BI: 'PowerPlatform/powerbi.md'
       - Power Automate: 'PowerPlatform/automate.md'
+      - Calculation Groups: 'PowerPlatform/CalculationGroups.md'
     - MongoDB:
       - Overview: 'MongoDB/index.md'
       - Best Practices: 'MongoDB/best-practices.md'
@@ -66,7 +67,11 @@ nav: # Sidebar menu structure. Each file path is relative to the `docs` director
 
   - Projects:
     - Data Engineering:
-      - Azure Sky Weather: 'DE-Projects/AzureSkyWeather/index.md'
+      - Azure Sky Weather: 
+        - Overview: 'DE-Projects/AzureSkyWeather/HomeProjectAzureSkyWeather.md'
+        - Ingestion:
+          - HTTP Triggered Function: 'DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/HTTPTriggered_AzureFunc.md'
+          - Timer Triggered Function: 'DE-Projects/AzureSkyWeather/1_Ingestion/TimerTriggered/TimerTriggered_AzureFunc.md'
       - Currency Predictor: 'DE-Projects/CurrencyPredictor.md'
       - JSON Validator: 'DE-Projects/JsonValidator/index.md'
       - ETL Projects:
@@ -75,7 +80,8 @@ nav: # Sidebar menu structure. Each file path is relative to the `docs` director
       - Databricks E2E Project: 'DE-Projects/Dbrk-E2E-AttritionProject.md'
 
   - Resources:
-    - Miscellaneous: 'Misc/6_RunningAppsInBg.md'
+    - Miscellaneous:
+      - Fact vs Dimension Tables: 'Misc/10_Fact_vs_Dimension_tables.md'
     - Contributing: 'contributing.md'
     - About: 'about.md'
 
