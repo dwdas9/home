@@ -3,8 +3,6 @@
 # =========================
 site_name: Das Digital Digest  # Site name
 site_url: https://dwdas9.github.io/home/
-theme:
-  name: material
 
 # =========================
 # Navigation Structure
