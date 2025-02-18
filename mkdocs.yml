@@ -9,81 +9,313 @@ theme:
 # =========================
 # Navigation Structure
 # =========================
-nav: # Sidebar menu structure. Each file path is relative to the `docs` directory.
+# Sidebar menu structure. Each file path is relative to the `docs` directory.
+# Run the following command in terminal to see all  the markdown files. Then create the strcture below.
+# find docs -name "*.md" -type f
+
+nav:
   - Home: 'index.md'
   - Data Engineering & Analytics:
     - Apache Airflow:
-      - Overview: 'Airflow/index.md'
       - Concepts: 'Airflow/1.0.0_AirFlow_Concepts.md'
       - DAG Anatomy: 'Airflow/1.0.1_A_Dags_Anatomy.md'
       - Hello Airflow: 'Airflow/1.0.2_Hello_Airflow.md'
       - Airflow DBT Docker: 'Airflow/1.0.3_Airflow_Dbt_Docker.md'
+    
     - Spark & Databricks:
-      - Overview: 'Spark-DataBricks/index.md'
-      - Basic Concepts: 'Spark-DataBricks/basics.md'
-      - Advanced Topics: 'Spark-DataBricks/advanced.md'
+      - Spark:
+        - Concepts: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
+        - Narrow vs Wide: 'Spark-DataBricks/1.0_Spark/1.1_NarrowVsWideTransformation.md'
+        - Architecture: 'Spark-DataBricks/1.0_Spark/1.2_SparkArchitecture.md'
+        - Cache & Persist: 'Spark-DataBricks/1.0_Spark/1.3_persist_and_cache.md'
+        - Broadcast Variables: 'Spark-DataBricks/1.0_Spark/1.4_broadcastvariables.md'
+        - Data Skew: 'Spark-DataBricks/1.0_Spark/1.5_DataSkewHandling.md'
+        - Missing Values: 'Spark-DataBricks/1.0_Spark/1.6_dropna_fillna_df_missing_val_handling.md'
+        - Windows Functions: 'Spark-DataBricks/1.0_Spark/1.7_distinct_dropDuplicate_windowsFunc.md'
+        - Partitioning: 'Spark-DataBricks/1.0_Spark/1.8_Partition_Grouping.md'
+        - RDD vs DataFrame: 'Spark-DataBricks/1.0_Spark/1.9_RDD_Dataframe_Dataset.md'
+        - Scala Guide: 'Spark-DataBricks/1.0_Spark/1.10_Scala_Cheatsheet.md'
+        - Interview Q&A: 'Spark-DataBricks/1.0_Spark/1.11_Spark_Interview_Questions.md'
+        - Shuffle: 'Spark-DataBricks/1.0_Spark/1.12_Spark_Shuffle.md'
+        - Databases & Catalogs: 'Spark-DataBricks/1.0_Spark/1.13_SparkDatabaseTablesCatalogsMetastore.md'
+        - Common Topics: 'Spark-DataBricks/1.0_Spark/1.15_CommonPysparkTopics.md'
+        - Hive Integration: 'Spark-DataBricks/1.0_Spark/1.16_ConnectingSparkToHive.md'
+        - Setup Guide: 'Spark-DataBricks/1.0_Spark/Install-Pyspark-Windows/Install-Pyspark-Windows.md'
+      
+      - Databricks:
+        - Concepts: 'Spark-DataBricks/3.0_Databricks/3.0_Databricks_Concepts.md'
+        - Catalogs: 'Spark-DataBricks/3.0_Databricks/3.1_Catalogs_And_Metastore.md'
+        - Authentication: 'Spark-DataBricks/3.0_Databricks/3.2_AuthenticationMethods.md'
+        - ADLS Mount: 'Spark-DataBricks/3.0_Databricks/3.3_Mount_ADLS_on_Databricks.md'
+        - Secret Scope: 'Spark-DataBricks/3.0_Databricks/3.4_Databricks_Secret_Scope.md'
+        - SQL: 'Spark-DataBricks/3.0_Databricks/3.5_Databricks_SQL.md'
+        - Magic Commands: 'Spark-DataBricks/3.0_Databricks/3.6_DatabricksMagicCommands.md'
+        - Delta Lake: 'Spark-DataBricks/3.0_Databricks/3.7_DeltaLake_And_Lakehouse.md'
+        - Project Example: 'Spark-DataBricks/3.0_Databricks/4.8_Databricks_ProjectA1.md'
+
+      - ADLS Integration:
+        - Setup: 'Spark-DataBricks/2.0_Spark_To_ADLS/2.0_Spark_To_ADLS.md'
+        - Summary: 'Spark-DataBricks/2.0_Spark_To_ADLS/2.1_Spark-To_ADLS_Summary.md'
+
+      - Hive:
+        - Concepts: 'Spark-DataBricks/4.0_Hive/Hive_Concepts.md'
+
     - Stream Processing:
-      - Overview: 'StreamProcessing/index.md'
+      - Introduction: 'StreamProcessing/1.0_What_Is_Stream_Processing.md'
+      - Event Hubs:
+        - Overview: 'StreamProcessing/2.0_Azure_EventHubs.md'
+        - vs Kafka: 'StreamProcessing/2.0.1_EventHubs_Vs_Kafka.md'
+        - Hello EventHubs: 'StreamProcessing/2.0.2_Project_Hello_EventHubs.md'
+        - Local Emulator: 'StreamProcessing/2.0.3_EventHubsLocalEmulator.md'
+      - Processing Options: 'StreamProcessing/4_EventProcessingChoices.md'
+      - Kinesis Integration: 'StreamProcessing/5_AmazonKinesisSparkIntegration.md'
+
     - SQL:
-      - Overview: 'SQL/index.md'
-      - Best Practices: 'SQL/best-practices.md'
-      - Performance Tuning: 'SQL/performance-tuning.md'
-  
+      - Basics: 'SQL/SQL.md'
+      - Advanced Topics: 'SQL/SQL_AdvancedTopics.md'
+      - Windows Functions: 'SQL/Windows_Functions.md'
+      - SSIS:
+        - Overview: 'SQL/SSIS.md'
+        - Input/Output: 'SQL/InputAndOutputProperties.md'
+        - Flat File Source: 'SQL/FlatFileSoure.md'
+        - Project 1: 'SQL/Project_1-ETL-CSV-MSSQL.md'
+        - Project 2: 'SQL/Project_2-UsingWebServicesInSSIS.md'
+      - SSRS: 'SQL/SSRS.md'
+      - Versions: 'SQL/MSSQL_Versions.md'
+      - DBT:
+        - Overview: 'SQL/1.0.0_dbt.md'
+        - Setup Project: 'SQL/1.0.1_setup_simple_dbt_project.md'
+        - Connections: 'SQL/connecting-with-dbt.md'
+
   - Cloud & DevOps:
     - Microsoft Fabric:
-      - Overview: 'Microsoft-Fabric/index.md'
-    - Azure Services:
-      - Synapse Analytics: 'Synapse-ADF/synapse.md'
-      - Data Factory: 'Synapse-ADF/adf.md'
+      - Getting Started: 'Microsoft-Fabric/HelloMicrosoftFabric.md'
+      - Features:
+        - Data Warehouse: 'Microsoft-Fabric/DataWareHouse.md'
+        - Real-Time Analytics: 'Microsoft-Fabric/RealTimeAnalytics.md'
+        - Data Science: 'Microsoft-Fabric/DataScience.md'
+        - Data Factory: 'Microsoft-Fabric/DataFactory.md'
+      - Development:
+        - Direct Lake: 'Microsoft-Fabric/DirectLake.md'
+        - PySpark & SQL: 'Microsoft-Fabric/Pyspark_SparkSQL.md'
+        - Pandas vs Spark: 'Microsoft-Fabric/PandasVsSparkDf.md'
+        - DataFrame Inspection: 'Microsoft-Fabric/InspectingDataframes.md'
+        - KQL: 'Microsoft-Fabric/KQL.md'
+        - Spark Streaming: 'Microsoft-Fabric/FabricSparkStreaming.md'
+      - Projects:
+        - ETL with OPG: 'Microsoft-Fabric/ETL-OPG-Copydata-JSON-Lakehouse.md'
+        - ETL with PySpark: 'Microsoft-Fabric/ETL-Pyspark-Notebook-Lakehouse.md'
+        - E2E Project: 'Microsoft-Fabric/E2EProject.md'
+      - Administration: 'Microsoft-Fabric/FabricAdministration.md'
+      - Q&A: 'Microsoft-Fabric/FabricQ&A.md'
+
     - DevOps:
-      - GitHub Actions: 
+      - GitHub Actions:
         - Concepts: 'DevOps/1_GitHub-Concepts.md'
-        - Hello GitHub Actions: 'DevOps/1.1_Hello_GitHub_Actions_Workflow.md'
+        - Hello Actions: 'DevOps/1.1_Hello_GitHub_Actions_Workflow.md'
+        - Sample Workflows: 'DevOps/1.1_Sample_Workflows.md'
       - Azure DevOps:
-        - Azure Pipelines: 'DevOps/2_Azure-Pipelines.md'
-        - ADF CI/CD: 'DevOps/ADF_CICD.md'
+        - Pipelines: 'DevOps/2_Azure-Pipelines.md'
+        - Self-Hosted Agents:
+          - Windows: 'DevOps/2.1_Self-Hosted_Agent_Windows.md'
+          - Windows Container: 'DevOps/2.2_Self-Hosted_Agent_Windows_Container.md'
+          - Linux Container: 'DevOps/2.3_Self-Hosted_Agent_Linux_Container.md'
+      - ADF CI/CD: 
+        - Overview: 'DevOps/CI-CD_in ADF.md'
+        - Implementation: 'DevOps/ADF_CICD.md'
+      - Tools Comparison: 'DevOps/JenkinsVsGitHubVsAzureDevOps.md'
+      - Scenarios: 'DevOps/GitScenarios.md'
+      - Bicep: 'DevOps/Biceps.md'
+
     - Containers:
-      - Docker:
-        - Airflow on Docker: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
-        - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.md'
-      - Kubernetes: 'DockerAndKubernetes/kubernetes/index.md'
+      - Docker & Kubernetes:
+        - Docker:
+          - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.md'
+          - VS Code Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.3_VSCode_Docker_Connection.md'
+        - Spark & Hadoop:
+          - Overview: 'DockerAndKubernetes/SparkHiveHadoop/4_Spark-Hive-Hadoop.md'
+          - PySpark: 'DockerAndKubernetes/SparkHiveHadoop/4.1_PySpark.md'
+          - Bitnami Cluster: 'DockerAndKubernetes/SparkHiveHadoop/4.2_Bitnami_Spark_Cluster.md'
+          - With MSSQL: 'DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL.md'
+        - Hadoop:
+          - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.2_Hadoop_Concepts.md'
+          - Cluster Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
+        - Hive:
+          - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.1_Hive_Concepts.md'
+          - With Postgres: 'DockerAndKubernetes/SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto.md'
+          - With MySQL: 'DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL.md'
+          - Apache Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial.md'
+      - MongoDB: 'DockerAndKubernetes/Mongodb/3_DockerMongodb.md'
+      - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent Kafka.md'
+      - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
+
+    - Azure Services:
+      - Synapse:
+        - Concepts: 'Synapse-ADF/1.0_SynapseConcepts.md'
+        - Pools: 'Synapse-ADF/1.1_Pools.md'
+        - ETL Pipelines: 'Synapse-ADF/1.3_ETL Pipelines.md'
+        - Copy Data Tool: 'Synapse-ADF/1.4_Copy-data-tool.md'
+        - Integration Runtime: 'Synapse-ADF/1.5_IntegrationRuntime.md'
+        - Database Types: 'Synapse-ADF/1.6_DB_Types_In_Synapse.md'
+        - Lake DB: 'Synapse-ADF/1.7_SynapseLakeDBAndLakehouse.md'
+        - Storage Evolution: 'Synapse-ADF/1.8_ADF_SA_Evolution.md'
+        - CETAS: 'Synapse-ADF/1.9_CETAS.md'
+      - Data Factory:
+        - Projects: 'Synapse-ADF/2.0_Projects.md'
+        - Local to ADLS: 'Synapse-ADF/2.1_Pipeline-Local-ADLS.md'
+        - PySpark Warehouse: 'Synapse-ADF/2.2_PySparkWarehouse.md'
+        - REST API: 'Synapse-ADF/2.3_ADF_RestAPI_Databricks.md'
+        - Monitoring: 'Synapse-ADF/2.4_Monitor_ADF_Pipelines.md'
+        - Copy Pipeline: 'Synapse-ADF/2.5_ADF_Pipeline_Copy.md'
+      - Q&A: 'Synapse-ADF/Q&A.md'
 
   - Enterprise Solutions:
     - Microsoft 365:
-      - Overview: 'M365/index.md'
-      - SharePoint: 'M365/sharepoint.md'
+      - SharePoint:
+        - Events: 'M365/SharePointEvents.md'
+        - Forms vs PowerApps: 'M365/SharePointFormsOrPowerApps.md'
+        - Mini Role: 'M365/SharePointMiniRole.md'
+        - Evolution: 'M365/SharePointVersionEvolution.md'
+        - vs Other ECM: 'M365/SharePointVsOtherECM.md'
+        - Farm:
+          - Consolidation: 'M365/SharePointFarmConsolidation.md'
+          - 2007 Upgrade: 'M365/SharePoint2007FarmUpgrade.md'
+          - 2016 Upgrade: 'M365/SharePoint2016FarmUpgrade.md'
+        - Migration:
+          - SPMT: 'M365/SPMT.md'
+          - Documentum: 'M365/DocumentumToSharePoint.md'
+          - WSS3: 'M365/WSS3DocumentUpload.md'
+        - Integration:
+          - OAuth Python: 'M365/oAuthSharePointPython.md'
+      - Licensing: 'M365/LicensingExamples.md'
+
     - Power Platform:
-      - Overview: 'PowerPlatform/index.md'
-      - Power BI: 'PowerPlatform/powerbi.md'
-      - Power Automate: 'PowerPlatform/automate.md'
-      - Calculation Groups: 'PowerPlatform/CalculationGroups.md'
+      - Hello Platform: 'PowerPlatform/HelloPowerPlatform.md'
+      - Admin Central: 'PowerPlatform/PowerPlatformAdminCentral.md'
+      - Components:
+        - Hello Dataverse: 'PowerPlatform/HelloDataverse.md'
+        - Hello Dynamics: 'PowerPlatform/HelloDynamics365.md'
+        - Model Apps: 'PowerPlatform/ModelDrivenApps.md'
+        - Power Pages: 'PowerPlatform/GoogleProviderPowerPages.md'
+        - Power Automate: 'PowerPlatform/PowerAutomateIsWorkflowTeams.md'
+        - Calculation Groups: 'PowerPlatform/CalculationGroups.md'
+      - Features:
+        - Document Intelligence:
+          - Overview: 'PowerPlatform/DocumentIntelligence/AzureAIDocumentIntelligence.md'
+          - Automation: 'PowerPlatform/DocumentIntelligence/DocumentAutomation.md'
+          - With Cognitive Search: 'PowerPlatform/DocumentIntelligence/AAIDI_AzureCognitiveSearch.md'
+          - Q&A: 'PowerPlatform/DocumentIntelligence/AAIDI_Q&A.md'
+        - Syntex:
+          - Enable: 'PowerPlatform/EnableMicrosoftSyntex.md'
+          - Document Library: 'PowerPlatform/EnableSyntexOnYourDocumentLibrary.md'
+        - ECM Capture: 'PowerPlatform/ECMCaptureFlow.md'
+      - Integration:
+        - Custom Connectors: 'PowerPlatform/CustomConnectors.md'
+        - On-Premise Gateway: 'PowerPlatform/OnPremiseGateway.md'
+      - Security: 'PowerPlatform/HealthClinicDataverseSecurity.md'
+      - Q&A: 'PowerPlatform/PowerPlatformQ&A.md'
+
     - MongoDB:
-      - Overview: 'MongoDB/index.md'
-      - Best Practices: 'MongoDB/best-practices.md'
+      - Commands: 'MongoDB/MongoDBCommands.md'
+      - File Storage: 'MongoDB/HowMongoDBStoresFiles.md'
+      - Comparisons: 'MongoDB/MongbDB_Vs_Atlas_VsCosmosDB.md'
+
     - Python:
-      - Overview: 'Python/index.md'
-      - Data Processing: 'Python/data-processing.md'
-      - Automation: 'Python/automation.md'
+      - Basics: 'Python/1_Python.md'
+      - Data Structures:
+        - Sets: 'Python/1.0_Sets.md'
+        - Tuples:
+          - Basic: 'Python/1.1_Tuples.md'
+          - Advanced: 'Python/1.2_Tuples_Advanced.md'
+        - Lists: 'Python/1.3_List.md'
+        - Dictionaries: 'Python/1.4_Dictionaries.md'
+      - Functions:
+        - Lambda: 'Python/1.5_Lamda_Functions.md'
+        - Built-in: 'Python/1.16_built_in_functions.md'
+        - Overview: 'Python/1.9_Func_Modl_Lib.md'
+        - Summary: 'Python/1.10_Func_Modl_Summary.md'
+      - Control Flow:
+        - If-Elif-Else: 'Python/1.11_ifelifelse.md'
+        - Operators: 'Python/1.12_Operators.md'
+        - For Loops: 'Python/1.13_For_Loops.md'
+        - Enumerate: 'Python/1.14_enumerate.md'
+        - Range: 'Python/1.15_range_function.md'
+      - Advanced:
+        - With Statement: 'Python/1.17_withStatement.md'
+        - Testing: 'Python/1.18_unittest_pytest.md'
+        - Main Function: 'Python/1.19_if_name_main.md.md'
+        - Decorators: 'Python/1.1.1_decorators.md'
+        - Arguments: 'Python/1.1.2_argv.md'
+        - Error Handling: 'Python/1.1.3_error_handling.md'
+        - Diff & Patch: 'Python/1.1.3_Diff_And_Patch.md'
+        - Debugging: 'Python/1.1.4_pdb.md'
+        - Formatting: 'Python/1.1.5_pyformat.md'
+      - Integrations:
+        - Linux: 'Python/Linux.md'
+        - PySpark: 'Python/Pyspark.md'
+        - Graph API: 'Python/GraphAPIJupyter/GraphAPIUsingJuputer.md'
+      - Scripts: 'Python/PythonScripts.md'
 
   - Projects:
-    - Data Engineering:
-      - Azure Sky Weather: 
-        - Overview: 'DE-Projects/AzureSkyWeather/HomeProjectAzureSkyWeather.md'
-        - Ingestion:
-          - HTTP Triggered Function: 'DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/HTTPTriggered_AzureFunc.md'
-          - Timer Triggered Function: 'DE-Projects/AzureSkyWeather/1_Ingestion/TimerTriggered/TimerTriggered_AzureFunc.md'
+    - Azure Sky Weather:
+      - Overview: 'DE-Projects/AzureSkyWeather/HomeProjectAzureSkyWeather.md'
+      - Ingestion:
+        - HTTP Triggered:
+          - Functions: 'DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/HTTPTriggered_AzureFunc.md'
+          - Azure Functions: 'DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/nav2_AzureFunctions.md'
+        - Timer Triggered: 'DE-Projects/AzureSkyWeather/1_Ingestion/TimerTriggered/TimerTriggered_AzureFunc.md'
+      - Transformation: 'DE-Projects/AzureSkyWeather/2_Transformation/Solution_Details.md'
+    
+    - StreamKraft:
+      - Overview: 'DE-Projects/StreamKraft/HomeProjectStreamKraft.md'
+    
+    - Sparkzure:
+      - Overview: 'DE-Projects/Sparkzure/HomeProjectSparkzure.md'
+    
+    - JSON Projects:
+      - Validator:
+        - Python: 'DE-Projects/JsonValidator/Python-ValidateJSONs.md'
+        - Azure Function: 'DE-Projects/JsonValidator/AzureFunction-ValidateJSOns.md'
+      - Azure SDK: 'DE-Projects/JsonFlatAzureSDK.md'
+      - To Parquet: 'DE-Projects/FetchJsonWriteParquet.md'
+      - To Hive: 'DE-Projects/Raw-Json-To-Hive.md'
+    
+    - ETL Projects:
       - Currency Predictor: 'DE-Projects/CurrencyPredictor.md'
-      - JSON Validator: 'DE-Projects/JsonValidator/index.md'
-      - ETL Projects:
-        - CSV to MSSQL: 'DE-Projects/Csv-To-MSSQL.md'
-        - JSON to Parquet: 'DE-Projects/FetchJsonWriteParquet.md'
-      - Databricks E2E Project: 'DE-Projects/Dbrk-E2E-AttritionProject.md'
+      - CSV to MSSQL: 'DE-Projects/Csv-To-MSSQL.md'
+      - Azure Blob Migration: 'DE-Projects/Project_MigrationToAzureBlob.md'
+      - Local Python to Blob: 'DE-Projects/LocalPython_AzureBlob.md'
+      - MongoDB CMS: 'DE-Projects/Project_MongoCMS.md'
+      - SSRS SSIS SharePoint: 'DE-Projects/Project_SSRS_SSIS_SharePoint.md'
+      - Databricks E2E: 'DE-Projects/Dbrk-E2E-AttritionProject.md'
+    
+    - Trading:
+      - SPY ETF Recommender: 'DE-Projects/SPY_ETF_Buy_Recommender.md'
+    
+    - Setup Guides:
+      - Install Scala: 'DE-Projects/InstallScala.md'
+      - Hadoop Jars: 'DE-Projects/Download-Haddop-Jars.md'
+      - Microsoft OpenJDK: 'DE-Projects/Microsoft_OpenJDK.md'
 
   - Resources:
+    - MkDocs:
+      - Issues: 'MKdocs/Issues.md'
     - Miscellaneous:
-      - Fact vs Dimension Tables: 'Misc/10_Fact_vs_Dimension_tables.md'
-    - Contributing: 'contributing.md'
-    - About: 'about.md'
+      - Markdown:
+        - Basics: 'Misc/3_Markdown.md'
+        - Colors: 'Misc/MarkdownColor.md/Color.md'
+        - PDF Export: 'Misc/markdown_pdf_export_html.md'
+      - Cloud:
+        - GCP Usage: 'Misc/1_GoogleCloudSeeUsage.md'
+        - Azure Budget: 'Misc/7_Azure_Budget.md'
+      - System:
+        - Ubuntu Benefits: 'Misc/9_WhyUbuntuIsGood.md'
+        - VMware Free: 'Misc/2_InstallVMWareFree.md'
+        - VS Code Tips: 'Misc/4_VSTrics.md'
+        - Background Apps: 'Misc/6_RunningAppsInBg.md'
+      - Data:
+        - Datasets: 'Misc/5_WhichDatastsToUse.md'
+        - Fact vs Dimension: 'Misc/10_Fact_vs_Dimension_tables.md'
 
 
 # =========================
