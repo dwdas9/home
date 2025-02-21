@@ -3,8 +3,33 @@
 # =========================
 site_name: Das Digital Digest  # Site name
 site_url: https://dwdas9.github.io/home/
+# =========================
+# Theme Configuration
+# =========================
 theme:
-  name: material
+  name: material  # Change to 'readthedocs' or 'mkdocs' for other themes
+  font:
+    text: "Roboto"  # Font for the text (alternative: "Inter")
+  features:  # Enable/disable site features
+    - navigation.top  # Back to top button
+    - search.suggest  # Search suggestions
+    - search.highlight  # Highlight matching search terms
+    - content.code.copy  # Add copy button to code blocks
+  palette:
+
+      # Palette toggle for light mode
+      - media: "(prefers-color-scheme: light)"
+        scheme: default
+        toggle:
+          icon: material/brightness-7
+          name: Switch to dark mode
+
+      # Palette toggle for dark mode
+      - media: "(prefers-color-scheme: dark)"
+        scheme: slate
+        toggle:
+          icon: material/brightness-4
+          name: Switch to light mode
 
 # =========================
 # Navigation Structure
@@ -299,7 +324,7 @@ nav:
 
   - Resources:
     - MkDocs:
-      - Issues: 'MKdocs/Issues.md'
+      - Github Deployment: 'MKdocs/Github_Deployment_Guide.md'
     - Miscellaneous:
       - Markdown:
         - Basics: 'Misc/3_Markdown.md'
@@ -318,33 +343,6 @@ nav:
         - Fact vs Dimension: 'Misc/10_Fact_vs_Dimension_tables.md'
 
 
-# =========================
-# Theme Configuration
-# =========================
-theme:
-  name: material  # Change to 'readthedocs' or 'mkdocs' for other themes
-  font:
-    text: "Roboto"  # Font for the text (alternative: "Inter")
-  features:  # Enable/disable site features
-    - navigation.top  # Back to top button
-    - search.suggest  # Search suggestions
-    - search.highlight  # Highlight matching search terms
-    - content.code.copy  # Add copy button to code blocks
-  palette:
-
-      # Palette toggle for light mode
-      - media: "(prefers-color-scheme: light)"
-        scheme: default
-        toggle:
-          icon: material/brightness-7
-          name: Switch to dark mode
-
-      # Palette toggle for dark mode
-      - media: "(prefers-color-scheme: dark)"
-        scheme: slate
-        toggle:
-          icon: material/brightness-4
-          name: Switch to light mode
 # =========================
 # Plugins Configuration
 # =========================
