@@ -1,0 +1,49 @@
+/* 
+dwdas, Nov 2026
+
+To create shadow images automatically, add the following CSS to the extra.css file in the mkdocs/docs/stylesheets/ directory.
+And then add the following to the mkdocs.yml file:
+
+extra_css:
+  - stylesheets/extra.css
+
+That's all. Nothing else is required. It will affect all images.
+
+*/
+img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    border-radius: 8px; /* Optional: adds rounded corners */
+    max-width: 400px; /* Set the maximum width of the image */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Center the image */
+    margin: 1rem auto; /* Add spacing and center alignment */
+}
+
+
+/* General Header Styles */
+h1, h2, h3, h4, h5 {
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin-bottom: 16px;
+  margin-top: 1.5em;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+
+/* Body Text */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Accessibility Enhancements */
+h1, h2, h3, h4, h5 {
+  letter-spacing: 0.5px;
+}
