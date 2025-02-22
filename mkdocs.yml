@@ -3,33 +3,158 @@
 # =========================
 site_name: Das Digital Digest  # Site name
 site_url: https://dwdas9.github.io/home/
+site_author: Das
+site_description: A collection of notes, tutorials, and projects on AI, Data Engineering, Analytics, Cloud, DevOps, and Enterprise Solutions.  # Site description
+
+# =========================
+# Footer Configuration
+# =========================
+copyright: Copyright &copy; 2019-2025 - Das  # Footer text
+
 # =========================
 # Theme Configuration
 # =========================
 theme:
   name: material  # Change to 'readthedocs' or 'mkdocs' for other themes
-  font:
-    text: "Roboto"  # Font for the text (alternative: "Inter")
+  #custom_dir: material/overrides  # Custom theme directory
   features:  # Enable/disable site features
     - navigation.top  # Back to top button
     - search.suggest  # Search suggestions
     - search.highlight  # Highlight matching search terms
     - content.code.copy  # Add copy button to code blocks
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
   palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
 
-      # Palette toggle for light mode
-      - media: "(prefers-color-scheme: light)"
-        scheme: default
-        toggle:
-          icon: material/brightness-7
-          name: Switch to dark mode
+# =========================
+# Plugins Configuration
+# =========================
+plugins:
+  - blog
+  - search:  # Enable search functionality (required for most themes)
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+  - glightbox:  # Plugin for image and media lightboxes
+      touchNavigation: true       # Allow touch navigation on mobile
+      loop: false                 # Disable continuous looping
+      effect: zoom                # Add zoom effect for images
+      slide_effect: slide         # Slide transition for media
+      width: 100%                 # Responsive width
+      height: auto                # Adaptive height
+      zoomable: true              # Enable zoom functionality
+      draggable: true             # Allow media dragging
+      auto_caption: true          # Generate captions automatically
+      caption_position: bottom    # Place captions at the bottom
+      shadow: true                # Enable shadow effects
+  - offline  # Make site searchable offline (enable if distributing offline)
+  #- include-markdown ## Sidebar menu structure. Each file path is relative to the `docs` directory.. To reuse markdown files in other markdown files
 
-      # Palette toggle for dark mode
-      - media: "(prefers-color-scheme: dark)"
-        scheme: slate
-        toggle:
-          icon: material/brightness-4
-          name: Switch to light mode
+# Additional configuration
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dwdas9
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/dwdas9
+    - icon: fontawesome/brands/gitbook
+      link: https://dwd.gitbook.io/home
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/dwds/
+
+
+# =========================
+# Markdown Extensions
+# =========================
+markdown_extensions:
+  - admonition # for notes, warnings, etc.
+  - pymdownx.details  # Add collapsible details blocks
+  - pymdownx.highlight:  # Syntax highlighting for code blocks
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite  # Inline code highlighting
+  - pymdownx.snippets  # Include external snippets in Markdown
+  - pymdownx.superfences:  # Enable complex fences (e.g., for Mermaid diagrams)
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:  # Add tabbed content blocks
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - attr_list  # Enable attribute lists (e.g., `{ .class }`)
+  - pymdownx.emoji:  # Enable emojis
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:  # Table of contents with permalinks
+      permalink: true
+  #- markdown_include.include:
+  #      base_path: docs
+
+# =========================
+# Additional Assets
+# =========================
+extra_css:
+  - stylesheets/extra.css  # Add custom CSS for styling
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js  # Enable Mermaid diagrams
 
 # =========================
 # Navigation Structure
@@ -341,69 +466,3 @@ nav:
       - Data:
         - Datasets: 'Misc/5_WhichDatastsToUse.md'
         - Fact vs Dimension: 'Misc/10_Fact_vs_Dimension_tables.md'
-
-
-# =========================
-# Plugins Configuration
-# =========================
-plugins:
-  - search  # Enable search functionality (required for most themes)
-  - glightbox:  # Plugin for image and media lightboxes
-      touchNavigation: true       # Allow touch navigation on mobile
-      loop: false                 # Disable continuous looping
-      effect: zoom                # Add zoom effect for images
-      slide_effect: slide         # Slide transition for media
-      width: 100%                 # Responsive width
-      height: auto                # Adaptive height
-      zoomable: true              # Enable zoom functionality
-      draggable: true             # Allow media dragging
-      auto_caption: true          # Generate captions automatically
-      caption_position: bottom    # Place captions at the bottom
-      shadow: true                # Enable shadow effects
-  - offline  # Make site searchable offline (enable if distributing offline)
-  #- include-markdown ## Sidebar menu structure. Each file path is relative to the `docs` directory.. To reuse markdown files in other markdown files
-
-# =========================
-# Markdown Extensions
-# =========================
-markdown_extensions:
-  - admonition # for notes, warnings, etc.
-  - pymdownx.details  # Add collapsible details blocks
-  - pymdownx.highlight:  # Syntax highlighting for code blocks
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite  # Inline code highlighting
-  - pymdownx.snippets  # Include external snippets in Markdown
-  - pymdownx.superfences:  # Enable complex fences (e.g., for Mermaid diagrams)
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:  # Add tabbed content blocks
-      alternate_style: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
-  - attr_list  # Enable attribute lists (e.g., `{ .class }`)
-  - pymdownx.emoji:  # Enable emojis
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - toc:  # Table of contents with permalinks
-      permalink: true
-  #- markdown_include.include:
-  #      base_path: docs
-
-# =========================
-# Additional Assets
-# =========================
-extra_css:
-  - stylesheets/extra.css  # Add custom CSS for styling
-extra_javascript:
-  - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js  # Enable Mermaid diagrams
-
-# =========================
-# Footer Configuration
-# =========================
-copyright: Copyright &copy; 2024 - Das  # Footer text
-
