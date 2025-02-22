@@ -8,7 +8,7 @@ mkdocs-material
 pymdown-extensions  # Provides advanced Markdown extensions
 mkdocs-glightbox  # Plugin for media lightboxes
 mkdocs-include-markdown-plugin
-
+mkdocs-minify-plugin # Plugin for minifying HTML and CSS
 # Additional dependencies required by mkdocs-material
 markdown  # Markdown parser
 pyyaml  # YAML parsing library
