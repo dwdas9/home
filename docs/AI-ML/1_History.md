@@ -1,4 +1,4 @@
-![alt text](image.png)
+![alt text](images/Turing.png)
 
 # Evolution of LLMs through Time
 ---
