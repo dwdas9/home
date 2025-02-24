@@ -163,6 +163,9 @@ extra_javascript:
 
 nav:
   - Home: 'index.md'
+  
+  - AI & ML:
+    - History: 'AI-ML/1_History.md'
   - Data Engineering & Analytics:
     - Apache Airflow:
       - Concepts: 'Airflow/1.0.0_AirFlow_Concepts.md'
