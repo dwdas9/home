@@ -113,7 +113,7 @@ extra:
       link: https://hub.docker.com/u/dwdas9
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/dwds/
-
+  generator: false # Remove Made with Material in footer
 
 # =========================
 # Markdown Extensions
