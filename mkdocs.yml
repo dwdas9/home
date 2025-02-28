@@ -166,6 +166,7 @@ nav:
   
   - AI & ML:
     - History: 'AI-ML/1_History.md'
+    - Running Stable Diffusion Locally: 'AI-ML/Running_Stable_Diffusion_Locally.md'
   - Data Engineering & Analytics:
     - Apache Airflow:
       - Concepts: 'Airflow/1.0.0_AirFlow_Concepts.md'
