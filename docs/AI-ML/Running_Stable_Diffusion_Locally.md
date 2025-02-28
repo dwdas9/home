@@ -60,9 +60,9 @@ You’ll know you’re in the virtual environment if `(venv)` appears in your te
 
 ### 5. Place Your Model Checkpoint
 
-1. Download your preferred model from Hugging Face (for example, **Stable Diffusion v1.5**).  
-2. You’ll end up with a file such as `v1-5-pruned.safetensors` or `v1-5-pruned.ckpt`.  
-3. Move that file into the following path:
+- Download your preferred model from Hugging Face (for example, **Stable Diffusion v1.5**).  
+- You’ll end up with a file such as `v1-5-pruned.safetensors` or `v1-5-pruned.ckpt`.  
+- Move that file into the following path:
 
    ```
    stable-diffusion-webui/models/Stable-diffusion/
@@ -121,21 +121,21 @@ Go to that address in your web browser. You’ll be greeted by the AUTOMATIC1111
 Once you’re in the web interface, here’s a quick rundown of the main tabs:
 
 1. **txt2img**:  
-   - Enter your prompt text.  
-   - Tweak settings like **Sampling Steps**, **Sampling Method** (Euler, DPM++, etc.), and **Batch Size** if you want multiple images.  
-   - Click **Generate** to watch the magic happen.
+      - Enter your prompt text.  
+      - Tweak settings like **Sampling Steps**, **Sampling Method** (Euler, DPM++, etc.), and **Batch Size** if you want multiple images.  
+      - Click **Generate** to watch the magic happen.
 
 2. **img2img**:  
-   - Upload an existing image and provide a text prompt to transform it.  
-   - Adjust the **Denoising Strength** to control how different your final image is from the original.
+      - Upload an existing image and provide a text prompt to transform it.  
+      - Adjust the **Denoising Strength** to control how different your final image is from the original.
 
 3. **Inpainting**:  
-   - Mask out parts of an image you'd like to overwrite.  
-   - Let Stable Diffusion fill those areas according to your prompt.
+      - Mask out parts of an image you'd like to overwrite.  
+      - Let Stable Diffusion fill those areas according to your prompt.
 
 4. **Settings & Extensions**:  
-   - Tinker with advanced configurations like paths, optimization, or UI tweaks in the **Settings** tab.  
-   - Install or manage community plugins under **Extensions** (e.g., **ControlNet**, **textual inversions**, **LoRAs**, and more).
+      - Tinker with advanced configurations like paths, optimization, or UI tweaks in the **Settings** tab.  
+      - Install or manage community plugins under **Extensions** (e.g., **ControlNet**, **textual inversions**, **LoRAs**, and more).
 
 ---
 
