@@ -266,6 +266,7 @@ nav:
         - Concepts: 'DevOps/1_GitHub-Concepts.md'
         - Hello Actions: 'DevOps/1.1_Hello_GitHub_Actions_Workflow.md'
         - Sample Workflows: 'DevOps/1.1_Sample_Workflows.md'
+        - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'  # Add this line
       - Azure DevOps:
         - Pipelines: 'DevOps/2_Azure-Pipelines.md'
         - Self-Hosted Agents:
@@ -298,7 +299,7 @@ nav:
           - With MySQL: 'DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL.md'
           - Apache Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial.md'
       - MongoDB: 'DockerAndKubernetes/Mongodb/3_DockerMongodb.md'
-      - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent Kafka.md'
+      - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
       - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
 
     - Azure Services:
@@ -395,7 +396,7 @@ nav:
       - Advanced:
         - With Statement: 'Python/1.17_withStatement.md'
         - Testing: 'Python/1.18_unittest_pytest.md'
-        - Main Function: 'Python/1.19_if_name_main.md.md'
+        - Main Function: 'Python/1.19_if_name_main.md'
         - Decorators: 'Python/1.1.1_decorators.md'
         - Arguments: 'Python/1.1.2_argv.md'
         - Error Handling: 'Python/1.1.3_error_handling.md'
@@ -455,7 +456,7 @@ nav:
     - Miscellaneous:
       - Markdown:
         - Basics: 'Misc/3_Markdown.md'
-        - Colors: 'Misc/MarkdownColor.md/Color.md'
+        - Colors: 'Misc/MarkdownColor/Color.md'
         - PDF Export: 'Misc/markdown_pdf_export_html.md'
       - Cloud:
         - GCP Usage: 'Misc/1_GoogleCloudSeeUsage.md'
