@@ -120,49 +120,50 @@ The CI/CD process starts the momenent the user(I) creates any markdown file and 
 
 1. **Triggering the Workflow - The Sequence:**
 
-   - **Step 1.1:** I push changes to the `main` or `master` branch using Git on my local machine
-   - **Step 1.2:** My git client sends a POST request to GitHub's servers containing my commits
-   - **Step 1.3:** GitHub receives and stores these commits in its database
-   - **Step 1.4:** This storage action automatically triggers GitHub's event system
-   - **Step 1.5:** The event system identifies this as a "push" event and activates the webhook system
-   - **Step 1.6:** The webhook processor begins scanning my repository structure, specifically looking in the `.github/workflows/` directory
-   - **Step 1.7:** When it finds my `ci.yml` file, it reads the configuration to check if this workflow should run
-   - **Step 1.8:** The processor confirms the push was to `main` or `master` branch (as specified in the workflow trigger)
-   - **Step 1.9:** After validation succeeds, GitHub's workflow scheduler receives a signal to execute this workflow
-   - **Step 1.10:** The scheduler places this job in a queue for the next available runner
-    ![](images/20250516150019.png)
+    - **Step 1.1:** I push changes to the `main` or `master` branch using Git on my local machine
+    - **Step 1.2:** My git client sends a POST request to GitHub's servers containing my commits
+    - **Step 1.3:** GitHub receives and stores these commits in its database
+    - **Step 1.4:** This storage action automatically triggers GitHub's event system
+    - **Step 1.5:** The event system identifies this as a "push" event and activates the webhook system
+    - **Step 1.6:** The webhook processor begins scanning my repository structure, specifically looking in the `.github/workflows/` directory
+    - **Step 1.7:** When it finds my `ci.yml` file, it reads the configuration to check if this workflow should run
+    - **Step 1.8:** The processor confirms the push was to `main` or `master` branch (as specified in the workflow trigger)
+    - **Step 1.9:** After validation succeeds, GitHub's workflow scheduler receives a signal to execute this workflow
+    - **Step 1.10:** The scheduler places this job in a queue for the next available runner
+      ![](images/20250516150019.png)
 
 2. **Setting Up the Environment - What Happens Next:**
 
-   - **Step 2.1:** GitHub allocates an Ubuntu virtual machine from its runner pool
-   - **Step 2.2:** The runner VM boots up and initializes the GitHub Actions runner software
-   - **Step 2.3:** The runner software downloads my workflow configuration and begins executing it step by step
-   - **Step 2.4:** First, the `actions/checkout@v4` action runs, which clones my repository into the VM
-   - **Step 2.5:** After cloning, Git credentials are automatically configured for the deployment process
-   - **Step 2.6:** Next, `actions/setup-python@v5` runs to install Python on the VM
-   - **Step 2.7:** The runner then sets up dependency caching based on my configuration
-   - **Step 2.8:** Finally, it installs all required dependencies by running `pip install -r requirements.txt`
-    ![](images/20250516144808.png)
+    - **Step 2.1:** GitHub allocates an Ubuntu virtual machine from its runner pool
+    - **Step 2.2:** The runner VM boots up and initializes the GitHub Actions runner software
+    - **Step 2.3:** The runner software downloads my workflow configuration and begins executing it step by step
+    - **Step 2.4:** First, the `actions/checkout@v4` action runs, which clones my repository into the VM
+    - **Step 2.5:** After cloning, Git credentials are automatically configured for the deployment process
+    - **Step 2.6:** Next, `actions/setup-python@v5` runs to install Python on the VM
+    - **Step 2.7:** The runner then sets up dependency caching based on my configuration
+    - **Step 2.8:** Finally, it installs all required dependencies by running `pip install -r requirements.txt`
+      ![](images/20250516144808.png)
 
 3. **Building and Deploying - The Build Process:**
 
-   - **Step 3.1:** With the environment ready, the runner executes `mkdocs gh-deploy --force`
-   - **Step 3.2:** MkDocs reads my configuration and processes all my Markdown files
-   - **Step 3.3:** It converts everything to HTML, CSS, and JavaScript in a temporary `site/` directory
-   - **Step 3.4:** MkDocs then initializes a Git repository within this directory
-   - **Step 3.5:** It stages all the generated files and creates a commit
-   - **Step 3.6:** Using the previously configured Git credentials, it pushes to the `gh-pages` branch
-   - **Step 3.7:** The `--force` flag ensures the push succeeds even if there are conflicts
-    ![](images/20250516145815.png)
+    - **Step 3.1:** With the environment ready, the runner executes `mkdocs gh-deploy --force`
+    - **Step 3.2:** MkDocs reads my configuration and processes all my Markdown files
+    - **Step 3.3:** It converts everything to HTML, CSS, and JavaScript in a temporary `site/` directory
+    - **Step 3.4:** MkDocs then initializes a Git repository within this directory
+    - **Step 3.5:** It stages all the generated files and creates a commit
+    - **Step 3.6:** Using the previously configured Git credentials, it pushes to the `gh-pages` branch
+    - **Step 3.7:** The `--force` flag ensures the push succeeds even if there are conflicts
+      ![](images/20250516145815.png)
+
 4. **Publication to GitHub Pages - After the Push:**
 
-   - **Step 4.1:** GitHub receives the pushed content to the `gh-pages` branch(https://github.com/dwdas9/home/tree/gh-pages)
-   - **Step 4.2:** This push automatically triggers GitHub Pages' deployment system
-   - **Step 4.3:** GitHub Pages processes the content and prepares it for publication
-   - **Step 4.4:** The system uploads the files to GitHub's CDN for global distribution
-   - **Step 4.5:** DNS is configured to serve this content at my custom URL
-   - **Step 4.6:** The website becomes publicly available at `https://dwdas9.github.io/home`
-   ![](images/20250516145722.png)
+    - **Step 4.1:** GitHub receives the pushed content to the `gh-pages` branch(https://github.com/dwdas9/home/tree/gh-pages)
+    - **Step 4.2:** This push automatically triggers GitHub Pages' deployment system
+    - **Step 4.3:** GitHub Pages processes the content and prepares it for publication
+    - **Step 4.4:** The system uploads the files to GitHub's CDN for global distribution
+    - **Step 4.5:** DNS is configured to serve this content at my custom URL
+    - **Step 4.6:** The website becomes publicly available at `https://dwdas9.github.io/home`
+    ![](images/20250516145722.png)
 
 
 ## Breaking Down CI vs. CD in Our Workflow
