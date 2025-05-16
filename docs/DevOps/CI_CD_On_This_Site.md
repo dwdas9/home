@@ -61,7 +61,7 @@ GitHub Actions Service is a fully automatic, dedicated, backend GitHub service t
 
 For this website, the `ci.yml` file is the main and ONLY file which contains all our CI/CD logic. There are no other files for CI/CD. It must be present inside `.github/workflows/` folder. Remember, the `on` section of the `ci.yml` file is the most important part. It tells GitHub Actions when to run the workflow. In our case, we have set it to run on every push to the `main` or `master` branch.
 
-Let's analyze the source code we have put in our`ci.yml` :
+Let's analyze the source code we have put in our `ci.yml` :
 
 ```yaml
 name: ci                 # Name shown in GitHub Actions UI
@@ -119,6 +119,7 @@ The CI/CD process starts the momenent the user(I) creates any markdown file and 
 ### Step-by-Step Breakdown of the CI/CD Process
 
 1. **Triggering the Workflow - The Sequence:**
+
    - **Step 1.1:** I push changes to the `main` or `master` branch using Git on my local machine
    - **Step 1.2:** My git client sends a POST request to GitHub's servers containing my commits
    - **Step 1.3:** GitHub receives and stores these commits in its database
@@ -132,6 +133,7 @@ The CI/CD process starts the momenent the user(I) creates any markdown file and 
     ![](images/20250516150019.png)
 
 2. **Setting Up the Environment - What Happens Next:**
+
    - **Step 2.1:** GitHub allocates an Ubuntu virtual machine from its runner pool
    - **Step 2.2:** The runner VM boots up and initializes the GitHub Actions runner software
    - **Step 2.3:** The runner software downloads my workflow configuration and begins executing it step by step
@@ -143,6 +145,7 @@ The CI/CD process starts the momenent the user(I) creates any markdown file and 
     ![](images/20250516144808.png)
 
 3. **Building and Deploying - The Build Process:**
+
    - **Step 3.1:** With the environment ready, the runner executes `mkdocs gh-deploy --force`
    - **Step 3.2:** MkDocs reads my configuration and processes all my Markdown files
    - **Step 3.3:** It converts everything to HTML, CSS, and JavaScript in a temporary `site/` directory
@@ -152,6 +155,7 @@ The CI/CD process starts the momenent the user(I) creates any markdown file and 
    - **Step 3.7:** The `--force` flag ensures the push succeeds even if there are conflicts
     ![](images/20250516145815.png)
 4. **Publication to GitHub Pages - After the Push:**
+
    - **Step 4.1:** GitHub receives the pushed content to the `gh-pages` branch(https://github.com/dwdas9/home/tree/gh-pages)
    - **Step 4.2:** This push automatically triggers GitHub Pages' deployment system
    - **Step 4.3:** GitHub Pages processes the content and prepares it for publication
