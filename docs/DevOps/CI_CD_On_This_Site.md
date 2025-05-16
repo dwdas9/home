@@ -197,24 +197,24 @@ The CI/CD platform on GitHub is called **GitHub Actions**. It allows you to auto
 GitHub Actions operates through a sophisticated event system:
 
 1. **Event Detection**
-   - GitHub continuously monitors repository events (pushes, pull requests, issues, etc.)
-   - When an event occurs, GitHub's webhook system generates a notification
+    - GitHub continuously monitors repository events (pushes, pull requests, issues, etc.)
+    - When an event occurs, GitHub's webhook system generates a notification
 
 2. **Workflow Discovery**
-   - GitHub examines all `.github/workflows/*.yml` files in your repository
-   - It identifies workflows configured to respond to the triggered event
+    - GitHub examines all `.github/workflows/*.yml` files in your repository
+    - It identifies workflows configured to respond to the triggered event
 
 3. **Configuration Parsing**
-   - For matching workflows, GitHub parses the `on` field to confirm the event match
-   - It also checks any filters (like branch names or file paths)
+    - For matching workflows, GitHub parses the `on` field to confirm the event match
+    - It also checks any filters (like branch names or file paths)
 
 4. **Execution Environment**
-   - GitHub allocates a runner (virtual machine) for the workflow
-   - The runner creates a clean environment for each workflow run
+    - GitHub allocates a runner (virtual machine) for the workflow
+    - The runner creates a clean environment for each workflow run
 
 5. **Step Execution**
-   - The runner processes each step in sequence
-   - It reports progress and collects logs for monitoring
+    - The runner processes each step in sequence
+    - It reports progress and collects logs for monitoring
 
 ### Workflows
 
