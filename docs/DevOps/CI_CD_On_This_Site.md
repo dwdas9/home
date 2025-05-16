@@ -1,7 +1,8 @@
 # Understanding a full CI/CD process with a practical example
 
 ## Introduction
-The current website uses both CI (Continuous Integration) and CD (Continuous Deployment) in a straightforward setup that makes it an excellent example for understanding the complete CI/CD process from a production-grade real-world perspective. This document will show you how CI/CD is used to automate the entire compilation of markdown content and deploy the resulting HTML files to GitHub Pages. This means the user only has to worry about writing the markdown, while the rest of the steps are automated using GitHub Actions CI/CD.
+
+This website has a full fledged CI/CD process that automatically builds and deploys the website whenever I push changes to the `main` or `master` branch. The CI/CD process is powered by GitHub Actions, which automates the entire workflow from code changes to deployment. In this document I try to how the entire setup works, including the folder structure, the CI/CD process, and the key concepts involved.
 
 ### Key Concepts Covered
 
