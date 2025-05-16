@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This website has a full fledged CI/CD process that automatically builds and deploys the website whenever I push changes to the `main` or `master` branch. The CI/CD process is powered by GitHub Actions, which automates the entire workflow from markdown to html conversion to deployment. In this document I try to how the entire setup works, including the folder structure, the CI/CD process, and the key concepts involved.
+This website has a full fledged CI/CD process that automatically builds and deploys the website whenever I push changes to the `main` or `master` branch. The CI/CD process is powered by GitHub Actions, which automates the entire workflow from markdown-to-html conversion to deployment. In this document I try to explain how the entire setup works, including the folder structure, the CI/CD process, and the key concepts involved.
 
 ### Key Concepts Covered
 
