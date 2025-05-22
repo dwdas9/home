@@ -37,10 +37,10 @@ Apart from using Pyspark in Notebooks there are other methods to Copy data into 
 
 
 1. [**Power BI Dataflow**](https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview): Power BI Dataflows can handle both ingestion and transformation. They support ingestion from thousands of sources and use Power Query for transformation. **Note:** Fabric uses the same Power BI Dataflow.
-   ![Dataflows](image.png)
+   ![Dataflows](images\remdup_image.png)
 
 2. **Manual Upload**: You can always manually upload your files into a folder. Then you can use a Noteook or Dataflow for the transformation and Delta Lake Table creation :-)
-  ![alt text](image-2.png)
+  ![alt text](images\remdup_image-2.png)
 
 - **Additionally**, there's an important T-SQL command called [**COPY INTO**](https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=fabric&preserve-view=true). This command copies data into tables and supports Parquet and CSV formats from Azure Data Lake Storage Gen2/Azure Blob. However, it only copies data into tables and not into Lakehouse folders from external systems.
 

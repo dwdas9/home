@@ -50,7 +50,7 @@ nav_order: 2
    df.describe()
    df.describe().show()
    ```
-   ![alt text](image-9.png)
+   ![alt text](images\remdup_image-9.png)
 
    ```python
    df.printSchema()
