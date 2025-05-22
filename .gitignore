@@ -1,1 +1,58 @@
+# Python virtual environments
 venvmac/
+.venv/
+venv/
+ENV/
+
+# MkDocs generated site
+# These files are automatically generated during CI/CD
+site/
+
+# Python compiled files and cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Python package files
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
+
+# Testing and linting caches
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
+.env.*.local 

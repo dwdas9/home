@@ -260,7 +260,8 @@ nav:
         - E2E Project: 'Microsoft-Fabric/E2EProject.md'
       - Administration: 'Microsoft-Fabric/FabricAdministration.md'
       - Q&A: 'Microsoft-Fabric/FabricQ&A.md'
-
+    - Azure Accounts:
+      - Service Principal and Managed Identity: 'Azure/Cloud_Accounts/ServicePrincipalAndManagedIdentity.md'
     - DevOps:
       - GitHub Actions:
         - Concepts: 'DevOps/1_GitHub-Concepts.md'
@@ -453,6 +454,7 @@ nav:
   - Resources:
     - MkDocs:
       - Github Deployment: 'MKdocs/Github_Deployment_Guide.md'
+      - Local Setup: 'MKdocs/Parallel_Local_Testing.md'
     - Miscellaneous:
       - Markdown:
         - Basics: 'Misc/3_Markdown.md'

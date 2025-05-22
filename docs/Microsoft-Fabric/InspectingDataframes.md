@@ -13,7 +13,7 @@ nav_order: 5
   - [Microsoft Fabric DP-600 question](#microsoft-fabric-dp-600-question)
   - [Reference](#reference)
 
-![alt text](image-6.png)
+![alt text](images\remdup_image-6.png)
 
 # <span style="color: CadetBlue; font-family: Segoe UI, sans-serif;">Whats in your df? Find out quick.</span>
 
@@ -35,11 +35,11 @@ The table view allows you to view the data in a tabular format. Follow these ste
 1. **View the Data:** The data is displayed in a table format.
 2. **Click on the `Inspect` Button:** This is a powerful tool for a detailed inspection of your dataframe.
 
-![Table View](image-3.png)
+![Table View](images\remdup_image-3.png)
 
 3. **Explore Further:** Use the `Inspect` button to delve deeper into your dataframe.
 
-![Dataframe Inspection](rich-dataframe-preview.gif)
+![Dataframe Inspection](images\rich-dataframe-preview.gif)
 
 ### <span style="color: Chocolate; font-family: Segoe UI, sans-serif;">Chart View
 
@@ -49,7 +49,7 @@ The chart view provides a visual representation of your data. Here's how to get 
 2. **Automatic Key-Value Pair:** Fabric will automatically generate a key-value pair to get you started.
 3. **Aggregate Data:** You can then aggregate and analyze the data as needed.
 
-![Chart View](image-4.png)
+![Chart View](images\remdup_image-4.png)
 
 ### <span style="color: BlueViolet; font-family: Segoe UI, sans-serif;">Creating a Power BI Report
 
@@ -64,7 +64,7 @@ PBI_visualize = QuickVisualize(get_dataset_config(df))
 PBI_visualize
 ```
 
-![Power BI Report](image-5.png)
+![Power BI Report](images\remdup_image-5.png)
 
 ## <span style="color: CornflowerBlue; font-family: Segoe UI, sans-serif;">Microsoft Fabric DP-600 question
 
@@ -81,7 +81,7 @@ What would the easiest way to do it?
 
 **Answer:** Use the **Inspect**(Table view) option
 
-![alt text](image-7.png)
+![alt text](images\remdup_image-7.png)
 
 ## <span style="color: CadetBlue; font-family: Segoe UI, sans-serif;">Reference
 

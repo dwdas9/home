@@ -1,281 +1,267 @@
 ---
-layout: default
-title: Hello Fabric
-parent: MicrosoftFabric
-nav_order: 1
+title: Getting Started with Microsoft Fabric
+description: An introduction to Microsoft Fabric, OneLake, and Delta Lake
 ---
 
-- [Microsoft Fabric What?!](#microsoft-fabric-what)
-- [Let's learn some basics about LakeHouse](#lets-learn-some-basics-about-lakehouse)
-  - [Pre-requisites for a LakeHouse](#pre-requisites-for-a-lakehouse)
-  - [Shortcuts in Lakehouse](#shortcuts-in-lakehouse)
-  - [Ways to ingest data into Lakehouse](#ways-to-ingest-data-into-lakehouse)
-  - [Ways to transform data in Fabric Lakehouse](#ways-to-transform-data-in-fabric-lakehouse)
-  - [Ways to Visualize](#ways-to-visualize)
-- [Let's create a Fabric Lakehouse](#lets-create-a-fabric-lakehouse)
-  - [Create a LakeHouse Workspace](#create-a-lakehouse-workspace)
-  - [Create a LakeHouse](#create-a-lakehouse)
-  - [Upload a simple excel to the LakeHouse](#upload-a-simple-excel-to-the-lakehouse)
-  - [Load the excel data into a table](#load-the-excel-data-into-a-table)
-  - [Query the excel file table using SQL](#query-the-excel-file-table-using-sql)
-    - [Write a normal SQL query using Editor](#write-a-normal-sql-query-using-editor)
-    - [Write a Visual Query](#write-a-visual-query)
-    - [Create a Report](#create-a-report)
-  - [Connect external data using shortcuts](#connect-external-data-using-shortcuts)
-- [Apache Spark In Microsoft Fabric](#apache-spark-in-microsoft-fabric)
-  - [Run a Spark Notebook](#run-a-spark-notebook)
-  - [Run a simple Pyspark code in Notebook](#run-a-simple-pyspark-code-in-notebook)
-  - [Create a Spark job definition](#create-a-spark-job-definition)
-- [Delta Lake in Microsoft Fabric](#delta-lake-in-microsoft-fabric)
-- [Delta Lake Tables](#delta-lake-tables)
-  - [Using **df.write**](#using-dfwrite)
-  - [Using API - **DeltaTableBuilder**](#using-api---deltatablebuilder)
-  - [Using **Spark SQL**](#using-spark-sql)
-  - [No table - Just Delta Files](#no-table---just-delta-files)
-  - [Use *time travel*](#use-time-travel)
-- [Delta Lake - Spark Streaming](#delta-lake---spark-streaming)
-  - [Delta table - streaming source](#delta-table---streaming-source)
-  - [Delta table - streaming sink](#delta-table---streaming-sink)
+# Getting Started with Microsoft Fabric
 
-## Microsoft Fabric What?!
+## What is Microsoft Fabric?
 
-![\alt text](images\image.png)
+![Microsoft Fabric](images/image.png)
 
-One-stop low-to-no-code platform.
+Microsoft Fabric is a one-stop, low-to-no-code analytics platform that brings together various data tools under a single environment.
 
+!!! info "Core Components"
+    * **OneLake** - Central data storage
+    * **Data Engineering** - Apache Spark & notebook experiences
+    * **Data Factory** - Data pipeline experiences
+    * **Data Science** - Machine learning experiences
+    * **Real-time Analytics** - Streaming & real-time analytics
+    * **Power BI** - Business intelligence & reporting
 
-To understand Fabric, first understand OneLake.
+## Understanding OneLake
 
-![alt text](FabricOneLake.png)
+![OneLake](FabricOneLake.png)
 
-OneLake is Fabric's Database.
+OneLake is the foundation of Microsoft Fabric's data storage system.
 
-**Each** fabric tenant gets **OneOneLake** by default. 
+| OneLake Feature | Description |
+| :-------------- | :---------- |
+| Default allocation | Each fabric tenant receives one OneLake instance by default |
+| Storage concept | Similar to OneDrive but for data (built on Azure Data Lake Storage) |
+| Data handling | Import data directly or create shortcuts to external data |
+| Default format | Delta Lake format |
 
-OneLake ~ **OneDrive**.
+## Lakehouse Fundamentals
 
-**OneLake** is cover over **ADLS**.
+Lakehouse combines the best of Data Lakes and Data Warehouses.
 
-Either importa data in OneLake  or Create Shortcuts to external data.
+![Lakehouse Concept](images/image-1.png)
 
-Default storage us Delta.
+A Lakehouse provides:
 
-## Let's learn some basics about LakeHouse
+- Flexibility of storing raw data like a data lake
+- Structure and performance of a data warehouse
+- SQL querying capabilities on lake data
 
-Lake house is Data Lake and Warehouse.
+### Pre-requisites for a Lakehouse
 
-![\alt text](images\image-1.png)
+Before creating a lakehouse, you need to create a workspace in the Microsoft Fabric platform.
 
-The base of Fabric is Data lakehouse.
+When you create a lakehouse in the Data Engineering workload, three items are produced:
 
-Features of Lakehouse:
+1. **Lakehouse**: Storage and metadata where you interact with files, folders, and table data
+2. **Semantic model**: Automatically created data model based on tables
+3. **SQL Endpoint**: Read-only endpoint for Transact-SQL queries
 
-Lakehous is Data Lake + Warehouse. Flexibility of storing data in lake and SQL query like warehouse!
+![Lakehouse Components](images/image-2.png)
 
-### Pre-requisites for a LakeHouse
-Before you can create a lakehouse, you create a workspace in the Microsoft Fabric platform.
+You can interact with the data in two modes:
 
-You create and configure a new lakehouse in the Data Engineering workload. Each L produces three named items in the Fabric-enabled workspace:
+1. **Lakehouse mode**: Add and interact with tables, files, and folders
+2. **SQL analytics endpoint**: Query tables using SQL and manage data models
 
-Lakehouse is the lakehouse storage and metadata, where you interact with files, folders, and table data.
-Semantic model (default) is an automatically created data model based on the tables in the lakehouse. Power BI reports can be built from the semantic model.
-SQL Endpoint is a read-only SQL endpoint through which you can connect and query data with Transact-SQL.
-
-![\alt text](images\image-2.png)
-
-You can work with the data in the lakehouse in two modes:
-
-Lakehouse enables you to add and interact with tables, files, and folders in the lakehouse.
-SQL analytics endpoint enables you to use SQL to query the tables in the lakehouse and manage its relational data model.
-
-![\alt text](images\image-3.png)
+![Lakehouse Modes](images/image-3.png)
 
 ### Shortcuts in Lakehouse
 
-Shortcuts enable you to integrate data into your lakehouse while keeping it stored in external storage.
+Shortcuts let you integrate external data into your lakehouse without moving it.
 
-Shortcuts can be created in both lakehouses and KQL databases, and appear as a folder in the lake. Spark, SQL, Real-Time Analytics, and Analysis Services can access data via shortcuts when querying data.
+!!! tip "About Shortcuts"
+    * Appear as folders in the lake
+    * Available in both lakehouses and KQL databases
+    * Accessible via Spark, SQL, Real-Time Analytics, and Analysis Services
+    * Source data permissions and credentials managed by OneLake
 
-Shortcuts have limited data source connectors, so when you can't use shortcuts, you can ingest data directly into your lakehouse.
+### Data Ingestion Methods
 
-Source data permissions and credentials are all managed by OneLake.
+There are multiple ways to get data into your lakehouse:
 
-### Ways to ingest data into Lakehouse
+=== "Upload"
+    Upload local files or folders and load results into tables
 
-Upload: Upload local files or folders to the lakehouse. You can then explore and process the file data, and load the results into tables.
+=== "Dataflows (Gen2)"
+    Import and transform data from various sources using Power Query Online
 
-Dataflows (Gen2): Import and transform data from a range of sources using Power Query Online, and load it directly into a table in the lakehouse.
+=== "Notebooks"
+    Use notebooks to ingest, transform, and load data
 
-Notebooks: Use notebooks in Fabric to ingest and transform data, and load it into tables or files in the lakehouse.
+=== "Data Factory pipelines"
+    Copy data and orchestrate processing activities
 
-Data Factory pipelines: Copy data and orchestrate data processing activities, loading the results into tables or files in the lakehouse.
+### Data Transformation Methods
 
-### Ways to transform data in Fabric Lakehouse
+Choose from various transformation methods:
 
-Apache Spark: Pyspark, SparkSQL, Notebooks, Spark job definitions
-SQL analytic endpoint: Transact SQL
-Dataflows (Gen2): Power Query
-Data pipelines: 
+* **Apache Spark**: PySpark, SparkSQL, Notebooks, Spark job definitions
+* **SQL analytic endpoint**: Transact SQL
+* **Dataflows (Gen2)**: Power Query
+* **Data pipelines**: Orchestrated data flows
 
-### Ways to Visualize
+### Visualization
 
-Create an end-to-end solution using Power BI and Fabric Lakehouse.
+Create end-to-end solutions using Power BI and Fabric Lakehouse.
 
+## Creating a Fabric Lakehouse
 
+### Create a Lakehouse Workspace
 
+1. Go to [https://app.fabric.microsoft.com](https://app.fabric.microsoft.com)
+2. Select **Synapse Data Engineering**
 
+![Fabric Data Engineering](images/image-4.png)
 
+### Create a Lakehouse
 
-## Let's create a Fabric Lakehouse
+1. Click on **Create** then **Lakehouse**
+2. Give your Lakehouse a name
 
-### Create a LakeHouse Workspace
+![Create Lakehouse](images/image-6.png)
 
-1. Go to https://app.fabric.microsoft.com. Select Synapse Data Engineering
+3. Fabric will create everything automatically
 
-![\alt text](images\image-4.png)
+![New Lakehouse](images/image-7.png)
 
-### Create a LakeHouse
+### Upload a Sample File
 
-2. Click on Create then Lakehouse. Give it any name.
+1. Download the sample CSV file from [https://raw.githubusercontent.com/MicrosoftLearning/dp-data/main/sales.csv](https://raw.githubusercontent.com/MicrosoftLearning/dp-data/main/sales.csv)
 
-![\alt text](images\image-6.png)
+![Sample CSV](images/image-8.png)
 
-3. Fabric will create everything automatically and you will have your Lakehouse
+2. Go to **Explorer**, create a **Data** subfolder under **Files**, then upload the CSV
 
-![\alt text](images\image-7.png)
+![Upload CSV](images/image-10.png)
 
-### Upload a simple excel to the LakeHouse
+### Load Data into a Table
 
-1. Download and save sample excel file from here https://raw.githubusercontent.com/MicrosoftLearning/dp-data/main/sales.csv
+To use SQL with your data, import it into a table:
 
-![\alt text](images\image-8.png)
+1. Click on the ellipsis (...) next to the CSV file
+2. Select **Load to Tables**
 
-2. Go to Explorer, create a Data subfolder under Files, then upload the downloaded csv in it
+![Load to Tables](images/image-13.png)
 
-![\alt text](images\image-10.png)
+Once loaded, you can see your table in tabular format:
 
-### Load the excel data into a table
+![Table View](images/image-14.png)
 
-Now, if you want to use SQL you need to import the excel into a table. It is pretty simple.
+### Query Data Using SQL
 
-Just click on the elipses next to the excel file and select **Load to Tables**
+#### Standard SQL Query
 
-![\alt text](images\image-13.png)
+![SQL Query](images/image-15.png)
 
-Once loaded you can see your table in tabular format
+#### Visual Query
 
-![\alt text](images\image-14.png)
+![Visual Query](images/image-16.png)
 
-### Query the excel file table using SQL
+### Create a Power BI Report
 
-#### Write a normal SQL query using Editor
+1. At the bottom of the SQL Endpoint page, click the **Model** tab
+2. Navigate to the **Reporting** tab and select **New report**
 
-![\alt text](images\image-15.png)
+![New Report](images/image-17.png)
 
-#### Write a Visual Query
+3. In the Data pane, expand the **sales** table and select **Item** and **Quantity**
+4. Hide the **Data** and **Filters** panes to create more space
+5. Change the visualization to a **Clustered bar chart** and resize it
+6. Save the report as **Item Sales Report**
 
-![\alt text](images\image-16.png)
+![Sales Report](images/image-18.png)
 
-#### Create a Report
+7. Verify that your workspace contains:
+   * Your lakehouse
+   * SQL analytics endpoint
+   * Default semantic model
+   * Item Sales Report
 
-1. At the bottom of the SQL Endpoint page, click on the **Model** tab to view the data model schema for the semantic model.
-2. Navigate to the **Reporting** tab in the menu ribbon and select **New report** to open a new browser tab for report design.
+### Connect External Data Using Shortcuts
 
-![\alt text](images\image-17.png)
+If you want to leave data external but access it from Fabric:
 
-3. In the Data pane, expand the **sales** table and select **Item** and **Quantity**. This will add a table visualization to your report.
-4. Hide the **Data** and **Filters** panes to create more space. Change the visualization to a **Clustered bar chart** and resize it.
-5. Save the report by selecting **Save** from the **File** menu and name it <span style="color:blue;">**Item Sales Report**</span>.
+1. Create shortcuts to external data sources like Dataverse
+2. The data appears as a folder in your Lakehouse
 
-![\alt text](images\image-18.png)
+!!! warning
+    The region of Dataverse and Fabric should be the same.
 
-6. Close the report tab and return to the SQL endpoint page. In the hub menu, select your workspace to verify it contains your lakehouse, the SQL analytics endpoint, a default semantic model, and the <span style="color:blue;">**Item Sales Report**</span>.
+![External Data](images/image-12.png)
 
-### Connect external data using shortcuts
+## Apache Spark in Microsoft Fabric
 
-It is easy to import data into Fabric. But, what if the data wants to stay outside? Then we create shortcuts to that external data in Lakehouse. It appears like a folder.
+Spark **divides and conquers** large data processing jobs across multiple computers.
 
-Lets create a shortcut to dataverse.
+!!! note "Key Points"
+    * Each Fabric workspace gets one Spark cluster
+    * PySpark and SparkSQL are the most commonly used languages
+    * SparkContext handles the job splitting and distribution
 
-1. Click on the cli
+### Running a Spark Notebook
 
-![\alt text](images\image-9.png)
+![Spark Notebook](images/image-20.png)
 
+### Running PySpark Code in a Notebook
 
-Note: The region of Dataverse and Fabric should be same.
+Spark sessions are pre-created in Fabric notebooks. Just create dataframes and start coding!
 
-![\alt text](images\image-12.png)
+![PySpark Code](images/image-21.png)
 
-## Apache Spark In Microsoft Fabric
+### Creating a Spark Job Definition
 
-Spark <span style="color:blue;">**divides and conquers**</span>: It splits a large job across computers. SparkContext does the splitting etc.  Spark can use many languages, but in Industry PySpark and Spark SQL are most used.
+1. **Access the Spark Job Definition page**
 
-In Fabric. One Workspace gets One Spark Cluster.
+   ![Job Definition](images/image-25.png)
 
-### Run a Spark Notebook
+2. **Create a PySpark job definition**
+   
+   Develop a main definition file named `anyname.py`:
 
-![\alt text](images\image-20.png)
+   ```python
+   from pyspark.sql import SparkSession
 
-### Run a simple Pyspark code in Notebook
+   # This code executes only when the .py file is run directly.
+   if __name__ == "__main__":
+       # Initialize a Spark session specifically for this job.
+       spark = SparkSession.builder.appName("Sales Aggregation").getOrCreate()
+       # Read data from a CSV file into a DataFrame.
+       df = spark.read.csv('Files/data/sales.csv', header=True, inferSchema=True)
+       # Write the DataFrame to a Delta table, overwriting existing data.
+       df.write.mode('overwrite').format('delta').save('Files/data/delta')
+   ```
 
-Here, the spark session is already created. All you have to do is create dataframe and start coding!
+3. **Upload and schedule the file**
 
-![\alt text](images\image-21.png)
-
-
-### Create a Spark job definition
-
-1. **Access the Spark Job Definition Page.**
-   ![\alt text](images\image-25.png)
-
-2. **Create a PySpark Job Definition:**
-   - Develop a main definition file named `anyname.py`. The file should include the following code:
-
-     ```python
-     from pyspark.sql import SparkSession
-
-     # This code executes only when the .py file is run directly.
-     if __name__ == "__main__":
-         # Initialize a Spark session specifically for this job.
-         spark = SparkSession.builder.appName("Sales Aggregation").getOrCreate()
-         # Read data from a CSV file into a DataFrame.
-         df = spark.read.csv('Files/data/sales.csv', header=True, inferSchema=True)
-         # Write the DataFrame to a Delta table, overwriting existing data.
-         df.write.mode('overwrite').format('delta').save('Files/data/delta')
-     ```
-
-3. **Upload and Schedule the File:**
-   ![\alt text](images\image-22.png)
+   ![Upload Job](images/image-22.png)
 
 ## Delta Lake in Microsoft Fabric
 
-Delta lake is just Data Lake with a *SQL Cover*.
+Delta Lake provides a SQL interface over data lakes. In Fabric, any table imported from CSV/Excel automatically becomes a Delta Lake table.
 
-In Fabric, any table imported from .csv/excel etc. automatically becomes a Delta Lake table.
+![Delta Lake](images/image-26.png)
 
-![\alt text](images\image-26.png)
+For these tables, you'll find:
+* `.parquet` files
+* `_delta_log` folders
 
-For these tables, you'll find .parquet files and delta log folders when you view the files.
+![Delta Files](images/image-27.png)
 
-![\alt text](images\image-27.png)
-
-Since every table is automatically a Delta Lake table, this is a very useful feature. There's no need to convert files into Delta tables separately.
+This automatic conversion to Delta format is a significant advantage - there's no need to convert files separately.
 
 ## Delta Lake Tables
 
-### Using <span style="color: gray;">**df.write**</span>
+### Using DataFrame Write Methods
 
-**Managed table**:
+#### Managed Table
+```python
+df.write.format("delta").saveAsTable("tableName")
+```
 
-<span style="color: SteelBlue;">**df**</span>.<span style="color: DarkOrchid;">**write**</span>.<span style="color: green;">**format**("<span style="color: red;">**delta**</span>")</span>.<span style="color: blue;">**saveAsTable**</span>("***tableName***")
+#### External Table
+```python
+df.write.format("delta").saveAsTable("tableName", path="Files/folderX")
+```
 
-**External table**:
-
-<span style="color: SteelBlue;">**df**</span>.<span style="color: DarkOrchid;">**write**</span>.<span style="color: green;">**format**("<span style="color: red;">**delta**</span>")</span>.<span style="color: blue;">**saveAsTable**</span>("***tableName***", path="***Files/folderX***")
-
-### Using API - <span style="color: gray;">**DeltaTableBuilder**</span>
-
-**Managed table**:
+### Using DeltaTableBuilder API
 
 ```python
 from delta.tables import *
@@ -287,10 +273,9 @@ DeltaTable.create(spark) \
   .execute()
 ```
 
-### Using <span style="color: gray;">**Spark SQL**</span>
+### Using Spark SQL
 
-**Create Managed table**:
-
+#### Create Managed Table
 ```sql
 CREATE TABLE salesorders
 (
@@ -301,23 +286,20 @@ CREATE TABLE salesorders
 )
 USING DELTA;
 ```
-**Create External table**:
 
+#### Create External Table
 ```sql
 CREATE TABLE MyExternalTable
 USING DELTA
 LOCATION 'Files/mydata';
 ```
 
-**Insert rows:**
-
-This is the most common way:
-
+#### Insert Rows
 ```python
 spark.sql("INSERT INTO products VALUES (1, 'Widget', 'Accessories', 2.99)")
 ```
-**Insert rows -   %%sql magic:**
 
+#### Using SQL Magic
 ```sql
 %%sql
 
@@ -325,24 +307,23 @@ UPDATE products
 SET Price = 2.6 WHERE ProductId = 1;
 ```
 
-### No table - Just Delta Files
+### Working with Delta Files
 
-To **just** save the dataframe as delta format. No table created. 
+You can save dataframes directly as Delta format without creating a table:
 
 ```python
-df.write.format("delta").mode("overwrite / append").save("Folder/Path")
+df.write.format("delta").mode("overwrite").save("Folder/Path")
 ```
-After running the code you will see a folder with:
 
-1. parquet files
-2. **_delta_log** sub-folder:
+After running this code, you'll see:
+1. Parquet files
+2. `_delta_log` subfolder
 
-Later you can create an DeltaTable from the folder and modify it:
+Later, you can create a DeltaTable from the folder:
 
+```python
 from delta.tables import *
 from pyspark.sql.functions import *
-
-```python
 
 # Create a DeltaTable object
 delta_path = "Files/mytable"
@@ -353,29 +334,31 @@ deltaTable.update(
     condition = "Category == 'Accessories'",
     set = { "Price": "Price * 0.9" })
 ```
-### Use *time travel*
 
-The command will show all the transactions to the table:
+### Time Travel
+
+View all transactions to a table:
 
 ```sql
 %%sql
-
 DESCRIBE HISTORY products
 ```
 
-For a specifc version:
+Access a specific version:
+
 ```python
 df = spark.read.format("delta").option("versionAsOf", 0).load(delta_path)
 ```
-For a specific date:
+
+Access data as of a specific date:
+
 ```python
 df = spark.read.format("delta").option("timestampAsOf", '2022-01-01').load(delta_path)
 ```
+
 ## Delta Lake - Spark Streaming
 
-### Delta table - streaming source
-
-Here a delta table stores internet sales data. When new data added a stream is created:
+### Using a Delta Table as a Streaming Source
 
 ```python
 from pyspark.sql.types import *
@@ -386,13 +369,11 @@ stream_df = spark.readStream.format("delta") \
     .option("ignoreChanges", "true") \
     .load("Files/delta/internetorders")
 
-# Now you can process the streaming data in the dataframe
-# for example, show it:
+# Process the streaming data
 stream_df.show()
 ```
-### Delta table - streaming sink
 
-Here a folder has JSON files. As new JSON files are added. The contents are added to a Delta Lake table:
+### Using a Delta Table as a Streaming Sink
 
 ```python
 from pyspark.sql.types import *
@@ -411,7 +392,8 @@ table_path = 'Files/delta/devicetable'
 checkpoint_path = 'Files/delta/checkpoint'
 delta_stream = stream_df.writeStream.format("delta").option("checkpointLocation", checkpoint_path).start(table_path)
 ```
-To stop writing to the delta lake table use stop:
+
+Stop the stream when finished:
 
 ```python
 delta_stream.stop()

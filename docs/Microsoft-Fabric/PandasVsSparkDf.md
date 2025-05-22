@@ -23,4 +23,4 @@ This answer is correct.
 import pandas as pd df = pd.read_parquet("/lakehouse/Files/Customers.parquet")
 To load data to a pandas DataFrame, you must first import the pandas library by running import pandas as pd. Pandas DataFrames use the File API Path vs. the File relative path that Spark uses. The File API Path has the format of lakehouse/default/Files/Customers.parquet.
 
-![alt text](image-8.png)
+![alt text](images\remdup_image-8.png)
