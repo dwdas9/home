@@ -1,10 +1,3 @@
----
-layout: default
-title: Window Functions
-parent: SQL
-nav_order: 3
----
-
 
 # Beginner’s Guide to Window Functions in SQL
 
