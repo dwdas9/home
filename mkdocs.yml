@@ -285,10 +285,13 @@ nav:
 
   - DevOps:
     - GitHub Actions:
-      - Concepts: 'DevOps/1_GitHub-Concepts.md'
-      - Hello Actions: 'DevOps/1.1_Hello_GitHub_Actions_Workflow.md'
-      - Sample Workflows: 'DevOps/1.1_Sample_Workflows.md'
-      - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'  # Add this line
+      - Concepts: 'DevOps/1_Hello_Git.md'
+      - Git Concepts: 'DevOps/1.1_Git_Fetch.md'
+      - Git Origin: 'DevOps/1.2_Git_Origin.md'
+      - Git Scenarios: 'DevOps/1.3_Git_Scenarios.md'
+      - Hello Actions: 'DevOps/3.1_Hello_GitHub_Actions_Workflow.md'
+      - Sample Workflows: 'DevOps/3.2_Sample_Workflows.md'
+      - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
     - Azure DevOps:
       - Pipelines: 'DevOps/2_Azure-Pipelines.md'
       - Self-Hosted Agents:
@@ -296,33 +299,30 @@ nav:
         - Windows Container: 'DevOps/2.2_Self-Hosted_Agent_Windows_Container.md'
         - Linux Container: 'DevOps/2.3_Self-Hosted_Agent_Linux_Container.md'
     - ADF CI/CD: 
-      - Overview: 'DevOps/CI-CD_in ADF.md'
       - Implementation: 'DevOps/ADF_CICD.md'
     - Tools Comparison: 'DevOps/JenkinsVsGitHubVsAzureDevOps.md'
-    - Scenarios: 'DevOps/GitScenarios.md'
     - Bicep: 'DevOps/Biceps.md'
-
     - Containers:
-      - Docker & Kubernetes:
-        - Docker:
-          - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.md'
-          - VS Code Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.3_VSCode_Docker_Connection.md'
-        - Spark & Hadoop:
-          - Overview: 'DockerAndKubernetes/SparkHiveHadoop/4_Spark-Hive-Hadoop.md'
-          - PySpark: 'DockerAndKubernetes/SparkHiveHadoop/4.1_PySpark.md'
-          - Bitnami Cluster: 'DockerAndKubernetes/SparkHiveHadoop/4.2_Bitnami_Spark_Cluster.md'
-          - With MSSQL: 'DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL.md'
-        - Hadoop:
-          - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.2_Hadoop_Concepts.md'
-          - Cluster Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
-        - Hive:
-          - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.1_Hive_Concepts.md'
-          - With Postgres: 'DockerAndKubernetes/SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto.md'
-          - With MySQL: 'DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL.md'
-          - Apache Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial.md'
-      - MongoDB: 'DockerAndKubernetes/Mongodb/3_DockerMongodb.md'
-      - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
-      - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
+        - Docker & Kubernetes:
+          - Docker:
+            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.md'
+            - VS Code Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.3_VSCode_Docker_Connection.md'
+          - Spark & Hadoop:
+            - Overview: 'DockerAndKubernetes/SparkHiveHadoop/4_Spark-Hive-Hadoop.md'
+            - PySpark: 'DockerAndKubernetes/SparkHiveHadoop/4.1_PySpark.md'
+            - Bitnami Cluster: 'DockerAndKubernetes/SparkHiveHadoop/4.2_Bitnami_Spark_Cluster.md'
+            - With MSSQL: 'DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL.md'
+          - Hadoop:
+            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.2_Hadoop_Concepts.md'
+            - Cluster Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
+          - Hive:
+            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.1_Hive_Concepts.md'
+            - With Postgres: 'DockerAndKubernetes/SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto.md'
+            - With MySQL: 'DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL.md'
+            - Apache Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial.md'
+        - MongoDB: 'DockerAndKubernetes/Mongodb/3_DockerMongodb.md'
+        - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
+        - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
 
  
 
