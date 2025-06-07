@@ -1,9 +1,3 @@
----
-layout: default
-title: Data Science on Fabric Overview
-parent: MicrosoftFabric
-nav_order: 2
----
 
 ## Common machine learning models
 

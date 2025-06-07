@@ -1,20 +1,3 @@
----
-layout: default
-title: Project 2 - Web Service SSIS Script Task
-parent: SQL
-nav_order: 2
----
-
-
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
-
 ### How to Use Web Services in SSIS Script Task
 
 #### Introduction

@@ -1,20 +1,3 @@
----
-layout: default
-title: Project 1 - ETL Flat Files to MSSQL
-parent: SQL
-nav_order: 1
----
-
-
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
-
 # <span style="color: DarkCyan; font-family: 'Trebuchet MS', Helvetica, sans-serif;">Project 1 - ETL Flat Files to MSSQL</span>
 
 This project is a small version of a real-time project often used in the banking and insurance sectors. Here, data is received from different sources as flat files (like .csv or .xml). In banking, this file is sometimes called a control file. The file may come from Dynamics 365,right-fax servers, through web services, etc. This data needs to be ingested into SQL Server. The data comes from various branches or field offices throughout the day, and the workflow needs to run at a regular time each day to process all the files.

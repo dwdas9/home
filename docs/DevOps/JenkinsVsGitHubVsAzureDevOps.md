@@ -1,19 +1,3 @@
----
-layout: default
-title: Jenkins Vs GitHub Vs Devops
-parent: Devops
-nav_order: 1
----
-
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
-
 <img src="images/2024-08-08-15-25-58.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" onmouseover="this.style.transform='scale(2)'" onmouseout="this.style.transform='scale(1)'">
 
 
