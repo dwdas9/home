@@ -1,18 +1,4 @@
----
-layout: default
-title: SharePoint Forms or PowerApps
-parent: M365
-nav_order: 5
----
-
-- [Choosing Power Apps Forms for SharePoint: When and Why?](#choosing-power-apps-forms-for-sharepoint-when-and-why)
-- [The SharePoint Context](#the-sharepoint-context)
-- [Enter Power Apps](#enter-power-apps)
-- [When to Use Power Apps for SharePoint Forms](#when-to-use-power-apps-for-sharepoint-forms)
-- [Considerations Before Transitioning](#considerations-before-transitioning)
-- [Conclusion](#conclusion)
-
-### Choosing Power Apps Forms for SharePoint: When and Why?
+## Choosing Power Apps Forms for SharePoint: When and Why?
 
 In the dynamic world of digital transformation, SharePoint has long been a staple for organizations seeking efficient content management and collaboration. However, with the advent of Power Apps, Microsoft introduced a powerful tool that further expands SharePoint's capabilities, especially in custom form development. Understanding when to use Power Apps-based forms for SharePoint can significantly impact how your organization manages data, automates processes, and enhances user interaction.
 

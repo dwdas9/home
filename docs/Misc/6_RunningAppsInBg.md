@@ -1,9 +1,3 @@
----
-layout: default
-title: Running Service in Background
-parent: Misc Articles
-nav_order: 5
----
 
 ## How to Run a Service in the Background on Linux and Check if It’s Running
 

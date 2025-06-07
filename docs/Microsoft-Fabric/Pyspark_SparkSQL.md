@@ -1,14 +1,3 @@
----
-layout: default
-title: Pyspark|SparkSQL CheatSheet
-parent: MicrosoftFabric
-nav_order: 2
----
-
-- [Describe Formatted *TableName* ](#describe-formatted-tablename-)
-- [DataFrame from csv](#dataframe-from-csv)
-- [Write Delta Table](#write-delta-table)
-
 
 
 ## <span style="color: CadetBlue; font-family: Segoe UI, sans-serif;">Creating a SparkSession</span>

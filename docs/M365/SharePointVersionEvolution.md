@@ -1,9 +1,3 @@
----
-layout: default
-title: SharePoint Evolution
-parent: M365
-nav_order: 7
----
 ### SharePoint Version Evolution
 
 SharePoint has evolved significantly since its inception, transforming from a simple document management tool to a comprehensive platform for collaboration, content management, and much more. Let's dive straight into the technical journey of SharePoint's evolution, highlighting key versions and features.

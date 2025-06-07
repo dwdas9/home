@@ -1,9 +1,3 @@
----
-layout: default
-title: Model-Driven Apps
-parent: Power Platform
-nav_order: 1
----
 - [What are model-driven apps?](#what-are-model-driven-apps)
 
 ![alt text](images\modeldriven2-1.png)

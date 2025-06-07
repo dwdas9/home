@@ -1,25 +1,5 @@
----
-layout: default
-title: Flatten Json Using Azure SDK
-parent: PythonEcosystem
----
 
 ## <span style="color: SlateGray;Font-family: Segoe UI, sans-serif;">Table of Contents</span>
-
-- [Flatten JSON Files in Azure Blob Storage using Azure SDK for Python](#flatten-json-files-in-azure-blob-storage-using-azure-sdk-for-python)
-  - [Background](#background)
-  - [Prerequisites](#prerequisites)
-  - [Create the script](#create-the-script)
-  - [Explanation of key elements in the script](#explanation-of-key-elements-in-the-script)
-  - [Appendix](#appendix)
-    - [The complete script](#the-complete-script)
-    - [Azure Python SDK(libs) ecosystem](#azure-python-sdklibs-ecosystem)
-    - [Convert the script into an Azure Function](#convert-the-script-into-an-azure-function)
-- [Additional samples](#additional-samples)
-  - [Uploading Data to Azure Blob Storage](#uploading-data-to-azure-blob-storage)
-  - [Downloading Data from Azure Blob Storage](#downloading-data-from-azure-blob-storage)
-  - [Listing Blobs in a Container](#listing-blobs-in-a-container)
-  - [Querying Data (Example with CSV Data)](#querying-data-example-with-csv-data)
 
 
 # <span style="color: Teal;Font-family: Segoe UI, sans-serif;">Flatten JSON Files in Azure Blob Storage using Azure SDK for Python</span>

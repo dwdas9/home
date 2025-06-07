@@ -1,21 +1,4 @@
 ---
-layout: default
-title: Part 1B - Using Azure Timer-Triggered Function
-parent: Project AzureSkyWeather
-grand_parent: DE-Projects
----
-
-## Table of contents
-- [Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function](#project-azureskyweather-part-1b-using-azure-timer-triggered-function)
-  - [Overview](#overview)
-    - [Setting the pre-requisites](#setting-the-pre-requisites)
-    - [Create the Python-based Azure Function](#create-the-python-based-azure-function)
-    - [Write our custom logic in the Azure Function](#write-our-custom-logic-in-the-azure-function)
-    - [Include  `azure-storage-blob` in requirements.txt](#include--azure-storage-blob-in-requirementstxt)
-    - [Test Our Azure Function](#test-our-azure-function)
-    - [Deployment and rest of the steps](#deployment-and-rest-of-the-steps)
-
----
 # Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function
 
 ## Overview

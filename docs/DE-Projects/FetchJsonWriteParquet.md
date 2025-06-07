@@ -1,26 +1,5 @@
----
-layout: default
-title: Json To Parquet Using Spark And Azure
-parent: PythonEcosystem
----
 
 <img src="images\json_spark_azure.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
-
-## <span style="color: DimGray;">Table of Contents</span>
-- [Json Transformation Using Spark And Azure](#json-transformation-using-spark-and-azure)
-  - [Prerequisites](#prerequisites)
-  - [Script Breakdown](#script-breakdown)
-    - [Initialize Spark Session](#initialize-spark-session)
-    - [Fetch and Load JSON Data](#fetch-and-load-json-data)
-    - [Define Paths and Partition Data](#define-paths-and-partition-data)
-    - [Stop Spark Session](#stop-spark-session)
-  - [Appendix](#appendix)
-    - [Reason for Partitioning](#reason-for-partitioning)
-    - [Register App and Assign Blob Contributor Role](#register-app-and-assign-blob-contributor-role)
-    - [The complete script](#the-complete-script)
-  - [Conclusion](#conclusion)
-
-
 
 # <span style="color: DarkOrchid;">Json Transformation Using Spark And Azure</span>
 

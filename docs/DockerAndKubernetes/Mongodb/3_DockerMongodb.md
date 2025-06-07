@@ -1,9 +1,3 @@
----
-layout: default
-title: MongoDB
-parent: Docker
-nav_order: 3
----
 
 <img src="images/Image Size.png" alt="Description of the image" style="max-width: 100%; height: 50%; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 

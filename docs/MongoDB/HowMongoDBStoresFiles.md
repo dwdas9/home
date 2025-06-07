@@ -1,20 +1,4 @@
----
-layout: default
-title: How MongoDB Stores Data
-parent: MongoDB
-nav_order: 1
----
 
-- [Overview](#overview)
-  - [How MongoDB would store your normal SQL Data(simple text)?](#how-mongodb-would-store-your-normal-sql-datasimple-text)
-  - [Storing unstructured data like files in MongoDB](#storing-unstructured-data-like-files-in-mongodb)
-    - [How GridFS Splits Files](#how-gridfs-splits-files)
-    - [Storing a sample file `Resume.pdf`](#storing-a-sample-file-resumepdf)
-  - [Let's See This in Practice](#lets-see-this-in-practice)
-  - [Let's recap the splitting process](#lets-recap-the-splitting-process)
-  - [Now, let's see the actual details](#now-lets-see-the-actual-details)
-    - [Detailed Explanation](#detailed-explanation)
-    - [Summary](#summary)
 
 <img src="images/custom-image-2024-07-20-01-21-49.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 

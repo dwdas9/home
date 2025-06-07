@@ -1,10 +1,3 @@
----
-layout: default
-title: Airflow
-parent: Docker
-nav_order: 1
----
-
 ![](images/2024-08-19-23-48-34.png)
 
 # <span style="color: MediumSlateBlue;">Apache Airflow on Windows Docker</span>

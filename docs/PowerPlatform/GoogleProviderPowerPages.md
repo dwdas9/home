@@ -1,21 +1,6 @@
----
-layout: default
-title: Google Authentication
-parent: Power Platform
-nav_order: 1
----
 ![alt text](images\powerpagesgooglesignin.png)
 
-- [Overview](#overview)
-  - [Steps to follow](#steps-to-follow)
-    - [Set up Google in Power Pages](#set-up-google-in-power-pages)
-    - [Register an App in Google](#register-an-app-in-google)
-      - [Add the API](#add-the-api)
-      - [Set up your consent screen](#set-up-your-consent-screen)
-      - [Enter your top-level domain](#enter-your-top-level-domain)
-      - [Add credentials](#add-credentials)
-    - [Enter site settings in Power Pages](#enter-site-settings-in-power-pages)
-    - [Appendix](#appendix)
+
 
 # Overview
 

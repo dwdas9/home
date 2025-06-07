@@ -1,22 +1,3 @@
----
-layout: default
-title: Python-oAuth-SharePointOnline
-parent: M365
-nav_order: 1
----
-
-- [How to authenticate from your local python setup with SharePoint online](#how-to-authenticate-from-your-local-python-setup-with-sharepoint-online)
-  - [Authenticating to SharePoint Online with Username and Password in Python: Challenges with MFA](#authenticating-to-sharepoint-online-with-username-and-password-in-python-challenges-with-mfa)
-  - [Connecting to SharePoint Online from Python Using OAuth as a solution](#connecting-to-sharepoint-online-from-python-using-oauth-as-a-solution)
-  - [Prerequisites](#prerequisites)
-  - [Step 1: Register an Application in Azure AD](#step-1-register-an-application-in-azure-ad)
-  - [Step 2: Grant Permissions to the App](#step-2-grant-permissions-to-the-app)
-  - [Step 3: Install Required Python Libraries](#step-3-install-required-python-libraries)
-  - [Step 4: Authenticate Using OAuth](#step-4-authenticate-using-oauth)
-  - [Step 5: Interact with SharePoint Online](#step-5-interact-with-sharepoint-online)
-  - [Takeaways](#takeaways)
-
-
 ## How to authenticate from your local python setup with SharePoint online
 
 The ability to integrate your local python enviornment with SharePoint online can have lot of advantages. Imagine you have a bunch of JSON files and want to put the information from those files into a SharePoint document library. With Python, you can easily write a program to do that.

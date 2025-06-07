@@ -1,23 +1,3 @@
----
-layout: default
-title: SharePoint Farm Consolidation
-parent: M365
-nav_order: 4
----
-
-- [Introduction](#introduction)
-  - [Purpose](#purpose)
-- [Existing System Specification](#existing-system-specification)
-  - [Current System study](#current-system-study)
-    - [Farm Scenario](#farm-scenario)
-  - [Current System Assessment](#current-system-assessment)
-  - [General Farm Requirements](#general-farm-requirements)
-  - [High Availability (HA) and Disaster Recovery (DR) Requirements](#high-availability-ha-and-disaster-recovery-dr-requirements)
-- [Assumptions \& Dependencies](#assumptions--dependencies)
-  - [Assumptions](#assumptions)
-  - [Scope](#scope)
-- [High-level infrastructure layout](#high-level-infrastructure-layout)
-
 # Introduction
 
 Here, I am sharing about a project which I was part of acting as a consultant for architecture.

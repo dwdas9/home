@@ -1,24 +1,3 @@
----
-layout: default
-title: ETL-Load data into Lakehouse - Pyspark Notebook
-parent: MicrosoftFabric
-nav_order: 4
----
-- [Background](#background)
-  - [Ways to Ingest Data into Lakehouse](#ways-to-ingest-data-into-lakehouse)
-  - [When to choose which method? Microsoft's recommendation.](#when-to-choose-which-method-microsofts-recommendation)
-- [The entire project in just 8 pyspark lines](#the-entire-project-in-just-8-pyspark-lines)
-  - [THE code](#the-code)
-  - [The explanation](#the-explanation)
-- [Appendix](#appendix)
-  - [Connect to Azure blob storage with Spark from Fabric](#connect-to-azure-blob-storage-with-spark-from-fabric)
-  - [Connect to Azure SQL Database with a Service Principal](#connect-to-azure-sql-database-with-a-service-principal)
-  - [Write data into a Lakehouse File](#write-data-into-a-lakehouse-file)
-  - [Write data into a Lakehouse Delta Table](#write-data-into-a-lakehouse-delta-table)
-  - [Optimize\[Fewer files\] - V-Order \& optimizeWrite](#optimizefewer-files---v-order--optimizewrite)
-  - [Knowledge check](#knowledge-check)
-  - [Summary](#summary)
-
 ## <span style="color: DarkOrchid" class="fs-8">Background</span>
 
 Here, I'll show you how to use a PySpark Notebook to build a complete ETL solution. We'll import parquet files from external sources into a Fabric Lakehouse folder, clean the data, and create Delta tables—all using the PySpark Notebook.

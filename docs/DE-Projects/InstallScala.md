@@ -1,13 +1,3 @@
----
-layout: default
-title: Scala Install
-parent: DE-Projects
----
-- [Installing Scala on Windows](#installing-scala-on-windows)
-    - [Download and Install Scala](#download-and-install-scala)
-    - [Set Up Environment Variables](#set-up-environment-variables)
-
-
 # <span style="color: #7A3DAA; font-family: Segoe UI, sans-serif;">Installing Scala on Windows
 
 Scala can be installed on Windows using Coursier tool. It's basically a command line tool which opens up when you click on the scala installer exe. Follow these steps to install scala on Windows. 

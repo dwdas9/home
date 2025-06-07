@@ -1,9 +1,3 @@
----
-layout: default
-title: CMS Migration to Azure Blob
-parent: DE-Projects
-nav_order: 1
----
 
 ### Project Overview: Migrating and Enabling Search for Archived PDF Data in Azure Blob Storage
 

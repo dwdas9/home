@@ -1,36 +1,4 @@
 ---
-layout: default
-title: Azure Functions Quickstart
-nav_order: 2
----
-
-## Table of Contents
-- [Azure Functions Quickstart - Create, Debug, Deploy, Monitor](#azure-functions-quickstart---create-debug-deploy-monitor)
-  - [Create](#create)
-    - [Create the Azure Function Project](#create-the-azure-function-project)
-    - [Add Python packages to `requirements.txt`](#add-python-packages-to-requirementstxt)
-  - [Debug](#debug)
-    - [Test/Debug the Azure Function](#testdebug-the-azure-function)
-  - [Deploy](#deploy)
-    - [Create an Azure Function App](#create-an-azure-function-app)
-    - [Deploy the Azure Function To The Azure Function App](#deploy-the-azure-function-to-the-azure-function-app)
-  - [Monitor](#monitor)
-    - [Monitor the function post deployment](#monitor-the-function-post-deployment)
-  - [Appendix](#appendix)
-    - [Key takeways](#key-takeways)
-    - [When to choose Azure Functions](#when-to-choose-azure-functions)
-      - [Advantages:](#advantages)
-      - [Challenges:](#challenges)
-    - [Azure Functions: V2 Python Programming Model Vs V1](#azure-functions-v2-python-programming-model-vs-v1)
-    - [The folder structure of Azure Functions(V2)](#the-folder-structure-of-azure-functionsv2)
-    - [What is this Azurite](#what-is-this-azurite)
-    - [What happens during debugging](#what-happens-during-debugging)
-      - [Azure Function Core Tools Warms Up](#azure-function-core-tools-warms-up)
-      - [User Clicks `Execute Function Now..`](#user-clicks-execute-function-now)
-  - [Common Errors](#common-errors)
-    - ["AzureWebJobsStorage" app setting is not present](#azurewebjobsstorage-app-setting-is-not-present)
-
----
 <!-- This section is included in nav. See the frontmatter on top! -->
 
 

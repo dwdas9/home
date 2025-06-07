@@ -1,20 +1,3 @@
----
-layout: default
-title: Stream Processing Product Combination
-parent: StreamProcessing
-nav_order: 1
----
-
-- [How many different Workflows can you have for Real-Time Data Processing?](#how-many-different-workflows-can-you-have-for-real-time-data-processing)
-  - [Open-Source Workflow](#open-source-workflow)
-  - [Azure Workflow](#azure-workflow)
-  - [Databricks Workflow](#databricks-workflow)
-  - [Google Cloud Workflow](#google-cloud-workflow)
-  - [AWS Workflow](#aws-workflow)
-  - [Hybrid Workflow with Confluent and Snowflake](#hybrid-workflow-with-confluent-and-snowflake)
-  - [Azure with Databricks and Synapse Analytics](#azure-with-databricks-and-synapse-analytics)
-  - [On-Premise with Cloud Integration](#on-premise-with-cloud-integration)
-
 ![](images/2024-08-14-22-09-57.png)
 # <span style="color: MediumOrchid; font-family: Segoe UI, sans-serif;">How many different Workflows can you have for Real-Time Data Processing?</span>
 

@@ -1,27 +1,3 @@
----
-layout: default
-title: CMS using MongoDB
-parent: DE-Projects
-nav_order: 4
----
-- [Building a Simple CMS with MongoDB, Python, and Flask](#building-a-simple-cms-with-mongodb-python-and-flask)
-  - [Project Background](#project-background)
-  - [Create a MongoDB Container](#create-a-mongodb-container)
-  - [Creating Sample PDFs and Metadata Files](#creating-sample-pdfs-and-metadata-files)
-    - [Script to Create Metadata and PDF Files](#script-to-create-metadata-and-pdf-files)
-  - [Upload the Content and Metadata to MongoDB](#upload-the-content-and-metadata-to-mongodb)
-  - [Create and Run the Flask Application to Search CMS](#create-and-run-the-flask-application-to-search-cms)
-      - [`index.html`](#indexhtml)
-      - [`search.html`](#searchhtml)
-      - [`app.py`](#apppy)
-    - [Use the search application](#use-the-search-application)
-  - [Appendix](#appendix)
-    - [How the pdf is uploaded and linked with the metadata](#how-the-pdf-is-uploaded-and-linked-with-the-metadata)
-    - [How MongoDB Stores Files and Metadata](#how-mongodb-stores-files-and-metadata)
-      - [Default Metadata (GridFS Metadata)](#default-metadata-gridfs-metadata)
-      - [Custom Metadata](#custom-metadata)
-  - [COnclusion:](#conclusion)
-
 ![](images/custom-image-2024-07-18-01-25-13.png)
 
 # Building a Simple CMS with MongoDB, Python, and Flask

@@ -1,20 +1,3 @@
----
-layout: default
-title: Real-time Intelligence
-parent: MicrosoftFabric
-nav_order: 5
----
-- [Real-time Intelligence - Microsoft Fabric](#real-time-intelligence---microsoft-fabric)
-  - [Core elements of Real-Time Intelligence in Microsoft Fabric](#core-elements-of-real-time-intelligence-in-microsoft-fabric)
-    - [Eventhouse](#eventhouse)
-    - [KQL Database](#kql-database)
-    - [KQL Queryset](#kql-queryset)
-    - [Real-Time Dashboards](#real-time-dashboards)
-    - [Eventstream](#eventstream)
-  - [Let's Get Started](#lets-get-started)
-  - [Create a Power BI Report from KQL Queryset](#create-a-power-bi-report-from-kql-queryset)
-
-
 # Real-time Intelligence - Microsoft Fabric
 
 ![alt text](images/rti.png)

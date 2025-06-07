@@ -1,13 +1,4 @@
-- [**Spark Amazon Kinesis Integration in 7 Steps Using VS Code**](#spark-amazon-kinesis-integration-in-7-steps-using-vs-code)
-  - [Extra Note](#extra-note)
-- [Some Kinesis and Kafka Concepts](#some-kinesis-and-kafka-concepts)
-  - [1. **Streaming Context**](#1-streaming-context)
-  - [2. **Topic Name / Stream Name / Kafka Topic**](#2-topic-name--stream-name--kafka-topic)
-  - [3. **Consumption Model**](#3-consumption-model)
-  - [4. **Consumption Duration**](#4-consumption-duration)
-  - [5. **Storage Levels**](#5-storage-levels)
-  - [6. **Kinesis Storage Level is Mandatory**](#6-kinesis-storage-level-is-mandatory)
-  - [Summary](#summary)
+
 
 # **Spark Amazon Kinesis Integration in 7 Steps Using VS Code**
 

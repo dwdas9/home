@@ -1,18 +1,3 @@
----
-layout: default
-title: Validate JSON using Python
-parent: DE-Projects
----
-
-## Table of Contents
-- [Validating JSON Data with Python and JSON Schema](#validating-json-data-with-python-and-json-schema)
-    - [Introduction](#introduction)
-    - [Prerequisites](#prerequisites)
-    - [How to Run the Script](#how-to-run-the-script)
-    - [Code Overview](#code-overview)
-    - [Conclusion](#conclusion)
-
-
 # <span style="color: SteelBlue;">Validating JSON Data with Python and JSON Schema</span>
 
 ### <span style="color: Coral;">Introduction</span>

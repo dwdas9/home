@@ -1,16 +1,3 @@
----
-layout: default
-title: Building Custom Connectors
-parent: Power Platform
-nav_order: 1
----
-- [Background](#background)
-  - [Steps to creating Custom Connectors for Power Platform](#steps-to-creating-custom-connectors-for-power-platform)
-  - [Example Action](#example-action)
-  - [Using the Custom Connector in Power Apps](#using-the-custom-connector-in-power-apps)
-  - [Example Usage](#example-usage)
-
-
 ## <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Background</span>
 
 Power Platform is great in automation, but its true potential unlocks when you can connect it to non-standard data sources. This is where custom connectors come in, acting as bridges between Power Platform and external APIs. 

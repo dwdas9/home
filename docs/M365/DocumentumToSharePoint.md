@@ -1,9 +1,3 @@
----
-layout: default
-title: Documentum-SharePoint Online
-parent: M365
-nav_order: 1
----
 
 ## Case study: Documentum to SharePoint Online and Azure Blob
 

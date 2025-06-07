@@ -1,8 +1,3 @@
----
-layout: default
-title: Microsoft OpenJDK
-parent: DE-Projects
----
 
 ![](images/2024-08-14-14-54-10.png)
 

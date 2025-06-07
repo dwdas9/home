@@ -1,9 +1,3 @@
----
-layout: default
-title: Project - C# - WSS 3 Bulk ingestion
-parent: M365
-nav_order: 9
----
 ### Document Migration to SharePoint WSS 3.0 Using C#.NET
 
 Our client had a large number of documents saved on their network drives and wanted to move them to SharePoint WSS 3.0. They were excited about using the new features of WSS 3.0 to make document management easier and more efficient.

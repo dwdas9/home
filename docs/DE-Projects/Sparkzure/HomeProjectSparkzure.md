@@ -1,15 +1,3 @@
----
-layout: default
-title: Project Sparkzure
-parent: DE-Projects
-nav_order: 2
----
-- [Overview](#overview)
-  - [How to Connect an local/on-premise Pyspark Setup with Azure Data Lake](#how-to-connect-an-localon-premise-pyspark-setup-with-azure-data-lake)
-  - [Method 1: How to rearrange items in Blob storage using an local/on-premise Pyspark \& Hadoop Jars](#method-1-how-to-rearrange-items-in-blob-storage-using-an-localon-premise-pyspark--hadoop-jars)
-  - [Method 2: How to rearrange items in Blob storage using an local/on-premise Python and Azure Python libraries(SDK)](#method-2-how-to-rearrange-items-in-blob-storage-using-an-localon-premise-python-and-azure-python-librariessdk)
-  - [How to schedule our Blob file organizer Python script usign Azure Timer-Trigger Function](#how-to-schedule-our-blob-file-organizer-python-script-usign-azure-timer-trigger-function)
-
 # Overview
 
 In this article I will show you how you can connect to Azure Storage and perform blob operations from a Standlone Pyspark Setup. We will make use of Hadoop jars to perform the same.

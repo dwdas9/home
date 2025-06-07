@@ -1,21 +1,3 @@
----
-layout: default
-title: KQL
-parent: MicrosoftFabric
-nav_order: 5
----
-
-- [What is KQL?](#what-is-kql)
-  - [How to run KQL query in Fabric?](#how-to-run-kql-query-in-fabric)
-  - [KQL vs SQL Databases](#kql-vs-sql-databases)
-  - [KQL Vs SQL Query](#kql-vs-sql-query)
-    - [KQL vs SQL - DQL](#kql-vs-sql---dql)
-    - [KQL Vs SQL - DDLs, DMLs \& DQLs](#kql-vs-sql---ddls-dmls--dqls)
-- [KQL Q\&A](#kql-qa)
-- [KQL Questions - Keywords](#kql-questions---keywords)
-- [KQL Quesitons - General](#kql-quesitons---general)
-
-
 ## What is KQL?
 
 ![alt text](whatskqlanswer.png)

@@ -1,7 +1,3 @@
----
-title: Getting Started with Microsoft Fabric
-description: An introduction to Microsoft Fabric, OneLake, and Delta Lake
----
 
 # Getting Started with Microsoft Fabric
 

@@ -1,20 +1,3 @@
-- [Data Warehouse in Microsoft Fabric](#data-warehouse-in-microsoft-fabric)
-  - [Background](#background)
-  - [Two types of Warehouse available in Microsoft Fabric](#two-types-of-warehouse-available-in-microsoft-fabric)
-  - [Fact and Dimension Table Concepts](#fact-and-dimension-table-concepts)
-  - [Surrogate keys and alternte keys](#surrogate-keys-and-alternte-keys)
-  - [How data is ingested into a warehouse in Fabric?](#how-data-is-ingested-into-a-warehouse-in-fabric)
-    - [COPY into syntax](#copy-into-syntax)
-    - [Fabric Datawarehouse interface](#fabric-datawarehouse-interface)
-    - [Visual Query in Fabric](#visual-query-in-fabric)
-  - [Appendix](#appendix)
-  - [Special Types of Dimension Tables](#special-types-of-dimension-tables)
-    - [Time Dimensions](#time-dimensions)
-    - [Slowly Changing Dimensions (SCD)](#slowly-changing-dimensions-scd)
-    - [Real-Life Impact](#real-life-impact)
-
-![alt text](images\FabricWareHouseIcon.webp)
-
 # Data Warehouse in Microsoft Fabric
 
 ## Background
