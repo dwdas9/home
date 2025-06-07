@@ -1,9 +1,3 @@
----
-layout: default
-title: PowerPlatform Ecosystem
-parent: Power Platform
-nav_order: 1
----
 
 ![alt text](images\image-5.png)
 

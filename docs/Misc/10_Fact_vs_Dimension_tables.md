@@ -1,9 +1,3 @@
----
-layout: default
-title: Fact Vs Dimension Table
-parent: Misc Articles
-nav_order: 3
----
 
 ![](images/2024-09-14-02-19-50.png)
 

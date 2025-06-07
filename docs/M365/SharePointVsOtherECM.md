@@ -1,9 +1,3 @@
----
-layout: default
-title: SharePoint vs Other ECMS
-parent: M365
-nav_order: 8
----
 ## SharePoint vs OpenText Documentum, and IBM FileNet for ECM
 
 When selecting an Enterprise Content Management (ECM) platform, SharePoint, OpenText Documentum, and IBM FileNet emerge as notable choices, each with unique strengths.

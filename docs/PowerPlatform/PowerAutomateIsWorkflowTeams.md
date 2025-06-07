@@ -1,15 +1,3 @@
----
-layout: default
-title: Workflow is Power Automate
-parent: Power Platform
-nav_order: 1
----
-
-- [Workflow = Power Automate(Teams) = make.powerautomate.com](#workflow--power-automateteams--makepowerautomatecom)
-  - [Key Features and Benefits](#key-features-and-benefits)
-  - [Getting Started](#getting-started)
-  - [Conclusion](#conclusion)
-
 
 # <span style="color: Teal;Font-family: Segoe UI, sans-serif;">Workflow = Power Automate(Teams) = make.powerautomate.com</span>
 

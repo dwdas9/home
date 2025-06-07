@@ -1,9 +1,3 @@
----
-layout: default
-title: Markdown
-parent: Misc Articles
-nav_order: 3
----
 
 
 # Fonts

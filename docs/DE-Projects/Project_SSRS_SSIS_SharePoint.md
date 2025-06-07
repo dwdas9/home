@@ -1,9 +1,3 @@
----
-layout: default
-title: Project - ETL and Reporting Lending Org
-parent: DE-Projects
-nav_order: 4
----
 
 # Setting Up SSRS Reports in SharePoint for a Client with 100+ Field Offices
 

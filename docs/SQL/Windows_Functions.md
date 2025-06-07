@@ -6,22 +6,6 @@ Imagine you're running a marathon, and you’re curious not just about who won, 
 
 Think of it this way: Aggregate functions (like SUM, AVG) summarize data by squashing rows together. Window Functions, on the other hand, let you see both the summary and the individual details. It’s like having your cake and eating it too!
 
----
-
-## **What Are Window Functions?**
-### The Cheat Code for Advanced Data Analysis
-Window Functions are SQL’s way of saying, “Hey, let’s analyze data row-by-row, but also calculate cool stuff based on groups or sequences.” The magic happens in the `OVER` clause—that’s where you define the "window" of rows you’re analyzing.
-
-Here’s the anatomy of a Window Function:
-```sql
-function_name(column_name) OVER (PARTITION BY column_name ORDER BY column_name)
-```
-- **Function Name**: This is the action (e.g., SUM, AVG, ROW_NUMBER).
-- **OVER Clause**: The heart of the operation—it tells SQL how to group and order the data.
-  - **PARTITION BY**: Defines groups (e.g., all employees in the same department).
-  - **ORDER BY**: Specifies the sequence within each group.
-
----
 
 ## **Meet the Cast: Types of Window Functions**
 Let’s dive into the superstar Window Functions—each has its own talent for tackling data challenges.
@@ -120,29 +104,6 @@ Use these to see how a value compares to others within a window.
 #### **PERCENT_RANK()**: Relative Ranking Made Easy
 - Similar to `CUME_DIST()`, but calculates the rank percentage.
 
----
-
-## **Playtime: Real-Life Scenarios**
-### **1. Pagination: Scrolling Through Results Like a Pro**
-When you need to split results into pages, `ROW_NUMBER()` is your best friend.
-```sql
-SELECT *
-FROM (
-    SELECT employee_name, ROW_NUMBER() OVER (ORDER BY employee_id) AS row_num
-    FROM employees
-) subquery
-WHERE row_num BETWEEN 11 AND 20;
-```
-
-### **2. Running Totals: Tracking Progress Step by Step**
-Great for financial or time-series data.
-```sql
-SELECT order_id, amount,
-       SUM(amount) OVER (ORDER BY order_date) AS running_total
-FROM orders;
-```
-
----
 
 ## **Cheat Sheet: Quick Reference Table**
 | Function       | Superpower                     | Handles Ties | Gaps in Rank |

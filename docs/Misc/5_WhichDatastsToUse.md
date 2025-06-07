@@ -1,9 +1,3 @@
----
-layout: default
-title: Free Datasets for Data Practice
-parent: Misc Articles
-nav_order: 5
----
 
 
 ## Overview

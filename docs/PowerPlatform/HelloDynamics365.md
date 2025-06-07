@@ -1,9 +1,3 @@
----
-layout: default
-title: Dynamics 365 Ecosystem
-parent: Power Platform
-nav_order: 1
----
 
 
 ## List of Dynamics 365 products

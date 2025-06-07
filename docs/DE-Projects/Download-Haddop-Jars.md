@@ -1,8 +1,3 @@
----
-layout: default
-title: Download JARs-Apache Maven Repo
-parent: PythonEcosystem
----
 
 
 <img src="images/175533.png" alt="alt text" style="
@@ -15,15 +10,6 @@ parent: PythonEcosystem
     height: 500px; /* Maintain aspect ratio */
     transition: transform 0.2s;
 "/>
-
-## Table of Contents
-- [How to Download JAR Files from Apache Maven Repository](#how-to-download-jar-files-from-apache-maven-repository)
-  - [Steps to Download JAR Files](#steps-to-download-jar-files)
-    - [Go to Apache Maven Repository](#go-to-apache-maven-repository)
-    - [Search for the JAR File](#search-for-the-jar-file)
-    - [Pick the Version You Want](#pick-the-version-you-want)
-    - [Download the JAR File](#download-the-jar-file)
-- [How to Use the JARs](#how-to-use-the-jars)
 
 
 # How to Download JAR Files from Apache Maven Repository

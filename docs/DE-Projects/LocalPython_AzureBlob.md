@@ -1,22 +1,3 @@
----
-layout: default
-title: Local Python Code to Rearrange Files in a Azure Blob Container
-parent: PythonEcosystem
----
-
-### Table of contents
-
-- [Rearranging Files in Azure Blob Storage Using Python](#rearranging-files-in-azure-blob-storage-using-python)
-  - [Background](#background)
-  - [Prerequisites](#prerequisites)
-  - [Overview](#overview)
-  - [Kickstart: Step-by-step guide to writing the code](#kickstart-step-by-step-guide-to-writing-the-code)
-  - [Conclusion](#conclusion)
-  - [Appendix](#appendix)
-    - [Why use a structure like `year=2023/month=10/day=23/hour=00.json`?](#why-use-a-structure-like-year2023month10day23hour00json)
-    - [Complete tested code](#complete-tested-code)
-
-
 ## Rearranging Files in Azure Blob Storage Using Python
 
 ### Background

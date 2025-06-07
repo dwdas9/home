@@ -1,19 +1,3 @@
----
-layout: default
-title: Power Automate Or Kofax/Captiva?
-parent: Power Platform
-nav_order: 1
----
-
-- [Overview](#overview)
-  - [Traditional method of document capture ](#traditional-method-of-document-capture-)
-  - [Alternative method - using Power Platform ](#alternative-method---using-power-platform-)
-  - [Let's get started](#lets-get-started)
-    - [Our Workflow](#our-workflow)
-    - [How to Create the Workflow](#how-to-create-the-workflow)
-  - [Conclusion](#conclusion)
-  - [Further Reading](#further-reading)
-
 ![alt text](images\OpenTextOrPowerAutomate.png)
 # <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Overview</span>
 

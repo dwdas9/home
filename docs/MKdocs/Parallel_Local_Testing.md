@@ -1,7 +1,3 @@
----
-title: Testing MKDocs Locally
-
----
 # Testing MKDocs Locally
 
 This website is made using Material for MKDocs framework. Its essentially few markdown files which I create and the framework compiles them into html pages and puts in a github branch, from where GitHub pages serves them.

@@ -1,32 +1,3 @@
----
-layout: default
-title: Confluent Kafka
-parent: Docker
-nav_order: 2
----
-## <span style="color: #003366;">Table of Contents</span>
-
-- [Confluent Kafka with KRaft on Docker](#confluent-kafka-with-kraft-on-docker)
-  - [Step 1: Download the Docker Compose file](#step-1-download-the-docker-compose-file)
-  - [Step 2: Run the container](#step-2-run-the-container)
-- [Appendix](#appendix)
-  - [Connecting to Kafka Containers](#connecting-to-kafka-containers)
-  - [Troubleshooting Broker Connection Issues](#troubleshooting-broker-connection-issues)
-    - [Error: no matching manifest for linux/arm64/v8](#error-no-matching-manifest-for-linuxarm64v8)
-    - [Resolving Port Conflicts for Kafka Rest Proxy in Docker](#resolving-port-conflicts-for-kafka-rest-proxy-in-docker)
-    - [About the docker-compose.yml](#about-the-docker-composeyml)
-    - [Fully commented docker-compose.yml](#fully-commented-docker-composeyml)
-  - [Conclusion](#conclusion)
-  - [Further reading](#further-reading)
-- [Kafka 6 with Zookeeper on Windows Docker](#kafka-6-with-zookeeper-on-windows-docker)
-  - [Overview](#overview)
-  - [Prerequisites](#prerequisites)
-  - [Steps to create the setup](#steps-to-create-the-setup)
-    - [1. Create the `docker-compose.yaml`](#1-create-the-docker-composeyaml)
-    - [2. Start the Services](#2-start-the-services)
-    - [3. Check the setup](#3-check-the-setup)
-  - [Component Details](#component-details)
-
 #  <span style="color: #003366;font-family: Segoe UI, sans-serif;">Confluent Kafka with KRaft on Docker</span>
 
 

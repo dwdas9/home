@@ -1,17 +1,3 @@
----
-layout: default
-title: Hello Dataverse
-parent: Power Platform
-nav_order: 1
----
-- [What is Dataverse?](#what-is-dataverse)
-- [What are Dataverse verions?](#what-are-dataverse-verions)
-- [Dataverse Storage - behind the scenes](#dataverse-storage---behind-the-scenes)
-- [Dataverse vs. MSSQL Tables: A Quick Comparison](#dataverse-vs-mssql-tables-a-quick-comparison)
-  - [Long story short](#long-story-short)
-  - [How to choose?](#how-to-choose)
-
-
 ## What is Dataverse?
 
 Dataverse is Power Platform's Database - for simplicty.

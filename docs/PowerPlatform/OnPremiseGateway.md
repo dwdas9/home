@@ -1,9 +1,3 @@
----
-layout: default
-title: Onpremise Gateway
-parent: Power Platform
-nav_order: 1
----
 
 # On-Premise to Cloud ETL Using DataFlows & On-Premise Gateway
 

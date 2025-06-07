@@ -1,7 +1,6 @@
 ![alt text](images/Turing.png)
 
 # Evolution of LLMs through Time
----
 
 ## 1950s–1980s: The Early Sparks of NLP
 
@@ -26,7 +25,7 @@ These decades lay the foundation for the next big leap: moving away from manuall
 Researchers like John McCarthy—an AI luminary—are amused by these new approaches but caution,
 > “We should not abandon reason for statistics. Ideally, we’d want both.”  
 
----
+
 
 ## 1990s: Faster Machines, Bigger Data
 

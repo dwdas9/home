@@ -1,9 +1,3 @@
----
-layout: default
-title: M365 Licensing Examples
-parent: M365
-nav_order: 1
----
 
 ## M365 Example licensing:
 

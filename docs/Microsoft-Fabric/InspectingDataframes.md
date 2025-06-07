@@ -1,17 +1,3 @@
----
-layout: default
-title: Whats in your df?
-parent: MicrosoftFabric
-nav_order: 5
----
-
-- [Whats in your df? Find out quick.](#whats-in-your-df-find-out-quick)
-  - [Firs step - Use the `display()` Function](#firs-step---use-the-display-function)
-    - [Table View](#table-view)
-    - [Chart View](#chart-view)
-    - [Creating a Power BI Report](#creating-a-power-bi-report)
-  - [Microsoft Fabric DP-600 question](#microsoft-fabric-dp-600-question)
-  - [Reference](#reference)
 
 ![alt text](images\remdup_image-6.png)
 

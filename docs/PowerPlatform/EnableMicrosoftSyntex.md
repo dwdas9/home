@@ -1,13 +1,3 @@
----
-layout: default
-title: Enable Microsoft Syntex on your Office 365 tenant
-parent: Power Platform
-nav_order: 1
----
-
-- [Overview](#overview)
-  - [Steps to activate Microsoft Syntex](#steps-to-activate-microsoft-syntex)
-
 # <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Overview</span>
 
 Microsoft Syntex uses content and AI to enable end-to-end intelligent document processing solutions.

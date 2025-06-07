@@ -1,14 +1,3 @@
----
-layout: default
-title: SPMT - SharePoint Migration
-parent: M365
-nav_order: 9
----
-- [Migrating to Microsoft 365 with the SharePoint Migration Tool (SPMT)](#migrating-to-microsoft-365-with-the-sharepoint-migration-tool-spmt)
-    - [What Can Be Migrated?](#what-can-be-migrated)
-    - [Let's get started](#lets-get-started)
-
-
 ![alt text](images\2.jpg)
 
 ## Migrating to Microsoft 365 with the SharePoint Migration Tool (SPMT)

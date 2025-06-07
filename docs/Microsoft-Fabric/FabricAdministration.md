@@ -1,9 +1,3 @@
----
-layout: default
-title: Administration
-parent: MicrosoftFabric
-nav_order: 4
----
 
 ### Open Fabric Admin Portal
 

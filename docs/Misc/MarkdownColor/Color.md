@@ -1,9 +1,3 @@
----
-layout: default
-title: Color Reference
-parent: Misc Articles
-nav_order: 1
----
 
 # Color Palettes
 

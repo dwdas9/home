@@ -1,9 +1,3 @@
----
-layout: default
-title: Why Ubuntu is good to learn
-parent: Misc Articles
-nav_order: 3
----
 
 ### Why Ubuntu is a Valuable OS for Microsoft Ecosystem
 

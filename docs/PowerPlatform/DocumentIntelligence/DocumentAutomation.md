@@ -1,17 +1,3 @@
----
-layout: default
-title: Document automation base kit
-parent: Power Platform
-nav_order: 1
----
-
-- [Background](#background)
-- [How its done traditionally](#how-its-done-traditionally)
-- [Enter Power Platform's AI Builder](#enter-power-platforms-ai-builder)
-- [Introduing Document automation base kit](#introduing-document-automation-base-kit)
-- [Conclusion](#conclusion)
-
-
 # <span style="color: Indigo;Font-family: Segoe UI, sans-serif;">Background</span>
 This article may be beneficial for ECM and Data Capture specialists exploring alternative solutions offered by Power Platform to traditional Document Capture tools such as Captiva InputAccel (OpenText Intelligent Capture), Kofax Capture, and IBM Datacap.
 # <span style="color: DarkOrchid;Font-family: Segoe UI, sans-serif;">How its done traditionally</span>

@@ -1,12 +1,3 @@
----
-layout: default
-title: Create a model on SharePoint - Syntex
-parent: Power Platform
-nav_order: 1
----
-- [Create a model on a local SharePoint site with Microsoft Syntex](#create-a-model-on-a-local-sharepoint-site-with-microsoft-syntex)
-  - [Create a model on a local site](#create-a-model-on-a-local-site)
-
 # Create a model on a local SharePoint site with Microsoft Syntex
 
 Create a model on a local site

@@ -1,9 +1,3 @@
----
-layout: default
-title: Project StreamKraft
-parent: DE-Projects
-nav_order: 3
----
 - [StreamKraft: Real-Time Music Data Pipeline. Kafka. SparkStreaming. MongoDB.](#streamkraft-real-time-music-data-pipeline-kafka-sparkstreaming-mongodb)
 - [Project Setup](#project-setup)
   - [Step 1 - Dataset prepartion for Fake-streaming](#step-1---dataset-prepartion-for-fake-streaming)

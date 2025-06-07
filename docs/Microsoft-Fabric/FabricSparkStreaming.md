@@ -1,9 +1,3 @@
----
-layout: minimal
-title: Spark Streaming
-parent: MicrosoftFabric
-nav_order: 3
----
 
 ## Microsoft Fabric - Delta Tables - Spark Streaming
 

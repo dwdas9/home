@@ -1,31 +1,3 @@
----
-layout: default
-title: Python
-parent: Python Ecosystem
-nav_order: 1
-has_children: true
----
-- [Python version - python -V](#python-version---python--v)
-- [Variables](#variables)
-- [Python Comments](#python-comments)
-- [Python list](#python-list)
-  - [For item in list](#for-item-in-list)
-  - [While in list](#while-in-list)
-- [Python functions](#python-functions)
-- [Python Snippets](#python-snippets)
-  - [Get Current User info](#get-current-user-info)
-- [Populat MSSQL Tables with random data](#populat-mssql-tables-with-random-data)
-- [Python Gotchas](#python-gotchas)
-  - [NameError in Python](#nameerror-in-python)
-- [Python Object-Oriented Programming (OOP)](#python-object-oriented-programming-oop)
-    - [1. **Class**](#1-class)
-    - [2. **Object**](#2-object)
-    - [3. **Encapsulation**](#3-encapsulation)
-    - [4. **Inheritance**](#4-inheritance)
-    - [5. **Polymorphism**](#5-polymorphism)
-    - [6. **Abstraction**](#6-abstraction)
-    - [Key Benefits of OOP:](#key-benefits-of-oop)
-
 # Python version - python -V
 
 To check python version use run in terminal/CMD

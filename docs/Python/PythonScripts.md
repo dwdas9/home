@@ -1,10 +1,3 @@
----
-layout: default
-title: Python Sample Scripts
-parent: Python Ecosystem
-nav_order: 1
-has_children: true
----
 
 # Csv files creator with random data
 

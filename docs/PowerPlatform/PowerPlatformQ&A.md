@@ -1,9 +1,3 @@
----
-layout: default
-title: Pl-900-Q&A
-parent: Power Platform
-nav_order: 1
----
 
 **Note:** Highlight the answers to reveal them.
 

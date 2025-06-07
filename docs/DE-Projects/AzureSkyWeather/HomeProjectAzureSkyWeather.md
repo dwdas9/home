@@ -1,10 +1,3 @@
----
-layout: default
-title: Project AzureSkyWeather
-parent: DE-Projects
-nav_order: 1
-has_children: true
----
 
 ![alt text](project_skyazure.jpg)
 

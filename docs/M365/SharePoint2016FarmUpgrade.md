@@ -1,27 +1,3 @@
----
-layout: default
-title: SharePoint Farm 2016 Farm Setup
-parent: M365
-nav_order: 3
----
-- [Background](#background)
-  - [Project Overview \& Understanding](#project-overview--understanding)
-  - [Objectives of Redesign](#objectives-of-redesign)
-  - [Current System Study](#current-system-study)
-  - [Current System Assessment](#current-system-assessment)
-    - [Governance](#governance)
-    - [Infrastructure \& Platform](#infrastructure--platform)
-    - [Information Management](#information-management)
-    - [Usability](#usability)
-    - [SharePoint Farm Maintenance \& Deployment](#sharepoint-farm-maintenance--deployment)
-  - [System Architecture \& Design Recommendations](#system-architecture--design-recommendations)
-    - [Available architectural models](#available-architectural-models)
-    - [License models](#license-models)
-  - [Topology Recommendation](#topology-recommendation)
-    - [Services Installed:](#services-installed)
-    - [High Availability Explanation:](#high-availability-explanation)
-    - [Disaster recovery Recommendations](#disaster-recovery-recommendations)
-
 # Background
 
 Hello, readers. In this article I will share my experience architecting a farm topology for a SharePoint 2016 on-prem, in-country farm deployment project.

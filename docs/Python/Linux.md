@@ -1,8 +1,3 @@
----
-layout: default
-title: Essential Unix Commands
-parent: Python Ecosystem
----
 # Some essential unix commands
 
 | **Command**               | **Description**                                                                                      | **Example**                                      |

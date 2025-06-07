@@ -1,9 +1,3 @@
----
-layout: default
-title: Check Google Usage
-parent: Misc Articles
-nav_order: 1
----
 
 ## <span style="color: #1434CB; font-family: Segoe UI, sans-serif;"> Background</span>
 
