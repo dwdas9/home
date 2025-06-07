@@ -1,20 +1,3 @@
----
-layout: default
-title: Azure-Pipelines
-parent: Devops
-nav_order: 2
-has_children: true
----
-
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
-
 # <span style="color: Teal">Azure Pipelines</span>
 
 In Azure DevOps, Azure Pipelines are used to automatically build, test, and deploy any project to Dev, UAT, or PROD environments. This is how CI/CD is implemented using Azure Pipelines.

@@ -1,10 +1,3 @@
----
-layout: default
-title: SQL Advanced Topics
-parent: SQL
-nav_order: 2
----
-
 ### 1. **Normalization and Denormalization**
    - **Normalization** is the process of organizing data to reduce redundancy and improve integrity. It involves dividing large tables into smaller, manageable ones and using foreign keys to link them.
      - **First Normal Form (1NF)**: Each column contains atomic (indivisible) values, and each record is unique.

@@ -1,28 +1,3 @@
----
-layout: default
-title: Pipelines&DataFlows
-parent: MicrosoftFabric
-nav_order: 5
----
-
-- [Data Factory in Microsoft Fabric](#data-factory-in-microsoft-fabric)
-  - [Background](#background)
-  - [Pipelines in Microsoft Fabric](#pipelines-in-microsoft-fabric)
-    - [**Understand Pipelines**](#understand-pipelines)
-    - [**Core Pipeline Concepts**](#core-pipeline-concepts)
-      - [**Activities**: Executable tasks in a sequence. Two types:](#activities-executable-tasks-in-a-sequence-two-types)
-      - [**Parameters**](#parameters)
-      - [**Pipeline Runs**](#pipeline-runs)
-  - [Canvas for desinign piplines](#canvas-for-desinign-piplines)
-  - [The Copy Data Activity](#the-copy-data-activity)
-    - [The Copy Data Tool](#the-copy-data-tool)
-  - [Pipeline Templates](#pipeline-templates)
-  - [Run and monitor pipelines](#run-and-monitor-pipelines)
-  - [Dataflows](#dataflows)
-    - [When you choose DataFlows](#when-you-choose-dataflows)
-  - [Pipeline Copy Vs DataFlows Vs Spark](#pipeline-copy-vs-dataflows-vs-spark)
-
-
 # Data Factory in Microsoft Fabric
 
 ## Background

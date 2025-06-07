@@ -1,20 +1,3 @@
----
-layout: default
-title: ADF-CI-CD
-parent: Devops
-nav_order: 4
----
-
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
-
-
 # ADF -  Dev to PROD using GitHub workflows and Azure Pipelines
 
 Moving your Azure Data Factory from Dev to PROD can be CI/CDed using GitHub Actions Workflows or using Azure DevOps Pipelines.
