@@ -81,8 +81,6 @@ plugins:
   - blog
   - search:  # Enable search functionality (required for most themes)
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  - minify:
-      minify_html: true
   - glightbox:  # Plugin for image and media lightboxes
       touchNavigation: true       # Allow touch navigation on mobile
       loop: false                 # Disable continuous looping

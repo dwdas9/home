@@ -7,7 +7,7 @@ ENV/
 # MkDocs generated site
 # These files are automatically generated during CI/CD
 site/
-
+./site
 # Python compiled files and cache
 __pycache__/
 *.py[cod]

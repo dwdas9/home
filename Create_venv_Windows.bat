@@ -1,9 +1,14 @@
 @echo off
 setlocal EnableDelayedExpansion
 
-:: Can run anytime. Safe. Run it to make a fully working mkdocs venv with no integration issue with current docs. 
-:: This script sets up a venv and MkDocs environment. Handles OneDrive path issues and process conflicts. 
-:: Place under ikeade folder next to .venv and run anytime.
+:: Script to create a virtual enviornment with MKDocs and its dependencies installed. Creates an enviornment which is closely intergrated wtih the mkdocs project.
+:: You can start deploying mkdocs right away after the VM is created. Very robut script and installs all the dependencies needed for mkdocs to run.
+:: Open command promopt. CD to this folder. Then run .\Create_venv_Windows.bat. That's it. You will see a .venv folder created in the current directory.
+
+:: Open terminal/command prompt. CD to this folder. Then run:.\Create_venv_Windows.bat
+:: Run .venv\Scripts\activate. You will see a (.venv) prefix in the command prompt, indicating that the virtual environment is active.
+:: 
+
 
 :: Key Features:
 :: - Detects OneDrive path

@@ -1,28 +1,30 @@
 # This requirements file is sufficient for creating a virtual environment.
+# Version ranges ensure stability while allowing compatible updates
 
 # Core MkDocs and Material theme
-mkdocs
-mkdocs-material
+mkdocs>=1.5.0,<1.7.0              # Core MkDocs framework
+mkdocs-material>=9.4.0,<10.0.0    # Material Design theme
 
 # Extensions and plugins for Material theme
-pymdown-extensions  # Provides advanced Markdown extensions
-mkdocs-glightbox  # Plugin for media lightboxes
-mkdocs-include-markdown-plugin
-mkdocs-minify-plugin # Plugin for minifying HTML and CSS
+pymdown-extensions>=10.0,<11.0    # Provides advanced Markdown extensions
+mkdocs-glightbox>=0.3.0,<0.4.0    # Plugin for media lightboxes
+mkdocs-include-markdown-plugin>=6.0.0,<7.0.0  # File inclusion support
+
+
 # Additional dependencies required by mkdocs-material
-markdown  # Markdown parser
-pyyaml  # YAML parsing library
-requests  # For handling HTTP requests (used by plugins)
-jinja2  # Templating engine
-markdown-include  # Markdown support for file inclusion
+markdown>=3.4.0,<4.0.0            # Markdown parser
+pyyaml>=6.0.0,<7.0.0              # YAML parsing library
+requests>=2.25.0,<3.0.0           # For handling HTTP requests (used by plugins)
+jinja2>=3.0.0,<4.0.0              # Templating engine
+markdown-include>=0.8.0,<1.0.0    # Markdown support for file inclusion
 
 # Optional dependencies for syntax highlighting and diagrams
-pygments  # Syntax highlighting for code blocks
-mkdocs-mermaid2-plugin  # Diagram generation
+pygments>=2.10.0,<3.0.0           # Syntax highlighting for code blocks
+mkdocs-mermaid2-plugin>=0.6.0,<1.0.0  # Diagram generation
 
 # Watchdog for live reload during development
-watchdog
+watchdog>=2.1.0,<4.0.0            # File system event monitoring
 
 # Optional pagination and localization
-babel  # Localization support
-paginate  # Pagination for long lists
+babel>=2.9.0,<3.0.0               # Localization support
+paginate>=0.5.0,<1.0.0            # Pagination for long lists
