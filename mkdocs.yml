@@ -81,18 +81,18 @@ plugins:
   - blog
   - search:  # Enable search functionality (required for most themes)
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  - glightbox:  # Plugin for image and media lightboxes
-      touchNavigation: true       # Allow touch navigation on mobile
-      loop: false                 # Disable continuous looping
-      effect: zoom                # Add zoom effect for images
-      slide_effect: slide         # Slide transition for media
-      width: 100%                 # Responsive width
-      height: auto                # Adaptive height
-      zoomable: true              # Enable zoom functionality
-      draggable: true             # Allow media dragging
-      auto_caption: true          # Generate captions automatically
-      caption_position: bottom    # Place captions at the bottom
-      shadow: true                # Enable shadow effects
+  - glightbox:  # plugin for image and media lightboxes
+       touchnavigation: true       # allow touch navigation on mobile
+       loop: false                 # disable continuous looping
+       effect: zoom                # add zoom effect for images
+       slide_effect: slide         # slide transition for media
+       width: 100%                 # responsive width
+       height: auto                # adaptive height
+       zoomable: true              # enable zoom functionality
+       draggable: true             # allow media dragging
+       auto_caption: true          # generate captions automatically
+       caption_position: bottom    # place captions at the bottom
+       shadow: true                # enable shadow effects
   - offline  # Make site searchable offline (enable if distributing offline)
   #- include-markdown ## Sidebar menu structure. Each file path is relative to the `docs` directory.. To reuse markdown files in other markdown files
 
@@ -109,8 +109,7 @@ extra:
       link: https://github.com/dwdas9
     - icon: fontawesome/brands/docker
       link: https://hub.docker.com/u/dwdas9
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/dwds/
+
   generator: false # Remove Made with Material in footer
 
 # =========================
@@ -322,7 +321,8 @@ nav:
         - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
         - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
 
- 
+  - Git:
+    - Basics: 'Git/1_Git_Basics.md'
 
   - Enterprise Solutions:
     - Microsoft 365:
