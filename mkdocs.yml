@@ -184,6 +184,7 @@ nav:
         - Windows Functions: 'Spark-DataBricks/1.0_Spark/1.7_distinct_dropDuplicate_windowsFunc.md'
         - Partitioning: 'Spark-DataBricks/1.0_Spark/1.8_Partition_Grouping.md'
         - RDD vs DataFrame: 'Spark-DataBricks/1.0_Spark/1.9_RDD_Dataframe_Dataset.md'
+        - PySpark Gotchas: 'Spark-DataBricks/1.0_Spark/2.0_PySpark_Gotchas.md'
         - Scala Guide: 'Spark-DataBricks/1.0_Spark/1.10_Scala_Cheatsheet.md'
         - Interview Q&A: 'Spark-DataBricks/1.0_Spark/1.11_Spark_Interview_Questions.md'
         - Shuffle: 'Spark-DataBricks/1.0_Spark/1.12_Spark_Shuffle.md'
