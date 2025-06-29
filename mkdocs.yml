@@ -324,6 +324,7 @@ nav:
 
   - Git:
     - Basics: 'Git/1_Git_Basics.md'
+    - Troubleshooting Scanarios: 'Git/2_Git_Trobleshooting_Scanarios.md'
 
   - Enterprise Solutions:
     - Microsoft 365:
