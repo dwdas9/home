@@ -161,6 +161,13 @@ extra_javascript:
 nav:
   - Home: 'index.md'
   
+  - PySpark Gotchas:
+    - Schema Inference Double-Read Penalty: 'Spark-DataBricks/1.1_PySparkGotchas/SchemaInferenceDouble-ReadPenalty.md'
+    - Small Files Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/SmallFilesPerformanceKiller.md'
+    - High-Cardinality Partitioning Disaster: 'Spark-DataBricks/1.1_PySparkGotchas/High-CardinalityPartitioningDisaster.md'
+    - Suboptimal File Format Choices: 'Spark-DataBricks/1.1_PySparkGotchas/SuboptimalFileFormatChoices.md'
+    - The Goldilocks Partition Problem: 'Spark-DataBricks/1.1_PySparkGotchas/TheGoldilocksPartitionProblem.md'
+  
   - AI & ML:
     - History: 'AI-ML/1_History.md'
     - Running Stable Diffusion Locally: 'AI-ML/Running_Stable_Diffusion_Locally.md'
