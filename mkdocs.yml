@@ -163,10 +163,14 @@ nav:
   
   - PySpark Gotchas:
     - Schema Inference Double-Read Penalty: 'Spark-DataBricks/1.1_PySparkGotchas/SchemaInferenceDouble-ReadPenalty.md'
+    - Data Skew - The Silent Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/Data Skew-TheSilentPerformanceKiller.md'
     - Small Files Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/SmallFilesPerformanceKiller.md'
     - High-Cardinality Partitioning Disaster: 'Spark-DataBricks/1.1_PySparkGotchas/High-CardinalityPartitioningDisaster.md'
-    - Suboptimal File Format Choices: 'Spark-DataBricks/1.1_PySparkGotchas/SuboptimalFileFormatChoices.md'
     - The Goldilocks Partition Problem: 'Spark-DataBricks/1.1_PySparkGotchas/TheGoldilocksPartitionProblem.md'
+    - Suboptimal File Format Choices: 'Spark-DataBricks/1.1_PySparkGotchas/SuboptimalFileFormatChoices.md'
+    - Lazy Cache Evaluation Trap: 'Spark-DataBricks/1.1_PySparkGotchas/LazyCacheEvaluationTrap.md'
+    - Over-Caching Memory Waste: 'Spark-DataBricks/1.1_PySparkGotchas/Over-CachingMemoryWaste.md'
+    - Wrong Storage Level Choices: 'Spark-DataBricks/1.1_PySparkGotchas/WrongStorageLevelChoices.md'
   
   - AI & ML:
     - History: 'AI-ML/1_History.md'
