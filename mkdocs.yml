@@ -203,6 +203,7 @@ nav:
         - Common Topics: 'Spark-DataBricks/1.0_Spark/1.15_CommonPysparkTopics.md'
         - Hive Integration: 'Spark-DataBricks/1.0_Spark/1.16_ConnectingSparkToHive.md'
         - Setup Guide: 'Spark-DataBricks/1.0_Spark/Install-Pyspark-Windows/Install-Pyspark-Windows.md'
+        - SAS to PySpark Conversion: 'Spark-DataBricks/SAS_to_PySpark_Conversion.md'
       
       - Databricks:
         - Concepts: 'Spark-DataBricks/3.0_Databricks/3.0_Databricks_Concepts.md'

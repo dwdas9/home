@@ -844,3 +844,213 @@ final_data.groupBy("DC_AGE_GROUP").count().orderBy("DC_AGE_GROUP").show()
 ```
 
 This conversion maintains the exact logic flow of the original SAS script while adapting to PySpark's DataFrame API and Delta Lake storage format. Each section is thoroughly commented to show the mapping back to the original SAS code.
+
+## Running the Conversion
+
+To execute this PySpark conversion in your environment:
+
+1. **Prerequisites**:
+   - PySpark 3.x or higher
+   - Delta Lake 2.x or higher
+   - Access to tax_dv schema in your data lake
+   - Appropriate cluster configuration
+
+2. **Environment Setup**:
+   ```bash
+   # Install required packages
+   pip install pyspark delta-spark
+   
+   # Set environment variables (adjust as needed)
+   export SPARK_HOME=/path/to/spark
+   export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
+   ```
+
+3. **Execution**:
+   ```python
+   # Copy the complete code above and execute in your PySpark environment
+   # Ensure proper configuration for your specific Delta Lake setup
+   ```
+
+## Testing and Validation
+
+Comprehensive testing approach to validate the conversion:
+
+```python
+# =============================================================================
+# Testing and Validation Script
+# =============================================================================
+
+def validate_conversion():
+    """
+    Validate that the PySpark conversion produces expected results
+    """
+    
+    # 1. Data Volume Validation
+    print("=== Data Volume Validation ===")
+    source_count = spark.read.format("delta").table("tax_dv.ST_TDW_INDIVIDUAL_DTL").count()
+    target_count = spark.read.format("delta").table("tax_dv.T_ADM_PF_INDIV").count()
+    
+    print(f"Source records: {source_count}")
+    print(f"Target records: {target_count}")
+    print(f"Processing efficiency: {(target_count/source_count)*100:.2f}%")
+    
+    # 2. Data Quality Validation
+    print("\n=== Data Quality Validation ===")
+    result_df = spark.read.format("delta").table("tax_dv.T_ADM_PF_INDIV")
+    
+    # Check for nulls in key fields
+    null_checks = result_df.select([
+        count(when(col("id_internal").isNull(), 1)).alias("id_internal_nulls"),
+        count(when(col("DC_NATIONALITY_1").isNull(), 1)).alias("nationality_nulls"),
+        count(when(col("QT_AGE").isNull(), 1)).alias("age_nulls"),
+        count(when(col("DC_AGE_GROUP").isNull(), 1)).alias("age_group_nulls")
+    ]).collect()[0]
+    
+    for field, count_val in null_checks.asDict().items():
+        print(f"{field}: {count_val} null values")
+    
+    # 3. Business Logic Validation
+    print("\n=== Business Logic Validation ===")
+    
+    # Age group distribution
+    print("Age Group Distribution:")
+    result_df.groupBy("DC_AGE_GROUP").count() \
+        .orderBy("DC_AGE_GROUP") \
+        .show(truncate=False)
+    
+    # Nationality distribution
+    print("Nationality Distribution:")
+    result_df.groupBy("DC_NATIONALITY_1").count() \
+        .orderBy(col("count").desc()) \
+        .show(10, truncate=False)
+    
+    # 4. Performance Metrics
+    print("\n=== Performance Metrics ===")
+    import time
+    
+    start_time = time.time()
+    result_df.cache()
+    result_df.count()  # Trigger caching
+    cache_time = time.time() - start_time
+    
+    start_time = time.time()
+    result_df.count()  # Should be fast from cache
+    cached_query_time = time.time() - start_time
+    
+    print(f"Initial cache time: {cache_time:.2f} seconds")
+    print(f"Cached query time: {cached_query_time:.2f} seconds")
+    print(f"Cache performance gain: {cache_time/cached_query_time:.2f}x")
+    
+    # 5. Schema Validation
+    print("\n=== Schema Validation ===")
+    expected_columns = [
+        "id_internal", "DC_NATIONALITY_1", "QT_AGE", "DC_AGE_GROUP",
+        "IN_HANDICAP", "tx_country", "tx_gender", "tx_marital_status",
+        "tx_race", "tx_nationality", "DT_REVOCATION", "TX_INDIVIDUAL_TYPE",
+        "nm_src_system", "tx_nor_status", "dt_nor_qual_from", "dt_nor_qual_to"
+    ]
+    
+    actual_columns = result_df.columns
+    missing_columns = set(expected_columns) - set(actual_columns)
+    extra_columns = set(actual_columns) - set(expected_columns)
+    
+    print(f"Expected columns: {len(expected_columns)}")
+    print(f"Actual columns: {len(actual_columns)}")
+    
+    if missing_columns:
+        print(f"Missing columns: {missing_columns}")
+    if extra_columns:
+        print(f"Extra columns: {extra_columns}")
+    
+    if not missing_columns and not extra_columns:
+        print("✓ Schema validation passed")
+    else:
+        print("✗ Schema validation failed")
+    
+    print("\n=== Validation Complete ===")
+
+# Run validation
+validate_conversion()
+```
+
+## Performance Optimization Tips
+
+1. **Partitioning Strategy**:
+   ```python
+   # Partition by frequently filtered columns
+   final_data.write \
+       .format("delta") \
+       .partitionBy("DC_NATIONALITY_1", "DC_AGE_GROUP") \
+       .mode("overwrite") \
+       .saveAsTable("tax_dv.T_ADM_PF_INDIV")
+   ```
+
+2. **Broadcast Small Tables**:
+   ```python
+   from pyspark.sql.functions import broadcast
+   
+   # Broadcast the code_table for better join performance
+   step1_joined = individual_details.join(
+       broadcast(country_lookup),
+       individual_details.cd_country == country_lookup.ct_num_cd,
+       "left"
+   )
+   ```
+
+3. **Z-Order Optimization**:
+   ```python
+   # Use Z-order for better data clustering
+   spark.sql("OPTIMIZE tax_dv.T_ADM_PF_INDIV ZORDER BY (id_internal, DC_NATIONALITY_1)")
+   ```
+
+4. **Auto-Optimize**:
+   ```python
+   # Enable auto-optimize for better performance
+   spark.sql("ALTER TABLE tax_dv.T_ADM_PF_INDIV SET TBLPROPERTIES (delta.autoOptimize.optimizeWrite = true)")
+   ```
+
+## Common Issues and Solutions
+
+1. **Date Format Issues**:
+   ```python
+   # Handle various date formats
+   from pyspark.sql.functions import to_date, coalesce
+   
+   # Convert string dates to proper date format
+   df = df.withColumn("dt_birth", 
+                     coalesce(
+                         to_date(col("dt_birth"), "yyyy-MM-dd"),
+                         to_date(col("dt_birth"), "dd/MM/yyyy"),
+                         to_date(col("dt_birth"), "MM-dd-yyyy")
+                     ))
+   ```
+
+2. **Memory Issues**:
+   ```python
+   # Increase driver memory and optimize partitions
+   spark.conf.set("spark.sql.adaptive.coalescePartitions.enabled", "true")
+   spark.conf.set("spark.sql.adaptive.coalescePartitions.minPartitionSize", "134217728")  # 128MB
+   ```
+
+3. **Schema Evolution**:
+   ```python
+   # Handle schema changes gracefully
+   final_data.write \
+       .format("delta") \
+       .option("mergeSchema", "true") \
+       .mode("overwrite") \
+       .saveAsTable("tax_dv.T_ADM_PF_INDIV")
+   ```
+
+## Deployment Checklist
+
+- [ ] Verify all source tables exist in tax_dv schema
+- [ ] Test with sample data first
+- [ ] Validate business logic with expected results
+- [ ] Check performance with full dataset
+- [ ] Set up monitoring and alerting
+- [ ] Document any environment-specific configurations
+- [ ] Create backup and recovery procedures
+- [ ] Schedule regular optimization tasks (VACUUM, OPTIMIZE)
+
+This comprehensive conversion provides a robust foundation for migrating from SAS to PySpark while maintaining data integrity and business logic accuracy.
