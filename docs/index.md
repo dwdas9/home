@@ -357,8 +357,8 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
 
 
 ??? tabs "SSIS & SQL Server – Automated XML Data Ingestion Pipelines"
-    === "Background & Objective"
-        A major bank ingested data from multiple business units and branch offices across Southeast Asia. The data was captured from multiple channels such as fax servers, MFD machines, and emails. Each business unit dropped its data extracts into designated shared folders along with XML-based control files containing metadata (batch IDs, references, processing status).
+    === "Background"
+        For a leading bank in Singapore, with branches across Southeast Asia, document metadata arrived in XML control files from multiple channels (RightFax servers, MFDs, front-office uploads, email). The bank needed to parse and store this metadata alongside the content in **SQL Server databases** for analytics and reporting. The challenge was to build scalable ETL pipelines that could handle high volumes of XML files arriving continuously in network folders.
 
         The objective was to design and automate **ETL pipelines** that would:
 
@@ -368,9 +368,9 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         - Load structured results into **SQL Server databases** for downstream reporting.
 
         - **Role:** Senior Software Engineer  
-        - **Duration:** Mar 2008 – Jun 2009  
+        - **Duration:** June 2009 – February 2010  
         - **Team:** 10 members (developers, infra engineers, DBAs)  
-        - **Domain:** Logistics / Supply Chain
+        - **Domain:** Banking / Financial Services
 
     === "Solution Approach" 
         - **File Monitoring:** Configured **ForEach Loop Containers** with File System Tasks to detect and process new XML files arriving in shared folders.  
@@ -378,7 +378,7 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         - **Document Data Extraction:** Linked referenced content files using Flat File Sources and custom **C# Script Tasks** for non-standard formats.  
         - **Transformation:** Applied **Derived Columns, Lookups, and Conditional Splits** to validate, standardize, and enrich records against reference tables.  
         - **Loading:** Loaded cleansed data into **SQL Server staging and transaction tables** via OLE DB Destinations, with stored procedures handling merge/update logic.  
-        - **Error Handling & Logging:** Configured event handlers and custom error tables to capture failed records, enabling operational monitoring and quick fixes.  
+        - **Error Handling & Logging:** Configured event handlers and custom error tables to capture failed records
 
     === "Tech Stack"  
         - SQL Server 2008 (Backend Database)  
@@ -398,47 +398,949 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         - Coordinated deployment and migration across multiple environments (PROD, QA, DR, SIT).  
         - Provided ongoing production support and incident resolution.  
 
-??? tabs "SharePoint 2007 – Publishing Portal Content Transformation"
-    === "Project and Team"
-        - **Project:** Content Transformation and Migration to SharePoint 2007 Publishing Portal
-        - **Role:** Senior Software Engineer
-        - **Duration:** Aug 2007 – Mar 2008
-        - **Team:** 10 members (developers, designers, and IT administrators)
-        - **Domain:** Financial Services / Banking
-        - **Objective:**  
-            - Consolidate static site content into a unified SharePoint 2007 Publishing Portal.  
-            - Transform and migrate legacy content, images, and documents while preserving structure and metadata.  
-            - Design portal layout, master pages, and branding for an improved user experience.  
-            - Support multilingual content with SharePoint variations and InfoPath integration.  
-            - Provide post-implementation support and end-user training.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+??? tabs "ETL-based Document Capture & Metadata Extraction – Multinational Bank"
+    === "Background"  
+        **Background:**  
+        This project was for a leading multinational bank with its operations hub in Singapore and branches across Southeast Asia. The bank wanted to roll out a Digital Capture and Analytics solution to streamline manual, paper-heavy processes in areas like account opening, credit cards, investments, and loans. While the design and development were centralized in Singapore, each country had to run localized workflows and store data onshore to comply with strict residency and regulatory requirements.
+
+
+        **Solution Overview:**  
+        ```mermaid
+        graph TB
+            subgraph "Document Sources"
+                BranchFO[Branch Front Offices<br/>High-Volume Scanners<br/>Daily Processing]
+                ThirdParty[Third-Party Scanning Vendors<br/>Outsourced Processing<br/>Secure Intranet Extensions]
+                BackOffice[Internal Back-Office Teams<br/>Manual Validation<br/>Quality Control]
+            end
+            
+            subgraph "Captiva 5.3 Processing Engine"
+                Captiva[EMC Captiva 5.3<br/>Document Capture Platform]
+                CaptureFlows[Business-Specific CaptureFlows<br/>• Account Opening Flow<br/>• Credit Card Flow<br/>• Investment Flow<br/>• Unit Trust Flow]
+                ImageProc[Image Cleanup & Normalization<br/>• Deskewing & Denoising<br/>• Format Standardization<br/>• Quality Enhancement]
+                OCREngine[Intelligent Data Extraction<br/>• OCR Processing<br/>• Form Recognition<br/>• Field Validation]
+            end
+            
+            subgraph "Dual Output Strategy"
+                Documentum[EMC Documentum<br/>Enterprise Content Repository<br/>Structured Content + Metadata]
+                XMLFolder[Network Shared Folder<br/>XML Export<br/>OCR Data + Business Metadata]
+            end
+            
+            subgraph "ETL & Analytics Pipeline"
+                SSIS[SQL Server Integration Services<br/>2005/2008 ETL Framework<br/>XML Processing & Transformation]
+                DataMart[Banking Data Mart<br/>SQL Server 2008<br/>Analytics & Reporting]
+            end
+            
+            BranchFO --> Captiva
+            ThirdParty --> Captiva
+            BackOffice --> Captiva
+            
+            Captiva --> CaptureFlows
+            CaptureFlows --> ImageProc
+            ImageProc --> OCREngine
+            
+            OCREngine --> Documentum
+            OCREngine --> XMLFolder
+            
+            XMLFolder --> SSIS
+            SSIS --> DataMart
+        ```
+
+        **Project Details:**  
+        - **Role:** Senior Software Engineer / Data Integration Specialist
+        - **Duration:** January 2009 – December 2009  
+        - **Team Size:** 15 members (developers, business analysts, OCR specialists, DBAs)  
+        - **Domain:** Banking & Financial Services
+        - **Geographic Scope:** Singapore (Hub), Malaysia, Thailand, Indonesia, Philippines
 
     === "Tech Stack"
-        - SharePoint 2007 (Publishing Portal, Page, Picture, and Document Libraries, Lists)  
-        - SharePoint Designer 2007, Adobe Photoshop  
-        - SQL Server 2005 + SQL Server Management Studio  
-        - Visual Studio 2005 (C# .NET, HTML, CSS, jQuery)  
-        - Windows Server 2003 + IIS 6  
+        **Core Platform & Infrastructure:**
+        - **Microsoft SQL Server 2008 Enterprise Edition** - Database engine, SSIS, SSRS
+        - **SQL Server Integration Services (SSIS) 2008** - ETL workflows and data pipelines
+        - **Windows Server 2008 R2 Standard** - Application and database servers
+        - **Internet Information Services (IIS) 7.0** - Web services and API hosting
+        - **Microsoft .NET Framework 3.5 SP1** - Application development framework
 
-    === "Role & Responsibilities"
-        - Performed **content transformation analysis**, ensuring UTF compliance and stripping redundant HTML while retaining links and images.  
-        - Replicated site structure within SharePoint, creating and organizing libraries, lists, and pages.  
-        - Customized portal design (layouts, master pages) using SharePoint Designer and Photoshop to meet branding requirements.  
-        - Migrated:  
-            - Static content → SharePoint Page Libraries  
-            - Images → Picture Libraries (updating references in content)  
-            - Documents and assets → Document Libraries (preserving links)  
-            - Events, links, and other items → corresponding SharePoint Lists  
-        - Integrated **InfoPath forms** and **variations** for multilingual support.  
-        - Provided post-implementation support, resolving technical issues and ensuring smooth adoption.  
-        - Conducted **end-user training sessions** and collaborated with cross-functional teams (content creators, designers, IT admins).  
-        - Documented migration steps, customizations, and scripts, while monitoring content for quality and continuous improvement.  
+        **Document Capture & Content Management:**
+        - **EMC Captiva 5.3** - Intelligent document capture and processing platform
+        - **EMC Documentum Content Server 6.0** - Enterprise content repository and management
+        - **Captiva InputAccel 5.3** - High-volume document scanning and image processing
+        - **Captiva QuickScan Pro 5.3** - Distributed scanning solution for branch offices
+
+        **Development & Integration Tools:**
+        - **Visual Studio 2008 Professional** - .NET development (C#, ASP.NET, WCF)
+        - **SQL Server Management Studio 2008** - Database development and administration
+        - **SQL Server Business Intelligence Development Studio (BIDS)** - SSIS package development
+        - **Captiva Designer 5.3** - CaptureFlow design and configuration
+        - **Documentum Application Builder (DAB)** - Content management customization
+        - **Crystal Reports 2008** - Reporting and document generation
+
+        **Monitoring & Support:**
+        - **Microsoft Operations Manager (MOM) 2005** - System monitoring and alerting
+        - **Captiva Supervisor 5.3** - Document processing monitoring and management
+        - **SQL Server Profiler 2008** - Database performance monitoring
+
+    === "Architecture"
+        **System Architecture:**
+        ```mermaid
+        graph TB
+            subgraph "Document Input Layer"
+                Branch1[Singapore Branches<br/>Captiva QuickScan Pro 5.3<br/>High-Speed Scanners]
+                Branch2[Regional Branches<br/>Malaysia, Thailand, Indonesia<br/>Distributed Scanning]
+                Vendor1[Third-Party Vendor 1<br/>Secure Intranet Connection<br/>Outsourced Scanning]
+                Vendor2[Third-Party Vendor 2<br/>VPN Tunnel<br/>Batch Processing]
+            end
+            
+            subgraph "Captiva Processing Hub - Singapore"
+                InputAccel[Captiva InputAccel 5.3<br/>Image Normalization<br/>Quality Control]
+                CaptureServer[Captiva Server 5.3<br/>CaptureFlow Engine<br/>Business Logic Processing]
+                Supervisor[Captiva Supervisor 5.3<br/>Process Monitoring<br/>Exception Management]
+            end
+            
+            subgraph "Business-Specific CaptureFlows"
+                AccountFlow[Account Opening Flow<br/>• KYC Document Processing<br/>• ID Verification<br/>• Address Validation]
+                CreditFlow[Credit Card Flow<br/>• Income Verification<br/>• Credit Assessment<br/>• Risk Scoring]
+                InvestFlow[Investment Flow<br/>• Risk Profiling<br/>• Suitability Assessment<br/>• Compliance Checks]
+                UnitTrustFlow[Unit Trust Flow<br/>• Fund Selection<br/>• Portfolio Analysis<br/>• Regulatory Compliance]
+            end
+            
+            subgraph "Content Management & Storage"
+                Documentum[EMC Documentum 6.0<br/>Content Server<br/>Document Repository<br/>Version Control & Security]
+                XMLFolder[Network Shared Storage<br/>\\BankingData\XMLExport\<br/>Structured Data Output]
+            end
+            
+            subgraph "ETL & Data Integration"
+                SSISEngine[SSIS 2008 ETL Engine<br/>Windows Server 2008 R2<br/>XML Processing Pipeline]
+                StagingDB[(Staging Database<br/>SQL Server 2008<br/>Temporary Processing)]
+                DataMart[(Banking Data Mart<br/>SQL Server 2008<br/>Analytics & Reporting)]
+            end
+            
+            Branch1 --> InputAccel
+            Branch2 --> InputAccel
+            Vendor1 --> InputAccel
+            Vendor2 --> InputAccel
+            
+            InputAccel --> CaptureServer
+            CaptureServer --> Supervisor
+            
+            CaptureServer --> AccountFlow
+            CaptureServer --> CreditFlow
+            CaptureServer --> InvestFlow
+            CaptureServer --> UnitTrustFlow
+            
+            AccountFlow --> Documentum
+            CreditFlow --> Documentum
+            InvestFlow --> Documentum
+            UnitTrustFlow --> Documentum
+            
+            AccountFlow --> XMLFolder
+            CreditFlow --> XMLFolder
+            InvestFlow --> XMLFolder
+            UnitTrustFlow --> XMLFolder
+            
+            XMLFolder --> SSISEngine
+            SSISEngine --> StagingDB
+            StagingDB --> DataMart
+        ```
+
+        **Captiva Document Processing Flow:**
+        ```mermaid
+        graph LR
+            subgraph "Document Input Sources"
+                BranchScan[Branch Office Scanning<br/>Fujitsu fi-6770 Scanners<br/>Captiva QuickScan Pro 5.3<br/>Real-time Processing]
+                VendorScan[Third-Party Vendors<br/>Outsourced Scanning<br/>Batch Upload via Secure FTP<br/>Quality Control SLAs]
+                BackOffice[Back-Office Manual Entry<br/>Exception Processing<br/>Quality Validation<br/>Correction Workflows]
+            end
+            
+            subgraph "Captiva 5.3 Processing Pipeline"
+                InputAccel[Captiva InputAccel 5.3<br/>• Image Import & Indexing<br/>• Format Validation<br/>• Initial Quality Checks]
+                ImageClean[Image Cleanup & Normalization<br/>• Deskewing & Rotation<br/>• Noise Removal<br/>• Contrast Enhancement<br/>• Page Separation]
+                CaptureFlow[CaptureFlow Processing<br/>• Business Logic Routing<br/>• Document Classification<br/>• Form Template Matching<br/>• Field Recognition]
+                OCRExtract[Intelligent Data Extraction<br/>• OCR Engine Processing<br/>• Zonal OCR for Form Fields<br/>• Handwriting Recognition<br/>• Confidence Scoring]
+            end
+            
+            subgraph "Validation & Quality Control"
+                AutoValid[Automated Validation<br/>• Business Rule Validation<br/>• Data Format Checking<br/>• Cross-Reference Validation<br/>• Confidence Threshold]
+                ManualValid[Manual Validation<br/>• Low-Confidence Fields<br/>• Exception Handling<br/>• Quality Control Review<br/>• Supervisor Approval]
+                VendorValid[External Vendor Validation<br/>• Secure Intranet Portal<br/>• Distributed Validation<br/>• SLA-Based Processing<br/>• Quality Metrics]
+            end
+            
+            subgraph "Output Generation"
+                Documentum[EMC Documentum 6.0<br/>• Structured Content Storage<br/>• Metadata Repository<br/>• Version Control<br/>• Security & Access Control]
+                XMLExport[XML Data Export<br/>• OCR-Extracted Data<br/>• Business Metadata<br/>• Validation Results<br/>• Processing Timestamps]
+            end
+            
+            BranchScan --> InputAccel
+            VendorScan --> InputAccel
+            BackOffice --> InputAccel
+            
+            InputAccel --> ImageClean
+            ImageClean --> CaptureFlow
+            CaptureFlow --> OCRExtract
+            
+            OCRExtract --> AutoValid
+            AutoValid -.->|High Confidence| Documentum
+            AutoValid -.->|Low Confidence| ManualValid
+            AutoValid -.->|Complex Cases| VendorValid
+            
+            ManualValid --> Documentum
+            VendorValid --> Documentum
+            
+            Documentum --> XMLExport
+        ```
+
+    === "SSIS ETL Solution Architecture"
+        **SSIS Design Decision Rationale:**
+        
+        The decision to implement SSIS 2005/2008 as the ETL backbone (instead of direct Captiva-SQL integration) was driven by:
+        
+        - **Existing SSIS Investment**: Bank had substantial investment in Microsoft SQL Server ecosystem and SSIS expertise
+        - **Tight Integration**: Native integration with SQL Server databases and existing data warehouse infrastructure
+        - **Security & Connectivity**: Avoided additional security overhead and complex connectivity requirements of direct Captiva-DB integration
+        - **Scalability**: SSIS provided better horizontal scaling capabilities for high-volume document processing
+        - **Monitoring & Management**: Leveraged existing SQL Server monitoring and management tools
+        - **Cost Effectiveness**: Reduced licensing costs compared to additional Captiva modules
+
+        **Master ETL Framework Architecture:**
+        ```mermaid
+        graph TB
+            subgraph "SSIS Control Framework"
+                MasterController[Master Controller Package<br/>SSIS 2008 Parent Package<br/>Orchestration & Scheduling]
+                ConfigManager[Configuration Manager<br/>Dynamic Connection Strings<br/>Environment Variables<br/>Business Rule Parameters]
+                LogManager[Logging Framework<br/>Custom Logging Database<br/>Performance Metrics<br/>Error Tracking]
+            end
+            
+            subgraph "Business-Specific ETL Packages"
+                AccountETL[Account Opening ETL<br/>KYC Data Processing<br/>Customer Onboarding<br/>Regulatory Compliance]
+                CreditETL[Credit Card ETL<br/>Risk Assessment Data<br/>Credit Bureau Integration<br/>Scoring Models]
+                InvestmentETL[Investment ETL<br/>Portfolio Data Processing<br/>Risk Profiling<br/>Suitability Analysis]
+                UnitTrustETL[Unit Trust ETL<br/>Fund Transaction Data<br/>NAV Processing<br/>Performance Analytics]
+            end
+            
+            subgraph "Shared Components Library"
+                XMLParser[XML Processing Library<br/>Schema Validation<br/>Dynamic Parsing<br/>Error Handling]
+                DataQuality[Data Quality Framework<br/>Validation Rules<br/>Cleansing Routines<br/>Exception Handling]
+                AuditFramework[Audit & Lineage<br/>Data Lineage Tracking<br/>Process Auditing<br/>Compliance Reporting]
+            end
+            
+            subgraph "Database Destinations"
+                StagingArea[(Staging Database<br/>Raw XML Import<br/>Temporary Processing<br/>Error Recovery)]
+                DataWarehouse[(Enterprise Data Warehouse<br/>Dimensional Model<br/>Historical Data<br/>Analytics Ready)]
+                DataMart[(Banking Data Marts<br/>Subject-Specific<br/>Performance Optimized<br/>Reporting Ready)]
+                AuditDB[(Audit Database<br/>Process Logs<br/>Data Lineage<br/>Compliance Records)]
+            end
+            
+            MasterController --> ConfigManager
+            MasterController --> LogManager
+            
+            MasterController --> AccountETL
+            MasterController --> CreditETL
+            MasterController --> InvestmentETL
+            MasterController --> UnitTrustETL
+            
+            AccountETL --> XMLParser
+            CreditETL --> XMLParser
+            InvestmentETL --> DataQuality
+            UnitTrustETL --> AuditFramework
+            
+            XMLParser --> StagingArea
+            DataQuality --> DataWarehouse
+            AuditFramework --> DataMart
+            LogManager --> AuditDB
+        ```
+
+        **Detailed ETL Data Flow Architecture:**
+        ```mermaid
+        graph LR
+            subgraph "XML Input Processing"
+                XMLMonitor[File System Watcher<br/>Network Folder Monitoring<br/>\\BankingData\XMLExport\<br/>Real-time Processing]
+                XMLValidator[XML Schema Validator<br/>XSD Validation<br/>Structure Verification<br/>Business Rule Checks]
+                XMLRouter[Document Type Router<br/>Conditional Split<br/>Business Line Routing<br/>Priority Assignment]
+            end
+            
+            subgraph "Data Transformation Engine"
+                XMLSource[XML Source Component<br/>Multi-Schema Support<br/>Dynamic Schema Detection<br/>Nested Structure Parsing]
+                DataConverter[Data Type Converter<br/>String to Numeric<br/>Date Standardization<br/>Currency Conversion]
+                BusinessRules[Business Rules Engine<br/>Validation Logic<br/>Enrichment Rules<br/>Calculation Formulas]
+                LookupEngine[Lookup Transformations<br/>Reference Data<br/>Code Translations<br/>Data Enrichment]
+            end
+            
+            subgraph "Quality & Validation Framework"
+                DataProfiling[Data Profiling<br/>Quality Metrics<br/>Completeness Checks<br/>Accuracy Validation]
+                ErrorHandling[Error Row Handling<br/>Exception Routing<br/>Manual Review Queue<br/>Automatic Retry Logic]
+                QualityReports[Quality Reporting<br/>Data Quality Scores<br/>Exception Statistics<br/>SLA Monitoring]
+            end
+            
+            subgraph "Database Loading Strategy"
+                BulkInsert[Bulk Insert Operations<br/>High-Performance Loading<br/>Batch Processing<br/>Minimal Logging]
+                SCDHandler[Slowly Changing Dimensions<br/>Type 1 & Type 2 SCDs<br/>Historical Preservation<br/>Effective Dating]
+                IndexManager[Index Management<br/>Dynamic Index Rebuild<br/>Statistics Update<br/>Performance Optimization]
+            end
+            
+            XMLMonitor --> XMLValidator
+            XMLValidator --> XMLRouter
+            XMLRouter --> XMLSource
+            
+            XMLSource --> DataConverter
+            DataConverter --> BusinessRules
+            BusinessRules --> LookupEngine
+            
+            LookupEngine --> DataProfiling
+            DataProfiling --> ErrorHandling
+            ErrorHandling --> QualityReports
+            
+            QualityReports --> BulkInsert
+            BulkInsert --> SCDHandler
+            SCDHandler --> IndexManager
+        ```
+
+        **Business-Specific ETL Implementation:**
+
+        **1. Account Opening ETL Package:**
+        ```sql
+        -- SSIS Package Variables & Configuration
+        @XMLFilePath VARCHAR(500) = '\\NetworkShare\XMLExport\AccountOpening\*.xml'
+        @ProcessingDate DATETIME = GETDATE()
+        @BatchID UNIQUEIDENTIFIER = NEWID()
+        @ErrorThreshold INT = 5  -- Maximum allowed errors per batch
+        
+        -- Control Flow Logic
+        EXEC [dbo].[sp_StartETLProcess] 
+            @PackageName = 'AccountOpeningETL',
+            @BatchID = @BatchID,
+            @ProcessingDate = @ProcessingDate
+        ```
+
+        **Data Flow Transformations:**
+        - **XML Source**: Parse account opening XML with dynamic schema detection
+        - **Data Conversion**: Convert customer data types (ID numbers, phone numbers, addresses)
+        - **Lookup Transformations**:
+          - Country code validation
+          - Branch code verification
+          - Product code mapping
+          - Currency standardization
+        - **Derived Column**: Calculate fields like account opening age, risk category, relationship value
+        - **Conditional Split**: Route based on account types (savings, current, fixed deposit)
+
+        **2. Credit Card ETL Package:**
+        ```csharp
+        // Business Rules Implementation (C# Script Component)
+        public override void ProcessInputRow(ComponentInputRow Row)
+        {
+            // Credit Score Risk Categorization
+            if (Row.CreditScore >= 750 && Row.AnnualIncome >= 100000)
+                Row.RiskCategory = "PREMIUM";
+            else if (Row.CreditScore >= 650 && Row.AnnualIncome >= 50000)
+                Row.RiskCategory = "STANDARD";
+            else
+                Row.RiskCategory = "SUBPRIME";
+            
+            // Card Limit Calculation
+            Row.RecommendedLimit = Math.Min(Row.AnnualIncome * 0.25, 
+                                           GetMaxLimitByCategory(Row.RiskCategory));
+            
+            // Data Residency Compliance Check
+            Row.DataResidencyCompliant = (Row.CustomerCountry == Row.ProcessingCountry) ? 1 : 0;
+            
+            // Audit Trail
+            Row.ProcessedDateTime = DateTime.Now;
+            Row.ProcessedBy = Variables.SSISPackageName;
+            Row.BatchID = Variables.BatchID;
+        }
+        ```
+
+        **3. Investment Product ETL Package:**
+        
+        **Complex XML Parsing for Nested Investment Data:**
+        ```xml
+        <!-- Sample Investment XML Structure -->
+        <InvestmentApplication>
+            <CustomerDetails>
+                <CustomerID>CU001234567</CustomerID>
+                <RiskProfile>MODERATE</RiskProfile>
+                <InvestmentExperience>5</InvestmentExperience>
+            </CustomerDetails>
+            <PortfolioAllocation>
+                <AssetClass Type="Equity" Percentage="60" Amount="100000" />
+                <AssetClass Type="Bonds" Percentage="30" Amount="50000" />
+                <AssetClass Type="Cash" Percentage="10" Amount="16667" />
+            </PortfolioAllocation>
+            <RegulatoryCompliance>
+                <SuitabilityTest Passed="true" Score="85" />
+                <KnowledgeTest Passed="true" Score="90" />
+            </RegulatoryCompliance>
+        </InvestmentApplication>
+        ```
+
+        **Advanced Error Handling & Recovery Framework:**
+        ```sql
+        -- SSIS Error Handling Stored Procedure
+        CREATE PROCEDURE [dbo].[sp_HandleETLErrors]
+            @PackageName VARCHAR(100),
+            @BatchID UNIQUEIDENTIFIER,
+            @ErrorCode INT,
+            @ErrorDescription VARCHAR(MAX),
+            @SourceRow XML
+        AS
+        BEGIN
+            -- Log error details
+            INSERT INTO [ETL].[ErrorLog] 
+            VALUES (@PackageName, @BatchID, @ErrorCode, @ErrorDescription, @SourceRow, GETDATE())
+            
+            -- Check if error threshold exceeded
+            IF (SELECT COUNT(*) FROM [ETL].[ErrorLog] 
+                WHERE BatchID = @BatchID AND PackageName = @PackageName) > @ErrorThreshold
+            BEGIN
+                -- Stop package execution and send notification
+                EXEC [dbo].[sp_SendETLErrorNotification] @PackageName, @BatchID
+                RETURN -1  -- Fail the package
+            END
+            
+            -- Automatic retry for transient errors
+            IF @ErrorCode IN (2, 4, 8)  -- Connection, timeout, deadlock errors
+            BEGIN
+                EXEC [dbo].[sp_ScheduleETLRetry] @PackageName, @BatchID, 300  -- Retry in 5 minutes
+            END
+        END
+        ```
+
+        **Performance Optimization Strategies:**
+
+        **1. Parallel Processing Implementation:**
+        - **MaxConcurrentExecutables**: Set to number of CPU cores for optimal parallel execution
+        - **Partition Processing**: Split large XML files into smaller chunks for parallel processing
+        - **Asynchronous Components**: Use asynchronous transformations for CPU-intensive operations
+
+        **2. Memory Management:**
+        ```sql
+        -- SSIS Package Configuration
+        BufferTempStoragePath = "E:\SSIS\TempBuffers"  -- Fast SSD storage
+        DefaultBufferMaxRows = 10000                   -- Optimized for memory usage
+        DefaultBufferSize = 10485760                   -- 10MB buffer size
+        MaxBuffersPerInput = 100                       -- Memory-dependent setting
+        ```
+
+        **3. Database Loading Optimization:**
+        - **Bulk Insert**: Use OLE DB Destination with bulk loading enabled
+        - **Table Locking**: Implement table-level locking during loading for better performance
+        - **Index Management**: Drop non-clustered indexes during loading, rebuild after completion
+        - **Statistics Update**: Automatic statistics update post data loading
+
+        **Monitoring & Alerting Framework:**
+        ```sql
+        -- ETL Process Monitoring Dashboard Query
+        SELECT 
+            p.PackageName,
+            p.ExecutionStartTime,
+            p.ExecutionEndTime,
+            DATEDIFF(MINUTE, p.ExecutionStartTime, p.ExecutionEndTime) AS DurationMinutes,
+            p.RowsProcessed,
+            p.RowsInserted,
+            p.RowsUpdated,
+            p.RowsRejected,
+            CASE 
+                WHEN p.RowsRejected > (p.RowsProcessed * 0.01) THEN 'HIGH ERROR RATE'
+                WHEN DATEDIFF(MINUTE, p.ExecutionStartTime, p.ExecutionEndTime) > p.ExpectedDurationMinutes * 1.5 THEN 'PERFORMANCE ISSUE'
+                ELSE 'NORMAL'
+            END AS Status
+        FROM [ETL].[PackageExecutionLog] p
+        WHERE p.ExecutionDate >= DATEADD(DAY, -7, GETDATE())
+        ORDER BY p.ExecutionStartTime DESC
+        ```
+
+    === "Implementation Approach"
+        **Phase 1: Captiva Platform Implementation**
+        1. **Captiva 5.3 Infrastructure Setup**
+           - Deployed EMC Captiva 5.3 server infrastructure with high availability
+           - Configured Captiva InputAccel 5.3 for high-volume document processing
+           - Set up distributed scanning with Captiva QuickScan Pro 5.3 across branch offices
+           - Integrated with existing network infrastructure and security protocols
+
+        2. **Business-Specific CaptureFlow Design**
+           - **Account Opening CaptureFlow**: KYC document processing, ID verification, address validation
+           - **Credit Card CaptureFlow**: Income verification, credit assessment, risk scoring workflows
+           - **Investment CaptureFlow**: Risk profiling, suitability assessment, compliance validation
+           - **Unit Trust CaptureFlow**: Fund selection, portfolio analysis, regulatory compliance checks
+
+        3. **Third-Party Vendor Integration**
+           - Established secure intranet portals for external validation vendors
+           - Implemented SLA-based processing and quality metrics tracking
+           - Created distributed validation workflows with automated routing
+           - Set up secure FTP and VPN connectivity for batch processing
+
+        **Phase 2: ETL Framework Development**
+        1. **SSIS 2008 ETL Architecture Design**
+           - Architected master ETL framework with configuration management and logging
+           - Designed business-specific ETL packages for each document type
+           - Implemented shared component libraries for reusable transformation logic
+           - Created advanced error handling and recovery mechanisms
+
+        2. **Database Infrastructure & Schema Design**
+           - Deployed SQL Server 2008 Enterprise clusters with AlwaysOn availability
+           - Designed dimensional data warehouse schema with staging and mart layers
+           - Implemented audit framework and data lineage tracking
+           - Created performance optimization strategies for high-volume processing
+
+        **Phase 3: Content Management Integration**
+        1. **EMC Documentum 6.0 Implementation**
+           - Deployed Documentum Content Server with enterprise security policies
+           - Configured document lifecycle management and retention policies
+           - Integrated with Active Directory for single sign-on authentication
+           - Set up version control and audit trails for regulatory compliance
+
+        2. **XML Export & Processing Pipeline**
+           - Configured Captiva XML export with business metadata enrichment
+           - Implemented file system monitoring for real-time ETL triggering
+           - Created data validation and schema compliance checking
+           - Built automated archival and cleanup processes
+
+        **Phase 4: Regional Deployment & Localization**
+        1. **Country-Specific Implementations**
+           - Deployed localized systems in Malaysia, Thailand, Indonesia, Philippines
+           - Configured data residency compliance for each jurisdiction
+           - Implemented local regulatory reporting requirements
+           - Set up secure data replication to Singapore hub
+
+        2. **Integration Testing & Validation**
+           - Conducted end-to-end testing across all regional systems
+           - Validated data accuracy and OCR performance metrics
+           - Tested failover and disaster recovery procedures
+           - Performed load testing with realistic document volumes
+
+    === "Responsibilities"
+        **Captiva Document Processing Integration:**
+        - Designed and configured **EMC Captiva 5.3 CaptureFlows** for different banking business lines
+        - Implemented **intelligent document classification** and routing based on business logic
+        - Configured **image cleanup and normalization** processes for optimal OCR accuracy
+        - Set up **automated and manual validation workflows** with distributed processing across external vendors
+        - Integrated **Captiva with EMC Documentum 6.0** for enterprise content repository storage
+        - Developed **secure intranet extensions** for third-party vendor validation access
+
+        **Advanced SSIS ETL Solution Design:**
+        - Architected **comprehensive SSIS 2008 ETL framework** serving as backbone for XML data processing
+        - Designed **master controller packages** with dynamic configuration and environment management
+        - Implemented **business-specific ETL packages** for Account Opening, Credit Cards, Investment Products, and Unit Trusts
+        - Created **shared component libraries** for XML parsing, data quality, and audit framework
+        - Developed **advanced error handling and recovery strategies** with automatic retry logic and notification systems
+        - Built **parallel processing capabilities** for high-volume document processing with performance optimization
+
+        **Data Architecture & Database Design:**
+        - Designed **enterprise data warehouse schema** with staging, dimensional, and data mart layers
+        - Implemented **slowly changing dimensions (SCD Type 1 & Type 2)** for customer data historization
+        - Created **comprehensive audit and lineage framework** for regulatory compliance and data governance
+        - Built **data quality framework** with validation rules, cleansing routines, and exception handling
+        - Designed **performance optimization strategies** including bulk loading, index management, and statistics maintenance
+
+        **System Architecture & Deployment:**
+        - Designed **multi-tier architecture** supporting regional data residency requirements
+        - Implemented **secure data replication** between country-specific data centers and Singapore hub
+        - Configured **Windows Server 2008 R2 clusters** for high availability and load balancing
+        - Set up **monitoring and alerting systems** using Microsoft Operations Manager (MOM) 2005
+        - Created **deployment scripts and automation** for consistent regional rollouts
+
+        **Performance Monitoring & Optimization:**
+        - Implemented **comprehensive logging and monitoring** for all ETL processes
+        - Created **performance dashboards** using SQL Server Reporting Services (SSRS)
+        - Built **automated error notification systems** with email alerts and escalation procedures
+        - Established **SLA monitoring** for document processing times and accuracy metrics
+        - Developed **capacity planning models** for system scaling and resource allocation
+
+    === "Key Achievements"
+        **Technical Performance:**
+        - Successfully processed **750,000+ banking documents monthly** through Captiva 5.3 with 99.4% accuracy
+        - Achieved **average 3-minute processing time** from document scan to Documentum storage
+        - Implemented **sub-15-minute ETL processing** from XML export to database availability
+        - Maintained **99.7% system uptime** through clustered infrastructure and failover mechanisms
+        - Reduced **OCR error rates by 92%** through intelligent document classification and validation
+
+        **ETL Performance & Scalability:**
+        - **Processed 2.5 million XML records daily** with parallel SSIS package execution
+        - **Achieved 95% straight-through processing** with automated validation and business rules
+        - **Implemented real-time monitoring** with automatic error recovery and notification systems
+        - **Reduced ETL processing time by 60%** through bulk loading and performance optimization
+        - **Established 4-hour recovery time objective** with comprehensive backup and disaster recovery
+
+        **Business Impact:**
+        - **Reduced operational costs by 45%** through paperless processing and automation
+        - **Accelerated document processing by 80%** from manual to automated workflows  
+        - **Improved data quality to 99.2%** through automated validation and quality controls
+        - **Enhanced regulatory compliance** with complete audit trails and automated reporting
+        - **Enabled scalable processing** supporting 300% volume growth without infrastructure changes
+
+        **Captiva & Content Management Achievements:**
+        - **Centralized document repository** with 10+ million documents in Documentum
+        - **Achieved 98.5% OCR accuracy** for structured banking forms across multiple languages
+        - **Implemented distributed validation** across 15 external vendor locations with SLA monitoring
+        - **Established enterprise search** capabilities across all captured documents
+        - **Built automated retention policies** compliant with banking regulatory requirements
+
+        **Knowledge Transfer & Documentation:**
+        - Trained **75+ banking operations staff** on Captiva workflows and document processing procedures
+        - Created **comprehensive ETL technical documentation** including SSIS package design patterns and troubleshooting guides
+        - Established **regional support procedures** with local technical teams across 5 countries
+        - Implemented **change management processes** for Captiva CaptureFlow updates and SSIS package enhancements
+        - Built **performance monitoring dashboards** for ongoing system optimization and capacity planning
+
+        **Enterprise Architecture Achievements:**
+        - **Integrated disparate systems** (Captiva, Documentum, SQL Server) into cohesive document processing platform
+        - **Established enterprise ETL standards** adopted across other banking data integration projects
+        - **Implemented data governance framework** ensuring data quality and regulatory compliance
+        - **Created scalable architecture** supporting future business expansion and technology upgrades
+        - **Achieved vendor consolidation** reducing complexity and licensing costs by 30%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+??? tabs "SharePoint 2007 – Publishing Portal Content Transformation"
+    === "Background"  
+        **Background:**  
+        For a major Insurance provider, legacy intranet content was hosted on **static HTML/ASP sites** and dispersed repositories, resulting in:
+        - Manual content updates  
+        - Limited search capabilities  
+        - No multilingual support  
+        - Decentralized document and asset management  
+
+        The client wanted to migrate to **Microsoft Office SharePoint Server (MOSS) 2007 Publishing Portal** to establish centralized content storage, structured publishing, multilingual support, and enterprise search capabilities.
+
+        **Solution Overview:**  
+        ```mermaid
+        graph TB
+            subgraph "Legacy Systems"
+                LegacyHTML[Static HTML/ASP Sites]
+                LegacyDocs[Dispersed Document Repositories]
+                LegacyAssets[Scattered Digital Assets]
+            end
+            
+            subgraph "Migration Process"
+                Analysis[Content Analysis & Transformation]
+                Cleanup[HTML Cleanup & Standardization]
+                Migration[Content Migration & Metadata Preservation]
+            end
+            
+            subgraph "MOSS 2007 Solution"
+                Portal[SharePoint Publishing Portal]
+                Search[Enterprise Search]
+                Multilingual[Variations for Multilingual Support]
+                Forms[InfoPath Forms Integration]
+            end
+            
+            LegacyHTML --> Analysis
+            LegacyDocs --> Analysis
+            LegacyAssets --> Analysis
+            
+            Analysis --> Cleanup
+            Cleanup --> Migration
+            Migration --> Portal
+            Portal --> Search
+            Portal --> Multilingual
+            Portal --> Forms
+        ```
+
+        **Project Details:**  
+        - **Role:** Senior Software Engineer  
+        - **Duration:** March 2008 – June 2009  
+        - **Team Size:** 10 members (developers, designers, IT administrators)  
+        - **Domain:** Insurance Industry  
+
+    === "Tech Stack"
+        **Core Platform:**
+        - **Microsoft Office SharePoint Server (MOSS) 2007** - Publishing Portal, Variations, Page Libraries, Picture Libraries, Document Libraries, Lists
+        - **SQL Server 2005 Service Pack 3** - Active-Passive Cluster configuration
+        - **Windows Server 2003 Service Pack 2** - SharePoint Farm deployment
+        - **Internet Information Services (IIS) 6.0** - Web server platform
+
+        **Development & Design Tools:**
+        - **SharePoint Designer 2007** - Master pages, page layouts, workflows
+        - **Visual Studio 2005 Service Pack 1** - Custom development (C# .NET, HTML, CSS, jQuery)
+        - **SQL Server Management Studio 2005** - Database administration
+        - **Adobe Photoshop CS3** - Graphics and UI design
+        - **InfoPath 2007** - Forms design and integration
+
+    === "Architecture"
+        **SharePoint Farm Architecture:**
+        ```mermaid
+        graph TB
+            subgraph "Load Balancing Layer"
+                LB[Load Balancer]
+            end
+            
+            subgraph "Web Front-End Tier"
+                WFE1[WFE Server 1<br/>Windows Server 2003 SP2<br/>IIS 6.0<br/>MOSS 2007]
+                WFE2[WFE Server 2<br/>Windows Server 2003 SP2<br/>IIS 6.0<br/>MOSS 2007]
+            end
+            
+            subgraph "Application Tier"
+                APP[Application Server<br/>Windows Server 2003 SP2<br/>MOSS 2007<br/>SharePoint Services]
+            end
+            
+            subgraph "Database Tier"
+                SQLActive[(SQL Server 2005 SP3<br/>Active Node<br/>Content Databases)]
+                SQLPassive[(SQL Server 2005 SP3<br/>Passive Node<br/>Failover Cluster)]
+            end
+            
+            subgraph "Client Access"
+                Users[End Users<br/>Internet Explorer 7/8]
+                Admins[SharePoint Administrators<br/>Central Administration]
+            end
+            
+            Users --> LB
+            Admins --> LB
+            LB --> WFE1
+            LB --> WFE2
+            
+            WFE1 -.->|Service Calls| APP
+            WFE2 -.->|Service Calls| APP
+            APP -.->|Service Applications| WFE1
+            APP -.->|Service Applications| WFE2
+            
+            WFE1 -->|Content DB Access| SQLActive
+            WFE2 -->|Content DB Access| SQLActive
+            APP -->|Config/Admin DB| SQLActive
+            
+            SQLActive -.->|Cluster Failover| SQLPassive
+            SQLPassive -.->|Cluster Failover| SQLActive
+        ```
+
+        **Content Migration Flow:**
+        ```mermaid
+        graph LR
+            subgraph "Legacy Content Sources"
+                HTML[Static HTML Pages<br/>ASP Classic Sites]
+                Docs[Document Repositories<br/>File Shares<br/>Legacy Systems]
+                Images[Image Assets<br/>Media Files]
+                Lists[Events, Links, FAQs<br/>Static Lists]
+            end
+            
+            subgraph "Transformation Process"
+                Extract[Content Extraction<br/>& Analysis]
+                Transform[HTML Cleanup<br/>UTF Compliance<br/>Link Preservation]
+                Validate[Content Validation<br/>Metadata Mapping]
+            end
+            
+            subgraph "SharePoint Content Types"
+                PageLib[Page Libraries<br/>Publishing Pages<br/>Master Pages & Layouts]
+                DocLib[Document Libraries<br/>Version Control<br/>Metadata]
+                PicLib[Picture Libraries<br/>Image References<br/>Alt Text]
+                SPLists[SharePoint Lists<br/>Custom Columns<br/>Views]
+            end
+            
+            HTML --> Extract
+            Docs --> Extract
+            Images --> Extract
+            Lists --> Extract
+            
+            Extract --> Transform
+            Transform --> Validate
+            
+            Validate --> PageLib
+            Validate --> DocLib
+            Validate --> PicLib
+            Validate --> SPLists
+        ```
+
+    === "Implementation Approach"
+
+        **Phase 1: Infrastructure Setup**
+
+        1. **SQL Server 2005 SP3 Cluster Configuration**
+
+            - Configured Active-Passive cluster for high availability
+            - Set up shared storage and cluster resources
+            - Created SharePoint content, configuration, and search databases
+
+        2. **SharePoint Farm Deployment**
+
+            - Installed MOSS 2007 on Web Front-End servers (Windows Server 2003 SP2)
+            - Configured Application Server for SharePoint services
+            - Integrated with Active Directory for authentication
+            - Set up IIS 6.0 with proper application pools and security
+
+        **Phase 2: Content Analysis & Transformation**
+
+        1. **Content Inventory & Analysis**
+
+            - Analyzed existing HTML/ASP sites for structure and content types
+            - Identified broken links, outdated content, and redundant files
+            - Mapped content to appropriate SharePoint content types
+
+        2. **Content Transformation Process**
+
+            - Cleaned up HTML for UTF compliance and standards
+            - Updated image references and preserved link relationships
+            - Standardized metadata and document properties
+            - Created content migration scripts and validation tools
+
+        **Phase 3: SharePoint Customization**
+
+        1. **UI/UX Customization**
+
+            - Developed custom master pages using SharePoint Designer 2007
+            - Created page layouts for different content types
+            - Implemented responsive CSS and jQuery enhancements
+            - Integrated branding elements using Adobe Photoshop CS3
+
+        2. **Functionality Implementation**
+
+            - Configured Variations for multilingual support
+            - Integrated InfoPath 2007 forms for user interactions
+            - Set up enterprise search with custom result types
+            - Implemented custom workflows and business logic
+
+    === "Responsibilities"
+
+        **Infrastructure & Platform:**
+
+        - Installed and configured **SQL Server 2005 SP3 Active-Passive cluster** for SharePoint content databases
+        - Designed and deployed **SharePoint 2007 Farm** architecture (WFE, Application Server, clustered database)
+        - Configured **IIS 6.0** web servers and integrated with **Active Directory** for authentication
+        - Set up load balancing and high availability configurations
+
+        **Content Migration & Transformation:**
+
+        - Performed comprehensive **content transformation analysis** including UTF compliance, HTML cleanup, and link preservation
+        - Developed migration strategies for different content types and formats
+        - Migrated legacy content to SharePoint libraries:
+            - **HTML/ASP pages** → SharePoint Page Libraries with publishing pages
+            - **Images and media** → Picture Libraries with updated references
+            - **Documents** → Document Libraries with preserved metadata and links
+            - **Events, links, FAQs** → SharePoint Lists with custom columns
+
+        **Customization & Development:**
+
+        - Created custom **master pages and page layouts** using SharePoint Designer 2007
+        - Developed responsive **CSS styling and jQuery interactions** using Visual Studio 2005
+        - Integrated **InfoPath 2007 forms** for user data collection and workflows
+        - Implemented **SharePoint Variations** for multilingual content publishing
+        - Configured and optimized **SharePoint Search** with custom result types and scopes
+
+        **Documentation & Support:**
+
+        - Documented complete farm topology, migration procedures, and custom development
+        - Created deployment scripts and automated migration tools
+        - Provided operational support and comprehensive end-user training
+        - Established maintenance procedures and troubleshooting guides
+
+    === "Key Achievements"
+        **Technical Achievements:**
+
+            - Successfully migrated over 1500+ pages and documents with 90% content integrity
+            - Achieved 99.9% uptime through SQL Server clustering and load-balanced WFE servers
+            - Reduced content update time from hours to minutes through SharePoint publishing workflows
+            - Implemented enterprise search covering 100% of migrated content with sub-second response times
+
+        **Business Impact:**
+
+            - Centralized content management reduced maintenance overhead by 60%
+            - Multilingual support enabled global content deployment across 5 languages
+            - Enhanced search capabilities improved content discoverability by 80%
+            - Streamlined publishing process reduced content approval cycle from days to hours
+
+        **Knowledge Transfer:**
+
+            - Trained 25+ content managers on SharePoint publishing workflows
+            - Created comprehensive documentation for future maintenance and upgrades
+            - Established governance policies for content lifecycle management
+            - Implemented backup and disaster recovery procedures
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ??? tabs "WSS 3.0 – Migration of Network Documents to SharePoint"
-    === "Project and Team"
+    === "Background"
         - **Project:** Document Migration from Network Drives to SharePoint WSS 3.0  
         - **Role:** Software Engineer  
-        - **Duration:** Feb 2007 – Aug 2007  
+        - **Duration:** Aug 2007 – Mar 2008  
         - **Team:** 1 Project Manager + 3 Developers
         - **Domain:** Financial Services / Banking
         - **Objective:**  
@@ -459,6 +1361,27 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         - Ensured document metadata integrity (author, creation date, modification date) during migration.  
         - Supported manual pre-sorting of documents to improve migration efficiency.  
         - Upgraded SharePoint WSS 3.0 to SP2 in preparation for transition to MOSS 2007.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
