@@ -1,33 +1,24 @@
 # Welcome to Das Digital Digest
 
-Hello! I am Das and welcome to my page. Here I share my work and learnings as a Data Engineer and AI enthusiast. Most things come from daily work and real projects, not heavy theory. My idea is to keep it simple, practical, and easy to follow.
+Welcome to my personal website, where I share insights and experiences from my journey in data engineering, cloud migration, and technology. Here, you'll find detailed accounts of projects I've worked on, the challenges I've faced, and the solutions I've implemented.
 
-## About Me
+!!! Quote "About Me"
 
+    Born in West Bengal, I grew up moving across India due to my father’s career in the defense forces. My mother is a homemaker. I attended army schools and later moved to Kolkata for higher education, completing a B.Sc. (Hons) in Physics with a minor in Mathematics from the [University of Calcutta](https://www.caluniv.ac.in/) and a Master’s in Computer Application from [West Bengal University of Technology](https://makautwb.ac.in/).
 
+    I relocated to Singapore in 2007. The same year, I started dating my wife, and we married in 2010. We have a daughter. My wife holds a bachelor’s and master’s in biotechnology from [St. Xavier’s College](https://www.sxccal.edu/), Kolkata, and a PhD and postdoc from [Nanyang Technological University](https://www.ntu.edu.sg/), Singapore. She currently works as Senior Scientist/Senior Assistant Director at [A*STAR](https://www.a-star.edu.sg/).
 
-!!! Quote "Early Life"
-
-    I was born in West Bengal, India. When I was just a few months old, my father’s transferable job took us to many places in India and South East Asia. I studied in different Army schools across India. During the last semester of my master’s, I was hired by HCL Technologies and seconded to Singapore after my internship. Since then, I’ve moved between Singapore, Amsterdam, and Canada, often returning to Singapore as my wife (then girlfriend) was studying there, including her PhD and postdocs. Today, we live in Singapore with our daughter, and my wife works as a scientist/Senior Assistant Director in a public sector R&D agency.
-
-!!! Example "Education"
-
-    I have a B.Sc. (Hons) in Physics with a minor in Mathematics from the University of Calcutta, and a Master’s in Computer Application from West Bengal University of Technology.
-
-
-!!! Abstract "Professional Journey"
-
-    I started my career as a final-year intern at [HCL Technologies](https://www.hcltech.com/), working on .NET and MSSQL. After my internship, I was seconded to Singapore. Since 2007, I have worked across Singapore, Canada, and Amsterdam on Data and ECM projects, mainly on Microsoft platforms. Since 2017, I worked mainly on Azure and Government Cloud migration projects. I currently work as Senior Manager/Data Engineer at IRAS (Ministry of Finance, Singapore), supporting data migration to Azure Government Commercial Cloud (GCC). Over the years, I have gained experience in both services and product companies, across government and private sectors.
-
-
+    I began my career as a final-year intern at [HCL Technologies](https://www.hcltech.com/), working on .NET and MSSQL, and was later seconded to Singapore. Since 2007, I have worked across Singapore, Canada, and Amsterdam on Data and ECM projects, primarily on Microsoft platforms. From 2017 onwards, my focus shifted to Azure and Government Cloud migration projects. Currently, I serve as Senior Manager/Data Engineer at [IRAS](https://www.iras.gov.sg/) (Ministry of Finance, Singapore), supporting data migration to Azure Government Commercial Cloud (GCC). Over the years, I have worked across services and product companies in government and private sectors, gaining experience in end-to-end technology implementation and cloud adoption.
 
 ## Projects and responsibilities
 
 ??? tabs "Data & ETL Migration to Azure Government Commercial Cloud (GCC)"
-    === "Project and Team"
+    === "Background"
+
+        Currently I work as a Senior Manager / Data Engineer at IRAS (Inland Revenue Authority of Singapore), Ministry of Finance, Singapore. My day-to-day works involves migrating data from on-prem SQL Server to Azure Synapse Analytics (Dedicated & Serverless) using Azure Data Factory and PySpark (Synapse Spark Pool). I also rewrite legacy SAS SQL scripts into PySpark for Synapse Spark Pool. Additionally, I am migrating 120+ Hadoop/Hive ETL workflows to Synapse Serverless with ADLS. I collaborate with Data Scientists and ML Engineers on data preparation and integration tasks.
+
         - **Project:** Data and ETL Migration from On-Prem to Azure Government Commercial Cloud (GCC) 
         - **Role:** Senior Manager / Data Engineer  
-        - **Duration:** Mar 2025 – Present  
         - **Team:** 20+ members across Data Engineering, Digital Infrastructure, Data Science, and AI  
         - **Objective:**  
             - Migrate on-prem SQL tables to Synapse Analytics (Serverless Delta Lake tables and Dedicated Pool) using Azure Data Factory and PySpark (Synapse Spark Pool).  
@@ -56,34 +47,282 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         - Conducted PoC comparing Kedro and MLflow for MLOps.  
         - Supported user access and security in Azure GCC. 
         - Worked with other government agency teams to onboard GitHub Copilot and worked with vendors to resolve security issues.  
-        - Coordinated across internal departments and external contractors for delivery.  
 
+??? tabs "Gen-AI Chatbot Prototype for IKANO Retail"
+    === "Background"
+        - **Role:** Assistant Manager / Data Engineer  
+   
+        **Problem**
+        IKEA partnered with Sprinklr to build a GenAI assistant for their retail website. My role was to coordinate requirements, design the architecture, and provide technical guidance. The main challenge was bridging IKEA’s complex multi-country API ecosystem (Singapore, Malaysia, Philippines, Thailand, Mexico) with Sprinklr’s chatbot requirements. The chatbot needed to understand queries like “show me white wardrobes under $500” and translate them into specific API calls with correct filters and category mappings.
 
-??? tabs "Databricks & Gen-AI Solutions for Global Retail (INGKA / IKEA)"
-    === "Project and Team"
-        - Project: Enterprise Data Engineering and Knowledge Solutions – Global Retail (INGKA / IKEA)
-        - Role: Assistant Manager / Data Engineer
-        - Duration: Sep 2024 – Mar 2025
-        - Team: Global Analytics Team – Data Engineering, BI, CRM, Infrastructure, and AI Solutions
+        **Solution**
+        I developed a FastAPI-based chatbot prototype that integrates directly with IKEA’s live APIs. The system uses a multi-agent approach: GPT-3.5 first analyzes user intent (product vs. store info), extracts details (category, store, filters), and a second LLM pass formats API responses into conversational replies. The prototype maintains indexed mappings of product categories and store locations, dynamically processes filters (color, material, price), and demonstrates every integration point for stakeholders. It ran locally and handled live queries against IKEA’s production APIs.
+
+        ![](images/20250921190851.png)
+
+        **Results**
         
+        The prototype showed that a GenAI chatbot could be built directly on top of IKEA’s APIs. It gave a clear architecture for Sprinklr to use. Before this, there was confusion on how to handle filters, categories, and store logic. The prototype removed that uncertainty and showed what users wanted and what Sprinklr was offering. With just the APIs and GPT-3.5, we built a working chatbot, and the project picked up momentum after that.
+         
+
+    === "Implementation"
+
+        ![](images/20250921190804.png)
+
+        ```python
+        # FastAPI-based IKEA Gen-AI Chatbot Prototype (Dec 2024)
+        # Handles queries like: "Show me white wardrobes", with dynamic filters and API integration
+
+        import os, json, logging
+        from typing import Dict, List, Optional, Any
+        from fastapi import FastAPI, HTTPException
+        from pydantic import BaseModel
+        import httpx
+        from openai import OpenAI
+        from dotenv import load_dotenv
+
+        logging.basicConfig(level=logging.INFO)
+        logger = logging.getLogger(__name__)
+
+        load_dotenv()
+        app = FastAPI()
+
+        MARKET = os.getenv("MARKET", "sg")
+        LANGUAGE = os.getenv("LANGUAGE", "en")
+        CLIENT_ID = os.getenv("CLIENT_ID", "aiseaapp")
+        VERSION = os.getenv("VERSION", "20240110")
+
+        class APIEndpoints:
+            def __init__(self, market, language):
+                self.STORES = f'https://www.ikea.com/{market}/{language}/meta-data/navigation/stores.json'
+                self.SEARCH = f'https://sik.search.blue.cdtapps.com/{market}/{language}/search-result-page'
+                self.PRODUCT_LIST = f'https://sik.search.blue.cdtapps.com/{market}/{language}/product-list-page'
+
+        class DataManager:
+            def __init__(self):
+                self.stores = self._load_json('stores.json')
+                self.categories = self._load_json('product-categories.json')
+                self.store_index = self._index_stores()
+                self.category_index = self._index_categories()
+
+            def _load_json(self, filename):
+                try:
+                    with open(filename, 'r') as f:
+                        return json.load(f)
+                except Exception:
+                    return {}
+
+            def _index_stores(self):
+                return {store['displayName'].lower(): {'id': store['id']} for store in self.stores}
+
+            def _index_categories(self):
+                return {cat['title'].lower(): {'id': cat['id']} for cat in self.categories}
+
+            def find_category(self, query):
+                query_terms = query.lower().split()
+                return [{"id": data["id"], "title": name} for name, data in self.category_index.items()
+                        if all(term in name for term in query_terms)]
+
+            def find_store(self, query):
+                return [{"id": data["id"], "name": name}
+                        for name, data in self.store_index.items()
+                        if any(term in name for term in query.lower().split())]
+
+        class QueryProcessor:
+            def __init__(self, api_key):
+                self.client = OpenAI(api_key=api_key)
+                self.data_manager = DataManager()
+                self.api_endpoints = APIEndpoints(MARKET, LANGUAGE)
+
+            def analyze_query(self, query):
+                try:
+                    response = self.client.chat.completions.create(
+                        model="gpt-3.5-turbo",
+                        messages=[
+                            {"role": "system", "content": "Analyze IKEA query and extract query_type, category, store, requirements as JSON."},
+                            {"role": "user", "content": query}
+                        ]
+                    )
+                    return json.loads(response.choices[0].message.content)
+                except Exception:
+                    return {}
+
+            async def make_api_call(self, endpoint, params=None):
+                base_params = {'c': CLIENT_ID, 'v': VERSION}
+                if params:
+                    filters = params.pop('filters', {}) if 'filters' in params else {}
+                    base_params.update(filters)
+                    base_params.update(params)
+                async with httpx.AsyncClient() as client:
+                    response = await client.get(endpoint, params=base_params)
+                    response.raise_for_status()
+                    return response.json()
+
+            async def process_query(self, query, filters=None):
+                analysis = self.analyze_query(query)
+                categories = self.data_manager.find_category(query)
+                stores = self.data_manager.find_store(query)
+                params = {}
+                if filters:
+                    params['filters'] = filters
+                api_responses = []
+                if analysis.get('query_type') == 'store_info':
+                    api_responses.append(await self.make_api_call(self.api_endpoints.STORES))
+                elif analysis.get('query_type') == 'product_search':
+                    if categories:
+                        for category in categories:
+                            search_params = {'category': category['id'], 'store': stores[0]['id'] if stores else '022', **params}
+                            api_responses.append(await self.make_api_call(self.api_endpoints.PRODUCT_LIST, search_params))
+                    else:
+                        search_params = {'q': query, 'types': 'PRODUCT', **params}
+                        api_responses.append(await self.make_api_call(self.api_endpoints.SEARCH, search_params))
+                formatted_response = "I apologize, but I couldn't retrieve the information you requested."
+                if api_responses:
+                    try:
+                        response = self.client.chat.completions.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system", "content": "Format IKEA data into helpful response."},
+                                {"role": "user", "content": f"Query: {query}\nData: {json.dumps(api_responses)}"}
+                            ]
+                        )
+                        formatted_response = response.choices[0].message.content
+                    except Exception:
+                        pass
+                return {'query': query, 'analysis': analysis, 'response': formatted_response}
+
+        class ChatRequest(BaseModel):
+            query: str
+            filters: Optional[Dict[str, Any]] = None
+
+        @app.post("/chat")
+        async def chat(request: ChatRequest):
+            query = request.query
+            filters = request.filters
+            if not query:
+                raise HTTPException(status_code=400, detail="No query provided")
+            processor = QueryProcessor(os.getenv('OPENAI_API_KEY'))
+            return await processor.process_query(query, filters)
+
+        if __name__ == '__main__':
+            import uvicorn
+            uvicorn.run(app, host='127.0.0.1', port=5000)
+        ```
+
+??? tabs "CI/CD Pipeline for Databricks Git Synchronization for IKANO Retail"
+    === "Background"
+        IKANO retail data platform runs on Azure with Databricks, ADF, DBT, and Power BI. The platform processes data across 5 countries (SG, MY, PH, TH, MX) with master pipelines running twice daily, orchestrating 50+ Databricks jobs.
+
+        **Issue:**  
+        Databricks Git integration doesn't automatically sync when code is pushed to Azure DevOps. Developers had to manually pull changes in Databricks after every commit. Authentication tokens expired periodically, breaking deployments silently. This manual process was unreliable for a platform processing critical daily data flows.
+
+        **Solution:**
+        I designed an Azure DevOps pipeline that triggers on commits to the main branch. The pipeline uses the Databricks CLI to authenticate via service principal, update Git credentials with a fresh token, and sync the Databricks repo to the latest commit. This automated approach ensures Databricks always has the latest code without manual intervention.
+
+
+    === "Implementation"
+        **Pipeline Config**
+        ```yaml
+        trigger:
+        - ar_iac_databricks
+
+        jobs:
+        - job: 'dbt_code_deploy'
+        displayName: 'Deploy code on Databricks repos'
+        timeoutInMinutes: 10
+        pool:
+            vmImage: ubuntu-latest
+
+        variables:
+        - group: azure-env-prod
+        - name: databricks_git_credentials_id
+            value: 'xxx'
+        - name: databricks_repository_id
+            value: 'xxx'
+        - name: branch_name
+            value: 'ar_iac_databricks'
+        ```
+
+        **Auth & Sync Steps**
+        ```yaml
+        steps:
+        - script: sudo apt update && sudo apt install curl jq -y
+        displayName: 'Install tools'
+
+        - script: curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+        displayName: 'Install databricks-cli'
+
+        - script: | 
+            echo '[databricks-profile]' >> ~/.databrickscfg
+            echo "host=$(DATABRICKS_PROD_URL)" >> ~/.databrickscfg
+            echo "azure_tenant_id=$(AZURE_TENANT_ID)" >> ~/.databrickscfg
+            echo "azure_client_id=$(AZURE_CLIENT_ID)" >> ~/.databrickscfg
+            echo "azure_client_secret=$AZURE_CLIENT_SECRET" >> ~/.databrickscfg
+        env:
+            AZURE_CLIENT_SECRET: $(AZURE_CLIENT_SECRET)
+        displayName: 'Setup databricks config'
+
+        - script: |
+            curl -X POST -H 'Content-Type: application/x-www-form-urlencoded' \
+            https://login.microsoftonline.com/$(AZURE_TENANT_ID)/oauth2/v2.0/token \
+            -d client_id=$(AZURE_CLIENT_ID) \
+            -d grant_type=client_credentials \
+            -d scope=xxx/.default \
+            -d client_secret=$AZURE_CLIENT_SECRET | jq '.access_token' -r > ~/.ado_token
+        displayName: 'Get fresh token'
+
+        - script: |
+            databricks git-credentials update \
+            $(databricks_git_credentials_id) \
+            "AzureDevOpsServices" \
+            --personal-access-token "$(cat ~/.ado_token)" \
+            --profile databricks-profile
+        displayName: 'Update git credentials'
+
+        - script: |
+            databricks repos update \
+            $(databricks_repository_id) \
+            --branch $(branch_name) \
+            --profile databricks-profile
+        displayName: 'Sync repository'
+        ```
+
+
+??? tabs "Databricks, DBT, ADF and Gen-AI Solutions for IKANO Retail"
+    === "Background & Project Overview"
+
+    - Project: Databricks, DBT, ADF and Gen-AI Solutions for IKANO Retail
+    - Role: Assistant Manager / Data Engineer
+
         **Background:**  
-        As part of the **Global Analytics team**, I worked on developing and supporting enterprise-scale data engineering solutions. The platform ingested data from multiple sources including Dynamics CRM, Dynamics Business Central, SQL Server, SharePoint, and Google BigQuery. Data ingestion was powered by **Databricks Autoloader**, with transformations built on **DBT and Databricks**.  
-        
-        In parallel, I contributed as an architect for a strategic **Gen-AI chatbot initiative (Ikano Chatbot)** to be embedded within the IKEA website. The solution combined **Ikano APIs for product data ingestion** with **vector database storage** for static knowledge, enabling **GPT-3.5 powered contextual responses** to customer product queries.  
 
-        **Objectives:**  
-        - Develop and support ELT pipelines on Azure, DBT, and Databricks for enterprise reporting.  
-        - Optimize data pipelines for runtime efficiency and cost savings.  
-        - Migrate legacy Hive-based workloads into **Databricks Unity Catalog**.  
-        - Ensure seamless integration of structured/unstructured data from CRM, ERP, SharePoint, and BigQuery.  
-        - Architect and prototype the IKEA **Gen-AI chatbot** leveraging APIs, vector DBs, and GPT-3.5.  
+        The platform was built on Azure, Databricks, ADF (for orchestration), DBT (for SQL-based transformations), and Power BI (for reporting). It ingested data from multiple sources including **Dynamics MVBC, Dynamics MVCRM, SQL Server, SharePoint, Google BigQuery, and Yotpo**.  
+
+        Data ingestion was done using **Databricks Autoloader** with transformations handled in **Databricks + DBT**. Two master ADF pipelines ran twice daily (SEA and Mexico), each orchestrating 50+ Databricks jobs and running for 5+ hours.  
+
+        The setup processed **sales orders, CRM data, product and pricing references, POS transactions, inventory, promotions, and ad-hoc SharePoint extracts**, enabling country-specific reporting and cross-market insights. Dedicated ingestion jobs per country (SG, MY, PH, TH, MX) applied local rules and formats but were centrally orchestrated by **ADF and Databricks**.  
+
+        **Master Pipeline:**  
+
+        - Central orchestrator for 50+ Databricks jobs across SEA and Mexico  
+        - Runs **twice daily**, handling ingestion, transformation, parameter passing, logging, and error handling  
+        - Integrates data from **MVBC, MVCRM, Yotpo, web analytics, food outlets, and SharePoint**  
+        - Outputs transformed data into **DBT models** that build analytics-ready (gold) tables for reporting and dashboards  
+
+        **Responsibilities:**  
+
+        - BAU support and monitoring of ADF + Databricks + DBT pipelines  
+        - Day-to-day Azure/Databricks administration  
+        - Optimize ADF and Databricks workflows to reduce Azure costs  
+        - Plan migration of Hive-based workloads into **Databricks Unity Catalog**  
+        - Build an internal knowledge platform for documentation and learning  
 
     === "Tech Stack"
-        - Azure (ADLS, Azure DevOps, ARM Templates)  
+        - Azure (ADLS, ADF, Azure DevOps, ARM Templates)  
         - Databricks (Repos, Delta Lake, Autoloader, Unity Catalog)  
         - DBT (SQL/ELT transformations)  
         - Power BI  
-        - Dynamics CRM / Dynamics Business Central  
+        - Dynamics MVCRM / MVBC  
         - SharePoint  
         - Google BigQuery  
         - REST APIs (Ikano, Dynamics, internal systems)  
@@ -91,359 +330,149 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         - LangChain  
         - GPT-3.5 / GitHub Copilot  
         - Terraform & ARM Templates (infra automation, evaluation)  
-        - GitHub-Jekyll / MkDocs / GitBook (internal knowledge platform, evaluation)  
-
-    === "Role & Responsibilities"
-        - Designed and supported **ELT pipelines** across Azure, Databricks, DBT, and Power BI.  
-        - Optimized workflows, cutting runtime by ~50% and reducing storage costs by two-thirds.  
-        - Engineered **ADLS storage solutions** (hot/cool/archive tiers) via ARM templates, ensuring secure access with SAS tokens.  
-        - Partnered with IT for **Azure subscription, RBAC, and resource group management**.  
-        - Evaluated **Terraform vs ARM templates** for DR management in hybrid Azure + Databricks environments.  
-        - Architected migration strategy from **Hive to Databricks Unity Catalog**.  
-        - Built multi-modal **RAG pipelines (Weaviate + LangChain + GPT-3.5)** consuming Ikano REST APIs for the **IKEA chatbot**.  
-        - Prototyped **corporate knowledge platforms** (MkDocs, GitHub-Jekyll, GitBook) for internal documentation and learning. 
-
-
+        - GitHub-Jekyll / MkDocs / GitBook (knowledge platform, evaluation)  
 
 
 
 ??? tabs "Azure Databricks Migration for ML Data Preparation – Environmental Research Lab"
     === "Project and Team"
-        - **Project:** Lab Data Migration from SharePoint to Azure for Water Quality Analysis  
+        - **Project:** Water Quality Data Migration from SharePoint to Azure  
         - **Role:** Data Engineer  
-        - **Duration:** Jan 2024 – Sep 2024
+        - **Duration:** Jan 2024 – Sep 2024  
         - **Team:** 5 members (Data Engineer, Lab Technician, Azure Admin, Environmental Scientist, Data Analyst)  
         - **Domain:** Environmental Research – Water Purification  
 
         **Overview:**  
-        Migrated water quality testing data from SharePoint to Azure Data Lake and set up Databricks for data processing. Enabled the research team to build predictive models for water treatment effectiveness and contamination detection using cleaned, structured historical data.
+        Migrated water quality testing data to Azure Data Lake and set up Databricks pipelines for cleaning and preparing ML-ready datasets. Supported predictive modeling of water treatment effectiveness.
 
-    === "Business Context"
-        - **Water quality measurements:** pH, turbidity, dissolved oxygen, conductivity  
-        - **Contaminant analysis:** Heavy metals, bacteria counts, chemical pollutant levels  
-        - **Treatment effectiveness:** Before/after purification measurements from different filter systems  
-        - **Field sample data:** Rivers, lakes, industrial sites  
-        - **Equipment calibration logs:** Instrument validation and maintenance records  
-        - **Goal:** Build ML models to predict optimal treatment methods and identify contamination patterns
+    === "Technical Work"
+        - **Migration:**  
+            - Copied 12,000+ CSV/Excel files (450GB) from SharePoint to Azure Data Lake using **Azure Data Factory** pipelines  
+            - Verified file integrity and organized folders using **Python scripts**  
 
-    === "Source Environment"
-        - **SharePoint Version:** 2016  
-        - **Document Libraries:** 6 (organized by sampling location)  
-        - **Files:** 12,000+ Excel/CSV files (450GB)  
-        - **Organization:** By date and water source (river, lake, industrial)  
-        - **Issues:**  
-            - Inconsistent parameter units (mg/L, ppm, μg/L)  
-            - Missing GPS coordinates for some samples  
-            - Different detection limits across instruments  
-            - Seasonal sampling gaps during winter  
+        - **Databricks Processing:**  
 
-    === "Target Azure Setup"
-        - **Storage:** Azure Data Lake Storage Gen2 (mounted to lab network drives)  
-        - **Processing:** Azure Databricks Premium (Auto Loader, Delta Lake)  
-        - **Cluster:** 2–4 nodes (Standard_DS3_v2) with auto-scaling  
-        - **Data Layers:**  
-            - Bronze: Raw files (Auto Loader)  
-            - Silver: Cleaned and standardized data  
-            - Gold: Aggregated datasets for ML/reporting  
-            - Checkpoint location for streaming state
+            - Ingested new CSV files with **Auto Loader**  
+            - Cleaned and standardized key measurements (pH, turbidity, dissolved oxygen, contaminants) using **PySpark/DataFrame transformations**  
+            - Performed basic data quality checks (range validation, missing values)  
+            - Aggregated data for ML and reporting  
 
-    === "Databricks Implementation"
-        - **Auto Loader Setup:**  
-            - Monitored network drive locations  
-            - Streaming jobs for new CSV files  
-            - Schema inference/evolution for instrument formats  
-            - Checkpoint locations for fault tolerance  
+        - **Job Scheduling:**  
 
-        - **Data Processing Pipeline:**  
-            - Bronze-to-silver transformation using Delta Live Tables  
-            - Data quality checks with expectations/constraints  
-            - Streaming workflows processed files within 5–10 minutes  
-            - Schema validation for new instrument formats  
-
-        - **Job Scheduling & Orchestration:**  
-            - Databricks Workflows for daily aggregation  
-            - Job clusters auto-terminate after completion  
-            - Email alerts for failures/data quality issues  
-            - Retry logic for network connectivity problems  
-
-        - **Team Coordination:**  
-            - With Lab Technician: Validated instrument formats, detection limits, and sample procedures  
-            - With Environmental Scientist: Mapped parameters to EPA/WHO standards, derived water quality metrics
-
-    === "Technical Implementation"
-        - **Auto Loader Pipeline:**  
-            - Monitored 6 network drive folders for different instruments  
-            - Detected/processed new CSV files within 5–10 minutes  
-            - Schema inference for varying column layouts  
-            - Incremental processing for new data only
-
-        - **Delta Live Tables:**  
-            ```python
-            # Bronze layer - raw ingestion
-            @dlt.table(comment="Raw water quality measurements")
-            def bronze_water_quality():
-                return spark.readStream.format("cloudFiles") \
-                            .option("cloudFiles.format", "csv") \
-                            .load("/mnt/lab-data/raw/")
-
-            # Silver layer - cleaned and standardized
-            @dlt.table(comment="Standardized water quality data")
-            @dlt.expect_or_drop("valid_ph", "ph_level >= 0 AND ph_level <= 14")
-            def silver_water_quality():
-                return dlt.read_stream("bronze_water_quality") \
-                          .withColumn("ph_standardized", col("ph_level"))
-            ```
-            - Data quality checks: pH range, contaminant limits, GPS validation  
-            - Invalid records quarantined automatically
-
-        - **Job Orchestration:**  
-            - Streaming job: Continuous Auto Loader processing  
-            - Daily aggregation: 6 AM summarization  
-            - Weekly/monthly reports for trend and quality analysis  
-            - Cluster management: Auto-scaling, spot instances, auto-termination  
-            - Monitoring: Slack/email alerts, dashboards for lag/throughput/cost
+            - Daily Databricks jobs using **Workflows**  
+            - Basic alerts on failures via **email/Slack**  
 
     === "Results & Impact"
-        - **Migration Success:**  
-            - Migrated 12,000+ files (450GB) to Azure Data Lake  
-            - Reduced data prep time from 2–3 weeks to 2 days  
-            - Enabled multi-year trend analysis and ML model development
-
-        - **Data Quality Improvements:**  
-            - Standardized units across 4 years  
-            - Flagged 1,200+ data entry errors  
-            - Geocoded 95% of sampling locations  
-            - Created audit trail for all transformations
-
-        - **Impact:**  
-            - Enabled models predicting optimal filtration methods (85% accuracy)  
-            - Revealed contamination patterns for new sampling strategies and early warning systems
+        - Reduced data preparation from 2–3 weeks to 2 days  
+        - Standardized units and flagged data errors  
+        - Enabled trend analysis and ML model development for water treatment  
 
     === "Tech Stack"
-        | Component      | Technology                                         |
-        |---------------|----------------------------------------------------|
-        | **Source**    | Network drives with CSV files from lab instruments |
-        | **Storage**   | Azure Data Lake Storage Gen2 + Azure File Sync     |
-        | **Processing**| Azure Databricks Premium + Auto Loader             |
-        | **Data Format**| Delta Lake (ACID transactions)                    |
-        | **Orchestration**| Databricks Workflows, job scheduling            |
-        | **Monitoring**| Databricks SQL dashboards, Slack alerts            |
+        | Component      | Technology                        |
+        |---------------|-----------------------------------|
+        | **Source**    | SharePoint / Lab CSV files        |
+        | **Migration** | Azure Data Factory, Python scripts |
+        | **Storage**   | Azure Data Lake Storage Gen2       |
+        | **Processing**| Azure Databricks (Auto Loader, PySpark) |
+        | **Format**    | Delta Lake                        |
+        | **Orchestration**| Databricks Workflows             |
 
     === "Challenges"
-        - **Network Drive Integration:**  
-            - Azure File Sync for network drive mounts  
-            - Databricks cluster init scripts for mounting  
-            - Auto Loader retry logic for connectivity issues
-
-        - **File Format Variations:**  
-            - Schema inference/evolution for different CSV formats  
-            - Custom parsing for non-standard outputs
-
-        - **Databricks-Specific:**  
-            - Auto Loader tuning for backfill speed (maxFilesPerTrigger)  
-            - Cost management: smaller streaming clusters, auto-termination, spot instances
-
-
-
-
-
-
+        - Variations in CSV formats → simple parsing and schema adjustments  
+        - Missing/incorrect values → validation and cleaning steps  
+        - Network drive connectivity → retry logic and batch transfers
 
 
 ??? tabs "Azure Databricks Migration for ML Data Preparation – Biotech Research Lab"
     === "Project and Team"
-        - **Project:** Lab Data Migration from SharePoint to Azure  
-        - **Role:** Data Engineer  
-        - **Duration:** May 2023 – Dec 2023  
-        - **Team:** 4 members (Data Engineer, Azure Admin, Lab Manager, Data Scientist)  
-        - **Domain:** Biotech Research Lab  
 
-        **Overview:**  
-        Migrated 3 years of experimental lab data from SharePoint to Azure Data Lake and set up Databricks for data processing. Enabled the data science team to build ML models for research work using clean, structured datasets.
+    - **Project:** Lab Data Migration from SharePoint to Azure  
+    - **Role:** Data Engineer  
+    - **Team:** 4 members (Data Engineer, Azure Admin, Lab Manager, Data Scientist)  
+    - **Domain:** Biotech Research Lab  
 
-    === "Business Context"
-        - **Compound screening data:** High-throughput screening results from drug candidates  
-        - **Protein assay results:** Binding affinity and activity measurements  
-        - **Cell viability tests:** Toxicity and efficacy data from cell culture experiments  
-        - **Chemical properties:** Molecular descriptors and compound characteristics  
-        - **Goal:** Provide historical lab data in a standardized format for ML model training and cross-experiment analysis.
+    **Overview:**  
+    Migrated 3 years of lab data from SharePoint to Azure Data Lake and set up Databricks pipelines for data cleaning, standardization, and ML-ready dataset preparation. Enabled faster data access and ML model development.
 
-    === "Source Environment"
-        - **SharePoint Version:** 2016  
-        - **Document Libraries:** 4  
-        - **Files:** 8,000+ Excel/CSV files (750GB)  
-        - **Organization:** By experiment date and compound batch  
-        - **Issues:** Inconsistent naming, manual entry, different templates, missing data, inconsistent units, duplicate experiments
+    === "Technical Work"
 
-    === "Target Azure Setup"
-        - **Storage:** Azure Data Lake Storage Gen2 (raw, processed, ML-ready, archive folders)  
-        - **Processing:** Azure Databricks (Python notebooks, Standard_DS3_v2 cluster)  
-        - **Organization:**  
-            - Raw data folder mirrors SharePoint  
-            - Processed data folder with standardized schemas  
-            - ML-ready datasets for feature engineering  
-            - Archive for original files
-
-    === "Migration & Processing"
         - **Migration:**  
-            - Used Azure Data Factory to copy files from SharePoint to Data Lake  
-            - Python scripts for transfer validation and integrity checks  
-            - Built file inventory with experiment metadata  
-            - Set up folder structure for ML pipeline
+            - Azure Data Factory pipelines to transfer 8,000+ Excel/CSV files (750GB)  
+            - Python scripts for validation, integrity checks, and folder organization  
 
-        - **Data Processing:**  
-            - Databricks notebooks to standardize formats, clean missing/outlier values  
-            - Compound ID mapping and aggregation for duplicates  
-            - Feature engineering for ML requirements  
-            - Data quality reports and basic visualizations
+    - **Data Processing:**  
 
-        - **Quality Control:**  
-            - Row count validation between source and processed files  
-            - Key metric validation (compound activity ranges)  
-            - Audit trail of transformations
+        - Databricks notebooks for format standardization, missing/outlier handling  
+        - Compound ID mapping, aggregation, and feature engineering for ML  
+        - Generated data quality reports and visual checks  
 
-    === "Team Coordination"
-        - **With Lab Manager:**  
-            - Reviewed file organization and experiment metadata  
-            - Validated logic for duplicate experiments  
-            - Established procedures for new uploads
+    - **ML Output:**  
 
-        - **With Data Science Team:**  
-            - Understood ML model requirements  
-            - Created standardized feature columns and data types  
-            - Automated pipeline for future experiments
+        - Compound screening: 45,000 records  
+        - Protein binding: 12,000 measurements  
+        - Cell viability: 38,000 data points  
+        - Combined feature matrix for multi-target prediction
 
-    === "Technical Implementation"
-        - **Compound Activity Data:**  
-            - Standardized IC50 values to nM  
-            - Handled missing values with lab rules  
-            - Created activity flags (active/inactive)  
-            - Merged assay types for same compounds
+    === "Impact"
 
-        - **Experimental Metadata:**  
-            - Extracted dates and batch info from file names  
-            - Mapped compound IDs to chemical identifiers  
-            - Classified experiment types for ML features  
-            - Added data quality scores
-
-        - **ML Output:**  
-            - Compound screening dataset: 45,000 records  
-            - Protein binding dataset: 12,000 measurements  
-            - Cell viability dataset: 38,000 data points  
-            - Combined feature matrix for multi-target prediction
-
-    === "Results & Impact"
-        - **Migration Success:**  
-            - Migrated 8,000+ files (750GB) to Azure Data Lake  
-            - Reduced data prep time from weeks to hours  
-            - Enabled cross-experiment analysis and ML model development  
-            - First ML prototype delivered 2 months ahead of schedule
-
-        - **Data Quality Improvements:**  
-            - Resolved 2,300+ duplicate records  
-            - Standardized units across measurements  
-            - Filled 15% missing data via interpolation  
-            - Created audit trail for transformations
+        - Reduced data prep time from weeks to hours  
+        - Resolved 2,300+ duplicate records and standardized units  
+        - Filled ~15% missing data via interpolation  
+        - Delivered first ML prototype 2 months ahead of schedule  
 
     === "Tech Stack"
-        | Component      | Technology                                 |
-        |---------------|--------------------------------------------|
-        | **Source**    | SharePoint 2016 Document Libraries         |
-        | **Migration** | Azure Data Factory                         |
-        | **Storage**   | Azure Data Lake Storage Gen2               |
-        | **Processing**| Azure Databricks (Python)                  |
-        | **Development**| Jupyter notebooks, pandas, numpy          |
+
+        | Component      | Technology                       |
+        |---------------|----------------------------------|
+        | **Source**    | SharePoint 2016                  |
+        | **Migration** | Azure Data Factory               |
+        | **Storage**   | Azure Data Lake Storage Gen2     |
+        | **Processing**| Azure Databricks (Python)        |
+        | **Development**| Jupyter notebooks, pandas, numpy |
 
     === "Challenges"
-        - **Data Issues:**  
-            - Different Excel templates by lab techs  
-            - Solution: Flexible parsing logic
 
-            - Missing experimental context  
-            - Solution: Cross-referenced lab notebooks
-
-        - **Technical Issues:**  
-            - SharePoint connectivity timeouts  
-            - Solution: Retry logic, batch processing
-
-
-
-
+        - **Data inconsistencies:** Multiple Excel templates → Flexible parsing logic  
+        - **Missing context:** Cross-referenced lab notebooks  
+        - **Connectivity issues:** SharePoint timeouts → Retry logic, batch processing
 
 
 ??? tabs "SharePoint CSV Migration to SQL Server"
-    === "Project and Team"
+    
+    === "Background"
+
+       The project involved migrating CSV and Excel files from SharePoint 2013 (on-premises) to SQL Server 2016 for a retail client, mainly to support SSRS reporting. Over 200 files, updated weekly or monthly (50KB–50MB, with inconsistent headers and delimiters), were consolidated into a centralized SQL Server data warehouse. I architected the solution, selected the products and integration approach, and coordinated with DBAs, network teams, SharePoint admins, and business users. The design included a staging database for raw imports, normalized production tables for cleaned data, and audit tables for ETL logging. Built on SSIS 2016 with Visual Studio/SSDT, the pipelines automated file ingestion, validation, and transformation, reducing manual effort from 2 days to 2 hours and significantly improving data quality and standardization. The platform established a single SQL Server repository for downstream SSRS reports and analytics, with SQL Agent jobs managing scheduled execution.
+
         - **Project:** SharePoint CSV Migration to SQL Server  
-        - **Role:** SSIS Developer / Data Engineer  
-        - **Duration:** June 2018 – September 2019  
+        - **Role:**  Data Engineer / Architect  
         - **Team:** 6 members (SSIS Developers, DBAs, SharePoint Admins)  
-        - **Objective:**  
-            - Consolidate CSV and Excel files from SharePoint into a centralized SQL Server data warehouse.  
-            - Automate ingestion and validation of retail sales, inventory, customer, financial, and product data.  
-            - Standardize inconsistent file formats and column headers.  
-            - Reduce manual effort for reporting and improve data quality.  
-
-    === "Source Environment"
-        - **SharePoint Version:** 2013 On-Premises  
-        - **Files:** CSV and Excel, uploaded by business users to multiple libraries  
-        - **File Access:** Network mapped drives / UNC paths  
-        - **Data Characteristics:**  
-            - 200+ files updated weekly or monthly  
-            - File sizes: 50KB – 50MB  
-            - Inconsistent delimiters and headers  
-
-    === "Target SQL Server Environment"
-        - **Database:** SQL Server 2016 Standard Edition  
-        - **Staging Database:** Raw imports from SharePoint  
-        - **Production Database:** Cleaned and validated retail data  
-        - **Audit Tables:** ETL logging and processing history  
-        - **Schema Design:**  
-            - Staging tables mapped to CSV structure  
-            - Normalized production tables  
-            - Reference tables for validation  
 
     === "SSIS Implementation"
         - **Packages:** Flat File Source reading CSV/Excel  
+        
         - **Workflows:**  
+
             - Foreach Loop containers for multiple files  
             - Data Flow tasks with conversion, validation, and cleansing  
             - Conditional Split to route valid and invalid records  
             - Script Tasks for file archiving and custom processing  
+        
         - **Data Validation:**  
+
             - Row count checks before/after processing  
             - Data type conversions  
             - Business rule validation using Conditional Split  
             - Duplicate detection and error handling  
         - **Configuration & Logging:**  
+
             - Package configurations for different environments  
             - Dynamic file path variables  
             - Logging and notification for monitoring execution  
-
-    === "Coordination Activities"
-        - **With SharePoint Admins:** Service accounts, network drive mapping, folder structure setup  
-        - **With Database Team:** Table design, SQL Agent scheduling, backup & recovery setup  
-
-    === "Results Achieved"
-        - Automated processing of 200+ CSV files from SharePoint  
-        - Reduced manual processing from 2 days to 2 hours  
-        - Improved data quality and standardization  
-        - Established centralized SQL Server repository for reporting and analytics  
-
-    === "Tech Stack"
-        - **Source System:** SharePoint 2013 Document Libraries  
-        - **ETL Platform:** SQL Server Integration Services 2016  
-        - **Target Database:** SQL Server 2016 Standard Edition  
-        - **Development Tools:** Visual Studio 2015, SQL Server Data Tools  
-        - **File Access:** Network mapped drives / UNC paths  
-        - **Scheduling:** SQL Server Agent Jobs
-
-
 
 ??? tabs "Azure Migration and Modernization of ETL Processes and Infrastructure"
     === "Project and Team"
         - **Project:** ETL Modernization and Infrastructure Migration to Azure  
         - **Role**: Solution Architect / Data Engineering Lead  
-        - **Duration**: Jan 2017 – Jun 2018  
         - **Team**: 15 members including Data Engineers, ETL Developers, Azure Infrastructure Specialists, and cross-functional stakeholders  
         - **Objective**:  
             - Migrate legacy on-prem Windows Servers and SQL Server databases to Azure VM and Azure SQL PaaS.  
@@ -461,6 +490,7 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         - SharePoint Online  
 
     === "Role & Responsibilities"
+
         - Designed Azure-based architecture, including VM sizing, SQL PaaS, and high availability planning.  
         - Migrated on-prem SSIS ETL packages to Azure VM-hosted SQL Server, optimizing for performance and reliability.  
         - Re-engineered SSIS packages to process document metadata from legacy ECM systems efficiently.  
@@ -473,6 +503,7 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         - Monitored pipeline performance post-migration and ensured data quality and integrity.  
 
     === "Key Achievements"
+    
         - Successfully migrated all on-prem SSIS ETL workflows to Azure VMs and Azure SQL.  
         - Reduced infrastructure maintenance cost by ~40% by leveraging Azure PaaS and VM-based ETL hosting.  
         - Improved ETL execution performance by ~50% through optimized SSIS workflows and SQL tuning.  
@@ -487,7 +518,6 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
 
         **Project Details:**  
         - **Role:** Solution Architect / Onsite coordinator
-        - **Duration:** October 2014 – December 2016  
         - **Team Size:** 12 members (ETL developers, database architects, business analysts, DBAs)  
         - **Domain:** Banking & Financial Services - Document Processing
         - **Pilot Scope:** Credit Card Applications & Account Opening (with expansion roadmap)
@@ -581,6 +611,7 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         ```
         **Data Quality**
         We built in basic data quality checks at the ETL stage:
+
             - XML schema validation (XSD)
             - Business rule checks (credit scoring, risk, compliance)
             - Required field and format validation
@@ -589,6 +620,7 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
 
         **Performance Tuning**
         To handle large volumes, we tuned SSIS for speed:
+
             - Ran packages in parallel where servers allowed
             - Used bulk loading (OLE DB with batch commits)
             - Adjusted buffer sizes and row limits for available memory
@@ -611,7 +643,7 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
     === "Project Overview"
         **Background:**
 
-        This project was for a major oil & gas company. Their existing data capture system produced XML files—mainly invoices and contracts—from multiple countries (Angola, Egypt, ANZ, Iberia, Germany). I built an ETL in SSIS to extract, validate, and transform the XML, then load it into SQL Server for downstream consumers, including SAP and BI/reporting teams. SSIS was chosen because it was already in place, integrated with MSSQL and downstream systems, and required minimal changes to existing security and network setups.
+        This project was for a major oil & gas company. Their existing data capture system produced XML files—mainly invoices and contracts—from multiple countries (Angola, Egypt, ANZ, Iberia, Germany). I led the development of  ETLs in SSIS to extract, validate, and transform the XML, then load it into SQL Server for downstream consumers, including SAP and BI/reporting teams. SSIS was chosen because it was already in place, integrated with MSSQL and downstream systems, and required minimal changes to existing security and network setups.
 
         **Implementation Approach:**
 
@@ -619,13 +651,12 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
 
         **Business Value:**
 
-        During the initial phase, the solution automated processing of ~10k XML files per month with error handling and recovery. It provided clean, structured data for SAP and reporting teams, supported 24/7 processing with high availability, and was built on a reusable ETL framework that scaled with growing data volumes.
+        During the initial phase, the solution automated processing of ~10k XML files per month with error handling and recovery. It provided clean, structured data for SAP and reporting teams, supported 24/7 processing with high availability. The solution was scalable, meaning additional ETLs could be added for new document types or departments.
 
 
         **Project Details:**
 
         - **Role:** Solution Architect / Lead Data Engineer
-        - **Duration:** February 2012 – September 2014
         - **Team:** 20 members (ETL developers, data engineers, QA specialists, business analysts)
         - **Domain:** Oil & Gas / Energy Sector
         - **Geographic Scope:** Angola, West Africa, and regional operations
@@ -699,11 +730,10 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
     === "Responsibilities"
         I was the solution architect for the project. I defined the components and recommended the tech stack, analyzed the initial technical landscape, and looked at integration challenges and user requirements. I coordinated with the SAP team, DBAs, and the network team, and then designed the SSIS solution to meet the needs of the business and downstream systems.
 
-??? tabs "SDL Tridion & SharePoint 2010 – ECM Data Ingestion Workflows – SDL Netherlands B.V."
+??? tabs "SharePoint 2010 Data Ingestion - SDL Tridion Netherlands (Now RWS Group) B.V."
     === "Project and Team"
         - **Client/Company:** SDL Dev Labs (Now [RWS](https://www.rws.com/content-management/tridion/) Group)  
         - **Role:** Technical Engineer  
-        - **Duration:** May – Dec 2011  
         - **Team:** 10 members (Product Team for ECM/WCM solutions) 
         - **Domain:** Web Content Management / Enterprise Content Management 
         - **Objective:**  
@@ -727,7 +757,7 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
 
 
 
-??? tabs "SharePoint 2007 – Farm Infrastructure Design & Migration"
+??? tabs "SharePoint 2007 – Stanardalone to 6-Server Farm Migration"
     === "Project Overview"
         **Background:**
 
@@ -738,16 +768,18 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
 
         The project involved migrating a standalone SharePoint 2007 deployment to a 6-server farm. The work started with planning and architecture design, including stakeholder workshops, analyzing the existing environment, defining growth requirements, and creating hardware and procurement plans. SQL Server 2008 R2 failover clusters were implemented with shared storage, backup, and recovery procedures, coordinating with networking and infrastructure teams. The SharePoint farm was deployed across multiple servers, with service applications distributed, F5 load balancer configured, and business requirements integrated. Site collections were migrated in phases using stsadm, with end-user validation, monitoring, and performance tracking. Operational procedures, monitoring dashboards, and alerting frameworks were established, and the production cutover was executed with infrastructure and business teams.
 
+        ![](images/20250921133747.png)
+
         **Project Details:**
 
         - **Role:** SharePoint and SQL Server Architect
-        - **Duration:** May 2009 – March 2011  
         - **Location:** Amsterdam, Netherlands (Client-side deployment)
-        - **Team:** 10 members (infrastructure engineers, DBAs, SharePoint developers, network architects)
-        - **Domain:** Logistics & Supply Chain Management
+        - **Team:** 15+ members (infrastructure engineers, DBAs, SharePoint developers, network architects)
+        - **Domain:** Global Logistics & Supply Chain
 
     === "Tech Stack"
         **Core Platform:**
+
         - **SharePoint 2007 (MOSS)** - Enterprise portal and collaboration platform
         - **SQL Server 2008 R2 Enterprise** - Database engine with failover clustering
         - **Windows Server 2008 R2** - Database servers
@@ -755,17 +787,17 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         - **IIS 6.0** - Web server platform
 
         **Infrastructure & Hardware:**
+
         - **F5 BIG-IP LTM** - Hardware load balancer with SSL acceleration
         - **EMC SAN Storage** - Shared storage with Fiber Channel 8Gbps
         - **Dell PowerEdge Servers** - Enterprise server hardware
-        - **Cisco Catalyst 6500** - Core network switching infrastructure
         - **VMware vSphere** - Virtualization platform for supporting services
 
         **Development & Management:**
+
         - **SharePoint Designer 2007** - Site customization and workflow design
         - **Visual Studio 2008** - Custom component development
         - **SQL Server Management Studio** - Database administration
-        - **System Center Operations Manager** - Infrastructure monitoring
         - **Visual Source Safe 2005** - Source code management
 
     === "Solution Architecture"
@@ -883,12 +915,19 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
     === "Background"  
         **Background:**  
         For a major Insurance provider, legacy intranet content was hosted on **static HTML/ASP sites** and dispersed repositories, resulting in:
+
         - Manual content updates  
         - Limited search capabilities  
         - No multilingual support  
         - Decentralized document and asset management  
 
         The client wanted to migrate to **Microsoft Office SharePoint Server (MOSS) 2007 Publishing Portal** to establish centralized content storage, structured publishing, multilingual support, and enterprise search capabilities.
+
+        **Project Details:**  
+
+        - **Role:** Senior Software Engineer  
+        - **Team Size:** 10 members (developers, designers, IT administrators)  
+        - **Domain:** Insurance Industry 
 
         **Solution Overview:**  
         ```mermaid
@@ -923,21 +962,18 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
             Portal --> Multilingual
             Portal --> Forms
         ```
-
-        **Project Details:**  
-        - **Role:** Senior Software Engineer  
-        - **Duration:** Jan 2008 – Mar 2009  
-        - **Team Size:** 10 members (developers, designers, IT administrators)  
-        - **Domain:** Insurance Industry  
+ 
 
     === "Tech Stack"
         **Core Platform:**
+
         - **Microsoft Office SharePoint Server (MOSS) 2007** - Publishing Portal, Variations, Page Libraries, Picture Libraries, Document Libraries, Lists
         - **SQL Server 2005 Service Pack 3** - Active-Passive Cluster configuration
         - **Windows Server 2003 Service Pack 2** - SharePoint Farm deployment
         - **Internet Information Services (IIS) 6.0** - Web server platform
 
         **Development & Design Tools:**
+
         - **SharePoint Designer 2007** - Master pages, page layouts, workflows
         - **Visual Studio 2005 Service Pack 1** - Custom development (C# .NET, HTML, CSS, jQuery)
         - **SQL Server Management Studio 2005** - Database administration
@@ -967,8 +1003,8 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
             end
             
             subgraph "Client Access"
-                Users[End Users<br/>Internet Explorer 7/8]
-                Admins[SharePoint Administrators<br/>Central Administration]
+                Users[End Users<br/>IE 7]
+                Admins[SharePoint Admins<br/>Central Administration]
             end
             
             Users --> LB
@@ -1026,109 +1062,26 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
             Validate --> SPLists
         ```
 
-    === "Implementation Approach"
-
-        **Phase 1: Infrastructure Setup**
-
-        1. **SQL Server 2005 SP3 Cluster Configuration**
-
-            - Configured Active-Passive cluster for high availability
-            - Set up shared storage and cluster resources
-            - Created SharePoint content, configuration, and search databases
-
-        2. **SharePoint Farm Deployment**
-
-            - Installed MOSS 2007 on Web Front-End servers (Windows Server 2003 SP2)
-            - Configured Application Server for SharePoint services
-            - Integrated with Active Directory for authentication
-            - Set up IIS 6.0 with proper application pools and security
-
-        **Phase 2: Content Analysis & Transformation**
-
-        1. **Content Inventory & Analysis**
-
-            - Analyzed existing HTML/ASP sites for structure and content types
-            - Identified broken links, outdated content, and redundant files
-            - Mapped content to appropriate SharePoint content types
-
-        2. **Content Transformation Process**
-
-            - Cleaned up HTML for UTF compliance and standards
-            - Updated image references and preserved link relationships
-            - Standardized metadata and document properties
-            - Created content migration scripts and validation tools
-
-        **Phase 3: SharePoint Customization**
-
-        1. **UI/UX Customization**
-
-            - Developed custom master pages using SharePoint Designer 2007
-            - Created page layouts for different content types
-            - Implemented responsive CSS and jQuery enhancements
-            - Integrated branding elements using Adobe Photoshop CS3
-
-        2. **Functionality Implementation**
-
-            - Configured Variations for multilingual support
-            - Integrated InfoPath 2007 forms for user interactions
-            - Set up enterprise search with custom result types
-            - Implemented custom workflows and business logic
-
     === "Responsibilities"
 
-        **Infrastructure & Platform:**
+        As one of the core members of a small SharePoint team, I contributed across all phases of the implementation, working closely with infra, application, and network teams to deliver the solution.
 
-        - Installed and configured **SQL Server 2005 SP3 Active-Passive cluster** for SharePoint content databases
-        - Designed and deployed **SharePoint 2007 Farm** architecture (WFE, Application Server, clustered database)
-        - Configured **IIS 6.0** web servers and integrated with **Active Directory** for authentication
-        - Set up load balancing and high availability configurations
+        **Phase 1: Infrastructure Setup**
+        We configured a SQL Server 2005 SP3 Active-Passive cluster with shared storage for high availability, created content and configuration databases, and deployed a SharePoint 2007 farm with WFE and application servers. IIS 6.0 was configured and integrated with Active Directory for authentication, and load balancing was established in collaboration with the network team to ensure resilience and uptime.
 
-        **Content Migration & Transformation:**
+        **Phase 2: Content Analysis & Migration**
+        I was actively involved in content transformation analysis, covering UTF compliance, HTML cleanup, link preservation, and metadata standardization. Our team developed migration strategies for different content types, moving HTML/ASP pages into publishing page libraries, images into picture libraries, documents into document libraries (with metadata intact), and restructuring events, links, and FAQs into SharePoint lists. These efforts streamlined management of previously scattered content and improved accessibility for end users.
 
-        - Performed comprehensive **content transformation analysis** including UTF compliance, HTML cleanup, and link preservation
-        - Developed migration strategies for different content types and formats
-        - Migrated legacy content to SharePoint libraries:
-            - **HTML/ASP pages** → SharePoint Page Libraries with publishing pages
-            - **Images and media** → Picture Libraries with updated references
-            - **Documents** → Document Libraries with preserved metadata and links
-            - **Events, links, FAQs** → SharePoint Lists with custom columns
+        **Phase 3: Customization & Development**
+        On the customization side, I contributed to creating master pages and page layouts with SharePoint Designer, applying CSS styling and jQuery enhancements, and implementing branding elements. We also integrated InfoPath 2007 forms with workflows, enabled multilingual publishing through SharePoint Variations, and configured enterprise search with custom scopes and result types to enhance discoverability.
 
-        **Customization & Development:**
-
-        - Created custom **master pages and page layouts** using SharePoint Designer 2007
-        - Developed responsive **CSS styling and jQuery interactions** using Visual Studio 2005
-        - Integrated **InfoPath 2007 forms** for user data collection and workflows
-        - Implemented **SharePoint Variations** for multilingual content publishing
-        - Configured and optimized **SharePoint Search** with custom result types and scopes
-
-        **Support:**
-
-        - Documented complete farm topology, migration procedures, and custom development
-        - Created deployment scripts and automated migration tools
-        - Provided operational support and comprehensive end-user training
-        - Established maintenance procedures and troubleshooting guides
-
-    === "Key Achievements"
-
-            - Successfully migrated over 1500+ pages and documents with over 90% content integrity
-            - Achieved 99.9% uptime through SQL Server clustering and load-balanced WFE servers
-            - Reduced content update time from hours to minutes through SharePoint publishing workflows
-            - Implemented enterprise search covering 100% of migrated content with sub-second response times
-            - Centralized content management reduced maintenance overhead by 60%
-            - Multilingual support enabled global content deployment across 5 languages
-            - Enhanced search capabilities improved content discoverability by 80%
-            - Streamlined publishing process reduced content approval cycle from days to hours
-            - Trained 5+ content managers on SharePoint publishing workflows
-            - Created comprehensive documentation for future maintenance and upgrades
-            - Established governance policies for content lifecycle management
-            - Implemented backup and disaster recovery procedures
-
+        **Phase 4: Support & Adoption**
+        To support long-term use, I helped document farm topology, migration procedures, and custom development work, as well as prepare deployment scripts and automation tools. I also provided operational support, trained content managers on publishing workflows, and worked on governance and maintenance procedures. These activities reduced content update times from hours to minutes, shortened approval cycles, and improved overall discoverability, contributing to smoother adoption across the business.
 
 ??? tabs "WSS 3.0 – Migration of Network Documents to SharePoint"
     === "Background"
         - **Project:** Document Migration from Network Drives to SharePoint WSS 3.0  
         - **Role:** Software Engineer  
-        - **Duration:** Feb 2007 – Dec 2007  
         - **Team:** 1 Project Manager + 3 Developers
         - **Domain:** Financial Services / Banking
         - **Objective:**  
@@ -1149,28 +1102,6 @@ Hello! I am Das and welcome to my page. Here I share my work and learnings as a 
         - Ensured document metadata integrity (author, creation date, modification date) during migration.  
         - Supported manual pre-sorting of documents to improve migration efficiency.  
         - Upgraded SharePoint WSS 3.0 to SP2 in preparation for transition to MOSS 2007.  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Contact
