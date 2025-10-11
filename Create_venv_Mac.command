@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Can run anytime. Safe. Run it to make a fully working mkdocs venv with no integration issue with current docs.
-# This script sets up a venv and MkDocs environment for macOS.
-
-#This version is for macOS. For Windows, use createvenv.bat. Just go to the folder and double click the file.
+# This script sets up a Python virtual environment and MkDocs for macOS.
+# Safe to run anytime; ensures a working MkDocs venv without integration issues.
+# To activate later, run: source venvmac/bin/activate.
 
 echo "Setting up MkDocs environment..."
 
