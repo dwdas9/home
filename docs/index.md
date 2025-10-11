@@ -12,6 +12,8 @@ Welcome to my personal website, where I share insights and experiences from my j
 
     My professional journey began as a final-year intern at [HCL Technologies](https://www.hcltech.com/), where I worked on .NET and MSSQL. I was later seconded to Singapore, which marked the start of my international career. Over the years, I have worked across Singapore, Canada, and Amsterdam on Data and ECM projects, primarily on Microsoft platforms.
 
+    
+
     I currently serve as Senior Manager and Data Engineer at [IRAS](https://www.iras.gov.sg/) (Ministry of Finance, Singapore), supporting data migration to the Azure Government Commercial Cloud (GCC). My experience spans both service and product companies across government and private sectors, involving end-to-end technology implementation and cloud adoption.
 
 ## Contact
