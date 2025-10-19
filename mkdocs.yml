@@ -173,7 +173,6 @@ nav:
     - Wrong Storage Level Choices: 'Spark-DataBricks/1.1_PySparkGotchas/WrongStorageLevelChoices.md'
   
   - AI & ML:
-    - History: 'AI-ML/1_History.md'
     - Running Stable Diffusion Locally: 'AI-ML/Running_Stable_Diffusion_Locally.md'
  
   - Data Engineering & Analytics:
@@ -297,7 +296,7 @@ nav:
       - Hello Git: 'DevOps/1_Hello_Git.md'
       - Git Fetch: 'DevOps/1.1_Git_Fetch.md'
       - Git Origin: 'DevOps/1.2_Git_Origin.md'
-      - Git Scenarios: 'DevOps/1.3_Git_Scenarios.md'
+      - Git Common Issues: 'DevOps/2_Git_Troubleshooting_Scenarios.md'
       - Hello Actions: 'DevOps/3.1_Hello_GitHub_Actions_Workflow.md'
       - Sample Workflows: 'DevOps/3.2_Sample_Workflows.md'
       - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
@@ -333,9 +332,6 @@ nav:
         - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
         - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
 
-  - Git:
-    - Basics: 'Git/1_Git_Basics.md'
-    - Troubleshooting Scanarios: 'Git/2_Git_Trobleshooting_Scanarios.md'
 
   - Enterprise Solutions:
     - Microsoft 365:
