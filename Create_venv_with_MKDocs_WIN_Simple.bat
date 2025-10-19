@@ -1,13 +1,12 @@
 @echo off
 setlocal EnableDelayedExpansion
 
-:: Script to create a virtual enviornment with MKDocs and its dependencies installed. Creates an enviornment which is closely intergrated wtih the mkdocs project.
-:: You can start deploying mkdocs right away after the VM is created. Very robut script and installs all the dependencies needed for mkdocs to run.
-:: Open command promopt. CD to this folder. Then run .\Create_venv_Windows.bat. That's it. You will see a .venv folder created in the current directory.
-
-:: Open terminal/command prompt. CD to this folder. Then run:.\Create_venv_Windows.bat
-:: Run .venv\Scripts\activate. You will see a (.venv) prefix in the command prompt, indicating that the virtual environment is active.
-:: 
+:: Script to create a virtual environment with MKDocs and its dependencies installed. Creates an environment which is closely integrated with the mkdocs project.
+:: You can start deploying mkdocs right away after the VM is created. Very robust script and installs all the dependencies needed for mkdocs to run.
+:: Step 1: Go to Terminal -> New Terminal. 
+:: Step 2: Run .\Create_venv_with_MKDocs_WIN_Simple.bat. (You will see a .venv folder created in the current directory.)
+:: Step 3: Run .venv\Scripts\activate. (You may see a (.venv) prefix in the command prompt, indicating that the virtual environment is active.)
+:: Step 4: Run mkdocs build and mkdocs serve to build and serve your mkdocs site.
 
 
 :: Key Features:

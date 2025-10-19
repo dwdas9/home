@@ -10,14 +10,10 @@ setlocal EnableDelayedExpansion
 :: logging and status checking capabilities. It installs all necessary packages
 :: from requirements.txt including the minify plugin to prevent common configuration errors.
 ::
-:: USAGE:
-:: 1. Open Command Prompt or PowerShell as Administrator (recommended)
-:: 2. Navigate to the directory containing this script:
-::    cd "c:\Users\dwaip\Desktop\github\home"
-:: 3. Run the script:
-::    .\Create_venv_with_mkdocs_win.bat
-::    OR
-::    Create_venv_with_mkdocs_win.bat
+:: Step 1: Go to Terminal -> New Terminal. 
+:: Step 2: Run .\Create_venv_with_MKDocs_WIN_Advance.bat. (You will see a .venv folder created in the current directory.)
+:: Step 3: Run .venv\Scripts\activate. (You may see a (.venv) prefix in the command prompt, indicating that the virtual environment is active.)
+:: Step 4: Run mkdocs build and mkdocs serve to build and serve your mkdocs site.
 ::
 :: WHAT TO EXPECT:
 :: - Script will display detailed progress through 9 steps
