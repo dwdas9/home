@@ -296,7 +296,7 @@ nav:
       - Hello Git: 'DevOps/1_Hello_Git.md'
       - Git Fetch: 'DevOps/1.1_Git_Fetch.md'
       - Git Origin: 'DevOps/1.2_Git_Origin.md'
-      - Git Common Issues: 'DevOps/2_Git_Troubleshooting_Scenarios.md'
+      - Git Common Issues: 'DevOps/2_Git_Issues.md'
       - Hello Actions: 'DevOps/3.1_Hello_GitHub_Actions_Workflow.md'
       - Sample Workflows: 'DevOps/3.2_Sample_Workflows.md'
       - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
