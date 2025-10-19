@@ -20,7 +20,7 @@ img {
 }
 
 
-/* General Header Styles */
+/* General Header Styles (commented out)
 h1, h2, h3, h4, h5 {
   line-height: 1.5;
   word-wrap: break-word;
@@ -29,21 +29,24 @@ h1, h2, h3, h4, h5 {
   margin-top: 1.5em;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
 }
+*/
 
-
-/* Body Text */
+/* Body Text (commented out)
 body {
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
 }
+*/
 
-
+/* a:hover (commented out)
 a:hover {
   text-decoration: underline;
 }
+*/
 
-/* Accessibility Enhancements */
+/* Accessibility Enhancements (commented out)
 h1, h2, h3, h4, h5 {
   letter-spacing: 0.5px;
 }
+*/
