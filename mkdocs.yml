@@ -293,9 +293,9 @@ nav:
         - Q&A: 'Synapse-ADF/Q&A.md'
 
   - DevOps:
-    - GitHub Actions:
-      - Concepts: 'DevOps/1_Hello_Git.md'
-      - Git Concepts: 'DevOps/1.1_Git_Fetch.md'
+    - Git:
+      - Hello Git: 'DevOps/1_Hello_Git.md'
+      - Git Fetch: 'DevOps/1.1_Git_Fetch.md'
       - Git Origin: 'DevOps/1.2_Git_Origin.md'
       - Git Scenarios: 'DevOps/1.3_Git_Scenarios.md'
       - Hello Actions: 'DevOps/3.1_Hello_GitHub_Actions_Workflow.md'
