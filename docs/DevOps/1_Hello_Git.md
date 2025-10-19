@@ -18,6 +18,9 @@ You don't start with `git init`. Not in real projects. You start with clone.
 
 Your team already has a repository. On GitHub, maybe GitLab. Your job is to get it on your machine.
 
+
+![](images/20251019164508.png)
+
 Open your terminal. Navigate to where you keep projects.
 
 ```bash
@@ -91,6 +94,19 @@ You don't work on `main`. Never work on `main`. Create a branch.
 
 Before creating a branch, sync with remote. Someone might have pushed changes overnight.
 
+```mermaid
+graph LR
+    A[git fetch origin] --> B[git log main..origin/main]
+    B --> C{Behind?}
+    C -->|Yes| D[git pull origin main]
+    C -->|No| E[git checkout -b feature/xxx]
+    D --> E
+    
+    style A fill:#e1f5ff
+    style D fill:#ffebee
+    style E fill:#e8f5e9
+```
+
 ```bash
 git fetch origin
 ```
@@ -123,6 +139,20 @@ This creates a new branch called `feature/user-auth` and switches to it.
 
 !!! warning "Branch only exists locally"
     The branch exists only on your machine. Remote doesn't know about it yet.
+
+```mermaid
+graph TB
+    A[Edit files] --> B[git add .]
+    B --> C[git commit -m 'msg']
+    C --> D[git push -u origin branch]
+    D --> E[Edit more]
+    E --> F[git add .]
+    F --> G[git commit -m 'msg']
+    G --> H[git push]
+    
+    style D fill:#ffebee
+    style H fill:#c8e6c9
+```
 
 ### Step 3: Make changes
 
@@ -291,6 +321,24 @@ git push
 
 People confuse these. They're different.
 
+```mermaid
+graph TB
+    subgraph "git fetch origin"
+        A1[Remote] -->|Download info| B1[.git updates]
+        B1 -.->|Files untouched| C1[Working Dir]
+    end
+    
+    subgraph "git pull origin main"
+        A2[Remote] -->|Download + Merge| B2[.git updates]
+        B2 -->|Files changed| C2[Working Dir]
+    end
+    
+    style B1 fill:#e8f5e9
+    style C1 fill:#f0f0f0
+    style B2 fill:#fff4e1
+    style C2 fill:#ffcdd2
+```
+
 | Command | What it does | Safe? |
 |---------|--------------|-------|
 | `git fetch origin` | Downloads information from remote. Updates git's knowledge of remote branches. Doesn't change your local files. | ✅ Always safe |
@@ -351,6 +399,20 @@ This undoes the commit but keeps your changes staged. You can modify them and co
 ## The Merge
 
 Your pull request got approved. Time to merge.
+
+```mermaid
+graph TB
+    A[git checkout main] --> B[git pull origin main]
+    B --> C[git merge feature/xxx]
+    C --> D[git push origin main]
+    D --> E[git branch -d feature/xxx]
+    E --> F[git push origin --delete feature/xxx]
+    
+    style C fill:#f3e5f5
+    style D fill:#ffebee
+    style E fill:#ffecb3
+    style F fill:#ffecb3
+```
 
 ```bash
 # Switch to main
