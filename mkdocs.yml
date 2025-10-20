@@ -293,12 +293,16 @@ nav:
 
   - DevOps:
     - Git:
-      - Hello Git: 'DevOps/1_Hello_Git.md'
-      - Git Fetch: 'DevOps/1.1_Git_Fetch.md'
-      - Git Origin: 'DevOps/1.2_Git_Origin.md'
-      - Git Common Issues: 'DevOps/2_Git_Issues.md'
-      - Hello Actions: 'DevOps/3.1_Hello_GitHub_Actions_Workflow.md'
-      - Sample Workflows: 'DevOps/3.2_Sample_Workflows.md'
+      - Hello Git: 'DevOps/Git/1_Hello_Git.md'
+      - What is Origin?: 'DevOps/Git/1.1_Git_Origin.md'
+      - Git Fetch: 'DevOps/Git/1.2_Git_Fetch.md'
+      - Git Pull: 'DevOps/Git/1.3_Git_Pull.md'
+      - Git Push: 'DevOps/Git/1.4_Git_Push.md'
+      - Git Log Online: 'DevOps/Git/1.5_Git_Log_Online.md'
+      - Create your first branch: 'DevOps/Git/1.6_Git_Branching.md'
+    - GitHub Actions:
+      - Hello Actions: 'DevOps/GitHub_Actions/1_Hello_GitHub_Actions_Workflow.md'
+      - Sample Workflows: 'DevOps/GitHub_Actions/2_Sample_Workflows.md'
       - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
     - Azure DevOps:
       - Pipelines: 'DevOps/2_Azure-Pipelines.md'
