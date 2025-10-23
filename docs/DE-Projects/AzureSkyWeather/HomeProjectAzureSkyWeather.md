@@ -1,4 +1,3 @@
-
 ![alt text](project_skyazure.jpg)
 
 # Overview

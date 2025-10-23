@@ -1,5 +1,3 @@
-
----
 # Project AzureSkyWeather. Part 1A: Using Azure HTTP-Triggered Function
 
 ## Overview
