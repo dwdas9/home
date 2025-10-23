@@ -1,4 +1,3 @@
----
 # Project AzureSkyWeather. Part 1B: Using Azure Timer-Triggered Function
 
 ## Overview

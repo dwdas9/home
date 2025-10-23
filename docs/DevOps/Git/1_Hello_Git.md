@@ -4,7 +4,7 @@ Every project needs version control. Git is that version control. There are othe
 
 ## First Step - Clone a repository
 
-On a fresh machine, the first thing you always do (apart from git setup etc) is **clone a repository**. Your team will already have a repository on some git system (Github/Azure Devops/Gitlab). What this cloning does is simply copies files from the cloud to your machine.
+The first thing you always do (apart from git setup etc) is **clone a repository**. Your team will already have a repository on some git system (Github/Azure Devops/Gitlab). What this cloning does is simply copies files from the cloud to your machine.
 
 ### Basic Clone Syntax
 
@@ -20,12 +20,7 @@ On a fresh machine, the first thing you always do (apart from git setup etc) is 
     ```
     No password prompts. Requires SSH key setup.
 
-!!! tip "Pro Tip"
-    The `.git` extension is optional. Modern systems automatically infer it:
-    ```bash
-    git clone https://github.com/username/repo-ontario
-    ```
-
+> Note: The `.git` extension is optional. 
 ### Different Ways to Clone
 
 === "Custom Folder Name"
