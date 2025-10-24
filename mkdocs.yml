@@ -68,8 +68,8 @@ theme:
         icon: material/toggle-switch-off
         name: Switch to system preference
   font:
-    #text: Roboto
-    #code: Roboto Mono
+    text: Roboto
+    code: Roboto Mono
   favicon: assets/favicon.png
   icon:
     logo: logo

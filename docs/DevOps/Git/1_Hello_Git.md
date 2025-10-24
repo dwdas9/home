@@ -2,6 +2,11 @@
 
 Every project needs version control. Git is that version control. There are others - Mercurial, Subversion, Visual Source Safe. But git won. It's free, open source, distributed, can work offline and large brands like GitHub, GitLab, BitBucket, or Azure DevOps use git. This section will focus on some important Git concepts you need to know.
 
+So, how do we define Git? Git is a version control system that solves the chaos of many people working on the same project—like overwritten files or version confusion—by acting as a 'sophisticated save button' that keeps a detailed history of every change and provides tools to safely 'combine' everyone's work.
+
+
+
+
 ## First Step - Clone a repository
 
 The first thing you always do (apart from git setup etc) is **clone a repository**. Your team will already have a repository on some git system (Github/Azure Devops/Gitlab). What this cloning does is simply copies files from the cloud to your machine.
