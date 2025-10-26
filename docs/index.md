@@ -21,5 +21,3 @@ Thanks for stopping by! This site shares lessons from my professional journey �
     I have also worked with a Canadian federal organization for several years, Singapore’s tax authority — the [Inland Revenue Authority of Singapore (IRAS)](https://www.iras.gov.sg/) — and the retail giant [IKEA](https://www.ikea.com/).
 
     Most of my projects have been in the **financial domain** — including banking, insurance, and taxation — while some projects were in **logistics**, **retail**, **oil and gas**, **media** and **pharma**.
-
-    All my assignments have been on-site at client locations.
