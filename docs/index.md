@@ -8,7 +8,7 @@ Thanks for stopping by! This site shares lessons from my professional journey �
 
 !!! Quote "Family"
 
-    I grew up in a family where my father served in the armed forces and my mother managed the household. His transferable postings meant we moved frequently across the length and breadth of India, giving me exposure to different cultures and languages from an early age. This experience made me adaptable and comfortable in diverse environments.
+    I grew up in a family where my father served in the armed forces and my mother managed the household. Because of my dad's transferable job we moved frequently across India. This gave me exposure to different cultures and languages from an early age and made me adaptable and comfortable in diverse environments.
 
     I am married and have a daughter. My wife works as a Senior Scientist and Senior Assistant Director with the government. She holds a bachelor’s and master’s degree from [St. Xavier’s College, Kolkata](https://www.sxccal.edu/), and a Ph.D. in Biotechnology from [Nanyang Technological University (NTU), Singapore](https://www.ntu.edu.sg/).
 
@@ -16,8 +16,8 @@ Thanks for stopping by! This site shares lessons from my professional journey �
 
     My professional journey began as a final-year intern at [HCL Technologies](https://www.hcltech.com/). A few months after my internship, I was seconded to Singapore, and since then, I’ve had the opportunity to work across Singapore, Canada, Amsterdam, and the US.
 
-    Over the years, I’ve contributed to leading software product companies such as [RWS (SDL Tridion)](https://www.rws.com/content-management/tridion/sites/), [IBM](https://www.ibm.com/), and [Visa Inc.](https://www.visa.com/), as well as major IT services firms like [HCL Technologies](https://www.hcltech.com/) and [Tata Consultancy Services (TCS)](https://www.tcs.com/).  
+    Over the years, I’ve worked for leading software product companies such as [RWS (SDL Tridion)](https://www.rws.com/content-management/tridion/sites/), [IBM](https://www.ibm.com/), and [Visa Inc.](https://www.visa.com/), as well as major IT services firms like [HCL Technologies](https://www.hcltech.com/) and [Tata Consultancy Services (TCS)](https://www.tcs.com/).  
 
-    I have also worked with a Canadian federal organization for several years, Singapore’s tax authority — the [Inland Revenue Authority of Singapore (IRAS)](https://www.iras.gov.sg/) — and the retail giant [IKEA](https://www.ikea.com/).
+    I have also worked with a Canadian federal organization for several years, Singapore’s tax office — the [Inland Revenue Authority of Singapore (IRAS)](https://www.iras.gov.sg/) — and the retail giant [IKEA](https://www.ikea.com/).
 
     Most of my projects have been in the **financial domain** — including banking, insurance, and taxation — while some projects were in **logistics**, **retail**, **oil and gas**, **media** and **pharma**.
