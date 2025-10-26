@@ -150,6 +150,7 @@ extra_css:
   - stylesheets/extra.css  # Add custom CSS for styling
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js  # Enable Mermaid diagrams
+  - https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap
 
 # =========================
 # Navigation Structure
@@ -185,6 +186,7 @@ nav:
     - Spark & Databricks:
       - Spark:
         - Concepts: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
+        - Python vs PySpark vs Spark: 'Spark-DataBricks/1.0.1__Python_PySpark_Spark_Confusion.md'
         - Narrow vs Wide: 'Spark-DataBricks/1.0_Spark/1.1_NarrowVsWideTransformation.md'
         - Architecture: 'Spark-DataBricks/1.0_Spark/1.2_SparkArchitecture.md'
         - Cache & Persist: 'Spark-DataBricks/1.0_Spark/1.3_persist_and_cache.md'
@@ -291,15 +293,56 @@ nav:
           - Copy Pipeline: 'Synapse-ADF/2.5_ADF_Pipeline_Copy.md'
         - Q&A: 'Synapse-ADF/Q&A.md'
 
+  - Git:
+    - Rebase: 'Git/3_Git_Rebase.md'
+    - 1. Getting Started:
+        - Setup & First Commands: 'DevOps/Git/1_Setup_First_Commands.md'
+    
+    - 2. Core Commands - Daily Essentials:
+        - Repository Basics (init, clone): 'DevOps/Git/2_Repository_Basics.md'
+        - The Fundamental Workflow (status, add, commit): 'DevOps/Git/2.1_Fundamental_Workflow.md'
+        - Viewing History (log, show, diff): 'DevOps/Git/2.2_Viewing_History.md'
+    
+    - 3. Branching Commands:
+        - Branch Operations (branch, checkout, switch): 'DevOps/Git/3_Branch_Operations.md'
+        - Merging Commands (merge, conflicts): 'DevOps/Git/3.1_Merging_Commands.md'
+    
+    - 4. Remote Repository Commands:
+        - Understanding Remotes (remote commands): 'DevOps/Git/4_Understanding_Remotes.md'
+        - Push, Pull, Fetch - Syncing Commands: 'DevOps/Git/4.1_Push_Pull_Fetch.md'
+        - GitHub Workflow Commands: 'DevOps/Git/4.2_GitHub_Workflow.md'
+    
+    - 5. Undo & Fix Commands:
+        - Undoing Changes (restore, reset, revert): 'DevOps/Git/5_Undoing_Changes.md'
+        - Stash Commands: 'DevOps/Git/5.1_Stash_Commands.md'
+    
+    - 6. Advanced Commands:
+        - Rebase Commands: 'DevOps/Git/6_Rebase_Commands.md'
+        - Cherry-pick Commands: 'DevOps/Git/6.1_Cherry_Pick_Commands.md'
+        - Reflog Commands - The Safety Net: 'DevOps/Git/6.2_Reflog_Commands.md'
+    
+    - 7. Inspection & Comparison:
+        - Advanced Inspection Commands: 'DevOps/Git/7_Advanced_Inspection.md'
+        - Finding Issues (bisect): 'DevOps/Git/7.1_Finding_Issues.md'
+    
+    - 8. Cleaning & Maintenance:
+        - Cleanup Commands (clean, gc, prune): 'DevOps/Git/8_Cleanup_Commands.md'
+    
+    - 9. Collaboration & Workflow:
+        - Tags & Releases Commands: 'DevOps/Git/9_Tags_Releases.md'
+        - Workflow Patterns & Best Practices: 'DevOps/Git/9.1_Workflow_Patterns.md'
+    
+    - 10. Configuration & Productivity:
+        - Configuration & Aliases: 'DevOps/Git/10_Config_Aliases.md'
+    
+    - 11. Real-World Problem Solving:
+        - Common Problems & Command Solutions: 'DevOps/Git/11_Common_Problems.md'
+        - Complete Workflow Scenarios: 'DevOps/Git/11.1_Workflow_Scenarios.md'
+    
+    - 12. Quick Reference:
+        - Command Cheat Sheet: 'DevOps/Git/12_Command_Cheat_Sheet.md'
+
   - DevOps:
-    - Git:
-      - Hello Git: 'DevOps/Git/1_Hello_Git.md'
-      - What is Origin?: 'DevOps/Git/1.1_Git_Origin.md'
-      - Git Fetch: 'DevOps/Git/1.2_Git_Fetch.md'
-      - Git Pull: 'DevOps/Git/1.3_Git_Pull.md'
-      - Git Push: 'DevOps/Git/1.4_Git_Push.md'
-      - Git Log Online: 'DevOps/Git/1.5_Git_Log_Online.md'
-      - Create your first branch: 'DevOps/Git/1.6_Git_Branching.md'
     - GitHub Actions:
       - Hello Actions: 'DevOps/GitHub_Actions/1_Hello_GitHub_Actions_Workflow.md'
       - Sample Workflows: 'DevOps/GitHub_Actions/2_Sample_Workflows.md'
@@ -335,7 +378,6 @@ nav:
         - MongoDB: 'DockerAndKubernetes/Mongodb/3_DockerMongodb.md'
         - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
         - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
-
 
   - Enterprise Solutions:
     - Microsoft 365:
