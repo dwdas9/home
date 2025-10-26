@@ -185,7 +185,7 @@ nav:
     - Spark & Databricks:
       - Spark:
         - Concepts: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
-        - Python vs PySpark vs Spark: 'Spark-DataBricks/1.0.1__Python_PySpark_Spark_Confusion.md'
+        - Python vs PySpark vsSpark: 'Spark-DataBricks/1.0.1__Python_PySpark_Spark_Confusion.md'
         - Narrow vs Wide: 'Spark-DataBricks/1.0_Spark/1.1_NarrowVsWideTransformation.md'
         - Architecture: 'Spark-DataBricks/1.0_Spark/1.2_SparkArchitecture.md'
         - Cache & Persist: 'Spark-DataBricks/1.0_Spark/1.3_persist_and_cache.md'
