@@ -3,7 +3,7 @@
 !!! question "The Problem"
     You run `git checkout origin/main` expecting VS Code to show "main" at the bottom left, but instead it shows something like `353d709`. What's going on?
 
-![](images/20251030141826.png)
+![](images/20251030141826.png){height=50%}
 
 ## What's Happening
 
