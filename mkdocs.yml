@@ -295,6 +295,8 @@ nav:
 
   - Git:
     - Rebase: 'Git/3_Git_Rebase.md'
+    - Detached Head: 'Git/4_Git_Detached_Head.md'
+
     - 1. Getting Started:
         - Setup & First Commands: 'DevOps/Git/1_Setup_First_Commands.md'
     
