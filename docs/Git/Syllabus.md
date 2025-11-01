@@ -1,4 +1,4 @@
-0000000000000000000000000000000000## **Git Tutorial Syllabus: Command Mastery from Basics to Advanced**
+**Git Tutorial Syllabus: Command Mastery from Basics to Advanced**
 ### *Learn Git Through Commands - Practical, Real-World Focused*
 
 ---
@@ -274,6 +274,68 @@
 ✅ **Hands-On**: Every module has practical exercises  
 
 **Total**: 23 lessons, ~70+ commands mastered, 10-12 hours of focused learning
+
+---
+**File Structure**
+
+**Module 1: Getting Started** (1 file)
+├── 01_setup_and_configuration.md
+
+**Module 2: Core Commands** (3 files)
+├── 02_repository_basics.md
+├── 03_fundamental_workflow.md
+└── 04_viewing_history.md
+
+**Module 3: Branching** (2 files)
+├── 05_branch_operations.md
+└── 06_merging_and_conflicts.md
+
+**Module 4: Remote Repositories** (3 files)
+├── 07_understanding_remotes.md
+├── 08_push_pull_fetch.md
+└── 09_github_workflow.md
+
+**Module 5: Undo & Fix** (2 files)
+├── 10_undoing_changes.md
+└── 11_stash_commands.md
+
+**Module 6: Advanced Commands** (3 files)
+├── 12_rebase_commands.md
+├── 13_cherry_pick.md
+└── 14_reflog_safety_net.md
+
+**Module 7: Inspection & Comparison** (2 files)
+├── 15_advanced_inspection.md
+└── 16_finding_issues_bisect.md
+
+**Module 8: Git Scenarios - Core Problems** (4 files) ⭐ NEW
+├── 17_detached_head_explained.md
+├── 18_merge_conflicts_mastery.md
+├── 19_diverged_branches.md
+└── 20_rebase_vs_merge_scenarios.md
+
+**Module 9: Git Scenarios - Advanced Fixes** (4 files) ⭐ NEW
+├── 21_accidental_commits.md
+├── 22_wrong_branch_commits.md
+├── 23_lost_commits_recovery.md
+└── 24_corrupted_repository.md
+
+**Module 10: Git Scenarios - Team Collaboration** (3 files) ⭐ NEW
+├── 25_force_push_disasters.md
+├── 26_upstream_conflicts.md
+└── 27_large_file_problems.md
+
+**Module 11: Collaboration & Workflow** (2 files)
+├── 28_tags_and_releases.md
+└── 29_workflow_patterns.md
+
+**Module 12: Configuration & Maintenance** (2 files)
+├── 30_config_and_aliases.md
+└── 31_cleanup_maintenance.md
+
+**Module 13: Complete Workflows** (2 files)
+├── 32_real_world_workflows.md
+└── 33_command_cheat_sheet.md
 
 ---
 
