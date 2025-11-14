@@ -173,10 +173,10 @@ nav:
     - Over-Caching Memory Waste: 'Spark-DataBricks/1.1_PySparkGotchas/Over-CachingMemoryWaste.md'
     - Wrong Storage Level Choices: 'Spark-DataBricks/1.1_PySparkGotchas/WrongStorageLevelChoices.md'
   
-  - AI & ML:
+  - AIML:
     - Running Stable Diffusion Locally: 'AI-ML/Running_Stable_Diffusion_Locally.md'
  
-  - Apache Airflow:
+  - Airflow:
     - Concepts: 'Airflow/1.0.0_AirFlow_Concepts.md'
     - DAG Anatomy: 'Airflow/1.0.1_A_Dags_Anatomy.md'
     - Hello Airflow: 'Airflow/1.0.2_Hello_Airflow.md'
@@ -249,7 +249,7 @@ nav:
       - Setup Project: 'SQL/1.0.1_setup_simple_dbt_project.md'
       - Connections: 'SQL/connecting-with-dbt.md'
 
-  - Microsoft Fabric:
+  - Fabric:
     - Getting Started: 'Microsoft-Fabric/HelloMicrosoftFabric.md'
     - Features:
       - Data Warehouse: 'Microsoft-Fabric/DataWareHouse.md'
@@ -269,10 +269,8 @@ nav:
       - E2E Project: 'Microsoft-Fabric/E2EProject.md'
     - Administration: 'Microsoft-Fabric/FabricAdministration.md'
     - Q&A: 'Microsoft-Fabric/FabricQ&A.md'
-  - Azure Accounts:
-    - Service Principal and Managed Identity: 'Azure/Cloud_Accounts/ServicePrincipalAndManagedIdentity.md'
 
-  - Azure Services:
+  - Azure:
       - Synapse:
         - Concepts: 'Synapse-ADF/1.0_SynapseConcepts.md'
         - Pools: 'Synapse-ADF/1.1_Pools.md'
@@ -291,6 +289,7 @@ nav:
         - Monitoring: 'Synapse-ADF/2.4_Monitor_ADF_Pipelines.md'
         - Copy Pipeline: 'Synapse-ADF/2.5_ADF_Pipeline_Copy.md'
       - Q&A: 'Synapse-ADF/Q&A.md'
+      - Service Principal and Managed Identity: 'Azure/Cloud_Accounts/ServicePrincipalAndManagedIdentity.md'
 
   - Git:
     - Rebase: 'Git/3_Git_Rebase.md'
