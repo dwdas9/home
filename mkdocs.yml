@@ -507,23 +507,23 @@ nav:
       - Hadoop Jars: 'DE-Projects/Download-Haddop-Jars.md'
       - Microsoft OpenJDK: 'DE-Projects/Microsoft_OpenJDK.md'
 
-  - Resources:
-    - MkDocs:
-      - Github Deployment: 'MKdocs/Github_Deployment_Guide.md'
-      - Local Setup: 'MKdocs/Parallel_Local_Testing.md'
-    - Miscellaneous:
-      - Markdown:
-        - Basics: 'Misc/3_Markdown.md'
-        - Colors: 'Misc/MarkdownColor/Color.md'
-        - PDF Export: 'Misc/markdown_pdf_export_html.md'
-      - Cloud:
-        - GCP Usage: 'Misc/1_GoogleCloudSeeUsage.md'
-        - Azure Budget: 'Misc/7_Azure_Budget.md'
-      - System:
-        - Ubuntu Benefits: 'Misc/9_WhyUbuntuIsGood.md'
-        - VMware Free: 'Misc/2_InstallVMWareFree.md'
-        - VS Code Tips: 'Misc/4_VSTrics.md'
-        - Background Apps: 'Misc/6_RunningAppsInBg.md'
-      - Data:
-        - Datasets: 'Misc/5_WhichDatastsToUse.md'
-        - Fact vs Dimension: 'Misc/10_Fact_vs_Dimension_tables.md'
+
+  - MkDocs:
+    - Github Deployment: 'MKdocs/Github_Deployment_Guide.md'
+    - Local Setup: 'MKdocs/Parallel_Local_Testing.md'
+  - Miscellaneous:
+    - Markdown:
+      - Basics: 'Misc/3_Markdown.md'
+      - Colors: 'Misc/MarkdownColor/Color.md'
+      - PDF Export: 'Misc/markdown_pdf_export_html.md'
+    - Cloud:
+      - GCP Usage: 'Misc/1_GoogleCloudSeeUsage.md'
+      - Azure Budget: 'Misc/7_Azure_Budget.md'
+    - System:
+      - Ubuntu Benefits: 'Misc/9_WhyUbuntuIsGood.md'
+      - VMware Free: 'Misc/2_InstallVMWareFree.md'
+      - VS Code Tips: 'Misc/4_VSTrics.md'
+      - Background Apps: 'Misc/6_RunningAppsInBg.md'
+    - Data:
+      - Datasets: 'Misc/5_WhichDatastsToUse.md'
+      - Fact vs Dimension: 'Misc/10_Fact_vs_Dimension_tables.md'
