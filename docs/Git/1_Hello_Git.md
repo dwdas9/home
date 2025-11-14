@@ -2,13 +2,65 @@
 
 Every project needs version control. Git is that version control. There are others - Mercurial, Subversion, Visual Source Safe. But git won. It's free, open source, distributed, can work offline and large brands like GitHub, GitLab, BitBucket, or Azure DevOps use git. This section will focus on some important Git concepts you need to know.
 
-So, how do we define Git? Git is a version control system that solves the chaos of many people working on the same project—like overwritten files or version confusion—by acting as a 'sophisticated save button' that keeps a detailed history of every change and provides tools to safely 'combine' everyone's work.
+So, how do we define Git? Git is a version control system that solves the chaos of many people working on the same project—like overwritten files or version confusion—by acting as a 'sophisticated save button' that keeps a detailed history of every change and provides commands to safely 'combine' everyone's work.
 
+---
 
+## Install Git and configure VS Code to use it
 
+This is actually pretty simple. The very first thing you always need is this software called **Git**. This is *the* software. So to install it, just visit [this link](https://git-scm.com/install/windows), click download (I’m talking about Windows here), run the installer, and go next → next → next. Below are some snapshots of the installer screens that you may or may not see in the exact same order.
 
-## First Step - Clone a repository
+### Selecting components
 
+![](images/20251113205745.png)
+
+### Choosing the default editor used by Git
+
+I choose **VS Code**, because it makes life easier.
+
+![](images/20251113210023.png)
+
+### Adjusting the name of the initial branch in new repositories
+
+I choose **“Override”** and set it to **main**.
+
+![](images/20251113210127.png)
+
+### Adjusting the PATH
+
+I usually pick the recommended option.
+
+![](images/20251113210158.png)
+
+### And so on…
+
+Just keep going with the default or recommended options.
+
+![](images/20251113210211.png)
+
+Finally, you should see the **“Setup has finished installing Git”** message.
+
+![](images/20251113210331.png)
+
+---
+
+### Verify that Git works
+
+After everything is installed, just open **Command Prompt** and type:
+
+```
+git
+```
+
+Press **Enter**.
+
+This is the fastest and simplest way to see if Git works. Make sure Git is added to your PATH so you don’t need any rocket science to run it from the command prompt. It will make things much easier later.
+
+---
+
+## Clone a repository
+
+Great job. Yey! You installed git and it works with your VS Code. Now, 
 The first thing you always do (apart from git setup etc) is **clone a repository**. Your team will already have a repository on some git system (Github/Azure Devops/Gitlab). What this cloning does is simply copies files from the cloud to your machine.
 
 ### Basic Clone Syntax

@@ -297,9 +297,8 @@ nav:
     - Rebase: 'Git/3_Git_Rebase.md'
     - Detached Head: 'Git/4_Git_Detached_Head.md'
 
-    - 1. Getting Started:
-        - Setup & First Commands: 'DevOps/Git/1_Setup_First_Commands.md'
-    
+    - Hello Git: 'Git/1_Hello_Git.md'
+    - Git Origin: 'Git/1.1_Git_Origin.md'
     - 2. Core Commands - Daily Essentials:
         - Repository Basics (init, clone): 'DevOps/Git/2_Repository_Basics.md'
         - The Fundamental Workflow (status, add, commit): 'DevOps/Git/2.1_Fundamental_Workflow.md'
