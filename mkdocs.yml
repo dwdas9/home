@@ -161,27 +161,6 @@ extra_javascript:
 
 nav:
   - Home: 'index.md'
-  
-  - PySpark Gotchas:
-    - Schema Inference Double-Read Penalty: 'Spark-DataBricks/1.1_PySparkGotchas/SchemaInferenceDouble-ReadPenalty.md'
-    - Data Skew - The Silent Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/Data Skew-TheSilentPerformanceKiller.md'
-    - Small Files Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/SmallFilesPerformanceKiller.md'
-    - High-Cardinality Partitioning Disaster: 'Spark-DataBricks/1.1_PySparkGotchas/High-CardinalityPartitioningDisaster.md'
-    - The Goldilocks Partition Problem: 'Spark-DataBricks/1.1_PySparkGotchas/TheGoldilocksPartitionProblem.md'
-    - Suboptimal File Format Choices: 'Spark-DataBricks/1.1_PySparkGotchas/SuboptimalFileFormatChoices.md'
-    - Lazy Cache Evaluation Trap: 'Spark-DataBricks/1.1_PySparkGotchas/LazyCacheEvaluationTrap.md'
-    - Over-Caching Memory Waste: 'Spark-DataBricks/1.1_PySparkGotchas/Over-CachingMemoryWaste.md'
-    - Wrong Storage Level Choices: 'Spark-DataBricks/1.1_PySparkGotchas/WrongStorageLevelChoices.md'
-  
-  - AIML:
-    - Running Stable Diffusion Locally: 'AI-ML/Running_Stable_Diffusion_Locally.md'
- 
-  - Airflow:
-    - Concepts: 'Airflow/1.0.0_AirFlow_Concepts.md'
-    - DAG Anatomy: 'Airflow/1.0.1_A_Dags_Anatomy.md'
-    - Hello Airflow: 'Airflow/1.0.2_Hello_Airflow.md'
-    - Airflow DBT Docker: 'Airflow/1.0.3_Airflow_Dbt_Docker.md'
-    
 
   - Spark:
     - Concepts: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
@@ -203,34 +182,115 @@ nav:
     - Common Topics: 'Spark-DataBricks/1.0_Spark/1.15_CommonPysparkTopics.md'
     - Hive Integration: 'Spark-DataBricks/1.0_Spark/1.16_ConnectingSparkToHive.md'
     - Setup Guide: 'Spark-DataBricks/1.0_Spark/Install-Pyspark-Windows/Install-Pyspark-Windows.md'
+    - PySpark Gotchas:
+      - Schema Inference Double-Read Penalty: 'Spark-DataBricks/1.1_PySparkGotchas/SchemaInferenceDouble-ReadPenalty.md'
+      - Data Skew - The Silent Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/Data Skew-TheSilentPerformanceKiller.md'
+      - Small Files Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/SmallFilesPerformanceKiller.md'
+      - High-Cardinality Partitioning Disaster: 'Spark-DataBricks/1.1_PySparkGotchas/High-CardinalityPartitioningDisaster.md'
+      - The Goldilocks Partition Problem: 'Spark-DataBricks/1.1_PySparkGotchas/TheGoldilocksPartitionProblem.md'
+      - Suboptimal File Format Choices: 'Spark-DataBricks/1.1_PySparkGotchas/SuboptimalFileFormatChoices.md'
+      - Lazy Cache Evaluation Trap: 'Spark-DataBricks/1.1_PySparkGotchas/LazyCacheEvaluationTrap.md'
+      - Over-Caching Memory Waste: 'Spark-DataBricks/1.1_PySparkGotchas/Over-CachingMemoryWaste.md'
+      - Wrong Storage Level Choices: 'Spark-DataBricks/1.1_PySparkGotchas/WrongStorageLevelChoices.md'
+    - Databricks:
+      - Concepts: 'Spark-DataBricks/3.0_Databricks/3.0_Databricks_Concepts.md'
+      - Catalogs: 'Spark-DataBricks/3.0_Databricks/3.1_Catalogs_And_Metastore.md'
+      - Authentication: 'Spark-DataBricks/3.0_Databricks/3.2_AuthenticationMethods.md'
+      - ADLS Mount: 'Spark-DataBricks/3.0_Databricks/3.3_Mount_ADLS_on_Databricks.md'
+      - Secret Scope: 'Spark-DataBricks/3.0_Databricks/3.4_Databricks_Secret_Scope.md'
+      - SQL: 'Spark-DataBricks/3.0_Databricks/3.5_Databricks_SQL.md'
+      - Magic Commands: 'Spark-DataBricks/3.0_Databricks/3.6_DatabricksMagicCommands.md'
+      - Delta Lake: 'Spark-DataBricks/3.0_Databricks/3.7_DeltaLake_And_Lakehouse.md'
+      - Project Example: 'Spark-DataBricks/3.0_Databricks/4.8_Databricks_ProjectA1.md'
+      - ADLS Integration:
+        - Setup: 'Spark-DataBricks/2.0_Spark_To_ADLS/2.0_Spark_To_ADLS.md'
+        - Summary: 'Spark-DataBricks/2.0_Spark_To_ADLS/2.1_Spark-To_ADLS_Summary.md'
+  
+  - Python:
+    - Basics: 'Python/1_Python.md'
+    - Data Structures:
+      - Sets: 'Python/1.0_Sets.md'
+      - Tuples:
+        - Basic: 'Python/1.1_Tuples.md'
+        - Advanced: 'Python/1.2_Tuples_Advanced.md'
+      - Lists: 'Python/1.3_List.md'
+      - Dictionaries: 'Python/1.4_Dictionaries.md'
+    - Functions:
+      - Lambda: 'Python/1.5_Lamda_Functions.md'
+      - Built-in: 'Python/1.16_built_in_functions.md'
+      - Overview: 'Python/1.9_Func_Modl_Lib.md'
+      - Summary: 'Python/1.10_Func_Modl_Summary.md'
+    - Control Flow:
+      - If-Elif-Else: 'Python/1.11_ifelifelse.md'
+      - Operators: 'Python/1.12_Operators.md'
+      - For Loops: 'Python/1.13_For_Loops.md'
+      - Enumerate: 'Python/1.14_enumerate.md'
+      - Range: 'Python/1.15_range_function.md'
+    - Advanced:
+      - With Statement: 'Python/1.17_withStatement.md'
+      - Testing: 'Python/1.18_unittest_pytest.md'
+      - Main Function: 'Python/1.19_if_name_main.md'
+      - Decorators: 'Python/1.1.1_decorators.md'
+      - Arguments: 'Python/1.1.2_argv.md'
+      - Error Handling: 'Python/1.1.3_error_handling.md'
+      - Diff & Patch: 'Python/1.1.3_Diff_And_Patch.md'
+      - Debugging: 'Python/1.1.4_pdb.md'
+      - Formatting: 'Python/1.1.5_pyformat.md'
+    - Integrations:
+      - Linux: 'Python/Linux.md'
+      - PySpark: 'Python/Pyspark.md'
+      - Graph API: 'Python/GraphAPIJupyter/GraphAPIUsingJuputer.md'
+    - Scripts: 'Python/PythonScripts.md'
+
+  - Git:
+      - Rebase: 'Git/3_Git_Rebase.md'
+      - Detached Head: 'Git/4_Git_Detached_Head.md'
+
+      - Hello Git: 'Git/1_Hello_Git.md'
+      - Git Origin: 'Git/1.1_Git_Origin.md'
+      - 2. Core Commands - Daily Essentials:
+          - Repository Basics (init, clone): 'DevOps/Git/2_Repository_Basics.md'
+          - The Fundamental Workflow (status, add, commit): 'DevOps/Git/2.1_Fundamental_Workflow.md'
+          - Viewing History (log, show, diff): 'DevOps/Git/2.2_Viewing_History.md'
       
-  - Databricks:
-    - Concepts: 'Spark-DataBricks/3.0_Databricks/3.0_Databricks_Concepts.md'
-    - Catalogs: 'Spark-DataBricks/3.0_Databricks/3.1_Catalogs_And_Metastore.md'
-    - Authentication: 'Spark-DataBricks/3.0_Databricks/3.2_AuthenticationMethods.md'
-    - ADLS Mount: 'Spark-DataBricks/3.0_Databricks/3.3_Mount_ADLS_on_Databricks.md'
-    - Secret Scope: 'Spark-DataBricks/3.0_Databricks/3.4_Databricks_Secret_Scope.md'
-    - SQL: 'Spark-DataBricks/3.0_Databricks/3.5_Databricks_SQL.md'
-    - Magic Commands: 'Spark-DataBricks/3.0_Databricks/3.6_DatabricksMagicCommands.md'
-    - Delta Lake: 'Spark-DataBricks/3.0_Databricks/3.7_DeltaLake_And_Lakehouse.md'
-    - Project Example: 'Spark-DataBricks/3.0_Databricks/4.8_Databricks_ProjectA1.md'
-
-  - ADLS Integration:
-    - Setup: 'Spark-DataBricks/2.0_Spark_To_ADLS/2.0_Spark_To_ADLS.md'
-    - Summary: 'Spark-DataBricks/2.0_Spark_To_ADLS/2.1_Spark-To_ADLS_Summary.md'
-
-  - Hive:
-    - Concepts: 'Spark-DataBricks/4.0_Hive/Hive_Concepts.md'
-
-  - Stream Processing:
-    - Introduction: 'StreamProcessing/1.0_What_Is_Stream_Processing.md'
-    - Event Hubs:
-      - Overview: 'StreamProcessing/2.0_Azure_EventHubs.md'
-      - vs Kafka: 'StreamProcessing/2.0.1_EventHubs_Vs_Kafka.md'
-      - Hello EventHubs: 'StreamProcessing/2.0.2_Project_Hello_EventHubs.md'
-      - Local Emulator: 'StreamProcessing/2.0.3_EventHubsLocalEmulator.md'
-    - Processing Options: 'StreamProcessing/4_EventProcessingChoices.md'
-    - Kinesis Integration: 'StreamProcessing/5_AmazonKinesisSparkIntegration.md'
+      - 3. Branching Commands:
+          - Branch Operations (branch, checkout, switch): 'DevOps/Git/3_Branch_Operations.md'
+          - Merging Commands (merge, conflicts): 'DevOps/Git/3.1_Merging_Commands.md'
+      
+      - 4. Remote Repository Commands:
+          - Understanding Remotes (remote commands): 'DevOps/Git/4_Understanding_Remotes.md'
+          - Push, Pull, Fetch - Syncing Commands: 'DevOps/Git/4.1_Push_Pull_Fetch.md'
+          - GitHub Workflow Commands: 'DevOps/Git/4.2_GitHub_Workflow.md'
+      
+      - 5. Undo & Fix Commands:
+          - Undoing Changes (restore, reset, revert): 'DevOps/Git/5_Undoing_Changes.md'
+          - Stash Commands: 'DevOps/Git/5.1_Stash_Commands.md'
+      
+      - 6. Advanced Commands:
+          - Rebase Commands: 'DevOps/Git/6_Rebase_Commands.md'
+          - Cherry-pick Commands: 'DevOps/Git/6.1_Cherry_Pick_Commands.md'
+          - Reflog Commands - The Safety Net: 'DevOps/Git/6.2_Reflog_Commands.md'
+      
+      - 7. Inspection & Comparison:
+          - Advanced Inspection Commands: 'DevOps/Git/7_Advanced_Inspection.md'
+          - Finding Issues (bisect): 'DevOps/Git/7.1_Finding_Issues.md'
+      
+      - 8. Cleaning & Maintenance:
+          - Cleanup Commands (clean, gc, prune): 'DevOps/Git/8_Cleanup_Commands.md'
+      
+      - 9. Collaboration & Workflow:
+          - Tags & Releases Commands: 'DevOps/Git/9_Tags_Releases.md'
+          - Workflow Patterns & Best Practices: 'DevOps/Git/9.1_Workflow_Patterns.md'
+      
+      - 10. Configuration & Productivity:
+          - Configuration & Aliases: 'DevOps/Git/10_Config_Aliases.md'
+      
+      - 11. Real-World Problem Solving:
+          - Common Problems & Command Solutions: 'DevOps/Git/11_Common_Problems.md'
+          - Complete Workflow Scenarios: 'DevOps/Git/11.1_Workflow_Scenarios.md'
+      
+      - 12. Quick Reference:
+          - Command Cheat Sheet: 'DevOps/Git/12_Command_Cheat_Sheet.md'
 
   - SQL:
     - Basics: 'SQL/SQL.md'
@@ -249,27 +309,78 @@ nav:
       - Setup Project: 'SQL/1.0.1_setup_simple_dbt_project.md'
       - Connections: 'SQL/connecting-with-dbt.md'
 
-  - Fabric:
-    - Getting Started: 'Microsoft-Fabric/HelloMicrosoftFabric.md'
-    - Features:
-      - Data Warehouse: 'Microsoft-Fabric/DataWareHouse.md'
-      - Real-Time Analytics: 'Microsoft-Fabric/RealTimeAnalytics.md'
-      - Data Science: 'Microsoft-Fabric/DataScience.md'
-      - Data Factory: 'Microsoft-Fabric/DataFactory.md'
-    - Development:
-      - Direct Lake: 'Microsoft-Fabric/DirectLake.md'
-      - PySpark & SQL: 'Microsoft-Fabric/Pyspark_SparkSQL.md'
-      - Pandas vs Spark: 'Microsoft-Fabric/PandasVsSparkDf.md'
-      - DataFrame Inspection: 'Microsoft-Fabric/InspectingDataframes.md'
-      - KQL: 'Microsoft-Fabric/KQL.md'
-      - Spark Streaming: 'Microsoft-Fabric/FabricSparkStreaming.md'
-    - Projects:
-      - ETL with OPG: 'Microsoft-Fabric/ETL-OPG-Copydata-JSON-Lakehouse.md'
-      - ETL with PySpark: 'Microsoft-Fabric/ETL-Pyspark-Notebook-Lakehouse.md'
-      - E2E Project: 'Microsoft-Fabric/E2EProject.md'
-    - Administration: 'Microsoft-Fabric/FabricAdministration.md'
-    - Q&A: 'Microsoft-Fabric/FabricQ&A.md'
 
+  - DevOps:
+    - GitHub Actions:
+      - Hello Actions: 'DevOps/GitHub_Actions/1_Hello_GitHub_Actions_Workflow.md'
+      - Sample Workflows: 'DevOps/GitHub_Actions/2_Sample_Workflows.md'
+      - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
+    - Azure DevOps:
+      - Pipelines: 'DevOps/2_Azure-Pipelines.md'
+      - Self-Hosted Agents:
+        - Windows: 'DevOps/2.1_Self-Hosted_Agent_Windows.md'
+        - Windows Container: 'DevOps/2.2_Self-Hosted_Agent_Windows_Container.md'
+        - Linux Container: 'DevOps/2.3_Self-Hosted_Agent_Linux_Container.md'
+    - ADF CI/CD: 
+      - Implementation: 'DevOps/ADF_CICD.md'
+    - Tools Comparison: 'DevOps/JenkinsVsGitHubVsAzureDevOps.md'
+    - Bicep: 'DevOps/Biceps.md'
+    - Containers:
+        - Docker & Kubernetes:
+          - Docker:
+            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.md'
+            - VS Code Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.3_VSCode_Docker_Connection.md'
+          - Spark & Hadoop:
+            - Overview: 'DockerAndKubernetes/SparkHiveHadoop/4_Spark-Hive-Hadoop.md'
+            - PySpark: 'DockerAndKubernetes/SparkHiveHadoop/4.1_PySpark.md'
+            - Bitnami Cluster: 'DockerAndKubernetes/SparkHiveHadoop/4.2_Bitnami_Spark_Cluster.md'
+            - With MSSQL: 'DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL.md'
+          - Hadoop:
+            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.2_Hadoop_Concepts.md'
+            - Cluster Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
+          - Hive:
+            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.1_Hive_Concepts.md'
+            - With Postgres: 'DockerAndKubernetes/SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto.md'
+            - With MySQL: 'DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL.md'
+            - Apache Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial.md'
+        - MongoDB: 'DockerAndKubernetes/Mongodb/3_DockerMongodb.md'
+        - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
+        - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
+    - GitHub Actions:
+      - Hello Actions: 'DevOps/GitHub_Actions/1_Hello_GitHub_Actions_Workflow.md'
+      - Sample Workflows: 'DevOps/GitHub_Actions/2_Sample_Workflows.md'
+      - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
+    - Azure DevOps:
+      - Pipelines: 'DevOps/2_Azure-Pipelines.md'
+      - Self-Hosted Agents:
+        - Windows: 'DevOps/2.1_Self-Hosted_Agent_Windows.md'
+        - Windows Container: 'DevOps/2.2_Self-Hosted_Agent_Windows_Container.md'
+        - Linux Container: 'DevOps/2.3_Self-Hosted_Agent_Linux_Container.md'
+    - ADF CI/CD: 
+      - Implementation: 'DevOps/ADF_CICD.md'
+    - Tools Comparison: 'DevOps/JenkinsVsGitHubVsAzureDevOps.md'
+    - Bicep: 'DevOps/Biceps.md'
+    - Containers:
+        - Docker & Kubernetes:
+          - Docker:
+            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.md'
+            - VS Code Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.3_VSCode_Docker_Connection.md'
+          - Spark & Hadoop:
+            - Overview: 'DockerAndKubernetes/SparkHiveHadoop/4_Spark-Hive-Hadoop.md'
+            - PySpark: 'DockerAndKubernetes/SparkHiveHadoop/4.1_PySpark.md'
+            - Bitnami Cluster: 'DockerAndKubernetes/SparkHiveHadoop/4.2_Bitnami_Spark_Cluster.md'
+            - With MSSQL: 'DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL.md'
+          - Hadoop:
+            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.2_Hadoop_Concepts.md'
+            - Cluster Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
+          - Hive:
+            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.1_Hive_Concepts.md'
+            - With Postgres: 'DockerAndKubernetes/SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto.md'
+            - With MySQL: 'DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL.md'
+            - Apache Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial.md'
+        - MongoDB: 'DockerAndKubernetes/Mongodb/3_DockerMongodb.md'
+        - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
+        - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'  
   - Azure:
       - Synapse:
         - Concepts: 'Synapse-ADF/1.0_SynapseConcepts.md'
@@ -290,93 +401,57 @@ nav:
         - Copy Pipeline: 'Synapse-ADF/2.5_ADF_Pipeline_Copy.md'
       - Q&A: 'Synapse-ADF/Q&A.md'
       - Service Principal and Managed Identity: 'Azure/Cloud_Accounts/ServicePrincipalAndManagedIdentity.md'
+      - Fabric:
+        - Getting Started: 'Microsoft-Fabric/HelloMicrosoftFabric.md'
+        - Features:
+          - Data Warehouse: 'Microsoft-Fabric/DataWareHouse.md'
+          - Real-Time Analytics: 'Microsoft-Fabric/RealTimeAnalytics.md'
+          - Data Science: 'Microsoft-Fabric/DataScience.md'
+          - Data Factory: 'Microsoft-Fabric/DataFactory.md'
+        - Development:
+          - Direct Lake: 'Microsoft-Fabric/DirectLake.md'
+          - PySpark & SQL: 'Microsoft-Fabric/Pyspark_SparkSQL.md'
+          - Pandas vs Spark: 'Microsoft-Fabric/PandasVsSparkDf.md'
+          - DataFrame Inspection: 'Microsoft-Fabric/InspectingDataframes.md'
+          - KQL: 'Microsoft-Fabric/KQL.md'
+          - Spark Streaming: 'Microsoft-Fabric/FabricSparkStreaming.md'
+        - Projects:
+          - ETL with OPG: 'Microsoft-Fabric/ETL-OPG-Copydata-JSON-Lakehouse.md'
+          - ETL with PySpark: 'Microsoft-Fabric/ETL-Pyspark-Notebook-Lakehouse.md'
+          - E2E Project: 'Microsoft-Fabric/E2EProject.md'
+        - Administration: 'Microsoft-Fabric/FabricAdministration.md'
+        - Q&A: 'Microsoft-Fabric/FabricQ&A.md'
 
-  - Git:
-    - Rebase: 'Git/3_Git_Rebase.md'
-    - Detached Head: 'Git/4_Git_Detached_Head.md'
+    
+   
+ 
+  - Airflow:
+    - Concepts: 'Airflow/1.0.0_AirFlow_Concepts.md'
+    - DAG Anatomy: 'Airflow/1.0.1_A_Dags_Anatomy.md'
+    - Hello Airflow: 'Airflow/1.0.2_Hello_Airflow.md'
+    - Airflow DBT Docker: 'Airflow/1.0.3_Airflow_Dbt_Docker.md'
 
-    - Hello Git: 'Git/1_Hello_Git.md'
-    - Git Origin: 'Git/1.1_Git_Origin.md'
-    - 2. Core Commands - Daily Essentials:
-        - Repository Basics (init, clone): 'DevOps/Git/2_Repository_Basics.md'
-        - The Fundamental Workflow (status, add, commit): 'DevOps/Git/2.1_Fundamental_Workflow.md'
-        - Viewing History (log, show, diff): 'DevOps/Git/2.2_Viewing_History.md'
-    
-    - 3. Branching Commands:
-        - Branch Operations (branch, checkout, switch): 'DevOps/Git/3_Branch_Operations.md'
-        - Merging Commands (merge, conflicts): 'DevOps/Git/3.1_Merging_Commands.md'
-    
-    - 4. Remote Repository Commands:
-        - Understanding Remotes (remote commands): 'DevOps/Git/4_Understanding_Remotes.md'
-        - Push, Pull, Fetch - Syncing Commands: 'DevOps/Git/4.1_Push_Pull_Fetch.md'
-        - GitHub Workflow Commands: 'DevOps/Git/4.2_GitHub_Workflow.md'
-    
-    - 5. Undo & Fix Commands:
-        - Undoing Changes (restore, reset, revert): 'DevOps/Git/5_Undoing_Changes.md'
-        - Stash Commands: 'DevOps/Git/5.1_Stash_Commands.md'
-    
-    - 6. Advanced Commands:
-        - Rebase Commands: 'DevOps/Git/6_Rebase_Commands.md'
-        - Cherry-pick Commands: 'DevOps/Git/6.1_Cherry_Pick_Commands.md'
-        - Reflog Commands - The Safety Net: 'DevOps/Git/6.2_Reflog_Commands.md'
-    
-    - 7. Inspection & Comparison:
-        - Advanced Inspection Commands: 'DevOps/Git/7_Advanced_Inspection.md'
-        - Finding Issues (bisect): 'DevOps/Git/7.1_Finding_Issues.md'
-    
-    - 8. Cleaning & Maintenance:
-        - Cleanup Commands (clean, gc, prune): 'DevOps/Git/8_Cleanup_Commands.md'
-    
-    - 9. Collaboration & Workflow:
-        - Tags & Releases Commands: 'DevOps/Git/9_Tags_Releases.md'
-        - Workflow Patterns & Best Practices: 'DevOps/Git/9.1_Workflow_Patterns.md'
-    
-    - 10. Configuration & Productivity:
-        - Configuration & Aliases: 'DevOps/Git/10_Config_Aliases.md'
-    
-    - 11. Real-World Problem Solving:
-        - Common Problems & Command Solutions: 'DevOps/Git/11_Common_Problems.md'
-        - Complete Workflow Scenarios: 'DevOps/Git/11.1_Workflow_Scenarios.md'
-    
-    - 12. Quick Reference:
-        - Command Cheat Sheet: 'DevOps/Git/12_Command_Cheat_Sheet.md'
+  - Hive:
+    - Concepts: 'Spark-DataBricks/4.0_Hive/Hive_Concepts.md'  
 
 
-  - GitHub Actions:
-    - Hello Actions: 'DevOps/GitHub_Actions/1_Hello_GitHub_Actions_Workflow.md'
-    - Sample Workflows: 'DevOps/GitHub_Actions/2_Sample_Workflows.md'
-    - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
-  - Azure DevOps:
-    - Pipelines: 'DevOps/2_Azure-Pipelines.md'
-    - Self-Hosted Agents:
-      - Windows: 'DevOps/2.1_Self-Hosted_Agent_Windows.md'
-      - Windows Container: 'DevOps/2.2_Self-Hosted_Agent_Windows_Container.md'
-      - Linux Container: 'DevOps/2.3_Self-Hosted_Agent_Linux_Container.md'
-  - ADF CI/CD: 
-    - Implementation: 'DevOps/ADF_CICD.md'
-  - Tools Comparison: 'DevOps/JenkinsVsGitHubVsAzureDevOps.md'
-  - Bicep: 'DevOps/Biceps.md'
-  - Containers:
-      - Docker & Kubernetes:
-        - Docker:
-          - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.md'
-          - VS Code Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.3_VSCode_Docker_Connection.md'
-        - Spark & Hadoop:
-          - Overview: 'DockerAndKubernetes/SparkHiveHadoop/4_Spark-Hive-Hadoop.md'
-          - PySpark: 'DockerAndKubernetes/SparkHiveHadoop/4.1_PySpark.md'
-          - Bitnami Cluster: 'DockerAndKubernetes/SparkHiveHadoop/4.2_Bitnami_Spark_Cluster.md'
-          - With MSSQL: 'DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL.md'
-        - Hadoop:
-          - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.2_Hadoop_Concepts.md'
-          - Cluster Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
-        - Hive:
-          - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.1_Hive_Concepts.md'
-          - With Postgres: 'DockerAndKubernetes/SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto.md'
-          - With MySQL: 'DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL.md'
-          - Apache Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial.md'
-      - MongoDB: 'DockerAndKubernetes/Mongodb/3_DockerMongodb.md'
-      - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
-      - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
+  - Stream Processing:
+    - Introduction: 'StreamProcessing/1.0_What_Is_Stream_Processing.md'
+    - Event Hubs:
+      - Overview: 'StreamProcessing/2.0_Azure_EventHubs.md'
+      - vs Kafka: 'StreamProcessing/2.0.1_EventHubs_Vs_Kafka.md'
+      - Hello EventHubs: 'StreamProcessing/2.0.2_Project_Hello_EventHubs.md'
+      - Local Emulator: 'StreamProcessing/2.0.3_EventHubsLocalEmulator.md'
+    - Processing Options: 'StreamProcessing/4_EventProcessingChoices.md'
+    - Kinesis Integration: 'StreamProcessing/5_AmazonKinesisSparkIntegration.md'
+
+
+
+
+  
+  
+
+  
 
   - Enterprise Solutions:
     - Microsoft 365:
@@ -429,41 +504,6 @@ nav:
       - File Storage: 'MongoDB/HowMongoDBStoresFiles.md'
       - Comparisons: 'MongoDB/MongbDB_Vs_Atlas_VsCosmosDB.md'
 
-  - Python:
-    - Basics: 'Python/1_Python.md'
-    - Data Structures:
-      - Sets: 'Python/1.0_Sets.md'
-      - Tuples:
-        - Basic: 'Python/1.1_Tuples.md'
-        - Advanced: 'Python/1.2_Tuples_Advanced.md'
-      - Lists: 'Python/1.3_List.md'
-      - Dictionaries: 'Python/1.4_Dictionaries.md'
-    - Functions:
-      - Lambda: 'Python/1.5_Lamda_Functions.md'
-      - Built-in: 'Python/1.16_built_in_functions.md'
-      - Overview: 'Python/1.9_Func_Modl_Lib.md'
-      - Summary: 'Python/1.10_Func_Modl_Summary.md'
-    - Control Flow:
-      - If-Elif-Else: 'Python/1.11_ifelifelse.md'
-      - Operators: 'Python/1.12_Operators.md'
-      - For Loops: 'Python/1.13_For_Loops.md'
-      - Enumerate: 'Python/1.14_enumerate.md'
-      - Range: 'Python/1.15_range_function.md'
-    - Advanced:
-      - With Statement: 'Python/1.17_withStatement.md'
-      - Testing: 'Python/1.18_unittest_pytest.md'
-      - Main Function: 'Python/1.19_if_name_main.md'
-      - Decorators: 'Python/1.1.1_decorators.md'
-      - Arguments: 'Python/1.1.2_argv.md'
-      - Error Handling: 'Python/1.1.3_error_handling.md'
-      - Diff & Patch: 'Python/1.1.3_Diff_And_Patch.md'
-      - Debugging: 'Python/1.1.4_pdb.md'
-      - Formatting: 'Python/1.1.5_pyformat.md'
-    - Integrations:
-      - Linux: 'Python/Linux.md'
-      - PySpark: 'Python/Pyspark.md'
-      - Graph API: 'Python/GraphAPIJupyter/GraphAPIUsingJuputer.md'
-    - Scripts: 'Python/PythonScripts.md'
 
   - Projects:
     - Azure Sky Weather:
@@ -526,3 +566,4 @@ nav:
     - Data:
       - Datasets: 'Misc/5_WhichDatastsToUse.md'
       - Fact vs Dimension: 'Misc/10_Fact_vs_Dimension_tables.md'
+    - Running Stable Diffusion Locally: 'AI-ML/Running_Stable_Diffusion_Locally.md'
