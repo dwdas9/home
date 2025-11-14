@@ -1,4 +1,4 @@
-0000000000000000000000000000000000## **Git Tutorial Syllabus: Command Mastery from Basics to Advanced**
+## **Git Tutorial Syllabus: Command Mastery from Basics to Advanced**
 ### *Learn Git Through Commands - Practical, Real-World Focused*
 
 ---
