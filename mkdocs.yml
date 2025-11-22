@@ -209,35 +209,40 @@ nav:
         - Summary: 'Spark-DataBricks/2.0_Spark_To_ADLS/2.1_Spark-To_ADLS_Summary.md'
   
   - Python:
-    - Basics: 'Python/1_Python.md'
+    - Basics:
+      - Hello Python: 'Python/1.0.0_Hello_Python.md'
+      - Variables & Data Types: 'Python/1.0.1_Variables_DataTypes.md'
+      - Control Flow: 'Python/1.0.2_Control_Flow.md'
+      - Lists, Tuples & Collections: 'Python/1.0.3_List_Tuples_Collections.md'
     - Data Structures:
       - Sets: 'Python/1.0_Sets.md'
+      - Lists: 'Python/1.3_List.md'
       - Tuples:
         - Basic: 'Python/1.1_Tuples.md'
         - Advanced: 'Python/1.2_Tuples_Advanced.md'
-      - Lists: 'Python/1.3_List.md'
       - Dictionaries: 'Python/1.4_Dictionaries.md'
     - Functions:
+      - Overview: 'Python/1.9_Func_Modl_Lib.md'
       - Lambda: 'Python/1.5_Lamda_Functions.md'
       - Built-in: 'Python/1.16_built_in_functions.md'
-      - Overview: 'Python/1.9_Func_Modl_Lib.md'
       - Summary: 'Python/1.10_Func_Modl_Summary.md'
     - Control Flow:
-      - If-Elif-Else: 'Python/1.11_ifelifelse.md'
       - Operators: 'Python/1.12_Operators.md'
+      - If-Elif-Else: 'Python/1.11_ifelifelse.md'
       - For Loops: 'Python/1.13_For_Loops.md'
-      - Enumerate: 'Python/1.14_enumerate.md'
       - Range: 'Python/1.15_range_function.md'
-    - Advanced:
-      - With Statement: 'Python/1.17_withStatement.md'
-      - Testing: 'Python/1.18_unittest_pytest.md'
+      - Enumerate: 'Python/1.14_enumerate.md'
+    - Advanced Topics:
       - Main Function: 'Python/1.19_if_name_main.md'
       - Decorators: 'Python/1.1.1_decorators.md'
       - Arguments: 'Python/1.1.2_argv.md'
+      - With Statement: 'Python/1.17_withStatement.md'
       - Error Handling: 'Python/1.1.3_error_handling.md'
-      - Diff & Patch: 'Python/1.1.3_Diff_And_Patch.md'
       - Debugging: 'Python/1.1.4_pdb.md'
+      - Testing: 'Python/1.18_unittest_pytest.md'
       - Formatting: 'Python/1.1.5_pyformat.md'
+      - Diff & Patch: 'Python/1.1.3_Diff_And_Patch.md'
+      - Assert & Methods: 'Python/1.1.0_assert_methods.md'
     - Integrations:
       - Linux: 'Python/Linux.md'
       - PySpark: 'Python/Pyspark.md'
@@ -338,8 +343,9 @@ nav:
               - Confluent Kafka Stack: 'DevOps/Docker/ContainerStacks/Kafka/2_Confluent_Kafka.md'
           - MongoDB:
               - MongoDB with Docker: 'DevOps/Docker/ContainerStacks/MongoDB/3_DockerMongodb.md'
-          - Big Data Stack (Spark, Hive, Hadoop):
+          - Big Data:
               - PySpark on Containers: 'DevOps/Docker/ContainerStacks/BigDataStack/4.1_PySpark.md'
+              - Jupyter AllSparkNotebook: 'DevOps/Docker/ContainerStacks/BigDataStack/5_Jupyter_AllSparkNotebook.md'
               - Bitnami Spark Cluster: 'DevOps/Docker/ContainerStacks/BigDataStack/4.2_Bitnami_Spark_Cluster.md'
               - Spark, Hive & MSSQL: 'DevOps/Docker/ContainerStacks/BigDataStack/4.4_Spark_Hive_MSSQL.md'
               - Hadoop Cluster (Single & Multi Node): 'DevOps/Docker/ContainerStacks/BigDataStack/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
