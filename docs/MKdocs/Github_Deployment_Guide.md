@@ -1,71 +1,61 @@
-# Background
+# Deploying MkDocs Material to GitHub Pages
 
-In this guide, I will show you how to create and deploy an MkDocs site on GitHub. To get started, follow these steps:
+This guide walks you through setting up an MkDocs site with Material theme and deploying it automatically to GitHub Pages using GitHub Actions.
 
-1. **Create a GitHub Repository**  
-   First, create a GitHub repository for your project. Once the repository is set up, clone it to your local environment and open it in VS Code.
+## Initial Setup
 
-2. **Create a Python Virtual Environment**  
-   Open the terminal and navigate to the parent folder of your repository. Then, create a Python virtual environment using the following command:
+Start by creating a GitHub repository for your project, then clone it locally and open it in VS Code. Navigate to the repository folder in your terminal and create a Python virtual environment:
 
-   ```bash
-   python -m venv venvmac
-   source venvmac/bin/activate  # For Linux or macOS
-   ```
+```bash
+python -m venv venvmac
+source venvmac/bin/activate  # For Linux or macOS
+```
 
-3. **Install MkDocs and Dependencies**  
-   Next, install MkDocs and additional dependencies. You can do this either by using a `requirements.txt` file or by running the following command directly:
+Install MkDocs Material along with the necessary extensions:
 
-   ```bash
-   pip install --no-cache-dir mkdocs-material pymdown-extensions mkdocs-glightbox
-   ```
+```bash
+pip install --no-cache-dir mkdocs-material pymdown-extensions mkdocs-glightbox
+```
 
-   **Note:** The `mkdocs-material` is the main library, while the other libraries are additional extensions.
+The ```mkdocs-material``` package is the main theme, while ```pymdown-extensions``` and ```mkdocs-glightbox``` add enhanced markdown features and image lightbox functionality.
 
-4. **Create the MkDocs Site**  
-   To create a new site, run:
+## Creating Your Site
 
-   ```bash
-   mkdocs new .
-   ```
+Initialize a new MkDocs site in the current directory:
 
-   This will generate a folder structure like this:
+```bash
+mkdocs new .
+```
 
-   ```
-   .
-   ├─ docs/
-   │  └─ index.md
-   └─ mkdocs.yml
-   ```
+This creates a basic folder structure:
 
-5. **Configure `mkdocs.yml`**  
-   Open the `mkdocs.yml` file and add the following minimal configuration:
+```
+.
+├─ docs/
+│  └─ index.md
+└─ mkdocs.yml
+```
 
-   ```yaml
-   site_name: My site
-   site_url: https://mydomain.org/mysite
-   theme:
-     name: material
-   ```
+Open ```mkdocs.yml``` and configure the Material theme with your site details:
 
-6. **Add Content**  
-   Add some Markdown pages inside the `docs` folder.
+```yaml
+site_name: My Documentation
+site_url: https://yourusername.github.io/your-repo
+theme:
+  name: material
+```
 
-7. **Build and Serve Locally**  
-   To check the site locally, run:
+Add your content by creating markdown files in the ```docs/``` folder. Test your site locally with:
 
-   ```bash
-   mkdocs build
-   mkdocs serve
-   ```
+```bash
+mkdocs serve
+```
 
-   This should open the site in your browser for preview.
+This launches a local server at ```http://127.0.0.1:8000``` where you can preview changes in real-time.
 
-## Host on GitHub Pages
+## Automated Deployment with GitHub Actions
 
-Now, let’s automate the deployment of your MkDocs site using GitHub Actions. At the root of your repository, create a new GitHub Actions workflow (e.g., `.github/workflows/ci.yml`) and paste the following contents:
-
-### Create the Folder Structure
+To automatically deploy your site whenever you push changes, create a GitHub Actions workflow file at ```.github/workflows/ci.yml```:
 
 ```yml
 name: ci
@@ -99,13 +89,11 @@ jobs:
       - run: mkdocs gh-deploy --force
 ```
 
-Now, whenever a new commit is pushed to the `master` or `main` branches, the static site is automatically built and deployed. Push your changes to see the workflow in action.
+This workflow triggers on every push to ```main``` or ```master```, builds your site, and deploys it to the ```gh-pages``` branch. Before this works, you need to configure GitHub Pages in your repository settings.
 
-### Important:
-If the GitHub Page doesn’t show up after a few minutes, go to your repository’s settings and ensure that the publishing source branch is set to `gh-pages`.
+Go to **Settings → Pages** and set the source to the ```gh-pages``` branch with ```/(root)``` as the folder. Don't select ```main/(root)```—MkDocs Material generates the site in a separate ```gh-pages``` branch, not directly from your source files.
 
-Your documentation should appear at:  
-`https://<username>.github.io/<repository>`
+Once configured, push your changes and watch the Actions tab. After the workflow completes, your site will be live at ```https://yourusername.github.io/your-repo```.
 
 ## Troubleshooting: Missing Navigation
 
