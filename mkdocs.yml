@@ -314,8 +314,8 @@ nav:
 
   - DevOps:
     - GitHub Actions:
-      - Hello Actions: 'DevOps/GitHub_Actions/1_Hello_GitHub_Actions_Workflow.md'
-      - Sample Workflows: 'DevOps/GitHub_Actions/2_Sample_Workflows.md'
+      - Hello Actions: 'DevOps/3.1_Hello_GitHub_Actions_Workflow.md'
+      - Sample Workflows: 'DevOps/3.2_Sample_Workflows.md'
       - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
     - Azure DevOps:
       - Pipelines: 'DevOps/2_Azure-Pipelines.md'
