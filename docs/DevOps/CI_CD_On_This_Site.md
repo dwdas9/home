@@ -11,6 +11,7 @@ This website has a full fledged CI/CD process that automatically builds and depl
 - **GitHub Actions**: The automation platform that powers our workflow
 - **Runners**: The virtual machines where the CI/CD jobs are executed
 
+
 ## Main folders in ths project
 
 All the source code of this website is present in a VSCode project. The main folders in this project are:
