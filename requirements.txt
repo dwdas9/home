@@ -1,3 +1,4 @@
+# CARFULL! This file is used in home/.github/workflows/ci.yml as pip install -r requirements.txt. 
 # This requirements file is sufficient for creating a virtual environment.
 # Version ranges ensure stability while allowing compatible updates
 
