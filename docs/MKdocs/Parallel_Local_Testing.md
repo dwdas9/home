@@ -75,6 +75,38 @@ To make the process easier, you can test your MKDocs site locally before deployi
 
 Your site will be available at `http://127.0.0.1:8000/`. Any changes you make to the markdown files will be immediately visible in the browser.
 
+## Troubleshooting Sidebar/Navigation Not Updating
+
+Sometimes, changes made to `mkdocs.yml` (such as updating the sidebar navigation) may not appear in your local site. This is often caused by an old `mkdocs serve` process running in the background, browser cache issues, or stale build files in the `site` folder.
+
+**How to check and resolve:**
+
+1. **Check for old mkdocs serve processes:**  
+    - In VS Code, check the Terminal panel for any terminals that are already running `mkdocs serve` or Python processes. Stop or close these terminals before starting a new one.  
+    - On Windows, open Task Manager and look for any `python.exe` or `mkdocs` processes.  
+    - Alternatively, use PowerShell:  
+      ```powershell
+      Get-Process | Where-Object { $_.ProcessName -match "python|mkdocs" }
+      ```
+2. **Stop all old mkdocs/Python processes:**  
+    - In Task Manager, right-click and end the processes.  
+    - In PowerShell:  
+      ```powershell
+      Get-Process | Where-Object { $_.ProcessName -match "python|mkdocs" } | Stop-Process
+      ```
+3. **Delete the `site` folder:**  
+    - Manually delete the folder, or use PowerShell:  
+      ```powershell
+      Remove-Item -Recurse -Force site
+      ```
+4. **Restart mkdocs serve:**  
+    - Open a new terminal and run `mkdocs serve` again.
+5. **Clear your browser cache:**  
+    - Old cached pages may show outdated navigation. Refresh or clear cache before reloading the site.
+
+**Summary:**  
+Always ensure only one `mkdocs serve` process is running, your browser cache is cleared, and the `site` folder is rebuilt to see the latest navigation changes.
+
 ## Common Issues
 
 !!! Failure "OSError"
