@@ -307,6 +307,10 @@ And you can switch back to Linux containers easily.
 
 ![Switch to Linux containers](images/custom-image-2024-08-05-23-16-07.png)
 
+Note: If you don't switch back to linux containers mode and try to run a container whose OS is linux you will encounter an error like:
+
+![](images/20251122134835.png)
+
 **Note:** When you switch to Windows mode, you won’t be able to see your Linux containers.
 
 ![](images/custom-image-2024-08-05-23-39-34.png)

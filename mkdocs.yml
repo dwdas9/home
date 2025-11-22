@@ -182,6 +182,8 @@ nav:
     - Common Topics: 'Spark-DataBricks/1.0_Spark/1.15_CommonPysparkTopics.md'
     - Hive Integration: 'Spark-DataBricks/1.0_Spark/1.16_ConnectingSparkToHive.md'
     - Setup Guide: 'Spark-DataBricks/1.0_Spark/Install-Pyspark-Windows/Install-Pyspark-Windows.md'
+    - Hive:
+        - Concepts: 'Spark-DataBricks/4.0_Hive/Hive_Concepts.md'
     - PySpark Gotchas:
       - Schema Inference Double-Read Penalty: 'Spark-DataBricks/1.1_PySparkGotchas/SchemaInferenceDouble-ReadPenalty.md'
       - Data Skew - The Silent Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/Data Skew-TheSilentPerformanceKiller.md'
@@ -325,62 +327,28 @@ nav:
       - Implementation: 'DevOps/ADF_CICD.md'
     - Tools Comparison: 'DevOps/JenkinsVsGitHubVsAzureDevOps.md'
     - Bicep: 'DevOps/Biceps.md'
-    - Containers:
-        - Docker & Kubernetes:
-          - Docker:
-            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.md'
-            - VS Code Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.3_VSCode_Docker_Connection.md'
-          - Spark & Hadoop:
-            - Overview: 'DockerAndKubernetes/SparkHiveHadoop/4_Spark-Hive-Hadoop.md'
-            - PySpark: 'DockerAndKubernetes/SparkHiveHadoop/4.1_PySpark.md'
-            - Bitnami Cluster: 'DockerAndKubernetes/SparkHiveHadoop/4.2_Bitnami_Spark_Cluster.md'
-            - With MSSQL: 'DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL.md'
-          - Hadoop:
-            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.2_Hadoop_Concepts.md'
-            - Cluster Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
-          - Hive:
-            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.1_Hive_Concepts.md'
-            - With Postgres: 'DockerAndKubernetes/SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto.md'
-            - With MySQL: 'DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL.md'
-            - Apache Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial.md'
-        - MongoDB: 'DockerAndKubernetes/Mongodb/3_DockerMongodb.md'
-        - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
-        - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'
-    - GitHub Actions:
-      - Hello Actions: 'DevOps/GitHub_Actions/1_Hello_GitHub_Actions_Workflow.md'
-      - Sample Workflows: 'DevOps/GitHub_Actions/2_Sample_Workflows.md'
-      - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
-    - Azure DevOps:
-      - Pipelines: 'DevOps/2_Azure-Pipelines.md'
-      - Self-Hosted Agents:
-        - Windows: 'DevOps/2.1_Self-Hosted_Agent_Windows.md'
-        - Windows Container: 'DevOps/2.2_Self-Hosted_Agent_Windows_Container.md'
-        - Linux Container: 'DevOps/2.3_Self-Hosted_Agent_Linux_Container.md'
-    - ADF CI/CD: 
-      - Implementation: 'DevOps/ADF_CICD.md'
-    - Tools Comparison: 'DevOps/JenkinsVsGitHubVsAzureDevOps.md'
-    - Bicep: 'DevOps/Biceps.md'
-    - Containers:
-        - Docker & Kubernetes:
-          - Docker:
-            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9_DockerConcepts.md'
-            - VS Code Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.3_VSCode_Docker_Connection.md'
-          - Spark & Hadoop:
-            - Overview: 'DockerAndKubernetes/SparkHiveHadoop/4_Spark-Hive-Hadoop.md'
-            - PySpark: 'DockerAndKubernetes/SparkHiveHadoop/4.1_PySpark.md'
-            - Bitnami Cluster: 'DockerAndKubernetes/SparkHiveHadoop/4.2_Bitnami_Spark_Cluster.md'
-            - With MSSQL: 'DockerAndKubernetes/SparkHiveHadoop/4.4_Spark_Hive_MSSQL.md'
-          - Hadoop:
-            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.2_Hadoop_Concepts.md'
-            - Cluster Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
-          - Hive:
-            - Concepts: 'DockerAndKubernetes/SparkHiveHadoop/4.9.1_Hive_Concepts.md'
-            - With Postgres: 'DockerAndKubernetes/SparkHiveHadoop/4.6_Hive_Hadooop_Postgres_Presto.md'
-            - With MySQL: 'DockerAndKubernetes/SparkHiveHadoop/4.7_Hadoop_Hive_SingleNode_MySQL.md'
-            - Apache Setup: 'DockerAndKubernetes/SparkHiveHadoop/4.8_Hive-ApacheOfficial.md'
-        - MongoDB: 'DockerAndKubernetes/Mongodb/3_DockerMongodb.md'
-        - Kafka: 'DockerAndKubernetes/Kafka/2_Confluent_Kafka.md'
-        - Airflow: 'DockerAndKubernetes/AirflowDocker/1_AirflowDocker.md'  
+    - Docker & Kubernetes:
+      - Fundamentals:
+          - Docker Concepts: 'DevOps/Docker/Fundamentals/1_DockerConcepts.md'
+          - VS Code Docker Connection: 'DevOps/Docker/Fundamentals/2_VSCode_Docker_Connection.md'
+      - Container Stacks:
+          - Airflow:
+              - Airflow on Docker: 'DevOps/Docker/ContainerStacks/Airflow/1_AirflowDocker.md'
+          - Kafka:
+              - Confluent Kafka Stack: 'DevOps/Docker/ContainerStacks/Kafka/2_Confluent_Kafka.md'
+          - MongoDB:
+              - MongoDB with Docker: 'DevOps/Docker/ContainerStacks/MongoDB/3_DockerMongodb.md'
+          - Big Data Stack (Spark, Hive, Hadoop):
+              - PySpark on Containers: 'DevOps/Docker/ContainerStacks/BigDataStack/4.1_PySpark.md'
+              - Bitnami Spark Cluster: 'DevOps/Docker/ContainerStacks/BigDataStack/4.2_Bitnami_Spark_Cluster.md'
+              - Spark, Hive & MSSQL: 'DevOps/Docker/ContainerStacks/BigDataStack/4.4_Spark_Hive_MSSQL.md'
+              - Hadoop Cluster (Single & Multi Node): 'DevOps/Docker/ContainerStacks/BigDataStack/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
+              - Hive, Hadoop, Postgres & Presto: 'DevOps/Docker/ContainerStacks/BigDataStack/4.6_Hive_Hadooop_Postgres_Presto.md'
+              - Hadoop & Hive with MySQL: 'DevOps/Docker/ContainerStacks/BigDataStack/4.7_Hadoop_Hive_SingleNode_MySQL.md'
+              - Hive via Apache Official Images: 'DevOps/Docker/ContainerStacks/BigDataStack/4.8_Hive-ApacheOfficial.md'
+              - Hive Concepts: 'DevOps/Docker/ContainerStacks/BigDataStack/4.9.1_Hive_Concepts.md'
+              - Hadoop Concepts: 'DevOps/Docker/ContainerStacks/BigDataStack/4.9.2_Hadoop_Concepts.md'
+
   - Azure:
       - Synapse:
         - Concepts: 'Synapse-ADF/1.0_SynapseConcepts.md'
@@ -422,18 +390,11 @@ nav:
         - Administration: 'Microsoft-Fabric/FabricAdministration.md'
         - Q&A: 'Microsoft-Fabric/FabricQ&A.md'
 
-    
-   
- 
   - Airflow:
     - Concepts: 'Airflow/1.0.0_AirFlow_Concepts.md'
     - DAG Anatomy: 'Airflow/1.0.1_A_Dags_Anatomy.md'
     - Hello Airflow: 'Airflow/1.0.2_Hello_Airflow.md'
     - Airflow DBT Docker: 'Airflow/1.0.3_Airflow_Dbt_Docker.md'
-
-  - Hive:
-    - Concepts: 'Spark-DataBricks/4.0_Hive/Hive_Concepts.md'  
-
 
   - Stream Processing:
     - Introduction: 'StreamProcessing/1.0_What_Is_Stream_Processing.md'
@@ -444,14 +405,6 @@ nav:
       - Local Emulator: 'StreamProcessing/2.0.3_EventHubsLocalEmulator.md'
     - Processing Options: 'StreamProcessing/4_EventProcessingChoices.md'
     - Kinesis Integration: 'StreamProcessing/5_AmazonKinesisSparkIntegration.md'
-
-
-
-
-  
-  
-
-  
 
   - Enterprise Solutions:
     - Microsoft 365:
