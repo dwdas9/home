@@ -1,7 +1,7 @@
 
 ### Open Fabric Admin Portal
 
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 
 
 ### Delete a Fabric Workspace

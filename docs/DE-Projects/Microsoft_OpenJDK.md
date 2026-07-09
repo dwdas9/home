@@ -1,5 +1,5 @@
 
-![](images/2024-08-14-14-54-10.png)
+![](images/2024-08-14-17-04-12.png)
 
 # <span style="color: #7A3DAA; font-family: Segoe UI, sans-serif;">Installing Microsoft OpenJDK</span>
 

@@ -8,7 +8,7 @@ Here are some common Git troubleshooting scenarios I've encountered, along with 
 
 I could see my branch `feature/DasSomeFeatureName` in Azure DevOps, but VS Code wasn't showing it in the branch selector.
 
-![](images/20250629141608.png)
+![](../DevOps/images/20250629141608.png)
 
 ### The Fix
 

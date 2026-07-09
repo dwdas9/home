@@ -8,7 +8,7 @@
 
 ### Eventhouse
 
-![alt text](images\eventhouse.png)
+![alt text](images/eventhouse.png)
 
 
 - Central workspace/hub - has multiple KQL databases
@@ -18,11 +18,11 @@
 - KQL databses can be standalone or part of an EventHouse
 - Can ingest data from multiple sources
 
-![alt text](images\eventhouse1.png)
+![alt text](images/eventhouse1.png)
 
 ### KQL Database
 
-![alt text](images\KQLDB.webp)
+![alt text](images/KQLDBStructure.png)
 
 A **KQL (Kusto Query Language) Database** handles large volumes of structured, semi-structured, and unstructured data for real-time analytics and ad-hoc querying. It is part of the Azure Data Explorer service. The data in a KQL database is **stored in Azure Data Explorer**. It uses a **columnar storage** format, for high-performance.
 
@@ -60,7 +60,7 @@ It is a just a query written in KQL. Let's not make it more complex than that!
 
 - **KQL Database Structure:** This is the standard structure:
 
-  ![KQL Database Structure](images\KQLDBStructure.png)
+  ![KQL Database Structure](images/KQLDBStructure.png)
 
 **Data Ingestion:** Importing data from files like .csv is a childs play using the GUI, which creates a fully structured database with the correct columns.
 

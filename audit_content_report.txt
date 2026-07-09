@@ -1,0 +1,36 @@
+======================================================================
+CONTENT AUDIT REPORT
+Docs folder  : C:\Users\dasd\OneDrive - xg5qw\Github\home\docs
+Total .md files : 241
+Nav entries     : 240
+======================================================================
+
+── STUB FILES — fewer than 150 words (15) ─────────────
+  (likely unfinished drafts — review, expand, merge, or delete)
+      0 words  DevOps/2_CreatingYourFirstBranch.md
+      1 words  blog/index.md
+     10 words  Misc/7_Azure_Budget.md
+     22 words  DE-Projects/Dbrk-E2E-AttritionProject.md
+     55 words  Synapse-ADF/2.3_ADF_RestAPI_Databricks.md
+     61 words  Python/1.0.0_Hello_Python.md
+     69 words  Python/1.14_enumerate.md
+     73 words  Spark-DataBricks/3.0_Databricks/3.5_Databricks_SQL.md
+     82 words  Misc/10_Fact_vs_Dimension_tables.md
+     88 words  Misc/4_VSTrics.md
+    102 words  StreamProcessing/2.0.2_Project_Hello_EventHubs.md
+    104 words  PowerPlatform/ModelDrivenApps.md
+    112 words  Python/1.4_Dictionaries.md
+    122 words  Microsoft-Fabric/FabricAdministration.md
+    137 words  DE-Projects/InstallScala.md
+
+── ORPHANED MARKDOWN FILES (0) ──────────────────────────────
+  (exist on disk but not listed in mkdocs.yml nav)
+  None found.
+
+── MISSING NAV TARGETS (0) ─────────────────────────────────
+  (listed in mkdocs.yml but file does not exist on disk)
+  None found.
+
+======================================================================
+SUMMARY: 15 stubs, 0 orphaned files, 0 missing nav targets.
+======================================================================

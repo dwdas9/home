@@ -7,12 +7,12 @@
    spark = SparkSession.builder.appName("xxx").getOrCreate()
    df = spark.read.csv("abc.csv", header=True, inferSchema=True)
    ```
-   ![alt text](sparksession.png)
+   ![alt text](images/sparksession.png)
 
 
 ## <span style="color: Coral; font-family: Segoe UI, sans-serif;">Creating a DataFrame</span>
 
-![alt text](read.png)
+![alt text](images/read.png)
 
 ## Showing dataframe, rows describing tables
 
@@ -22,14 +22,14 @@
    df.show()
    df.show(n=10, truncate=False)
    ```
-   ![alt text](df.show.png)
+   ![alt text](images/df.show.png)
 
 ### display(df)
 
    ```pyrhon
    display(df.limit(3))
    ```
-   ![alt text](displaydflimit3.png)
+   ![alt text](images/displaydflimit3.png)
 
 ### df.describe()
 
@@ -50,7 +50,7 @@
    ```python
    spark.sql("DESCRIBE FORMATTED tableName")
    ```
-   ![alt text](judgecourt.png)
+   ![alt text](images/judgecourt.png)
 
 # SQL
 
@@ -95,7 +95,7 @@ df.limit(100)
    ```python
    df.withColumnRenamed("old_name", "new_name")
    ```
-   ![alt text](withcolumnrenamed.png)
+   ![alt text](images/withcolumnrenamed.png)
 8. **Dropping Columns**
    ```python
    df.drop("column_name")
@@ -106,7 +106,7 @@ df.limit(100)
    df.groupBy("column").count().show()
    df.groupBy("column").agg({"column2": "avg", "column3": "sum"}).show()
    ```
-   ![alt text](df.groupby.png)
+   ![alt text](images/df.groupby.png)
 10. **Sorting Data**
     ```python
     df.orderBy("column").show()
@@ -159,7 +159,7 @@ df.limit(100)
    ```python
    df.write.saveAsTable("table_name")
    ```
-   ![alt text](saveastable.png)
+   ![alt text](images/saveastable.png)
 
 ### Miscellaneous
 1. **Caching and Unpersisting DataFrames**

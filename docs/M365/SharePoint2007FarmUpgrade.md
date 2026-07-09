@@ -74,7 +74,7 @@ Assuming that 1000 users access the SharePoint web sites and the content size wi
 
 ### Usage profile characteristics
 
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.00png)
+![](images/Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.001.png)
 
 Figure 1: Usage profile of SharePoint sites.
 
@@ -221,7 +221,7 @@ The rest of this article discusses each of the physical components that appear i
  ## System Landscape
 ![](images\Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.003.png)
 
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.004.jpeg)
+![](images/Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.004.jpeg)
 
 The Landscape has been divided in three zones.
 
@@ -516,7 +516,7 @@ This topology splits the farm between the perimeter and corporate networks. The 
 
 ![](images\Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.007.png)
 
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.008.jpeg)
+![](images/Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.008.jpeg)
 
 
 If the server farm is split between the perimeter network and the corporate network with the database servers located inside the corporate network, a domain trust relationship is required if Windows accounts are used to access SQL Server. In this scenario, the perimeter domain must trust the corporate domain. If SQL authentication is used, a domain trust relationship is not required. 
@@ -580,12 +580,12 @@ There are two mirroring operating modes
 
 All database mirroring sessions support only one principal server and one mirror server. This configuration is shown in the following illustration.
 
-![Partners in a database mirroring session](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.01png)
+![Partners in a database mirroring session](images/Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.011.png)
 
 
 # Deployment Architecture
 ## Production DC & DR
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.012.jpeg)
+![](images/Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.012.jpeg)
 
 Figure 5: Production Environment
 
@@ -600,7 +600,7 @@ Development Box installation
 ### QA Environment
 The following diagram depicts the most common development environment, which is recommended by “SharePoint Guidance patterns & practices” team.
 
-![testingenv](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.013.jpeg)
+![testingenv](images/Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.013.jpeg)
 
  Stand-alone SharePoint environment for development, unit testing and debugging of SharePoint project. Runs continuous integration and builds verification tests before deploying the SharePoint solutions to the test environment.
  Source Control/Build Server to build SharePoint packages (WSP) and to deploy solution to test environment.
@@ -615,7 +615,7 @@ One of the key factors for virtualization is that performance of virtualized far
 7.2% less throughput on virtual Web roles with 8GB of RAM than a physical Web role server with 32GB of RAM;
 4.4% slower in the page response time on the Hyper-V Web front-end than the physical server;
 
-![](Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.014.jpeg)
+![](images/Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.014.jpeg)
 
 Figure 6: Virtual Development Environment
 
