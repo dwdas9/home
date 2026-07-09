@@ -288,7 +288,7 @@
 
         The project involved migrating a standalone SharePoint 2007 deployment to a 6-server farm. The work started with planning and architecture design, including stakeholder workshops, analyzing the existing environment, defining growth requirements, and creating hardware and procurement plans. SQL Server 2008 R2 failover clusters were implemented with shared storage, backup, and recovery procedures, coordinating with networking and infrastructure teams. The SharePoint farm was deployed across multiple servers, with service applications distributed, F5 load balancer configured, and business requirements integrated. Site collections were migrated in phases using stsadm, with end-user validation, monitoring, and performance tracking. Operational procedures, monitoring dashboards, and alerting frameworks were established, and the production cutover was executed with infrastructure and business teams.
 
-        ![](images/20250921133747.png)
+        ![](../images/20250921133747.png)
 
         **Project Details:**
 

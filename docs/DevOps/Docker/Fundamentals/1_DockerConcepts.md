@@ -48,7 +48,7 @@ Here, `help` is passed as an argument to `/usr/bin/my-app`.
      ```
 4. **Check** if its running now. Just open command prompt and run `docker ps`. You should get some output. For example:
 
-![Alt text](images/runningdockerps.png)
+![Alt text](../ContainerStacks/BigDataStack/images/runningdockerps.png)
 
 
 ## For Our Mac Users:
@@ -162,7 +162,7 @@ To back up Docker containers, images, and volumes on Windows, follow these steps
 
 This way you can back up all your Docker containers, images, and volumes to the current folder.
 
-![](images/custom-image-2024-06-24-13-59-03.png)
+![](../ContainerStacks/BigDataStack/images/custom-image-2024-06-24-13-59-03.png)
 
 
 # Docker common errors
@@ -262,7 +262,7 @@ Kubernetes, developed by Google, offers a more complex structure with nodes, pod
 | <span style="color:#0a9396;">**Load Balancing**</span>   | <span style="color:#0a9396;">Automatic load balancing using DNS.</span>                                                                                                             | <span style="color:#0a9396;">Uses tools like Nginx Ingress for load balancing.</span>                                                                                                                                | <span style="color:#0a9396;">Simplified load balancing with integrated tools.</span>                                                                                                    |
 
 
-![alt text](images\DockerCommandImages.png)
+![alt text](../ContainerStacks/BigDataStack/images/DockerCommandImages.png)
 
 # <span style="color: blueviolet;Font-family: Segoe UI, sans-serif;">Common docker commands</span>
 
@@ -301,19 +301,19 @@ When you think of containers, you usually picture a small Linux OS. And you’re
 
 For most of your tasks, you've likely been using Docker containers, which are typically Linux-based. Running a Windows container might seem unusual. By default, Docker on your Windows machine operates in 'Linux mode.' To run Windows containers, you'll need to switch from this default Linux mode to Windows mode.
 
-![Switch to Windows containers](images/custom-image-2024-08-05-23-10-16.png)
+![Switch to Windows containers](../ContainerStacks/BigDataStack/images/custom-image-2024-08-05-23-10-16.png)
 
 And you can switch back to Linux containers easily.
 
-![Switch to Linux containers](images/custom-image-2024-08-05-23-16-07.png)
+![Switch to Linux containers](../ContainerStacks/BigDataStack/images/custom-image-2024-08-05-23-16-07.png)
 
 Note: If you don't switch back to linux containers mode and try to run a container whose OS is linux you will encounter an error like:
 
-![](images/20251122134835.png)
+![](../ContainerStacks/BigDataStack/images/20251122134835.png)
 
 **Note:** When you switch to Windows mode, you won’t be able to see your Linux containers.
 
-![](images/custom-image-2024-08-05-23-39-34.png)
+![](../ContainerStacks/BigDataStack/images/custom-image-2024-08-05-23-39-34.png)
 
 ## <span style="color: MediumOrchid;Font-family: Segoe UI, sans-serif;">Switching Using Command Line</span>
 
@@ -456,7 +456,7 @@ docker push dwdas9/cp-ksqldb-cli:v6
 
 Docker started uploading each image to the repository. Once the upload was complete, I could see all my modified images on Docker Hub under my account.
 
-![](images/2024-08-19-16-34-38.png)
+![](../ContainerStacks/BigDataStack/images/2024-08-19-16-34-38.png)
 
 ### Conclusion
 

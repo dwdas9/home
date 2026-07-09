@@ -1,10 +1,10 @@
 ## What is KQL?
 
-![alt text](whatskqlanswer.png)
+![alt text](images/whatskqlanswer.png)
 
 A **KQL (Kusto Query Language) Database** handles large volumes of structured, semi-structured, and unstructured data for real-time analytics and ad-hoc querying. It is part of the Azure Data Explorer service. The data in a KQL database is **stored in Azure Data Explorer**. It uses a **columnar storage** format, for high-performance.
 
-![alt text](kqltough3people.png)
+![alt text](images/kqltough3people.png)
 
 ### How to run KQL query in Fabric?
 

@@ -82,17 +82,17 @@ plugins:
   - search:  # Enable search functionality (required for most themes)
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - glightbox:  # plugin for image and media lightboxes
-       touchnavigation: true       # allow touch navigation on mobile
-       loop: false                 # disable continuous looping
-       effect: zoom                # add zoom effect for images
-       slide_effect: slide         # slide transition for media
-       width: 100%                 # responsive width
-       height: auto                # adaptive height
-       zoomable: true              # enable zoom functionality
-       draggable: true             # allow media dragging
-       auto_caption: true          # generate captions automatically
-       caption_position: bottom    # place captions at the bottom
-       shadow: true                # enable shadow effects
+      touchNavigation: true       # allow touch navigation on mobile
+      loop: false                  # disable continuous looping
+      effect: zoom                 # add zoom effect for images
+      slide_effect: slide          # slide transition for media
+      width: 100%                  # responsive width
+      height: auto                 # adaptive height
+      zoomable: true               # enable zoom functionality
+      draggable: true              # allow media dragging
+      auto_caption: true           # generate captions automatically
+      caption_position: bottom     # place captions at the bottom
+      shadow: true                 # enable shadow effects
   - offline  # Make site searchable offline (enable if distributing offline)
   #- include-markdown ## Sidebar menu structure. Each file path is relative to the `docs` directory.. To reuse markdown files in other markdown files
 
@@ -162,9 +162,14 @@ extra_javascript:
 nav:
   - Home: 'index.md'
 
+  - About Me:
+    - Azure and M365 Projects: 'AboutMe/AzureAndM365Projects.md'
+    - Data Engineering Projects: 'AboutMe/DataEngineeringProjects.md'
+    - SharePoint and M365 Projects: 'AboutMe/SharePointAndM365Projects.md'
+
   - Spark:
     - Concepts: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
-    - Python vs PySpark vs Spark: 'Spark-DataBricks/1.0.1__Python_PySpark_Spark_Confusion.md'
+    - Python vs PySpark vs Spark: 'Spark-DataBricks/1.0_Spark/1.0.1__Python_PySpark_Spark_Confusion.md'
     - Narrow vs Wide: 'Spark-DataBricks/1.0_Spark/1.1_NarrowVsWideTransformation.md'
     - Architecture: 'Spark-DataBricks/1.0_Spark/1.2_SparkArchitecture.md'
     - Cache & Persist: 'Spark-DataBricks/1.0_Spark/1.3_persist_and_cache.md'
@@ -177,6 +182,7 @@ nav:
     - PySpark Gotchas: 'Spark-DataBricks/1.0_Spark/2.0_PySpark_Gotchas.md'
     - Scala Guide: 'Spark-DataBricks/1.0_Spark/1.10_Scala_Cheatsheet.md'
     - Interview Q&A: 'Spark-DataBricks/1.0_Spark/1.11_Spark_Interview_Questions.md'
+    - Q&A: 'Spark-DataBricks/1.0_Spark/1.14_Q&A.md'
     - Shuffle: 'Spark-DataBricks/1.0_Spark/1.12_Spark_Shuffle.md'
     - Databases & Catalogs: 'Spark-DataBricks/1.0_Spark/1.13_SparkDatabaseTablesCatalogsMetastore.md'
     - Common Topics: 'Spark-DataBricks/1.0_Spark/1.15_CommonPysparkTopics.md'
@@ -233,7 +239,7 @@ nav:
       - Range: 'Python/1.15_range_function.md'
       - Enumerate: 'Python/1.14_enumerate.md'
     - Advanced Topics:
-      - Main Function: 'Python/1.19_if_name_main.md'
+      - Main Function: 'Python/1.19_if_name_main.md.md'
       - Decorators: 'Python/1.1.1_decorators.md'
       - Arguments: 'Python/1.1.2_argv.md'
       - With Statement: 'Python/1.17_withStatement.md'
@@ -250,54 +256,18 @@ nav:
     - Scripts: 'Python/PythonScripts.md'
 
   - Git:
-      - Rebase: 'Git/3_Git_Rebase.md'
-      - Detached Head: 'Git/4_Git_Detached_Head.md'
-
       - Hello Git: 'Git/1_Hello_Git.md'
       - Git Origin: 'Git/1.1_Git_Origin.md'
-      - 2. Core Commands - Daily Essentials:
-          - Repository Basics (init, clone): 'DevOps/Git/2_Repository_Basics.md'
-          - The Fundamental Workflow (status, add, commit): 'DevOps/Git/2.1_Fundamental_Workflow.md'
-          - Viewing History (log, show, diff): 'DevOps/Git/2.2_Viewing_History.md'
-      
-      - 3. Branching Commands:
-          - Branch Operations (branch, checkout, switch): 'DevOps/Git/3_Branch_Operations.md'
-          - Merging Commands (merge, conflicts): 'DevOps/Git/3.1_Merging_Commands.md'
-      
-      - 4. Remote Repository Commands:
-          - Understanding Remotes (remote commands): 'DevOps/Git/4_Understanding_Remotes.md'
-          - Push, Pull, Fetch - Syncing Commands: 'DevOps/Git/4.1_Push_Pull_Fetch.md'
-          - GitHub Workflow Commands: 'DevOps/Git/4.2_GitHub_Workflow.md'
-      
-      - 5. Undo & Fix Commands:
-          - Undoing Changes (restore, reset, revert): 'DevOps/Git/5_Undoing_Changes.md'
-          - Stash Commands: 'DevOps/Git/5.1_Stash_Commands.md'
-      
-      - 6. Advanced Commands:
-          - Rebase Commands: 'DevOps/Git/6_Rebase_Commands.md'
-          - Cherry-pick Commands: 'DevOps/Git/6.1_Cherry_Pick_Commands.md'
-          - Reflog Commands - The Safety Net: 'DevOps/Git/6.2_Reflog_Commands.md'
-      
-      - 7. Inspection & Comparison:
-          - Advanced Inspection Commands: 'DevOps/Git/7_Advanced_Inspection.md'
-          - Finding Issues (bisect): 'DevOps/Git/7.1_Finding_Issues.md'
-      
-      - 8. Cleaning & Maintenance:
-          - Cleanup Commands (clean, gc, prune): 'DevOps/Git/8_Cleanup_Commands.md'
-      
-      - 9. Collaboration & Workflow:
-          - Tags & Releases Commands: 'DevOps/Git/9_Tags_Releases.md'
-          - Workflow Patterns & Best Practices: 'DevOps/Git/9.1_Workflow_Patterns.md'
-      
-      - 10. Configuration & Productivity:
-          - Configuration & Aliases: 'DevOps/Git/10_Config_Aliases.md'
-      
-      - 11. Real-World Problem Solving:
-          - Common Problems & Command Solutions: 'DevOps/Git/11_Common_Problems.md'
-          - Complete Workflow Scenarios: 'DevOps/Git/11.1_Workflow_Scenarios.md'
-      
-      - 12. Quick Reference:
-          - Command Cheat Sheet: 'DevOps/Git/12_Command_Cheat_Sheet.md'
+      - Fetch: 'Git/1.2_Git_Fetch.md'
+      - Pull: 'Git/1.3_Git_Pull.md'
+      - Push: 'Git/1.4_Git_Push.md'
+      - Log Online: 'Git/1.5_Git_Log_Online.md'
+      - Pull Requests: 'Git/1.6_Pull_Requests.md'
+      - Branching: 'Git/2_Git_Branching.md'
+      - Issues: 'Git/3_Git_Issues.md'
+      - Rebase: 'Git/3_Git_Rebase.md'
+      - Detached Head: 'Git/4_Git_Detached_Head.md'
+      - Syllabus: 'Git/Syllabus.md'
 
   - SQL:
     - Basics: 'SQL/SQL.md'
@@ -306,7 +276,6 @@ nav:
     - SSIS:
       - Overview: 'SQL/SSIS.md'
       - Input/Output: 'SQL/InputAndOutputProperties.md'
-      - Flat File Source: 'SQL/FlatFileSoure.md'
       - Project 1: 'SQL/Project_1-ETL-CSV-MSSQL.md'
       - Project 2: 'SQL/Project_2-UsingWebServicesInSSIS.md'
     - SSRS: 'SQL/SSRS.md'
@@ -321,6 +290,8 @@ nav:
     - GitHub Actions:
       - Hello Actions: 'DevOps/3.1_Hello_GitHub_Actions_Workflow.md'
       - Sample Workflows: 'DevOps/3.2_Sample_Workflows.md'
+      - GitHub Actions Overview: 'DevOps/3_GitHub-Actions.md'
+      - Creating Your First Branch: 'DevOps/2_CreatingYourFirstBranch.md'
       - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
     - Azure DevOps:
       - Pipelines: 'DevOps/2_Azure-Pipelines.md'
@@ -367,7 +338,6 @@ nav:
         - Storage Evolution: 'Synapse-ADF/1.8_ADF_SA_Evolution.md'
         - CETAS: 'Synapse-ADF/1.9_CETAS.md'
       - Data Factory:
-        - Projects: 'Synapse-ADF/2.0_Projects.md'
         - Local to ADLS: 'Synapse-ADF/2.1_Pipeline-Local-ADLS.md'
         - PySpark Warehouse: 'Synapse-ADF/2.2_PySparkWarehouse.md'
         - REST API: 'Synapse-ADF/2.3_ADF_RestAPI_Databricks.md'
@@ -400,7 +370,6 @@ nav:
     - Concepts: 'Airflow/1.0.0_AirFlow_Concepts.md'
     - DAG Anatomy: 'Airflow/1.0.1_A_Dags_Anatomy.md'
     - Hello Airflow: 'Airflow/1.0.2_Hello_Airflow.md'
-    - Airflow DBT Docker: 'Airflow/1.0.3_Airflow_Dbt_Docker.md'
 
   - Stream Processing:
     - Introduction: 'StreamProcessing/1.0_What_Is_Stream_Processing.md'
@@ -441,7 +410,6 @@ nav:
         - Model Apps: 'PowerPlatform/ModelDrivenApps.md'
         - Power Pages: 'PowerPlatform/GoogleProviderPowerPages.md'
         - Power Automate: 'PowerPlatform/PowerAutomateIsWorkflowTeams.md'
-        - Calculation Groups: 'PowerPlatform/CalculationGroups.md'
       - Features:
         - Document Intelligence:
           - Overview: 'PowerPlatform/DocumentIntelligence/AzureAIDocumentIntelligence.md'
@@ -461,7 +429,6 @@ nav:
     - MongoDB:
       - Commands: 'MongoDB/MongoDBCommands.md'
       - File Storage: 'MongoDB/HowMongoDBStoresFiles.md'
-      - Comparisons: 'MongoDB/MongbDB_Vs_Atlas_VsCosmosDB.md'
 
 
   - Projects:
@@ -486,7 +453,6 @@ nav:
         - Azure Function: 'DE-Projects/JsonValidator/AzureFunction-ValidateJSOns.md'
       - Azure SDK: 'DE-Projects/JsonFlatAzureSDK.md'
       - To Parquet: 'DE-Projects/FetchJsonWriteParquet.md'
-      - To Hive: 'DE-Projects/Raw-Json-To-Hive.md'
     
     - ETL Projects:
       - Currency Predictor: 'DE-Projects/CurrencyPredictor.md'
@@ -513,7 +479,7 @@ nav:
     - Markdown:
       - Basics: 'Misc/3_Markdown.md'
       - Colors: 'Misc/MarkdownColor/Color.md'
-      - PDF Export: 'Misc/markdown_pdf_export_html.md'
+      - Color Palettes Gallery: 'Misc/MarkdownColor/images/Color.md'
     - Cloud:
       - GCP Usage: 'Misc/1_GoogleCloudSeeUsage.md'
       - Azure Budget: 'Misc/7_Azure_Budget.md'
@@ -525,4 +491,5 @@ nav:
     - Data:
       - Datasets: 'Misc/5_WhichDatastsToUse.md'
       - Fact vs Dimension: 'Misc/10_Fact_vs_Dimension_tables.md'
+      - Catalogue, Metastore & Table Format: 'Misc/Catalogue_Vs_TableFormat.md'
     - Running Stable Diffusion Locally: 'AI-ML/Running_Stable_Diffusion_Locally.md'

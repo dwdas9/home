@@ -8,7 +8,7 @@ Here, I'll show you how to use a PySpark Notebook to build a complete ETL soluti
 Apart from using Pyspark in Notebooks there are other methods to Copy data into Lakehouse. Based on the the situation you will have to choose a method. 
 
 1. [**ADF Data Pipelines**](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-pipelines): You can both ingest and transoform using ADF pipeline. Use the **Copy data activity** for ingestion(**no transformation**) and a **Notebook activity** or Dataflow activity for transformation. If there is no transformation, blindly choose **Copy data** activity.
-  ![alt text](image-1.png)
+  ![alt text](images/image-1.png)
 
 {: .highlight }
 {: .fw-400 }

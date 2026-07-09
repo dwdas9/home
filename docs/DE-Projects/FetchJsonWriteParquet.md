@@ -1,5 +1,5 @@
 
-<img src="images\json_spark_azure.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
+<img src="../Python/images/json_spark_azure.png" alt="Warehouse Directory" style="border: 2px solid #ccc; box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
 
 # <span style="color: DarkOrchid;">Json Transformation Using Spark And Azure</span>
 
@@ -13,7 +13,7 @@ You'll need the following:
 - **Azure Subscription**: For using Azure services.
 - **Azure Data Lake Storage Gen2**: Two contaienrs, **silver** and **gold** inside a storage account.
 - **Python with Pyspark** : To develop and test this code a simple pyspark environment will do.
-- **Hadoop ADLS Jars**: You need to download the jars using tools like wget and store it and then refrence it in spark configuration. To know more refer to my [article](../Spark_To_ADLS/Part1-spark_to_ADLS.html).
+- **Hadoop ADLS Jars**: You need to download the jars using tools like wget and store it and then refrence it in spark configuration. To know more refer to my [article](../Spark-DataBricks/2.0_Spark_To_ADLS/2.0_Spark_To_ADLS.md).
 
 ## <span style="color: MediumSeaGreen;">Script Breakdown</span>
 

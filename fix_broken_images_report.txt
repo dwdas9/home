@@ -1,0 +1,32 @@
+======================================================================
+BROKEN IMAGE FIX REPORT
+Files changed : 3
+======================================================================
+
+── FIXED (3) ──────────────────────────────────────────────────
+  docs\Microsoft-Fabric\ETL-Pyspark-Notebook-Lakehouse.md: 'image-1.png' -> 'images/image-1.png' (tie-break)
+  docs\Microsoft-Fabric\FabricAdministration.md: 'image-10.png' -> 'images/image-10.png' (tie-break)
+  docs\Synapse-ADF\1.5_IntegrationRuntime.md: 'image.png' -> 'images/image.png' (tie-break)
+
+── AMBIGUOUS / SKIPPED (8) ─────────────────────────────────
+  docs\DevOps\Docker\Fundamentals\2_VSCode_Docker_Connection.md: 'images/image10.png' — 2 matches: Spark-DataBricks\1.0_Spark\images\image10.png, DevOps\Docker\ContainerStacks\BigDataStack\images\image10.png
+  docs\Misc\4_VSTrics.md: 'image.png' — 19 matches: Synapse-ADF\images\image.png, Spark-DataBricks\2.0_Spark_To_ADLS\image.png, Spark-DataBricks\1.0_Spark\images\image.png
+  docs\Misc\4_VSTrics.md: 'image-1.png' — 15 matches: Synapse-ADF\images\image-1.png, Spark-DataBricks\2.0_Spark_To_ADLS\image-1.png, Spark-DataBricks\1.0_Spark\Install-Pyspark-Windows\image-1.png
+  docs\Spark-DataBricks\3.0_Databricks\3.4_Databricks_Secret_Scope.md: 'images/image.png' — 19 matches: Synapse-ADF\images\image.png, Spark-DataBricks\2.0_Spark_To_ADLS\image.png, Spark-DataBricks\1.0_Spark\images\image.png
+  docs\Spark-DataBricks\3.0_Databricks\3.4_Databricks_Secret_Scope.md: 'images/image-12.png' — 11 matches: Synapse-ADF\images\image-12.png, Spark-DataBricks\2.0_Spark_To_ADLS\image-12.png, Spark-DataBricks\1.0_Spark\images\image-12.png
+  docs\Spark-DataBricks\3.0_Databricks\3.4_Databricks_Secret_Scope.md: 'images/image-21.png' — 7 matches: Synapse-ADF\images\image-21.png, Spark-DataBricks\2.0_Spark_To_ADLS\image-21.png, Spark-DataBricks\1.0_Spark\images\image-21.png
+  docs\Spark-DataBricks\3.0_Databricks\3.4_Databricks_Secret_Scope.md: 'images/image-31.png' — 6 matches: Synapse-ADF\images\image-31.png, Spark-DataBricks\1.0_Spark\images\image-31.png, PowerPlatform\images\image-31.png
+  docs\Spark-DataBricks\3.0_Databricks\3.4_Databricks_Secret_Scope.md: 'images/image-11.png' — 11 matches: Synapse-ADF\images\image-11.png, Spark-DataBricks\2.0_Spark_To_ADLS\image-11.png, Spark-DataBricks\1.0_Spark\images\image-11.png
+
+── TRULY MISSING (no file on disk) (7) ───────────────
+  docs\DE-Projects\Microsoft_OpenJDK.md: 'images/2024-08-14-14-54-10.png'
+  docs\M365\SharePoint2007FarmUpgrade.md: 'Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.00png'
+  docs\M365\SharePoint2007FarmUpgrade.md: 'Aspose.Words.25d3b7ed-ba4a-4f85-b487-a2e27115c80a.01png'
+  docs\Microsoft-Fabric\RealTimeAnalytics.md: 'images\\KQLDB.webp'
+  docs\Misc\4_VSTrics.md: 'images\\\\$2'
+  docs\Python\1.0.0_Hello_Python.md: 'images/custom-image-2024-07-26-16-05-17.png'
+  docs\Spark-DataBricks\3.0_Databricks\3.4_Databricks_Secret_Scope.md: 'images/add_secret_wont_work_azkeyvault.png'
+
+======================================================================
+SUMMARY: 3 fixed, 8 ambiguous, 7 truly missing.
+======================================================================

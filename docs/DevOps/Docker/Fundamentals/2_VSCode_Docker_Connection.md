@@ -30,16 +30,16 @@ The connection is mainly done using the VS Code Dev Containers extension, which 
 ## <span style="color: Purple;">Install Dev Containers Extension</span>
 
 In **Visual Studio Code** press **Ctrl+Shift+X**, search  **Dev Containers** and **install**.
-<img src="images/image5.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="../ContainerStacks/BigDataStack/images/image5.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 ## <span style="color: Purple;">Attach to the running container</span>
 
 - Click the **Open Remote Window** button in the bottom-left corner of VS Code and select **Attach to Running Container** from the command palette that appears.
-<img src="images/image3.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="../ContainerStacks/BigDataStack/images/image3.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 - Pick your active container from the presented list.
 
-<img src="images/image2.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="../ContainerStacks/BigDataStack/images/image2.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 Note: Here you will encounter like this, go to the errors section to resolve it
 
@@ -49,13 +49,13 @@ Note: Here you will encounter like this, go to the errors section to resolve it
 
 Go to extensions(left pane), search Jupyter, click on Install in container
 
-<img src="images/custom-image-2024-06-18-17-25-13.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-18-17-25-13.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 ## <span style="color: Purple;">Install Python Support Extension in Container</span>
 
 Go to extensions(left pane), search Python, click on Install in container
 
-<img src="images/custom-image-2024-06-18-17-15-37.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-18-17-15-37.png" alt="Description of the image" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 
 ## <span style="color: Purple;">Install ipykernel</span>
@@ -69,17 +69,17 @@ pip install ipykernel
 
 Also, if you try to run a jupyter notebook, using the steps below
 
-<img src="images/image10.png" alt="Installation in progress" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="../ContainerStacks/BigDataStack/images/image10.png" alt="Installation in progress" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 You may be prompted to isntall the extension:
 
-<img src="images/custom-image-2024-06-16-16-42-05.png" alt="Prompt to install ipykernel" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-16-16-42-05.png" alt="Prompt to install ipykernel" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 
 
 ## <span style="color: Red;">Install py4j(if required)</span>
 
-<img src="images/custom-image-2024-06-16-16-44-45.png" alt="Running pip install ipykernel" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-16-16-44-45.png" alt="Running pip install ipykernel" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 
 ## <span style="color: Red;">Errors</span>
@@ -88,7 +88,7 @@ You may be prompted to isntall the extension:
 
 When trying to attach to a Docker container using the VSCode Dev extension, you may encounter an error during the **Installing VS Code Server step**:
 
-<img src="images/custom-image-2024-06-15-13-45-34.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-15-13-45-34.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
 
 **Reason:** Insufficient permissions for VSCode to create a folder **.vscode-server** inside the root folder. It cannot create this folder: **/.vscode-server**.
 
@@ -106,11 +106,11 @@ When you attach to a running container, the Dev Container extension installs a r
     "<host>": "/test/location"
 }
 ```
-<img src="images/custom-image-2024-06-20-16-41-41.png" alt="Custom Image">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-20-16-41-41.png" alt="Custom Image">
 
 **Settings UI:** Go to File > Preferences > Settings, filter by `@ext:ms-vscode-remote.remote-ssh install`, and under "Server Install Path" > Add Item with Item = `<host>` and Value = `/test/location`.
 
-![](images/custom-image-2024-06-20-16-51-22.png)
+![](../ContainerStacks/BigDataStack/images/custom-image-2024-06-20-16-51-22.png)
 
 #### Correct Method
 
@@ -125,10 +125,10 @@ chmod -R 777 /.vscode-server
 ```
 > sometimes, e.g. in debian, just su
 
-<img src="images/custom-image-2024-06-16-02-56-43.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-16-02-56-43.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
 
 
-> Note: You may not always have su access or password. To resolve it you may have to create a Dockerfile and users inside it with elevated permission. Refer to my BitnamiSparkCluster [article](3-BitnamiSparkClusterOnDocker.html) to create such containers.
+> Note: You may not always have su access or password. To resolve it you may have to create a Dockerfile and users inside it with elevated permission. Refer to my BitnamiSparkCluster [article](../ContainerStacks/BigDataStack/4.2_Bitnami_Spark_Cluster.md) to create such containers.
 
 #### Wrong Resolution
 
@@ -136,7 +136,7 @@ chmod -R 777 /.vscode-server
 
 If you use a docker-compose file to create the containers you can add `user: root` to every container. 
 
-<img src="images/custom-image-2024-06-15-14-38-58.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 300; height: 500;">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-15-14-38-58.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 300; height: 500;">
 
 ##### docker run -u root method
 
@@ -148,7 +148,7 @@ Alternaively, you can start the container with root. This is feasible only for s
 
 Install the Jupyter extension in the container.
 
-<img src="images/custom-image-2024-06-16-03-00-56.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-16-03-00-56.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
 
 Also, go to the Docker container and install ipykernel:
 
@@ -157,17 +157,17 @@ sudo su
 pip install ipykernel
 ```
 
-<img src="images/custom-image-2024-06-16-03-02-43.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-16-03-02-43.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
 
 Then it will detect the kernel automatically.
 
-<img src="images/custom-image-2024-06-16-03-05-37.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-16-03-05-37.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
 
 ### <span style="color: Chocolate;">Py4J Error</span>
 
 While running code, you may get this error:
 
-<img src="images/custom-image-2024-06-16-03-07-07.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-16-03-07-07.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
 
 **Install** **py4j** in the **container** to resolve it:
 
@@ -176,5 +176,5 @@ sudo su
 pip install py4j
 ```
 
-<img src="images/custom-image-2024-06-16-03-07-55.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
+<img src="../ContainerStacks/BigDataStack/images/custom-image-2024-06-16-03-07-55.png" alt="Description of the image" style="border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%; height: auto;">
 

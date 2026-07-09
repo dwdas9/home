@@ -1,11 +1,11 @@
 
-1. Replace all .png files with images\.png
+1. Replace all .png files with images/.png
 
-!\[([^\]]*)\]\(([^\/]+\.png)\)
-
-![$1](images\\$2)
-
-![alt text](image.png)
+```text
+Regex pattern: !\[([^\]]*)\]\(([^\/]+\.png)\)
+Replacement path: images/$2
+Example source: image.png
+```
 
 2. Replace constructs like
 
@@ -15,7 +15,9 @@ With
 
 *extend is used to create a new column or modify an existing column.*
 
-![alt text](image-1.png)
+```text
+Example source: image-1.png
+```
 
 Search: - \*\*Correct Answer:\*\* [A-Z]\. (.+)
 Replace: *$1*
@@ -27,4 +29,4 @@ display(df)
 
 ## Intelisence not working in VS
 
-![](images/custom-image-2024-07-10-17-35-30.png)
+![](../Python/images/custom-image-2024-07-10-17-35-30.png)

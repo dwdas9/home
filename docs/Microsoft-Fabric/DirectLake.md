@@ -1,7 +1,7 @@
 
 # <span style="color:slateblue;">DirectLake Mode in Fabric</span>
 
-![alt text](<1 (9).png>)
+<img src="images/1 (9).png" alt="alt text">
 
 DirectLake is the **third** and **newest** **data handling technique** in **Microsoft Fabric** for Power BI. Before understanding DirectLake, let's first look at the other two modes:
 
@@ -75,6 +75,6 @@ You have a Fabric tenant with a workspace named Workspace1, assigned to an F64 c
 
 DirectLake storage mode offers near-real-time (NRT) access to data with performance close to Import storage mode, surpassing DirectQuery in terms of speed for large datasets. While DirectQuery provides NRT access, it can slow down with large datasets. Import Mode, though fast, requires data to be loaded into Power BI's memory, lacking NRT capabilities. Currently, DirectLake tables cannot be mixed with other table types (Import, DirectQuery, or Dual) within the same model, and composite models are not supported yet.
 
-![MoveDataToOneLake](MoveDataToOneLake.png)
+![MoveDataToOneLake](images/MoveDataToOneLake.png)
 
 For further details, you can refer to the [Microsoft Fabric Direct Lake overview](https://learn.microsoft.com/en-us/fabric/get-started/direct-lake-overview).

@@ -44,7 +44,7 @@
         **Solution**
         I developed a FastAPI-based chatbot prototype that integrates directly with IKEA’s live APIs. The system uses a multi-agent approach: GPT-3.5 first analyzes user intent (product vs. store info), extracts details (category, store, filters), and a second LLM pass formats API responses into conversational replies. The prototype maintains indexed mappings of product categories and store locations, dynamically processes filters (color, material, price), and demonstrates every integration point for stakeholders. It ran locally and handled live queries against IKEA’s production APIs.
 
-        ![](images/20250921190851.png)
+        ![](../images/20250921190851.png)
 
         **Results**
         
@@ -53,7 +53,7 @@
 
     === "Implementation"
 
-        ![](images/20250921190804.png)
+        ![](../images/20250921190804.png)
 
         ```python
         # FastAPI-based IKEA Gen-AI Chatbot Prototype (Dec 2024)

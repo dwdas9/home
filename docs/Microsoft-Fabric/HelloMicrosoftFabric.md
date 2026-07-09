@@ -17,7 +17,7 @@ Microsoft Fabric is a one-stop, low-to-no-code analytics platform that brings to
 
 ## Understanding OneLake
 
-![OneLake](FabricOneLake.png)
+![OneLake](images/FabricOneLake.png)
 
 OneLake is the foundation of Microsoft Fabric's data storage system.
 
