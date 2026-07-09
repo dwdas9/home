@@ -21,3 +21,35 @@ Thanks for stopping by! This site shares lessons from my professional journey �
     I have also worked with a Canadian federal organization for several years, Singapore’s tax office — the [Inland Revenue Authority of Singapore (IRAS)](https://www.iras.gov.sg/) — and the retail giant [IKEA](https://www.ikea.com/).
 
     Most of my projects have been in the **financial domain** — including banking, insurance, and taxation — while some projects were in **logistics**, **retail**, **oil and gas**, **media** and **pharma**.
+
+## Projects
+
+Detailed write-ups of engagements I've led — the architecture, my role, and what shipped.
+
+<div class="grid cards" markdown>
+
+-   :material-microsoft-azure:{ .lg .middle } __Azure and M365__
+
+    ---
+
+    ETL modernization and on-prem infrastructure migration to Azure VMs and SQL PaaS.
+
+    [:octicons-arrow-right-24: Read more](AboutMe/AzureAndM365Projects.md)
+
+-   :material-database:{ .lg .middle } __Data Engineering__
+
+    ---
+
+    Databricks, DBT, ADF and Gen-AI solutions across retail, government and research.
+
+    [:octicons-arrow-right-24: Read more](AboutMe/DataEngineeringProjects.md)
+
+-   :material-microsoft-sharepoint:{ .lg .middle } __SharePoint and M365__
+
+    ---
+
+    SSIS ETL pipelines and large-scale SharePoint farm migrations for banking and oil & gas.
+
+    [:octicons-arrow-right-24: Read more](AboutMe/SharePointAndM365Projects.md)
+
+</div>

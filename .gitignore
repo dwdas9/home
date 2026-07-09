@@ -1,3 +1,8 @@
+# Claude Code
+# .claude/ is intentionally tracked: STATE.md and DECISIONS.md are the session handover.
+# Only machine-local settings are ignored.
+.claude/settings.local.json
+
 # Python virtual environments
 venvmac/
 .venv/

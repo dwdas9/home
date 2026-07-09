@@ -135,6 +135,7 @@ markdown_extensions:
         kwds:
           case: lower
   - attr_list  # Enable attribute lists (e.g., `{ .class }`)
+  - md_in_html  # Allow Markdown inside HTML blocks (e.g., card grids)
   - pymdownx.emoji:  # Enable emojis
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -160,12 +161,12 @@ extra_javascript:
 # find docs -name "*.md" -type f
 
 nav:
-  - Home: 'index.md'
-
-  - About Me:
-    - Azure and M365 Projects: 'AboutMe/AzureAndM365Projects.md'
-    - Data Engineering Projects: 'AboutMe/DataEngineeringProjects.md'
-    - SharePoint and M365 Projects: 'AboutMe/SharePointAndM365Projects.md'
+  - Home:
+    - 'index.md'
+    - Professional Projects:
+      - Azure and M365 Projects: 'AboutMe/AzureAndM365Projects.md'
+      - Data Engineering Projects: 'AboutMe/DataEngineeringProjects.md'
+      - SharePoint and M365 Projects: 'AboutMe/SharePointAndM365Projects.md'
 
   - Spark:
     - Concepts: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
