@@ -1,6 +1,6 @@
 # Project State
 
-**Updated:** 2026-07-10 · **Branch:** `changes-cleanup` · **Working tree:** clean, committed, not pushed
+**Updated:** 2026-07-10 · **Branch:** `changes-cleanup` · **Working tree:** clean, pushed to origin
 
 Keep this file under one screen. It answers one question: *what would the last session tell me
 if I could ask them?* Delete finished items rather than accumulating a changelog — git is the
@@ -10,7 +10,8 @@ changelog.
 
 ## In flight
 
-Nothing half-finished. Both pieces below are committed on `changes-cleanup` and **not pushed**.
+Nothing half-finished. Both pieces below are pushed to `origin/changes-cleanup`. **Not merged.**
+`origin/main` is untouched, so the live site still shows the old Home tab.
 
 **1. Home tab restructure.** The tab now reads as one story: Early Life → Family → Professional
 Journey → Projects.
@@ -44,8 +45,9 @@ The `slate` scheme redefines both. The grid is theme-correct by construction.
    confirm by making any edit and running
    `git for-each-ref refs/snapshots/` — an `-edit` ref should appear. This is the only thing
    standing between you and automatic crash protection.
-2. Decide whether to merge. **Merging to `main` publishes to the live public site immediately**
-   via `mkdocs gh-deploy --force` — see `CLAUDE.md`. Nothing has been pushed.
+2. Open a PR from `changes-cleanup`, or merge it. **Merging to `main` publishes to the live
+   public site immediately** via `mkdocs gh-deploy --force` — see `CLAUDE.md`. The branch is
+   pushed but nothing is published yet.
 
 ## Blocked / open questions
 
