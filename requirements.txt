@@ -11,6 +11,12 @@ pymdown-extensions>=10.0,<11.0    # Provides advanced Markdown extensions
 mkdocs-glightbox>=0.3.0,<0.4.0    # Plugin for media lightboxes
 mkdocs-include-markdown-plugin>=6.0.0,<7.0.0  # File inclusion support
 
+# Keeps old page URLs alive after a file is renamed or moved: every pair in the
+# `redirect_maps:` block of mkdocs.yml emits a stub page at the old path.
+# The upper bound is deliberate. 1.2.3 adds a `properdocs` dependency — a second,
+# parallel copy of the docs engine that this site does not use.
+mkdocs-redirects>=1.2.0,<1.2.3    # Preserve URLs across renames
+
 
 # Additional dependencies required by mkdocs-material
 markdown>=3.4.0,<4.0.0            # Markdown parser

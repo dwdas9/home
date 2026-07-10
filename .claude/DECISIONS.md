@@ -10,6 +10,29 @@ Entry format: `## YYYY-MM-DD — Title`, then *Decision* / *Why* / *Rejected*.
 
 ---
 
+## 2026-07-10 — Editorial curation workflow: review a whole section, then wait
+
+**Decision:** The site is being converted from accumulated notes into a curated technical
+handbook, **one section at a time** (a section = a top-level `nav:` tab). For each section:
+review the whole thing first, produce a written editorial plan under `.claude/reviews/`, **wait
+for the owner's approval**, and only then rewrite article by article. Never review or rewrite an
+article in isolation. Restructuring — merging, splitting, deleting, renumbering, adding new
+articles — is in scope and expected; existing structure carries no presumption of correctness.
+
+The guiding principle is **curation over accumulation**: every article must earn its place in a
+learning journey, and the section as a whole is the unit of quality, not the paragraph.
+
+**Why:** The pages were written fast, while learning, over years. Polishing prose page-by-page
+would preserve exactly what is wrong — the sequencing, the duplication, the dead ends. The Spark
+review made the cost concrete: ~10,000 of ~40,400 words are the same nine gotchas written twice,
+and no article in the section links to any other. Neither defect is visible from inside a single
+article, so an article-at-a-time reviewer would never find them.
+
+**Rejected:** Copy-editing in place (cannot see cross-article duplication or ordering problems).
+Reviewing and rewriting in the same pass (the owner wants to approve structural surgery before it
+happens, because deletions and renames are expensive to undo once the site has published them).
+Putting review documents in `docs/` — everything there is published to the public site.
+
 ## 2026-07-10 — No AI attribution in commits or PRs
 
 **Decision:** `attribution.commit` and `attribution.pr` are empty strings in

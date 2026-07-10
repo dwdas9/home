@@ -93,6 +93,12 @@ plugins:
       auto_caption: true           # generate captions automatically
       caption_position: bottom     # place captions at the bottom
       shadow: true                 # enable shadow effects
+  # Keeps old URLs alive after a page is renamed or moved. `offline` forces
+  # use_directory_urls: false, so a filename IS its URL and every rename is a
+  # breaking change. Add old -> new here BEFORE renaming, never after.
+  # Left of the arrow: the old path, as it appeared under docs/. Right: the new one.
+  - redirects:
+      redirect_maps: {}
   - offline  # Make site searchable offline (enable if distributing offline)
   #- include-markdown ## Sidebar menu structure. Each file path is relative to the `docs` directory.. To reuse markdown files in other markdown files
 
