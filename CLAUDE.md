@@ -48,10 +48,30 @@ surrounding page rather than introducing a third style.
     === "Tab Name"
 ```
 
+**Sections under editorial rewrite** (currently Spark) follow a stronger brief: teach rather than
+document, one article at a time to publication quality, correct inaccuracies rather than restate
+them. **Hand-drawn sketches are the site's signature** — brief an illustration wherever a drawing
+beats a paragraph, without waiting to be asked. The locked generation prompt and the rule that
+governs it (*one claim per drawing, writable as one sentence before you draw*) live in
+`.claude/illustrations/STYLE.md`; briefs go in `.claude/illustrations/manifest.md`.
+
 ## Gotchas that cost a session to rediscover
 
 - The `offline` plugin forces `use_directory_urls: false`. Links render as `page.html`,
   not `page/`. Do not "fix" this.
+- **`mkdocs build --strict` aborts on an image path that does not resolve.** Never write
+  `<figure>`/`![]()` markup for an illustration before the file exists on disk. That is why
+  sketch briefs are committed to the manifest instead.
+- **Material code annotations do not work here.** `content.code.annotate` is enabled, but the
+  `# (1)!` marker renders as literal text — no page in the built site has ever had a working
+  annotation. Use plain comments.
+- **`pymdownx.details` and admonition titles have no escape syntax.** `??? note "\"quoted\""`
+  renders the backslashes to the reader. Use typographic quotes: `"“quoted”"`.
+- Mermaid is wired through `pymdownx.superfences` and works. Prefer it over screenshots of
+  diagrams: a PNG bakes in one background colour and is unreadable in one of the two colour
+  schemes. The **Caveat** handwriting font is already loaded and is used for sketch captions.
+- `mkdocs-redirects` is pinned `<1.2.3`. 1.2.3 depends on `properdocs`, a second copy of the
+  docs engine (the MkDocs 2.0 rebrand). Do not lift the pin without reading why.
 - `md_in_html` is enabled for Material card grids. Card list items are `-` followed by
   **three** spaces; continuation lines indent **four**. Wrong indentation silently renders a
   plain bullet list instead of cards — the build still passes. Verify by grepping the built
