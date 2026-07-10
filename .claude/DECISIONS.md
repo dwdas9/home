@@ -10,6 +10,23 @@ Entry format: `## YYYY-MM-DD — Title`, then *Decision* / *Why* / *Rejected*.
 
 ---
 
+## 2026-07-10 — No AI attribution in commits or PRs
+
+**Decision:** `attribution.commit` and `attribution.pr` are empty strings in
+`.claude/settings.json`, and `CLAUDE.md` forbids hand-writing a `Co-Authored-By` trailer. The
+repository owner is the sole author. Two commits that already carried the trailer were rebuilt
+without it before being pushed.
+
+**Why:** Several different assistants are used in this repository. A trailer naming one of them
+implies that tool has standing in the history it does not have, and makes the log misleading
+rather than informative. The owner is already recorded as both author and committer.
+
+**Rejected:** A `Co-Authored-By` naming the owner — they are already the author, so the trailer
+would list the same person twice. Renaming `CLAUDE.md` / `.claude/` for further de-branding —
+the published site never contains either name (`docs/` is clean and `gh-deploy` publishes only
+the built `site/`), and hooks and slash commands load only from `.claude/`, so renaming that
+directory would silently disable the snapshot system.
+
 ## 2026-07-10 — Crash resilience: git refs as a write-ahead log, not a new snapshot system
 
 **Decision:** A `PostToolUse` hook on `Write|Edit` snapshots the working tree into

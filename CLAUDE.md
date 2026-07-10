@@ -93,3 +93,9 @@ to `.claude/DECISIONS.md`, and commits.
 
 Write real commit messages. 1077 of the existing ones say `changes`, which is why this file
 has to exist. Do not add another.
+
+**Never add a `Co-Authored-By` trailer, and never attribute a commit or PR to an AI tool.**
+The repository owner is the sole author. `attribution` is set to empty strings in
+`.claude/settings.json`; do not override it, and do not hand-write the trailer either.
+Several different assistants work in this repo — attribution noise makes the history
+misleading rather than informative.
