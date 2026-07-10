@@ -1,0 +1,6 @@
+# core.autocrlf=true on Windows would check these out with CRLF line endings.
+# Git Bash tolerates that; bash on macOS and Linux does not — a CRLF shell script
+# fails there, and the hook scripts would silently stop protecting the repo.
+# Force LF for anything executed by a shell.
+*.sh        text eol=lf
+*.command   text eol=lf
