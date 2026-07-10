@@ -10,6 +10,37 @@ Entry format: `## YYYY-MM-DD — Title`, then *Decision* / *Why* / *Rejected*.
 
 ---
 
+## 2026-07-10 — Hand-drawn sketches are the site's signature, and they argue
+
+**Decision:** Articles carry many rough, hand-drawn, black-ink sketches — not one hero image.
+Style is locked in `.claude/illustrations/STYLE.md`; every planned drawing is briefed in
+`.claude/illustrations/manifest.md` before it is generated. The governing rule: **an illustration
+makes exactly one claim, and the claim must be writable as a single sentence before anything is
+drawn.** No sketch is decorative. Density of roughly one per major section is expected.
+
+Placement is normally **at the paragraph where the reader is about to get it wrong**, not at the
+top of the article. There the drawing answers a question the reader has already formed. A hero
+sketch is reserved for articles whose entire thesis *is* the counterintuitive idea.
+
+**Why:** The factual content of an article about Spark or Git is a commodity — thousands of sites
+have it. What a reader remembers, and links to, is how it was shown. A drawing of a cake with one
+slice missing next to its recipe teaches lineage better than three paragraphs, and it survives in
+memory long after the wording is gone. That memorability is the differentiator the owner is buying.
+
+**Rejected:** A sketch at the top of *every* article — a fixed slot at a fixed size becomes
+wallpaper within a dozen pages, readers develop banner blindness to it, and it silently commits
+241 pages to a quota that will be half-met and therefore look unfinished. Also rejected: text
+inside the images beyond ≤4 short hand-lettered labels (unsearchable, untranslatable, invisible to
+screen readers, and where image models are weakest); recurring mascot characters (decoration, not
+argument).
+
+**Deferred, knowingly:** Dark mode. Black ink on off-white glares in the `slate` scheme. The owner
+ruled this secondary. The prompt still asks for transparent backgrounds so that one CSS
+`filter: invert()` rule can fix it later without regenerating anything.
+
+**Constraint discovered:** `mkdocs build --strict` **aborts** on an image path that does not
+resolve. Briefs are therefore committed to the manifest, never as `<figure>` markup awaiting a PNG.
+
 ## 2026-07-10 — Editorial curation workflow: review a whole section, then wait
 
 **Decision:** The site is being converted from accumulated notes into a curated technical

@@ -209,3 +209,45 @@ h1, h2, h3, h4, h5 {
     border: 2px solid #333;
     border-radius: 4px;
 }
+/* ============================================================
+   Hand-drawn sketches
+   ------------------------------------------------------------
+   Signature element of this site. Briefs and the locked
+   generation prompt live in .claude/illustrations/.
+   Markup:
+       <figure class="sketch" markdown>
+       ![alt](images/sketches/idea-slug.png)
+       <figcaption>The one claim the drawing makes.</figcaption>
+       </figure>
+   ============================================================ */
+
+.sketch {
+    margin: 2.4rem auto;
+    text-align: center;
+}
+
+.sketch img {
+    max-width: min(100%, 34rem);
+    height: auto;
+}
+
+/* Caveat is already loaded (see extra_javascript). A handwritten
+   caption under a hand-drawn sketch; the article's own voice stays
+   in the body text. */
+.sketch figcaption {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    line-height: 1.35;
+    margin-top: 0.4rem;
+    opacity: 0.85;
+    max-width: 34rem;
+    margin-inline: auto;
+}
+
+/* Dark mode is deliberately deferred -- see .claude/illustrations/STYLE.md.
+   When the sketches are confirmed to have transparent backgrounds, one rule
+   does it:
+       [data-md-color-scheme="slate"] .sketch img {
+           filter: invert(1) hue-rotate(180deg);
+       }
+*/
