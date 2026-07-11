@@ -291,9 +291,11 @@ help.
 Save to `docs/BigDataFoundations/010-why-big-data/images/sketches/`. Full briefs live inline in the
 article as HTML comments at each anchor; these are the index pointers.
 
-- **★ F-01 · `strongman-vs-moving-crew.png`** — status: `todo`. The article's signature. *Past a
-  point you stop hiring a stronger worker and start hiring more workers.* Anchor: "The other kind of
-  bigger: more boxes".
+- **★ F-01 · `frankenstein-server.jpg`** — status: `live`. The article's signature, and its funniest.
+  *You can't upgrade one machine forever; a jet-engine'd PC explodes while the bored cheap boxes just
+  work.* Anchor: thesis image at the top, right after the scale-up/scale-out question. (Replaced the
+  earlier strongman-vs-moving-crew idea — too literal, not funny; the moving-crew analogy survives in
+  prose only.)
 - **F-02 · `bigger-box-price-ceiling.png`** — status: `todo`. *Twice the machine costs far more than
   twice the price — and eventually there is no twice-as-big to buy.* Anchor: Wall 1.
 - **F-03 · `all-eggs-one-basket.png`** — status: `todo`. *Reliability comes from having more than one

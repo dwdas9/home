@@ -20,6 +20,11 @@ Two phrases carry the whole field, so let us name them once and never be confuse
 
 Everything below is a single question: when do you stop scaling up and start scaling out?
 
+<figure class="sketch" markdown>
+![One desktop computer absurdly over-upgraded with a bolted-on jet turbine, extra fans and a smoking chimney, sparking and about to explode, while a tidy row of small cheap computers hums along happily beside it — one wearing sunglasses.](images/sketches/frankenstein-server.jpg)
+<figcaption>You can bolt a jet engine to one computer. It will not end well — the bored little machines next to it were the answer all along.</figcaption>
+</figure>
+
 ---
 
 ## The bigger-box instinct works — for a long time
@@ -106,20 +111,7 @@ Notice that the three walls are not really about money at all. They are three *d
 
 If you cannot buy a machine that is strong enough, reliable enough, and fast enough at reading, you change the shape of the answer entirely. Instead of one heroic machine, you use **many ordinary ones, working on the problem together.** This is horizontal scaling, and it is the idea the entire rest of this site is built on.
 
-The cleanest way to feel the difference is to stop thinking about computers for a moment and think about moving a house.
-
-<!-- ILLUSTRATION: strongman-vs-moving-crew
-Purpose:     the single mental model the whole article — and the whole ecosystem — rests on.
-Concept:     past a point you stop hiring a stronger worker and start hiring more workers.
-Analogy:     one strongman straining under a piano, versus a crew of ordinary movers carrying it easily together.
-Composition: two panels side by side. LEFT: a single enormously muscled strongman, veins and sweat drops flying, buckling at the knees under a grand piano balanced on his back, face strained, a small "!" over his head. RIGHT: four or five ordinary stick-figure movers, unremarkable, each with a hand under the same piano, walking it along easily and cheerfully; one is even waving. The piano is identical in both panels.
-Labels:      "SCALE UP" (left) · "SCALE OUT" (right)
-Alt:         Left: one massive strongman collapsing under a piano. Right: several ordinary movers carrying the same piano together with ease.
-Caption:     Past a point you stop looking for a stronger back and start hiring more hands.
-Style:       use the master prompt in STYLE.md verbatim; Composition into {SUBJECT}, Labels into {LABELS}. This is the signature sketch of the article — make it the strongest one.
--->
-
-Look at what the moving crew buys you against all three walls at once:
+The cleanest way to feel the difference is to stop thinking about computers for a moment and think about moving a house. Look at what a moving crew buys you against all three walls at once:
 
 - **Price.** Ten ordinary movers cost far less than one mythical strongman ten times as strong — who does not exist anyway. Commodity machines are cheap and plentiful precisely *because* they are ordinary.
 - **Reliability.** If one mover calls in sick, the sofa still moves; the others cover. If the strongman pulls a muscle, everything stops. Many machines can lose one and carry on.
