@@ -182,6 +182,7 @@ nav:
     - Why Big Data?:
       - When One Machine Isn't Enough: 'BigDataFoundations/010-why-big-data/when-one-machine-isnt-enough.md'
       - The Three Hard Problems: 'BigDataFoundations/010-why-big-data/three-hard-problems.md'
+      - A Map of the Ecosystem: 'BigDataFoundations/010-why-big-data/ecosystem-map.md'
 
   - Spark:
     - What Is Spark?: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'

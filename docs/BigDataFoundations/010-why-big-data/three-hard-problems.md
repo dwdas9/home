@@ -132,4 +132,4 @@ You now have the two ideas the entire foundation rests on: *why* we use many mac
 
 ---
 
-*Next: **A map of the ecosystem** — one picture of how HDFS, YARN, MapReduce, Hive, and Spark relate, and the "you are here" we will return to at the end of every module. (Coming next in this module.)*
+*Next: **[A map of the ecosystem](ecosystem-map.md)** — one picture of how HDFS, YARN, MapReduce, Hive, and Spark relate, and the "you are here" we will return to at the end of every module.*
