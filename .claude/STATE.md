@@ -14,7 +14,11 @@ Turn this site from accumulated notes into **world-class technical articles** a 
 and recommends. The owner runs the assistant as **editor-in-chief**: execute the roadmap
 autonomously, one article to publication quality at a time; interrupt only for strategic forks,
 external assets (images), or contradictions. The reframed vision is *"how a data engineer should
-think,"* not "Spark docs" — begin with why distributed computing exists at all.
+think,"* not "Spark docs": begin with why distributed computing exists at all.
+
+**Write in the owner's voice: `.claude/WRITING-STYLE.md`.** Plain, precise, dense; never
+Western-corporate or Hinglish. Hard rule: **no em-dash, ever** (he reads it as an AI tell), use a
+comma, colon, or two sentences. `CLAUDE.md` also carries this.
 
 1. **One article at a time.** Don't move on until it's publication quality. Rewrite; correct
    inaccuracies rather than repeat them.

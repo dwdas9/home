@@ -38,6 +38,10 @@ on any push to `main`. Merging to `main` publishes to the live site immediately.
 
 ## Content conventions
 
+All reader-facing prose follows the owner's voice in [`.claude/WRITING-STYLE.md`](.claude/WRITING-STYLE.md):
+plain, precise, dense, never Western-corporate or Hinglish. The one hard rule worth repeating here:
+**never use an em-dash (—).** The owner reads it as an AI tell. Use a comma, a colon, or two sentences.
+
 Narrative prose uses admonitions; project write-ups use collapsible tab blocks. Match the
 surrounding page rather than introducing a third style.
 
