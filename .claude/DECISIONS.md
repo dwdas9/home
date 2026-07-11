@@ -10,6 +10,28 @@ Entry format: `## YYYY-MM-DD — Title`, then *Decision* / *Why* / *Rejected*.
 
 ---
 
+## 2026-07-11 — Sketches must be funny, and carry a title in the frame
+
+**Decision:** The signature sketches are held to a comedy bar: each must land a **genuine,
+recognisable engineering gag** (not just an exaggerated diagram) **and carry a short hand-lettered
+title inside the image.** The briefing loop is now *pitch the joke and analogy first → owner says it's
+funny → then write the full image prompt.* The title overrides `STYLE.md`'s "no text beyond labels"
+rule. First sketch made this way and shipped: `frankenstein-server.jpg` (one PC upgraded into an
+exploding jet-engine contraption = SCALE UP, beside bored cheap boxes = SCALE OUT) for Module 0.1.
+
+**Why:** The owner rejected the first two prompts (a bodybuilder ox, then a Frankenstein *without*
+the comedy foregrounded) as "just AI — no concept." A merely *exaggerated* drawing reads as generic;
+humour rooted in a situation an engineer recognises is what makes the idea stick — *"they laugh, they
+remember."* A title sharpens the punchline like a New Yorker cartoon and gives the picture a second
+beat.
+
+**Rejected:** The literal analogy sketches briefed earlier the same day (strongman-under-a-piano for
+scale-out, and the by-the-book "one strong analogy, minimal, no title" reading of `STYLE.md`). They
+were clear but inert. Comedy costs a round or two of iteration per sketch and occasionally bends the
+chosen analogy toward whatever is funniest — accepted, because memorability is the whole point of
+having sketches at all. The one-claim rule and the "brief lives inline as a comment" workflow from the
+entry below are unchanged; only the bar for what earns a laugh is raised.
+
 ## 2026-07-11 — Illustration briefs live inline as HTML comments, analogy-first
 
 **Decision:** The illustration workflow is refined on three points (`STYLE.md` updated): (1)
