@@ -10,6 +10,32 @@ Entry format: `## YYYY-MM-DD — Title`, then *Decision* / *Why* / *Rejected*.
 
 ---
 
+## 2026-07-11 — Illustration briefs live inline as HTML comments, analogy-first
+
+**Decision:** The illustration workflow is refined on three points (`STYLE.md` updated): (1)
+**analogy-first** — discover the best real-world analogy *before* designing a sketch; the drawing
+is the last step. (2) **Generous density** on the actively-taught articles — ten-plus sketches on a
+long hard article is fine, provided each still passes the one-claim rule. (3) The **brief is written
+inline at the anchor point, wrapped in an HTML comment** (`<!-- ILLUSTRATION: slug … -->`), not only
+in `manifest.md`. The comment holds Purpose/Concept/Analogy/Composition/Labels/Alt/Caption/Style;
+`manifest.md` keeps a one-line pointer as the backlog index. When the PNG exists, the comment is
+swapped for the `<figure class="sketch">` block.
+
+**Why:** The owner's expanded illustration brief asks for prompts co-located with the prose,
+created as the article is written, so a future session sees exactly which drawings were intended
+and where. Inline comments deliver that. They also dodge two hard local constraints that the
+owner's literal format (`![](images/placeholder.png)` + a visible `> IMAGE_PROMPT` blockquote)
+would have hit head-on.
+
+**Rejected:** The literal visible-placeholder format — `mkdocs build --strict` **aborts** on an
+image path that does not resolve, so a `placeholder.png` reference breaks the build (the safety net
+run before every commit); and everything under `docs/` is **published**, so a raw prompt blockquote
+would appear to public readers. A single shared real `placeholder.png` on disk would fix the build
+half but still leak prompt text to readers and risk placeholder images shipping to the live site.
+Keeping briefs *only* in `manifest.md` (the prior workflow) — rejected because it separates the
+brief from the paragraph it serves; the inline comment plus a manifest pointer gives both locality
+and a single backlog view.
+
 ## 2026-07-10 — Hand-drawn sketches are the site's signature, and they argue
 
 **Decision:** Articles carry many rough, hand-drawn, black-ink sketches — not one hero image.
