@@ -170,4 +170,4 @@ Everything else on this site is what people built to solve those three problems 
 
 ---
 
-*Next: **The three hard problems of distributed data** — storing across machines, surviving failure, and coordinating the work. (Coming next in this module.)*
+*Next: **[The three hard problems of distributed data](three-hard-problems.md)** — storing across machines, surviving failure, and coordinating the work.*

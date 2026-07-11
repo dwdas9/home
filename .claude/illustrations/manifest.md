@@ -305,6 +305,19 @@ Generate **F-01 first** — if only one sketch from this article is ever made, m
 
 ---
 
+## Big Data Foundations — Module 0.2 `three-hard-problems.md`
+
+Save to `docs/BigDataFoundations/010-why-big-data/images/sketches/`. Full briefs inline in the article.
+
+- **F-05 · `warehouse-manifest.png`** — status: `todo`. *Splitting data is easy; the map of where each
+  piece went is the whole game.* Anchor: Problem 1 (Storage).
+- **F-06 · `understudy-steps-in.png`** — status: `todo`. *At scale, failure is routine — recovery must
+  be built in, not improvised.* Anchor: Problem 2 (Failure).
+- **F-07 · `jigsaw-to-one-table.png`** — status: `todo`. *Local work is free; moving the pieces together
+  into one answer is what you pay for.* Anchor: Problem 3 (Coordination).
+
+---
+
 ## Later articles
 
 Add briefs here as each article is rewritten. Do not batch-generate ahead of the prose — the
