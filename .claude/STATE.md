@@ -1,6 +1,6 @@
 # Project State
 
-**Updated:** 2026-07-10 · **Branch:** `spark-curation` · **Working tree:** clean · **Never pushed**
+**Updated:** 2026-07-11 · **Branch:** `spark-curation` · **Working tree:** clean · **Never pushed**
 
 Keep this file under one screen. It answers one question: *what would the last session tell me
 if I could ask them?* Delete finished items rather than accumulating a changelog — git is the
@@ -28,8 +28,36 @@ on its own. **Nothing is published.** `ci.yml` deploys only from `main`.
 
 ## In flight
 
-**The Spark section, article by article.** Six commits on the branch, all verified with
-`mkdocs build --strict`.
+**Master plan APPROVED. Owner is now editor-in-chief mode: work autonomously, one article at a
+time, interrupt only for strategic forks / external assets / contradictions.** The owner reframed
+the vision — this is not "Spark docs" but *"how a data engineer should think,"* beginning with why
+distributed computing exists at all. Plan: `.claude/reviews/ecosystem-curriculum-masterplan.md`.
+Decided the §9 opens: Module 0 first as standalone; **new Big Data Foundations tab** (before Spark,
+not folded into it); pause Track A (Spark rewrites) for Track B (on-ramp).
+
+**Track B — Module 0 (Why Big Data) is COMPLETE.** New tab `docs/BigDataFoundations/`, three
+articles, a continuous arc, all strict-clean (`a7dcce0`→`5a0ea04`):
+- `010-why-big-data/when-one-machine-isnt-enough.md` — the true entry point. Three walls of
+  vertical scaling → scale out. 4 sketches briefed (F-01…F-04).
+- `010-why-big-data/three-hard-problems.md` — store / survive / coordinate; the diagnostic lens for
+  the whole site. 3 sketches (F-05…F-07).
+- `010-why-big-data/ecosystem-map.md` — layered Mermaid map; no sketch by design. Left a normal
+  page; promote to tab `index.md` during the eventual restructure.
+
+**Next: Track B — Module 1 (Hadoop), starting with HDFS (1.2).** Then YARN (1.3), MapReduce (1.4,
+the "why Spark" hinge), modes (1.5, salvage the existing buried file). See plan §1 and §4. HDFS/
+MapReduce are the ★ prerequisites so the Spark tab's "why Spark exists" stops referencing MapReduce
+cold. Wire the ecosystem-map's forward links to these as they land.
+
+**IMAGE BACKLOG — owner action (external asset).** 7 Module-0 sketches briefed inline + indexed in
+`manifest.md`, none generated: F-01 `strongman-vs-moving-crew` (★ do first), F-02 `bigger-box-price-
+ceiling`, F-03 `all-eggs-one-basket`, F-04 `many-hands-one-book`, F-05 `warehouse-manifest`, F-06
+`understudy-steps-in`, F-07 `jigsaw-to-one-table`. Plus the earlier Spark backlog (S-*, G-*).
+Generate from the master prompt in `STYLE.md` + each article's inline `<!-- ILLUSTRATION -->` comment;
+save to `docs/BigDataFoundations/010-why-big-data/images/sketches/`; then swap comment → `<figure>`.
+
+**The Spark section (Track A — paused), article by article.** Six commits on the branch, all
+verified with `mkdocs build --strict`.
 
 ### Done
 
