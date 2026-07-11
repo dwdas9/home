@@ -1,7 +1,13 @@
-# Illustration manifest
+# Illustration manifest — the backlog index
 
-Every planned and completed sketch. Read [`STYLE.md`](STYLE.md) first — the master prompt lives
-there and must be used verbatim.
+One line per planned and completed sketch. Read [`STYLE.md`](STYLE.md) first — the master prompt
+lives there and must be used verbatim.
+
+As of 2026-07-11 the **full brief lives inline in the article as an HTML comment** at the anchor
+point (see `STYLE.md` › Workflow and `DECISIONS.md`). This file is now the **index** — it exists so
+the backlog of ungenerated sketches is visible in one place, not so the briefs can be reconstructed
+from it. The older entries below still carry their full briefs inline here; that is fine, but new
+sketches only need a pointer line here and the full brief in the article.
 
 **Status:** `todo` = brief written, image not generated · `drawn` = PNG exists, markup not inserted
 · `live` = rendered in the article and passing `mkdocs build --strict`.
@@ -277,6 +283,25 @@ help.
 **Alt:** One person calmly clicking a small tally counter; beside them another is buried in an endlessly unspooling paper scroll.
 
 **Caption:** A counter is a few bytes, whatever you count. A list is as big as what you put in it.
+
+---
+
+## Big Data Foundations — Module 0.1 `when-one-machine-isnt-enough.md`
+
+Save to `docs/BigDataFoundations/010-why-big-data/images/sketches/`. Full briefs live inline in the
+article as HTML comments at each anchor; these are the index pointers.
+
+- **★ F-01 · `strongman-vs-moving-crew.png`** — status: `todo`. The article's signature. *Past a
+  point you stop hiring a stronger worker and start hiring more workers.* Anchor: "The other kind of
+  bigger: more boxes".
+- **F-02 · `bigger-box-price-ceiling.png`** — status: `todo`. *Twice the machine costs far more than
+  twice the price — and eventually there is no twice-as-big to buy.* Anchor: Wall 1.
+- **F-03 · `all-eggs-one-basket.png`** — status: `todo`. *Reliability comes from having more than one
+  box, not from a bigger one.* Anchor: Wall 2.
+- **F-04 · `many-hands-one-book.png`** — status: `todo`. *One disk reads at one speed; the only lever
+  is reading many at once.* Anchor: Wall 3.
+
+Generate **F-01 first** — if only one sketch from this article is ever made, make that one.
 
 ---
 

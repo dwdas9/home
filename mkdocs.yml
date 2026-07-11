@@ -178,6 +178,10 @@ nav:
       - Data Engineering Projects: 'AboutMe/DataEngineeringProjects.md'
       - SharePoint and M365 Projects: 'AboutMe/SharePointAndM365Projects.md'
 
+  - Big Data Foundations:
+    - Why Big Data?:
+      - When One Machine Isn't Enough: 'BigDataFoundations/010-why-big-data/when-one-machine-isnt-enough.md'
+
   - Spark:
     - What Is Spark?: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
     - Python vs PySpark vs Spark: 'Spark-DataBricks/1.0_Spark/1.0.1__Python_PySpark_Spark_Confusion.md'
