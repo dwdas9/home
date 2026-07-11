@@ -92,3 +92,9 @@ The site's teaching brief (motivation before mechanism, build intuition, one ide
 top of this voice, it does not replace it. When "more polished" is asked for, move one notch toward
 formal, never toward corporate or Western-idiomatic. The comedy in the sketches is the one place
 levity is deliberate; the prose stays plain, precise, and dense.
+
+**Captions and front-matter descriptions must be short, simple, and concise.** No "hi-fi" English.
+The sketch itself carries the humour; the caption just states the point plainly in a line or two.
+Descriptions are one short sentence, not a paragraph. Example rewrite: *"You can bolt a jet engine to
+one computer. It will not end well. The bored little machines next to it were the answer all along."*
+became *"You can't upgrade one machine forever. Use many cheap ones instead."*

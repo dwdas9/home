@@ -1,6 +1,6 @@
 ---
 title: When One Machine Stops Being Enough
-description: Why you cannot always just buy a bigger server: the three walls that vertical scaling hits, why horizontal scaling is the answer, and the bill that answer quietly hands you. The true entry point to the big-data ecosystem.
+description: Why you can't just buy a bigger server, and what to do instead.
 ---
 
 # When One Machine Stops Being Enough
@@ -22,7 +22,7 @@ Everything below is a single question: when do you stop scaling up and start sca
 
 <figure class="sketch" markdown>
 ![One desktop computer absurdly over-upgraded with a bolted-on jet turbine, extra fans and a smoking chimney, sparking and about to explode, while a tidy row of small cheap computers hums along happily beside it, one of them wearing sunglasses.](images/sketches/frankenstein-server.jpg)
-<figcaption>You can bolt a jet engine to one computer. It will not end well. The bored little machines next to it were the answer all along.</figcaption>
+<figcaption>You can't upgrade one machine forever. Use many cheap ones instead.</figcaption>
 </figure>
 
 ---
@@ -50,7 +50,7 @@ And then the box runs out. That is the part people forget. There is a largest ma
 Purpose:     kill the belief that you can always just buy a bigger machine.
 Concept:     vertical scaling gets disproportionately expensive and then simply hits a ceiling: there is no bigger box.
 Labels:      "TOP OF THE RANGE" (title) · "$99,999,999" · "NO BIGGER!"
-Caption:     Scaling up gets more expensive than it has any right to, and then, one day, the shop is simply out of bigger.
+Caption:     Sooner or later, there's no bigger box to buy.
 Style:       use the master prompt in STYLE.md verbatim; include a hand-lettered title across the top.
 -->
 
@@ -68,7 +68,7 @@ You have **nothing.** Not a partial answer, not a checkpoint you didn't write, n
 Purpose:     show that reliability is not a quantity you can add to one machine.
 Concept:     one machine holding everything means one failure loses everything.
 Labels:      "ONE MACHINE" · "MANY MACHINES"
-Caption:     Reliability isn't something you buy more of on one box. It comes from having more than one box.
+Caption:     One machine dies, you lose everything. Many machines, you just lose one.
 Style:       use the master prompt in STYLE.md verbatim; include a hand-lettered title.
 -->
 
@@ -90,7 +90,7 @@ There is exactly one way to read faster than one disk: **read from many disks at
 Purpose:     separate "processing speed" from "how fast you can get the data in", the real bottleneck.
 Concept:     one disk reads at one fixed speed; the only way to read faster is to read many at once.
 Labels:      "ONE DISK" · "MANY DISKS" · "SAME TIME"
-Caption:     One disk reads at one speed. Ten disks read ten chapters at once. That is the only lever that moves.
+Caption:     One disk reads at one speed. Many disks read faster.
 Style:       use the master prompt in STYLE.md verbatim; include a hand-lettered title.
 -->
 

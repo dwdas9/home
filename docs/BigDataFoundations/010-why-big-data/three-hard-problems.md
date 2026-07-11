@@ -1,6 +1,6 @@
 ---
 title: The Three Hard Problems of Distributed Data
-description: The moment you spread a job across many machines you inherit three problems a single machine never had: storing across them, surviving one dying, and coordinating the work. Every tool in the big-data ecosystem is an answer to one of these three.
+description: The three problems every distributed system must solve: storing, surviving, and coordinating.
 ---
 
 # The Three Hard Problems of Distributed Data
@@ -29,7 +29,7 @@ That sounds simple, and the cutting *is* simple. The hard part is the sentence t
 Concept:     data too big for one place is split across many, and is worthless without a manifest saying which piece went where.
 Analogy:     a shipment too big for one aisle, spread across many warehouse aisles, tracked by a clipboard at the door.
 Labels:      "AISLE 3" · "MANIFEST" · "LOST?"
-Caption:     Splitting the shipment is easy. The manifest that says which aisle holds what is the whole game: lose it and the goods are still there and still lost.
+Caption:     Split the data anywhere. Lose the map, lose the data.
 Style:       use the master prompt in STYLE.md verbatim; include a hand-lettered title.
 -->
 
@@ -49,7 +49,7 @@ This flips the whole mindset. On one machine, failure is an *exception* you can 
 Concept:     with many parts, something is always broken, so recovery must be built in ahead of time, not improvised.
 Analogy:     a theatre with understudies: any actor might fall ill, so every role has a replacement waiting in the wings, and the show goes on.
 Labels:      "UNDERSTUDY" · "SHOW GOES ON"
-Caption:     At scale, failure isn't the emergency. Having no understudy is.
+Caption:     At scale, something is always down. Plan for it.
 Style:       use the master prompt in STYLE.md verbatim; include a hand-lettered title.
 -->
 
@@ -76,7 +76,7 @@ That movement is the expensive part of distributed computing. The gathering, not
 Concept:     each worker holds only a piece; producing the whole answer means bringing the pieces together, and the bringing-together is where the cost lives.
 Analogy:     four people who each assembled one corner of a jigsaw must carry their corners to one table to see the finished picture.
 Labels:      "LOCAL WORK (EASY)" · "MOVING IT (COSTLY)" · "THE ANSWER"
-Caption:     Counting your own slice is free. Getting the right slices into the same place is what you pay for.
+Caption:     Counting your slice is free. Moving data to one place is not.
 Style:       use the master prompt in STYLE.md verbatim; include a hand-lettered title.
 -->
 

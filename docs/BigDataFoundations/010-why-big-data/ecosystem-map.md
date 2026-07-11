@@ -1,6 +1,6 @@
 ---
 title: A Map of the Ecosystem
-description: One picture of how HDFS, YARN, MapReduce, Hive, Spark, and the lakehouse fit together: a layered stack you can return to at the end of every module so that no name in big data ever arrives as a stranger.
+description: How HDFS, YARN, MapReduce, Hive, and Spark fit together, on one page.
 ---
 
 # A Map of the Ecosystem
