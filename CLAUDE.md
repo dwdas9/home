@@ -42,6 +42,12 @@ All reader-facing prose follows the owner's voice in [`.claude/WRITING-STYLE.md`
 plain, precise, dense, never Western-corporate or Hinglish. The one hard rule worth repeating here:
 **never use an em-dash (—).** The owner reads it as an AI tell. Use a comma, a colon, or two sentences.
 
+**What an article must do** is a separate document, [`.claude/TEACHING-BRIEF.md`](.claude/TEACHING-BRIEF.md).
+Its one hard rule: **every new concept opens with a real-world scenario, and the technical term is
+named last.** The site keeps one recurring analogy world, a warehouse with a delivery fleet, used
+where it fits honestly and set aside where a sharper analogy exists. Where the brief and the writing
+style appear to conflict (the brief's own examples are staccato; the voice is dense), **the voice wins.**
+
 Narrative prose uses admonitions; project write-ups use collapsible tab blocks. Match the
 surrounding page rather than introducing a third style.
 

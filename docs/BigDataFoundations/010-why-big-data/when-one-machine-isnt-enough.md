@@ -5,18 +5,18 @@ description: Why you can't just buy a bigger server, and what to do instead.
 
 # When One Machine Stops Being Enough
 
-The computer you are reading this on is astonishingly powerful. A modern laptop has more computing power than the machines that ran entire banks thirty years ago. For almost everything you will ever do, **one computer is enough.** That is worth saying plainly, because most of "big data" is a story about the rare moment when it stops being true.
+You run a shop, and the stock lives in a shed behind it.
 
-So start with the instinct everyone has, because it is a good one:
+For years the shed is fine. Then the shop does well, and one afternoon you walk out to find the crates stacked to the roof, the aisle blocked, and the delivery driver waiting because there is nowhere to put what he has brought. You have one shed and too much stock, so you do the obvious thing, the thing anyone would do.
 
-> *My program is too slow, or my data is too big to fit. I'll just get a bigger computer.*
+You price a bigger shed.
 
-That instinct is correct. It stays correct for far longer than beginners expect. This entire article is about the exact moment it stops being correct, and what an experienced engineer reaches for instead.
+That instinct is a good one. Hold on to it, because it is also the right answer far more often than anyone in this field admits. A shed twice the size solves your problem completely, today, with no cleverness required, and the same is true of computers. The machine you are reading this on has more computing power than the machines that ran entire banks thirty years ago, and for almost everything you will ever do, **one computer is enough.** Most of "big data" is a story about the rare afternoon when it stops being true.
 
-Two phrases carry the whole field, so let us name them once and never be confused by them again:
+This article is about that afternoon: the exact moment the bigger shed stops being the answer, and what an experienced engineer reaches for instead. Two phrases carry the whole field, and they are simply the two things you can do about a full shed:
 
-- **Scaling up** (*vertical scaling*): make the one machine bigger. More CPU, more memory, faster disk.
-- **Scaling out** (*horizontal scaling*): keep the machines ordinary, but use **more of them** at once.
+- **Scaling up** (*vertical scaling*): build a bigger shed. One machine, more CPU, more memory, faster disk.
+- **Scaling out** (*horizontal scaling*): rent more ordinary sheds. Keep the machines cheap, but use **more of them** at once.
 
 Everything below is a single question: when do you stop scaling up and start scaling out?
 
@@ -42,7 +42,9 @@ So if one machine goes this far, why does anyone build clusters at all? Because 
 
 ## Wall 1: the price stops being fair, and then the box runs out
 
-Doubling a machine does not double its price. In the commodity range, price and power rise together roughly fairly. Past that range, the curve bends sharply upward: the parts that go into the very largest servers are specialised, low-volume, and priced accordingly. You pay a steep premium for the privilege of keeping everything on one box.
+Go back to the shed. Doubling its floor space does not double the rent, it more than doubles it, and past a certain size you stop finding sheds at all. You are no longer choosing between prices. You are being told that the thing you want to rent does not exist.
+
+Machines behave the same way. Doubling a machine does not double its price. In the commodity range, price and power rise together roughly fairly. Past that range, the curve bends sharply upward: the parts that go into the very largest servers are specialised, low-volume, and priced accordingly. You pay a steep premium for the privilege of keeping everything on one box.
 
 And then the box runs out. That is the part people forget. There is a largest machine that money can buy. When you have rented the biggest instance your cloud offers, there is no "twice as big" to rent at any price. The ceiling is not financial at that point. It is physical.
 
@@ -60,7 +62,9 @@ Two ordinary machines cost far less than one machine twice as powerful, and unli
 
 ## Wall 2: one machine is one thing that can break
 
-Here is a failure mode that no amount of money fixes. Your job has been running for nine hours. At hour nine, the machine's power supply dies.
+A shed with every crate you own in it has a property you would rather not think about: it can burn down. When it does, you do not lose some of your stock. You lose all of it. Notice that the bigger shed made this *worse*, because you put more in it.
+
+Here is the same failure mode in a machine, and no amount of money fixes it either. Your job has been running for nine hours. At hour nine, the machine's power supply dies.
 
 You have **nothing.** Not a partial answer, not a checkpoint you didn't write, nothing. And a bigger machine makes this *worse*, not better: it concentrates more of your work behind a single point of failure. Adding RAM does not buy you reliability. It buys you a larger, more expensive single thing to lose.
 
@@ -80,11 +84,13 @@ Reliability, it turns out, is not a component you can order. It is a *property o
 
 This is the wall that surprises people most, because it has nothing to do with how clever or fast the CPU is.
 
-Suppose you must scan a 10 TB file: just read it once, cover to cover. A *fast* local NVMe drive reads at roughly 2 GB per second, and most storage is slower than that. Do the division: 10 TB at 2 GB/s is still about **an hour and a half of pure reading** on the fast disk, and many hours on the ordinary network or cloud storage where big files actually live. The whole time, the CPU sits idle, waiting for bytes to arrive.
+The shed has one loading door. It does not matter how large you build the shed, how many staff you hire, or how quickly they work: every crate that comes in or goes out passes through that one door, one at a time. Hire ten more pickers and they will queue at the door. The door is the limit, and the door does not get faster.
+
+A disk is a loading door. Suppose you must scan a 10 TB file: just read it once, cover to cover. A *fast* local NVMe drive reads at roughly 2 GB per second, and most storage is slower than that. Do the division: 10 TB at 2 GB/s is still about **an hour and a half of pure reading** on the fast disk, and many hours on the ordinary network or cloud storage where big files actually live. The whole time, the CPU sits idle, waiting for bytes to arrive.
 
 Now here is the trap. Buying a faster CPU does *nothing*, because the CPU was never the bottleneck. And you cannot make a single disk read meaningfully faster than a single disk reads. You have hit a physical rate limit on one machine, and no upgrade you can bolt onto that machine moves it.
 
-There is exactly one way to read faster than one disk: **read from many disks at the same time.**
+There is exactly one way to read faster than one disk: **read from many disks at the same time.** More doors, not a wider door.
 
 <!-- ILLUSTRATION: many-hands-one-book  (REWORK to the funny+title bar before generating.)
 Purpose:     separate "processing speed" from "how fast you can get the data in", the real bottleneck.
@@ -100,15 +106,17 @@ Notice that the three walls are not really about money at all. They are three *d
 
 ## The other kind of bigger: more boxes
 
-If you cannot buy a machine that is strong enough, reliable enough, and fast enough at reading, you change the shape of the answer entirely. Instead of one heroic machine, you use **many ordinary ones, working on the problem together.** This is horizontal scaling, and it is the idea the entire rest of this site is built on.
+So stop trying to rent the impossible shed, and rent ten ordinary ones across town instead, each with its own door and its own crew. Nothing about that idea is clever. It is what any shopkeeper would do once the big shed turned out not to exist, and it is the whole of horizontal scaling: instead of one heroic machine, **many ordinary ones working on the problem together.**
 
-The cleanest way to feel the difference is to stop thinking about computers for a moment and think about moving a house. Look at what a moving crew buys you against all three walls at once:
+Look at what the ten sheds buy you against all three walls at once:
 
-- **Price.** Ten ordinary movers cost far less than one mythical strongman ten times as strong, who does not exist anyway. Commodity machines are cheap and plentiful precisely *because* they are ordinary.
-- **Reliability.** If one mover calls in sick, the sofa still moves; the others cover. If the strongman pulls a muscle, everything stops. Many machines can lose one and carry on.
-- **Throughput.** Ten movers carry ten things at once. A hundred machines each read their own 100 GB slice of that 10 TB file *simultaneously*. Each machine does one-hundredth of the reading, so the hour and a half collapses toward a minute.
+- **Price.** Ten ordinary sheds cost far less than one mythical shed ten times the size, which is not for rent at any price. Commodity machines are cheap and plentiful precisely *because* they are ordinary.
+- **Reliability.** If one shed burns down, you lose a tenth of your stock and the shop stays open. Many machines can lose one and carry on.
+- **Throughput.** Ten sheds have ten doors, and ten trucks can load at once. A hundred machines each read their own 100 GB slice of that 10 TB file *simultaneously*, so each does one-hundredth of the reading, and the hour and a half collapses toward a minute.
 
-That is the whole promise of horizontal scaling, and it is genuinely transformative. A hundred cheap machines beat one impossible one on cost, on survival, and on speed, all three.
+That is the whole promise of horizontal scaling, and it is genuinely transformative. A hundred cheap machines beat one impossible machine on cost, on survival, and on speed, all three.
+
+This shed and its fleet of trucks will follow you through the rest of the site, because every tool ahead is a warehouse problem in disguise. The crates are your data, the sheds are the machines that hold them, and the trucks are how the data moves.
 
 ---
 

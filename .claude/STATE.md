@@ -22,6 +22,13 @@ comma, colon, or two sentences. `CLAUDE.md` also carries this.
 
 1. **One article at a time.** Don't move on until it's publication quality. Rewrite; correct
    inaccuracies rather than repeat them.
+1b. **`.claude/TEACHING-BRIEF.md` is now canonical** (owner supplied it 2026-07-12). Hard rule:
+   **every concept opens with a real-world scenario; the technical term is named last.** The site
+   keeps **one recurring analogy world: a warehouse of sheds with a delivery fleet** (crates = data,
+   sheds = machines, doors = disks, trucks = partitions, re-sorting by postcode = shuffle, front
+   counter = cache, picker off sick = fault tolerance, shift manager = YARN). Use it where it fits
+   honestly; a forced analogy teaches worse than none. Where the brief and WRITING-STYLE.md conflict
+   (the brief's own examples are staccato), **the voice wins: dense, complete clauses, no fragments.**
 2. **Hand-drawn sketches are the signature — and they must be funny.** A real, recognisable
    engineering gag plus a hand-lettered **title** inside the frame. Exaggeration alone reads as
    generic AI ("no concept"). Pitch the joke, get a yes, then write the prompt. Owner saves images
@@ -40,7 +47,12 @@ Plans: `.claude/reviews/ecosystem-curriculum-masterplan.md` (the ecosystem on-ra
 `docs/BigDataFoundations/`, three articles forming one continuous arc, all `mkdocs build --strict`
 clean:
 - `010-why-big-data/when-one-machine-isnt-enough.md` — the true entry point (three walls → scale out).
+  **Retrofitted to the teaching brief:** opens on the shopkeeper's full shed, establishes the
+  warehouse world for the whole site, each wall now opens in-world (rent curve → no bigger shed;
+  the shed burns down; one loading door) before the machine explanation. Strict build clean.
 - `010-why-big-data/three-hard-problems.md` — store / survive / coordinate; the diagnostic lens.
+  **NOT yet retrofitted** to the teaching brief. Next editorial job: give each of the three problems
+  an in-world opener (storing across sheds, surviving a fire, coordinating crews) before naming it.
 - `010-why-big-data/ecosystem-map.md` — layered Mermaid map, no sketch by design. Normal page for
   now; promote to the tab `index.md` during the eventual restructure.
 
@@ -59,6 +71,8 @@ clean:
 
 ## Next
 
+0. **Retrofit `three-hard-problems.md` and `ecosystem-map.md` to the teaching brief** (analogy-first,
+   in the warehouse world). Article 1 is done; the arc must not read as two different books.
 1. **Wire in F-02 `top-of-the-range.jpg`** the moment the owner saves it (steps above).
 2. **Continue F-03 → F-07**, one at a time, reworking each to the comedy+title bar before the owner
    generates it. Update both the article's inline brief and `manifest.md` when a concept changes.
