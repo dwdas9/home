@@ -231,7 +231,30 @@ h1, h2, h3, h4, h5 {
     height: auto;
 }
 
-/* Caveat is already loaded (see extra_javascript). A handwritten
+/* Mermaid diagrams are teaching diagrams, so they get the house hand: hand-drawn
+   shapes come from `look: handDrawn` in each diagram's own config block, and the
+   handwriting comes from here.
+
+   Why the CSS is needed at all, given every block already sets `fontFamily: Caveat`:
+   Mermaid draws flowchart labels as real HTML inside an <svg><foreignObject>, and
+   Material for MkDocs styles those with its own body font. Whoever loses that
+   specificity fight decides the font, so we settle it explicitly rather than hope.
+
+   `text` covers the SVG-native labels (edge labels, cluster titles); the span
+   classes cover the HTML ones. Caveat has a small x-height, so it needs the size
+   bump to stay as readable as the sans it replaces. */
+.mermaid text,
+.mermaid .nodeLabel,
+.mermaid .edgeLabel,
+.mermaid .cluster-label,
+.mermaid .label {
+    font-family: 'Caveat', cursive !important;
+    font-size: 1.15em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+/* Caveat is loaded by the @import at the top of this file. A handwritten
    caption under a hand-drawn sketch; the article's own voice stays
    in the body text. */
 .sketch figcaption {

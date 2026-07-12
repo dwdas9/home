@@ -161,7 +161,9 @@ extra_css:
   - stylesheets/extra.css  # Add custom CSS for styling
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js  # Enable Mermaid diagrams
-  - https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap
+# The Caveat font is NOT loaded here. It used to be listed above, but a stylesheet
+# URL inside a <script> tag does nothing at all. It is loaded by the @import at the
+# top of docs/stylesheets/extra.css, which is what has actually been working.
 
 # =========================
 # Navigation Structure
