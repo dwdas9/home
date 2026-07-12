@@ -3,7 +3,23 @@
 A personal documentation site: ~241 Markdown pages on data engineering, Azure, Spark, DevOps.
 No build step, no tests, no application code. Content and navigation are the whole project.
 
-**Start here:** read [`.claude/STATE.md`](.claude/STATE.md) for what is in flight.
+## Read the Content Bible first. Before anything.
+
+[`.claude/CONTENT-BIBLE.md`](.claude/CONTENT-BIBLE.md) is the **single source of truth for how this
+site explains things.** Read it before writing or editing one line of reader-facing prose, and read
+it in full: it is the philosophy, the voice, the article skeleton, the visual rules, and the
+pre-publication checklist. **It outranks every other document in this repository,** including this
+one. When an article and the Bible disagree, either the article is wrong or the Bible has been
+outgrown and must be amended. Never quietly ignore it.
+
+Its core sequence, which is never inverted: **real-world experience → problem → common-sense solution
+→ technology → terminology.** The reader understands the idea before she learns its name. Nothing
+ships until Part 11's checklist passes.
+
+`WRITING-STYLE.md` is the long-form reference behind Part 3 (the voice).
+`illustrations/STYLE.md` is the generation prompt behind Part 4 (the visuals).
+
+**Then:** read [`.claude/STATE.md`](.claude/STATE.md) for what is in flight.
 Consult [`.claude/DECISIONS.md`](.claude/DECISIONS.md) when a choice looks arbitrary — it probably wasn't.
 
 ## Do not scan the repository
@@ -38,6 +54,17 @@ on any push to `main`. Merging to `main` publishes to the live site immediately.
 
 ## Content conventions
 
+All reader-facing prose follows the owner's voice in [`.claude/WRITING-STYLE.md`](.claude/WRITING-STYLE.md):
+plain, precise, dense, never Western-corporate or Hinglish. The one hard rule worth repeating here:
+**never use an em-dash (—).** The owner reads it as an AI tell. Use a comma, a colon, or two sentences.
+
+**What an article must do** is the Content Bible, above. The site also keeps one recurring analogy
+world, **a warehouse of sheds with a delivery fleet** (crates are data, sheds are machines, doors are
+disks, trucks are partitions, re-sorting by postcode is a shuffle, the front counter is cache, a
+picker off sick is fault tolerance). It exists to satisfy Bible §6.5, *prefer analogies that extend*:
+the reader's model compounds instead of being rebuilt on every page. Use it where it fits honestly,
+and reach past it where a sharper analogy exists, because a forced analogy teaches worse than none.
+
 Narrative prose uses admonitions; project write-ups use collapsible tab blocks. Match the
 surrounding page rather than introducing a third style.
 
@@ -48,10 +75,39 @@ surrounding page rather than introducing a third style.
     === "Tab Name"
 ```
 
+**Sections under editorial rewrite** (currently Spark) follow a stronger brief: teach rather than
+document, one article at a time to publication quality, correct inaccuracies rather than restate
+them. **Images are half the explanation** — brief one wherever a drawing beats a paragraph, without
+waiting to be asked.
+
+**Two species, opposite laws** (Bible Part 4, and do not mix them up):
+
+- **Anchor image**: one per concept, at the **top**. Job is memory. Strange on purpose, its 5 to 10
+  embedded words *are* the definition, and its **style varies relentlessly, never twice in a row.**
+  It has no locked prompt by design. Fusion test before drawing: say the image in one sentence, and
+  that sentence must state the concept's defining property.
+- **Teaching diagram**: plain, consistent, placed exactly where discussed. Job is understanding. The
+  locked master prompt in `.claude/illustrations/STYLE.md` governs **these only.**
+
+Briefs go in `.claude/illustrations/manifest.md`, and inline as HTML comments until the file exists.
+
 ## Gotchas that cost a session to rediscover
 
 - The `offline` plugin forces `use_directory_urls: false`. Links render as `page.html`,
   not `page/`. Do not "fix" this.
+- **`mkdocs build --strict` aborts on an image path that does not resolve.** Never write
+  `<figure>`/`![]()` markup for an illustration before the file exists on disk. That is why
+  sketch briefs are committed to the manifest instead.
+- **Material code annotations do not work here.** `content.code.annotate` is enabled, but the
+  `# (1)!` marker renders as literal text — no page in the built site has ever had a working
+  annotation. Use plain comments.
+- **`pymdownx.details` and admonition titles have no escape syntax.** `??? note "\"quoted\""`
+  renders the backslashes to the reader. Use typographic quotes: `"“quoted”"`.
+- Mermaid is wired through `pymdownx.superfences` and works. Prefer it over screenshots of
+  diagrams: a PNG bakes in one background colour and is unreadable in one of the two colour
+  schemes. The **Caveat** handwriting font is already loaded and is used for sketch captions.
+- `mkdocs-redirects` is pinned `<1.2.3`. 1.2.3 depends on `properdocs`, a second copy of the
+  docs engine (the MkDocs 2.0 rebrand). Do not lift the pin without reading why.
 - `md_in_html` is enabled for Material card grids. Card list items are `-` followed by
   **three** spaces; continuation lines indent **four**. Wrong indentation silently renders a
   plain bullet list instead of cards — the build still passes. Verify by grepping the built

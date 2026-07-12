@@ -250,6 +250,12 @@ This is what you'll do every single day. The basic loop.
     ### Quick Decision Tree
 
     ```mermaid
+    ---
+    config:
+      look: handDrawn
+      handDrawnSeed: 42
+      fontFamily: Caveat
+    ---
     flowchart TD
         A[Need to sync main] --> B{git status clean?}
         B -- Yes --> C[git pull origin main]
@@ -391,6 +397,12 @@ This is what you'll do every single day. The basic loop.
         That's the magic of `-u`. You set it up once. Git remembers.
 
     ```mermaid
+    ---
+    config:
+      look: handDrawn
+      handDrawnSeed: 42
+      fontFamily: Caveat
+    ---
     graph TB
         A[Edit files] --> B[git add .]
         B --> C[git commit -m 'msg']
@@ -507,6 +519,12 @@ Everything below is optional. But useful to know.
 ??? abstract "How Git Thinks About Your Files"
     
     ```mermaid
+    ---
+    config:
+      look: handDrawn
+      handDrawnSeed: 42
+      fontFamily: Caveat
+    ---
     flowchart LR
         A[Working Directory] -->|git add| B[Staging Area]
         B -->|git commit| C[Local Repository]

@@ -121,6 +121,12 @@ The first thing you always do (apart from git setup etc) is **clone a repository
     **Phase 1: The Setup**
     
     ```mermaid
+    ---
+    config:
+      look: handDrawn
+      handDrawnSeed: 42
+      fontFamily: Caveat
+    ---
     flowchart LR
         A["git clone"] --> B["Create folder"]
         B --> C["Initialize .git/"]
@@ -154,6 +160,12 @@ The first thing you always do (apart from git setup etc) is **clone a repository
     **Phase 2: The Download**
     
     ```mermaid
+    ---
+    config:
+      look: handDrawn
+      handDrawnSeed: 42
+      fontFamily: Caveat
+    ---
     flowchart LR
         A["GitHub Server"] -->|"Download everything"| B[".git/objects/"]
         B --> C["Create origin/main<br/>origin/dev<br/>origin/feature"]
@@ -181,6 +193,12 @@ The first thing you always do (apart from git setup etc) is **clone a repository
     **Phase 3: The Checkout**
     
     ```mermaid
+    ---
+    config:
+      look: handDrawn
+      handDrawnSeed: 42
+      fontFamily: Caveat
+    ---
     flowchart LR
         A["Create local main"] --> B["Link main → origin/main"]
         B --> C["Extract files to<br/>working directory"]

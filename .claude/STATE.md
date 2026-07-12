@@ -1,6 +1,6 @@
 # Project State
 
-**Updated:** 2026-07-10 · **Branch:** `changes-cleanup` · **Working tree:** clean, pushed to origin
+**Updated:** 2026-07-11 · **Branch:** `spark-curation` · **Working tree:** clean · **Never pushed**
 
 Keep this file under one screen. It answers one question: *what would the last session tell me
 if I could ask them?* Delete finished items rather than accumulating a changelog — git is the
@@ -8,57 +8,119 @@ changelog.
 
 ---
 
+## The standing brief
+
+Turn this site from accumulated notes into **world-class technical articles** a developer bookmarks
+and recommends. The owner runs the assistant as **editor-in-chief**: execute the roadmap
+autonomously, one article to publication quality at a time; interrupt only for strategic forks,
+external assets (images), or contradictions. The reframed vision is *"how a data engineer should
+think,"* not "Spark docs": begin with why distributed computing exists at all.
+
+**Write in the owner's voice: `.claude/WRITING-STYLE.md`.** Plain, precise, dense; never
+Western-corporate or Hinglish. Hard rule: **no em-dash, ever** (he reads it as an AI tell), use a
+comma, colon, or two sentences. `CLAUDE.md` also carries this.
+
+1. **One article at a time.** Don't move on until it's publication quality. Rewrite; correct
+   inaccuracies rather than repeat them.
+1b. **`.claude/CONTENT-BIBLE.md` is the law** (owner supplied it 2026-07-12; it outranks every other
+   note, including CLAUDE.md). **Read it before writing anything.** The SessionStart hook now says so
+   in every session. Core sequence, never inverted: *experience → problem → common-sense solution →
+   technology → terminology*. Nothing ships until **Part 11's checklist** passes, and "mostly" is a
+   no. The site keeps **one recurring analogy world: a warehouse of sheds with a delivery fleet**
+   (crates = data, sheds = machines, doors = disks, trucks = partitions, re-sorting by postcode =
+   shuffle, front counter = cache, picker off sick = fault tolerance, shift manager = YARN), per
+   Bible §6.5. Use it where it fits honestly; a forced analogy teaches worse than none.
+2. **Images are two species with opposite laws** (Bible Part 4, revised 2026-07-12). **Anchor
+   image:** one per concept, at the top, job is memory, deliberately strange, its 5 to 10 embedded
+   words *are* the definition, and its **style must vary relentlessly, never twice in a row.** No
+   locked prompt, on purpose. It must pass the **fusion test**: say it in one sentence, and that
+   sentence must state the concept's defining property (a necklace with beads fixed in order = a
+   tuple; a funny robot beside the word "tuple" = decoration = cut). **Teaching diagram:** plain,
+   consistent, placed where discussed, job is understanding, locked to the master prompt in
+   `.claude/illustrations/STYLE.md`. **Never apply that prompt to an anchor.** Pitch the image as one
+   sentence and get a yes before writing any prompt. Owner generates them and saves as **.jpg**.
+
+Plans: `.claude/reviews/ecosystem-curriculum-masterplan.md` (the ecosystem on-ramp) and
+`spark-editorial-review.md` (the Spark tab). `DECISIONS.md` when a choice looks arbitrary. Work on
+`spark-curation`. **Nothing is published;** `ci.yml` deploys only from `main`.
+
+---
+
 ## In flight
 
-Nothing half-finished. Both pieces below are pushed to `origin/changes-cleanup`. **Not merged.**
-`origin/main` is untouched, so the live site still shows the old Home tab.
+**Track B — the on-ramp. Module 0 (Why Big Data) is COMPLETE and live on the branch.** **There is no
+separate Big Data Foundations tab: the owner folded it into Spark (2026-07-12).** The three articles
+now live in `docs/Spark-DataBricks/0.0_Foundations/` and open the **Spark** tab as a `Why Big Data?`
+section, above `What Is Spark?`. Module 1 (Hadoop) and everything else on the on-ramp goes there too,
+not into a new tab. One continuous arc, all `mkdocs build --strict` clean:
+- `0.0_Foundations/when-one-machine-isnt-enough.md` — the true entry point (three walls → scale out).
+  **Retrofitted to the teaching brief:** opens on the shopkeeper's full shed, establishes the
+  warehouse world for the whole site, each wall now opens in-world (rent curve → no bigger shed;
+  the shed burns down; one loading door) before the machine explanation. Strict build clean.
+- `0.0_Foundations/three-hard-problems.md` — store / survive / coordinate; the diagnostic lens.
+  **NOT yet retrofitted** to the teaching brief. Next editorial job: give each of the three problems
+  an in-world opener (storing across sheds, surviving a fire, coordinating crews) before naming it.
+- `0.0_Foundations/ecosystem-map.md` — layered Mermaid map, no sketch by design. Normal page for
+  now; promote to the tab `index.md` during the eventual restructure.
 
-**1. Home tab restructure.** The tab now reads as one story: Early Life → Family → Professional
-Journey → Projects.
-
-- `mkdocs.yml` — `Home` is a nav *section* (index page `index.md`) so Home and About Me share one
-  tab. Former `About Me:` group renamed `Professional Projects:`. Enabled `md_in_html`.
-- `docs/index.md` — appended a `## Projects` section: a three-card Material grid linking the three
-  `docs/AboutMe/` pages, which previously had **no inbound links from anywhere**.
-
-Verified: `mkdocs build --strict` passes; 13 tabs, Home did not split; cards rendered as real
-cards (6 inline `<svg>`, 3 `<hr>`, no literal `:material-…:` leaking); links resolve; the string
-`About Me` is gone from the rendered site.
-
-**2. Cross-session continuity system.** `CLAUDE.md` (auto-loaded), this file, `DECISIONS.md`,
-the `/handover` command, and crash-resilience hooks in `.claude/settings.json` backed by
-`.claude/scripts/{snapshot,context}.sh`.
-
-Verified: snapshot script creates `refs/snapshots/*` without touching HEAD/index/worktree,
-captures untracked files, dedups, prunes to 50. Both hook scripts emit valid JSON. All four hook
-commands run verbatim. `mkdocs build --strict` still clean and no `.claude/` file leaks into the
-built site.
-
-Dark mode was verified from the built CSS rather than a browser: card icons carry no hardcoded
-`fill` and inherit `fill: currentcolor`; the card border uses `var(--md-default-fg-color--lightest)`.
-The `slate` scheme redefines both. The grid is theme-correct by construction.
+**Illustration pipeline — running one sketch at a time with the owner.** Re-classified under the
+two-species rule: **F-01 is the anchor** for article 1; **F-02 to F-07 sit inside the article, so
+they are teaching diagrams** and keep the locked master prompt. The consequence to remember: the
+**next anchor** (article 2) **must not be an ink sketch**, because F-01 already is one and an
+anchor's style may never repeat twice in a row.
+- **F-01 `frankenstein-server.jpg` is LIVE** (anchor, top of article 1). Passes the fusion test:
+  "one machine upgraded past its limit explodes while the cheap ones hum along" *is* the concept.
+- **F-02 `top-of-the-range.jpg` — prompt delivered in chat, owner is generating it.** It's the funny
+  rework of the price-ceiling idea (computer shop, biggest box bursts through the roof, `$99,999,999`,
+  moth from the wallet, `NO BIGGER!`). When it lands: save to the sketches folder, **replace the old
+  `bigger-box-price-ceiling` inline `<!-- ILLUSTRATION -->` brief in article 1's Wall 1 section** with
+  `<figure>`, flip manifest F-02 to live, strict build, commit.
+- **F-03…F-07 inline briefs and manifest entries are still the ORIGINAL, too-literal versions**
+  (all-eggs-one-basket, many-hands-one-book, warehouse-manifest, understudy-steps-in,
+  jigsaw-to-one-table). **Do not hand those to the owner as-is** — each must first be reworked to the
+  funny-gag-plus-title bar, pitched, approved, then generated. F-03 next; my pitch idea: one smug
+  giant server tripping over its own power cord while the little cluster shrugs.
 
 ## Next
 
-1. **The hooks are not live yet.** `.claude/` did not exist when the authoring session started,
-   so the settings watcher never picked it up. Open `/hooks` once, or start a new session, then
-   confirm by making any edit and running
-   `git for-each-ref refs/snapshots/` — an `-edit` ref should appear. This is the only thing
-   standing between you and automatic crash protection.
-2. Open a PR from `changes-cleanup`, or merge it. **Merging to `main` publishes to the live
-   public site immediately** via `mkdocs gh-deploy --force` — see `CLAUDE.md`. The branch is
-   pushed but nothing is published yet.
+0. **Retrofit `three-hard-problems.md` and `ecosystem-map.md` to the teaching brief** (analogy-first,
+   in the warehouse world). Article 1 is done; the arc must not read as two different books.
+1. **Wire in F-02 `top-of-the-range.jpg`** the moment the owner saves it (steps above).
+2. **Continue F-03 → F-07**, one at a time, reworking each to the comedy+title bar before the owner
+   generates it. Update both the article's inline brief and `manifest.md` when a concept changes.
+3. **Then resume writing: Track B Module 1 — Hadoop, starting with HDFS (1.2).** Then YARN (1.3),
+   MapReduce (1.4, the "why Spark" hinge), modes (1.5). Salvage the buried
+   `DevOps/Docker/ContainerStacks/BigDataStack/4.9.2_Hadoop_Concepts.md` rather than restating it
+   (plan §3/§4). Wire the ecosystem-map's forward links to these as they land.
+
+**Track A — the Spark tab — is PAUSED** (owner chose the on-ramp first). When resumed, the detailed
+plan is in `spark-editorial-review.md`; the first two steps are (a) wire `lineage-cake.png` into
+`1.0_Spark-Concepts.md` *(generated last session but never saved to the repo — must be re-generated;
+save to `docs/Spark-DataBricks/1.0_Spark/images/sketches/`, insert after "…the recipe that produced
+it", mark S-04 live)*, then (b) rewrite `1.0.1__Python_PySpark_Spark_Confusion.md`. Keystone gaps to
+write: **Reading the Spark UI**, AQE, Joins, Lazy/Catalyst. The docs/ restructure is deliberately
+deferred to one final batch.
 
 ## Blocked / open questions
 
-- On-page heading is `## Projects` while the sidebar group is `Professional Projects`. Deliberate
-  (see DECISIONS, "Naming the Home tab project group"), but the user may want them identical.
-  One-word change in `docs/index.md`.
+- **Images are owner-generated (external asset).** F-02 is with the owner now.
+- Crash-resilience hooks may still not be live — `refs/snapshots/` needs a fresh check
+  (`git for-each-ref refs/snapshots/`); open `/hooks` once if empty.
+- Branch has **no upstream**; never pushed. Merging to `main` publishes immediately.
+- Minor, unanswered: Home tab's on-page `## Projects` vs sidebar `Professional Projects`;
+  `refs/backup/pre-detrailer` safe to delete.
 
 ## Assumptions a future session should not re-derive
 
-- `mkdocs.yml` `nav:` is the site map. Do not scan `docs/` to discover pages.
-- Everything under `docs/` is published. Notes never go there.
-- No file was moved and no URL changed, so no redirects are needed.
-- `jq` is not installed and the only `python` lives in `.venv`. Hook scripts therefore depend on
-  git and sed only, on purpose. Do not "simplify" them with `jq`.
+- `mkdocs.yml` `nav:` is the site map. **Do not scan `docs/`.** A new `.md` is invisible until added.
+- Everything under `docs/` is published. Notes live in `.claude/`.
+- **`mkdocs build --strict` aborts on an image path that does not resolve.** Never write `<figure>`
+  markup before the image file is on disk — that's why briefs go in as HTML comments.
+- `use_directory_urls: false` (forced by `offline`), so a filename *is* its URL; every rename needs a
+  `redirect_maps` entry. Mermaid works (superfences). **Caveat** font loaded for sketch captions.
+- Material code annotations (`# (1)!`) render as literal text here — use plain comments.
+- `pymdownx.details`/admonition titles have no escape syntax — use typographic quotes.
+- `mkdocs.exe`/`mkdocs` live in `.venv/Scripts`; `jq` is not installed; hook scripts use git + sed
+  only, on purpose.
+- Track A duplication still to resolve when it resumes: caching 5×, Hive 6×, shuffle 3×, skew 2×,
+  PySpark-vs-Spark 3× (see `spark-editorial-review.md`).

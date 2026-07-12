@@ -35,6 +35,10 @@ snap=$(git for-each-ref --sort=-refname --count=1 --format='%(refname)' refs/sna
     printf 'Project state (injected automatically — no need to scan the repo):\n\n'
   fi
 
+  printf -- '- READ .claude/CONTENT-BIBLE.md BEFORE WRITING ANY READER-FACING PROSE. Before\n'
+  printf '  anything. It is the single source of truth for how this site explains things,\n'
+  printf '  it outranks every other note here, and no article ships until it passes the\n'
+  printf '  checklist in Part 11.\n'
   printf -- '- Branch: %s\n' "$branch"
 
   if [ "$n_dirty" -gt 0 ]; then

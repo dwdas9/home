@@ -93,6 +93,16 @@ plugins:
       auto_caption: true           # generate captions automatically
       caption_position: bottom     # place captions at the bottom
       shadow: true                 # enable shadow effects
+  # Keeps old URLs alive after a page is renamed or moved. `offline` forces
+  # use_directory_urls: false, so a filename IS its URL and every rename is a
+  # breaking change. Add old -> new here BEFORE renaming, never after.
+  # Left of the arrow: the old path, as it appeared under docs/. Right: the new one.
+  - redirects:
+      redirect_maps:
+        # The "Complete PySpark Gotchas Guide" was a duplicate of the
+        # 1.1_PySparkGotchas/ articles, and was truncated mid-function.
+        # Its four unique gotchas were rescued into that folder; it now lands on the index.
+        'Spark-DataBricks/1.0_Spark/2.0_PySpark_Gotchas.md': 'Spark-DataBricks/1.1_PySparkGotchas/index.md'
   - offline  # Make site searchable offline (enable if distributing offline)
   #- include-markdown ## Sidebar menu structure. Each file path is relative to the `docs` directory.. To reuse markdown files in other markdown files
 
@@ -151,7 +161,9 @@ extra_css:
   - stylesheets/extra.css  # Add custom CSS for styling
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js  # Enable Mermaid diagrams
-  - https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap
+# The Caveat font is NOT loaded here. It used to be listed above, but a stylesheet
+# URL inside a <script> tag does nothing at all. It is loaded by the @import at the
+# top of docs/stylesheets/extra.css, which is what has actually been working.
 
 # =========================
 # Navigation Structure
@@ -169,7 +181,14 @@ nav:
       - SharePoint and M365 Projects: 'AboutMe/SharePointAndM365Projects.md'
 
   - Spark:
-    - Concepts: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
+    # The on-ramp comes first on purpose: a reader meets "why distributed computing
+    # exists at all" before meeting Spark, so Spark reads as the obvious answer rather
+    # than another framework. These three articles are one continuous arc; keep them in order.
+    - Why Big Data?:
+      - When One Machine Isn't Enough: 'Spark-DataBricks/0.0_Foundations/when-one-machine-isnt-enough.md'
+      - The Three Hard Problems: 'Spark-DataBricks/0.0_Foundations/three-hard-problems.md'
+      - A Map of the Ecosystem: 'Spark-DataBricks/0.0_Foundations/ecosystem-map.md'
+    - What Is Spark?: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
     - Python vs PySpark vs Spark: 'Spark-DataBricks/1.0_Spark/1.0.1__Python_PySpark_Spark_Confusion.md'
     - Narrow vs Wide: 'Spark-DataBricks/1.0_Spark/1.1_NarrowVsWideTransformation.md'
     - Architecture: 'Spark-DataBricks/1.0_Spark/1.2_SparkArchitecture.md'
@@ -180,7 +199,6 @@ nav:
     - Windows Functions: 'Spark-DataBricks/1.0_Spark/1.7_distinct_dropDuplicate_windowsFunc.md'
     - Partitioning: 'Spark-DataBricks/1.0_Spark/1.8_Partition_Grouping.md'
     - RDD vs DataFrame: 'Spark-DataBricks/1.0_Spark/1.9_RDD_Dataframe_Dataset.md'
-    - PySpark Gotchas: 'Spark-DataBricks/1.0_Spark/2.0_PySpark_Gotchas.md'
     - Scala Guide: 'Spark-DataBricks/1.0_Spark/1.10_Scala_Cheatsheet.md'
     - Interview Q&A: 'Spark-DataBricks/1.0_Spark/1.11_Spark_Interview_Questions.md'
     - Q&A: 'Spark-DataBricks/1.0_Spark/1.14_Q&A.md'
@@ -191,16 +209,23 @@ nav:
     - Setup Guide: 'Spark-DataBricks/1.0_Spark/Install-Pyspark-Windows/Install-Pyspark-Windows.md'
     - Hive:
         - Concepts: 'Spark-DataBricks/4.0_Hive/Hive_Concepts.md'
+    # Ordered as a reading sequence: I/O, then partitioning, then caching,
+    # then joins, then aggregation. Not alphabetically, and not by discovery date.
     - PySpark Gotchas:
-      - Schema Inference Double-Read Penalty: 'Spark-DataBricks/1.1_PySparkGotchas/SchemaInferenceDouble-ReadPenalty.md'
-      - Data Skew - The Silent Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/Data Skew-TheSilentPerformanceKiller.md'
+      - 'Spark-DataBricks/1.1_PySparkGotchas/index.md'
       - Small Files Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/SmallFilesPerformanceKiller.md'
-      - High-Cardinality Partitioning Disaster: 'Spark-DataBricks/1.1_PySparkGotchas/High-CardinalityPartitioningDisaster.md'
-      - The Goldilocks Partition Problem: 'Spark-DataBricks/1.1_PySparkGotchas/TheGoldilocksPartitionProblem.md'
+      - Schema Inference Double-Read Penalty: 'Spark-DataBricks/1.1_PySparkGotchas/SchemaInferenceDouble-ReadPenalty.md'
       - Suboptimal File Format Choices: 'Spark-DataBricks/1.1_PySparkGotchas/SuboptimalFileFormatChoices.md'
-      - Lazy Cache Evaluation Trap: 'Spark-DataBricks/1.1_PySparkGotchas/LazyCacheEvaluationTrap.md'
+      - The Goldilocks Partition Problem: 'Spark-DataBricks/1.1_PySparkGotchas/TheGoldilocksPartitionProblem.md'
+      - High-Cardinality Partitioning Disaster: 'Spark-DataBricks/1.1_PySparkGotchas/High-CardinalityPartitioningDisaster.md'
       - Over-Caching Memory Waste: 'Spark-DataBricks/1.1_PySparkGotchas/Over-CachingMemoryWaste.md'
       - Wrong Storage Level Choices: 'Spark-DataBricks/1.1_PySparkGotchas/WrongStorageLevelChoices.md'
+      - Lazy Cache Evaluation Trap: 'Spark-DataBricks/1.1_PySparkGotchas/LazyCacheEvaluationTrap.md'
+      - Data Skew - The Silent Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/Data Skew-TheSilentPerformanceKiller.md'
+      - Broadcasting Memory Bombs: 'Spark-DataBricks/1.1_PySparkGotchas/BroadcastingMemoryBombs.md'
+      - Inefficient Join Ordering: 'Spark-DataBricks/1.1_PySparkGotchas/InefficientJoinOrdering.md'
+      - Multiple-Pass Aggregation Waste: 'Spark-DataBricks/1.1_PySparkGotchas/MultiplePassAggregation.md'
+      - High-Cardinality GroupBy Memory Explosion: 'Spark-DataBricks/1.1_PySparkGotchas/HighCardinalityGroupBy.md'
     - Databricks:
       - Concepts: 'Spark-DataBricks/3.0_Databricks/3.0_Databricks_Concepts.md'
       - Catalogs: 'Spark-DataBricks/3.0_Databricks/3.1_Catalogs_And_Metastore.md'

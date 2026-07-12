@@ -51,6 +51,12 @@
     === "Architecture"
         **Overall System Architecture:**
         ```mermaid
+        ---
+        config:
+          look: handDrawn
+          handDrawnSeed: 42
+          fontFamily: Caveat
+        ---
         graph TB
             subgraph "Document Sources"
                 DOC[Banking Documents<br/>Credit Cards / Accounts<br/>Paper / Digital Forms]
@@ -210,6 +216,12 @@
  
 
         ```mermaid
+        ---
+        config:
+          look: handDrawn
+          handDrawnSeed: 42
+          fontFamily: Caveat
+        ---
         graph TB
             subgraph "Source Systems"
                 FIELD_OPS[Field Operations<br/>Angola, Africa<br/>XML Files]
@@ -323,6 +335,12 @@
     === "Solution Architecture"
         **6-Server Farm Overview:**
         ```mermaid
+        ---
+        config:
+          look: handDrawn
+          handDrawnSeed: 42
+          fontFamily: Caveat
+        ---
         graph TB
             subgraph "Load Balancing Tier"
                 F5[F5 BIG-IP Load Balancer<br/>SSL Termination<br/>Health Monitoring]
@@ -356,6 +374,12 @@
 
         **SQL Server Cluster Architecture:**
         ```mermaid
+        ---
+        config:
+          look: handDrawn
+          handDrawnSeed: 42
+          fontFamily: Caveat
+        ---
         graph TB
             subgraph "SQL Server Failover Cluster"
                 SQL_NODE1[SQL Node 1 - Active<br/>Windows 2008 R2<br/>32GB RAM, 8-Core CPU]
@@ -383,6 +407,12 @@
 
         **Network Infrastructure:**
         ```mermaid
+        ---
+        config:
+          look: handDrawn
+          handDrawnSeed: 42
+          fontFamily: Caveat
+        ---
         graph TB
             subgraph "External Access"
                 INTERNET[Internet Traffic]
@@ -451,6 +481,12 @@
 
         **Solution Overview:**  
         ```mermaid
+        ---
+        config:
+          look: handDrawn
+          handDrawnSeed: 42
+          fontFamily: Caveat
+        ---
         graph TB
             subgraph "Legacy Systems"
                 LegacyHTML[Static HTML/ASP Sites]
@@ -503,6 +539,12 @@
     === "Architecture"
         **SharePoint Farm Architecture:**
         ```mermaid
+        ---
+        config:
+          look: handDrawn
+          handDrawnSeed: 42
+          fontFamily: Caveat
+        ---
         graph TB
             subgraph "Load Balancing Layer"
                 LB[Load Balancer]
@@ -547,6 +589,12 @@
 
         **Content Migration Flow:**
         ```mermaid
+        ---
+        config:
+          look: handDrawn
+          handDrawnSeed: 42
+          fontFamily: Caveat
+        ---
         graph LR
             subgraph "Legacy Content Sources"
                 HTML[Static HTML Pages<br/>ASP Classic Sites]

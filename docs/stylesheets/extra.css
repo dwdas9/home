@@ -209,3 +209,68 @@ h1, h2, h3, h4, h5 {
     border: 2px solid #333;
     border-radius: 4px;
 }
+/* ============================================================
+   Hand-drawn sketches
+   ------------------------------------------------------------
+   Signature element of this site. Briefs and the locked
+   generation prompt live in .claude/illustrations/.
+   Markup:
+       <figure class="sketch" markdown>
+       ![alt](images/sketches/idea-slug.png)
+       <figcaption>The one claim the drawing makes.</figcaption>
+       </figure>
+   ============================================================ */
+
+.sketch {
+    margin: 2.4rem auto;
+    text-align: center;
+}
+
+.sketch img {
+    max-width: min(100%, 34rem);
+    height: auto;
+}
+
+/* Mermaid diagrams are teaching diagrams, so they get the house hand: hand-drawn
+   shapes come from `look: handDrawn` in each diagram's own config block, and the
+   handwriting comes from here.
+
+   Why the CSS is needed at all, given every block already sets `fontFamily: Caveat`:
+   Mermaid draws flowchart labels as real HTML inside an <svg><foreignObject>, and
+   Material for MkDocs styles those with its own body font. Whoever loses that
+   specificity fight decides the font, so we settle it explicitly rather than hope.
+
+   `text` covers the SVG-native labels (edge labels, cluster titles); the span
+   classes cover the HTML ones. Caveat has a small x-height, so it needs the size
+   bump to stay as readable as the sans it replaces. */
+.mermaid text,
+.mermaid .nodeLabel,
+.mermaid .edgeLabel,
+.mermaid .cluster-label,
+.mermaid .label {
+    font-family: 'Caveat', cursive !important;
+    font-size: 1.15em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+/* Caveat is loaded by the @import at the top of this file. A handwritten
+   caption under a hand-drawn sketch; the article's own voice stays
+   in the body text. */
+.sketch figcaption {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    line-height: 1.35;
+    margin-top: 0.4rem;
+    opacity: 0.85;
+    max-width: 34rem;
+    margin-inline: auto;
+}
+
+/* Dark mode is deliberately deferred -- see .claude/illustrations/STYLE.md.
+   When the sketches are confirmed to have transparent backgrounds, one rule
+   does it:
+       [data-md-color-scheme="slate"] .sketch img {
+           filter: invert(1) hue-rotate(180deg);
+       }
+*/
