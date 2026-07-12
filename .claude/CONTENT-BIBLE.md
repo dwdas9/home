@@ -5,7 +5,8 @@
 **Read this before writing anything. Before anything.** It outranks every other note in this
 repository. [`WRITING-STYLE.md`](WRITING-STYLE.md) is the long-form reference behind Part 3 and does
 not contradict it. [`illustrations/STYLE.md`](illustrations/STYLE.md) is the generation prompt behind
-Part 4.
+Part 4.5, the **teaching diagram** only. Anchor images (Part 4.4) obey the opposite law and are not
+bound by it.
 
 This document defines how we explain things. Not what we explain, and not how often we publish. How.
 
@@ -122,7 +123,7 @@ Show what most readers need now; hide depth behind a deliberate click. This is s
 Three smaller effects we exploit deliberately:
 
 - **Narrative**: humans remember stories with tension and resolution better than exposition. Gotchas, production incidents, and debugging sagas are told as stories, not listed as facts.
-- **Distinctiveness (Von Restorff effect)**: the odd item in a uniform sequence is the one remembered. A hand-drawn sketch of an executor having a breakdown, in a sea of technical text, becomes the memory anchor for the whole page. This is why our humour is visual and rare rather than constant: a joke on every line is uniform again.
+- **Distinctiveness (Von Restorff effect) and the bizarreness effect**: the odd item in a uniform sequence is the one remembered, and memory research (McDaniel and Einstein's classic experiments) adds a stronger claim: bizarre imagery is recalled better than common imagery, provided the bizarre image encodes the material itself. A man calmly carrying his own detached head is unforgettable; attached to Git's detached HEAD, it becomes unforgettable *knowledge*. Two consequences follow. First, our concept images are deliberately strange. Second, they deliberately vary in style, because a site where every image is weird in the same way is monotonous again, and monotony is exactly what the effect punishes. People never remember the general and the uniform; they remember the one thing that broke the pattern.
 - **Serial position**: readers best remember the beginning and the end. The opening hook and the closing takeaway are therefore the two most-edited parts of every article.
 
 ### 2.10 Who does this well, and why it works
@@ -205,37 +206,57 @@ Before any image goes into an article, it must pass one question: "What does the
 
 Whenever a diagram can replace several paragraphs, the diagram wins and the paragraphs shrink to a caption plus whatever the picture cannot show (the why, the caveat, the numbers). Spatial relationships, flows, timelines, architectures, and comparisons are all inherently visual; describing them in prose forces the reader to build the picture in working memory, which is exactly the load we exist to remove.
 
-### 4.3 Why hand-drawn
+### 4.3 Two species of visuals
 
-The default visual style is hand-drawn or hand-drawn-looking (Excalidraw-style), for three researched reasons:
+Every image on this site belongs to one of two species, and they obey opposite laws:
 
-1. **Distinctiveness**: in a feed of glossy vendor diagrams, a sketch stands out and becomes the memory anchor (Von Restorff).
-2. **Approachability**: polish signals "official and intimidating"; a sketch signals "a person figured this out and drew it for you". It lowers the reader's guard.
-3. **Enforced simplicity**: you cannot cram forty boxes into a hand sketch. The medium physically limits each diagram to one idea, which is the correct number.
+1. **The anchor image.** One per concept. Its job is *memory*: it is the strange, unforgettable scene the reader recalls three months later when someone says "tuple". Anchor images obey the law of distinctiveness, so they deliberately vary in style and deliberately break patterns.
+2. **The teaching diagram.** Architecture drawings, flowcharts, comparisons. Its job is *understanding*: it carries structure the reader would otherwise have to build in working memory. Teaching diagrams obey the law of clarity, so they are deliberately plain and deliberately consistent.
 
-### 4.4 The rules for every visual
+Confusing the species breaks the site in both directions. An anchor image forced to be consistent stops being memorable. A teaching diagram trying to be funny stops being clear.
+
+### 4.4 Anchor images: the concept, literalized
+
+The house style, proven by the existing catalogue: Git's detached HEAD as a man calmly carrying his own head. A Python tuple as a pearl necklace on a vintage poster, beads fixed in their order. Python sets as a curated travel kit, one of each tool, no duplicates. `python -V` as a woman flashing a V-sign in front of the Capitol Building, so that "capital V" arrives as a pun before it arrives as a flag. Lambda functions as a 1950s comic panel whose entire speech bubble is the definition: "No Name. One Line."
+
+Why this works is not taste; it is the bizarreness effect (2.9) plus dual coding plus, in the pun cases, the keyword-mnemonic technique from memory research: an absurd image whose description *is* the fact being learned gives the fact a second, stronger retrieval path.
+
+The laws of the anchor image:
+
+1. **The fusion rule.** The weirdness must *be* the concept, never sit beside it. The test: describe the image aloud in one sentence. If that sentence states the concept's defining property, the image passes. "A necklace whose beads are fixed in order" is a tuple. "A funny robot next to the word tuple" is decoration, and decoration is banned even when it is hilarious (coherence principle).
+2. **Puns are retrieval cues, not jokes.** Capitol Building → capital V. Detached head → detached HEAD. The pun is load-bearing: it is the string the reader pulls at recall time. A pun that leads nowhere is cut.
+3. **Vary the style relentlessly.** Vintage comic panel, propaganda poster, photorealistic still life, crude meme line-art, newsreel sketch. Never the same style twice in a row, because for this species sameness is the failure mode: readers remember the image precisely because it is unlike the last one. Uniform weirdness is monotony wearing a costume.
+4. **The words inside the image are the definition, and there are almost none of them.** "No Name. One Line." "No Duplicates." "It doesn't generate. It only buffers and sends." Five to ten words, carrying the concept's core property, placed in the scene. The anchor plus its embedded words alone should let a stranger guess what the article teaches.
+5. **One per concept, placed at the top.** It is the first thing seen (serial position), the thumbnail wherever the page is shared, and the cover of the memory the article builds.
+6. **The effort budget is real.** An anchor image is allowed to take as long as the prose it crowns, across as many iterations as it needs. This is not overhead; the anchor is frequently the only part of the page a reader can still reproduce a year later, which makes it the highest-leverage asset on the page. Budget for it accordingly, and never ship a placeholder.
+
+### 4.5 Teaching diagrams: plain, placed, consistent
+
+The default diagram style is hand-drawn or hand-drawn-looking (Excalidraw-style): a sketch signals "a person figured this out for you" rather than "official and intimidating", and the medium physically prevents cramming forty boxes into one drawing.
+
+The laws of the teaching diagram:
 
 1. **One idea per diagram.** If a diagram needs two paragraphs to explain, it is two diagrams.
 2. **Labels live on the drawing**, next to the thing they label. No separate legends, no "see key below" (spatial contiguity).
 3. **Signal the point.** One arrow, one highlight, or one "this is the part that matters" annotation per diagram.
 4. **Place it exactly where it is discussed.** Never above the fold when the explanation is below it, never "as shown earlier".
 5. **Caption states the takeaway**, not the description. "Data crosses the network only at the shuffle boundary", not "Diagram of Spark stages".
-6. **Consistent visual vocabulary.** The same shape or character always means the same thing across the whole site: if the driver is a clipboard-carrying manager in one article, it is never a crown-wearing king in another. Recurring characters compound: by the fifth article, a returning character carries its meaning for free.
+6. **Consistent visual vocabulary, for diagrams only.** The same shape always means the same thing across the site: if the driver is a clipboard-carrying manager in one architecture drawing, it is never a crown-wearing king in another, so that by the fifth article the returning shapes carry their meaning for free. Note the deliberate asymmetry: consistency is a diagram law, and anchor images obey the opposite law (4.4, rule 3).
 7. **Text in images must survive mobile.** If a label is unreadable at phone width, redraw it.
 
-### 4.5 Choosing the visual form
+### 4.6 Choosing the diagram form
 
 - **Flowchart**: decisions and branching logic ("should I broadcast this join?").
 - **Timeline**: anything with ordering or history (how a commit graph evolved, the life of a Spark job).
 - **Architecture drawing**: components and the arrows between them, with a strict cap of roughly seven boxes before it must split into layered diagrams.
 - **Comparison graphic**: two columns, same axes, differences highlighted. The fastest way to teach "X vs Y".
-- **Visual metaphor**: the real-world analogy, drawn. The restaurant kitchen with the head chef labelled "driver". These are the most shareable and the most memorable assets on the site.
+- **Visual metaphor**: the real-world analogy, drawn. The restaurant kitchen with the head chef labelled "driver". These sit between the species: built for understanding, but shareable and memorable enough to double as anchors when they earn it.
 - **Comic (two to four panels)**: reserved for gotchas and failure stories, where the tension-resolution structure of a comic mirrors the narrative.
 - **Annotated screenshot**: for UI and console output, with the noise dimmed and the relevant line circled. Never a raw screenshot.
 
-### 4.6 Humorous sketches
+### 4.7 Humour in visuals
 
-Humour in visuals follows the same law as humour in prose (Part 7): it must carry teaching weight. An executor drawn sweating under a pile of skewed partitions is funny *and* it teaches data skew. A random meme between sections is funny and teaches nothing, so it fails the coherence principle and gets cut.
+Humour follows the same law in both species and in prose (Part 7): it must carry teaching weight. An executor drawn sweating under a pile of skewed partitions is funny *and* it teaches data skew. A random meme between sections is funny and teaches nothing, so it fails the coherence principle and gets cut, however good the meme.
 
 ---
 
@@ -399,9 +420,13 @@ An article ships only when every box is ticked. "Mostly" is a no.
 
 **Visuals**
 - [ ] Every visual teaches something checkable; zero decorative images.
-- [ ] Each diagram carries one idea, labels on the drawing, caption stating the takeaway.
+- [ ] The anchor image passes the fusion test: describing it in one sentence states the concept's defining property.
+- [ ] The anchor image's style differs from the previous article's anchor.
+- [ ] The words inside the anchor image are few, and they are the definition.
+- [ ] The anchor image received real iteration; no placeholder shipped.
+- [ ] Each teaching diagram carries one idea, labels on the drawing, caption stating the takeaway.
 - [ ] Every diagram sits exactly beside the text that discusses it.
-- [ ] Visual vocabulary is consistent with previous articles.
+- [ ] Diagram vocabulary is consistent with previous articles (anchor images are exempt on purpose).
 - [ ] All image text is readable at phone width.
 - [ ] The skim test passes: headings plus visuals plus captions alone convey the core idea.
 

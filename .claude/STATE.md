@@ -30,11 +30,15 @@ comma, colon, or two sentences. `CLAUDE.md` also carries this.
    (crates = data, sheds = machines, doors = disks, trucks = partitions, re-sorting by postcode =
    shuffle, front counter = cache, picker off sick = fault tolerance, shift manager = YARN), per
    Bible §6.5. Use it where it fits honestly; a forced analogy teaches worse than none.
-2. **Hand-drawn sketches are the signature — and they must be funny.** A real, recognisable
-   engineering gag plus a hand-lettered **title** inside the frame. Exaggeration alone reads as
-   generic AI ("no concept"). Pitch the joke, get a yes, then write the prompt. Owner saves images
-   as **.jpg**. Read `.claude/illustrations/STYLE.md` before any image; titles override its
-   "no text beyond labels" rule.
+2. **Images are two species with opposite laws** (Bible Part 4, revised 2026-07-12). **Anchor
+   image:** one per concept, at the top, job is memory, deliberately strange, its 5 to 10 embedded
+   words *are* the definition, and its **style must vary relentlessly, never twice in a row.** No
+   locked prompt, on purpose. It must pass the **fusion test**: say it in one sentence, and that
+   sentence must state the concept's defining property (a necklace with beads fixed in order = a
+   tuple; a funny robot beside the word "tuple" = decoration = cut). **Teaching diagram:** plain,
+   consistent, placed where discussed, job is understanding, locked to the master prompt in
+   `.claude/illustrations/STYLE.md`. **Never apply that prompt to an anchor.** Pitch the image as one
+   sentence and get a yes before writing any prompt. Owner generates them and saves as **.jpg**.
 
 Plans: `.claude/reviews/ecosystem-curriculum-masterplan.md` (the ecosystem on-ramp) and
 `spark-editorial-review.md` (the Spark tab). `DECISIONS.md` when a choice looks arbitrary. Work on
@@ -57,8 +61,13 @@ clean:
 - `010-why-big-data/ecosystem-map.md` — layered Mermaid map, no sketch by design. Normal page for
   now; promote to the tab `index.md` during the eventual restructure.
 
-**Illustration pipeline — running one sketch at a time with the owner.**
-- **F-01 `frankenstein-server.jpg` is LIVE** (thesis image atop article 1). Comedy-first winner.
+**Illustration pipeline — running one sketch at a time with the owner.** Re-classified under the
+two-species rule: **F-01 is the anchor** for article 1; **F-02 to F-07 sit inside the article, so
+they are teaching diagrams** and keep the locked master prompt. The consequence to remember: the
+**next anchor** (article 2) **must not be an ink sketch**, because F-01 already is one and an
+anchor's style may never repeat twice in a row.
+- **F-01 `frankenstein-server.jpg` is LIVE** (anchor, top of article 1). Passes the fusion test:
+  "one machine upgraded past its limit explodes while the cheap ones hum along" *is* the concept.
 - **F-02 `top-of-the-range.jpg` — prompt delivered in chat, owner is generating it.** It's the funny
   rework of the price-ceiling idea (computer shop, biggest box bursts through the roof, `$99,999,999`,
   moth from the wallet, `NO BIGGER!`). When it lands: save to the sketches folder, **replace the old

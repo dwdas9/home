@@ -234,3 +234,29 @@ reference *behind* Part 3, not a competing account of it.
 **The warehouse world is kept**, recorded in CLAUDE.md rather than in the Bible, because it is a
 content decision (which analogy this site chose) rather than a rule of explanation (Bible §6.5 says
 prefer analogies that extend, and the warehouse is us obeying that).
+
+## 2026-07-12 — Two species of image, and the conflict that forced STYLE.md to be rescoped
+
+The owner revised the Content Bible: Part 2.9 now invokes the **bizarreness effect**, and Part 4
+splits every image on the site into two species with **opposite laws**.
+
+- **Anchor image** (4.4): one per concept, at the top, job is *memory*. Deliberately strange. Its 5
+  to 10 embedded words *are* the definition. Style **varies relentlessly, never twice in a row.**
+  Must pass the **fusion test**: describe it in one sentence, and that sentence must state the
+  concept's defining property.
+- **Teaching diagram** (4.5): plain, placed where discussed, job is *understanding*, one locked hand.
+
+**This contradicted `illustrations/STYLE.md` in four places,** and the contradiction was not
+cosmetic. STYLE.md exists so that "sketch #40 comes out in the same hand as sketch #3"; it says
+images do *not* go at the top; it caps text at four labels; and its master prompt is what "makes
+forty images look like one artist." The anchor image inverts every one of those.
+
+**Resolved by scope, not by deletion.** STYLE.md is now explicitly the law of *teaching diagrams
+only*, with a table at the top showing the split and a hard instruction never to apply its master
+prompt to an anchor. Both documents are right about their own species. Locking an anchor to a house
+style would destroy the exact property that makes it work, and letting a teaching diagram improvise
+its style would destroy the shape vocabulary that makes the fifth article cheap to read.
+
+**Consequence for the live pipeline:** F-01 (`frankenstein-server`, ink sketch) is article 1's
+anchor, and it passes fusion. F-02 to F-07 sit inside the article, so they are teaching diagrams and
+keep the locked prompt. Article 2's anchor therefore **may not be an ink sketch.**

@@ -77,10 +77,19 @@ surrounding page rather than introducing a third style.
 
 **Sections under editorial rewrite** (currently Spark) follow a stronger brief: teach rather than
 document, one article at a time to publication quality, correct inaccuracies rather than restate
-them. **Hand-drawn sketches are the site's signature** — brief an illustration wherever a drawing
-beats a paragraph, without waiting to be asked. The locked generation prompt and the rule that
-governs it (*one claim per drawing, writable as one sentence before you draw*) live in
-`.claude/illustrations/STYLE.md`; briefs go in `.claude/illustrations/manifest.md`.
+them. **Images are half the explanation** — brief one wherever a drawing beats a paragraph, without
+waiting to be asked.
+
+**Two species, opposite laws** (Bible Part 4, and do not mix them up):
+
+- **Anchor image**: one per concept, at the **top**. Job is memory. Strange on purpose, its 5 to 10
+  embedded words *are* the definition, and its **style varies relentlessly, never twice in a row.**
+  It has no locked prompt by design. Fusion test before drawing: say the image in one sentence, and
+  that sentence must state the concept's defining property.
+- **Teaching diagram**: plain, consistent, placed exactly where discussed. Job is understanding. The
+  locked master prompt in `.claude/illustrations/STYLE.md` governs **these only.**
+
+Briefs go in `.claude/illustrations/manifest.md`, and inline as HTML comments until the file exists.
 
 ## Gotchas that cost a session to rediscover
 

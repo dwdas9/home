@@ -1,10 +1,31 @@
 # Illustration style bible
 
-Sketches are the signature of this site. They are not decoration; they are the reason a reader
-remembers our explanation of shuffle rather than someone else's. Everything here exists so that
-sketch #40, drawn a year from now, comes out in the same hand as sketch #3.
+> ## Scope: this file governs TEACHING DIAGRAMS only.
+>
+> [`CONTENT-BIBLE.md`](../CONTENT-BIBLE.md) Part 4 splits every image on this site into two species
+> that obey **opposite laws**, and this file is the law of one species only.
+>
+> | | **Anchor image** (Bible 4.4) | **Teaching diagram** (Bible 4.5, *this file*) |
+> |---|---|---|
+> | Job | Memory | Understanding |
+> | Style | **Varies relentlessly.** Never twice in a row. | **One locked hand.** The master prompt below, verbatim. |
+> | Position | **Top of the article,** always. | Exactly where it is discussed, rarely the top. |
+> | Text inside | **5 to 10 words, and they are the definition.** | At most 4 scruffy labels. |
+> | Count | One per concept. | As many as earn their place. |
+>
+> **Do not apply the master prompt below to an anchor image.** Locking an anchor to one house style
+> destroys the exact property that makes it work: the reader remembers it *because* it is unlike the
+> last one. Uniform weirdness is monotony wearing a costume. An anchor image has no locked prompt on
+> purpose. Brief it from Bible 4.4, and pass its fusion test before drawing: say the image aloud in
+> one sentence, and that sentence must state the concept's defining property.
 
-**Read this before generating any image.** Do not improvise the style.
+Teaching diagrams are the signature of this site. They are not decoration; they are the reason a
+reader remembers our explanation of shuffle rather than someone else's. Everything below exists so
+that diagram #40, drawn a year from now, comes out in the same hand as diagram #3, because for *this*
+species consistency is the point: by the fifth article the returning shapes carry their meaning for
+free.
+
+**Read this before generating any teaching diagram.** Do not improvise the style.
 
 ---
 
@@ -57,6 +78,11 @@ formed in their head.
 An opening sketch is right only when the article's whole thesis is itself the counterintuitive
 idea (e.g. "when you should not use Spark").
 
+!!! warning "This rule is for teaching diagrams. The anchor image is the exception."
+    The **anchor image always sits at the top** (Bible 4.4, rule 5): it is the first thing seen, the
+    thumbnail when the page is shared, and the cover of the memory the article builds. The rule above
+    governs everything after it.
+
 **Be generous.** On the teaching articles under active rewrite (the Spark ecosystem and its new
 foundations), too few sketches is the more common failure, not too many. A long, hard article can
 easily carry ten or more: an analogy sketch, a workflow, a before/after, a common-mistake, an
@@ -73,10 +99,12 @@ This generosity is scoped to the articles being taught, not blanket across all ~
 
 ---
 
-## The master prompt
+## The master prompt (teaching diagrams only)
 
-Use this verbatim. Replace only `{SUBJECT}` and `{LABELS}`. Keep the constraint paragraphs
-unchanged — they are what makes forty images look like one artist.
+Use this verbatim **for teaching diagrams**. Replace only `{SUBJECT}` and `{LABELS}`. Keep the
+constraint paragraphs unchanged — they are what makes forty diagrams look like one artist.
+
+**Never use it for an anchor image.** See the scope table at the top of this file.
 
 ```text
 A rough hand-drawn ink sketch in the style of an old newspaper spot illustration or a
@@ -110,6 +138,10 @@ labels.
 At most **four** hand-lettered labels, and every one of them must also appear in the caption or
 the surrounding prose. Image models letter badly and the result is unsearchable, untranslatable,
 and invisible to a screen reader. The picture carries the idea; the words carry the words.
+
+Again, the anchor image inverts this. Its five to ten embedded words *are* the definition ("No Name.
+One Line." / "No Duplicates."), and they are load-bearing rather than labels: the anchor plus its
+words alone should let a stranger guess what the article teaches (Bible 4.4, rule 4).
 
 ---
 
