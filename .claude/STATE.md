@@ -22,13 +22,14 @@ comma, colon, or two sentences. `CLAUDE.md` also carries this.
 
 1. **One article at a time.** Don't move on until it's publication quality. Rewrite; correct
    inaccuracies rather than repeat them.
-1b. **`.claude/TEACHING-BRIEF.md` is now canonical** (owner supplied it 2026-07-12). Hard rule:
-   **every concept opens with a real-world scenario; the technical term is named last.** The site
-   keeps **one recurring analogy world: a warehouse of sheds with a delivery fleet** (crates = data,
-   sheds = machines, doors = disks, trucks = partitions, re-sorting by postcode = shuffle, front
-   counter = cache, picker off sick = fault tolerance, shift manager = YARN). Use it where it fits
-   honestly; a forced analogy teaches worse than none. Where the brief and WRITING-STYLE.md conflict
-   (the brief's own examples are staccato), **the voice wins: dense, complete clauses, no fragments.**
+1b. **`.claude/CONTENT-BIBLE.md` is the law** (owner supplied it 2026-07-12; it outranks every other
+   note, including CLAUDE.md). **Read it before writing anything.** The SessionStart hook now says so
+   in every session. Core sequence, never inverted: *experience → problem → common-sense solution →
+   technology → terminology*. Nothing ships until **Part 11's checklist** passes, and "mostly" is a
+   no. The site keeps **one recurring analogy world: a warehouse of sheds with a delivery fleet**
+   (crates = data, sheds = machines, doors = disks, trucks = partitions, re-sorting by postcode =
+   shuffle, front counter = cache, picker off sick = fault tolerance, shift manager = YARN), per
+   Bible §6.5. Use it where it fits honestly; a forced analogy teaches worse than none.
 2. **Hand-drawn sketches are the signature — and they must be funny.** A real, recognisable
    engineering gag plus a hand-lettered **title** inside the frame. Exaggeration alone reads as
    generic AI ("no concept"). Pitch the joke, get a yes, then write the prompt. Owner saves images

@@ -3,7 +3,23 @@
 A personal documentation site: ~241 Markdown pages on data engineering, Azure, Spark, DevOps.
 No build step, no tests, no application code. Content and navigation are the whole project.
 
-**Start here:** read [`.claude/STATE.md`](.claude/STATE.md) for what is in flight.
+## Read the Content Bible first. Before anything.
+
+[`.claude/CONTENT-BIBLE.md`](.claude/CONTENT-BIBLE.md) is the **single source of truth for how this
+site explains things.** Read it before writing or editing one line of reader-facing prose, and read
+it in full: it is the philosophy, the voice, the article skeleton, the visual rules, and the
+pre-publication checklist. **It outranks every other document in this repository,** including this
+one. When an article and the Bible disagree, either the article is wrong or the Bible has been
+outgrown and must be amended. Never quietly ignore it.
+
+Its core sequence, which is never inverted: **real-world experience → problem → common-sense solution
+→ technology → terminology.** The reader understands the idea before she learns its name. Nothing
+ships until Part 11's checklist passes.
+
+`WRITING-STYLE.md` is the long-form reference behind Part 3 (the voice).
+`illustrations/STYLE.md` is the generation prompt behind Part 4 (the visuals).
+
+**Then:** read [`.claude/STATE.md`](.claude/STATE.md) for what is in flight.
 Consult [`.claude/DECISIONS.md`](.claude/DECISIONS.md) when a choice looks arbitrary — it probably wasn't.
 
 ## Do not scan the repository
@@ -42,11 +58,12 @@ All reader-facing prose follows the owner's voice in [`.claude/WRITING-STYLE.md`
 plain, precise, dense, never Western-corporate or Hinglish. The one hard rule worth repeating here:
 **never use an em-dash (—).** The owner reads it as an AI tell. Use a comma, a colon, or two sentences.
 
-**What an article must do** is a separate document, [`.claude/TEACHING-BRIEF.md`](.claude/TEACHING-BRIEF.md).
-Its one hard rule: **every new concept opens with a real-world scenario, and the technical term is
-named last.** The site keeps one recurring analogy world, a warehouse with a delivery fleet, used
-where it fits honestly and set aside where a sharper analogy exists. Where the brief and the writing
-style appear to conflict (the brief's own examples are staccato; the voice is dense), **the voice wins.**
+**What an article must do** is the Content Bible, above. The site also keeps one recurring analogy
+world, **a warehouse of sheds with a delivery fleet** (crates are data, sheds are machines, doors are
+disks, trucks are partitions, re-sorting by postcode is a shuffle, the front counter is cache, a
+picker off sick is fault tolerance). It exists to satisfy Bible §6.5, *prefer analogies that extend*:
+the reader's model compounds instead of being rebuilt on every page. Use it where it fits honestly,
+and reach past it where a sharper analogy exists, because a forced analogy teaches worse than none.
 
 Narrative prose uses admonitions; project write-ups use collapsible tab blocks. Match the
 surrounding page rather than introducing a third style.

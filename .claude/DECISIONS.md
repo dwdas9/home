@@ -212,3 +212,25 @@ HTML, so nothing else re-renders.
 
 **Rejected:** A plain linked list instead of cards — chosen against for visual weight on the
 landing page.
+
+## 2026-07-12 — The Content Bible outranks everything, and the hook says so
+
+The owner supplied `.claude/CONTENT-BIBLE.md` as "the most important guiding principle", to be read
+before writing anything. It is now the single source of truth for how the site explains things and it
+outranks CLAUDE.md itself.
+
+Three mechanisms enforce it, because a doctrine nobody reads is decoration:
+1. CLAUDE.md opens with it, above even the "start here" pointer to STATE.md.
+2. `.claude/scripts/context.sh` injects "READ THE CONTENT BIBLE BEFORE WRITING ANY PROSE" into every
+   SessionStart and PostCompact, so a fresh or compacted session cannot miss it.
+3. Part 11's checklist is the ship gate. "Mostly" is a no.
+
+**`TEACHING-BRIEF.md` was deleted the same day it was written.** It was the assistant's condensation
+of an earlier version of the same brief, and the Bible supersedes it completely. Two overlapping
+doctrine files drift, and the moment they disagree the writer picks the one that suits them, which is
+how a style guide dies. One law, one file. WRITING-STYLE.md survives only because it is the long-form
+reference *behind* Part 3, not a competing account of it.
+
+**The warehouse world is kept**, recorded in CLAUDE.md rather than in the Bible, because it is a
+content decision (which analogy this site chose) rather than a rule of explanation (Bible §6.5 says
+prefer analogies that extend, and the warehouse is us obeying that).

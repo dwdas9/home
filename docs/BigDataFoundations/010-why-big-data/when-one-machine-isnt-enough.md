@@ -161,4 +161,33 @@ Everything else on this site is what people built to solve those three problems 
 
 ---
 
+## Where the shed analogy breaks
+
+The warehouse will carry you a long way, so it is worth saying plainly where it lies to you, before the lie turns into a habit.
+
+**Sheds are independent. Machines are not.** Ten sheds across town do not need to talk to each other, and your ten machines do, constantly. That conversation runs over a network, the network is far slower than a machine's own memory, and almost every performance problem in this entire field traces back to it. The warehouse quietly hides the single biggest cost in distributed computing.
+
+**Stock gets moved. Data gets copied.** Move a crate from one shed to another and the first shed is empty. Copy a file to another machine and both machines have it, which is why "keep three copies in three sheds" is a sane thing to say about data and an absurd thing to say about furniture.
+
+**A shopkeeper counts crates. A cluster answers questions about all of them at once.** Counting your total stock across ten sheds means someone gathers ten numbers and adds them, and that gathering step, trivial in a warehouse, is the expensive thing called a shuffle. It is coming.
+
+Keep the sheds. Just remember that the trucks between them are the part that costs you.
+
+---
+
+## Test yourself
+
+Answer each one in your head before you open it.
+
+??? question "Your job takes six hours on a machine with 64 GB of memory. Your first move?"
+    Rent a bigger machine. Not a cluster. Six hours is not a wall, it is an inconvenience, and vertical scaling buys you the improvement with none of the coordination tax. Reach for a cluster only when a wall stops you: the data does not fit, the read is too slow at full disk speed, or you must survive a machine dying.
+
+??? question "A colleague says a bigger machine will make the job more reliable, because the hardware is better. What do you tell them?"
+    Reliability is not a component you can order. It is a property of having more than one of something. Better hardware fails less often, but when it fails you still lose everything, and a bigger machine loses *more*. One is one, however expensive it is.
+
+??? question "You need to read a 10 TB file faster. Would a faster CPU help?"
+    No, and this is the wall people miss. The CPU was never the bottleneck; it sits idle waiting for bytes. The single disk is the loading door, and no upgrade bolted onto that machine widens it. The only way to read faster than one disk is to read from many disks at once.
+
+---
+
 *Next: **[The three hard problems of distributed data](three-hard-problems.md)**, storing across machines, surviving failure, and coordinating the work.*
