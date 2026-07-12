@@ -145,6 +145,36 @@ words alone should let a stranger guess what the article teaches (Bible 4.4, rul
 
 ---
 
+## Mermaid diagrams are hand-drawn too
+
+Mermaid is a teaching diagram, so it obeys the teaching-diagram laws, including the house hand. **Every
+flowchart on this site opens with this config block, and a new one is not finished without it:**
+
+````markdown
+```mermaid
+---
+config:
+  look: handDrawn
+  handDrawnSeed: 42
+  fontFamily: Caveat
+---
+flowchart TD
+```
+````
+
+`look: handDrawn` is Mermaid 11's Excalidraw-style renderer: it draws through rough.js, the same
+library Excalidraw itself uses. Material for MkDocs already loads Mermaid 11, so this needs no
+plugin, no extension, and no build step. `handDrawnSeed` is fixed so the wobble is deterministic and
+a page does not re-scribble itself on every rebuild. `Caveat` is the handwriting font the site
+already loads for sketch captions.
+
+Two limits worth knowing. **`look: handDrawn` covers flowcharts, and `gitGraph` ignores it,** so the
+two Git graphs on the site stay square, which is correct rather than broken. And the config is
+per-diagram on purpose: Material initialises Mermaid itself and exposes no global config hook, so a
+per-diagram block is the supported route and it survives a Material upgrade.
+
+---
+
 ## Markup
 
 Images live beside the article: `images/sketches/<idea-slug>.png`.

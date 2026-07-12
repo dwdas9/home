@@ -97,6 +97,12 @@ Here is the pay-off, and the reason this short article is worth remembering bett
 Every layer of the big-data ecosystem you are about to learn is, underneath, an answer to one or more of these exact three problems:
 
 ```mermaid
+---
+config:
+  look: handDrawn
+  handDrawnSeed: 42
+  fontFamily: Caveat
+---
 flowchart LR
     P1["Problem 1<br/>STORE across machines"]
     P2["Problem 2<br/>SURVIVE failure"]

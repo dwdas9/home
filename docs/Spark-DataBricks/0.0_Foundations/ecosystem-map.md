@@ -12,6 +12,12 @@ This page is different from the two before it. It teaches almost nothing new. It
 Here is the entire ecosystem on one page. Read it from the **bottom up**, because that is the order it was built in, and the order we will learn it in.
 
 ```mermaid
+---
+config:
+  look: handDrawn
+  handDrawnSeed: 42
+  fontFamily: Caveat
+---
 flowchart BT
     subgraph L0["The cluster: many ordinary machines"]
         N["commodity nodes"]
