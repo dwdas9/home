@@ -288,7 +288,7 @@ help.
 
 ## Big Data Foundations — Module 0.1 `when-one-machine-isnt-enough.md`
 
-Save to `docs/BigDataFoundations/010-why-big-data/images/sketches/`. Full briefs live inline in the
+Save to `docs/Spark-DataBricks/0.0_Foundations/images/sketches/`. Full briefs live inline in the
 article as HTML comments at each anchor; these are the index pointers.
 
 - **★ F-01 · `frankenstein-server.jpg`** — status: `live`. The article's signature, and its funniest.
@@ -309,7 +309,7 @@ Generate **F-01 first** — if only one sketch from this article is ever made, m
 
 ## Big Data Foundations — Module 0.2 `three-hard-problems.md`
 
-Save to `docs/BigDataFoundations/010-why-big-data/images/sketches/`. Full briefs inline in the article.
+Save to `docs/Spark-DataBricks/0.0_Foundations/images/sketches/`. Full briefs inline in the article.
 
 - **F-05 · `warehouse-manifest.png`** — status: `todo`. *Splitting data is easy; the map of where each
   piece went is the whole game.* Anchor: Problem 1 (Storage).

@@ -260,3 +260,19 @@ its style would destroy the shape vocabulary that makes the fifth article cheap 
 **Consequence for the live pipeline:** F-01 (`frankenstein-server`, ink sketch) is article 1's
 anchor, and it passes fusion. F-02 to F-07 sit inside the article, so they are teaching diagrams and
 keep the locked prompt. Article 2's anchor therefore **may not be an ink sketch.**
+
+## 2026-07-12 — No Big Data Foundations tab. The on-ramp lives inside Spark.
+
+The owner's call, and it is the right one: a separate top-level tab framed the foundations as a
+*different subject* the reader could skip, when the entire point of them is that they are Spark's
+first chapter. A reader who lands on the Spark tab should meet "why distributed computing exists at
+all" before meeting Spark, so Spark arrives as the obvious answer rather than as another framework.
+
+`docs/BigDataFoundations/` is gone. The three articles are now
+`docs/Spark-DataBricks/0.0_Foundations/`, and they open the Spark tab as a `Why Big Data?` section
+sitting above `What Is Spark?`. **Module 1 (Hadoop) and the rest of the on-ramp go there as well.**
+
+**No `redirect_maps` entries were needed,** which is the one thing worth recording: `use_directory_urls`
+is false, so a filename is its URL and a rename normally breaks a live link. These pages were only
+ever on the `spark-curation` branch and have never been published, so there was nothing to redirect
+from. A future move of *published* pages does not get this luxury.

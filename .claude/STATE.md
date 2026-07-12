@@ -48,17 +48,19 @@ Plans: `.claude/reviews/ecosystem-curriculum-masterplan.md` (the ecosystem on-ra
 
 ## In flight
 
-**Track B — the on-ramp. Module 0 (Why Big Data) is COMPLETE and live on the branch.** New tab
-`docs/BigDataFoundations/`, three articles forming one continuous arc, all `mkdocs build --strict`
-clean:
-- `010-why-big-data/when-one-machine-isnt-enough.md` — the true entry point (three walls → scale out).
+**Track B — the on-ramp. Module 0 (Why Big Data) is COMPLETE and live on the branch.** **There is no
+separate Big Data Foundations tab: the owner folded it into Spark (2026-07-12).** The three articles
+now live in `docs/Spark-DataBricks/0.0_Foundations/` and open the **Spark** tab as a `Why Big Data?`
+section, above `What Is Spark?`. Module 1 (Hadoop) and everything else on the on-ramp goes there too,
+not into a new tab. One continuous arc, all `mkdocs build --strict` clean:
+- `0.0_Foundations/when-one-machine-isnt-enough.md` — the true entry point (three walls → scale out).
   **Retrofitted to the teaching brief:** opens on the shopkeeper's full shed, establishes the
   warehouse world for the whole site, each wall now opens in-world (rent curve → no bigger shed;
   the shed burns down; one loading door) before the machine explanation. Strict build clean.
-- `010-why-big-data/three-hard-problems.md` — store / survive / coordinate; the diagnostic lens.
+- `0.0_Foundations/three-hard-problems.md` — store / survive / coordinate; the diagnostic lens.
   **NOT yet retrofitted** to the teaching brief. Next editorial job: give each of the three problems
   an in-world opener (storing across sheds, surviving a fire, coordinating crews) before naming it.
-- `010-why-big-data/ecosystem-map.md` — layered Mermaid map, no sketch by design. Normal page for
+- `0.0_Foundations/ecosystem-map.md` — layered Mermaid map, no sketch by design. Normal page for
   now; promote to the tab `index.md` during the eventual restructure.
 
 **Illustration pipeline — running one sketch at a time with the owner.** Re-classified under the

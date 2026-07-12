@@ -147,7 +147,7 @@ Because the bill is real, the discipline is to scale out **only when a wall forc
 3. **Scale out only when you hit a wall the bigger box cannot climb:** the data will not fit or cannot be read fast enough even at full disk speed, or you must survive machine failure, or the largest single machine on offer still is not enough.
 
 !!! warning "The most expensive mistake in this whole field"
-    It is reaching for a cluster too early. A distributed system makes you pay a permanent **coordination tax**, the cost of all four questions above, on *every* job, forever. Pay that tax for a job a single machine would have finished, and you have bought yourself slower results, more moving parts, and a harder system to debug, in exchange for nothing. When we reach Spark, you will see this exact mistake has a name and a shape: [the giant crane lowered to lift a single grocery bag](../../Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md). Keep it in mind the whole way there.
+    It is reaching for a cluster too early. A distributed system makes you pay a permanent **coordination tax**, the cost of all four questions above, on *every* job, forever. Pay that tax for a job a single machine would have finished, and you have bought yourself slower results, more moving parts, and a harder system to debug, in exchange for nothing. When we reach Spark, you will see this exact mistake has a name and a shape: [the giant crane lowered to lift a single grocery bag](../1.0_Spark/1.0_Spark-Concepts.md). Keep it in mind the whole way there.
 
 ---
 

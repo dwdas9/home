@@ -178,13 +178,14 @@ nav:
       - Data Engineering Projects: 'AboutMe/DataEngineeringProjects.md'
       - SharePoint and M365 Projects: 'AboutMe/SharePointAndM365Projects.md'
 
-  - Big Data Foundations:
-    - Why Big Data?:
-      - When One Machine Isn't Enough: 'BigDataFoundations/010-why-big-data/when-one-machine-isnt-enough.md'
-      - The Three Hard Problems: 'BigDataFoundations/010-why-big-data/three-hard-problems.md'
-      - A Map of the Ecosystem: 'BigDataFoundations/010-why-big-data/ecosystem-map.md'
-
   - Spark:
+    # The on-ramp comes first on purpose: a reader meets "why distributed computing
+    # exists at all" before meeting Spark, so Spark reads as the obvious answer rather
+    # than another framework. These three articles are one continuous arc; keep them in order.
+    - Why Big Data?:
+      - When One Machine Isn't Enough: 'Spark-DataBricks/0.0_Foundations/when-one-machine-isnt-enough.md'
+      - The Three Hard Problems: 'Spark-DataBricks/0.0_Foundations/three-hard-problems.md'
+      - A Map of the Ecosystem: 'Spark-DataBricks/0.0_Foundations/ecosystem-map.md'
     - What Is Spark?: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
     - Python vs PySpark vs Spark: 'Spark-DataBricks/1.0_Spark/1.0.1__Python_PySpark_Spark_Confusion.md'
     - Narrow vs Wide: 'Spark-DataBricks/1.0_Spark/1.1_NarrowVsWideTransformation.md'

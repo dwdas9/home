@@ -54,7 +54,7 @@ Each layer below is a one-paragraph orientation, not the lesson, just the locati
 
 **Resource management: YARN and Kubernetes.** A cluster is shared. When ten jobs all want the machines at once, something has to decide who gets what, and when. YARN was Hadoop's answer; Kubernetes is today's general-purpose one. *(Problem 3: coordination, the "who runs where" part · Module 1.)*
 
-**Compute engines: MapReduce and Spark.** This is the layer that actually *does the work*: reads the data, moves it where it needs to go, and produces the answer. MapReduce was first and is now mostly history; **Spark is its faster, friendlier successor** and the centre of gravity for this whole site. *(Problem 3, plus a cleverer answer to Problem 2 · Modules 1 and 3.)* You have already met Spark's own introduction: [What Is Apache Spark?](../../Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md)
+**Compute engines: MapReduce and Spark.** This is the layer that actually *does the work*: reads the data, moves it where it needs to go, and produces the answer. MapReduce was first and is now mostly history; **Spark is its faster, friendlier successor** and the centre of gravity for this whole site. *(Problem 3, plus a cleverer answer to Problem 2 · Modules 1 and 3.)* You have already met Spark's own introduction: [What Is Apache Spark?](../1.0_Spark/1.0_Spark-Concepts.md)
 
 **Access: Hive and Spark SQL.** Almost nobody wants to write low-level compute code by hand. This layer lets you ask questions in **SQL** and quietly compiles them down into jobs on the engine below. Hive pioneered it; Spark SQL is the modern equivalent built into Spark. *(Modules 2 and 5.)*
 
