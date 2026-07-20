@@ -1,0 +1,32 @@
+
+1. Replace all .png files with images/.png
+
+```text
+Regex pattern: !\[([^\]]*)\]\(([^\/]+\.png)\)
+Replacement path: images/$2
+Example source: image.png
+```
+
+2. Replace constructs like
+
+- **Correct Answer:** B. extend is used to create a new column or modify an existing column.
+
+With
+
+*extend is used to create a new column or modify an existing column.*
+
+```text
+Example source: image-1.png
+```
+
+Search: - \*\*Correct Answer:\*\* [A-Z]\. (.+)
+Replace: *$1*
+
+Quick datasets:
+
+df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/titanic.csv")
+display(df)
+
+## Intelisence not working in VS
+
+![](../Python/images/custom-image-2024-07-10-17-35-30.png)

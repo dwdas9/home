@@ -1,0 +1,521 @@
+# =========================
+# Site Configuration
+# =========================
+site_name: Das Digital Digest  # Site name
+site_url: https://dwdas9.github.io/home/
+site_author: Das
+site_description: A collection of notes, tutorials, and projects on AI, Data Engineering, Analytics, Cloud, DevOps, and Enterprise Solutions.  # Site description
+
+# =========================
+# Footer Configuration
+# =========================
+copyright: Copyright &copy; 2019-2025 - Das  # Footer text
+
+# =========================
+# Theme Configuration
+# =========================
+theme:
+  name: material  # Change to 'readthedocs' or 'mkdocs' for other themes
+  #custom_dir: material/overrides  # Custom theme directory
+  features:  # Enable/disable site features
+    - navigation.top  # Back to top button
+    - search.suggest  # Search suggestions
+    - search.highlight  # Highlight matching search terms
+    - content.code.copy  # Add copy button to code blocks
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+# =========================
+# Plugins Configuration
+# =========================
+plugins:
+  - blog
+  - search:  # Enable search functionality (required for most themes)
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - glightbox:  # plugin for image and media lightboxes
+      touchNavigation: true       # allow touch navigation on mobile
+      loop: false                  # disable continuous looping
+      effect: zoom                 # add zoom effect for images
+      slide_effect: slide          # slide transition for media
+      width: 100%                  # responsive width
+      height: auto                 # adaptive height
+      zoomable: true               # enable zoom functionality
+      draggable: true              # allow media dragging
+      auto_caption: true           # generate captions automatically
+      caption_position: bottom     # place captions at the bottom
+      shadow: true                 # enable shadow effects
+  # Keeps old URLs alive after a page is renamed or moved. `offline` forces
+  # use_directory_urls: false, so a filename IS its URL and every rename is a
+  # breaking change. Add old -> new here BEFORE renaming, never after.
+  # Left of the arrow: the old path, as it appeared under docs/. Right: the new one.
+  - redirects:
+      redirect_maps:
+        # The "Complete PySpark Gotchas Guide" was a duplicate of the
+        # 1.1_PySparkGotchas/ articles, and was truncated mid-function.
+        # Its four unique gotchas were rescued into that folder; it now lands on the index.
+        'Spark-DataBricks/1.0_Spark/2.0_PySpark_Gotchas.md': 'Spark-DataBricks/1.1_PySparkGotchas/index.md'
+  - offline  # Make site searchable offline (enable if distributing offline)
+  #- include-markdown ## Sidebar menu structure. Each file path is relative to the `docs` directory.. To reuse markdown files in other markdown files
+
+# Additional configuration
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dwdas9
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/dwdas9
+
+  generator: false # Remove Made with Material in footer
+
+# =========================
+# Markdown Extensions
+# =========================
+markdown_extensions:
+  - admonition # for notes, warnings, etc.
+  - pymdownx.details  # Add collapsible details blocks
+  - pymdownx.highlight:  # Syntax highlighting for code blocks
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite  # Inline code highlighting
+  - pymdownx.snippets  # Include external snippets in Markdown
+  - pymdownx.superfences:  # Enable complex fences (e.g., for Mermaid diagrams)
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:  # Add tabbed content blocks
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - attr_list  # Enable attribute lists (e.g., `{ .class }`)
+  - md_in_html  # Allow Markdown inside HTML blocks (e.g., card grids)
+  - pymdownx.emoji:  # Enable emojis
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:  # Table of contents with permalinks
+      permalink: true
+  #- markdown_include.include:
+  #      base_path: docs
+
+# =========================
+# Additional Assets
+# =========================
+extra_css:
+  - stylesheets/extra.css  # Add custom CSS for styling
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js  # Enable Mermaid diagrams
+# The Caveat font is NOT loaded here. It used to be listed above, but a stylesheet
+# URL inside a <script> tag does nothing at all. It is loaded by the @import at the
+# top of docs/stylesheets/extra.css, which is what has actually been working.
+
+# =========================
+# Navigation Structure
+# =========================
+# Sidebar menu structure. Each file path is relative to the `docs` directory.
+# Run the following command in terminal to see all  the markdown files. Then create the strcture below.
+# find docs -name "*.md" -type f
+
+nav:
+  - Home:
+    - 'index.md'
+    - Professional Projects:
+      - Azure and M365 Projects: 'AboutMe/AzureAndM365Projects.md'
+      - Data Engineering Projects: 'AboutMe/DataEngineeringProjects.md'
+      - SharePoint and M365 Projects: 'AboutMe/SharePointAndM365Projects.md'
+
+  - Spark:
+    # The on-ramp comes first on purpose: a reader meets "why distributed computing
+    # exists at all" before meeting Spark, so Spark reads as the obvious answer rather
+    # than another framework. These three articles are one continuous arc; keep them in order.
+    - Why Big Data?:
+      - When One Machine Isn't Enough: 'Spark-DataBricks/0.0_Foundations/when-one-machine-isnt-enough.md'
+      - The Three Hard Problems: 'Spark-DataBricks/0.0_Foundations/three-hard-problems.md'
+      - A Map of the Ecosystem: 'Spark-DataBricks/0.0_Foundations/ecosystem-map.md'
+    - What Is Spark?: 'Spark-DataBricks/1.0_Spark/1.0_Spark-Concepts.md'
+    - Python vs PySpark vs Spark: 'Spark-DataBricks/1.0_Spark/1.0.1__Python_PySpark_Spark_Confusion.md'
+    - Narrow vs Wide: 'Spark-DataBricks/1.0_Spark/1.1_NarrowVsWideTransformation.md'
+    - Architecture: 'Spark-DataBricks/1.0_Spark/1.2_SparkArchitecture.md'
+    - Cache & Persist: 'Spark-DataBricks/1.0_Spark/1.3_persist_and_cache.md'
+    - Broadcast Variables: 'Spark-DataBricks/1.0_Spark/1.4_broadcastvariables.md'
+    - Data Skew: 'Spark-DataBricks/1.0_Spark/1.5_DataSkewHandling.md'
+    - Missing Values: 'Spark-DataBricks/1.0_Spark/1.6_dropna_fillna_df_missing_val_handling.md'
+    - Windows Functions: 'Spark-DataBricks/1.0_Spark/1.7_distinct_dropDuplicate_windowsFunc.md'
+    - Partitioning: 'Spark-DataBricks/1.0_Spark/1.8_Partition_Grouping.md'
+    - RDD vs DataFrame: 'Spark-DataBricks/1.0_Spark/1.9_RDD_Dataframe_Dataset.md'
+    - Scala Guide: 'Spark-DataBricks/1.0_Spark/1.10_Scala_Cheatsheet.md'
+    - Interview Q&A: 'Spark-DataBricks/1.0_Spark/1.11_Spark_Interview_Questions.md'
+    - Q&A: 'Spark-DataBricks/1.0_Spark/1.14_Q&A.md'
+    - Shuffle: 'Spark-DataBricks/1.0_Spark/1.12_Spark_Shuffle.md'
+    - Databases & Catalogs: 'Spark-DataBricks/1.0_Spark/1.13_SparkDatabaseTablesCatalogsMetastore.md'
+    - Common Topics: 'Spark-DataBricks/1.0_Spark/1.15_CommonPysparkTopics.md'
+    - Hive Integration: 'Spark-DataBricks/1.0_Spark/1.16_ConnectingSparkToHive.md'
+    - Setup Guide: 'Spark-DataBricks/1.0_Spark/Install-Pyspark-Windows/Install-Pyspark-Windows.md'
+    - Hive:
+        - Concepts: 'Spark-DataBricks/4.0_Hive/Hive_Concepts.md'
+    # Ordered as a reading sequence: I/O, then partitioning, then caching,
+    # then joins, then aggregation. Not alphabetically, and not by discovery date.
+    - PySpark Gotchas:
+      - 'Spark-DataBricks/1.1_PySparkGotchas/index.md'
+      - Small Files Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/SmallFilesPerformanceKiller.md'
+      - Schema Inference Double-Read Penalty: 'Spark-DataBricks/1.1_PySparkGotchas/SchemaInferenceDouble-ReadPenalty.md'
+      - Suboptimal File Format Choices: 'Spark-DataBricks/1.1_PySparkGotchas/SuboptimalFileFormatChoices.md'
+      - The Goldilocks Partition Problem: 'Spark-DataBricks/1.1_PySparkGotchas/TheGoldilocksPartitionProblem.md'
+      - High-Cardinality Partitioning Disaster: 'Spark-DataBricks/1.1_PySparkGotchas/High-CardinalityPartitioningDisaster.md'
+      - Over-Caching Memory Waste: 'Spark-DataBricks/1.1_PySparkGotchas/Over-CachingMemoryWaste.md'
+      - Wrong Storage Level Choices: 'Spark-DataBricks/1.1_PySparkGotchas/WrongStorageLevelChoices.md'
+      - Lazy Cache Evaluation Trap: 'Spark-DataBricks/1.1_PySparkGotchas/LazyCacheEvaluationTrap.md'
+      - Data Skew - The Silent Performance Killer: 'Spark-DataBricks/1.1_PySparkGotchas/Data Skew-TheSilentPerformanceKiller.md'
+      - Broadcasting Memory Bombs: 'Spark-DataBricks/1.1_PySparkGotchas/BroadcastingMemoryBombs.md'
+      - Inefficient Join Ordering: 'Spark-DataBricks/1.1_PySparkGotchas/InefficientJoinOrdering.md'
+      - Multiple-Pass Aggregation Waste: 'Spark-DataBricks/1.1_PySparkGotchas/MultiplePassAggregation.md'
+      - High-Cardinality GroupBy Memory Explosion: 'Spark-DataBricks/1.1_PySparkGotchas/HighCardinalityGroupBy.md'
+    - Databricks:
+      - Concepts: 'Spark-DataBricks/3.0_Databricks/3.0_Databricks_Concepts.md'
+      - Catalogs: 'Spark-DataBricks/3.0_Databricks/3.1_Catalogs_And_Metastore.md'
+      - Authentication: 'Spark-DataBricks/3.0_Databricks/3.2_AuthenticationMethods.md'
+      - ADLS Mount: 'Spark-DataBricks/3.0_Databricks/3.3_Mount_ADLS_on_Databricks.md'
+      - Secret Scope: 'Spark-DataBricks/3.0_Databricks/3.4_Databricks_Secret_Scope.md'
+      - SQL: 'Spark-DataBricks/3.0_Databricks/3.5_Databricks_SQL.md'
+      - Magic Commands: 'Spark-DataBricks/3.0_Databricks/3.6_DatabricksMagicCommands.md'
+      - Delta Lake: 'Spark-DataBricks/3.0_Databricks/3.7_DeltaLake_And_Lakehouse.md'
+      - Project Example: 'Spark-DataBricks/3.0_Databricks/4.8_Databricks_ProjectA1.md'
+      - ADLS Integration:
+        - Setup: 'Spark-DataBricks/2.0_Spark_To_ADLS/2.0_Spark_To_ADLS.md'
+        - Summary: 'Spark-DataBricks/2.0_Spark_To_ADLS/2.1_Spark-To_ADLS_Summary.md'
+  
+  - Python:
+    - Basics:
+      - Hello Python: 'Python/1.0.0_Hello_Python.md'
+      - Variables & Data Types: 'Python/1.0.1_Variables_DataTypes.md'
+      - Control Flow: 'Python/1.0.2_Control_Flow.md'
+      - Lists, Tuples & Collections: 'Python/1.0.3_List_Tuples_Collections.md'
+    - Data Structures:
+      - Sets: 'Python/1.0_Sets.md'
+      - Lists: 'Python/1.3_List.md'
+      - Tuples:
+        - Basic: 'Python/1.1_Tuples.md'
+        - Advanced: 'Python/1.2_Tuples_Advanced.md'
+      - Dictionaries: 'Python/1.4_Dictionaries.md'
+    - Functions:
+      - Overview: 'Python/1.9_Func_Modl_Lib.md'
+      - Lambda: 'Python/1.5_Lamda_Functions.md'
+      - Built-in: 'Python/1.16_built_in_functions.md'
+      - Summary: 'Python/1.10_Func_Modl_Summary.md'
+    - Control Flow:
+      - Operators: 'Python/1.12_Operators.md'
+      - If-Elif-Else: 'Python/1.11_ifelifelse.md'
+      - For Loops: 'Python/1.13_For_Loops.md'
+      - Range: 'Python/1.15_range_function.md'
+      - Enumerate: 'Python/1.14_enumerate.md'
+    - Advanced Topics:
+      - Main Function: 'Python/1.19_if_name_main.md.md'
+      - Decorators: 'Python/1.1.1_decorators.md'
+      - Arguments: 'Python/1.1.2_argv.md'
+      - With Statement: 'Python/1.17_withStatement.md'
+      - Error Handling: 'Python/1.1.3_error_handling.md'
+      - Debugging: 'Python/1.1.4_pdb.md'
+      - Testing: 'Python/1.18_unittest_pytest.md'
+      - Formatting: 'Python/1.1.5_pyformat.md'
+      - Diff & Patch: 'Python/1.1.3_Diff_And_Patch.md'
+      - Assert & Methods: 'Python/1.1.0_assert_methods.md'
+    - Integrations:
+      - Linux: 'Python/Linux.md'
+      - PySpark: 'Python/Pyspark.md'
+      - Graph API: 'Python/GraphAPIJupyter/GraphAPIUsingJuputer.md'
+    - Scripts: 'Python/PythonScripts.md'
+
+  - Git:
+      - Hello Git: 'Git/1_Hello_Git.md'
+      - Git Origin: 'Git/1.1_Git_Origin.md'
+      - Fetch: 'Git/1.2_Git_Fetch.md'
+      - Pull: 'Git/1.3_Git_Pull.md'
+      - Push: 'Git/1.4_Git_Push.md'
+      - Log Online: 'Git/1.5_Git_Log_Online.md'
+      - Pull Requests: 'Git/1.6_Pull_Requests.md'
+      - Branching: 'Git/2_Git_Branching.md'
+      - Issues: 'Git/3_Git_Issues.md'
+      - Rebase: 'Git/3_Git_Rebase.md'
+      - Detached Head: 'Git/4_Git_Detached_Head.md'
+      - Syllabus: 'Git/Syllabus.md'
+
+  - SQL:
+    - Basics: 'SQL/SQL.md'
+    - Advanced Topics: 'SQL/SQL_AdvancedTopics.md'
+    - Windows Functions: 'SQL/Windows_Functions.md'
+    - SSIS:
+      - Overview: 'SQL/SSIS.md'
+      - Input/Output: 'SQL/InputAndOutputProperties.md'
+      - Project 1: 'SQL/Project_1-ETL-CSV-MSSQL.md'
+      - Project 2: 'SQL/Project_2-UsingWebServicesInSSIS.md'
+    - SSRS: 'SQL/SSRS.md'
+    - Versions: 'SQL/MSSQL_Versions.md'
+    - DBT:
+      - Overview: 'SQL/1.0.0_dbt.md'
+      - Setup Project: 'SQL/1.0.1_setup_simple_dbt_project.md'
+      - Connections: 'SQL/connecting-with-dbt.md'
+
+
+  - DevOps:
+    - GitHub Actions:
+      - Hello Actions: 'DevOps/3.1_Hello_GitHub_Actions_Workflow.md'
+      - Sample Workflows: 'DevOps/3.2_Sample_Workflows.md'
+      - GitHub Actions Overview: 'DevOps/3_GitHub-Actions.md'
+      - Creating Your First Branch: 'DevOps/2_CreatingYourFirstBranch.md'
+      - CI/CD For This Site: 'DevOps/CI_CD_On_This_Site.md'
+    - Azure DevOps:
+      - Pipelines: 'DevOps/2_Azure-Pipelines.md'
+      - Self-Hosted Agents:
+        - Windows: 'DevOps/2.1_Self-Hosted_Agent_Windows.md'
+        - Windows Container: 'DevOps/2.2_Self-Hosted_Agent_Windows_Container.md'
+        - Linux Container: 'DevOps/2.3_Self-Hosted_Agent_Linux_Container.md'
+    - ADF CI/CD: 
+      - Implementation: 'DevOps/ADF_CICD.md'
+    - Tools Comparison: 'DevOps/JenkinsVsGitHubVsAzureDevOps.md'
+    - Bicep: 'DevOps/Biceps.md'
+    - Docker & Kubernetes:
+      - Fundamentals:
+          - Docker Concepts: 'DevOps/Docker/Fundamentals/1_DockerConcepts.md'
+          - VS Code Docker Connection: 'DevOps/Docker/Fundamentals/2_VSCode_Docker_Connection.md'
+      - Container Stacks:
+          - Airflow:
+              - Airflow on Docker: 'DevOps/Docker/ContainerStacks/Airflow/1_AirflowDocker.md'
+          - Kafka:
+              - Confluent Kafka Stack: 'DevOps/Docker/ContainerStacks/Kafka/2_Confluent_Kafka.md'
+          - MongoDB:
+              - MongoDB with Docker: 'DevOps/Docker/ContainerStacks/MongoDB/3_DockerMongodb.md'
+          - Big Data:
+              - PySpark on Containers: 'DevOps/Docker/ContainerStacks/BigDataStack/4.1_PySpark.md'
+              - Jupyter AllSparkNotebook: 'DevOps/Docker/ContainerStacks/BigDataStack/5_Jupyter_AllSparkNotebook.md'
+              - Bitnami Spark Cluster: 'DevOps/Docker/ContainerStacks/BigDataStack/4.2_Bitnami_Spark_Cluster.md'
+              - Spark, Hive & MSSQL: 'DevOps/Docker/ContainerStacks/BigDataStack/4.4_Spark_Hive_MSSQL.md'
+              - Hadoop Cluster (Single & Multi Node): 'DevOps/Docker/ContainerStacks/BigDataStack/4.5_Hadoop_Cluster_Single_N_MultiNode.md'
+              - Hive, Hadoop, Postgres & Presto: 'DevOps/Docker/ContainerStacks/BigDataStack/4.6_Hive_Hadooop_Postgres_Presto.md'
+              - Hadoop & Hive with MySQL: 'DevOps/Docker/ContainerStacks/BigDataStack/4.7_Hadoop_Hive_SingleNode_MySQL.md'
+              - Hive via Apache Official Images: 'DevOps/Docker/ContainerStacks/BigDataStack/4.8_Hive-ApacheOfficial.md'
+              - Hive Concepts: 'DevOps/Docker/ContainerStacks/BigDataStack/4.9.1_Hive_Concepts.md'
+              - Hadoop Concepts: 'DevOps/Docker/ContainerStacks/BigDataStack/4.9.2_Hadoop_Concepts.md'
+
+  - Azure:
+      - Synapse:
+        - Concepts: 'Synapse-ADF/1.0_SynapseConcepts.md'
+        - Pools: 'Synapse-ADF/1.1_Pools.md'
+        - ETL Pipelines: 'Synapse-ADF/1.3_ETL Pipelines.md'
+        - Copy Data Tool: 'Synapse-ADF/1.4_Copy-data-tool.md'
+        - Integration Runtime: 'Synapse-ADF/1.5_IntegrationRuntime.md'
+        - Database Types: 'Synapse-ADF/1.6_DB_Types_In_Synapse.md'
+        - Lake DB: 'Synapse-ADF/1.7_SynapseLakeDBAndLakehouse.md'
+        - Storage Evolution: 'Synapse-ADF/1.8_ADF_SA_Evolution.md'
+        - CETAS: 'Synapse-ADF/1.9_CETAS.md'
+      - Data Factory:
+        - Local to ADLS: 'Synapse-ADF/2.1_Pipeline-Local-ADLS.md'
+        - PySpark Warehouse: 'Synapse-ADF/2.2_PySparkWarehouse.md'
+        - REST API: 'Synapse-ADF/2.3_ADF_RestAPI_Databricks.md'
+        - Monitoring: 'Synapse-ADF/2.4_Monitor_ADF_Pipelines.md'
+        - Copy Pipeline: 'Synapse-ADF/2.5_ADF_Pipeline_Copy.md'
+      - Q&A: 'Synapse-ADF/Q&A.md'
+      - Service Principal and Managed Identity: 'Azure/Cloud_Accounts/ServicePrincipalAndManagedIdentity.md'
+      - Fabric:
+        - Getting Started: 'Microsoft-Fabric/HelloMicrosoftFabric.md'
+        - Features:
+          - Data Warehouse: 'Microsoft-Fabric/DataWareHouse.md'
+          - Real-Time Analytics: 'Microsoft-Fabric/RealTimeAnalytics.md'
+          - Data Science: 'Microsoft-Fabric/DataScience.md'
+          - Data Factory: 'Microsoft-Fabric/DataFactory.md'
+        - Development:
+          - Direct Lake: 'Microsoft-Fabric/DirectLake.md'
+          - PySpark & SQL: 'Microsoft-Fabric/Pyspark_SparkSQL.md'
+          - Pandas vs Spark: 'Microsoft-Fabric/PandasVsSparkDf.md'
+          - DataFrame Inspection: 'Microsoft-Fabric/InspectingDataframes.md'
+          - KQL: 'Microsoft-Fabric/KQL.md'
+          - Spark Streaming: 'Microsoft-Fabric/FabricSparkStreaming.md'
+        - Projects:
+          - ETL with OPG: 'Microsoft-Fabric/ETL-OPG-Copydata-JSON-Lakehouse.md'
+          - ETL with PySpark: 'Microsoft-Fabric/ETL-Pyspark-Notebook-Lakehouse.md'
+          - E2E Project: 'Microsoft-Fabric/E2EProject.md'
+        - Administration: 'Microsoft-Fabric/FabricAdministration.md'
+        - Q&A: 'Microsoft-Fabric/FabricQ&A.md'
+
+  - Airflow:
+    - Concepts: 'Airflow/1.0.0_AirFlow_Concepts.md'
+    - DAG Anatomy: 'Airflow/1.0.1_A_Dags_Anatomy.md'
+    - Hello Airflow: 'Airflow/1.0.2_Hello_Airflow.md'
+
+  - Stream Processing:
+    - Introduction: 'StreamProcessing/1.0_What_Is_Stream_Processing.md'
+    - Event Hubs:
+      - Overview: 'StreamProcessing/2.0_Azure_EventHubs.md'
+      - vs Kafka: 'StreamProcessing/2.0.1_EventHubs_Vs_Kafka.md'
+      - Hello EventHubs: 'StreamProcessing/2.0.2_Project_Hello_EventHubs.md'
+      - Local Emulator: 'StreamProcessing/2.0.3_EventHubsLocalEmulator.md'
+    - Processing Options: 'StreamProcessing/4_EventProcessingChoices.md'
+    - Kinesis Integration: 'StreamProcessing/5_AmazonKinesisSparkIntegration.md'
+
+  - Enterprise Solutions:
+    - Microsoft 365:
+      - SharePoint:
+        - Events: 'M365/SharePointEvents.md'
+        - Forms vs PowerApps: 'M365/SharePointFormsOrPowerApps.md'
+        - Mini Role: 'M365/SharePointMiniRole.md'
+        - Evolution: 'M365/SharePointVersionEvolution.md'
+        - vs Other ECM: 'M365/SharePointVsOtherECM.md'
+        - Farm:
+          - Consolidation: 'M365/SharePointFarmConsolidation.md'
+          - 2007 Upgrade: 'M365/SharePoint2007FarmUpgrade.md'
+          - 2016 Upgrade: 'M365/SharePoint2016FarmUpgrade.md'
+        - Migration:
+          - SPMT: 'M365/SPMT.md'
+          - Documentum: 'M365/DocumentumToSharePoint.md'
+          - WSS3: 'M365/WSS3DocumentUpload.md'
+        - Integration:
+          - OAuth Python: 'M365/oAuthSharePointPython.md'
+      - Licensing: 'M365/LicensingExamples.md'
+
+    - Power Platform:
+      - Hello Platform: 'PowerPlatform/HelloPowerPlatform.md'
+      - Admin Central: 'PowerPlatform/PowerPlatformAdminCentral.md'
+      - Components:
+        - Hello Dataverse: 'PowerPlatform/HelloDataverse.md'
+        - Hello Dynamics: 'PowerPlatform/HelloDynamics365.md'
+        - Model Apps: 'PowerPlatform/ModelDrivenApps.md'
+        - Power Pages: 'PowerPlatform/GoogleProviderPowerPages.md'
+        - Power Automate: 'PowerPlatform/PowerAutomateIsWorkflowTeams.md'
+      - Features:
+        - Document Intelligence:
+          - Overview: 'PowerPlatform/DocumentIntelligence/AzureAIDocumentIntelligence.md'
+          - Automation: 'PowerPlatform/DocumentIntelligence/DocumentAutomation.md'
+          - With Cognitive Search: 'PowerPlatform/DocumentIntelligence/AAIDI_AzureCognitiveSearch.md'
+          - Q&A: 'PowerPlatform/DocumentIntelligence/AAIDI_Q&A.md'
+        - Syntex:
+          - Enable: 'PowerPlatform/EnableMicrosoftSyntex.md'
+          - Document Library: 'PowerPlatform/EnableSyntexOnYourDocumentLibrary.md'
+        - ECM Capture: 'PowerPlatform/ECMCaptureFlow.md'
+      - Integration:
+        - Custom Connectors: 'PowerPlatform/CustomConnectors.md'
+        - On-Premise Gateway: 'PowerPlatform/OnPremiseGateway.md'
+      - Security: 'PowerPlatform/HealthClinicDataverseSecurity.md'
+      - Q&A: 'PowerPlatform/PowerPlatformQ&A.md'
+
+    - MongoDB:
+      - Commands: 'MongoDB/MongoDBCommands.md'
+      - File Storage: 'MongoDB/HowMongoDBStoresFiles.md'
+
+
+  - Projects:
+    - Azure Sky Weather:
+      - Overview: 'DE-Projects/AzureSkyWeather/HomeProjectAzureSkyWeather.md'
+      - Ingestion:
+        - HTTP Triggered:
+          - Functions: 'DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/HTTPTriggered_AzureFunc.md'
+          - Azure Functions: 'DE-Projects/AzureSkyWeather/1_Ingestion/HttpTriggered/nav2_AzureFunctions.md'
+        - Timer Triggered: 'DE-Projects/AzureSkyWeather/1_Ingestion/TimerTriggered/TimerTriggered_AzureFunc.md'
+      - Transformation: 'DE-Projects/AzureSkyWeather/2_Transformation/Solution_Details.md'
+    
+    - StreamKraft:
+      - Overview: 'DE-Projects/StreamKraft/HomeProjectStreamKraft.md'
+    
+    - Sparkzure:
+      - Overview: 'DE-Projects/Sparkzure/HomeProjectSparkzure.md'
+    
+    - JSON Projects:
+      - Validator:
+        - Python: 'DE-Projects/JsonValidator/Python-ValidateJSONs.md'
+        - Azure Function: 'DE-Projects/JsonValidator/AzureFunction-ValidateJSOns.md'
+      - Azure SDK: 'DE-Projects/JsonFlatAzureSDK.md'
+      - To Parquet: 'DE-Projects/FetchJsonWriteParquet.md'
+    
+    - ETL Projects:
+      - Currency Predictor: 'DE-Projects/CurrencyPredictor.md'
+      - CSV to MSSQL: 'DE-Projects/Csv-To-MSSQL.md'
+      - Azure Blob Migration: 'DE-Projects/Project_MigrationToAzureBlob.md'
+      - Local Python to Blob: 'DE-Projects/LocalPython_AzureBlob.md'
+      - MongoDB CMS: 'DE-Projects/Project_MongoCMS.md'
+      - SSRS SSIS SharePoint: 'DE-Projects/Project_SSRS_SSIS_SharePoint.md'
+      - Databricks E2E: 'DE-Projects/Dbrk-E2E-AttritionProject.md'
+    
+    - Trading:
+      - SPY ETF Recommender: 'DE-Projects/SPY_ETF_Buy_Recommender.md'
+    
+    - Setup Guides:
+      - Install Scala: 'DE-Projects/InstallScala.md'
+      - Hadoop Jars: 'DE-Projects/Download-Haddop-Jars.md'
+      - Microsoft OpenJDK: 'DE-Projects/Microsoft_OpenJDK.md'
+
+
+  - MkDocs:
+    - Github Deployment: 'MKdocs/Github_Deployment_Guide.md'
+    - Local Setup: 'MKdocs/Parallel_Local_Testing.md'
+  - Miscellaneous:
+    - Markdown:
+      - Basics: 'Misc/3_Markdown.md'
+      - Colors: 'Misc/MarkdownColor/Color.md'
+      - Color Palettes Gallery: 'Misc/MarkdownColor/images/Color.md'
+    - Cloud:
+      - GCP Usage: 'Misc/1_GoogleCloudSeeUsage.md'
+      - Azure Budget: 'Misc/7_Azure_Budget.md'
+    - System:
+      - Ubuntu Benefits: 'Misc/9_WhyUbuntuIsGood.md'
+      - VMware Free: 'Misc/2_InstallVMWareFree.md'
+      - VS Code Tips: 'Misc/4_VSTrics.md'
+      - Background Apps: 'Misc/6_RunningAppsInBg.md'
+    - Data:
+      - Datasets: 'Misc/5_WhichDatastsToUse.md'
+      - Fact vs Dimension: 'Misc/10_Fact_vs_Dimension_tables.md'
+      - Catalogue, Metastore & Table Format: 'Misc/Catalogue_Vs_TableFormat.md'
+    - Running Stable Diffusion Locally: 'AI-ML/Running_Stable_Diffusion_Locally.md'
