@@ -514,7 +514,7 @@ nav:
       - VMware Free: 'Misc/2_InstallVMWareFree.md'
       - VS Code Tips: 'Misc/4_VSTrics.md'
       - Background Apps: 'Misc/6_RunningAppsInBg.md'
-      - SanDisk Not Mounting Fix: 'Misc/SanDisk_Not_Mounting.md'
+      - SanDisk Not Mounting Fix: 'Misc/SANDISK_TipsAndTricks.md'
     - Data:
       - Datasets: 'Misc/5_WhichDatastsToUse.md'
       - Fact vs Dimension: 'Misc/10_Fact_vs_Dimension_tables.md'
